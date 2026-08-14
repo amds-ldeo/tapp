@@ -1,0 +1,45 @@
+{
+    "module": "Geochronology",
+    "title": "Geochronology",
+    "version": "5",
+    "source_of_truth": "modules/Module_Geochronology.csv",
+    "target_group": "5. Data Processing",
+    "placement": "insert_before",
+    "anchor_field": "Constants and Reference Values Used",
+    "owned_columns": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "I"
+    ],
+    "consumer_columns": [
+        "F",
+        "G",
+        "H"
+    ],
+    "mode_flag_default": "Y",
+    "consumed_by": [
+        "Instrument TAPPs that register age-producing procedures, in combination with a system module (U-Pb, Ar-Ar, Re-Os, (U-Th)/He, Fission Track, Luminescence)."
+    ],
+    "evidence": [
+        "Condon et al. 2024 (U-Pb ID-TIMS), GSA Bulletin 136",
+        "Schaen et al. 2021 (40Ar/39Ar), GSA Bulletin 133",
+        "Rooney et al. 2024 (Re-Os), GSA Bulletin",
+        "Flowers et al. 2024 ((U-Th)/He), GSA Bulletin 135",
+        "Kohn et al. 2024 (Fission track), GSA Bulletin 136",
+        "Mahan et al. 2023 (Luminescence), GSA Bulletin"
+    ],
+    "notes": "Layer 2 of the three-layer geochronology architecture. Holds only fields that recur across dating systems AND do not occur outside geochronology. Fields that recur across dating systems but also occur elsewhere (calibration factor, procedural blank, pre-analysis imaging, reference-material assumed value, uncertainty components, uncertainty level, inclusion/rejection criteria, target selection, goodness-of-fit) are general TAPP gaps and are handled as library-wide rules, not here. Placed immediately before 'Constants and Reference Values Used' so that Rule 5's requirement that Constants be the last field in Group 5 continues to hold. Layer 3 system modules supply the per-system Column F examples and allowed values.",
+    "decisions": [
+        "'Age Model' was initially drafted as 'Age Model and Software'. The software half was dropped: it collided with Data Reduction Software (Rule 1, C=Basic/D=Editable in all TAPPs), whose description in the geochronology TAPP already reads '...and age calculation'. Two fields both asking for software, with no rule disambiguating them, is the ambiguity Rule 1 exists to prevent. The statistical model is the genuinely geochronology-specific content and is captured nowhere else in the library.",
+        "Data Type is Text (free) rather than Controlled list, unlike Reported Date Type, because the procedure-level value is frequently a conditional rule ('Model-1 unless MSWD exceeds 2, then Model-3') that a controlled list cannot express.",
+        "'Radiogenic Fraction of Measured Signal' added 2026-08-08 while building Module_ArAr. U-Pb's Pb*/Pbc and Ar-Ar's %40Ar* are the same quantity under different names, so what had been a U-Pb extension field became a Layer 2 field that both systems overlay. Building the second system module is what revealed the first one had over-claimed specificity.",
+        "2026-08-08: tier revision. See the field descriptions for the evidence. The two U-Pb demotions rest on Condon et al. (2024) prose; the paper's normative checklist is Figure 1, an image that was not machine-readable, so these should be re-checked against it.",
+        "Column I (Keyed By) added to every field 2026-08-11 under Rule 7; owned_columns gained \"I\". Module-owned, so the value is authoritative for all consumers.",
+        "2026-08-11: Keyed By revised under the strengthened Rule 7 invariants — every key in use must have exactly one 'defines:' field, and 'defines: X' is used only where another field is keyed by X.",
+        "2026-08-11: declares source_comment (Rule 6.11) so composition stamps field provenance into Column G of system variants. Documentation only — not read by validate_tapp.py and not part of the schema."
+    ],
+    "source_comment": "Source: Geochronology module"
+}

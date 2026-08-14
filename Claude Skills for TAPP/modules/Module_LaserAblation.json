@@ -1,0 +1,73 @@
+{
+    "module": "LaserAblation",
+    "title": "Laser Ablation Front End",
+    "layer": 2,
+    "version": "3",
+    "source_of_truth": "modules/Module_LaserAblation.csv",
+    "owned_columns": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "I"
+    ],
+    "overlay_columns": [
+        "F"
+    ],
+    "mode_flag_default": "Y",
+    "conditional": false,
+    "blocks": [
+        {
+            "name": "la_sample",
+            "target_group": "2. Samples",
+            "placement": "append_to_group",
+            "fields": [
+                "Pre-Ablation Surface Treatment"
+            ]
+        },
+        {
+            "name": "la_hardware",
+            "target_group": "3. Instrument & Software",
+            "placement": "append_to_group",
+            "fields": [
+                "Laser Manufacturer & Model",
+                "Laser Wavelength and Type",
+                "Ablation Cell Type"
+            ]
+        },
+        {
+            "name": "la_acquisition",
+            "target_group": "4. Measurement Information",
+            "placement": "append_to_group",
+            "fields": [
+                "Laser Spot Geometry",
+                "Laser Spot Path / Ablation Mode",
+                "Laser Energy",
+                "Laser Fluence (Energy Density)",
+                "Laser Beam Energy Profile",
+                "Laser Repetition Rate",
+                "Laser Pulse Duration",
+                "Ablation Duration per Spot",
+                "Ablation Pit Depth and Ablation Rate",
+                "Spot Diameter (Measured)",
+                "Transect Rate, Mapping Rate or Step Size",
+                "Raster Line Spacing (Mapping Only)",
+                "Transect Length",
+                "Analysis Location/Spot Coordinates"
+            ]
+        }
+    ],
+    "consumed_by": [
+        "LA-Q/SF-ICP-MS",
+        "LA-MC-ICP-MS (#7a)",
+        "LA-ICP-ToF-MS (#7b)",
+        "LA-ICP-TQ-MS (#7c)"
+    ],
+    "notes": "Everything upstream of the plasma in a laser ablation system: the laser and its optics, the ablation cell, the beam parameters, and the spatial sampling geometry. Independent of which mass analyser follows, so it composes with quadrupole, sector-field, multi-collector or time-of-flight. Mode flags default to Y; a consumer whose modes differ from Spot/Transect/Mapping must set them.",
+    "extraction": "Extracted 2026-08-08 under Rule 6.10. Base content from LA-Q/SF-ICP-MS v5. Two reconciliation exceptions, both from Test 4's 'principled, propagate' finding: Ablation Cell Type takes the geochronology TAPP's description (cell volume governs washout time and therefore achievable time resolution) and C=Basic; Laser Pulse Duration keeps LA-Q/SF's fuller ns-vs-fs description but takes C=Basic. Two other geochronology descriptions looked longer but were only LA-Q/SF's text plus Horstwood Table 3 provenance notes that had leaked into Column B — length is not a proxy for quality.",
+    "decisions": [
+        "Column I (Keyed By) added to every field 2026-08-11 under Rule 7; owned_columns gained \"I\". Module-owned, so the value is authoritative for all consumers.",
+        "2026-08-12: Keyed By updated for the session/sample restructure (Decision Record A1, A3, A4)"
+    ]
+}

@@ -1,0 +1,27 @@
+{
+    "module": "Group1",
+    "title": "Procedure Identification",
+    "version": "4",
+    "source_of_truth": "modules/Module_Group1.csv",
+    "target_group": "1. Procedure Identification",
+    "placement": "replace_group",
+    "owned_columns": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "I"
+    ],
+    "consumer_columns": [
+        "F",
+        "G",
+        "H"
+    ],
+    "mode_flag_default": "Y",
+    "notes": "Group 1 is fully cross-TAPP. The module owns field names, descriptions, tiers and data types. Each consuming TAPP supplies its own examples (F), comments (G), last-update dates (H) and mode flags, which the module cannot know. Migrated into all 14 production TAPPs on 2026-08-08; the former tapp_files/Template TAPP Group 1.csv is superseded and retained for reference only. Descriptions were reconciled first — in several fields the better text came from a TAPP rather than from the template, so the two are not interchangeable.",
+    "decisions": [
+        "Column I (Keyed By) added to every field 2026-08-11 under Rule 7; owned_columns gained \"I\". Module-owned, so the value is authoritative for all consumers.",
+        "2026-08-12: added `Session Identifier` (Decision Record A6) — the analysis record is the session, which may cover several samples"
+    ]
+}

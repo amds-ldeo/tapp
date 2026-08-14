@@ -1,0 +1,362 @@
+{
+  "generated": "2026-08-12",
+  "note": "TAPPs whose listed groups are composed build outputs. Per Rule 6.6 the composed rows must not be hand-edited — edit the module and recompose with scripts/compose_tapp.py. Verify with --check. In the `retired` list, `tapp` is the TAPP's HISTORICAL path — its identity while it was live — and `moved_to` gives the current location; `tapp` is deliberately not resolvable and must not be rewritten. Everywhere else (`composed[].tapp`, `derived_from`) paths are current and resolvable.",
+  "composed": [
+    {
+      "tapp": "EPMA/EPMA_TAPP_v20.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "all"
+        }
+      ]
+    },
+    {
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v13.csv",
+      "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "LaserAblation",
+          "version": "3"
+        },
+        {
+          "name": "MCICPMS",
+          "version": "5"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "all"
+        }
+      ],
+      "note": "Phase 0 completed 2026-08-08 against seed paper Zhang et al. 2022 (At. Spectrosc. 43, in situ Rb-Sr dating of lunar meteorites by LA-MC-ICP-MS). See LA-MC-ICP-MS/PHASE0_LA-MC-ICP-MS_2026-08-08.md. Fourteen of fifteen methodological requirements in that paper are already covered by composition; the residue is one new field (peak flatness criterion) and one inherited description that is wrong for laser ablation (Baseline Measurement Approach, which offers acid-blank aspiration). v2 (2026-08-10) adds the first literature assessment column: Zhang et al. 2022 (At. Spectrosc. 43), field-name-matched from the retired LA-ICPMS_TAPP_v13. Column addition only; columns A-L byte-identical to v1 and all four modules still report --check MATCH, confirming literature assessment columns are consumer-owned under Rule 6.4.",
+      "open_items": [
+        "Mode set confirmed 2026-08-08: Spot | Transect | Mapping retained.",
+        "Phase 3 STARTED 2026-08-10 with the Zhang et al. 2022 transfer (89 cells). Not closed: Zhang et al. 2018 (detailed Sr method) and a Lu-Hf paper are still needed.",
+        "45 fields carry no Zhang value, most of them the MC-specific block (collector/Faraday configuration, mass bias, blocks and cycles, peak flatness). The seed PDF is in LA-MC-ICP-MS/Seed Papers/ and its Table 1 states several of them directly - a re-extraction pass, not a transfer.",
+        "LA-MC-ICPMS_UPb_TAPP_v1 still derives from v1 and does not carry the Zhang column; recompose it from v2 to inherit it.",
+        "96 date-missing findings across both LA-MC-ICP-MS files still open; the lineage-computed date map from the 2026-08-10 LA-Q/SF pass applies, field names being shared.",
+        "U-Pb variant exists because U-Pb was the available system module, not because it is this technique primary application."
+      ]
+    },
+    {
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v13.csv",
+      "derived_from": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v1.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "LaserAblation",
+          "version": "3"
+        },
+        {
+          "name": "MCICPMS",
+          "version": "5"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "all"
+        },
+        {
+          "name": "Geochronology",
+          "version": "5"
+        },
+        {
+          "name": "UPb",
+          "version": "5"
+        }
+      ],
+      "note": "Derived from LA-MC-ICPMS_TAPP_v1.csv, i.e. before the Zhang et al. 2022 literature assessment column was added at v2. Recompose from v2 to inherit it."
+    },
+    {
+      "tapp": "SEM/SEM_Composition_TAPP_v17.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "all"
+        }
+      ]
+    },
+    {
+      "tapp": "SEM/SEM_FIBSEM_TAPP_v11.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "target_selection"
+        }
+      ]
+    },
+    {
+      "tapp": "SEM/SEM_Imaging_TAPP_v11.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "target_selection"
+        }
+      ]
+    },
+    {
+      "tapp": "SEM/SEM_TAPP_v17.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "all"
+        }
+      ]
+    },
+    {
+      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v16.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "MCICPMS",
+          "version": "5"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "calibration_factor,blank,aggregation,aggregation_qc"
+        },
+        {
+          "name": "SolutionIntroduction",
+          "version": "4"
+        }
+      ]
+    },
+    {
+      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v17.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "calibration_factor,blank,aggregation,aggregation_qc"
+        },
+        {
+          "name": "SolutionIntroduction",
+          "version": "4"
+        }
+      ]
+    },
+    {
+      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v18.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "calibration_factor,blank,aggregation,aggregation_qc"
+        },
+        {
+          "name": "SolutionIntroduction",
+          "version": "4"
+        }
+      ]
+    },
+    {
+      "tapp": "TEM/TEM_TAPP_v17.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "target_selection,calibration_factor,aggregation,aggregation_qc"
+        }
+      ]
+    },
+    {
+      "tapp": "XCT/Lab-XCT_TAPP_v17.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "target_selection,calibration_factor"
+        }
+      ]
+    },
+    {
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v15.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "LaserAblation",
+          "version": "3"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "all"
+        }
+      ],
+      "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
+      "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record.",
+      "open_items": [
+        "Rule 7 (Keyed By) retrofit outstanding — see DRAFT_Rule7_KeyedBy_2026-08-11.md.",
+        "Comments-column mode-label cleanup (draft 7.6) outstanding."
+      ]
+    },
+    {
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v16.csv",
+      "derived_from": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v8.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "LaserAblation",
+          "version": "3"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "all"
+        },
+        {
+          "name": "Geochronology",
+          "version": "5"
+        },
+        {
+          "name": "UPb",
+          "version": "5"
+        }
+      ],
+      "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record."
+    },
+    {
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v16.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "LaserAblation",
+          "version": "3"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "all"
+        }
+      ],
+      "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
+      "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record.",
+      "open_items": [
+        "Rule 7 (Keyed By) retrofit outstanding — see DRAFT_Rule7_KeyedBy_2026-08-11.md.",
+        "Comments-column mode-label cleanup (draft 7.6) outstanding."
+      ]
+    },
+    {
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v17.csv",
+      "derived_from": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v8.csv",
+      "modules": [
+        {
+          "name": "Group1",
+          "version": "4"
+        },
+        {
+          "name": "LaserAblation",
+          "version": "3"
+        },
+        {
+          "name": "ReportingCore",
+          "version": "6",
+          "blocks": "all"
+        },
+        {
+          "name": "Geochronology",
+          "version": "5"
+        },
+        {
+          "name": "UPb",
+          "version": "5"
+        }
+      ],
+      "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record."
+    }
+  ],
+  "retired": [
+    {
+      "tapp": "LA-ICP-MS Geochronology (General)/LA-ICPMS_Geochron_TAPP_v2.csv",
+      "retired": "2026-08-08",
+      "moved_to": "Superseded TAPPs/2026-08-08/",
+      "superseded_by": [
+        "LA-Q_SF-ICP-MS/LA-Q_SF-ICPMS_UPb_TAPP_v5.csv",
+        "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v1.csv"
+      ],
+      "verification": "all 124 fields checked against the two composed U-Pb variants; 0 uncovered; 0 literature assessment columns"
+    },
+    {
+      "tapp": "LA-ICP-MS Geochronology (Horstwood Test)/LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv",
+      "retired": "2026-08-08",
+      "moved_to": "Superseded TAPPs/2026-08-08/",
+      "superseded_by": [
+        "LA-Q_SF-ICP-MS/LA-Q_SF-ICPMS_UPb_TAPP_v5.csv",
+        "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v1.csv"
+      ],
+      "verification": "all 124 fields checked; 0 uncovered; 0 literature assessment columns"
+    },
+    {
+      "tapp": "LA-ICP-MS/LA-ICPMS_TAPP_v13.csv",
+      "retired": "2026-08-10",
+      "moved_to": "Superseded TAPPs/2026-08-10/LA-ICP-MS (stale branch)/",
+      "superseded_by": [
+        "LA-Q_SF-ICP-MS/LA-Q_SF-ICPMS_TAPP_v5.csv"
+      ],
+      "verification": "All 95 fields checked against LA-Q/SF-ICP-MS v5 (125 fields); 0 uncovered. Three fields flagged by a name-only diff resolved on reading: 'Auxiliary and Cool Gas Flow Rates' is covered by the two separate fields 'Coolant (Plasma) Gas Flow Rate' + 'Auxiliary Gas Flow Rate'; 'Spectrometer Dwell Time' is a rename of 'Dwell Time per Mass' (byte-identical description, identical tiers); 'Drift Monitor Frequency' is covered by 'Calibration Standard Measurement Frequency'.",
+      "literature_assessment": "v13 carried 16 literature assessment columns (1436 filled cells) against LA-Q/SF v5's 13. The 3 extra columns (89 filled cells each) are out of scope for a Q/SF TAPP and are retained in the archived file: Chernonozhkin et al. 2024 (LA-ICP-ToF-MS) -> planning table row 7b; Masuda et al. 2024 -> row 7c (LA-ICP-TQ-MS, already names this as its seed paper); Zhang et al. 2022 At. Spectrosc. 43 (fs-LA-MC-ICP-MS) -> row 7a LA-MC-ICP-MS, which EXISTS at v1 with zero literature assessment columns. That third column is directly usable Phase 3 material for LA-MC-ICP-MS and is the reason this retirement is not a pure archive."
+    }
+  ]
+}

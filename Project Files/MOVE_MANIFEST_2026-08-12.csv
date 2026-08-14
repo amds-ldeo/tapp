@@ -1,0 +1,79 @@
+﻿from,to
+TAPP_Planning_Table.csv,Project Files/Registers & Planning/TAPP_Planning_Table.csv
+TAPP_Module_Register.csv,Project Files/Registers & Planning/TAPP_Module_Register.csv
+TAPP_Composed_Variants.csv,Project Files/Registers & Planning/TAPP_Composed_Variants.csv
+paper_registry.csv,Project Files/Registers & Planning/paper_registry.csv
+recompose_all_20260812.py,Project Files/Scripts/recompose_all_20260812.py
+survey_colB_colI_20260812.py,Project Files/Scripts/survey_colB_colI_20260812.py
+build_colI_survey_findings_20260812.py,Project Files/Scripts/build_colI_survey_findings_20260812.py
+triage_colB_uniformity_20260812.py,Project Files/Scripts/triage_colB_uniformity_20260812.py
+bump_and_stamp_20260812.py,Project Files/Scripts/bump_and_stamp_20260812.py
+generate_paper_registry.py,Project Files/Scripts/generate_paper_registry.py
+TAPP_Lint_Report_2026-08-07.csv,Project Files/Reports/TAPP_Lint_Report_2026-08-07.csv
+TAPP_Lint_Report_2026-08-08.csv,Project Files/Reports/TAPP_Lint_Report_2026-08-08.csv
+TAPP_Lint_Report_2026-08-11.csv,Project Files/Reports/TAPP_Lint_Report_2026-08-11.csv
+TAPP_Lint_Report_2026-08-12.csv,Project Files/Reports/TAPP_Lint_Report_2026-08-12.csv
+TAPP_Development_Log.md,Project Files/Design Notes/TAPP_Development_Log.md
+DRAFT_Rule7_KeyedBy_2026-08-11.md,Project Files/Design Notes/DRAFT_Rule7_KeyedBy_2026-08-11.md
+RETROFIT-BRIEFING_Constants-Field-Rule5.md,Project Files/Design Notes/RETROFIT-BRIEFING_Constants-Field-Rule5.md
+PLAN_Folder_Reorganisation_2026-08-12.md,Project Files/Design Notes/PLAN_Folder_Reorganisation_2026-08-12.md
+TAPP for Better Metadata Reporting and Curation.pptx,Project Files/Presentations & Figures/TAPP for Better Metadata Reporting and Curation.pptx
+TAPP for Better Metadata Reporting and Curation copy.pptx,Project Files/Presentations & Figures/TAPP for Better Metadata Reporting and Curation copy.pptx
+TAPP for Better Metadata Reporting and Curation_revised.pptx,Project Files/Presentations & Figures/TAPP for Better Metadata Reporting and Curation_revised.pptx
+~$TAPP for Better Metadata Reporting and Curation_revised.pptx,Project Files/Presentations & Figures/~$TAPP for Better Metadata Reporting and Curation_revised.pptx
+Definition Example.png,Project Files/Presentations & Figures/Definition Example.png
+TAPP Development Workflow.png,Project Files/Presentations & Figures/TAPP Development Workflow.png
+Measurement Term Definitions VIM3.xlsx,Project Files/Reference/Measurement Term Definitions VIM3.xlsx
+TAPP template v1.xlsx,Project Files/Reference/TAPP template v1.xlsx
+ada_stats_technique.rtf,Project Files/Reference/ada_stats_technique.rtf
+Group1_Reconciliation_Decisions.csv,Archive/Worksheets (reconciled)/Group1_Reconciliation_Decisions.csv
+RepeatKey_Audit_Test1-4_2026-08-10.csv,Archive/Worksheets (reconciled)/RepeatKey_Audit_Test1-4_2026-08-10.csv
+SolutionIntroduction_ColumnF_WORKSHEET.csv,Archive/Worksheets (reconciled)/SolutionIntroduction_ColumnF_WORKSHEET.csv
+SolutionIntroduction_ColumnF_WORKSHEET.xlsx,Archive/Worksheets (reconciled)/SolutionIntroduction_ColumnF_WORKSHEET.xlsx
+SolutionIntroduction_Reconciliation_Decisions.csv,Archive/Worksheets (reconciled)/SolutionIntroduction_Reconciliation_Decisions.csv
+SolutionIntroduction_Reconciliation_WORKSHEET.csv,Archive/Worksheets (reconciled)/SolutionIntroduction_Reconciliation_WORKSHEET.csv
+SolutionIntroduction_Reconciliation_WORKSHEET.xlsx,Archive/Worksheets (reconciled)/SolutionIntroduction_Reconciliation_WORKSHEET.xlsx
+TAPP_Planning_Table (outdated).xlsx,Archive/Worksheets (reconciled)/TAPP_Planning_Table (outdated).xlsx
+TAPP_Planning_Table_PRE-RESTRUCTURE_2026-08-08.csv,Archive/Worksheets (reconciled)/TAPP_Planning_Table_PRE-RESTRUCTURE_2026-08-08.csv
+apply_solutionintro_reconciliation_20260810.py,Project Files/Scripts/One-shot (applied)/apply_solutionintro_reconciliation_20260810.py
+audit_colI_vs_litassess_20260812.py,Project Files/Scripts/One-shot (applied)/audit_colI_vs_litassess_20260812.py
+build_la_mc_icpms_20260808.py,Project Files/Scripts/One-shot (applied)/build_la_mc_icpms_20260808.py
+build_solutionintro_colF_20260810.py,Project Files/Scripts/One-shot (applied)/build_solutionintro_colF_20260810.py
+build_solutionintro_worksheet_20260810.py,Project Files/Scripts/One-shot (applied)/build_solutionintro_worksheet_20260810.py
+draft_colB_recommendations_20260810.py,Project Files/Scripts/One-shot (applied)/draft_colB_recommendations_20260810.py
+migrate_group1_20260808.py,Project Files/Scripts/One-shot (applied)/migrate_group1_20260808.py
+patch_b1_precision_accuracy_20260808.py,Project Files/Scripts/One-shot (applied)/patch_b1_precision_accuracy_20260808.py
+patch_batch_litassess_20260812.py,Project Files/Scripts/One-shot (applied)/patch_batch_litassess_20260812.py
+patch_c1_c3_20260808.py,Project Files/Scripts/One-shot (applied)/patch_c1_c3_20260808.py
+patch_colB_harmonise_20260812.py,Project Files/Scripts/One-shot (applied)/patch_colB_harmonise_20260812.py
+patch_colf_gaps_20260810.py,Project Files/Scripts/One-shot (applied)/patch_colf_gaps_20260810.py
+patch_colf_harmonise_20260810.py,Project Files/Scripts/One-shot (applied)/patch_colf_harmonise_20260810.py
+patch_controlled_list_options_20260807.py,Project Files/Scripts/One-shot (applied)/patch_controlled_list_options_20260807.py
+patch_crc_sentinel_20260810.py,Project Files/Scripts/One-shot (applied)/patch_crc_sentinel_20260810.py
+patch_datatype_compounds_20260808.py,Project Files/Scripts/One-shot (applied)/patch_datatype_compounds_20260808.py
+patch_datatype_synonyms_20260807.py,Project Files/Scripts/One-shot (applied)/patch_datatype_synonyms_20260807.py
+patch_dates_20260810.py,Project Files/Scripts/One-shot (applied)/patch_dates_20260810.py
+patch_dates_lamc_20260810.py,Project Files/Scripts/One-shot (applied)/patch_dates_lamc_20260810.py
+patch_empty_colf_20260810.py,Project Files/Scripts/One-shot (applied)/patch_empty_colf_20260810.py
+patch_group_header_flags_20260810.py,Project Files/Scripts/One-shot (applied)/patch_group_header_flags_20260810.py
+patch_harvest_geochron_fields_20260808.py,Project Files/Scripts/One-shot (applied)/patch_harvest_geochron_fields_20260808.py
+patch_lamcicpms_zhang2022_litassess_20260810.py,Project Files/Scripts/One-shot (applied)/patch_lamcicpms_zhang2022_litassess_20260810.py
+patch_mechanical_12_20260810.py,Project Files/Scripts/One-shot (applied)/patch_mechanical_12_20260810.py
+patch_modules_colI_20260812.py,Project Files/Scripts/One-shot (applied)/patch_modules_colI_20260812.py
+patch_planning_table_20260516.py,Project Files/Scripts/One-shot (applied)/patch_planning_table_20260516.py
+patch_planning_table_20260615.py,Project Files/Scripts/One-shot (applied)/patch_planning_table_20260615.py
+patch_rule1_names_20260808.py,Project Files/Scripts/One-shot (applied)/patch_rule1_names_20260808.py
+patch_rule3_solution_20260808.py,Project Files/Scripts/One-shot (applied)/patch_rule3_solution_20260808.py
+patch_sample_fields_20260808.py,Project Files/Scripts/One-shot (applied)/patch_sample_fields_20260808.py
+patch_sentinel_cleanup_20260807.py,Project Files/Scripts/One-shot (applied)/patch_sentinel_cleanup_20260807.py
+patch_tapps_colI_20260812.py,Project Files/Scripts/One-shot (applied)/patch_tapps_colI_20260812.py
+patch_technique_typo_20260810.py,Project Files/Scripts/One-shot (applied)/patch_technique_typo_20260810.py
+patch_uncertainty_split_20260810.py,Project Files/Scripts/One-shot (applied)/patch_uncertainty_split_20260810.py
+retire_la_icpms_v13_20260810.py,Project Files/Scripts/One-shot (applied)/retire_la_icpms_v13_20260810.py
+Superseded TAPPs (2026-08-08),Superseded TAPPs/2026-08-08
+Superseded TAPPs (2026-08-10),Superseded TAPPs/2026-08-10
+Superseded TAPPs (2026-08-11),Superseded TAPPs/2026-08-11
+Superseded TAPPs (2026-08-12),Superseded TAPPs/2026-08-12
+Pre-VIM3 Reference Archive (2026-07-24),Archive/Pre-VIM3 Reference Archive (2026-07-24)
+.migration_backup_group1_20260808,Archive/.migration_backup_group1_20260808
+unpacked_tapp,Archive/unpacked_tapp

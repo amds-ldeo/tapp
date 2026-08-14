@@ -1,0 +1,73 @@
+{
+    "module": "SolutionIntroduction",
+    "title": "Solution Sample Preparation and Introduction for MS",
+    "layer": 2,
+    "version": "4",
+    "source_of_truth": "modules/Module_SolutionIntroduction.csv",
+    "owned_columns": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "I"
+    ],
+    "overlay_columns": [
+        "F"
+    ],
+    "mode_flag_default": "Y",
+    "conditional": false,
+    "blocks": [
+        {
+            "name": "prep",
+            "target_group": "2. Samples",
+            "placement": "append_to_group",
+            "fields": [
+                "Sample Aliquot Mass or Volume",
+                "Number of Digestion Steps",
+                "Digestion Vessel Type",
+                "Digestion Acid(s)",
+                "Digestion Temperature",
+                "Digestion Duration",
+                "Chromatographic Separation Applied",
+                "Isotope Dilution Spike",
+                "Final Solution Matrix"
+            ]
+        },
+        {
+            "name": "introduction",
+            "target_group": "3. Instrument & Software",
+            "placement": "append_to_group",
+            "fields": [
+                "Nebulizer Type",
+                "Spray Chamber Type and Cooling Temperature",
+                "Desolvation System",
+                "Sample Uptake Rate"
+            ]
+        },
+        {
+            "name": "acquisition",
+            "target_group": "4. Measurement Information",
+            "placement": "append_to_group",
+            "fields": [
+                "Nebulizer Gas Flow Rate",
+                "Wash Time Between Samples",
+                "Internal Standard Concentration"
+            ]
+        }
+    ],
+    "consumed_by": [
+        "Solution Q-ICP-MS",
+        "Solution SF-ICP-MS",
+        "Solution MC-ICP-MS",
+        "any future solution-introduction MS TAPP (TIMS, solution ICP-OES, IRMS front ends)"
+    ],
+    "notes": "Everything upstream of the mass analyser when the sample arrives as a solution: digestion, chromatographic separation, spiking, and the nebuliser/spray-chamber/desolvation introduction chain. Independent of the analyser, so it composes with quadrupole, sector-field or multi-collector.",
+    "extraction": "Extracted 2026-08-08 under Rule 6.10 from the three Solution ICP-MS TAPPs. Content taken from Solution Q-ICP-MS where present (most literature-assessed of the three, 5 papers). The naive candidate set was 24 fields — 'present in all three Solution TAPPs and absent from LA-Q/SF-ICP-MS'. Eight of those were absent from LA only because LA uses a different NAME for the same field, not because the concept is solution-specific. Those eight were excluded and are logged as cross-TAPP naming inconsistencies to resolve under Rule 1.",
+    "reconciliation": "Reconciled 2026-08-10. Tiers and data types were identical across all three source TAPPs; only descriptions diverged, in 13 of 16 fields. Three were byte-identical and needed no decision; `Isotope Dilution Spike` had been decided on evidence at extraction; the remaining 12 were decided by reading, recorded field by field in Archive/Worksheets (reconciled)/SolutionIntroduction_Reconciliation_Decisions.csv.\n\nOutcome: 5 adopted the Solution MC-ICP-MS variant, 3 adopted Q/SF, 4 were synthesized. MC won often not because its text was longest but because its authors wrote trade-offs, which is the highest-value description content.\n\nGoverning distinction: naming an ANALYSER ('prior to MC-ICP-MS analysis') disqualifies text from a module consumed by three TAPPs; naming a PURPOSE ('for isotope-ratio work') does not, being a conditional that is true for any consumer doing that work. Several MC variants carried the module's best content wrapped in analyser-naming and were adopted with the wrapper removed.\n\nTwo rows went against the 2-of-3 majority. `Nebulizer Type`: SF and MC both said the nebulizer affects 'uptake rate', which collides with the adjacent `Sample Uptake Rate` field; Q's 'sample introduction efficiency' was adopted on the boundary criterion. `Digestion Vessel Type` went the other way, adopting the SF/MC pair for its concrete consequence clause.\n\nThe earlier finding stands and is why this was done by reading: the Rule 6.10 criteria are sound as criteria but are NOT automatable by keyword matching. Only the disqualifiers automate.",
+    "decisions": [
+        "Column I (Keyed By) added to every field 2026-08-11 under Rule 7; owned_columns gained \"I\". Module-owned, so the value is authoritative for all consumers. Also 2026-08-11: descriptions gained an explicit 'Record N/A where...' condition under Rule 7 A.4, propagated to all consumers by recomposition.",
+        "2026-08-11: Keyed By revised under the strengthened Rule 7 invariants — every key in use must have exactly one 'defines:' field, and 'defines: X' is used only where another field is keyed by X.",
+        "2026-08-12: Keyed By updated for the session/sample restructure (Decision Record A1, A3, A4)"
+    ]
+}

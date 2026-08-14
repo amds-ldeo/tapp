@@ -1,0 +1,85 @@
+{
+    "module": "ReportingCore",
+    "title": "Cross-Technique Reporting Core",
+    "layer": 2,
+    "version": "6",
+    "source_of_truth": "modules/Module_ReportingCore.csv",
+    "owned_columns": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "I"
+    ],
+    "overlay_columns": [
+        "F"
+    ],
+    "mode_flag_default": "Y",
+    "conditional": true,
+    "blocks": [
+        {
+            "name": "target_selection",
+            "target_group": "2. Samples",
+            "placement": "append_to_group",
+            "applies_when": "The procedure analyses a selected part of a sample rather than the bulk. Omit for bulk techniques (solution ICP-MS, TGA, gas pycnometry, INAA).",
+            "fields": [
+                "Target Selection Criteria",
+                "Pre-Analysis Imaging and Screening"
+            ]
+        },
+        {
+            "name": "calibration_factor",
+            "target_group": "5. Data Processing",
+            "placement": "insert_before",
+            "anchor_field": "Constants and Reference Values Used",
+            "applies_when": "The reported quantity depends on a factor calibrated against a reference of independently known value — zeta, J value, isotopic tracer, SIMS relative sensitivity factor, Cliff-Lorimer k-factor, source dose rate, CT number calibration. Omit where instrument response alone determines the result.",
+            "fields": [
+                "Calibration Factor and Determination Method"
+            ]
+        },
+        {
+            "name": "blank",
+            "target_group": "5. Data Processing",
+            "placement": "insert_before",
+            "anchor_field": "Constants and Reference Values Used",
+            "applies_when": "The technique has a measurable analytical blank. Omit for techniques where no blank exists (track counting, luminescence, most imaging).",
+            "fields": [
+                "Procedural Blank Level"
+            ]
+        },
+        {
+            "name": "aggregation",
+            "target_group": "5. Data Processing",
+            "placement": "insert_before",
+            "anchor_field": "Constants and Reference Values Used",
+            "applies_when": "The procedure combines multiple individual analyses into a single reported value. Omit where each analysis stands alone.",
+            "fields": [
+                "Analysis Inclusion and Rejection Criteria"
+            ]
+        },
+        {
+            "name": "aggregation_qc",
+            "target_group": "6. Quality Control & Uncertainty",
+            "placement": "insert_before",
+            "applies_when": "Composed together with the 'aggregation' block.",
+            "fields": [
+                "Goodness-of-Fit or Dispersion Statistic"
+            ],
+            "anchor_field": "Additional Notes"
+        }
+    ],
+    "notes": "Fields that recur across geochronology reporting standards but are NOT specific to geochronology, and are absent from the TAPP library. Identified by the specificity re-triage of Test 5: recurrence across dating systems is necessary but not sufficient for module membership — a field must also be absent elsewhere in the library. These six failed the second condition for the Geochronology module and belong here instead. Unlike Rules 3 and 5, none of these fields is universal, so each block carries an applies_when condition and consumers select blocks explicitly (--module ReportingCore:aggregation,blank).",
+    "not_included": [
+        "Uncertainty components: already required by the existing 'Uncertainty Propagation Method' description in LA-Q/SF ('Specifies which uncertainty sources are included: ...'). Needs description harmonization across TAPPs, not a new field.",
+        "Uncertainty level (1-sigma / 2-sigma / 95% CI): the geochronology TAPPs already carry this by naming the field 'Uncertainty Level and Propagation'. Adopt that name and merged description library-wide (Rule 1), rather than adding a field.",
+        "Reference material assumed value and source: already required by the LA-Q/SF and geochronology descriptions of Primary Calibration Standard Name and Secondary Reference Materials. Absent only from EPMA's. Description harmonization.",
+        "Blank correction METHOD: exists in 10 TAPPs under four different spellings. Rule 1 name harmonization; only the measured level (above) is genuinely missing."
+    ],
+    "decisions": [
+        "Column I (Keyed By) added to every field 2026-08-11 under Rule 7; owned_columns gained \"I\". Module-owned, so the value is authoritative for all consumers.",
+        "2026-08-11: aggregation_qc changed from append_to_group to insert_before anchored on 'Additional Notes'. append_to_group put Goodness-of-Fit or Dispersion Statistic AFTER Additional Notes in 13 TAPPs, because append means end-of-group and Additional Notes was already there. Rule 11 now requires Additional Notes to be the last field of the TAPP; this anchoring is what enforces it at composition time, mirroring how the Group 5 blocks anchor on 'Constants and Reference Values Used' for Rule 5.",
+        "2026-08-12: version 3 -> 5, skipping 4. composed_tapps.json had recorded ReportingCore v4 against all 16 consumers while this manifest still said 3 — a pre-existing drift, since nothing checks the manifest version against the register. Bumping to 4 would have collided with the register's existing v4 claim, which described a different content state. Going to 5 resolves the drift forward. This version's content change: Pre-Analysis Imaging and Screening Keyed By (none) -> sample (Decision Record A4).",
+        "2026-08-12: four descriptions reworded so they no longer name sibling fields that some consumers lack — Rule 6.4 gives the module one text for all consumers, and naming technique-specific siblings left dangling cross-references in TAPPs without those fields. The Target Selection Criteria provenance note ('generalised from Lab-XCT's VOI Selection Criteria') was deleted rather than reworded: module history belongs in precedents.md."
+    ]
+}

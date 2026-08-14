@@ -1,0 +1,314 @@
+================================================================================
+COLLISION/REACTION CELLS ON MC-ICP-MS — VERIFICATION, DECISION, AND CHANGES MADE
+Prepared 2026-07-29
+================================================================================
+
+YOUR QUESTION
+-------------
+Some modern MC-ICP-MS instruments have collision cells (you named Nu Instruments
+Sapphire and Thermo Fisher Neoma). Should the collision-cell-related fields in
+our TAPPs — currently tagged Q-ICP-MS-only — also apply to MC-ICP-MS? And are
+there other similar changes needed given advancement in ICP-MS technology?
+
+SHORT ANSWER
+------------
+Yes, confirmed and implemented. Six of the seven collision/reaction-cell (CRC)
+fields now apply to Q-ICP-MS AND MC-ICP-MS (not SF-ICP-MS). The seventh field,
+Signal Collection Mode, correctly stays Q-ICP-MS-only — the reasoning is below,
+and it matters, because it's the one place your intuition ("collision cells ->
+extend to MC") could have over-extended into something that doesn't actually
+transfer. Files changed: Horstwood TAPP (v5->v6), Solution MC-ICP-MS TAPP
+(v4->v5), the experiment report (docx), and the development log. LA-Q/SF-ICP-MS
+TAPP was NOT changed (explained below).
+
+
+================================================================================
+PART 1 — VERIFICATION (web research performed this session)
+================================================================================
+
+1. Nu Instruments Sapphire — CONFIRMED, real and current.
+   Dual-path MC-ICP-MS: a conventional high-energy multi-collector path plus a
+   separate low-energy path routed through a hexapole collision/reaction cell
+   (CRC), operated in modes analogous to a quadrupole ICP-MS/MS (no-gas / KED /
+   DRC-style). Nu's own materials describe 170+ units installed worldwide, so
+   this is not a lab prototype — it's a mainstream commercial instrument. A
+   further variant, Sapphire XD, extends this to a dual-path "MC-ICP-MS/MS."
+
+2. Thermo Fisher Neoma MS/MS — CONFIRMED, real and current.
+   Also a hexapole CRC-equipped MC-ICP-MS, with two operating modes (full
+   transmission vs. collision/reaction cell mode). It additionally has a
+   "pre-cell mass filter" upstream of the cell — but this is architecturally
+   NOT a quadrupole. It is a double Wien filter (a crossed electric/magnetic
+   field velocity selector), producing a trapezoidal, comparatively
+   low-resolution mass "window" that is set as a percentage of the maximum
+   magnetic field, rather than scanning/hopping between discrete mass
+   positions the way a quadrupole pre-filter does. This distinction is exactly
+   why one of the seven fields (Signal Collection Mode) does NOT get extended
+   to MC-ICP-MS — see Part 2.
+
+3. Single-collector SF-ICP-MS (Thermo Element XR, Nu AttoM) — CONFIRMED, no CRC
+   adoption found.
+   No evidence that any current single-collector sector-field instrument has
+   added a collision/reaction cell. Sources consistently frame high-resolution
+   SF-ICP-MS and collision-cell Q-ICP-MS/MS as two alternative, competing
+   approaches to interference removal — a resolving-power strategy vs. a
+   chemical/kinetic filtering strategy — not as a spectrum where SF has also
+   picked up CRC hardware. This was checked twice (once broadly, once
+   specifically targeting Element XR / Nu AttoM) with consistent results. No
+   change was made for SF-ICP-MS.
+
+
+================================================================================
+PART 2 — DECISION AND REASONING
+================================================================================
+
+The seven CRC-cluster fields (all originally added to LA-Q/SF-ICP-MS TAPP,
+then imported into the Horstwood test TAPP tagged "Q-ICP-MS only"):
+
+  1. Collision/Reaction Cell (CRC) Configuration   -> RETAGGED to Q + MC
+  2. Collision Gas Type                             -> RETAGGED to Q + MC
+  3. Collision Gas Flow Rate                         -> RETAGGED to Q + MC
+  4. Cell Exit Discrimination Voltage                -> RETAGGED to Q + MC
+  5. Reaction Gas Type                                -> RETAGGED to Q + MC
+  6. Reaction Gas Flow Rate                           -> RETAGGED to Q + MC
+  7. Signal Collection Mode                           -> LEFT Q-ICP-MS-only
+
+Fields 1-6 describe the cell itself and its gas chemistry (is one installed,
+what mode, what gas, what flow rate, what voltage). Nothing about that
+description depends on whether the collector array downstream is a single
+detector (Q-ICP-MS) or a multi-collector array (MC-ICP-MS) — a hexapole CRC is
+a hexapole CRC either way, and Sapphire/Neoma MS/MS both physically have one.
+So these six generalize cleanly.
+
+Field 7, Signal Collection Mode, describes something different: HOW the mass
+spectrometer collects signal across masses over time — sequentially
+("peak hopping," jumping between preset mass positions and dwelling at each
+one) or by continuous scanning. This is a concept that only makes sense for an
+instrument with ONE detector collecting one mass at a time. MC-ICP-MS's whole
+point is a fixed array of Faraday cups (or ion counters) collecting many
+masses AT THE SAME TIME — that doesn't change just because a CRC sits upstream
+of the collector array. A CRC-equipped MC-ICP-MS still does genuinely
+simultaneous multi-collection; it never "peak hops" or "scans." So this field
+correctly stays Q-ICP-MS-only, and I added a sentence to its Description
+explaining why, rather than silently leaving it unchanged (so a future reader
+doesn't wonder whether this was an oversight).
+
+Worth flagging on its own: Neoma's double-Wien-filter pre-cell mass-window
+selector is a genuinely new concept with NO corresponding field anywhere in
+any TAPP. It isn't "Signal Collection Mode" (it doesn't scan or hop — it
+selects a static mass window before the cell) and it isn't the same mechanism
+as a Q-ICP-MS/MS's quadrupole pre-filter either. I did not add a field for
+this now — see Part 3 for why, and a concrete proposal you can decide on.
+
+
+================================================================================
+PART 3 — CHANGES MADE (and one NOT made, with reasoning)
+================================================================================
+
+1. Horstwood-derived LA-ICP-MS U-Th-Pb Geochronology TAPP: v5 -> v6
+   File: LA-ICPMS_Geochron_Horstwood_TAPP_v6.csv (+ .xlsx)
+   - Fields 1-6 above: MC-ICP-MS flag N->Y; Comments tag updated from
+     "(Q-ICP-MS only)" to "(Q-ICP-MS and MC-ICP-MS only)"; Description and
+     Allowed Content text updated to name Nu Sapphire / Neoma MS/MS as the
+     enabling instruments, and to distinguish two different reasons a value
+     could be "Not applicable": SF-ICP-MS (no CRC option exists at all) vs.
+     MC-ICP-MS without a cell (a cell exists on the market but this particular
+     instrument doesn't have one) — these are different situations and now
+     read that way.
+   - Field 7 (Signal Collection Mode): flags unchanged; Description enriched
+     with the explanation above.
+   - Field count unchanged at 122 (this was a reclassification, not a field
+     add/remove). Verified via exact row-by-row diff against v5: exactly
+     these 7 rows changed, nothing else.
+   - New Q/SF/MC classification after this change (122 fields total):
+       General (all three)                 96   (78.7%)
+       MC-ICP-MS only                      13   (10.7%)
+       Q-ICP-MS + MC-ICP-MS (not SF)         6   (4.9%)   <- new bucket
+       SF-ICP-MS only                        3   (2.5%)
+       Q-ICP-MS + SF-ICP-MS (not MC)          3   (2.5%)
+       Q-ICP-MS only                         1   (0.8%)   <- was 7, now 1
+
+2. Solution MC-ICP-MS TAPP: v4 -> v5
+   File: Solution_MC-ICP-MS_TAPP_v5.csv (+ .xlsx)
+   - This TAPP had ZERO collision/reaction-cell fields before this change (it
+     was written assuming conventional, cell-free MC-ICP-MS). Added the same
+     six fields as new fields, mirroring Solution Q-ICP-MS TAPP's own versions
+     for cross-TAPP naming/tier consistency (Rule 1/Rule 2), with Description
+     and Comments text adapted to MC-ICP-MS: the "no cell" case is now the
+     default/common case (opposite framing from Solution Q-ICP-MS, where a
+     cell is the norm), with the CRC-equipped case explicitly named as the
+     exception (citing Nu Sapphire / Neoma MS/MS).
+   - Collision/Reaction Cell (CRC) Configuration inserted in Group 3, right
+     after Mass Resolution Setting. The other five (Collision Gas Type,
+     Collision Gas Flow Rate, Cell Exit Discrimination Voltage, Reaction Gas
+     Type, Reaction Gas Flow Rate) inserted in Group 4, right after Sample
+     Sequence Design, before Internal Standard Element.
+   - Signal Collection Mode was deliberately NOT added — same reasoning as
+     above (simultaneous collection is intrinsic to the architecture,
+     regardless of CRC presence).
+   - Verified via exact diff against v4: all 109 original rows unchanged and
+     in original order; exactly 6 new rows inserted at the two stated points.
+     New total: 115 rows (109 + 6), field count 97 -> 103.
+
+3. LA-Q/SF-ICP-MS TAPP: NO CHANGE.
+   This TAPP has no MC-ICP-MS dimension at all — it covers Q-ICP-MS and
+   SF-ICP-MS only; MC-ICP-MS is planning-table row 7a, a separate future TAPP.
+   Its own CRC-cluster fields' Q-vs-SF framing is unaffected by today's
+   question, since MC was never in scope for this TAPP to begin with. Also
+   worth flagging: this TAPP's current working file is mid-literature-
+   assessment (new seed papers being incorporated — Zhang et al. 2022,
+   Chernonozhkin et al. 2021, and others are already present as new columns),
+   which looks like separate, currently in-progress work. I left this file
+   untouched rather than risk colliding with it.
+
+4. Experiment report (LA-ICPMS_Geochron_TAPP_Experiment_Report.docx): UPDATED.
+   - Table 2 (Version History): added the v6 row.
+   - Section 2.2: both TAPP citations annotated with their version at the
+     time of the original comparison AND their current version, so the
+     report stays historically accurate about what was actually compared.
+   - Section 5.2: the "Q-ICP-MS collision/reaction-cell cluster" bullet
+     updated to note it's now known to span Q + MC.
+   - Section 6.2: Table 8 and Figure 2 (chart) regenerated with the new
+     6-category breakdown and updated percentages.
+   - New Section 6.5 added: "Postscript (2026-07-29): collision/reaction
+     cells on modern MC-ICP-MS" — documents this whole update in the report
+     itself, including the Neoma pre-cell-filter finding as a noted-but-not-
+     implemented candidate for future work.
+   - Section 6.4's overall conclusions (78.7% general, no cluster exceeds 13
+     fields) were re-checked and remain true after this change — no edit
+     needed there.
+   - Rebuilt and re-verified structurally (zip integrity, paragraph/table/
+     heading counts, page dimensions, embedded chart images byte-matched
+     against the regenerated PNGs). I still can't render this to PDF/images
+     in this environment (no LibreOffice/pandoc available), so as before,
+     I'd appreciate you spot-checking the new Section 6.5 and Table 8 render
+     correctly when you open it — same caveat as the original report.
+
+5. TAPP_Development_Log.md: UPDATED.
+   Added a new dated entry ("2026-07-29 | CROSS-TAPP | Collision/reaction
+   cells extended to MC-ICP-MS") documenting the verification, decision, and
+   all changes above, following this log's existing format.
+
+
+================================================================================
+PART 4 — OTHER CHANGES DUE TO ICP-MS TECHNOLOGY ADVANCEMENT?
+================================================================================
+
+Yes — one finding (ToF) is a near-exact parallel to the collision-cell case
+(a technology quietly crossing from one instrument class into another, with
+existing fields becoming inapplicable rather than just imprecise); one
+(spICP-MS) is a bigger, genuinely-open judgment call; the rest are a shorter
+list worth being aware of but not urgent. None of these were implemented —
+all are flagged for your decision, same as the Neoma pre-cell-filter finding
+above.
+
+--------------------------------------------------------------------------------
+4.1 CONCRETE FINDING — ICP-ToF-MS: existing fields are not just imprecise for
+    it, they're categorically the wrong concept, and ToF is now spreading
+    into MC-ICP-MS territory too.
+--------------------------------------------------------------------------------
+As noted above, LA-Q/SF-ICP-MS TAPP already lists "LA-ICP-ToF-MS" and
+"Time-of-flight (ICP-ToF-MS)" as allowed values in two controlled-list fields,
+without the rest of the schema actually supporting that instrument type.
+Confirmed why this matters, via TOFWERK and Nu Instruments specifications and
+a peer-reviewed LA-ICP-ToF-MS imaging comparison:
+
+A ToF instrument extracts and records a COMPLETE mass spectrum on every
+extraction ("pusher") event — tens of thousands of times per second (e.g.,
+83.3 kHz on the TOFWERK icpTOF-S2) — rather than dwelling on one mass at a
+time. There is no "dwell time per mass" and no "peak hopping vs. scanning"
+choice, because every mass is captured every cycle by construction. The
+fields that WOULD actually describe a ToF acquisition, and don't exist in any
+TAPP right now:
+  - Extraction/pusher frequency (Hz or kHz)
+  - Spectral recording/averaging rate (how many raw extractions are summed
+    into one output spectrum — replaces "dwell time per mass" as the
+    integration-time concept)
+  - Mass range covered per pulse (e.g., ~7-275 amu simultaneously)
+  - Mass resolving power (typically ~2500 standard; >4000 with collisional
+    damping/cooling, itself a duty-cycle tradeoff worth a field)
+
+Notably, this is not confined to LA-ICP-MS: Nu Instruments' Vitesse is a ToF
+instrument explicitly marketed for isotope-ratio work — i.e., the same kind
+of "one architecture crossing into a different instrument class" pattern as
+Sapphire/Neoma's collision cells crossing into MC-ICP-MS, just for a
+different underlying technology. At least three vendors now sell ICP-ToF-MS
+(TOFWERK icpTOF, Nu Vitesse, GBC ICP-oTOFMS), so this isn't a fringe case.
+Recommendation: this is a stronger candidate for near-term action than
+anything else in this section, since it's a self-inflicted inconsistency
+(inviting a Technique value the rest of the schema can't actually serve)
+present in BOTH LA-Q/SF-ICP-MS and, if Vitesse-style use grows, potentially a
+future MC-ICP-MS revision too. Suggest treating it as its own follow-up
+discussion rather than folding it into this pass.
+
+--------------------------------------------------------------------------------
+4.2 A bigger, genuinely open question — spICP-MS / single-cell ICP-MS
+--------------------------------------------------------------------------------
+This is real and actively growing, not a fringe technique: ISO/TS 19590
+(spICP-MS nanoparticle characterization) was reissued in August 2024, and
+current growth areas include microplastics analysis and single-cell
+metallomics/toxicology work (e.g., 2024 studies on metal heterogeneity in
+individual cells) alongside the established nanoparticle-characterization use
+case.
+
+Its acquisition paradigm is genuinely different from steady-state solution
+work: microsecond-to-low-millisecond dwell times (literature converges on
+≤100 µs for accurate particle sizing), particle-event detection (background
+vs. signal discrimination) in place of concentration averaging, and a
+transport-efficiency calibration step (typically the particle-frequency
+method against reference nanoparticles, ~45-55% typical) with no equivalent
+in solution nebulization work at all.
+
+Open question, not a recommendation: this runs on the SAME physical hardware
+as solution ICP-MS (quadrupole, increasingly ToF too) — just in a different
+acquisition mode — so it's genuinely arguable either way whether it deserves
+its own TAPP (the way this project split MC-ICP-MS from Q/SF, and the way
+LA-ICP-MS is split from solution-introduction work) or whether it belongs as
+a specialized mode/flag within Solution Q-ICP-MS TAPP. I don't think this is
+mine to decide unilaterally — flagging it as a real gap and a real choice for
+you.
+
+--------------------------------------------------------------------------------
+4.3 Shorter list — other 2020s-era hardware changes, lower priority / lower
+    verification depth
+--------------------------------------------------------------------------------
+- Mini/conical torch geometry (e.g., Shimadzu ICPMS-2030/2040/2050
+  "Mini-Torch"): a 2-tube conical torch design triples gas velocity, cuts
+  argon consumption by ~70%, and allows ~50% less RF power. A genuine
+  plasma-source hardware change; current "Torch Type" fields (free text) could
+  technically capture this today via "Other: specify," but there's no
+  controlled-list awareness of it.
+- 10^13 ohm Faraday amplifiers for MC-ICP-MS: originated as custom lab
+  modifications around 2011-2014, but is increasingly a standard factory
+  option on current instruments (Neoma, Sapphire, Nu Plasma Vulcan) for
+  ultra-low-signal isotope ratios, trading off slower amplifier response/decay
+  time. Same "niche-to-mainstream spread" pattern as the collision-cell case,
+  though the underlying idea predates the 2020s. Already partially covered:
+  Solution MC-ICP-MS TAPP's "Faraday Cup Amplifier Resistor Values" field
+  already allows recording 10^11/10^12/10^13 ohm per cup — this looks
+  adequately captured already, just noting it as context.
+- ICP-MS/MS (tandem/triple-quad, e.g., Agilent 8900, Thermo iCAP TQ):
+  commercialized mid-2010s but became the de facto high-end quadrupole
+  standard through the 2020s. True mass-shift mode needs both a Q1
+  (pre-filter) mass setting and a Q2 (analytical) mass setting recorded, plus
+  an on-mass-vs.-mass-shift flag per analyte — our current CRC/Reaction Gas
+  fields capture what gas is used but not this specific two-quadrupole
+  mass-relationship concept. Possible small gap, not verified in depth this
+  pass.
+- Multi-ion-counting (MIC) detector arrays with RPQ energy filters: this is
+  evolutionary (established since 2000s Neptune-era MC-ICP-MS, just with
+  more channels on newest instruments), not a new concept — already
+  reasonably covered by "Faraday Cup Array Configuration"'s existing mention
+  of ion counters. Lowest priority of this list.
+- Checked for and found no solid evidence of non-argon plasma sources (e.g.,
+  nitrogen plasma) reaching commercial reality — not flagging this as a gap.
+
+Sources for this section: TOFWERK icpTOF specifications and TOF-vs-quadrupole
+technical notes; a Spectroscopy Online LA-ICP-TOF-MS imaging review; Savard
+et al. (2023, Geostandards and Geoanalytical Research); University of
+Southampton's Nu Vitesse facility page; ISO/TS 19590:2024; a PMC review of
+spICP-MS/SC-ICP-MS data-analysis tool evolution; a PubMed review of
+microsecond-to-millisecond dwell-time practice; Shimadzu's ICPMS-2040/2050
+Mini-Torch product pages; Creech (2020, Geostandards and Geoanalytical
+Research) on 10^13 ohm amplifiers; Agilent's 8900 ICP-QQQ product page; and
+Thermo Fisher's MC-ICP-MS detector technology page.
