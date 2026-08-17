@@ -6,7 +6,10 @@
     "source_of_truth": "modules/Module_UPb.csv",
     "requires": [
         "Geochronology",
-        "ReportingCore"
+        "TargetSelection",
+        "CalibrationFactor",
+        "Blank",
+        "Aggregation"
     ],
     "owned_columns": [
         "A",

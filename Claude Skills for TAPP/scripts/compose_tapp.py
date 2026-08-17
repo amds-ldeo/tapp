@@ -515,6 +515,113 @@ def row_diff(a_rows, b_rows, header):
     return diffs, order_changed
 
 
+TAPP_NAME_RE = re.compile(r"_TAPP_v\d+\.csv$")
+
+
+def record_composition(out_path, specs, quiet=False):
+    """Write what was just composed into composed_tapps.json.
+
+    Rule 6.9 recorded this as an open item: the register was maintained by hand and this script
+    neither read nor wrote it, so the record of which modules built which TAPP could drift from the
+    library silently — and twice did (6.13). The tool that performs the composition is the one that
+    knows it happened, so it is the one that records it.
+
+    Only writes for a real TAPP inside the library. Composing to a scratch path is a normal thing to
+    do while testing and must not touch the register.
+    """
+    base = os.path.basename(out_path)
+    if not TAPP_NAME_RE.search(base):
+        if not quiet:
+            print(f"  (not recorded: {base} is not a versioned TAPP filename)")
+        return
+    try:
+        rel = os.path.relpath(out_path, ROOT)
+    except ValueError:
+        rel = None
+    if rel is None or rel.startswith(os.pardir):
+        if not quiet:
+            print("  (not recorded: output is outside the library root)")
+        return
+
+    reg_path = os.path.join(ROOT, "composed_tapps.json")
+    try:
+        with open(reg_path, encoding="utf-8") as fh:
+            reg = json.load(fh)
+    except (OSError, ValueError) as exc:
+        print(f"  WARNING: could not read composed_tapps.json ({exc}); composition NOT recorded")
+        return
+
+    entries = reg.setdefault("composed", [])
+    entry = next((e for e in entries if os.path.basename(e.get("tapp", "")) == base), None)
+    if entry is None:
+        # Same TAPP at a previous version — carry the entry forward, keeping its notes.
+        stem = TAPP_NAME_RE.sub("", base)
+        entry = next((e for e in entries
+                      if TAPP_NAME_RE.sub("", os.path.basename(e.get("tapp", ""))) == stem), None)
+        if entry is not None:
+            entry["tapp"] = rel
+        else:
+            entry = {"tapp": rel, "modules": []}
+            entries.append(entry)
+    else:
+        entry["tapp"] = rel
+
+    mods = entry.setdefault("modules", [])
+    for spec in specs:
+        name, _, blocks = spec.partition(":")
+        try:
+            manifest, _ = load_module(name)
+            version = str(manifest.get("version", ""))
+        except SystemExit:
+            version = ""
+        rec = next((m for m in mods if m.get("name") == name), None)
+        if rec is None:
+            rec = {"name": name}
+            mods.append(rec)
+        if version:
+            rec["version"] = version
+        if blocks:
+            rec["blocks"] = blocks
+        elif "blocks" in rec:
+            del rec["blocks"]
+
+    reg["generated"] = TODAY
+    with open(reg_path, "w", encoding="utf-8") as fh:
+        json.dump(reg, fh, indent=2, ensure_ascii=False)
+        fh.write("\n")
+    if not quiet:
+        print(f"  recorded in composed_tapps.json: {', '.join(specs)}")
+
+    # TAPP_Composed_Variants.csv carries a path column for the system variants. It is the second
+    # register that goes stale on a bump, and validate_tapp.py reports that at WARN
+    # (doc-stale-version-ref). Keeping it in step here rather than leaving it to the operator is the
+    # whole point of recording from inside the tool that did the composing.
+    variants = os.path.join(ROOT, "Project Files", "Registers & Planning",
+                            "TAPP_Composed_Variants.csv")
+    if not os.path.exists(variants):
+        return
+    stem = TAPP_NAME_RE.sub("", base)
+    try:
+        with open(variants, newline="", encoding="utf-8-sig") as fh:
+            rows = list(csv.reader(fh))
+    except OSError:
+        return
+    hits = 0
+    for row in rows[1:]:
+        for i, cell in enumerate(row):
+            cell = cell.strip()
+            if not cell.endswith(".csv"):
+                continue
+            if TAPP_NAME_RE.sub("", os.path.basename(cell)) == stem and os.path.basename(cell) != base:
+                row[i] = rel
+                hits += 1
+    if hits:
+        with open(variants, "w", newline="", encoding="utf-8-sig") as fh:
+            csv.writer(fh).writerows(rows)
+        if not quiet:
+            print(f"  updated TAPP_Composed_Variants.csv ({hits} path reference)")
+
+
 def main():
     ap = argparse.ArgumentParser(description="Compose a TAPP from a source plus modules.")
     ap.add_argument("--source", required=True, help="source TAPP CSV (relative to library root or absolute)")
@@ -526,6 +633,9 @@ def main():
     ap.add_argument("--diff", action="store_true", help="show what composition would change")
     ap.add_argument("--check", action="store_true", help="exit 1 if the source differs from the composed result")
     ap.add_argument("--allow-drop", action="store_true", help="permit fields present in source but absent from module")
+    ap.add_argument("--no-record", action="store_true",
+                    help="do not record this composition in composed_tapps.json (default is to "
+                         "record whenever --out writes a versioned TAPP inside the library)")
     args = ap.parse_args()
 
     src_path = args.source if os.path.isabs(args.source) else os.path.join(ROOT, args.source)
@@ -595,6 +705,10 @@ def main():
         out_path = args.out if os.path.isabs(args.out) else os.path.join(ROOT, args.out)
         write_csv(out_path, composed)
         print(f"\nwrote {os.path.relpath(out_path, ROOT)}  ({len(composed)} rows)")
+        if args.no_record:
+            print("  (--no-record: composed_tapps.json not updated)")
+        else:
+            record_composition(out_path, args.module)
 
     return 0
 

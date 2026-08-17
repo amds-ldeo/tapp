@@ -531,10 +531,20 @@ one.** Rule 6 has always implied the two version records agree; nothing made the
 migration is the `2026-08-08 | CROSS-TAPP | Module architecture (Rule 6)` entry in
 `TAPP_Development_Log.md`.
 
+> **Superseded in part — this table is a 2026-08-10 snapshot.** The live record is
+> `Project Files/Registers & Planning/TAPP_Module_Register.csv`. Since it was written: consumers rose
+> from 14 to 16; on **2026-08-14 `ReportingCore` was dissolved** into `TargetSelection` (2 fields, 13
+> consumers), `CalibrationFactor` (1, 14), `Blank` (1, 12) and `Aggregation` (2, 13), leaving no
+> conditional module in the library; and on **2026-08-14 `Group1` was retired into `Module_Core`** (28 fields, 6 blocks,
+> v1, 16 consumers) — its 18 fields plus the 10 universals that belonged to no module. `Core` is
+> unconditional and all-or-nothing; the retired files are in `Archive/Superseded Modules/`. Composition
+> was a no-op (`--check` MATCH on all 16) because the five divergent definitions were reconciled
+> *before* the module was built, which is why `Core` ships at v1 and its consumers did not churn.
+
 | Module | Layer | Fields | Blocks | Ver | Consumers |
 |---|---|---|---|---|---|
-| `Group1` | 2 | 18 | 1 | 2 | 14 |
-| `ReportingCore` | 2 | 6 | 5 | 1 | 14 |
+| `Group1` *(retired 2026-08-14 → `Core`)* | 2 | 18 | 1 | 2 | 14 |
+| `ReportingCore` *(dissolved 2026-08-14 → 4 modules)* | 2 | 6 | 5 | 1 | 14 |
 | `LaserAblation` | 2 | 18 | 3 | 1 | 4 |
 | `MCICPMS` | 2 | 15 | 3 | 2 | 3 |
 | `SolutionIntroduction` | 2 | 16 | 3 | 1 | 3 |
@@ -563,10 +573,32 @@ versions each TAPP was built from, and which TAPPs have been retired.
 
 **Still unsettled:**
 
-- **Provenance is recorded but not enforced.** `composed_tapps.json` carries the module-and-version
-  record, but it is maintained by hand — `compose_tapp.py` neither writes nor reads it, and
-  `validate_tapp.py` does not check it. A composed TAPP still makes no self-declaration, and the
-  manifest can drift from the library silently. The discipline in 6.6 still rests on convention.
+- ~~**Provenance is recorded but not enforced.**~~ **Largely resolved 2026-08-14.**
+  `compose_tapp.py` now **writes** `composed_tapps.json` whenever `--out` produces a versioned TAPP
+  inside the library: the tool that performs the composition is the one that knows it happened, so it
+  is the one that records it. It carries a same-stem entry forward to the new version, preserving
+  `derived_from`, notes and open items, and adds or updates only the modules named on the command
+  line. `--no-record` opts out. Two guards keep the register clean: an output path outside the library
+  root, or one whose filename is not `*_TAPP_v<N>.csv`, is **not** recorded — composing to a scratch
+  path while testing is normal and must not touch the register.
+
+  `TAPP_Module_Register.csv` is now **generated** by `Project Files/Scripts/build_module_register.py`
+  (`--check` / `--apply`). Every column but `Status` is derived: `Layer`, `Title` and `Version` from
+  the manifest, `Fields` and `Blocks` from the module CSV and manifest, `Consumers` from
+  `composed_tapps.json`. **Rows for retired modules are carried through untouched** — an archived
+  module has no manifest to regenerate from, and that row *is* the retirement record.
+
+  Building the generator immediately found the gap this rule's next-but-one bullet predicted:
+  `Module_Geochronology.json` had never carried a `layer` key, so the derived column came out empty
+  where the hand-maintained register had `2`. The manifest was completed rather than the generator
+  taught to guess. `Fields` deliberately counts **named rows**, not introduced fields, because that is
+  what the column has always meant and what README §9 publishes — for the two Layer 3 modules it
+  therefore includes overlay rows (ArAr introduces 4 and overlays 12; UPb introduces 3 and overlays
+  12), and silently redefining a published number would be worse than the imprecision.
+
+  What remains open: a composed TAPP still makes no **self-declaration** — you cannot ask a CSV what
+  built it without consulting the register. The discipline in 6.6 no longer rests on someone
+  remembering to update a file, but it does still rest on the register being the only witness.
 - **Module versioning has no increment rule.** Manifests carry a `version` and the build record now
   names it, but nothing defines when to bump it and nothing verifies a recorded version against the
   module's current content.
@@ -599,10 +631,28 @@ module would have revealed that — only the second instance did.
 **Extraction trigger.** Extract a module when *all* of the following hold:
 
 1. A **second** TAPP needs a block of fields an existing TAPP already has.
-2. The block is **five or more fields**. Below that, Rule 4 propagation is cheaper than a module, and
-   the tooling overhead is not repaid.
+2. The block is **ten or more placements** — fields × consuming TAPPs. Below that, Rule 4
+   propagation is cheaper than a module, and the tooling overhead is not repaid.
 3. The block is **coherent** — it corresponds to a real component (an instrument subsystem, a
    detection modality, a reporting standard), not an arbitrary grouping of leftovers.
+4. The block is **not a sub-module of an existing module** — see 6.15.
+
+**Why placements rather than fields (amended 2026-08-14).** Condition 2 read "five or more fields"
+until the `ReportingCore` dissolution required one- and two-field modules to be legitimate. The
+rationale was never field count as such: it is that Rule 4 propagation must cost more than the module
+machinery, and propagation cost is the number of **copies to keep in sync** — fields multiplied by
+consumers, not fields alone. A one-field module with fourteen consumers is fourteen copies; a
+five-field module with two consumers is ten. Ten placements is the *same* calibration point the old
+rule used — five fields across the two TAPPs of condition 1 — restated so it scales with consumer
+count instead of ignoring it.
+
+The amendment does not reopen past decisions. The two residues 6.9 declined to build remain below the
+threshold: `Signal Collection Mode` (1 field × 3 TAPPs = 3 placements) and `E-scan Range` +
+`Triple Scanning Mode` (2 × 3 = 6). The five modules of the `ReportingCore` dissolution score 26, 14,
+12, 26 and 13.
+
+**The threshold is a floor, not a licence.** Lowering it makes small modules possible, not desirable;
+condition 4 is what stops the floor from becoming a slope.
 
 **Prefer three instances to two.** Two TAPPs give you a shared set; three tell you which parts of it
 are actually stable. Where a third consumer is foreseeable and near, record the block as a
@@ -651,7 +701,74 @@ MC-only content of the LA-ICP-MS Geochronology TAPP — two derivations convergi
 
 ---
 
+#### 6.15 The sub-module test — is this really a new module? (2026-08-14)
+
+Lowering condition 2 to a placement count makes small modules legitimate, and the failure mode that
+opens is **proliferation**: a library of one-field modules nobody can navigate, in which 6.1's
+specificity condition can no longer be checked from memory. **Every proposed module is therefore
+tested against the existing ones before it is built**, and the answer recorded.
+
+Two prongs, in order.
+
+**1. Footprint — mechanical.** Compare the proposed module's consumer set against every existing
+module's:
+
+| relation | reading |
+|---|---|
+| **identical** | the two would always be composed together — candidate for merger |
+| **proposed ⊂ existing** | the proposal is a part of the existing module — candidate for absorption |
+| **existing ⊂ proposed** | the existing module is a part of the proposal — absorption the other way |
+| **overlapping, neither contained** | genuinely independent — proceed |
+
+**2. Subject — judgment.** Where prong 1 nominates a candidate, ask: *reading only the two module
+titles, could a registrant say which one a given field is in?* If not, they are one module.
+
+**Resolution: merge unless the subject test separates them.** Footprint identity is common — several
+unrelated conditions in this library select the same set of TAPPs — so it nominates, it does not
+decide. Coherence (condition 3) is what decides.
+
+**Worked example.** `Analyte` was proposed as its own module with 13 consumers. `Aggregation` also has
+13, and they are the **same** 13 — every TAPP that determines a chemical composition. Prong 1
+nominated a merger; prong 2 refused it. "Which chemical species does this procedure determine" and
+"which analyses contribute to the reported value" are not one subject, and a registrant hunting for
+the analyte list would not open a module about aggregation. They stay separate.
+
+The lesson generalises: **co-extension is not coherence.** Those two conditions select the same TAPPs
+because determining a composition and aggregating analyses happen to co-occur across this library's
+techniques, not because they are one component. A third technique will eventually separate them, and
+a merged module would then have to be split — the expensive direction, per 6.10's `Pb*/Pbc` precedent.
+
+**Record the answer** in the manifest as `sub_module_test`: which modules were compared, and why the
+proposal survived. An unrecorded answer is indistinguishable from an unasked question — the failure
+6.13 and 6.14 both document.
+
+**Direction of travel.** New modules should be unconditional and all-or-nothing. Where a block of
+fields applies to only some consumers, that is a separate module with its own `applies_when`, not a
+conditional block inside a larger one. The conditional mechanism was retired on 2026-08-14 with the
+dissolution of `ReportingCore`, its only user; 6.12 keeps the record of why.
+
+---
+
 #### 6.12 Conditional modules must have their blocks named — and `--check` will not catch it if they do not
+
+> **RETIRED 2026-08-14 — no conditional module exists any longer.** `ReportingCore` was the only one,
+> and the only module that was not all-or-nothing: 9 of its 16 consumers held all six fields, and its
+> five blocks had four *different* consumer footprints (13 / 14 / 12 / 13). It was therefore four
+> independent modules stored in one file, bound by shared provenance rather than shared structure. It
+> has been dissolved into `TargetSelection`, `CalibrationFactor`, `Blank` and `Aggregation`, each
+> unconditional with a module-level `applies_when`. Composition was a no-op — all 52 module × consumer
+> pairs reported `--check` MATCH — because the dissolution moved fields between modules and changed no
+> definition. **Every module in the library is now unconditional and all-or-nothing**, which is the
+> invariant 6.15 asks new modules to preserve.
+>
+> **The `conditional` guard in `compose_tapp.py` is deliberately kept**, contrary to the plan that
+> retired this rule. It fires only on a manifest declaring `"conditional": true`, of which there are
+> now none, so it costs nothing — and it is the tripwire that makes reintroducing a conditional module
+> a deliberate act rather than an accident. Deleting safety code because the failure it guards has
+> stopped occurring is how the failure comes back.
+>
+> The rest of this subsection is kept as the record of what went wrong, since the 2026-08-11 incident
+> below is the reason the dissolution happened at all. It describes a mechanism no longer in use.
 
 `Module_ReportingCore` declares `"conditional": true`: none of its blocks is universal, each carries an
 `applies_when` condition, and **the consuming TAPP selects blocks explicitly**. Composing it without a
@@ -700,9 +817,24 @@ module's label or none. So in a U-Pb variant, six fields read `Source: Geochrono
 `Source: U-Pb module`, and the ReportingCore fields the U-Pb module overlays with U-Pb-specific examples
 stay unlabelled — they are general TAPP fields carrying system-specific examples, not system fields.
 
-**Declared on:** `Geochronology`, `UPb`, `ArAr`. Deliberately **not** on `Group1`, `ReportingCore`,
-`LaserAblation`, `MCICPMS` or `SolutionIntroduction` — those are the general TAPP and labelling them
-would be noise.
+**Declared on every module, since 2026-08-14.** The label originally sat only on `Geochronology`,
+`UPb` and `ArAr`, on the reasoning that the general modules were "the general TAPP" and labelling them
+would be noise. **That decision is superseded, deliberately.** It was made when 8 modules existed, 3 of
+them geochronology-specific, and Column G had just been cleared. The library now has 12 modules
+supplying **767 of 1706 content rows — 45%** — and a reader of a composed TAPP could not tell which
+module any given field came from. Naming the source is what the label is for, and the case that
+justified it for geochronology applies with more force everywhere else.
+
+Column G is therefore **no longer almost empty**: it went from 27 labelled rows to 767 in one pass.
+Consumers of the CSVs who treated Column G as effectively blank must be told — README §3.1 and §11
+carry the correction.
+
+**The label names the OWNER, not the overlayer.** A Layer 3 module labels only the fields its blocks
+*insert*; fields it merely overlays with Column F examples keep the label of the module that owns
+them. So in a U-Pb variant, `Age Calculation Method` reads `Source: Geochronology module` even though
+`Module_UPb` supplied its U-Pb-specific examples, and `Calibration Factor and Determination Method`
+reads `Source: Calibration Factor module`. A field in no module — `Monitored Masses`, say — stays
+blank, which is now meaningful information rather than the default state.
 
 **Narrow exception to Rule 6.4.** Column G is otherwise consumer-owned. `stamp_source_comment` only ever
 fills a Column G cell that is **empty**, so consumer annotation is never overwritten and recomposition is
@@ -733,7 +865,7 @@ entirely:
 | The label is technique-conditional, not universal | XCT 0 instances, SEM_Imaging 1, SEM_FIBSEM 1, TEM 3 — 5 of 150 across the four least chemical TAPPs |
 
 The framework had already written the distinction into a field description without propagating it into the
-vocabulary. `Reported Variables and Units` reads: *"distinct from Analyte and Monitored Isotopes, which
+vocabulary. `Reported Variables and Units` reads: *"distinct from Analyte and Monitored Masses, which
 record what was acquired. A procedure may acquire many masses and report a small number of derived
 quantities."*
 
@@ -829,7 +961,7 @@ key would duplicate existing machinery.
 | `A > B` | **containment** — B exists only within A; one value per B within each A | `sampling unit > model component` (Mössbauer components fitted per phase). No field in the current library uses nesting: `analyte > background position` was retired 2026-08-11 under 7.4c |
 | `A x B` | **cross-product** — A and B are independent domains; one value per combination. Ordered: read as *"for each A, one value per B."* | `standard x reported property` (`Analytical Precision`); `sampling unit x analyte` (`Counting Statistics Error`) |
 | `defines: A` | the field **enumerates** the key domain rather than being keyed by it — it is the header of the child table, not a column in it | `Analyte`; `Reported Variables and Units`; `Reported Date Type` |
-| `defines: A per B` | the field enumerates domain A **and** repeats over key B — a definer whose child table carries a parent key. One key only; see 7.3.1 | `Monitored Isotopes` (`defines: channel per analyte`); `EELS Edges`; `Secondary Reference Materials` |
+| `defines: A per B` | the field enumerates domain A **and** repeats over key B — a definer whose child table carries a parent key. One key only; see 7.3.1 | `Monitored Masses` (`defines: channel per analyte`); `EELS Edges`; `Secondary Reference Materials` |
 | `pair: A` | keyed by an unordered pair of A | `Discordance Definition and Values`; error correlation ρ between ²⁰⁶Pb/²³⁸U and ²⁰⁷Pb/²³⁵U |
 | `A > B x C` | containment then cross-product — *"within each A, for each B, one value per C."* Added 2026-08-12 | `Counting Statistics Error` (`sample > sampling unit x reported property`): within each sample, for each analysis spot, one uncertainty per reported concentration variable |
 
@@ -839,7 +971,7 @@ That objection does not apply here: `>` and `x` both run **outer-to-inner**, so 
 left to right in one direction and needs no convention to disambiguate. It is specified now because
 a real field requires it — the same standard 7.3.1 set for itself, and the same reason the `x`
 ordering convention was justified against an actual reporting table rather than in the abstract.
-One field in the library uses it.
+Two fields in the library use it, both added 2026-08-17: `Counting Statistics Error` (12 TAPPs) and `Internal (Within-Measurement) Analytical Precision and Assessment Method` (9 TAPPs). They share a quantity shape — a per-analysis uncertainty on each reported quantity, within each sample — which is why they share a key.
 
 **The separator is a literal ASCII lowercase `x`, whitespace-delimited — not `×` (U+00D7).**
 The cells contain `standard x reported property`. `validate_tapp.py` splits on `\s+x\s+`, so a
@@ -882,7 +1014,16 @@ giving `sampling unit x analyte`.
 
 #### 7.3.1 `defines: A per B` — the definer that is itself keyed
 
-Added 2026-08-12. A field may enumerate one domain while repeating over another: `Monitored Isotopes`
+> **Renamed 2026-08-17: `Monitored Isotopes` → `Monitored Masses`.** The field defines the
+> `channel` domain, and that domain contains reaction-product and adduct masses as well as atomic
+> isotopes — Wu et al. 2023 assign a dwell time to `(176+82)Hf`, Gil-Diaz et al. 2020 measure
+> `125Te + 16O → 141TeO`. A field named "Isotopes" invites a curator to prune exactly the members
+> that `Dwell Time per Mass` and `Interference Correction Method` are keyed by. `Masses` was chosen
+> over `Species` because this document defines Analyte as "the chemical species a measurement is
+> performed on"; reusing the word for the channel side would blur that line. The two dated tables
+> in 7.11 and 7.12 keep the old name, being records of what was executed on 2026-08-12.
+
+Added 2026-08-12. A field may enumerate one domain while repeating over another: `Monitored Masses`
 lists the masses acquired — so it defines `channel` — but it lists them *per analyte element*, one row
 per element. Before this form existed, Column I could state only the definer role and the second key
 survived in prose, which is how it went unnoticed. Four fields in the library are of this shape; the
@@ -892,7 +1033,7 @@ survey behind the addition is in `analysis/Survey_ColB_ColI_Report_2026-08-12.md
 Added 2026-08-12. The gloss above says *"one row per element"*, which asserts that every member of
 domain A has a parent in B. It does not, and the counter-example is in the library's own literature:
 
-> Desem et al. 2022 records `Monitored Isotopes` as `202Hg, 203Tl, 204Pb, 205Tl, 206Pb, 207Pb, 208Pb`
+> Desem et al. 2022 records `Monitored Masses` as `202Hg, 203Tl, 204Pb, 205Tl, 206Pb, 207Pb, 208Pb`
 > for a procedure whose analyte is **Pb alone**. ²⁰²Hg is the interference monitor for ²⁰⁴Pb and
 > ²⁰³Tl/²⁰⁵Tl are the internal standard for mass fractionation correction. Three elements' worth of
 > masses; one analyte.
@@ -903,7 +1044,7 @@ internal standards, isotopic carriers, and — once `channel` reaches the electr
 spectrometer assignment used for a standard-only or background-only measurement.
 
 Whether the parent is total or partial **varies by field and the notation does not distinguish
-them**. `EELS Edges` is total: every ionisation edge belongs to an element. `Monitored Isotopes` is
+them**. `EELS Edges` is total: every ionisation edge belongs to an element. `Monitored Masses` is
 partial. Both are written `defines: channel per analyte`, so a consumer must assume partial.
 
 **For a schema generator, concretely.** The child table gets a **nullable** foreign key to the parent
@@ -986,8 +1127,8 @@ the invariant was written assuming a list, so it is stated here rather than left
 **7.4b — exactly one definer per key.** Two fields both declaring `defines: X` leave a consumer no way
 to know which one builds the child table. Where two fields both enumerate a domain, one is the definer
 and the other is keyed by it — in a multicollector TAPP `Collector Configuration` defines the channel and
-`Monitored Isotopes` is keyed by analyte; in a single-collector TAPP there is no cup array and
-`Monitored Isotopes` is itself the definer.
+`Monitored Masses` is keyed by analyte; in a single-collector TAPP there is no cup array and
+`Monitored Masses` is itself the definer.
 
 **7.4c — a definer needs a consumer.** `defines: X` where no field is keyed by X declares a domain
 nothing repeats over. That is a field holding a list, not a key definer, and it should be `(none)`. Many
@@ -1098,7 +1239,7 @@ for fission track. An absent anchor is a finding, not an omission.
    listed in the **technique-dependent key register** (`KEYED_BY_TECHNIQUE_DEPENDENT` in
    `validate_tapp.py`), each entry carrying a recorded rationale in `precedents.md`. Currently five
    entries: `Detection Limit`, `Primary Calibration Standard Name`, `Dwell Time per Pixel`,
-   `Beam Current`, `Monitored Isotopes`.
+   `Beam Current`, `Monitored Masses`.
 
    **The register is a first-class list, not an escape hatch.** Keys are uniform across TAPPs by default,
    because a field name that means one shape here and another shape there is invisible to a curator — the
@@ -1423,7 +1564,7 @@ quantities are the entire output.
   exists)
 - Mode flags: Y for all modes
 - Description: "The final variable(s) this procedure reports and their units — distinct from Analyte and
-  Monitored Isotopes, which record what was acquired. A procedure may acquire many masses and report a
+  Monitored Masses, which record what was acquired. A procedure may acquire many masses and report a
   small number of derived quantities; without this field a data consumer cannot tell which. Record every
   reported variable, including intermediate quantities that are reported alongside final ones (e.g. both
   the ²⁰⁶Pb/²³⁸U ratio and the ²⁰⁶Pb/²³⁸U date). Where a reported variable is a nominal property with no

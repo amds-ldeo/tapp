@@ -1,0 +1,54 @@
+{
+    "module": "Aggregation",
+    "title": "Aggregation of Multiple Analyses",
+    "layer": 2,
+    "version": "1",
+    "source_of_truth": "modules/Module_Aggregation.csv",
+    "owned_columns": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "I"
+    ],
+    "overlay_columns": [
+        "F"
+    ],
+    "consumer_columns": [
+        "F",
+        "G",
+        "H"
+    ],
+    "mode_flag_default": "Y",
+    "source_comment": "Source: Aggregation module",
+    "conditional": false,
+    "applies_when": "The procedure combines multiple individual analyses into a single reported value. Omit where each analysis stands alone.",
+    "blocks": [
+        {
+            "name": "inclusion",
+            "target_group": "5. Data Processing",
+            "placement": "insert_before",
+            "anchor_field": "Constants and Reference Values Used",
+            "fields": [
+                "Analysis Inclusion and Rejection Criteria"
+            ]
+        },
+        {
+            "name": "dispersion",
+            "target_group": "6. Quality Control & Uncertainty",
+            "placement": "insert_before",
+            "anchor_field": "Additional Notes",
+            "fields": [
+                "Goodness-of-Fit or Dispersion Statistic"
+            ]
+        }
+    ],
+    "sub_module_test": "Run 2026-08-14 under Rule 6.15 during the ReportingCore dissolution. Footprint 13 consumers. Against the other three successors — TargetSelection: overlapping, neither contained; CalibrationFactor: subset; Blank: superset. No IDENTICAL relation, so prong 1 nominated no merger; TargetSelection and Aggregation are both 13 consumers but different sets, which is why co-extension had to be tested rather than assumed from the count. Subset of Core (16/16), which holds only fields universal to every TAPP and so cannot absorb a conditional one. Existing technique modules (LaserAblation, MCICPMS, SolutionIntroduction, Geochronology, UPb, ArAr) are all strict subsets and differ in subject.",
+    "notes": "Was ReportingCore blocks 'aggregation' + 'aggregation_qc', merged: aggregation_qc's own applies_when was \"Composed together with the 'aggregation' block\", i.e. it was never independently selectable and was a block only because its field lands in a different group. Here that is what a placement block is for. Split out of Module_ReportingCore on 2026-08-14. ReportingCore was the only conditional module and the only one that was not all-or-nothing: 9 of its 16 consumers held all six fields and its five blocks had four different consumer footprints, so it was four independent modules sharing a file — bound by shared provenance (the geochronology specificity re-triage that produced them) rather than by structure. Each successor is unconditional and all-or-nothing, carrying its applies_when at module level where a reader will find it. Consumers select by composing the module or not, so 'one $def per module' holds again for every module in the library.",
+    "decisions": [
+        "2026-08-14 v1. Field text taken unchanged from Module_ReportingCore v6 — the dissolution moves fields between modules and changes no definition, so composition is a no-op and no consumer needs a version bump.",
+        "Compose AFTER Core: the Group 5 and 6 blocks anchor on 'Constants and Reference Values Used' and 'Additional Notes', both owned by Core.",
+        "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content."
+    ]
+}

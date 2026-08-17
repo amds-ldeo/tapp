@@ -108,6 +108,57 @@ EXCLUDE_FIELDS = {
 # sees only genuinely new disagreements. Rationale for each is in precedents.md under
 # "Validating keys against the literature assessment".
 ADJUDICATED = {
+    # ---- adjudicated 2026-08-17, after the Solution MC Phase 3, the TQ round and the
+    # ---- reconciliation sweep added 19 literature columns and 7 fields.
+    ("Collector Configuration", "AXIS-MISMATCH"):
+        "KEEP defines: channel per analyte — the definer role is invisible to the detector, which "
+        "sees a list of cup assignments and reports the domain it enumerates as if it were keyed by "
+        "it. Same shape as Monitored Masses below.",
+    ("Monitored Masses", "AXIS-MISMATCH"):
+        "KEEP defines: channel per analyte — as above. Renamed from Monitored Isotopes 2026-08-17; "
+        "the key and its registered LA-MC divergence are unchanged.",
+    ("Constants and Reference Values Used", "UNDER-DECLARED"):
+        "KEEP (none) — Rule 5 field holding a LIST of constants. The detector reads the isotope "
+        "symbols inside cited ratios (98Mo/96Mo = 1.453173) and infers channel. This is exactly the "
+        "7.3.1 trap: do not infer domain membership from symbols appearing in a value.",
+    ("Calibration Factor and Determination Method", "AXIS-MISMATCH"):
+        "KEEP reported property — module-owned (CalibrationFactor, 14 consumers) and settled in "
+        "Rule 7.11: the factor converts the measured quantity into the REPORTED quantity, and a "
+        "module key must be valid in every consumer including Lab-XCT, which has no analyte anchor. "
+        "The detector sees isotopes named in interference-correction prose.",
+    ("ICP Tuning", "UNDER-DECLARED"):
+        "KEEP (none) — tuning is a session-level procedure. The isotopes named (11B, 115In, 175Lu, "
+        "CeO+/Ce+) are the species tuned ON, not values the field repeats over.",
+    ("Interference Correction Method", "AXIS-MISMATCH"):
+        "KEEP channel — corrections are applied per monitored mass. The detector reads element "
+        "names in the correction equations (Lu, Yb, Hf) and infers analyte. 3 ev, weakest in the set.",
+    ("Per-Analyte Calibration Strategy", "AXIS-MISMATCH"):
+        "KEEP analyte — the extraction lists one standard PER ANALYTE (IRMM-014 for Fe, SRM979 for "
+        "Cr, DTS-2b for Mg), so the detector sees standards. The field is per-analyte by definition; "
+        "the standards are its values.",
+    ("Integration Time per Cycle", "OVER-DECLARED"):
+        "KEEP channel — the Rule 7.11 G3 case, decided deliberately: declare the finest key "
+        "unconditionally, because a consumer given channel can hold one shared value while a "
+        "consumer given (none) cannot hold per-channel values at all. Scalar observations are "
+        "expected and do not contradict it.",
+    ("Collision Gas Type", "OVER-DECLARED"):
+        "KEEP channel — re-keyed 2026-08-17 on Gil-Diaz et al. 2020, which runs KED (He) for 126Te "
+        "and O2 mass-shift for 125Te in one study. One per-channel instance among scalars is the "
+        "G3 case again; the finer key is the superset.",
+    ("Digestion Duration", "OVER-DECLARED"):
+        "KEEP preparation step — attested per step in Lopez Garcia 2026 (3 h, 12 h at 120 C, 5 days "
+        "at 220 C, 1 day at 150 C, 1 day at 80 C) and Schoenbaechler 2025. Scalar single-step "
+        "procedures are that axis with one member.",
+    ("delta or epsilon Value Reference Standard", "OVER-DECLARED"):
+        "KEEP analyte — attested per analyte in van Kooten 2026 (IRMM-014 for Fe, SRM979 for Cr, "
+        "DTS-2b for Mg). Single-analyte procedures are that axis with one member.",
+    ("Sample Aliquot Mass or Volume", "OVER-DECLARED"):
+        "KEEP sample — attested per sample in Lopez Garcia 2026, which lists eight individual "
+        "particle masses (4.325, 1.868, 2.311 mg ...). Scalar elsewhere.",
+    ("Beam Damage Minimization", "OVER-DECLARED"):
+        "PRE-EXISTING, not introduced 2026-08-17 — EPMA only, and this session did not touch EPMA's "
+        "literature columns. Key became sample > sampling unit in the Rule 13 retrofit. Left as is; "
+        "revisit with the electron-beam TAPPs, not with ICP-MS work.",
     ("Primary Calibration Standard Name", "AXIS-MISMATCH"):
         "CONSISTENT — a field that NAMES standards always looks standard-shaped to the detector. "
         "Key set to analyte in LA-SF 2026-08-12 because Navarro et al. 2024 assigns standards to "

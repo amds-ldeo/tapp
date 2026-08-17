@@ -13,7 +13,7 @@ superseded versions, so there is nothing to sift.
 |---|---|
 | TAPPs | 16 |
 | Files | 32 (16 CSV + 16 xlsx) |
-| As of | 2026-08-13 |
+| As of | 2026-08-17 |
 
 ## Where to look for more
 
@@ -37,19 +37,19 @@ in that particular TAPP.
 
 ## Contents
 
-- `EPMA_TAPP_v20.csv`
-- `LA-MC-ICPMS_TAPP_v13.csv`
-- `LA-MC-ICPMS_UPb_TAPP_v13.csv`
-- `LA-Q-ICP-MS_TAPP_v15.csv`
-- `LA-Q-ICP-MS_UPb_TAPP_v16.csv`
-- `LA-SF-ICP-MS_TAPP_v16.csv`
-- `LA-SF-ICP-MS_UPb_TAPP_v17.csv`
-- `Lab-XCT_TAPP_v17.csv`
-- `SEM_Composition_TAPP_v17.csv`
-- `SEM_FIBSEM_TAPP_v11.csv`
-- `SEM_Imaging_TAPP_v11.csv`
-- `SEM_TAPP_v17.csv`
-- `Solution_MC-ICP-MS_TAPP_v16.csv`
-- `Solution_Q-ICP-MS_TAPP_v17.csv`
-- `Solution_SF-ICP-MS_TAPP_v18.csv`
-- `TEM_TAPP_v17.csv`
+- `EPMA_TAPP_v25.csv`
+- `LA-MC-ICPMS_TAPP_v26.csv`
+- `LA-MC-ICPMS_UPb_TAPP_v26.csv`
+- `LA-Q-ICP-MS_TAPP_v29.csv`
+- `LA-Q-ICP-MS_UPb_TAPP_v29.csv`
+- `LA-SF-ICP-MS_TAPP_v28.csv`
+- `LA-SF-ICP-MS_UPb_TAPP_v29.csv`
+- `Lab-XCT_TAPP_v21.csv`
+- `SEM_Composition_TAPP_v22.csv`
+- `SEM_FIBSEM_TAPP_v14.csv`
+- `SEM_Imaging_TAPP_v14.csv`
+- `SEM_TAPP_v22.csv`
+- `Solution_MC-ICP-MS_TAPP_v30.csv`
+- `Solution_Q-ICP-MS_TAPP_v34.csv`
+- `Solution_SF-ICP-MS_TAPP_v32.csv`
+- `TEM_TAPP_v21.csv`

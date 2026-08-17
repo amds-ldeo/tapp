@@ -12,7 +12,7 @@ these files are still cited.
 
 ## Column B / Column I survey (2026-08-12)
 
-Evidence behind the Rule 7.3 notation gaps. Prompted by `Monitored Isotopes` declaring
+Evidence behind the Rule 7.3 notation gaps. Prompted by `Monitored Masses` declaring
 `defines: channel` while its description asserts an undeclared `analyte` key. Read-only survey — no
 TAPP was modified; lint baseline stayed 0 ERROR / 0 WARN. Built by
 `../../Project Files/Scripts/survey_colB_colI_20260812.py` and

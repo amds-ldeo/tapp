@@ -195,7 +195,7 @@ KEYED_BY_TECHNIQUE_DEPENDENT = {
                                          "three TAPPs with WDS compositional mapping; (none) in the "
                                          "imaging-only SEM variants, which have no spectrometer",
     "Beam Current":                      "per phase where composition is measured, scalar in imaging-only TAPPs",
-    "Monitored Isotopes":                "defines: channel per analyte where there is no collector array; analyte where the cup array defines the channel",
+    "Monitored Masses":                  "defines: channel per analyte where there is no collector array; analyte where the cup array defines the channel",
 }
 KEYED_BY_EXCEPTIONS = set(KEYED_BY_TECHNIQUE_DEPENDENT)   # back-compat alias
 
@@ -330,7 +330,7 @@ KEY_SPLIT_RE = re.compile(r"\s*>\s*|\s+x\s+")
 # Rule 7.4a corollary — a `defines: X` field states what the key domain X *is*, so every TAPP
 # carrying that field must agree on at least its opening sentence. Divergence after the first
 # sentence is legitimately technique-specific (cross-references to Collector Configuration, EELS
-# Edges, Monitored Isotopes); divergence *in* the first sentence means the TAPPs do not agree on
+# Edges, Monitored Masses); divergence *in* the first sentence means the TAPPs do not agree on
 # what the domain is, which is a correctness problem rather than a style one.
 #
 # Why this check exists: `Analyte` sat in COLB_DIVERGENCE_TRIAGED as PRINCIPLED at similarity 0.01
@@ -1106,9 +1106,38 @@ HISTORICAL_DOCS = {
         "dated change history — naming retired fields is how a log works",
 }
 RETIRED_FIELDS = {
+    "Mass Cycles per Replicate":       "renamed 2026-08-17 -> Number of Scans per Replicate — 'cycle' is "
+                                       "reserved for simultaneous multi-collection readouts, a "
+                                       "different acquisition mode from a sequential mass scan",
+    "In-Run Isotope Ratio Reproducibility and Assessment Method":
+                                       "renamed 2026-08-17 -> Within-Session Analytical Precision "
+                                       "and Assessment Method — the 'In-Run' name contradicted the "
+                                       "field's own definition and was drawing internal precision",
+    "Between-Session Reproducibility and Assessment Method":
+                                       "renamed 2026-08-17 -> Between-Session (Long-Term) Analytical "
+                                       "Precision and Assessment Method — VIM3 reserves "
+                                       "'reproducibility' for different-laboratory conditions",
+    "Number of Replicates per Sample": "renamed 2026-08-17 -> Number of Replicates — 'per Sample' is "
+                                       "wrong for spatially resolved techniques, where replicates "
+                                       "are per grain or location",
+    "Sensitivity as Useful Yield":     "renamed 2026-08-17 -> Instrument Sensitivity — merged with the "
+                                       "Solution field; useful yield survives as one permitted "
+                                       "expression, reported once in 28 LA papers",
+    "Make-up Gas Flow Rate":           "renamed 2026-08-17 -> Make-up Gas and Flow Rate — reconciled "
+                                       "with the LA name; the field holds gas identity as well as flow",
+    "Plasma / Make-up Gas Addition":   "renamed 2026-08-17 -> Make-up Gas and Flow Rate — the 'Plasma' "
+                                       "prefix collided with Coolant (Plasma) Gas Flow Rate",
+    "Monitored Isotopes":              "renamed 2026-08-17 -> Monitored Masses — the field defines "
+                                       "the channel domain, which contains reaction-product and "
+                                       "adduct masses as well as atomic isotopes",
     "Minimum Resolvable Feature Size": "retired 2026-08-12 (Lab-XCT v17) — redundant with "
                                        "Partial Volume Effect Criteria",
     "Mass Resolution per Analyte":     "renamed 2026-08-12 -> Mass Resolution Assignment",
+    "Data Reduction Software":         "renamed 2026-08-14 -> Data Processing Software(s) — "
+                                       "not every technique reduces data; XCT reconstruction expands it",
+    "Segmentation and Analysis Software":
+                                       "absorbed 2026-08-14 -> Data Processing Software(s) (Lab-XCT). "
+                                       "Lab-XCT retains Reconstruction Software as a technique-specific field",
 }
 DOC_ROOTS = ("Claude Skills for TAPP", "Project Files", ".")
 DATED_RE = re.compile(r"(20\d{2}-\d{2}-\d{2}|20\d{6})")
@@ -1323,8 +1352,13 @@ def check_current_tapps(tapps, root, out):
             f"superseded version that should have been replaced, or a TAPP that has been retired.")
 
 
-def check_group1_template(tapps, template_path, out):
-    """Compare each TAPP's Group 1 against the canonical template (Rule 1)."""
+def check_group1_template(tapps, template_path, out, restrict=None):
+    """Compare each TAPP's Group 1 against the canonical template (Rule 1).
+
+    `restrict` limits the template to a named field set. Needed since 2026-08-14: Group 1 is
+    owned by Module_Core, whose CSV also carries the 10 universals belonging to Groups 2-6.
+    Without the restriction every one of those would be read as a missing Group 1 field.
+    """
     if not os.path.exists(template_path):
         out.append(Finding("WARN", "(template)", "", "", "group1-template",
                            f"Template not found at {template_path}; Group 1 comparison skipped."))
@@ -1338,6 +1372,8 @@ def check_group1_template(tapps, template_path, out):
     for r in trows[1:]:
         a = r[0].strip() if r else ""
         if not a or re.match(r"^\d+\.\s", a):
+            continue
+        if restrict is not None and a not in restrict:
             continue
         tmpl[a] = (r[COL_DESC].strip(), r[COL_C].strip(), r[COL_D].strip(), r[COL_TYPE].strip())
         order.append(a)
@@ -1535,18 +1571,34 @@ def main():
         check_current_tapps(tapps, args.root, findings)
         check_module_versions(args.root, findings)
         check_library_freshness(args.root, findings)
-        # Group 1 is composed from Module_Group1 (Rule 6); that module is the source
-        # of truth. The pre-migration template is only a fallback for libraries that
-        # have not yet migrated.
-        module_g1 = os.path.join(args.root, "Claude Skills for TAPP", "modules",
-                                 "Module_Group1.csv")
+        # Group 1's owner, newest first: Module_Core (since 2026-08-14, which also carries the
+        # 10 universals from Groups 2-6 and so must be restricted to its Group 1 block), then
+        # Module_Group1 (retired), then the pre-migration template.
+        mod = os.path.join(args.root, "Claude Skills for TAPP", "modules")
+        core_csv, core_json = (os.path.join(mod, "Module_Core.csv"),
+                               os.path.join(mod, "Module_Core.json"))
+        module_g1 = os.path.join(mod, "Module_Group1.csv")
         legacy_g1 = os.path.join(args.root, "Claude Skills for TAPP", "tapp_files",
                                  "Template TAPP Group 1.csv")
-        check_group1_template(
-            tapps,
-            module_g1 if os.path.exists(module_g1) else legacy_g1,
-            findings,
-        )
+        restrict = None
+        if os.path.exists(core_csv) and os.path.exists(core_json):
+            g1_path = core_csv
+            try:
+                with open(core_json, encoding="utf-8") as fh:
+                    blocks = json.load(fh).get("blocks", [])
+                blk = next((b for b in blocks
+                            if b.get("target_group", "").startswith("1.")), None)
+                if blk:
+                    restrict = set(blk["fields"])
+            except (ValueError, OSError) as exc:
+                findings.append(Finding("WARN", "(template)", "", "", "group1-template",
+                                        f"Module_Core.json unreadable ({exc}); Group 1 block "
+                                        f"could not be isolated."))
+        elif os.path.exists(module_g1):
+            g1_path = module_g1
+        else:
+            g1_path = legacy_g1
+        check_group1_template(tapps, g1_path, findings, restrict)
 
     print(f"Linted {len(tapps)} TAPP file(s) under {args.root}")
     report(findings, args.severity, do_collapse=not args.no_collapse)

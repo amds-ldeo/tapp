@@ -134,7 +134,7 @@ Give each column a header identifying: Author+Year | Instrument Model | Lab.
 ### Mapping conditions
 - Mapping conditions (step size, dwell time, beam current during mapping, map area) are frequently absent even when mapping is done. Record what is stated; use `N` for each unstated parameter.
 - Stage scan vs. beam scan: if the paper says "stage mapping," record `Stage scan`. If it says "beam scan" or "rastered beam," record `Beam scan`. Otherwise `N`.
-- Mapping software (CalcImage, XMapTools, etc.) goes in Data Reduction Software.
+- Mapping software (CalcImage, XMapTools, etc.) goes in Data Processing Software(s).
 
 ---
 
@@ -202,10 +202,24 @@ If a technique used in a paper does not appear in `Project Files/Registers & Pla
 
 ### File location
 
-The registry is maintained by `generate_paper_registry.py` in `Project Files/Scripts/`. When adding a new paper:
-1. Add a new dict entry to `papers` in that script with all 18 fields filled.
-2. Run the script to regenerate the CSV.
-3. Spot-check the output CSV.
+The registry is maintained by `generate_paper_registry.py` in `Project Files/Scripts/`.
+
+**Run `python3 generate_paper_registry.py --check` FIRST, every time.** It compares what the script
+would generate against the live CSV and exits non-zero on any difference. This is not optional
+diligence: on 2026-08-17 the script was found holding 21 papers against 55 live, with a single
+`Solution ICP-MS` column where the register had `Solution Q-ICP-MS` and `Solution SF-ICP-MS`
+separately. Running it as this section previously instructed would have deleted 34 rows and
+collapsed the Q/SF split. It has been rebuilt from the live CSV and now round-trips, but the check
+is what keeps it that way.
+
+When adding a new paper:
+1. `--check` and confirm `MATCH` before touching anything.
+2. Add a dict entry to `papers` with **every** column filled — currently 27 (4 fixed + 23
+   technique columns). The script refuses to emit a blank cell or a non-label value.
+3. `--apply` to write, then `--check` again to confirm the round-trip.
+
+The script is written whole by a rebuild script, never patched in place: a regex edit against its
+pretty-printed blocks silently no-ops, which is how the original drift began.
 
 ---
 

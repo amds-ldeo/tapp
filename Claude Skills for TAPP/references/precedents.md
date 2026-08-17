@@ -1112,3 +1112,527 @@ limit.
 **Generalise:** before trusting a field's literature column, check what the papers mean by the
 field's own name. A term that is precise in the TAPP may be loose in the community, and the
 extractions will be faithful to the papers rather than to the definition.
+
+---
+
+## Triple-quadrupole instruments register under the Q-ICP-MS TAPP (2026-08-14)
+
+**Decision.** A triple-quadrupole ICP-MS registers under the **Q-ICP-MS TAPP** — LA or Solution —
+not under a separate TQ TAPP. The platform is named in `Instrument Model`, its identity in
+`ICP-MS Type` (whose controlled list already offered `Triple quadrupole (ICP-MS/MS)` in both Q
+TAPPs), and tandem operation, where used, in `Collision/Reaction Cell (CRC) Configuration`
+(`ICP-MS/MS (triple-quadrupole mode)`).
+
+**The principle: TAPP assignment is not instrument identity.** The instrument is recorded in its own
+fields, so the container need not be named after it. **Analyser family** decides the TAPP —
+quadrupole, sector, and multi-collector are different measurement principles in the VIM3 sense.
+**Configuration** is a field value. This is the same line the library already draws when it makes
+Spot / Transect / Mapping mode flags inside one TAPP rather than three TAPPs.
+
+**How the question arose, and the reasoning error worth remembering.** Liu et al. 2024 use an Agilent
+8900 — a TQ platform — and state no MS/MS mode, no tandem operation and no cell gas; Table 1 lists
+single-quadrupole conditions. The first assignment was `LA-Q-ICP-MS`, justified by refusing to infer
+TQ operation from a model number. **That inverted the source rule.** The label asserts
+single-quadrupole operation, which the paper never states, inferred from *silence*; the model
+designation, by contrast, is written down. Where a stated fact and an absence disagree, the stated
+fact governs. The right answer was the same, for the opposite reason.
+
+**Practitioner usage agrees.** Masuda et al. 2024 describe their iCAP TQ as *"a sensitivity-enhanced
+quadrupole-based ICP-MS system"* and discuss gas versus non-gas CRC modes, never MS/MS. The stale
+v13 extraction for that paper, written long before this decision, independently recorded the
+instrument as `Thermo Fisher Scientific iCAP TQ (Q-ICP-MS with CRC)`.
+
+### The standalone-TAPP question was settled by measurement, not by argument
+
+The planning table hypothesised that LA-ICP-TQ-MS needed *"reaction cell gas identity and flow, MS/MS
+operational mode (mass-shift vs. on-mass), reaction product ions monitored"*. That hypothesis was
+tested against the only TQ paper in the corpus, using the 89-cell Masuda 2024 column preserved in
+`Superseded TAPPs/2026-08-10/LA-ICP-MS (stale branch)/LA-ICPMS_TAPP_v13.csv`:
+
+| | |
+|---|---|
+| Masuda cells carrying content | **62** |
+| Field names absent from `LA-Q-ICP-MS_TAPP_v21` | **6** |
+| Of those, genuinely new concepts | **0** |
+
+All six are pre-rename spellings of fields the Q TAPP already has:
+`ICP-MS Manufacturer & Model` → `Instrument Manufacturer` + `Instrument Model` ·
+`Data Reduction Software` → `Data Processing Software(s)` ·
+`Auxiliary and Cool Gas Flow Rates` → the two separate flow fields ·
+`Drift Monitor Frequency` → `Calibration Standard Measurement Frequency` ·
+`Spectrometer Dwell Time` → `Dwell Time per Mass` ·
+`Uncertainty Level and Propagation` → the two fields it was split into.
+
+**Residue zero. No TQ TAPP is warranted on current evidence** — and note *why* the hypothesised
+distinct metadata did not appear: Masuda ran the instrument in **KED mode**, a collision-cell mode
+available on any quadrupole, not in MS/MS mode. The hypothesis was never tested by this paper.
+
+**The test that would settle it, stated so it is not re-argued from scratch.** Find papers that
+actually operate in MS/MS mode — mass-shift or on-mass product-ion chemistry — add them as
+literature-assessment columns to the existing LA-Q / Solution Q TAPPs, and count the residue again.
+A coherent block above Rule 6.10's threshold justifies a module or a TAPP; two stray fields justify
+two fields. Build nothing in advance: this is Rule 6.10's *"modules are extracted, not invented"*
+applied one level up, and Rule 2's test that a split is earned only when divergence is large enough
+that forcing it into the shared mould distorts the mould.
+
+`Laser Ablation ICP-TQ-MS (LA-ICP-TQ-MS)` is retained in `paper_registry.csv` but **parked** — all
+rows `N`. Masuda2024 moved to `LA-Q-ICP-MS`; Liu2024 stays there.
+
+### CRC vocabulary harmonised in the same pass
+
+Three vocabularies were in circulation across the 6 TAPPs holding
+`Collision/Reaction Cell (CRC) Configuration`. Two defects mattered:
+
+- **Solution Q could not record tandem operation at all** — no `ICP-MS/MS` value — which is the field
+  this decision relies on.
+- **Solution Q overloaded `None`**, using `None (STD mode)` for "cell present, no gas". Three of its
+  five extractions read that way for instruments that demonstrably have a cell; Lu et al. 2007 states
+  *"Our instrument has a collision cell with octapoles, but collision gases were not introduced into
+  the cell"* — which is STD, not None. Those three cells were migrated.
+
+Resolved to two lists, split by analyser family rather than forced identical, since Column F is
+consumer-owned (Rule 6.4):
+
+- **Q family** `Not installed | STD | KED | DRC | KED+DRC | ICP-MS/MS | N/A | None | Other: specify`
+- **MC family** `Not installed | STD | KED | DRC | N/A | None | Other: specify`
+
+`ICP-MS/MS` was **removed** from the two LA-MC TAPPs — a multi-collector has no second quadrupole, so
+the value invited an answer that cannot be true. `Not installed` was **added** to the four LA TAPPs,
+which lacked it; it is the value that separates "no cell hardware" from "cell present, no gas", and
+therefore what lets an `N` in a literature column mean "not reported" rather than being confused with
+either. Column B was left alone: it already carries four registered variants, and editing it would
+create new Rule 7.8.9 divergence for no gain.
+
+---
+
+## The TQ decision re-tested against tandem papers (2026-08-17)
+
+Three TQ-ICP-MS papers were supplied in `LA-Q-ICP-MS/TQ literature assessment/` to verify the
+2026-08-14 decisions. **Both decisions hold. One of them no longer holds for the reason first given.**
+
+| Paper | Introduction | Cell mode | Genuine tandem? |
+|---|---|---|---|
+| Wu et al. 2023 | LA (Photon Machines Analyte G2) + iCAP TQ | TQ + NH₃ mass-shift | yes |
+| Gil-Diaz et al. 2020 | **solution** — Agilent 8800 and iCAP-TQ | O₂ mass-shift **and** KED | yes |
+| López García et al. 2026 | **solution** — iCAP TQ | He KED only | no |
+
+Two of the three are solution work despite being filed under LA-Q-ICP-MS.
+
+**Decision 1 — TQ registers under Q-ICP-MS — confirmed, on better evidence than it was made.**
+Wu tunes *"in the solution single-quadrupole (SQ) and no-gas modes"* and then *"switched to
+triple-quadrupole (TQ) and NH₃ mode"*. **One instrument spans both within one session.** If Q and TQ
+were different techniques the procedure would change technique halfway through tuning. Configuration,
+not technique — demonstrated rather than argued.
+
+**Decision 2 — no standalone TQ TAPP — confirmed, but the "residue zero" finding of 2026-08-14 was an
+artefact of the sample.** Masuda gave zero because it ran KED and never tandem. Against papers that
+do tandem chemistry the residue is small but real, and it is precisely one of the three things the
+planning table predicted:
+
+| Predicted distinct metadata | Outcome |
+|---|---|
+| reaction cell gas identity and flow | already had fields — `Reaction Gas Type`, `Reaction Gas Flow Rate` |
+| MS/MS operational mode | needed a **key change**, not a field — see below |
+| reaction product ions monitored | **the one genuine gap** — one new field |
+
+**Generalise: a residue of zero means "no residue in this sample", not "no residue".** State what the
+corpus could not have shown. Masuda could never have exercised the tandem fields, so the hypothesis
+was untested, not refuted — and saying so is what made the second round worth running.
+
+### Three changes applied
+
+**1. `Monitored Isotopes` → `Monitored Masses` (8 TAPPs).** The field is the `defines: channel`
+definer, and the channel domain contains non-isotopic members: Wu assigns a dwell time to
+`(176+82)Hf` (300 ms), Gil-Diaz measures `125Te + ¹⁶O → 141TeO` and `77Se + ¹⁶O → 93SeO`. A field
+named "Isotopes" invites a curator to prune exactly the members that `Dwell Time per Mass` and
+`Interference Correction Method` are keyed by, breaking Rule 7.4a. Not cosmetic.
+
+`Masses` was chosen over `Species` — the author's first suggestion — because conventions.md defines
+Analyte as *"the chemical species a measurement is performed on"*, so reusing "species" for the
+channel side would blur the analyte/channel line the 2026-08-12 decision record settled. `Masses`
+also pairs with the channel-keyed `Dwell Time per Mass`. The registered key divergence is preserved:
+`analyte` in the two LA-MC TAPPs, `defines: channel per analyte` in the other six.
+
+**2. `Reaction Product Ion / Mass-Shift Transition` added to the 3 Q TAPPs**, keyed `channel`,
+C=Advanced / D=Read-Only. `Monitored Masses` records the mass measured; this records the chemistry
+that produced it — precursor, reagent gas, product. Without it a consumer cannot tell which analyte a
+shifted mass reports. Not provisioned into the SF or MC TAPPs: no instances (Rule 6.10).
+
+**3. `Collision/Reaction Cell (CRC) Configuration` re-keyed `(none)` → `channel` (6 TAPPs).**
+Gil-Diaz uses two cell modes for two isotopes of the *same element* in one study — *"126Te measured
+in KED-mode (He)"* against ¹²⁵Te in mass-shift O₂ mode. A scalar Controlled list cannot express that.
+Rule 7.11 G3 decides it: declare the finest key unconditionally, because *"a consumer given `(none)`
+cannot hold per-channel values at all"*. This also corrects the vocabulary harmonised on 2026-08-14,
+which had assumed one cell mode per procedure.
+
+**Declined, each a single instance (Rule 6.10).** Wu's ~14 Q1/Q3/CR lens voltages — `ICP Tuning`
+holds the approach; the He/NH₃ gas mixture, which Wu describes as an experiment *"to test the effect
+of mixture composition on reaction efficiency"* rather than the production procedure; and the
+p_Lu/p_Yb reaction rates, which `Interference Correction Method` already covers by asking for *"the
+production rate factor"*.
+
+**Literature cells for the new field are `N`, not `N/A`.** Inferring "no mass shift" from a stated STD
+or KED value is the step the Inference Rule forbids: *"If a value is logically implied by other stated
+values but not written explicitly, record N."*
+
+---
+
+## Cell-gas mixture field, and the cross-TAPP consistency audit that came with it (2026-08-17)
+
+**`Collision/Reaction Gas Mixture Ratio` added** to LA-Q, LA-Q_UPb and Solution Q. Declined on
+2026-08-17 as a single instance; the TQ round supplied a second, and a production one:
+
+> Wu et al. 2023 — *"the commonly used 1:9 NH₃–He mixture"*, and high-purity He pre-mixed with NH₃
+> before the cell to test mixture composition (an experiment).
+> Gil-Diaz et al. 2020, XSeries 2 — *"collision cell with He:H₂ mixture at 92% : 8% to minimise
+> ⁴⁰Ar³⁷Cl interferences"* (the production procedure).
+
+`Collision Gas Type` already offered `He+H2`, so the mixture **identity** had a home and the
+**proportions** did not. Same three TAPPs as `Reaction Product Ion / Mass-Shift Transition`, on the
+same reasoning: attested in LA-Q and Solution Q, U-Pb variant follows its parent, nothing provisioned
+into MC or SF.
+
+### The audit found four defects, three of them older than this session
+
+Every field touched during the TQ work was compared across all TAPPs holding it, on Columns C, D, E
+and I. **Column E is a definition column and divergence in it is a defect; Column F is
+consumer-owned and legitimately varies.**
+
+| Field | Was | Now |
+|---|---|---|
+| `Collision Gas Type` | `Text (free)` in 4 LA, `Controlled list` in 2 Solution | `Controlled list / Text` ×6 |
+| `Reaction Gas Type` | same split, plus unicode subscripts (NH₃, O₂, CH₄) against ASCII | `Controlled list / Text` ×6, ASCII adopted |
+| `Dwell Time per Mass` | `Text (free)` in 4 LA, `Numeric (ms) / Text` in 2 Solution | `Numeric (ms) / Text` ×6 |
+| `Collision Gas Type`, `Reaction Gas Type` | `Keyed By = (none)` | `channel` |
+
+**The re-key of 2026-08-17 was incomplete, and the TAPP already contained the proof.** `CRC
+Configuration` was re-keyed to `channel` on the strength of Gil-Diaz running two cell modes for two
+isotopes of one element — but the gases that *define* the mode were left scalar. The extraction
+written into Solution Q the same day reads `Collision Gas Type = "He for KED; O2 for the mass-shift
+mode"`: a per-channel value in a `(none)`-keyed field. **When a key changes, re-key the block, not the
+field** — the fields that co-vary with it are where the inconsistency hides.
+
+**Deliberately not re-keyed:** `Collision Gas Flow Rate`, `Reaction Gas Flow Rate`, `Cell Exit
+Discrimination Voltage`. They co-vary with cell mode by physics, but no paper in the corpus states
+them per channel, and Rule 7.12 decides on what is attested in reported data rather than on what is
+physically possible. Flagged rather than assumed — the same discipline that kept `Beam Current` at
+`sampling unit` and moved LA `Detection Limit` off it.
+
+**Confirmed uniform, recorded so it is not re-checked:** `ICP Tuning`, `Instrument Warm-up / Session
+Duration Limit`, `Instrument Sensitivity`, `Ion Counter Dead Time`, `Reaction Product Ion /
+Mass-Shift Transition`, `CRC Configuration`, `ICP-MS Type`, `Sensitivity as Useful Yield`,
+`Make-up Gas Flow Rate`, `Plasma / Make-up Gas Addition`, and both gas flow-rate fields — each
+identical in C, D, E and I across every TAPP holding it. The one surviving divergence is
+`Monitored Masses` (`analyte` in the two LA-MC TAPPs against `defines: channel per analyte`
+elsewhere), which is the registered `KEYED_BY_TECHNIQUE_DEPENDENT` entry and correct.
+
+### Still open — two concepts carrying two names each
+
+Not divergence *within* a field, so the audit above passes them, but they are the same cross-TAPP
+naming problem one level up, and both were surfaced earlier in the session:
+
+- `Instrument Sensitivity` (3 Solution TAPPs, `Numeric + unit / Text`, keyed `channel`) against
+  `Sensitivity as Useful Yield` (6 LA TAPPs, `Numeric (%)`, keyed `analyte`). Deliberate as of
+  2026-08-14 — the quantities genuinely differ — but they will have to be reconciled if an ICP-MS
+  module ever owns either.
+- `Make-up Gas Flow Rate` (3 Solution) against `Plasma / Make-up Gas Addition` (6 LA). Flagged
+  2026-08-14 as needing reconciliation, still unreconciled.
+
+---
+
+## `Make-up Gas Flow Rate` and `Plasma / Make-up Gas Addition` reconciled (2026-08-17)
+
+One field under two names since the LA and Solution lineages were built separately. Now
+**`Make-up Gas and Flow Rate`**, uniform across all 9 ICP-MS TAPPs
+(C=Advanced, D=Editable, E=`Numeric (L/min) / Text`, Keyed By `(none)`).
+
+**The extractions settled it, not the descriptions.** After the 2026-08-14 broadening the two Column
+B texts read similarly, which is suggestive but not decisive — descriptions can converge while fields
+still hold different things. The literature columns are the harder evidence, and every filled cell on
+both sides records the same two quantities: the argon make-up flow, and the presence or explicit
+absence of a small sensitivity-enhancement addition.
+
+> LA: *"Ar make-up: 0.9–1.2 l min⁻¹; Ar auxiliary: 0.6–1.2 l min⁻¹"* · *"Ar make-up: 0.81–0.99 l min⁻¹
+> (mapping); N₂ explicitly not added"* · *"N₂ or Ar mixed into He carrier for sensitivity optimization"*
+> Solution: *"0.25 L/min supplementary Ar for PFA micronebulizer"* · *"None — the Apex Ω was run 'with
+> no auxiliary N₂ flow'"*
+
+**Generalise: to test whether two fields are one, compare what has been extracted into them, not what
+their descriptions say.** A description states intent; an extraction states what curators actually put
+there. Where the two disagree, the extractions are the fact.
+
+**Why neither incumbent name survived.**
+- `Plasma / Make-up Gas Addition` collided with `Coolant (Plasma) Gas Flow Rate` in the same TAPP —
+  two fields whose names both open by invoking the plasma, only one of which is a plasma gas.
+- `Make-up Gas Flow Rate` said only "Flow Rate" while the field demonstrably holds the gas identity
+  too (*"0.25 L/min supplementary Ar"*).
+- `Make-up Gas and Flow Rate` matches `Carrier Gas and Flow Rate`, its nearest sibling in the same gas
+  block and the library's established form for a field carrying gas identity together with flow.
+
+**Column E** took the Solution form, `Numeric (L/min) / Text`, over the LA bare `Text (free)`: the
+compound keeps the unit while still admitting the multi-part answers the extractions contain. C, D and
+Keyed By already agreed on both sides. Column F was left per TAPP — consumer-owned, and each
+lineage's examples are already right for its technique.
+
+Both old names are in `RETIRED_FIELDS`. The documents naming them are all dated records — the
+2026-08-14 report and MC extraction notes, the development log, and earlier entries in this file —
+which are correct as written at their date and were not rewritten.
+
+---
+
+## `Sensitivity as Useful Yield` merged into `Instrument Sensitivity` (2026-08-17)
+
+Now one field across all 9 ICP-MS TAPPs: C=N/A, D=Advanced, E=`Numeric + unit / Text`,
+Keyed By `channel`. 13 extraction cells carried across.
+
+**This case was closer than the make-up gas one, and for a reason worth recording: the two fields held
+physically different quantities.** Useful yield is a dimensionless efficiency — the percentage of
+sampled atoms detected as ions. Sensitivity is signal per unit concentration or mass. Neither converts
+into the other without knowing how much material was consumed, which is precisely why Horstwood et al.
+2016 recommend useful yield for laser ablation: cps/ppb is not comparable between laboratories when
+spot size, fluence and repetition rate differ. Merging fields that are *not* synonyms needs a stronger
+argument than "they answer the same question", and the evidence supplied one.
+
+| | attestation |
+|---|---|
+| signal per unit concentration or mass | **13** filled cells across the 3 Solution TAPPs — 572 V/ppm total Zr (Ibáñez-Mejía); ~50 V for a 1 µg/ml Os solution (Nowell); ~2.5 × 10⁶ cps/ppb on ¹¹⁵In (Misra); per-isotope counts pg⁻¹ ml (Makishima) |
+| useful yield | **0** filled cells in 28 LA literature columns, and 0 in the Horstwood comparison TAPP that originated the field. An anchored scan of all 28 PDFs in the LA folders finds it reported **once**: Masuda et al. 2024, *"the achieved useful yield of analytes is about 0.1%"* |
+
+Tang et al. 2014's *"ion yields (cps/spot diameter squared)"* and Chernonozhkin et al. 2024's
+*"ablation yield"* were checked and are different quantities; they do not count as instances.
+
+**The finding underneath the numbers: the LA field encoded a community recommendation, not observed
+practice.** It entered the library from Horstwood et al. 2016 via the Horstwood comparison TAPP —
+whose own copy of the field also has zero literature cells — and practice has followed it once in the
+whole corpus. That is the argument for *merging* rather than *retiring*: the recommendation is worth
+keeping, but it does not need a field of its own to survive. It now lives in the merged Column B,
+which states both expressions and keeps Horstwood's reason for preferring useful yield where material
+consumption varies, and in the LA Column F examples.
+
+**Key changed `analyte` -> `channel`**, taking the Solution form. Sensitivity is reported per isotope
+(Makishima tabulates it per isotope; Misra quotes it on ¹¹⁵In), and Rule 7.2's test settles it —
+substituting a different isotope of the same element changes the number, because it depends on
+isotopic abundance. Checked before applying: every LA TAPP retains 2–3 other `analyte` consumers, so
+the `Analyte` definer is not orphaned under 7.4c, and all six define `channel` (via `Monitored Masses`
+in the Q and SF variants, `Collector Configuration` in the MC ones) so 7.4a holds.
+
+**Column E** took `Numeric + unit / Text` over `Numeric (%)`: the compound holds both expressions,
+whereas the LA type could hold only the one nobody reports.
+
+### Still open — candidates from a crude name-overlap scan, not yet examined
+
+Both Solution/LA name splits are now closed. A word-overlap scan over fields with disjoint ICP-MS
+footprints throws up 18 pairs, most of them false positives sharing only generic words. Two look like
+the same lineage-split pattern and are worth a look when convenient — **their descriptions and
+extractions have not been compared, so these are candidates, not findings**:
+
+- `Between-Session (Long-Term) Analytical Precision and Assessment Method` (Q/SF) against
+  `Between-Session Reproducibility and Assessment Method` (MC); likewise
+  `Within-Session Analytical Precision and Assessment Method` against
+  `In-Run Isotope Ratio Reproducibility and Assessment Method`.
+- `Number of Replicates` (LA) against `Number of Replicates per Sample` (Solution Q/SF).
+
+Apply the same test that settled the two closed cases: compare what has been extracted into them.
+
+---
+
+## Precision/reproducibility pair and `Number of Replicates` reconciled (2026-08-17)
+
+Four fields became two, and a tier divergence closed. Solution MC alone had used "Reproducibility"
+where the other eight ICP-MS TAPPs use "Analytical Precision":
+
+| retired | survives | footprint |
+|---|---|---|
+| `In-Run Isotope Ratio Reproducibility and Assessment Method` | `Within-Session Analytical Precision and Assessment Method` | 8 → **9** |
+| `Between-Session Reproducibility and Assessment Method` | `Between-Session (Long-Term) Analytical Precision and Assessment Method` | 8 → **9** |
+| `Number of Replicates per Sample` | `Number of Replicates` | 6 → **8** |
+
+**The definitions already agreed** — the MC "In-Run" field read *"Reproducibility of isotope ratio or
+δ-value measurements **within a single analytical session** … on **replicate analyses** of an isotopic
+standard … run as an unknown **during the session**"*, which is `Within-Session Analytical Precision`
+in substance. The surviving names are also the metrologically correct ones: this library is
+VIM3-aligned, and VIM3 reserves *reproducibility* for different-laboratory conditions, while
+within-lab across-session work is *intermediate precision* — the term the surviving Between-Session
+description already uses.
+
+### The finding: a field name was silently corrupting its own extractions
+
+**"In-Run" reads as within one measurement, and two of the three extractions in that field recorded
+exactly that instead of what the definition asked for.**
+
+> Nowell ×2 — *"Within-run errors quoted as 2SE of the mean, 2SE = 2SD/n^0.5 with n = 45"* — the
+> internal precision of a single measurement, over its cycles. The paper does give the within-session
+> quantity, in the adjacent sentence: *"the uncertainties for the short-term reproducibility of
+> standards analysed in a single analytical session … are quoted as 2 standard deviations (2SD)"*.
+> Ibáñez-Mejía — *"Internal uncertainty determined from counting statistics"* — also internal; its
+> within-session quantity is the external reproducibility at 2σ of the spiked ZrNIST from each run.
+
+All three cells were corrected from the papers, which had been read in full earlier in the session.
+**Generalise: when a field name and its description disagree, the extractions follow the name.** A
+curator reads Column A far more often than Column B, so a misleading name does not merely look untidy
+— it produces wrong data, and the wrongness is invisible because every cell is plausibly filled.
+
+### Tier divergence on `Number of Replicates`, and why neither side was wrong
+
+C=N/A, D=Basic in LA against C=Basic, D=Read-Only in Solution — and each was honest about its own
+lineage. The LA extractions read *"variable; 12–30 analyses per mineral phase"* and *"variable per
+run"*; the Solution ones read *"6 replicates (Table 1)"* and *"3 runs (Table 3)"*, straight out of a
+method table. Reconciled to **C=Advanced, D=Basic**: a procedure registers an intended count where it
+has one, and the analysis records what was actually acquired. C=Basic would force LA procedures to
+declare a number they cannot know; D=Read-Only would stop an analyst recording what was actually run.
+The bare name survives because *"per Sample"* is wrong for spatially resolved work, where replicates
+are per grain or per location — as the LA description already said.
+
+### Still open — same defect class, outside the scope asked for
+
+`Mass Cycles per Replicate` (Solution Q) and `Number of Scans per Replicate` (Solution SF) carry
+near-identical descriptions — *"Number of complete mass scans (sweeps) accumulated per analytical
+replicate"* against *"Number of complete mass scans accumulated per analytical replicate"* — and are
+plainly one field. One TAPP each; a two-line rename whenever wanted.
+
+**Internal precision has no field anywhere in the library.** It is well attested — Nowell (2SE over
+45 and 50 cycles), Ibáñez-Mejía (counting statistics), Desem (*"internal precision (2se) of
+±0.001–0.002"*), Misra — and it is currently being written into the within-session field for want of
+anywhere else, which is what made the "In-Run" mis-extractions so easy to miss. Three levels exist in
+isotope work (internal within one measurement, within-session across analyses, between-session), the
+library has fields for two of them, and the gap is real.
+
+---
+
+## `Internal (Within-Measurement) Analytical Precision and Assessment Method` added (2026-08-17)
+
+Added to all 9 ICP-MS TAPPs — C=Advanced, D=Basic, `Text (free)`, keyed
+`sample > sampling unit x reported property` — closing the gap found while reconciling the
+precision pair. Group 6 now reads as a ladder in every ICP-MS TAPP:
+
+> **Internal** (within one measurement) → **Within-Session** (across analyses in a session) →
+> **Between-Session** (across sessions)
+
+**Why the gap mattered more than an ordinary missing field.** Level 1 was already being written into
+the within-session field for want of anywhere else, which is exactly what made the 2026-08-17 "In-Run"
+mis-extractions invisible: the cells were plausibly filled with a real, carefully extracted number
+that answered a different question. A missing field does not leave a hole — it displaces data into
+the nearest field that will take it.
+
+Attested across both lineages and all three analyser families: Nowell 2008 (*"2SE = 2SD/n^0.5; where
+n=45 for the Neptune analyses and n=50 for the Nu Plasma"*), Ibáñez-Mejía & Tissot 2020 (counting
+statistics), Desem 2022 (*"typical internal precision (2se) of ±0.001–0.002 for 206Pb/204Pb"*),
+Wu 2023 (*"uncertainties (2SE) of single-spot ages were ~2.6%"*), LA-MC (*"SE at 95% confidence per
+individual run"*). Five cells were filled on insertion from papers already read.
+
+### Rule 6.1 condition 2 — the close call, recorded because it nearly went the other way
+
+`Counting Statistics Error` already exists in EPMA, SEM and SEM_Composition: *"1-sigma uncertainty
+propagated from counting statistics on peak and background intensities, for each reported
+concentration variable per analysis."* Same **level** — one measurement — but a different
+**quantity**: it is the uncertainty *predicted* from counts, where ICP-MS internal precision is
+usually the *observed* scatter of the cycles making up the measurement.
+
+The decisive evidence is that Ibáñez-Mejía quotes **both, in one sentence, and compares them** —
+the external reproducibility was *"similar in magnitude or slightly larger than the internal
+uncertainty determined from counting statistics"*. Two quantities a paper places side by side cannot
+share one field.
+
+**The description draws that boundary without naming `Counting Statistics Error`**, because that
+field is not present in any ICP-MS TAPP and a cross-reference to a field the reader does not have is
+its own defect. It says instead: *"Distinct from an uncertainty predicted from counting statistics,
+which some procedures quote alongside it for comparison."*
+
+**Key** matches `Counting Statistics Error` exactly — `sample > sampling unit x reported property`.
+The same quantity shape deserves the same key, and this is the second field in the library to use
+Rule 7.3's containment-then-cross-product form: within each sample, for each analysis, one precision
+per reported quantity. Rule 7.4a holds in all 9, since `Sample Name`, `Sampling Unit` and
+`Reported Variables and Units` are mandatory everywhere under Rules 13, 9 and 8.
+
+**Tiers** C=Advanced, D=Basic, matching `Between-Session (Long-Term)`. C=Basic would force every
+ICP-MS procedure to declare an internal precision, including trace-element work that never separates
+it from the reported uncertainty.
+
+**Open, and now visible:** `Counting Statistics Error` is attested in Solution MC (Ibáñez-Mejía) but
+exists only in the three electron-beam TAPPs. Extending it to the ICP-MS TAPPs is the natural
+companion to this addition and was deliberately not bundled with it.
+
+---
+
+## `Counting Statistics Error` extended to the ICP-MS TAPPs (2026-08-17)
+
+Now in **12 TAPPs** — the 3 electron-beam ones it started in, plus all 9 ICP-MS — uniform at
+C=Advanced, D=Basic, `Text (free)`, keyed `sample > sampling unit x reported property`. Group 6 in
+every ICP-MS TAPP now reads:
+
+> **Counting Statistics Error** (predicted from the counts) → **Internal** (observed within one
+> measurement) → **Within-Session** → **Between-Session**
+
+**Attested in 6 of 37 extracted ICP-MS papers, and two of them report the predicted and observed
+values side by side** — which is what justifies two fields rather than one:
+
+> Mittlefehldt et al. 2024 — *"theoretical 1σ analytical precision (counting statistics plus
+> propagation of uncertainties) on the Fe/Mn ratio of pallasite olivine of ~0.6%; standard deviations
+> for each meteorite calculated from the analyses range from 0.6 to 4.0%"*
+> Barnes et al. 2025 — *"quadratic combination of internal counting statistics from the sample
+> measurement and external precision from standard replicates"*
+
+0.6% predicted against 0.6–4.0% observed, in one sentence. No single field holds that, and the
+comparison is itself the information: agreement means the measurement is shot-noise limited, and a
+larger observed scatter points to a further source of variance. The harmonised description now says
+exactly that, so the reason the two fields coexist is visible at the point of use.
+
+**Description harmonised across all 12.** The incumbent text was electron-beam specific — *"propagated
+from counting statistics on peak and background intensities"* — and would have been simply wrong in an
+ICP-MS TAPP. Leaving the ICP-MS copies different would have created a fresh Rule 7.8.9 divergence, so
+one technique-neutral text now covers both: counts on the analyte together with any background or
+blank subtracted from it.
+
+### Cross-references were made to run one way only, deliberately
+
+`Counting Statistics Error` exists in 12 TAPPs; `Internal (Within-Measurement) Analytical Precision`
+exists in 9. So:
+
+- the **`Counting Statistics Error`** description states the boundary **without naming** the
+  internal-precision field, because three of its holders do not have that field;
+- the **internal-precision** description, which lives only where both fields are present, **does name
+  `Counting Statistics Error`** explicitly.
+
+**Generalise: a cross-reference is safe only in the direction of the smaller footprint.** Naming a
+field the reader may not have is the same defect as a stale reference — the linter cannot catch it,
+because nothing is wrong with the file, only with what it tells the reader to look for.
+
+**Placement is adjacent, on purpose.** The instinct after the "In-Run" mis-extraction was to keep
+similar fields apart; the opposite is right. Separation is what let internal precision be written into
+the within-session field unnoticed. Two closely related fields sitting next to each other, each naming
+what the other holds, is what makes a curator choose correctly.
+
+---
+
+## `Mass Cycles per Replicate` merged into `Number of Scans per Replicate` (2026-08-17)
+
+The last of the split-name pairs, and the simplest: identical C=Basic, D=Read-Only, E=Integer,
+Keyed By `(none)`, and descriptions differing by one parenthesis — *"Number of complete mass scans
+(sweeps) accumulated per analytical replicate"* against *"Number of complete mass scans accumulated
+per analytical replicate"*. Extractions matched in shape on both sides (*"250 sweeps per replicate"*,
+*"48 scans per 30 s acquisition"*, *"2000 sweeps per set × 30 sets"*, *"LR: 15 passes × 3 runs"*).
+7 cells preserved; now uniform across Solution Q and SF.
+
+**The name was not a coin toss, despite one TAPP each.** "Cycle" already means something specific in
+this library, and the difference is physical: `Number of Cycles per Block` defines a cycle as *"a
+single set of **simultaneous** Faraday cup readings"*, whereas a scan is a **sequential** traversal of
+the monitored masses. Simultaneous multi-collection and sequential scanning are different acquisition
+physics, so reserving *cycle* for one and *scan* for the other preserves a real distinction — keeping
+"Mass Cycles" would have blurred it. The surviving name also matches the library's established
+`Number of X per Y` form.
+
+**No cross-reference between the two**, because their footprints are **disjoint** — Solution Q/SF
+against the three MC TAPPs. Naming either in the other's description would point every reader at a
+field they do not have. This is the same rule recorded earlier today, in its strictest case: where
+footprints are disjoint the reference is unsafe in *both* directions, so the boundary is stated
+generically instead — *"distinct from a cycle in simultaneous multi-collection"*.
+
+Not extended to the LA TAPPs: no LA paper in the corpus states a scan count, and laser ablation
+acquires a continuous transient where the equivalent information sits in `Ablation Duration per Spot`
+and `Total Integration Time per Output Data Point`.
+
+### All flagged split-name pairs are now closed
+
+`Make-up Gas` · `Instrument Sensitivity` · the precision/reproducibility pair · `Number of Replicates`
+· `Number of Scans per Replicate`. The word-overlap scan's remaining candidates were checked and are
+genuinely distinct fields sharing generic words.

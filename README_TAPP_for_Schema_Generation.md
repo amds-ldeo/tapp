@@ -45,24 +45,28 @@ the samples measured under it.
 16 TAPPs, one per technique or technique variant. **The CSV is the source of truth**; the xlsx is a
 generated artifact (colour-coded, with a Legends sheet) and should not be parsed for content.
 
-| TAPP | Modules composed | ReportingCore blocks |
-|---|---|---|
-| `EPMA/EPMA_TAPP_v*.csv` | Group1, ReportingCore | `all` |
-| `LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v*.csv` | Group1, LaserAblation, MCICPMS, ReportingCore | `all` |
-| `LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v*.csv` | Group1, LaserAblation, MCICPMS, ReportingCore, Geochronology, UPb | `all` |
-| `SEM/SEM_Composition_TAPP_v*.csv` | Group1, ReportingCore | `all` |
-| `SEM/SEM_FIBSEM_TAPP_v*.csv` | Group1, ReportingCore | `target_selection` |
-| `SEM/SEM_Imaging_TAPP_v*.csv` | Group1, ReportingCore | `target_selection` |
-| `SEM/SEM_TAPP_v*.csv` | Group1, ReportingCore | `all` |
-| `Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v*.csv` | Group1, MCICPMS, ReportingCore, SolutionIntroduction | `calibration_factor,blank,aggregation,aggregation_qc` |
-| `Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v*.csv` | Group1, ReportingCore, SolutionIntroduction | `calibration_factor,blank,aggregation,aggregation_qc` |
-| `Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v*.csv` | Group1, ReportingCore, SolutionIntroduction | `calibration_factor,blank,aggregation,aggregation_qc` |
-| `TEM/TEM_TAPP_v*.csv` | Group1, ReportingCore | `target_selection,calibration_factor,aggregation,aggregation_qc` |
-| `XCT/Lab-XCT_TAPP_v*.csv` | Group1, ReportingCore | `target_selection,calibration_factor` |
-| `LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v*.csv` | Group1, LaserAblation, ReportingCore | `all` |
-| `LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v*.csv` | Group1, LaserAblation, ReportingCore, Geochronology, UPb | `all` |
-| `LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v*.csv` | Group1, LaserAblation, ReportingCore | `all` |
-| `LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v*.csv` | Group1, LaserAblation, ReportingCore, Geochronology, UPb | `all` |
+| TAPP | Modules composed |
+|---|---|
+| `EPMA/EPMA_TAPP_v*.csv` | Core, TargetSelection, CalibrationFactor, Blank, Aggregation |
+| `LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v*.csv` | Core, LaserAblation, MCICPMS, TargetSelection, CalibrationFactor, Blank, Aggregation |
+| `LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v*.csv` | Core, LaserAblation, MCICPMS, TargetSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb |
+| `SEM/SEM_Composition_TAPP_v*.csv` | Core, TargetSelection, CalibrationFactor, Blank, Aggregation |
+| `SEM/SEM_FIBSEM_TAPP_v*.csv` | Core, TargetSelection |
+| `SEM/SEM_Imaging_TAPP_v*.csv` | Core, TargetSelection |
+| `SEM/SEM_TAPP_v*.csv` | Core, TargetSelection, CalibrationFactor, Blank, Aggregation |
+| `Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v*.csv` | Core, MCICPMS, CalibrationFactor, Blank, Aggregation, SolutionIntroduction |
+| `Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v*.csv` | Core, CalibrationFactor, Blank, Aggregation, SolutionIntroduction |
+| `Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v*.csv` | Core, CalibrationFactor, Blank, Aggregation, SolutionIntroduction |
+| `TEM/TEM_TAPP_v*.csv` | Core, TargetSelection, CalibrationFactor, Aggregation |
+| `XCT/Lab-XCT_TAPP_v*.csv` | Core, TargetSelection, CalibrationFactor |
+| `LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v*.csv` | Core, LaserAblation, TargetSelection, CalibrationFactor, Blank, Aggregation |
+| `LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v*.csv` | Core, LaserAblation, TargetSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb |
+| `LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v*.csv` | Core, LaserAblation, TargetSelection, CalibrationFactor, Blank, Aggregation |
+| `LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v*.csv` | Core, LaserAblation, TargetSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb |
+
+**No module is conditional any more.** Every module listed above is all-or-nothing: a TAPP
+composes it or does not, and if it does, it holds every one of that module's fields. The former
+`ReportingCore blocks` column is gone — see §9.
 
 **Version numbers move.** Always resolve the current file with `ls`/`find` or by reading
 `composed_tapps.json`, which is the machine-readable registry of which TAPPs exist and which modules each
@@ -104,24 +108,36 @@ column will break on those three.
 
 ### 3.1 Column G — what the Comments column now holds
 
-Column G was cleared library-wide on 2026-08-11: mode applicability moved to the mode-flag columns,
-cardinality to Column I, and conditional rules into Column B. It is **blank on every row except 27**.
+Column G was cleared library-wide on 2026-08-11 (mode applicability moved to the mode-flag columns,
+cardinality to Column I, conditional rules into Column B) and then **repopulated on 2026-08-14 with
+field-provenance labels**. It now carries a label on **767 of 1706 content rows — 45% of the library**.
+If you read an earlier drop, this column was almost blank; that is no longer true.
 
-Those 27 are **field-provenance labels** in the three U-Pb variants, written automatically by
-composition (`source_comment` in the module manifest):
+Every field supplied by a module names that module, written automatically by composition
+(`source_comment` in the module manifest) — `Source: Core module`, `Source: Laser Ablation module`,
+`Source: Calibration Factor module`, and so on for all 12.
 
-| Label | Rows per variant | Meaning |
-|---|---|---|
-| `Source: Geochronology module` | 6 | field came from the shared Geochronology module |
-| `Source: U-Pb module` | 3 | field came from the U-Pb system module |
+**Three rules make this readable:**
 
-**Documentation only.** `validate_tapp.py` does not read it, it carries no structural meaning, and it is
+1. **The label names the module that OWNS the field, not one that overlays it.** In a U-Pb variant,
+   `Age Calculation Method` reads `Source: Geochronology module` even though `Module_UPb` supplied its
+   U-Pb-specific Column F examples. A Layer 3 module's label appears only on fields it *inserts* —
+   `Discordance Definition and Values` reads `Source: U-Pb module`.
+2. **A blank Column G now means the field belongs to no module** — it is native to that TAPP.
+   `Monitored Masses` is an example. Blank is information, not absence of information.
+3. **A consumer's own comment always wins.** Composition only ever fills an *empty* Column G cell, so
+   any annotation a TAPP author wrote survives every recomposition.
+
+Together these let you answer, for any row, where its definition came from and therefore where a
+change to it must be made — which is the round-tripping question in §9.
+
+**Still documentation only.** `validate_tapp.py` does not read it, it carries no structural meaning, and it is
 **not schema content** — exclude it, or map it to a `$comment` if you want provenance visible in the
 output. It says nothing about type, requiredness or cardinality.
 
 One caveat if you use it to reason about provenance: it marks fields the geochronology modules
 *contribute*, not everything U-Pb-specific. `Module_UPb` also overlays U-Pb-specific *examples* (Column F)
-onto six general `ReportingCore` fields — `Calibration Factor and Determination Method`,
+onto six general fields it does not own — `Calibration Factor and Determination Method`,
 `Procedural Blank Level`, `Analysis Inclusion and Rejection Criteria`,
 `Goodness-of-Fit or Dispersion Statistic`, `Target Selection Criteria`,
 `Pre-Analysis Imaging and Screening` — and those stay unlabelled, because the *field* is general even
@@ -205,10 +221,10 @@ the file was written.
   declarative purpose and may have no consumers.
 - A field name normally carries the same `Keyed By` in every TAPP. Five are technique-dependent by
   design: `Detection Limit`, `Primary Calibration Standard Name`, `Dwell Time per Pixel`,
-  `Beam Current`, `Monitored Isotopes`. Do not assume one global mapping of field name → key.
+  `Beam Current`, `Monitored Masses`. Do not assume one global mapping of field name → key.
 - **Where a TAPP declares both an analyte domain and a channel domain, the field that defines the
   channel carries the binding** as `defines: channel per analyte`. All 13 such TAPPs do, since
-  2026-08-12. The defining field differs by technique: `Monitored Isotopes` (single-collector ICP-MS),
+  2026-08-12. The defining field differs by technique: `Monitored Masses` (single-collector ICP-MS),
   `Collector Configuration` (multicollector), `WDS Spectrometer Channel` (electron beam),
   `EELS Edges` (TEM).
 - **That parent key is optional per row — model it nullable, never `NOT NULL`.** `per B` means "where
@@ -231,11 +247,12 @@ From the LA-SF-ICP-MS U-Pb TAPP (resolve the current version via `composed_tapps
 | `Sample Name` | `defines: sample` |
 | `Sample Persistent Identifier` | `sample` |
 | `Analyte` | `defines: analyte` |
-| `Monitored Isotopes` | `defines: channel per analyte` |
+| `Monitored Masses` | `defines: channel per analyte` |
 | `Dwell Time per Mass` | `channel` |
 | `Reported Variables and Units` | `defines: reported property` |
 | `Analytical Accuracy and Assessment Method` | `standard x reported property` |
 | `Discordance Definition and Values` | `pair: reported property` |
+| `Counting Statistics Error` | `sample > sampling unit x reported property` |
 
 ```jsonc
 {
@@ -268,6 +285,19 @@ From the LA-SF-ICP-MS U-Pb TAPP (resolve the current version via `composed_tapps
   "discordance": [
     { "between": ["206Pb/238U date", "207Pb/206Pb date"],
       "definition": "100 × (1 − [206Pb/238U date] / [207Pb/206Pb date])" }
+  ],
+
+  // sample > sampling unit x reported property — the only three-level form in the library.
+  // Read outer-to-inner: within each sample, for each analysis, one value per reported property.
+  // `>` is containment (a spot exists only within its sample); `x` is a cross-product.
+  "countingStatisticsError": [
+    { "sample": "Z-114",
+      "bySamplingUnit": [
+        { "samplingUnit": "spot-01",
+          "byReportedProperty": [
+            { "reportedProperty": "206Pb/238U date", "value": "±1.2 Ma (1σ)" }
+          ] }
+      ] }
   ]
 }
 ```
@@ -407,15 +437,31 @@ several TAPPs is not a coincidence — it is one definition, guaranteed identica
 | Module | Fields | Consumers | Layer |
 |---|---|---|---|
 | `ArAr` | 16 | 0 (built, unconsumed) | 3 |
+| `Core` (Universal TAPP Core) | 30 | 16 | 2 |
 | `Geochronology` | 6 | 3 | 2 |
-| `Group1` (Procedure Identification) | 18 | 16 | 2 |
 | `LaserAblation` | 18 | 6 | 2 |
 | `MCICPMS` | 15 | 3 | 2 |
-| `ReportingCore` | 6 | 16 | 2 |
 | `SolutionIntroduction` | 16 | 3 | 2 |
+| `TargetSelection` | 2 | 13 | 2 |
+| `CalibrationFactor` | 1 | 14 | 2 |
+| `Blank` | 1 | 12 | 2 |
+| `Aggregation` | 2 | 13 | 2 |
 | `UPb` | 15 | 3 | 3 |
 
-**Generate one `$def` per module and `$ref` it**, rather than emitting 16 copies of the 18 Group1 fields.
+**`Group1` no longer exists.** It was retired on 2026-08-14 into **`Core`**, which holds its 18
+procedure-identification fields plus the 10 fields present in all 16 TAPPs that previously belonged to
+no module — four in Group 2 (`Sample Name`, `Sample Persistent Identifier`, `Target Material`,
+`Sampling Unit`), two in Group 3 (`Acquisition Software`, `Data Processing Software(s)`), two in
+Group 4 (`Analytical Mode`, `Reported Variables and Units`), one in Group 5 (`Constants and Reference
+Values Used`) and one in Group 6 (`Additional Notes`). If you had a `Group1` `$def`, rename it and add
+those ten. The retired module files are in `Archive/Superseded Modules/`.
+
+`Core` is **unconditional and all-or-nothing**: every one of its 30 fields is present in every one of
+the 16 TAPPs. Its six blocks exist only because the fields insert into six different groups — they are
+always composed together, so it emits **one** `$def`, not six. The same is true of every other module —
+see the note on `ReportingCore` below.
+
+**Generate one `$def` per module and `$ref` it**, rather than emitting 16 copies of the 28 Core fields.
 `composed_tapps.json` tells you which modules each TAPP consumes and at which version. The module CSVs
 have the same column layout as a TAPP but only columns A–F and I are meaningful — the module owns field
 name, description, tiers, data type and `Keyed By`; the consuming TAPP owns examples, comments, dates and
@@ -424,11 +470,29 @@ mode flags.
 Consequence for round-tripping: **a schema change to a shared field should be made once, at the module
 level.** Editing the same field in 16 places is what the module system exists to prevent.
 
-**`ReportingCore` is conditional.** Its six fields are not universal — each of its five blocks carries an
-`applies_when` condition, and each TAPP selects only the blocks that apply. The `ReportingCore blocks`
-column in §2 records what each one actually uses. Do not assume all six fields are present everywhere:
-`Procedural Blank Level` is absent from TEM and Lab-XCT (no analytical blank), and
-`Target Selection Criteria` is absent from the three Solution TAPPs (bulk techniques).
+**`ReportingCore` no longer exists — and with it, the last reason to complicate this.** It was the only
+conditional module: its six fields were not universal, its five blocks each carried an `applies_when`,
+and each TAPP selected only the blocks that applied. On 2026-08-14 it was **dissolved into four
+ordinary modules**, because its blocks had four *different* consumer footprints and were therefore four
+independent modules sharing one file:
+
+| new module | fields | consumers | applies when |
+|---|---|---|---|
+| `TargetSelection` | `Target Selection Criteria`, `Pre-Analysis Imaging and Screening` | 13 | the procedure analyses a selected part of a sample, not the bulk |
+| `CalibrationFactor` | `Calibration Factor and Determination Method` | 14 | the reported quantity depends on an externally calibrated factor |
+| `Blank` | `Procedural Blank Level` | 12 | the technique has a measurable analytical blank |
+| `Aggregation` | `Analysis Inclusion and Rejection Criteria`, `Goodness-of-Fit or Dispersion Statistic` | 13 | the procedure combines multiple analyses into one reported value |
+
+**Consequence for you: "one `$def` per module" is now true without exception**, and there is no block
+machinery to model. A TAPP either composes a module — and then holds *every* one of its fields — or does
+not. `composed_tapps.json` lists exactly which. The earlier advice to emit one `$def` per block applied
+only to `ReportingCore` and is now obsolete; if you keyed `$def` names on its block names, three of the
+four carry straight over (`target_selection` → `TargetSelection`, `calibration_factor` →
+`CalibrationFactor`, `blank` → `Blank`), and `aggregation` + `aggregation_qc` merge into `Aggregation`.
+
+The field-level facts are unchanged: `Procedural Blank Level` is still absent from TEM and Lab-XCT (no
+analytical blank), and `Target Selection Criteria` is still absent from the three Solution TAPPs (bulk
+techniques). What changed is that this is now expressed by which modules they compose.
 
 ---
 
@@ -455,7 +519,7 @@ express that this procedure was run alongside another. That is the mechanism for
 
 1. **Don't parse the xlsx.** It is generated from the CSV. Colour encodes the tier already present in
    Columns C/D, and the Legends sheet is documentation, not data.
-2. **Column G is almost empty, and what is there is provenance.** 27 rows in the three U-Pb variants carry `Source: Geochronology module` / `Source: U-Pb module`; every other row in all 16 TAPPs is blank. Documentation only — see §3.1.
+2. **Column G is now 45% populated, and all of it is provenance.** Since 2026-08-14 every module-supplied field names its module (`Source: <name> module`); 767 of 1706 rows. A blank cell means the field belongs to no module. Documentation only, not schema content — see §3.1.
 3. **Don't hard-code column indices past I.** Mode-block width varies 0–11; find `Literature Assessment`.
 4. **Three TAPPs have no mode columns at all.**
 5. **Match A–I by position, not header text** — Columns B and F have two spellings each.

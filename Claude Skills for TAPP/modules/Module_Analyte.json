@@ -1,0 +1,45 @@
+{
+    "module": "Analyte",
+    "title": "Analyte",
+    "layer": 2,
+    "version": "1",
+    "source_of_truth": "modules/Module_Analyte.csv",
+    "owned_columns": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "I"
+    ],
+    "overlay_columns": [
+        "F"
+    ],
+    "consumer_columns": [
+        "F",
+        "G",
+        "H"
+    ],
+    "mode_flag_default": "Y",
+    "source_comment": "Source: Analyte module",
+    "conditional": false,
+    "applies_when": "The procedure determines chemical composition. Omit for techniques that resolve no chemical species — imaging, tomography, sample preparation.",
+    "blocks": [
+        {
+            "name": "analyte",
+            "target_group": "4. Measurement Information",
+            "placement": "insert_before",
+            "anchor_field": "Reported Variables and Units",
+            "fields": [
+                "Analyte"
+            ]
+        }
+    ],
+    "sub_module_test": "Run 2026-08-14 under Rule 6.15. Footprint 13 consumers — every TAPP that determines a chemical composition. Prong 1 returned an IDENTICAL footprint against Module_Aggregation: the same 13 TAPPs, exactly. Prong 2 refused the merger. 'Which chemical species does this procedure determine' and 'which analyses contribute to the reported value' are not one subject, and a registrant hunting for the analyte list would not open a module about aggregation. The two conditions select the same TAPPs because determining a composition and aggregating analyses happen to co-occur across this library's techniques, not because they are one component — co-extension is not coherence. Core (16/16) cannot absorb it: Core is unconditional and Analyte is absent from Lab-XCT, SEM_FIBSEM and SEM_Imaging. No composition module is possible either — only three fields share this footprint and the other two are already Aggregation.",
+    "notes": "Single-field module, legitimate under Rule 6.10 as amended 2026-08-14: the threshold is ten placements (fields x consumers), and this is 13. Analyte previously belonged to no module, and was one of the seven near-universal fields the schema-generation work flagged as duplicated across the library.\n\nRule 7 is safe. In all 13 consumers Analyte is the sole `defines: analyte`; in the three TAPPs that omit it there is no definer AND no field keyed by `analyte`. The module's applicability condition and the Rule 7 invariant have the same footprint, so omitting the module can never strand a consumer with an undefined key.\n\nAnchored on `Reported Variables and Units` — a Core field, present in all 16 and in the same group, so the anchor cannot go missing in a future consumer.",
+    "decisions": [
+        "2026-08-14 v1. Field text taken unchanged from the library, which was verified uniform across all 13 holders first; composition is therefore a no-op and no consumer needs a version bump.",
+        "Compose AFTER Core: the block anchors on Reported Variables and Units, owned by Core.",
+        "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content."
+    ]
+}

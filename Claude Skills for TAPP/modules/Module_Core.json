@@ -1,0 +1,113 @@
+{
+    "module": "Core",
+    "title": "Universal TAPP Core",
+    "layer": 2,
+    "version": "2",
+    "source_of_truth": "modules/Module_Core.csv",
+    "owned_columns": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "I"
+    ],
+    "consumer_columns": [
+        "F",
+        "G",
+        "H"
+    ],
+    "mode_flag_default": "Y",
+    "source_comment": "Source: Core module",
+    "conditional": false,
+    "blocks": [
+        {
+            "name": "procedure_identification",
+            "target_group": "1. Procedure Identification",
+            "placement": "append_to_group",
+            "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
+            "fields": [
+                "Procedure Name",
+                "Technique",
+                "Procedure Author",
+                "Laboratory",
+                "Laboratory ID",
+                "Procedure Start Date",
+                "Funding Source for Procedure Development",
+                "Procedure Reference(s)",
+                "Procedure DOI",
+                "Session Identifier",
+                "Analyst",
+                "Analysis Start Date",
+                "Analysis End Date",
+                "Funding Source for Analysis",
+                "Coupled Technique(s)",
+                "Coupling Description",
+                "Coupled Procedure DOI",
+                "Coupled Dataset or Publication Reference"
+            ]
+        },
+        {
+            "name": "samples",
+            "target_group": "2. Samples",
+            "placement": "append_to_group",
+            "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
+            "fields": [
+                "Sample Name",
+                "Sample Persistent Identifier",
+                "Target Material",
+                "Sampling Unit"
+            ]
+        },
+        {
+            "name": "instrument_software",
+            "target_group": "3. Instrument & Software",
+            "placement": "append_to_group",
+            "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
+            "fields": [
+                "Instrument Manufacturer",
+                "Instrument Model",
+                "Acquisition Software",
+                "Data Processing Software(s)"
+            ]
+        },
+        {
+            "name": "measurement",
+            "target_group": "4. Measurement Information",
+            "placement": "append_to_group",
+            "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
+            "fields": [
+                "Analytical Mode",
+                "Reported Variables and Units"
+            ]
+        },
+        {
+            "name": "data_processing",
+            "target_group": "5. Data Processing",
+            "placement": "append_to_group",
+            "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
+            "fields": [
+                "Constants and Reference Values Used"
+            ]
+        },
+        {
+            "name": "quality_control",
+            "target_group": "6. Quality Control & Uncertainty",
+            "placement": "append_to_group",
+            "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
+            "fields": [
+                "Additional Notes"
+            ]
+        }
+    ],
+    "sub_module_test": "Run 2026-08-14 under Rule 6.15. Compared against all 7 existing modules. Footprint is 16/16 consumers — a strict superset of every other module (LaserAblation 6, MCICPMS 3, SolutionIntroduction 3, Geochronology 3, UPb 3, ArAr 0) and equal to ReportingCore's nominal 16, though ReportingCore is block-conditional and no consumer holds all six of its fields. Prong 1 nominated absorption of Group1, which is exactly what this module does — Group1 is retired into it. Prong 2 separated it from ReportingCore: 'what every registered procedure must carry' and 'selection, calibration and aggregation where they apply' are not one subject, and ReportingCore is being dissolved rather than merged. No other module was a candidate.",
+    "notes": "Retires and replaces Module_Group1. Holds every field present in all 16 TAPPs: Group 1's 18 procedure-identification fields plus the 10 universals that previously belonged to no module — four in Group 2, two in Group 3, two in Group 4, one in Group 5, one in Group 6. Seven of the 10 are mandated by an explicit universal rule (3, 5, 8, 9, 11, 13x2); the other three (Acquisition Software, Data Processing Software(s), Target Material) had no rule and were the worst-drifted fields in the library, at 8, 7 and 7 description variants respectively.\n\nMulti-block rather than replace_group. Group1 used replace_group, which rebuilds its target group from the module and is safe only because Group 1 is entirely module-owned. Groups 2-6 are mostly technique-specific, so replace_group there would drop every field this module does not define. The blocks path updates an existing field in place and inserts only what is genuinely absent, which for the current 16 consumers means composition is a pure column takeover with no reordering. Group 1 field order is no longer enforced by composition; it is enforced by validate_tapp.py (group1-order, group1-coupling), which was already the stronger check.\n\nCompose BEFORE ReportingCore and its successors: their Group 5 and 6 blocks anchor on Constants and Reference Values Used and Additional Notes, both owned here.",
+    "decisions": [
+        "2026-08-14 v1. Descriptions for Acquisition Software, Data Processing Software(s), Analytical Mode and Target Material were reconciled BEFORE composition, not after, so the module ships at v1 and does not churn its 16 consumers. Record: Archive/Worksheets (reconciled)/ModuleCore_Reconciliation_Decisions.csv.",
+        "2026-08-14 Sample Persistent Identifier resolved to D=Advanced library-wide (was Advanced in 13, Basic in 3 Solution TAPPs). Rule 6.5 forbids a module expressing both. Sample Name is already D=Basic everywhere, so the mandatory sample-identification burden is carried there.",
+        "Data Processing Software(s) qualified only after the 2026-08-14 rename and the absorption of Lab-XCT's Segmentation and Analysis Software took it from 15/16 to 16/16. Lab-XCT retains Reconstruction Software as a technique-specific field.",
+        "Sample Preparation Method (15/16, absent from Lab-XCT) was NOT included — it is not universal, and its two tier variants are unreconciled.",
+        "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content.",
+        "2026-08-14 v2: added Instrument Manufacturer + Instrument Model (28 -> 30 fields). Six TAPPs already carried the pair; ten carried one combined field under three names (ICP-MS Manufacturer & Model, Instrument Make and Model, CT System Manufacturer and Model). Split rather than merged because Instrument Manufacturer is a Controlled list and therefore a discovery facet — find every procedure run on a given vendor's instrument — which free-text make-and-model cannot support. The combined field's Column F was already in Instrument Model form, so the rename carried its examples across; only the new Manufacturer row needed a vocabulary, which is consumer-owned and differs by technique. Instrument Model adopts Text (free): EPMA had it as a Controlled list, but a module owns Column E and cannot vary it, and model designations are not enumerable across techniques — EPMA's values survive as Column F allowed content."
+    ]
+}

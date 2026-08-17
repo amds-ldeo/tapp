@@ -1,6 +1,7 @@
 {
     "module": "Geochronology",
     "title": "Geochronology",
+    "layer": 2,
     "version": "5",
     "source_of_truth": "modules/Module_Geochronology.csv",
     "target_group": "5. Data Processing",
@@ -39,7 +40,8 @@
         "2026-08-08: tier revision. See the field descriptions for the evidence. The two U-Pb demotions rest on Condon et al. (2024) prose; the paper's normative checklist is Figure 1, an image that was not machine-readable, so these should be re-checked against it.",
         "Column I (Keyed By) added to every field 2026-08-11 under Rule 7; owned_columns gained \"I\". Module-owned, so the value is authoritative for all consumers.",
         "2026-08-11: Keyed By revised under the strengthened Rule 7 invariants — every key in use must have exactly one 'defines:' field, and 'defines: X' is used only where another field is keyed by X.",
-        "2026-08-11: declares source_comment (Rule 6.11) so composition stamps field provenance into Column G of system variants. Documentation only — not read by validate_tapp.py and not part of the schema."
+        "2026-08-11: declares source_comment (Rule 6.11) so composition stamps field provenance into Column G of system variants. Documentation only — not read by validate_tapp.py and not part of the schema.",
+        "2026-08-14: added \"layer\": 2, which the manifest had always omitted. Recorded in Rule 6.9 as an open item; surfaced concretely when build_module_register.py began deriving the register's Layer column from the manifests and found this one empty."
     ],
     "source_comment": "Source: Geochronology module"
 }
