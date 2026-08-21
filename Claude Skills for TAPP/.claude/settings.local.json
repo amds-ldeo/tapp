@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(brew install *)",
+      "Bash(python3 -c \"import pdfminer; print\\('pdfminer ok'\\)\")",
+      "Bash(python3 -c \"import pypdf; print\\('pypdf ok'\\)\")",
+      "Bash(python3 -c \"import fitz; print\\('pymupdf ok'\\)\")",
+      "Bash(python3 -c \"import pdfplumber; print\\('pdfplumber ok'\\)\")",
+      "Bash(pip3 list *)",
+      "Bash(pip3 install *)",
+      "Bash(python3 -)",
+      "Bash(python3 scripts/tapp_to_xlsx.py /Users/ruolin/Documents/Astromat/TAPPs/XCT/Lab-XCT_TAPP_v1.csv /Users/ruolin/Documents/Astromat/TAPPs/XCT/Lab-XCT_TAPP_v1.xlsx)",
+      "Bash(python3 scripts/tapp_to_xlsx.py \"/Users/ruolin/Documents/Astromat/TAPPs/XCT/Lab-XCT_TAPP_v1.1.csv\" \"/Users/ruolin/Documents/Astromat/TAPPs/XCT/Lab-XCT_TAPP_v1.1.xlsx\")",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 scripts/tapp_to_xlsx.py tapp_files/LA-ICPMS_TAPP_v7.csv tapp_files/LA-ICPMS_TAPP_v7.xlsx)",
+      "Bash(python3 scripts/tapp_to_xlsx.py tapp_files/Lab-XCT_TAPP_v1.2.csv tapp_files/Lab-XCT_TAPP_v1.2.xlsx)",
+      "Bash(python3 scripts/tapp_to_xlsx.py tapp_files/LA-ICPMS_TAPP_v8.csv tapp_files/LA-ICPMS_TAPP_v8.xlsx)",
+      "Bash(python3 scripts/tapp_to_xlsx.py tapp_files/Lab-XCT_TAPP_v1.3.csv tapp_files/Lab-XCT_TAPP_v1.3.xlsx)",
+      "Read(//Users/ruolin/Documents/Astromat/TAPPs/**)",
+      "Bash(pdftotext \"/Users/ruolin/Documents/Astromat/TAPPs/EPMA/s41561-025-01741-0.pdf\" -)",
+      "Bash(python3 add_lit_assessment.py)",
+      "Bash(python3 lit_assessment_draft_Liu2016_Ma2017.py)",
+      "Bash(python3 generate_EPMA_TAPP_v4.py)",
+      "Bash(xargs -I{} basename \"{}\")",
+      "Bash(python3 generate_paper_registry.py)"
+    ]
+  }
+}

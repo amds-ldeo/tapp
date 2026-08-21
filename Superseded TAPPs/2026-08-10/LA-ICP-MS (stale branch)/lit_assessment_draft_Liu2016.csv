@@ -1,0 +1,113 @@
+﻿Metadata Item,"Liu et al. 2016
+(M&PS 51)
+Tissint martian meteorite
+Silicates, oxides & glass
+Spot analysis
+LA-Q-ICP-MS
+Virginia Tech","Liu et al. 2016
+(M&PS 51)
+Tissint martian meteorite
+Phosphate (merrillite)
+Spot analysis
+LA-Q-ICP-MS
+Virginia Tech"
+1. Protocol Identification,N,N
+Protocol Name,N,N
+Technique,LA-ICP-MS (193 nm excimer laser + ICP-MS; top-level technique) [P4],LA-ICP-MS (same as silicate protocol) [P4]
+Protocol Author,N,N
+Analyst,N (Allan Patchen and Luca Fedele assisted with data collection per acknowledgments; not explicitly named as analysts in methods) [P20-Ack],N (same as silicate protocol) [P20-Ack]
+Laboratory,"Department of Geosciences, Virginia Tech [P4]","Department of Geosciences, Virginia Tech [P4]"
+Laboratory ID,N,N
+Protocol Start Date,N,N
+Analysis Start Date,N,N
+Analysis End Date,N,N
+Protocol DOI,N,N
+Funding Source for Protocol Development,N,N
+Funding Source for Analysis,NASA Cosmochemistry grants NNX11AG58G (to L.A.T.) and NNN13D465T (to Y.L.); NSF EAR-1226270 (to P.D.A.) and EAR-1019770 (to R.J.B.); Y.L. supported by Jet Propulsion Laboratory [P20-Ack],Same as silicate protocol [P20-Ack]
+Protocol Reference(s),Udry et al. (2012) and Pernet-Fisher et al. (2014) cited as broad references for the analytical procedure [P4],Same as silicate protocol [P4]
+Coupled Technique(s),EPMA (EMP) [P4],EPMA (EMP) [P4]
+Coupling Description,EPMA provides major element concentrations for comparison with LA-ICP-MS oxide-sum normalization results; agreement within <10% verified [P4],"EPMA provides CaO concentration at exact analysis spot, used as internal standard for LA-ICP-MS data reduction (LA-ICP-MS 40Ca counts normalized to EMP CaO) [P4]"
+Coupled Protocol DOI,N,N
+Coupled Dataset or Publication Reference,N,N
+,,
+2. Samples,N,N
+Target Material,"Martian meteorite (Tissint) silicates, oxides, and glass: olivine, low-Ca pyroxene, augite, maskelynite, Fe-Ti-Cr oxides, shock melt glass, fusion crust [P4]","Martian meteorite (Tissint) phosphate: sodium-merrillite [P4, P12]"
+Sample Form / Analytical Substrate,"In situ — polished thin section (Tissint sections: Tata-2-C3, Tata-3-C2, UT1, UT3) [P4, P5-P11]",In situ — polished thin section (same sections as silicate protocol) [P4]
+Sample Name,Tissint Martian meteorite [P4],Tissint Martian meteorite [P4]
+Sample Persistent Identifier,N,N
+Fusion Flux and Dilution Ratio,N/A (in situ),N/A (in situ)
+Sample Preparation Method,N (not described; sections mentioned; polished implied) [P4],N (same as silicate protocol) [P4]
+Pre-Ablation Surface Treatment,N (not stated) [P4],N (not stated) [P4]
+,,
+3. Instrument & Software,N,N
+Laser Manufacturer & Model,GeoLasPro (193 nm Excimer laser-ablation system; manufacturer not stated by name; GeoLasPro is a Lambda Physik/Coherent product) [P4],GeoLasPro 193 nm Excimer laser-ablation system (same as silicate protocol) [P4]
+ICP-MS Manufacturer & Model,Agilent 7500ce ICP-MS [P4],Agilent 7500ce ICP-MS [P4]
+ICP-MS Type,N (quadrupole implied by Agilent 7500ce model; not explicitly stated in paper) [P4],N (same as silicate protocol) [P4]
+Interface Cone Configuration,N,N
+Guard Electrode,N,N
+Mass Resolution Setting,N (unit resolution implied for quadrupole; not explicitly stated) [P4],N (same as silicate protocol) [P4]
+Detector Configuration,N,N
+Laser Wavelength and Type,193 nm Excimer (ArF excimer) [P4],193 nm Excimer (ArF excimer) [P4]
+Acquisition Software,N,N
+Data Reduction Software,"AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software) [P4]",AMS ver. 1.0 (Mutchler et al. 2008) [P4]
+Ablation Cell Type,N,N
+,,
+4. Measurement Information,N,N
+Laser Spot Geometry,24 and 32 µm diameter (commonly used for silicates and glass); 90 µm (some olivine analyses to evaluate low REE signal sampling) [P4],~24 µm diameter [P4]
+Laser Spot Path / Ablation Mode,Spot (stationary) [P4],Spot (stationary) [P4]
+Laser Energy,150 mJ output energy [P4],150 mJ output energy [P4]
+Laser Fluence (Energy Density),7–10 J/m² (stated in paper; units as written; likely a typographic error for J/cm²) [P4],7–10 J/m² (same as silicate protocol) [P4]
+Laser Beam Energy Profile,N,N
+Laser Repetition Rate,5 Hz [P4],5 Hz [P4]
+Laser Pulse Duration,N (ns excimer system; pulse duration not stated) [P4],N (same as silicate protocol) [P4]
+Ablation Duration per Spot,N (not stated) [P4],N (not stated) [P4]
+"Transect Rate, Mapping Rate or Step Size",N/A (spot analysis),N/A (spot analysis)
+Raster Line Spacing (Mapping Only),N/A (spot analysis),N/A (spot analysis)
+Carrier Gas and Flow Rate,N (not stated) [P4],N (not stated) [P4]
+Plasma / Make-up Gas Addition,N (not stated) [P4],N (not stated) [P4]
+Auxiliary and Cool Gas Flow Rates,N (not stated) [P4],N (not stated) [P4]
+RF Power,N (not stated) [P4],N (not stated) [P4]
+Plasma Thermal Mode,N (not stated) [P4],N (not stated) [P4]
+Signal Smoothing,N (not stated) [P4],N (not stated) [P4]
+ICP Tuning,N (not stated) [P4],N (not stated) [P4]
+Oxide Production Method and Threshold,N (not stated) [P4],N (not stated) [P4]
+Oxide Production,N (not stated) [P4],N (not stated) [P4]
+Instrument Warm-up / Session Duration Limit,N (not stated) [P4],N (not stated) [P4]
+Drift Monitor Frequency,NIST 610 glass standard analyzed before and after every session [P4],NIST 610 analyzed before and after every session (same as silicate protocol) [P4]
+Analysis Sequence,NIST 610 glass standard analyzed before and after every session; unknowns in between [P4],Same as silicate protocol [P4]
+Analyte,"N (not explicitly listed in methods; results text mentions Sc, V, Ti, Co, Ni, REEs measured in silicates; full isotope list not stated) [P4, P7, P11]",N (not explicitly listed in methods; merrillite REE La-Lu at 14–414 ppm range mentioned in results; full isotope list not stated) [P12]
+Spectrometer Dwell Time,N (not stated) [P4],N (not stated) [P4]
+Background Count Time,50 s (background counted for 50 s before each LA-ICP-MS analysis) [P4],50 s (same as silicate protocol) [P4]
+Multi-Run Sequential Analysis Design,Single spot analysis per location [P4],Single spot analysis per location [P4]
+Analysis Location/Spot Coordinates,N,N
+Number of Replicates,N (not stated),N (not stated)
+Transect Length,N/A (spot analysis),N/A (spot analysis)
+Mapping Area,N/A (spot analysis),N/A (spot analysis)
+,,
+5. Data Processing,N,N
+Internal Standard Approach,Normalization to 100 wt% oxide total (for silicates and oxides) [P4],Single element IS: EMP CaO concentration used; LA-ICP-MS 40Ca counts normalized to CaO from EMP analysis at the same spot [P4]
+Internal Standard Element,"None (oxide sum normalization, 100 wt% total) [P4]",40Ca; CaO wt% from EMP at the analysis spot [P4]
+Elemental Fractionation Correction,External calibration using NIST 610 glass standard analyzed before and after session; oxide-sum normalization corrects for ablation yield variation; no explicit downhole fractionation correction described [P4],External calibration using NIST 610; EMP CaO as IS corrects for ablation yield; no explicit downhole correction described [P4]
+Uncertainty Propagation Method,N (not stated) [P4],N (not stated) [P4]
+Matrix Offset Correction (LIEF),N (not stated; agreement within <10% between oxide-sum normalization and EMP-based IS noted as validation) [P4],N (not stated) [P4]
+Signal Integration Interval Method,Time-lapse plots of each spot examined; only the plateau region used to quantify trace element abundances [P4],Time-lapse plots examined; only plateau region used (same as silicate protocol) [P4]
+Signal Integration Time,N (not stated) [P4],N (not stated) [P4]
+Spike / Outlier Filtering Approach,N (not explicitly stated; implied by plateau-region selection excluding non-stable intervals) [P4],N (same as silicate protocol) [P4]
+Blank / Background Correction Method,50 s background measurement before each analysis; background subtracted (method not explicitly described beyond counting duration) [P4],50 s background measurement before each analysis (same as silicate protocol) [P4]
+Pulse/Analog Detector Nonlinearity Correction,N (not stated) [P4],N (not stated) [P4]
+Isobaric Interference Corrections Applied,N (not stated) [P4],N (not stated) [P4]
+Interfering Species,N (not stated) [P4],N (not stated) [P4]
+Interference Correction Method,N (not stated) [P4],N (not stated) [P4]
+Memory Effect Mitigation,N (not stated) [P4],N (not stated) [P4]
+Normalization / Standards-Based Correction,100% oxide total normalization applied per analysis for silicates and oxides; NIST 610 used for external calibration before and after session [P4],No post-acquisition normalization; EMP CaO applied directly as IS; NIST 610 for external calibration [P4]
+,,
+6. Quality Control & Uncertainty,N,N
+Primary Calibration Standard Name,NIST 610 glass standard [P4],NIST 610 glass standard [P4]
+Secondary Reference Materials,N (not stated) [P4],N (not stated) [P4]
+Detection Limit,"Referenced in Table 3 and Table S1; specific values not directly stated in main text; REE in olivines below detection limits at 24–32 µm conditions [P4, P7, P11]","Referenced in Table 3 and Table S1; specific values not directly stated in main text; merrillite REE at 14–414 ppm range above detection [P4, P12]"
+Detection Limit Method,N (method not stated) [P4],N (method not stated) [P4]
+Limit of Quantification (LOQ) Method,N (not stated) [P4],N (not stated) [P4]
+Within-Session Analytical Precision and Assessment Method,N (not stated) [P4],N (not stated) [P4]
+Between-Session (Long-Term) Analytical Precision and Assessment Method,N (not stated) [P4],N (not stated) [P4]
+Analytical Accuracy and Assessment Method,"For silicates: oxide-sum normalization agrees within <10% with EMP-based IS method (internal cross-check, not a separate QC standard) [P4]",N (no accuracy assessment stated for phosphate protocol) [P4]
+Additional Notes,Paper broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014) for procedure; two IS approaches used for different mineral phases (oxide-sum for silicates; EMP CaO for phosphate); 90 µm spot used on some olivines to evaluate whether low REE signals result from insufficient sampling volume [P4],N/A — see silicate column for general notes [P4]

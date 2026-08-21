@@ -1,0 +1,10 @@
+# Office files are binary — never let git normalize or try to diff them.
+*.xlsx  binary
+*.xlsm  binary
+*.pptx  binary
+*.docx  binary
+*.pdf   binary
+
+# TAPP CSVs are the source of truth. Keep bytes exactly as written so a
+# regenerated file diffs only where a field actually changed.
+*.csv   -text

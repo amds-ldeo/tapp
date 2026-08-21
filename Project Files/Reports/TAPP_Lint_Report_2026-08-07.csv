@@ -1,0 +1,506 @@
+﻿Severity,TAPP,Row,Field,Check,Message
+WARN,(cross-TAPP),,Blank / Background Correction Method,name-variant,Same field spelled 2 ways — LA-ICPMS_TAPP_v13.csv: 'Blank / Background Correction Method'; LA-Q:SF-ICPMS_TAPP_v5.csv: 'Blank / Background Correction Method'; Solution_MC-ICP-MS_TAPP_v5.csv: 'Blank/Background Correction Method'; Solution_Q-ICP-MS_TAPP_v7.csv: 'Blank/Background Correction Method'; Solution_SF-ICP-MS_TAPP_v7.csv: 'Blank/Background Correction Method'. Rule 1 requires identical names across TAPPs.
+WARN,(cross-TAPP),,Normalization / Standards-Based Correction,name-variant,Same field spelled 2 ways — EPMA_TAPP_v9.csv: 'Normalization / Standards-Based Correction'; LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: 'Normalization/Standards-Based Correction'; LA-ICPMS_Geochron_TAPP_v2.csv: 'Normalization/Standards-Based Correction'; LA-ICPMS_TAPP_v13.csv: 'Normalization / Standards-Based Correction'; LA-Q:SF-ICPMS_TAPP_v5.csv: 'Normalization / Standards-Based Correction'; SEM_Composition_TAPP_v6.csv: 'Normalization / Standards-Based Correction'; SEM_TAPP_v6.csv: 'Normalization / Standards-Based Correction'; Solution_MC-ICP-MS_TAPP_v5.csv: 'Normalization/Standards-Based Correction'; Solution_Q-ICP-MS_TAPP_v7.csv: 'Normalization/Standards-Based Correction'; Solution_SF-ICP-MS_TAPP_v7.csv: 'Normalization/Standards-Based Correction'. Rule 1 requires identical names across TAPPs.
+WARN,(cross-TAPP),,Spike / Outlier Filtering Approach,name-variant,Same field spelled 2 ways — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: 'Spike / Outlier Filtering Approach'; LA-ICPMS_Geochron_TAPP_v2.csv: 'Spike / Outlier Filtering Approach'; LA-ICPMS_TAPP_v13.csv: 'Spike / Outlier Filtering Approach'; LA-Q:SF-ICPMS_TAPP_v5.csv: 'Spike / Outlier Filtering Approach'; Solution_MC-ICP-MS_TAPP_v5.csv: 'Spike/Outlier Filtering Approach'; Solution_Q-ICP-MS_TAPP_v7.csv: 'Spike/Outlier Filtering Approach'; Solution_SF-ICP-MS_TAPP_v7.csv: 'Spike/Outlier Filtering Approach'. Rule 1 requires identical names across TAPPs.
+WARN,EPMA_TAPP_v9.csv,12,Analyst,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,13,Analysis Start Date,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,14,Analysis End Date,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,17,Coupling Description,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,19,Coupled Dataset or Publication Reference,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,24,Sample Name,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,25,Sample Persistent Identifier,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,28,Instrument Manufacturer,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,29,Instrument Model,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,30,Electron Source,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,32,Data Reduction Software,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,4,Technique,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,41,Beam Diameter,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,42,Beam Raster Dimensions,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,43,Beam Damage Minimization,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,44,Drift Correction,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,59,Step Size / Pixel Size,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,6,Laboratory,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,62,Stage Scan vs. Beam Scan,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,65,Matrix Correction Method,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,7,Laboratory ID,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,70,Halogen Correction on Oxygen,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,,,group1-order,Group 1 field order differs from the template.
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,101,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,104,Mass Bias Correction Strategy,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,106,Mass Fractionation Law,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,108,Age/Model-Age Calculation Method,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,111,Per-Analyte Calibration Strategy,controlled-list-options,Controlled list is missing required option(s) ['None'] in column F.
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,116,Isobaric Interference Corrections Applied,name-element-specific,Column B uses 'Element-Specific'; the correct term is 'Analyte-Specific'.
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,124,Normalization/Standards-Based Correction,rule5,Rule 5: 'Constants and Reference Values Used' must be the LAST field in Group 5; found 'Normalization/Standards-Based Correction'.
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,126,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,135,Limit of Quantification (LOQ) Method,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,16,Coupled Technique(s),group1-datatype,Data Type differs from template: 'Controlled list / Text' vs 'Text (free)'.
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,19,Coupled Dataset or Publication Reference,group1-datatype,Data Type differs from template: 'URI / DOI / Text' vs 'URI / DOI'.
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,2,1. Procedure Identification,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,21,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,29,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,33,ICP-MS Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,42,Guard Electrode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,44,Collision/Reaction Cell (CRC) Configuration,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,5,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,51,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,53,Laser Spot Path / Ablation Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,63,RF Power (W),name-unit-in-name,"Field name embeds a unit '(W)'. Units belong in Column E (Data Type), e.g. 'Numeric (W)'."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,67,Plasma Thermal Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,77,IC Dead Time (ns),name-unit-in-name,"Field name embeds a unit '(ns)'. Units belong in Column E (Data Type), e.g. 'Numeric (W)'."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,90,Signal Collection Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,91,Collision Gas Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,94,Reaction Gas Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,98,Triple Scanning Mode,controlled-list-options,"Controlled list is missing required option(s) ['None', 'Other: specify'] in column F."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,,,group1-order,Group 1 field order differs from the template.
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,101,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,104,Mass Bias Correction Strategy,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,106,Mass Fractionation Law,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,108,Age/Model-Age Calculation Method,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,111,Per-Analyte Calibration Strategy,controlled-list-options,Controlled list is missing required option(s) ['None'] in column F.
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,116,Isobaric Interference Corrections Applied,name-element-specific,Column B uses 'Element-Specific'; the correct term is 'Analyte-Specific'.
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,124,Normalization/Standards-Based Correction,rule5,Rule 5: 'Constants and Reference Values Used' must be the LAST field in Group 5; found 'Normalization/Standards-Based Correction'.
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,126,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,135,Limit of Quantification (LOQ) Method,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,16,Coupled Technique(s),group1-datatype,Data Type differs from template: 'Controlled list / Text' vs 'Text (free)'.
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,19,Coupled Dataset or Publication Reference,group1-datatype,Data Type differs from template: 'URI / DOI / Text' vs 'URI / DOI'.
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,2,1. Procedure Identification,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,21,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,29,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,33,ICP-MS Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,42,Guard Electrode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,44,Collision/Reaction Cell (CRC) Configuration,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,5,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,51,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,53,Laser Spot Path / Ablation Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,63,RF Power (W),name-unit-in-name,"Field name embeds a unit '(W)'. Units belong in Column E (Data Type), e.g. 'Numeric (W)'."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,67,Plasma Thermal Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,77,IC Dead Time (ns),name-unit-in-name,"Field name embeds a unit '(ns)'. Units belong in Column E (Data Type), e.g. 'Numeric (W)'."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,90,Signal Collection Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,91,Collision Gas Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,94,Reaction Gas Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_Geochron_TAPP_v2.csv,98,Triple Scanning Mode,controlled-list-options,"Controlled list is missing required option(s) ['None', 'Other: specify'] in column F."
+WARN,LA-ICPMS_TAPP_v13.csv,,,group1-order,Group 1 field order differs from the template.
+WARN,LA-ICPMS_TAPP_v13.csv,13,Funding Source for Procedure Development,group1-tier,"Tier differs from template: TAPP C=Basic,D=Read-Only vs template C=Advanced,D=Read-Only."
+WARN,LA-ICPMS_TAPP_v13.csv,16,Coupled Technique(s),group1-datatype,Data Type differs from template: 'Controlled list / Text' vs 'Text (free)'.
+WARN,LA-ICPMS_TAPP_v13.csv,19,Coupled Dataset or Publication Reference,group1-datatype,Data Type differs from template: 'URI / DOI / Text' vs 'URI / DOI'.
+WARN,LA-ICPMS_TAPP_v13.csv,2,1. Procedure Identification,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_TAPP_v13.csv,2,1. Procedure Identification,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,2,1. Procedure Identification,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,2,1. Procedure Identification,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,21,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_TAPP_v13.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,23,Sample Form / Analytical Substrate,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_TAPP_v13.csv,30,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_TAPP_v13.csv,30,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,30,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,30,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,33,ICP-MS Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_TAPP_v13.csv,37,Guard Electrode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-ICPMS_TAPP_v13.csv,4,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-ICPMS_TAPP_v13.csv,45,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_TAPP_v13.csv,45,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,45,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,45,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,48,Laser Spot Path / Ablation Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_TAPP_v13.csv,61,Plasma Thermal Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-ICPMS_TAPP_v13.csv,80,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_TAPP_v13.csv,80,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,80,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,80,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,92,Isobaric Interference Corrections Applied,name-element-specific,Column B uses 'Element-Specific'; the correct term is 'Analyte-Specific'.
+WARN,LA-ICPMS_TAPP_v13.csv,96,Normalization / Standards-Based Correction,rule5,Rule 5: 'Constants and Reference Values Used' must be the LAST field in Group 5; found 'Normalization / Standards-Based Correction'. Field is absent entirely.
+WARN,LA-ICPMS_TAPP_v13.csv,98,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_TAPP_v13.csv,98,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,98,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,98,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,,,group1-order,Group 1 field order differs from the template.
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,105,Isobaric Interference Corrections Applied,name-element-specific,Column B uses 'Element-Specific'; the correct term is 'Analyte-Specific'.
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,113,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,113,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,113,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,113,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,13,Funding Source for Procedure Development,group1-tier,"Tier differs from template: TAPP C=Basic,D=Read-Only vs template C=Advanced,D=Read-Only."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,16,Coupled Technique(s),group1-datatype,Data Type differs from template: 'Controlled list / Text' vs 'Text (free)'.
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,19,Coupled Dataset or Publication Reference,group1-datatype,Data Type differs from template: 'URI / DOI / Text' vs 'URI / DOI'.
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,2,1. Procedure Identification,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,2,1. Procedure Identification,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,2,1. Procedure Identification,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,2,1. Procedure Identification,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,21,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,23,Sample Form / Analytical Substrate,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,30,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,30,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,30,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,30,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,33,ICP-MS Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,39,Guard Electrode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,4,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,42,Collision/Reaction Cell (CRC) Configuration,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,48,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,48,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,48,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,48,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,51,Laser Spot Path / Ablation Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,65,Plasma Thermal Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,93,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,93,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,93,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q:SF-ICPMS_TAPP_v5.csv,93,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,Lab-XCT_TAPP_v10.csv,,,group1-order,Group 1 field order differs from the template.
+WARN,Lab-XCT_TAPP_v10.csv,13,Funding Source for Procedure Development,group1-tier,"Tier differs from template: TAPP C=Basic,D=Read-Only vs template C=Advanced,D=Read-Only."
+WARN,Lab-XCT_TAPP_v10.csv,16,Coupled Technique(s),group1-datatype,Data Type differs from template: 'Controlled list / Text' vs 'Text (free)'.
+WARN,Lab-XCT_TAPP_v10.csv,19,Coupled Dataset or Publication Reference,group1-datatype,Data Type differs from template: 'URI / DOI / Text' vs 'URI / DOI'.
+WARN,Lab-XCT_TAPP_v10.csv,2,1. Procedure Identification,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Lab-XCT_TAPP_v10.csv,21,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Lab-XCT_TAPP_v10.csv,32,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Lab-XCT_TAPP_v10.csv,4,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,Lab-XCT_TAPP_v10.csv,44,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Lab-XCT_TAPP_v10.csv,65,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Lab-XCT_TAPP_v10.csv,80,Output Bit Depth,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,Lab-XCT_TAPP_v10.csv,83,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,SEM_Composition_TAPP_v6.csv,3,,sentinel-stray-N,"71 data row(s) carry 'N' in the sentinel column (rows 3-19, 21-24, 26-33, 35, 37-38, 44-48, … (+4 more)); conventions require data rows to be empty. Harmless to the current export script, but it makes the column indistinguishable from a mode flag."
+WARN,SEM_FIBSEM_TAPP_v6.csv,3,,sentinel-stray-N,"46 data row(s) carry 'N' in the sentinel column (rows 3-19, 21-24, 26-34, 36-48, 50-51, 54); conventions require data rows to be empty. Harmless to the current export script, but it makes the column indistinguishable from a mode flag."
+WARN,SEM_FIBSEM_TAPP_v6.csv,44,Target Foil Thickness,name-level-encoding,Field name contains 'Target'. Only 'Target Material' and 'Target Feature(s)' are exempt from the level-neutral naming rule.
+WARN,SEM_Imaging_TAPP_v6.csv,3,,sentinel-stray-N,"53 data row(s) carry 'N' in the sentinel column (rows 3-19, 21-24, 26-35, 37-51, 53-55, 58-61); conventions require data rows to be empty. Harmless to the current export script, but it makes the column indistinguishable from a mode flag."
+WARN,SEM_TAPP_v6.csv,3,,sentinel-stray-N,"101 data row(s) carry 'N' in the sentinel column (rows 3-19, 22-25, 28-40, 43, 45-46, 52-57, … (+4 more)); conventions require data rows to be empty. Harmless to the current export script, but it makes the column indistinguishable from a mode flag."
+WARN,SEM_TAPP_v6.csv,83,Target Foil Thickness,name-level-encoding,Field name contains 'Target'. Only 'Target Material' and 'Target Feature(s)' are exempt from the level-neutral naming rule.
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,105,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,2,1. Procedure Identification,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,21,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,36,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,38,ICP-MS Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,4,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,49,Collision/Reaction Cell (CRC) Configuration,controlled-list-options,Controlled list is missing required option(s) ['None'] in column F.
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,57,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,58,RF Power,rule3,Rule 3: 'Analytical Mode' must be the FIRST field in Group 4; found 'RF Power'. Field is absent entirely.
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,82,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,2,1. Procedure Identification,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,20,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,34,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,36,ICP-MS Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,4,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,43,Mass Resolution Setting,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,52,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,53,RF Power,rule3,Rule 3: 'Analytical Mode' must be the FIRST field in Group 4; found 'RF Power'. Field is absent entirely.
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,78,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,95,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,2,1. Procedure Identification,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,20,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,34,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,36,ICP-MS Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,4,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,51,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,52,RF Power,rule3,Rule 3: 'Analytical Mode' must be the FIRST field in Group 4; found 'RF Power'. Field is absent entirely.
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,74,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,91,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,TEM_TAPP_v9.csv,33,Monochromator,controlled-list-options,Controlled list is missing required option(s) ['Other: specify'] in column F.
+WARN,TEM_TAPP_v9.csv,35,Spectroscopic Detector(s),controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'Other: specify'] in column F."
+WARN,TEM_TAPP_v9.csv,41,SAED Pattern Simulation Software,datatype-invalid,Data Type 'Controlled vocabulary + version' is not in the controlled vocabulary.
+WARN,TEM_TAPP_v9.csv,65,EDS Energy Range,datatype-invalid,Data Type 'Text (keV)' is not in the controlled vocabulary.
+WARN,TEM_TAPP_v9.csv,66,EDS Quantification Method,controlled-list-options,Controlled list is missing required option(s) ['Other: specify'] in column F.
+WARN,TEM_TAPP_v9.csv,67,Analyte,datatype-invalid,Data Type 'List of element symbols' is not in the controlled vocabulary.
+WARN,TEM_TAPP_v9.csv,69,EELS Edges,datatype-invalid,Data Type 'List of element + edge label' is not in the controlled vocabulary.
+WARN,TEM_TAPP_v9.csv,74,EELS Energy Loss Range,datatype-invalid,Data Type 'Text (eV)' is not in the controlled vocabulary.
+INFO,(cross-TAPP),,Ablation Cell Type,tier-divergence,"Tier assignment differs across 4 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Basic,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Basic,D=Read-Only; LA-ICPMS_TAPP_v13.csv: C=Advanced,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Advanced,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Analysis Sequence,tier-divergence,"Tier assignment differs across 4 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Editable; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Editable; LA-ICPMS_TAPP_v13.csv: C=Basic,D=Editable; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Analytical Accuracy and Assessment Method,tier-divergence,"Tier assignment differs across 7 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Basic,D=Basic; LA-ICPMS_Geochron_TAPP_v2.csv: C=Basic,D=Basic; LA-ICPMS_TAPP_v13.csv: C=Advanced,D=Basic; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Advanced,D=Basic; Solution_MC-ICP-MS_TAPP_v5.csv: C=Advanced,D=Basic; Solution_Q-ICP-MS_TAPP_v7.csv: C=Advanced,D=Basic; Solution_SF-ICP-MS_TAPP_v7.csv: C=Advanced,D=Basic. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Auxiliary Gas Flow Rate,tier-divergence,"Tier assignment differs across 6 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Editable; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Editable; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Editable; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Editable; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Baseline Measurement Approach,tier-divergence,"Tier assignment differs across 3 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Calibration Standard Measurement Frequency,tier-divergence,"Tier assignment differs across 6 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Cell Exit Discrimination Voltage,tier-divergence,"Tier assignment differs across 5 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Editable; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Editable; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Editable; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Collector Configuration,tier-divergence,"Tier assignment differs across 3 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Collision Gas Flow Rate,tier-divergence,"Tier assignment differs across 5 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Editable; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Editable; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Editable; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Collision Gas Type,tier-divergence,"Tier assignment differs across 5 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Collision/Reaction Cell (CRC) Configuration,tier-divergence,"Tier assignment differs across 5 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Coolant (Plasma) Gas Flow Rate,tier-divergence,"Tier assignment differs across 6 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Editable; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Editable; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Editable; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Editable; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Detection Limit Method,tier-divergence,"Tier assignment differs across 10 TAPPs — EPMA_TAPP_v9.csv: C=Advanced,D=Editable; LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Basic; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Basic; LA-ICPMS_TAPP_v13.csv: C=Advanced,D=Basic; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Advanced,D=Basic; SEM_Composition_TAPP_v6.csv: C=Advanced,D=Editable; SEM_TAPP_v6.csv: C=Advanced,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Advanced,D=Basic; Solution_Q-ICP-MS_TAPP_v7.csv: C=Advanced,D=Basic; Solution_SF-ICP-MS_TAPP_v7.csv: C=Advanced,D=Basic. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Double-Spike Inversion Algorithm,tier-divergence,"Tier assignment differs across 3 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Double-Spike Isotope Pair,tier-divergence,"Tier assignment differs across 3 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Dwell Time per Mass,tier-divergence,"Tier assignment differs across 3 TAPPs — LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Editable; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,EDS Acquisition Mode,tier-divergence,"Tier assignment differs across 4 TAPPs — EPMA_TAPP_v9.csv: C=Basic,D=Read-Only; SEM_Composition_TAPP_v6.csv: C=Basic,D=Read-Only; SEM_TAPP_v6.csv: C=Basic,D=Read-Only; TEM_TAPP_v9.csv: C=Basic,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,EDS Detector Configuration,tier-divergence,"Tier assignment differs across 4 TAPPs — EPMA_TAPP_v9.csv: C=Advanced,D=Read-Only; SEM_Composition_TAPP_v6.csv: C=Advanced,D=Read-Only; SEM_TAPP_v6.csv: C=Advanced,D=Read-Only; TEM_TAPP_v9.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,EDS Live Time per Point or Pixel,tier-divergence,"Tier assignment differs across 4 TAPPs — EPMA_TAPP_v9.csv: C=Basic,D=Editable; SEM_Composition_TAPP_v6.csv: C=Basic,D=Editable; SEM_TAPP_v6.csv: C=Basic,D=Editable; TEM_TAPP_v9.csv: C=Advanced,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Faraday Cup Amplifier Resistor Values,tier-divergence,"Tier assignment differs across 3 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Faraday Cup Array Configuration,tier-divergence,"Tier assignment differs across 3 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Faraday Cup Gain Calibration Method,tier-divergence,"Tier assignment differs across 3 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Funding Source for Procedure Development,tier-divergence,"Tier assignment differs across 14 TAPPs — EPMA_TAPP_v9.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-ICPMS_TAPP_v13.csv: C=Basic,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Lab-XCT_TAPP_v10.csv: C=Basic,D=Read-Only; SEM_Composition_TAPP_v6.csv: C=Advanced,D=Read-Only; SEM_FIBSEM_TAPP_v6.csv: C=Advanced,D=Read-Only; SEM_Imaging_TAPP_v6.csv: C=Advanced,D=Read-Only; SEM_TAPP_v6.csv: C=Advanced,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Advanced,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Advanced,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Advanced,D=Read-Only; TEM_TAPP_v9.csv: C=Advanced,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Guard Electrode,tier-divergence,"Tier assignment differs across 7 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-ICPMS_TAPP_v13.csv: C=Basic,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Advanced,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Advanced,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Advanced,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Integration Time per Cycle,tier-divergence,"Tier assignment differs across 3 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Editable; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Interface Cone Configuration,tier-divergence,"Tier assignment differs across 7 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-ICPMS_TAPP_v13.csv: C=Basic,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Interference Correction Method,tier-divergence,"Tier assignment differs across 7 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-ICPMS_TAPP_v13.csv: C=Basic,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Interfering Species,tier-divergence,"Tier assignment differs across 7 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-ICPMS_TAPP_v13.csv: C=Basic,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Isobaric Interference Corrections Applied,tier-divergence,"Tier assignment differs across 7 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-ICPMS_TAPP_v13.csv: C=Basic,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Isotope Dilution Data Reduction Method,tier-divergence,"Tier assignment differs across 6 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Laser Pulse Duration,tier-divergence,"Tier assignment differs across 4 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Basic,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Basic,D=Read-Only; LA-ICPMS_TAPP_v13.csv: C=Advanced,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Advanced,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Mass Fractionation Law,tier-divergence,"Tier assignment differs across 3 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Mass Resolution Setting,tier-divergence,"Tier assignment differs across 7 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Editable; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Editable; LA-ICPMS_TAPP_v13.csv: C=Basic,D=Editable; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Editable; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Mass Resolution per Analyte,tier-divergence,"Tier assignment differs across 4 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Number of Blocks per Measurement,tier-divergence,"Tier assignment differs across 3 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Editable; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Number of Cycles per Block,tier-divergence,"Tier assignment differs across 3 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Editable; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Oxide Production Method and Threshold,tier-divergence,"Tier assignment differs across 7 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-ICPMS_TAPP_v13.csv: C=Basic,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Per-Analyte Calibration Strategy,tier-divergence,"Tier assignment differs across 7 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-ICPMS_TAPP_v13.csv: C=Basic,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Advanced,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Phase Identification Method,tier-divergence,"Tier assignment differs across 2 TAPPs — Lab-XCT_TAPP_v10.csv: C=Advanced,D=Editable; TEM_TAPP_v9.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Plasma Thermal Mode,tier-divergence,"Tier assignment differs across 7 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-ICPMS_TAPP_v13.csv: C=Basic,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,RF Power,tier-divergence,"Tier assignment differs across 5 TAPPs — LA-ICPMS_TAPP_v13.csv: C=Basic,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Editable; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Editable; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Sample Preparation Method,tier-divergence,"Tier assignment differs across 13 TAPPs — EPMA_TAPP_v9.csv: C=Basic,D=Editable; LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Basic,D=Editable; LA-ICPMS_Geochron_TAPP_v2.csv: C=Basic,D=Editable; LA-ICPMS_TAPP_v13.csv: C=Advanced,D=Editable; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Editable; SEM_Composition_TAPP_v6.csv: C=Basic,D=Editable; SEM_FIBSEM_TAPP_v6.csv: C=Basic,D=Editable; SEM_Imaging_TAPP_v6.csv: C=Basic,D=Editable; SEM_TAPP_v6.csv: C=Basic,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; TEM_TAPP_v9.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Signal Collection Mode,tier-divergence,"Tier assignment differs across 4 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Signal Integration Interval Method,tier-divergence,"Tier assignment differs across 7 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Advanced,D=Read-Only; LA-ICPMS_Geochron_TAPP_v2.csv: C=Advanced,D=Read-Only; LA-ICPMS_TAPP_v13.csv: C=Basic,D=Read-Only; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Step Size / Pixel Size,tier-divergence,"Tier assignment differs across 3 TAPPs — EPMA_TAPP_v9.csv: C=Basic,D=Editable; SEM_Composition_TAPP_v6.csv: C=Advanced,D=Basic; SEM_TAPP_v6.csv: C=Advanced,D=Basic. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Within-Session Analytical Precision and Assessment Method,tier-divergence,"Tier assignment differs across 6 TAPPs — LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv: C=Basic,D=Basic; LA-ICPMS_Geochron_TAPP_v2.csv: C=Basic,D=Basic; LA-ICPMS_TAPP_v13.csv: C=Advanced,D=Basic; LA-Q:SF-ICPMS_TAPP_v5.csv: C=Advanced,D=Basic; Solution_Q-ICP-MS_TAPP_v7.csv: C=Advanced,D=Basic; Solution_SF-ICP-MS_TAPP_v7.csv: C=Advanced,D=Basic. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,EPMA_TAPP_v9.csv,16,Coupled Technique(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,EPMA_TAPP_v9.csv,17,Coupling Description,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,EPMA_TAPP_v9.csv,22,Target Material,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,EPMA_TAPP_v9.csv,55,Background Position(s),datatype-compound,Data Type 'Numeric + label' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,10,Analysis Start Date,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,11,Analysis End Date,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,12,Procedure DOI,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,13,Funding Source for Procedure Development,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,14,Funding Source for Analysis,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,15,Procedure Reference(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,16,Coupled Technique(s),datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,16,Coupled Technique(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,17,Coupling Description,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,18,Coupled Procedure DOI,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,19,Coupled Dataset or Publication Reference,datatype-compound,Data Type 'URI / DOI / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,19,Coupled Dataset or Publication Reference,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,23,Target Material,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,3,Laboratory,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,4,Procedure Name,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,5,Technique,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,6,Procedure Author,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,61,Laser Beam Energy Profile,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,7,Analyst,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_Horstwood_TAPP_v8.csv,8,Laboratory ID,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,10,Analysis Start Date,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,11,Analysis End Date,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,12,Procedure DOI,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,13,Funding Source for Procedure Development,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,14,Funding Source for Analysis,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,15,Procedure Reference(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,16,Coupled Technique(s),datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,16,Coupled Technique(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,17,Coupling Description,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,18,Coupled Procedure DOI,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,19,Coupled Dataset or Publication Reference,datatype-compound,Data Type 'URI / DOI / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,19,Coupled Dataset or Publication Reference,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,23,Target Material,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,3,Laboratory,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,4,Procedure Name,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,5,Technique,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,6,Procedure Author,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,61,Laser Beam Energy Profile,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,7,Analyst,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_Geochron_TAPP_v2.csv,8,Laboratory ID,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,10,Analysis Start Date,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,10,Analysis Start Date,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,102,Detection Limit Method,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,103,Limit of Quantification (LOQ) Method,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,108,Additional Notes,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,11,Analysis End Date,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,11,Analysis End Date,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,12,Procedure DOI,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,12,Procedure DOI,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,13,Funding Source for Procedure Development,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,14,Funding Source for Analysis,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,15,Procedure Reference(s),date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,15,Procedure Reference(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,16,Coupled Technique(s),datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-ICPMS_TAPP_v13.csv,16,Coupled Technique(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,17,Coupling Description,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,18,Coupled Procedure DOI,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,19,Coupled Dataset or Publication Reference,datatype-compound,Data Type 'URI / DOI / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-ICPMS_TAPP_v13.csv,19,Coupled Dataset or Publication Reference,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,22,Target Material,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-ICPMS_TAPP_v13.csv,22,Target Material,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,23,Sample Form / Analytical Substrate,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,24,Sample Name,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,25,Sample Persistent Identifier,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,26,Fusion Flux and Dilution Ratio,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,27,Sample Preparation Method,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,28,Pre-Ablation Surface Treatment,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,3,Procedure Name,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,3,Procedure Name,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,32,ICP-MS Manufacturer & Model,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,37,Guard Electrode,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,39,Detector Configuration,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,4,Technique,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,41,Acquisition Software,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,49,Laser Energy,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,5,Procedure Author,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,5,Procedure Author,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,51,Laser Beam Energy Profile,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-ICPMS_TAPP_v13.csv,54,Ablation Duration per Spot,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,55,"Transect Rate, Mapping Rate or Step Size",date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,56,Raster Line Spacing (Mapping Only),date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,6,Analyst,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,6,Analyst,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,60,RF Power,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,64,Oxide Production Method and Threshold,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,65,Oxide Production,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,68,Instrument Warm-up / Session Duration Limit,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,69,Drift Monitor Frequency,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,7,Laboratory,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,70,Analysis Sequence,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,73,Background Count Time,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,74,Multi-Run Sequential Analysis Design,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,75,Analysis Location/Spot Coordinates,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,76,Number of Replicates,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,77,Transect Length,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,78,Mapping Area,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,8,Laboratory ID,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,8,Laboratory ID,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-ICPMS_TAPP_v13.csv,84,Elemental Fractionation Correction,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,85,Uncertainty Propagation Method,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,86,Matrix Offset Correction (LIEF),date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,87,Signal Integration Interval Method,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,88,Signal Integration Time,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,89,Spike / Outlier Filtering Approach,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,9,Procedure Start Date,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,90,Blank / Background Correction Method,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,91,Pulse/Analog Detector Nonlinearity Correction,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-ICPMS_TAPP_v13.csv,95,Memory Effect Mitigation,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,96,Normalization / Standards-Based Correction,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,99,Primary Calibration Standard Name,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,10,Analysis Start Date,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,10,Analysis Start Date,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,100,Signal Integration Interval Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,101,Signal Integration Time,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,102,Spike / Outlier Filtering Approach,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,103,Blank / Background Correction Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,104,Pulse/Analog Detector Nonlinearity Correction,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,109,Memory Effect Mitigation,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,11,Analysis End Date,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,11,Analysis End Date,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,110,Normalization / Standards-Based Correction,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,114,Primary Calibration Standard Name,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,118,Detection Limit Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,119,Limit of Quantification (LOQ) Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,12,Procedure DOI,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,12,Procedure DOI,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,124,Additional Notes,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,13,Funding Source for Procedure Development,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,14,Funding Source for Analysis,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,15,Procedure Reference(s),date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,15,Procedure Reference(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,16,Coupled Technique(s),datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,16,Coupled Technique(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,17,Coupling Description,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,18,Coupled Procedure DOI,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,19,Coupled Dataset or Publication Reference,datatype-compound,Data Type 'URI / DOI / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,19,Coupled Dataset or Publication Reference,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,22,Target Material,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,22,Target Material,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,23,Sample Form / Analytical Substrate,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,24,Sample Name,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,25,Sample Persistent Identifier,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,26,Fusion Flux and Dilution Ratio,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,27,Sample Preparation Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,28,Pre-Ablation Surface Treatment,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,3,Procedure Name,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,3,Procedure Name,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,32,ICP-MS Manufacturer & Model,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,39,Guard Electrode,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,4,Technique,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,41,Detector Configuration,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,44,Acquisition Software,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,5,Procedure Author,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,5,Procedure Author,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,52,Laser Energy,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,54,Laser Beam Energy Profile,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,57,Ablation Duration per Spot,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,58,"Transect Rate, Mapping Rate or Step Size",date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,59,Raster Line Spacing (Mapping Only),date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,6,Analyst,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,6,Analyst,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,68,Oxide Production Method and Threshold,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,69,Oxide Production,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,7,Laboratory,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,72,Instrument Warm-up / Session Duration Limit,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,73,Analysis Sequence,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,8,Laboratory ID,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,8,Laboratory ID,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,86,Background Count Time,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,87,Multi-Run Sequential Analysis Design,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,88,Analysis Location/Spot Coordinates,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,89,Number of Replicates,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,9,Procedure Start Date,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,90,Transect Length,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,91,Mapping Area,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,97,Elemental Fractionation Correction,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,98,Uncertainty Propagation Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q:SF-ICPMS_TAPP_v5.csv,99,Matrix Offset Correction (LIEF),date-missing,Last Update (column H) is empty.
+INFO,Lab-XCT_TAPP_v10.csv,10,Analysis Start Date,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,11,Analysis End Date,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,12,Procedure DOI,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,13,Funding Source for Procedure Development,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,14,Funding Source for Analysis,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,15,Procedure Reference(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,16,Coupled Technique(s),datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Lab-XCT_TAPP_v10.csv,16,Coupled Technique(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,17,Coupling Description,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,18,Coupled Procedure DOI,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,19,Coupled Dataset or Publication Reference,datatype-compound,Data Type 'URI / DOI / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Lab-XCT_TAPP_v10.csv,19,Coupled Dataset or Publication Reference,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,22,Target Material,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Lab-XCT_TAPP_v10.csv,27,Sample Mounting Method,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Lab-XCT_TAPP_v10.csv,3,Procedure Name,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,34,X-ray Source Configuration,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Lab-XCT_TAPP_v10.csv,35,X-ray Tube Anode Material,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Lab-XCT_TAPP_v10.csv,36,Detector Type,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Lab-XCT_TAPP_v10.csv,4,Technique,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,5,Procedure Author,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,6,Analyst,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,66,Reconstruction Algorithm,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Lab-XCT_TAPP_v10.csv,68,Beam Hardening Correction Method,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Lab-XCT_TAPP_v10.csv,7,Laboratory,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,Lab-XCT_TAPP_v10.csv,71,Output Data Format,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Lab-XCT_TAPP_v10.csv,72,CT Number Calibration,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Lab-XCT_TAPP_v10.csv,73,Segmentation Method,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Lab-XCT_TAPP_v10.csv,8,Laboratory ID,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_Composition_TAPP_v6.csv,15,Funding Source for Analysis,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_Composition_TAPP_v6.csv,16,Coupled Technique(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_Composition_TAPP_v6.csv,17,Coupling Description,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_Composition_TAPP_v6.csv,19,Coupled Dataset or Publication Reference,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_Composition_TAPP_v6.csv,21,Target Material,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,SEM_Composition_TAPP_v6.csv,3,Procedure Name,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_Composition_TAPP_v6.csv,62,Background Position(s),datatype-compound,Data Type 'Numeric + label' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,SEM_FIBSEM_TAPP_v6.csv,15,Funding Source for Analysis,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_FIBSEM_TAPP_v6.csv,16,Coupled Technique(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_FIBSEM_TAPP_v6.csv,17,Coupling Description,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_FIBSEM_TAPP_v6.csv,19,Coupled Dataset or Publication Reference,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_FIBSEM_TAPP_v6.csv,21,Target Material,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,SEM_FIBSEM_TAPP_v6.csv,3,Procedure Name,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_Imaging_TAPP_v6.csv,15,Funding Source for Analysis,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_Imaging_TAPP_v6.csv,16,Coupled Technique(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_Imaging_TAPP_v6.csv,17,Coupling Description,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_Imaging_TAPP_v6.csv,19,Coupled Dataset or Publication Reference,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_Imaging_TAPP_v6.csv,21,Target Material,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,SEM_Imaging_TAPP_v6.csv,3,Procedure Name,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_TAPP_v6.csv,15,Funding Source for Analysis,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_TAPP_v6.csv,16,Coupled Technique(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_TAPP_v6.csv,17,Coupling Description,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_TAPP_v6.csv,19,Coupled Dataset or Publication Reference,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_TAPP_v6.csv,22,Target Material,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,SEM_TAPP_v6.csv,3,Procedure Name,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,SEM_TAPP_v6.csv,71,Background Position(s),datatype-compound,Data Type 'Numeric + label' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Solution_MC-ICP-MS_TAPP_v5.csv,112,Detection Limit,datatype-compound,Data Type 'Numeric or Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Solution_MC-ICP-MS_TAPP_v5.csv,23,Sample IGSN,datatype-compound,Data Type 'URI / Text (free)' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Solution_Q-ICP-MS_TAPP_v7.csv,22,Sample IGSN,datatype-compound,Data Type 'URI / Text (free)' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Solution_Q-ICP-MS_TAPP_v7.csv,61,Dwell Time per Mass,datatype-compound,Data Type 'Numeric (ms) or Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Solution_Q-ICP-MS_TAPP_v7.csv,99,Detection Limit,datatype-compound,Data Type 'Numeric or Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Solution_SF-ICP-MS_TAPP_v7.csv,22,Sample IGSN,datatype-compound,Data Type 'URI / Text (free)' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Solution_SF-ICP-MS_TAPP_v7.csv,63,Dwell Time per Mass,datatype-compound,Data Type 'Numeric (ms) or Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,Solution_SF-ICP-MS_TAPP_v7.csv,95,Detection Limit,datatype-compound,Data Type 'Numeric or Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,TEM_TAPP_v9.csv,11,Procedure DOI,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,TEM_TAPP_v9.csv,16,Coupled Technique(s),group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,TEM_TAPP_v9.csv,17,Coupling Description,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,TEM_TAPP_v9.csv,19,Coupled Dataset or Publication Reference,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,TEM_TAPP_v9.csv,22,Target Material,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.
+INFO,TEM_TAPP_v9.csv,3,Procedure Name,group1-description,Description differs from the template. Column B is template-owned; only Column F is technique-specific.
+INFO,TEM_TAPP_v9.csv,34,Sample Holder,datatype-compound,Data Type 'Controlled list / Text' is a compound type not listed in conventions.md. Widely used — likely a gap in the vocabulary rather than an error.

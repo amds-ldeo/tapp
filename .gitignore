@@ -1,0 +1,58 @@
+# ---------------------------------------------------------------------------
+# TAPPs repository — ALLOWLIST .gitignore
+#
+# Everything in the project root is ignored by default. Only the paths
+# un-ignored below are tracked. The per-technique working folders (EPMA/,
+# SEM/, TEM/, LA-*/, Solution */, XCT/, etc.) stay local: they hold the
+# publisher PDF libraries and scratch material that must not go to GitHub.
+#
+# To START TRACKING a new root-level folder, add a line:   !/Folder Name/
+# The trailing slash matters. Nothing inside a tracked folder needs its own
+# rule — git descends into it automatically.
+# ---------------------------------------------------------------------------
+
+# 1. Ignore every root-level entry ('/*' matches only the top level).
+/*
+
+# 2. Re-include the tracked folders.
+!/Archive/
+!/Claude Skills for TAPP/
+!/Current TAPPs/
+!/Project Files/
+!/Superseded TAPPs/
+
+# 3. Re-include the tracked root-level files.
+!/.gitattributes
+!/.gitignore
+!/composed_tapps.json
+!/README_TAPP_for_Schema_Generation.md
+
+# ---------------------------------------------------------------------------
+# 4. Junk, excluded everywhere including inside tracked folders.
+# ---------------------------------------------------------------------------
+
+# macOS Finder metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Excel / Word lock files written while a document is open
+~$*
+.~lock.*
+
+# Ad-hoc backup copies (*.bak, *.bak_v5, *.bak_phase4, *.bak7, ...)
+*.bak
+*.bak_*
+*.bak[0-9]*
+
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Editor scratch
+*.swp
+*~

@@ -1,0 +1,93 @@
+﻿Field,Status,Winner,Attention,Rationale,Adopted description,Implementation note,Eligible variants,V1,V2,V3,V4,V5,V6,V7,V8
+Acquisition Software,DECIDE (8 variants; 2 survive disqualifiers),synthesized (V1 + V3),LOW,"V1 is the only eligible variant with a boundary clause, which is what this field most needs — the recurring registrant error is putting the processing package here. Its weakness is 'raw signal data': an imaging procedure collects images, not signal. V3 (EPMA) contributes 'automation', which is real and missing everywhere else — stage/queue automation is part of what acquisition software does. Synthesis takes V1's structure and boundary, V3's 'automation', and generalises 'signal data' to 'data'. The six disqualified variants lose nothing but their technique nouns.","Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.",,"V1, V3","[V1] x6 — ELIGIBLE
+held by: LA-MC-ICPMS_UPb v13, LA-MC-ICPMS v13, LA-Q_UPb v16, LA-Q v15, LA-SF_UPb v17, LA-SF v16
+
+Instrument control and data acquisition software used to collect raw signal data, including version number. Separate from data reduction software.","[V2] x4 — DISQ (FIB, SEM, slice-and-view, tomograph)
+held by: SEM_Composition v17, SEM_FIBSEM v11, SEM_Imaging v11, SEM v17
+
+Software used to control the SEM and acquire data, including version number. For FIB-SEM 3D tomography, include the automated slice-and-view module name and version.","[V3] x1 — ELIGIBLE
+held by: EPMA v20
+
+Data acquisition and automation software, including version number.","[V4] x1 — DISQ (projection image)
+held by: Lab-XCT v17
+
+Instrument control and data acquisition software used to collect raw projection images, including version number. Separate from reconstruction and segmentation software.","[V5] x1 — DISQ (multi-collector)
+held by: Solution_MC v16
+
+Name and version of the software used to control the instrument and acquire raw multi-collector data.","[V6] x1 — DISQ (mass spectrum, MassLynx, Qtegra, e.g.)
+held by: Solution_Q v17
+
+Name and version of the software used to control the instrument and acquire raw mass spectrum data (e.g., Qtegra, MassLynx).","[V7] x1 — DISQ (mass spectrum)
+held by: Solution_SF v18
+
+Name and version of the software used to control the instrument and acquire raw mass spectrum data.","[V8] x1 — DISQ (microscope)
+held by: TEM v17
+
+Data acquisition and microscope control software, including version."
+Data Reduction Software,DECIDE (7 variants; 5 survive) + RENAME + 1 absorption,"V2 (SEM), reworded",MEDIUM — carries the rename and the Lab-XCT absorption,"V2 is the only variant that does not enumerate one technique's processing steps, and it is the only one carrying 'List all packages', which matches reality — 11 of 16 XCT papers name two or more. V1 ('background subtraction, concentration calculation'), V3 (matrix correction), V4 (gain/mass-bias/delta-values) and V6 (blank/internal standard) are each a correct enumeration for one family and wrong for the others; that content belongs in Column F. Reworded for the rename and to add the boundary clause and a definition that decides borderline cases: it is processing if it contributes to producing the reported quantities.","All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.","RENAME to 'Data Processing Software(s)' (Group 5 is already named 'Data Processing'; not all techniques reduce data — XCT reconstruction expands it). ABSORB Lab-XCT's 'Segmentation and Analysis Software' into this field, bringing it to 16/16. Lab-XCT KEEPS 'Reconstruction Software' as a technique-specific field (a stage the other 15 lack; reported in 12 of 16 XCT papers).","V1, V2, V3, V4, V6","[V1] x6 — ELIGIBLE
+held by: LA-MC-ICPMS_UPb v13, LA-MC-ICPMS v13, LA-Q_UPb v16, LA-Q v15, LA-SF_UPb v17, LA-SF v16
+
+Software used for signal processing, background subtraction, and concentration calculation, including version number.","[V2] x4 — ELIGIBLE
+held by: SEM_Composition v17, SEM_FIBSEM v11, SEM_Imaging v11, SEM v17
+
+Software used for post-acquisition data reduction and analysis. List all packages with version numbers.","[V3] x1 — ELIGIBLE
+held by: EPMA v20
+
+Software used for matrix correction and quantitative data reduction, if separate from the acquisition software. For mapping workflows, include software used to process count maps into concentration maps.","[V4] x1 — ELIGIBLE
+held by: Solution_MC v16
+
+Name and version of the software used for data reduction: baseline subtraction, gain correction, mass bias correction (SSB, double-spike inversion, or internal normalization), interference corrections, and calculation of isotope ratios, δ-values, and concentrations. Include version number.","[V5] x1 — DISQ (Iolite, e.g.)
+held by: Solution_Q v17
+
+Name and version of the software used for data reduction: blank correction, internal standard normalization, calibration, and concentration calculation (e.g., Iolite, lab spreadsheet). Include version number.","[V6] x1 — ELIGIBLE
+held by: Solution_SF v18
+
+Name and version of the software used for data reduction: blank correction, internal standard normalization, calibration, and concentration calculation. Include version number.","[V7] x1 — DISQ (EDS, EELS, diffraction)
+held by: TEM v17
+
+All software used for post-acquisition data reduction, analysis, and image processing, including diffraction analysis, EDS quantification, and EELS processing. List all packages with version numbers.",
+Analytical Mode,WRITE NEW (6 variants; 0 survive),synthesized (V1 skeleton + V3 clause),MEDIUM — no eligible incumbent,"Every variant is disqualified, but only on removable material: V1, V4 and V5 are the same sentence with different worked examples, and stripping the examples leaves a clean technique-neutral description. V3 (Solution) contributes the one substantive point the others lack — the field is required under Rule 3 even where a TAPP defines no mode flag columns, which is exactly the case a registrant would otherwise think exempts them. TEM's V6 also distinguishes 'Analytical Sub-mode'; that is a TEM-only sibling and cannot go in a module-owned description (Rule 6.4) — it moves to TEM's Column F.","Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns, which state per-field applicability. Required even where a procedure defines no mode flag columns, so that every procedure record is self-describing and comparable across the library.",TEM's 'Analytical Sub-mode' cross-reference moves from Column B to TEM's Column F.,none,"[V1] x6 — DISQ (e.g.)
+held by: LA-MC-ICPMS_UPb v13, LA-MC-ICPMS v13, LA-Q_UPb v16, LA-Q v15, LA-SF_UPb v17, LA-SF v16
+
+Primary analytical mode(s) executed under this procedure. For single-mode procedures, records one value (e.g., Spot). For multi-mode procedures (e.g., spot analysis combined with transect scanning), list all applicable modes. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns which indicate per-field applicability.","[V2] x4 — DISQ (BSE, EDS, e.g.)
+held by: SEM_Composition v17, SEM_FIBSEM v11, SEM_Imaging v11, SEM v17
+
+Primary analytical mode(s) executed under this procedure. For multi-mode procedures (e.g., simultaneous BSE + EDS mapping), list all active modes.","[V3] x3 — DISQ (ICP-MS, nebulis, solution icp)
+held by: Solution_MC v16, Solution_Q v17, Solution_SF v18
+
+Top-level declaration of the kind of measurement this procedure covers. Solution ICP-MS has a single routine mode — continuous nebulisation of a digested solution — so this TAPP defines no mode flag columns; the field is still required (Rule 3) so that a procedure record is self-describing and comparable with multi-mode TAPPs across the library.","[V4] x1 — DISQ (EDS, WDS, e.g.)
+held by: EPMA v20
+
+Primary analytical mode(s) executed under this procedure. For single-mode procedures, records one value (e.g., WDS Point Analysis). For multi-mode procedures (e.g., simultaneous WDS point analysis and EDS mapping), list all applicable modes. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns which indicate per-field applicability.","[V5] x1 — DISQ (e.g.)
+held by: Lab-XCT v17
+
+Primary analytical mode(s) executed under this procedure. For single-mode procedures, records one value (e.g., Single-volume). For procedures covering both single-volume and multi-volume stitched acquisitions, list all applicable modes. Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns which indicate per-field applicability.","[V6] x1 — DISQ (STEM, TEM, diffraction, e.g.)
+held by: TEM v17
+
+Top-level analytical mode(s) executed under this procedure: TEM Imaging, STEM Imaging, or Electron Diffraction. For multi-mode procedures (e.g., STEM Imaging combined with Electron Diffraction), list all applicable modes. Serves as the procedure-level declaration of measurement type, distinct from ""Analytical Sub-mode"" (which records the specific technique within a mode, e.g., BF-TEM, HAADF-STEM, SAED, PED) and from the mode flag columns which indicate per-field applicability.",,
+Target Material,DECIDE (7 variants; 4 survive) + data type split,synthesized (V1 + the Solution clause),MEDIUM — also settles Column E,"V1 is the best eligible text: it has the purpose clause the EPMA/SEM variant (V2) dropped. V3 and V7 are V1 with a technique verb ('scan', 'at the nanoscale') and add nothing general. But the three disqualified Solution variants carry a point none of the eligible ones do — the material type constrains preparation, calibration and matrix matching, which is a stronger reason to record it than discoverability alone. Only their worked examples disqualify them, and those belong in Column F. Synthesis keeps V1's opening and generalises the Solution clause. Column E: adopt 'Controlled list / Text' (13 TAPPs) over 'Text (free)' (3) — the field is a discovery axis and wants a vocabulary.","General description of the material type(s) this procedure is designed to analyse. Used for discoverability and procedure matching, and because the material type constrains sample preparation, calibration and matrix-matching requirements.",Column E: adopt 'Controlled list / Text'; the 3 Solution TAPPs move off 'Text (free)'.,"V1, V2, V3, V7","[V1] x6 — ELIGIBLE
+held by: LA-MC-ICPMS_UPb v13, LA-MC-ICPMS v13, LA-Q_UPb v16, LA-Q v15, LA-SF_UPb v17, LA-SF v16
+
+General description of the material type(s) this procedure is designed to analyse. Used for discoverability and procedure matching.","[V2] x5 — ELIGIBLE
+held by: EPMA v20, SEM_Composition v17, SEM_FIBSEM v11, SEM_Imaging v11, SEM v17
+
+General description of the material type(s) this procedure is designed to analyze.","[V3] x1 — ELIGIBLE
+held by: Lab-XCT v17
+
+General description of the material type(s) this procedure is designed to scan. Used for discoverability and procedure matching.","[V4] x1 — DISQ (e.g.)
+held by: Solution_MC v16
+
+Type of geological or experimental material being analyzed (e.g., basalt, chondrite, seawater, mineral separate). Constrains the dissolution strategy, chromatographic separation, and matrix-matching requirements.","[V5] x1 — DISQ (e.g.)
+held by: Solution_Q v17
+
+Type of geological or experimental material being analyzed (e.g., basalt, peridotite, meteorite, synthetic solution). Constrains the calibration strategy and matrix-matching requirements.","[V6] x1 — DISQ (e.g.)
+held by: Solution_SF v18
+
+Type of geological or experimental material being analyzed (e.g., basalt, peridotite, chondrite, synthetic solution). Constrains the calibration strategy and matrix-matching requirements.","[V7] x1 — ELIGIBLE
+held by: TEM v17
+
+General description of the material type(s) this procedure is designed to analyze at the nanoscale.",
+Sample Persistent Identifier,TIER DECISION ONLY (description already identical in all 16),** RUOLIN TO DECIDE ** — recommend D=Advanced,"HIGH — policy call, not a reading judgment","No description work: all 16 agree. The split is Column D — Advanced in 13 TAPPs, Basic in the three Solution TAPPs. Rule 6.5 forbids a module expressing both, so one must win. Recommend Advanced, on two grounds: 'Sample Name' is already D=Basic in all 16, so the mandatory burden of identifying the sample is carried, and an IGSN often does not exist at submission for experimental products, synthetic standards or newly split fragments — forcing D=Basic there produces 'pending'/'none' noise rather than identifiers. Against: the PID is what makes a sample resolvable across Astromat/SESAR, and Rule 13 made the field mandatory precisely to strengthen that link. This is a SESAR policy question, so it is flagged rather than decided here.",(no change to description; decision is Column D only),"Same three Solution TAPPs as the Target Material Column E split and the Sample Preparation Method tier split — one editorial event, not three. Worth checking whether other Solution divergences share the cause.",V1,"[V1] x16 — ELIGIBLE
+held by: EPMA v20, LA-MC-ICPMS_UPb v13, LA-MC-ICPMS v13, LA-Q_UPb v16, LA-Q v15, LA-SF_UPb v17, LA-SF v16, Lab-XCT v17, SEM_Composition v17, SEM_FIBSEM v11, SEM_Imaging v11, SEM v17, Solution_MC v16, Solution_Q v17, Solution_SF v18, TEM v17
+
+Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.",,,,,,,

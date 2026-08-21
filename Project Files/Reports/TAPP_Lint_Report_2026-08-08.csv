@@ -1,0 +1,478 @@
+﻿Severity,TAPP,Row,Field,Check,Message
+WARN,EPMA_TAPP_v9.csv,12,Analyst,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,13,Analysis Start Date,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,14,Analysis End Date,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,16,Coupled Technique(s),controlled-list-options,Controlled list is missing required option(s) ['N/A'] in column F.
+WARN,EPMA_TAPP_v9.csv,17,Coupling Description,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,19,Coupled Dataset or Publication Reference,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,24,Sample Name,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,25,Sample Persistent Identifier,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,30,Instrument Manufacturer,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,31,Instrument Model,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,32,Electron Source,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,34,Data Reduction Software,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,4,Technique,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,43,Beam Diameter,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,44,Beam Raster Dimensions,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,45,Beam Damage Minimization,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,46,Drift Correction,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,6,Laboratory,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,61,Step Size / Pixel Size,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,64,Stage Scan vs. Beam Scan,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,67,Matrix Correction Method,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,7,Laboratory ID,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,EPMA_TAPP_v9.csv,72,Halogen Correction on Oxygen,date-format,Last Update '5/11/26' is not YYYY-MM-DD.
+WARN,LA-ICPMS_TAPP_v13.csv,21,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_TAPP_v13.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,23,Sample Form / Analytical Substrate,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_TAPP_v13.csv,30,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_TAPP_v13.csv,30,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,30,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,30,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,33,ICP-MS Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_TAPP_v13.csv,37,Guard Electrode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-ICPMS_TAPP_v13.csv,4,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-ICPMS_TAPP_v13.csv,45,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_TAPP_v13.csv,45,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,45,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,45,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,48,Laser Spot Path / Ablation Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-ICPMS_TAPP_v13.csv,61,Plasma Thermal Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-ICPMS_TAPP_v13.csv,80,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_TAPP_v13.csv,80,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,80,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,80,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,92,Isobaric Interference Corrections Applied,name-element-specific,Column B uses 'Element-Specific'; the correct term is 'Analyte-Specific'.
+WARN,LA-ICPMS_TAPP_v13.csv,96,Normalization / Standards-Based Correction,rule5,Rule 5: 'Constants and Reference Values Used' must be the LAST field in Group 5; found 'Normalization / Standards-Based Correction'. Field is absent entirely.
+WARN,LA-ICPMS_TAPP_v13.csv,98,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-ICPMS_TAPP_v13.csv,98,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,98,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-ICPMS_TAPP_v13.csv,98,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,107,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,107,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,107,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,107,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,119,Isobaric Interference Corrections Applied,name-element-specific,Column B uses 'Element-Specific'; the correct term is 'Analyte-Specific'.
+WARN,LA-MC-ICPMS_TAPP_v1.csv,128,Mass Fractionation Law,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,135,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,135,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,135,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,135,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,21,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,23,Sample Form / Analytical Substrate,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,32,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,32,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,32,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,32,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,41,Guard Electrode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,44,Collision/Reaction Cell (CRC) Configuration,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,54,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,54,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,54,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,54,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,58,Laser Spot Path / Ablation Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-MC-ICPMS_TAPP_v1.csv,73,Plasma Thermal Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,108,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,108,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,108,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,108,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,120,Isobaric Interference Corrections Applied,name-element-specific,Column B uses 'Element-Specific'; the correct term is 'Analyte-Specific'.
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,129,Mass Fractionation Law,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,144,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,144,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,144,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,144,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,21,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,23,Sample Form / Analytical Substrate,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,33,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,33,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,33,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,33,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,42,Guard Electrode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,45,Collision/Reaction Cell (CRC) Configuration,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,55,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,55,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,55,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,55,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,59,Laser Spot Path / Ablation Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-MC-ICPMS_UPb_TAPP_v1.csv,74,Plasma Thermal Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,102,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,102,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,102,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,102,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,115,Isobaric Interference Corrections Applied,name-element-specific,Column B uses 'Element-Specific'; the correct term is 'Analyte-Specific'.
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,126,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,126,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,126,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,126,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,21,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,23,Sample Form / Analytical Substrate,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,32,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,32,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,32,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,32,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,35,ICP-MS Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,4,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,41,Guard Electrode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,44,Collision/Reaction Cell (CRC) Configuration,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,51,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,51,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,51,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,51,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,55,Laser Spot Path / Ablation Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-Q_SF-ICPMS_TAPP_v5.csv,70,Plasma Thermal Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,103,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,103,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,103,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,103,5. Data Processing,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,116,Isobaric Interference Corrections Applied,name-element-specific,Column B uses 'Element-Specific'; the correct term is 'Analyte-Specific'.
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,135,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,135,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,135,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,135,6. Quality Control & Uncertainty,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,21,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,21,2. Samples,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,23,Sample Form / Analytical Substrate,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,33,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,33,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,33,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,33,3. Instrument & Software,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,36,ICP-MS Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,4,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,42,Guard Electrode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,45,Collision/Reaction Cell (CRC) Configuration,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,52,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,52,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Spot', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,52,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Transect', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,52,4. Measurement Information,mode-flag-group-header,"Group header should have N in mode column 'Mapping', found 'empty'. Cosmetic: an empty flag is not Y, so the header still stays out of mode-filtered views."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,56,Laser Spot Path / Ablation Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,71,Plasma Thermal Mode,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,Lab-XCT_TAPP_v10.csv,21,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Lab-XCT_TAPP_v10.csv,34,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Lab-XCT_TAPP_v10.csv,4,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,Lab-XCT_TAPP_v10.csv,46,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Lab-XCT_TAPP_v10.csv,48,Accelerating Voltage,description-source-leak,"Description contains literature-assessment commentary ('in the source and') — text about what a source document contains belongs in a literature assessment column, not in Column B. It also inflates the description, which can bias a reconciliation that treats length as a quality signal."
+WARN,Lab-XCT_TAPP_v10.csv,67,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Lab-XCT_TAPP_v10.csv,82,Output Bit Depth,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,Lab-XCT_TAPP_v10.csv,86,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,SEM_Composition_TAPP_v6.csv,16,Coupled Technique(s),controlled-list-options,Controlled list is missing required option(s) ['N/A'] in column F.
+WARN,SEM_Composition_TAPP_v6.csv,21,,sentinel-stray-N,"54 data row(s) carry 'N' in the sentinel column (rows 21-24, 28-35, 37, 39-40, 46-50, 52-55, … (+3 more)); conventions require data rows to be empty. Harmless to the current export script, but it makes the column indistinguishable from a mode flag."
+WARN,SEM_FIBSEM_TAPP_v6.csv,16,Coupled Technique(s),controlled-list-options,Controlled list is missing required option(s) ['N/A'] in column F.
+WARN,SEM_FIBSEM_TAPP_v6.csv,21,,sentinel-stray-N,"29 data row(s) carry 'N' in the sentinel column (rows 21-24, 28-36, 38-50, 52-53, 56); conventions require data rows to be empty. Harmless to the current export script, but it makes the column indistinguishable from a mode flag."
+WARN,SEM_FIBSEM_TAPP_v6.csv,46,Target Foil Thickness,name-level-encoding,Field name contains 'Target'. Only 'Target Material' and 'Target Feature(s)' are exempt from the level-neutral naming rule.
+WARN,SEM_Imaging_TAPP_v6.csv,16,Coupled Technique(s),controlled-list-options,Controlled list is missing required option(s) ['N/A'] in column F.
+WARN,SEM_Imaging_TAPP_v6.csv,21,,sentinel-stray-N,"36 data row(s) carry 'N' in the sentinel column (rows 21-24, 28-37, 39-53, 55-57, 60-63); conventions require data rows to be empty. Harmless to the current export script, but it makes the column indistinguishable from a mode flag."
+WARN,SEM_TAPP_v6.csv,16,Coupled Technique(s),controlled-list-options,Controlled list is missing required option(s) ['N/A'] in column F.
+WARN,SEM_TAPP_v6.csv,22,,sentinel-stray-N,"84 data row(s) carry 'N' in the sentinel column (rows 22-25, 30-42, 45, 47-48, 54-59, 61-64, … (+3 more)); conventions require data rows to be empty. Harmless to the current export script, but it makes the column indistinguishable from a mode flag."
+WARN,SEM_TAPP_v6.csv,85,Target Foil Thickness,name-level-encoding,Field name contains 'Target'. Only 'Target Material' and 'Target Feature(s)' are exempt from the level-neutral naming rule.
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,112,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,16,Coupled Technique(s),controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,21,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,37,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,39,ICP-MS Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,4,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,50,Collision/Reaction Cell (CRC) Configuration,controlled-list-options,Controlled list is missing required option(s) ['None'] in column F.
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,58,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_MC-ICP-MS_TAPP_v5.csv,86,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,100,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,16,Coupled Technique(s),controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,20,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,35,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,37,ICP-MS Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,4,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,44,Mass Resolution Setting,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,53,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_Q-ICP-MS_TAPP_v7.csv,80,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,16,Coupled Technique(s),controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,20,2. Samples,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,35,3. Instrument & Software,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,37,ICP-MS Type,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None'] in column F."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,4,Technique,controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'None', 'Other: specify'] in column F."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,52,4. Measurement Information,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,76,5. Data Processing,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,Solution_SF-ICP-MS_TAPP_v7.csv,96,6. Quality Control & Uncertainty,sentinel-group-header,"Group header should have N in the sentinel column, found 'empty'."
+WARN,TEM_TAPP_v9.csv,16,Coupled Technique(s),controlled-list-options,Controlled list is missing required option(s) ['N/A'] in column F.
+WARN,TEM_TAPP_v9.csv,35,Monochromator,controlled-list-options,Controlled list is missing required option(s) ['Other: specify'] in column F.
+WARN,TEM_TAPP_v9.csv,37,Spectroscopic Detector(s),controlled-list-options,"Controlled list is missing required option(s) ['N/A', 'Other: specify'] in column F."
+WARN,TEM_TAPP_v9.csv,43,SAED Pattern Simulation Software,datatype-invalid,Data Type 'Controlled vocabulary + version' is not in the controlled vocabulary.
+WARN,TEM_TAPP_v9.csv,67,EDS Energy Range,datatype-invalid,Data Type 'Text (keV)' is not in the controlled vocabulary.
+WARN,TEM_TAPP_v9.csv,68,EDS Quantification Method,controlled-list-options,Controlled list is missing required option(s) ['Other: specify'] in column F.
+WARN,TEM_TAPP_v9.csv,69,Analyte,datatype-invalid,Data Type 'List of element symbols' is not in the controlled vocabulary.
+WARN,TEM_TAPP_v9.csv,71,EELS Edges,datatype-invalid,Data Type 'List of element + edge label' is not in the controlled vocabulary.
+WARN,TEM_TAPP_v9.csv,76,EELS Energy Loss Range,datatype-invalid,Data Type 'Text (eV)' is not in the controlled vocabulary.
+INFO,(cross-TAPP),,Ablation Cell Type,tier-divergence,"Tier assignment differs across 5 TAPPs — LA-ICPMS_TAPP_v13.csv: C=Advanced,D=Read-Only; LA-MC-ICPMS_TAPP_v1.csv: C=Basic,D=Read-Only; LA-MC-ICPMS_UPb_TAPP_v1.csv: C=Basic,D=Read-Only; LA-Q_SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; LA-Q_SF-ICPMS_UPb_TAPP_v5.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Analysis Sequence,tier-divergence,"Tier assignment differs across 8 TAPPs — LA-ICPMS_TAPP_v13.csv: C=Basic,D=Editable; LA-MC-ICPMS_TAPP_v1.csv: C=Basic,D=Editable; LA-MC-ICPMS_UPb_TAPP_v1.csv: C=Basic,D=Editable; LA-Q_SF-ICPMS_TAPP_v5.csv: C=Basic,D=Editable; LA-Q_SF-ICPMS_UPb_TAPP_v5.csv: C=Basic,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Analytical Accuracy and Assessment Method,tier-divergence,"Tier assignment differs across 8 TAPPs — LA-ICPMS_TAPP_v13.csv: C=Advanced,D=Basic; LA-MC-ICPMS_TAPP_v1.csv: C=Basic,D=Basic; LA-MC-ICPMS_UPb_TAPP_v1.csv: C=Basic,D=Basic; LA-Q_SF-ICPMS_TAPP_v5.csv: C=Basic,D=Basic; LA-Q_SF-ICPMS_UPb_TAPP_v5.csv: C=Basic,D=Basic; Solution_MC-ICP-MS_TAPP_v5.csv: C=Advanced,D=Basic; Solution_Q-ICP-MS_TAPP_v7.csv: C=Advanced,D=Basic; Solution_SF-ICP-MS_TAPP_v7.csv: C=Advanced,D=Basic. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Detection Limit Method,tier-divergence,"Tier assignment differs across 11 TAPPs — EPMA_TAPP_v9.csv: C=Advanced,D=Editable; LA-ICPMS_TAPP_v13.csv: C=Advanced,D=Basic; LA-MC-ICPMS_TAPP_v1.csv: C=Advanced,D=Basic; LA-MC-ICPMS_UPb_TAPP_v1.csv: C=Advanced,D=Basic; LA-Q_SF-ICPMS_TAPP_v5.csv: C=Advanced,D=Basic; LA-Q_SF-ICPMS_UPb_TAPP_v5.csv: C=Advanced,D=Basic; SEM_Composition_TAPP_v6.csv: C=Advanced,D=Editable; SEM_TAPP_v6.csv: C=Advanced,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Advanced,D=Basic; Solution_Q-ICP-MS_TAPP_v7.csv: C=Advanced,D=Basic; Solution_SF-ICP-MS_TAPP_v7.csv: C=Advanced,D=Basic. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Dwell Time per Mass,tier-divergence,"Tier assignment differs across 4 TAPPs — LA-Q_SF-ICPMS_TAPP_v5.csv: C=Basic,D=Editable; LA-Q_SF-ICPMS_UPb_TAPP_v5.csv: C=Basic,D=Editable; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,EDS Acquisition Mode,tier-divergence,"Tier assignment differs across 4 TAPPs — EPMA_TAPP_v9.csv: C=Basic,D=Read-Only; SEM_Composition_TAPP_v6.csv: C=Basic,D=Read-Only; SEM_TAPP_v6.csv: C=Basic,D=Read-Only; TEM_TAPP_v9.csv: C=Basic,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,EDS Detector Configuration,tier-divergence,"Tier assignment differs across 4 TAPPs — EPMA_TAPP_v9.csv: C=Advanced,D=Read-Only; SEM_Composition_TAPP_v6.csv: C=Advanced,D=Read-Only; SEM_TAPP_v6.csv: C=Advanced,D=Read-Only; TEM_TAPP_v9.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,EDS Live Time per Point or Pixel,tier-divergence,"Tier assignment differs across 4 TAPPs — EPMA_TAPP_v9.csv: C=Basic,D=Editable; SEM_Composition_TAPP_v6.csv: C=Basic,D=Editable; SEM_TAPP_v6.csv: C=Basic,D=Editable; TEM_TAPP_v9.csv: C=Advanced,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Guard Electrode,tier-divergence,"Tier assignment differs across 8 TAPPs — LA-ICPMS_TAPP_v13.csv: C=Basic,D=Read-Only; LA-MC-ICPMS_TAPP_v1.csv: C=Basic,D=Read-Only; LA-MC-ICPMS_UPb_TAPP_v1.csv: C=Basic,D=Read-Only; LA-Q_SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; LA-Q_SF-ICPMS_UPb_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Advanced,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Advanced,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Advanced,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Laser Pulse Duration,tier-divergence,"Tier assignment differs across 5 TAPPs — LA-ICPMS_TAPP_v13.csv: C=Advanced,D=Read-Only; LA-MC-ICPMS_TAPP_v1.csv: C=Basic,D=Read-Only; LA-MC-ICPMS_UPb_TAPP_v1.csv: C=Basic,D=Read-Only; LA-Q_SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; LA-Q_SF-ICPMS_UPb_TAPP_v5.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Mass Resolution Setting,tier-divergence,"Tier assignment differs across 8 TAPPs — LA-ICPMS_TAPP_v13.csv: C=Basic,D=Editable; LA-MC-ICPMS_TAPP_v1.csv: C=Basic,D=Editable; LA-MC-ICPMS_UPb_TAPP_v1.csv: C=Basic,D=Editable; LA-Q_SF-ICPMS_TAPP_v5.csv: C=Basic,D=Editable; LA-Q_SF-ICPMS_UPb_TAPP_v5.csv: C=Basic,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Editable; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Per-Analyte Calibration Strategy,tier-divergence,"Tier assignment differs across 8 TAPPs — LA-ICPMS_TAPP_v13.csv: C=Basic,D=Read-Only; LA-MC-ICPMS_TAPP_v1.csv: C=Basic,D=Read-Only; LA-MC-ICPMS_UPb_TAPP_v1.csv: C=Basic,D=Read-Only; LA-Q_SF-ICPMS_TAPP_v5.csv: C=Basic,D=Read-Only; LA-Q_SF-ICPMS_UPb_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_MC-ICP-MS_TAPP_v5.csv: C=Advanced,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Phase Identification Method,tier-divergence,"Tier assignment differs across 2 TAPPs — Lab-XCT_TAPP_v10.csv: C=Advanced,D=Editable; TEM_TAPP_v9.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,RF Power,tier-divergence,"Tier assignment differs across 8 TAPPs — LA-ICPMS_TAPP_v13.csv: C=Basic,D=Read-Only; LA-MC-ICPMS_TAPP_v1.csv: C=Basic,D=Editable; LA-MC-ICPMS_UPb_TAPP_v1.csv: C=Basic,D=Editable; LA-Q_SF-ICPMS_TAPP_v5.csv: C=Basic,D=Editable; LA-Q_SF-ICPMS_UPb_TAPP_v5.csv: C=Basic,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Editable; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Editable; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Editable. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Sample Persistent Identifier,tier-divergence,"Tier assignment differs across 15 TAPPs — EPMA_TAPP_v9.csv: C=Advanced,D=Advanced; LA-ICPMS_TAPP_v13.csv: C=Advanced,D=Advanced; LA-MC-ICPMS_TAPP_v1.csv: C=Advanced,D=Advanced; LA-MC-ICPMS_UPb_TAPP_v1.csv: C=Advanced,D=Advanced; LA-Q_SF-ICPMS_TAPP_v5.csv: C=Advanced,D=Advanced; LA-Q_SF-ICPMS_UPb_TAPP_v5.csv: C=Advanced,D=Advanced; Lab-XCT_TAPP_v10.csv: C=Advanced,D=Advanced; SEM_Composition_TAPP_v6.csv: C=Advanced,D=Advanced; SEM_FIBSEM_TAPP_v6.csv: C=Advanced,D=Advanced; SEM_Imaging_TAPP_v6.csv: C=Advanced,D=Advanced; SEM_TAPP_v6.csv: C=Advanced,D=Advanced; Solution_MC-ICP-MS_TAPP_v5.csv: C=Advanced,D=Basic; Solution_Q-ICP-MS_TAPP_v7.csv: C=Advanced,D=Basic; Solution_SF-ICP-MS_TAPP_v7.csv: C=Advanced,D=Basic; TEM_TAPP_v9.csv: C=Advanced,D=Advanced. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Sample Preparation Method,tier-divergence,"Tier assignment differs across 14 TAPPs — EPMA_TAPP_v9.csv: C=Basic,D=Editable; LA-ICPMS_TAPP_v13.csv: C=Advanced,D=Editable; LA-MC-ICPMS_TAPP_v1.csv: C=Basic,D=Editable; LA-MC-ICPMS_UPb_TAPP_v1.csv: C=Basic,D=Editable; LA-Q_SF-ICPMS_TAPP_v5.csv: C=Basic,D=Editable; LA-Q_SF-ICPMS_UPb_TAPP_v5.csv: C=Basic,D=Editable; SEM_Composition_TAPP_v6.csv: C=Basic,D=Editable; SEM_FIBSEM_TAPP_v6.csv: C=Basic,D=Editable; SEM_Imaging_TAPP_v6.csv: C=Basic,D=Editable; SEM_TAPP_v6.csv: C=Basic,D=Editable; Solution_MC-ICP-MS_TAPP_v5.csv: C=Basic,D=Read-Only; Solution_Q-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; Solution_SF-ICP-MS_TAPP_v7.csv: C=Basic,D=Read-Only; TEM_TAPP_v9.csv: C=Basic,D=Read-Only. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Step Size / Pixel Size,tier-divergence,"Tier assignment differs across 3 TAPPs — EPMA_TAPP_v9.csv: C=Basic,D=Editable; SEM_Composition_TAPP_v6.csv: C=Advanced,D=Basic; SEM_TAPP_v6.csv: C=Advanced,D=Basic. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,(cross-TAPP),,Within-Session Analytical Precision and Assessment Method,tier-divergence,"Tier assignment differs across 7 TAPPs — LA-ICPMS_TAPP_v13.csv: C=Advanced,D=Basic; LA-MC-ICPMS_TAPP_v1.csv: C=Basic,D=Basic; LA-MC-ICPMS_UPb_TAPP_v1.csv: C=Basic,D=Basic; LA-Q_SF-ICPMS_TAPP_v5.csv: C=Basic,D=Basic; LA-Q_SF-ICPMS_UPb_TAPP_v5.csv: C=Basic,D=Basic; Solution_Q-ICP-MS_TAPP_v7.csv: C=Advanced,D=Basic; Solution_SF-ICP-MS_TAPP_v7.csv: C=Advanced,D=Basic. Intentional divergence must be recorded in precedents.md (Rule 2/4)."
+INFO,LA-ICPMS_TAPP_v13.csv,10,Procedure Reference(s),date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,102,Detection Limit Method,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,103,Limit of Quantification (LOQ) Method,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,108,Additional Notes,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,11,Procedure DOI,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,12,Analyst,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,13,Analysis Start Date,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,14,Analysis End Date,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,22,Target Material,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,23,Sample Form / Analytical Substrate,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,24,Sample Name,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,25,Sample Persistent Identifier,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,26,Fusion Flux and Dilution Ratio,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,27,Sample Preparation Method,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,28,Pre-Ablation Surface Treatment,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,3,Procedure Name,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,32,ICP-MS Manufacturer & Model,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,37,Guard Electrode,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,39,Detector Configuration,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,4,Technique,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,41,Acquisition Software,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,49,Laser Energy,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,5,Procedure Author,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,54,Ablation Duration per Spot,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,55,"Transect Rate, Mapping Rate or Step Size",date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,56,Raster Line Spacing (Mapping Only),date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,6,Laboratory,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,60,RF Power,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,64,Oxide Production Method and Threshold,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,65,Oxide Production,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,68,Instrument Warm-up / Session Duration Limit,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,69,Drift Monitor Frequency,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,7,Laboratory ID,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,70,Analysis Sequence,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,73,Background Count Time,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,74,Multi-Run Sequential Analysis Design,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,75,Analysis Location/Spot Coordinates,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,76,Number of Replicates,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,77,Transect Length,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,78,Mapping Area,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,8,Procedure Start Date,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,84,Elemental Fractionation Correction,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,85,Uncertainty Level and Propagation,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,86,Matrix Offset Correction (LIEF),date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,87,Signal Integration Interval Method,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,88,Signal Integration Time,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,89,Spike / Outlier Filtering Approach,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,90,Blank / Background Correction Method,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,95,Memory Effect Mitigation,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,96,Normalization / Standards-Based Correction,date-missing,Last Update (column H) is empty.
+INFO,LA-ICPMS_TAPP_v13.csv,99,Primary Calibration Standard Name,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,10,Procedure Reference(s),date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,11,Procedure DOI,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,111,Elemental Fractionation Correction,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,113,Uncertainty Level and Propagation,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,114,Matrix Offset Correction (LIEF),date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,115,Signal Integration Interval Method,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,116,Signal Integration Time,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,117,Spike / Outlier Filtering Approach,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,118,Blank / Background Correction Method,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,12,Analyst,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,123,Memory Effect Mitigation,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,124,Normalization / Standards-Based Correction,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,13,Analysis Start Date,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,136,Primary Calibration Standard Name,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,14,Analysis End Date,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,140,Detection Limit Method,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,141,Limit of Quantification (LOQ) Method,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,146,Additional Notes,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,22,Target Material,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,23,Sample Form / Analytical Substrate,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,24,Sample Name,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,25,Sample Persistent Identifier,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,26,Fusion Flux and Dilution Ratio,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,27,Sample Preparation Method,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,28,Pre-Ablation Surface Treatment,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,3,Procedure Name,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,34,ICP-MS Manufacturer & Model,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,41,Guard Electrode,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,43,Detector Configuration,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,46,Acquisition Software,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,5,Procedure Author,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,59,Laser Energy,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,6,Laboratory,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,64,Ablation Duration per Spot,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,66,"Transect Rate, Mapping Rate or Step Size",date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,67,Raster Line Spacing (Mapping Only),date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,7,Laboratory ID,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,77,Oxide Production Method and Threshold,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,78,Oxide Production,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,8,Procedure Start Date,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,81,Instrument Warm-up / Session Duration Limit,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,82,Analysis Sequence,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,93,Background Count Time,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,94,Multi-Run Sequential Analysis Design,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,95,Analysis Location/Spot Coordinates,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,96,Number of Replicates,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,97,Transect Length,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_TAPP_v1.csv,98,Mapping Area,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,10,Procedure Reference(s),date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,11,Procedure DOI,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,112,Elemental Fractionation Correction,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,114,Uncertainty Level and Propagation,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,115,Matrix Offset Correction (LIEF),date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,116,Signal Integration Interval Method,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,117,Signal Integration Time,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,118,Spike / Outlier Filtering Approach,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,119,Blank / Background Correction Method,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,12,Analyst,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,124,Memory Effect Mitigation,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,125,Normalization / Standards-Based Correction,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,13,Analysis Start Date,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,14,Analysis End Date,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,145,Primary Calibration Standard Name,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,149,Detection Limit Method,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,150,Limit of Quantification (LOQ) Method,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,155,Additional Notes,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,22,Target Material,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,23,Sample Form / Analytical Substrate,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,24,Sample Name,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,25,Sample Persistent Identifier,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,26,Fusion Flux and Dilution Ratio,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,27,Sample Preparation Method,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,28,Pre-Ablation Surface Treatment,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,3,Procedure Name,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,35,ICP-MS Manufacturer & Model,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,42,Guard Electrode,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,44,Detector Configuration,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,47,Acquisition Software,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,5,Procedure Author,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,6,Laboratory,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,60,Laser Energy,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,65,Ablation Duration per Spot,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,67,"Transect Rate, Mapping Rate or Step Size",date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,68,Raster Line Spacing (Mapping Only),date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,7,Laboratory ID,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,78,Oxide Production Method and Threshold,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,79,Oxide Production,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,8,Procedure Start Date,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,82,Instrument Warm-up / Session Duration Limit,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,83,Analysis Sequence,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,94,Background Count Time,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,95,Multi-Run Sequential Analysis Design,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,96,Analysis Location/Spot Coordinates,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,97,Number of Replicates,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,98,Transect Length,date-missing,Last Update (column H) is empty.
+INFO,LA-MC-ICPMS_UPb_TAPP_v1.csv,99,Mapping Area,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,10,Procedure Reference(s),date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,100,Mapping Area,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,106,Elemental Fractionation Correction,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,108,Uncertainty Level and Propagation,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,109,Matrix Offset Correction (LIEF),date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,11,Procedure DOI,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,110,Signal Integration Interval Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,111,Signal Integration Time,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,112,Spike / Outlier Filtering Approach,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,113,Blank / Background Correction Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,119,Memory Effect Mitigation,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,12,Analyst,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,120,Normalization / Standards-Based Correction,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,127,Primary Calibration Standard Name,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,13,Analysis Start Date,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,131,Detection Limit Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,132,Limit of Quantification (LOQ) Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,137,Additional Notes,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,14,Analysis End Date,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,22,Target Material,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,23,Sample Form / Analytical Substrate,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,24,Sample Name,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,25,Sample Persistent Identifier,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,26,Fusion Flux and Dilution Ratio,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,27,Sample Preparation Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,28,Pre-Ablation Surface Treatment,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,3,Procedure Name,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,34,ICP-MS Manufacturer & Model,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,4,Technique,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,41,Guard Electrode,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,43,Detector Configuration,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,46,Acquisition Software,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,5,Procedure Author,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,56,Laser Energy,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,6,Laboratory,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,61,Ablation Duration per Spot,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,63,"Transect Rate, Mapping Rate or Step Size",date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,64,Raster Line Spacing (Mapping Only),date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,7,Laboratory ID,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,74,Oxide Production Method and Threshold,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,75,Oxide Production,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,78,Instrument Warm-up / Session Duration Limit,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,79,Analysis Sequence,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,8,Procedure Start Date,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,95,Background Count Time,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,96,Multi-Run Sequential Analysis Design,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,97,Analysis Location/Spot Coordinates,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,98,Number of Replicates,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_TAPP_v5.csv,99,Transect Length,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,10,Procedure Reference(s),date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,100,Transect Length,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,101,Mapping Area,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,107,Elemental Fractionation Correction,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,109,Uncertainty Level and Propagation,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,11,Procedure DOI,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,110,Matrix Offset Correction (LIEF),date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,111,Signal Integration Interval Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,112,Signal Integration Time,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,113,Spike / Outlier Filtering Approach,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,114,Blank / Background Correction Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,12,Analyst,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,120,Memory Effect Mitigation,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,121,Normalization / Standards-Based Correction,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,13,Analysis Start Date,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,136,Primary Calibration Standard Name,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,14,Analysis End Date,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,140,Detection Limit Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,141,Limit of Quantification (LOQ) Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,146,Additional Notes,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,22,Target Material,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,23,Sample Form / Analytical Substrate,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,24,Sample Name,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,25,Sample Persistent Identifier,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,26,Fusion Flux and Dilution Ratio,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,27,Sample Preparation Method,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,28,Pre-Ablation Surface Treatment,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,3,Procedure Name,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,35,ICP-MS Manufacturer & Model,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,4,Technique,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,42,Guard Electrode,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,44,Detector Configuration,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,47,Acquisition Software,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,5,Procedure Author,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,57,Laser Energy,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,6,Laboratory,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,62,Ablation Duration per Spot,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,64,"Transect Rate, Mapping Rate or Step Size",date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,65,Raster Line Spacing (Mapping Only),date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,7,Laboratory ID,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,75,Oxide Production Method and Threshold,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,76,Oxide Production,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,79,Instrument Warm-up / Session Duration Limit,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,8,Procedure Start Date,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,80,Analysis Sequence,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,96,Background Count Time,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,97,Multi-Run Sequential Analysis Design,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,98,Analysis Location/Spot Coordinates,date-missing,Last Update (column H) is empty.
+INFO,LA-Q_SF-ICPMS_UPb_TAPP_v5.csv,99,Number of Replicates,date-missing,Last Update (column H) is empty.

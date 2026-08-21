@@ -1,0 +1,945 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dsp:drawing xmlns:dgm="http://schemas.openxmlformats.org/drawingml/2006/diagram" xmlns:dsp="http://schemas.microsoft.com/office/drawing/2008/diagram" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main">
+  <dsp:spTree>
+    <dsp:nvGrpSpPr>
+      <dsp:cNvPr id="0" name=""/>
+      <dsp:cNvGrpSpPr/>
+    </dsp:nvGrpSpPr>
+    <dsp:grpSpPr/>
+    <dsp:sp modelId="{7D8BBDE9-90C6-7B49-A416-994198C0915A}">
+      <dsp:nvSpPr>
+        <dsp:cNvPr id="0" name=""/>
+        <dsp:cNvSpPr/>
+      </dsp:nvSpPr>
+      <dsp:spPr>
+        <a:xfrm rot="5400000">
+          <a:off x="6872275" y="-3015881"/>
+          <a:ext cx="556665" cy="6729984"/>
+        </a:xfrm>
+        <a:prstGeom prst="round2SameRect">
+          <a:avLst/>
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent2">
+            <a:tint val="40000"/>
+            <a:alpha val="90000"/>
+            <a:hueOff val="0"/>
+            <a:satOff val="0"/>
+            <a:lumOff val="0"/>
+            <a:alphaOff val="0"/>
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln w="19050" cap="flat" cmpd="sng" algn="ctr">
+          <a:solidFill>
+            <a:schemeClr val="accent2">
+              <a:tint val="40000"/>
+              <a:alpha val="90000"/>
+              <a:hueOff val="0"/>
+              <a:satOff val="0"/>
+              <a:lumOff val="0"/>
+              <a:alphaOff val="0"/>
+            </a:schemeClr>
+          </a:solidFill>
+          <a:prstDash val="solid"/>
+          <a:miter lim="800000"/>
+        </a:ln>
+        <a:effectLst/>
+      </dsp:spPr>
+      <dsp:style>
+        <a:lnRef idx="2">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:lnRef>
+        <a:fillRef idx="1">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:fillRef>
+        <a:effectRef idx="0">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:effectRef>
+        <a:fontRef idx="minor"/>
+      </dsp:style>
+      <dsp:txBody>
+        <a:bodyPr spcFirstLastPara="0" vert="horz" wrap="square" lIns="60960" tIns="30480" rIns="60960" bIns="30480" numCol="1" spcCol="1270" anchor="ctr" anchorCtr="0">
+          <a:noAutofit/>
+        </a:bodyPr>
+        <a:lstStyle/>
+        <a:p>
+          <a:pPr marL="171450" lvl="1" indent="-171450" algn="l" defTabSz="711200">
+            <a:lnSpc>
+              <a:spcPct val="90000"/>
+            </a:lnSpc>
+            <a:spcBef>
+              <a:spcPct val="0"/>
+            </a:spcBef>
+            <a:spcAft>
+              <a:spcPct val="15000"/>
+            </a:spcAft>
+            <a:buChar char="•"/>
+          </a:pPr>
+          <a:r>
+            <a:rPr lang="en-US" sz="1600" kern="1200" dirty="0"/>
+            <a:t>Protocol Name, Protocol Author, Lab, Protocol DOI, Coupled Protocol…</a:t>
+          </a:r>
+        </a:p>
+      </dsp:txBody>
+      <dsp:txXfrm rot="-5400000">
+        <a:off x="3785616" y="97952"/>
+        <a:ext cx="6702810" cy="502317"/>
+      </dsp:txXfrm>
+    </dsp:sp>
+    <dsp:sp modelId="{45DB622D-5C8C-DD45-9698-273880179C57}">
+      <dsp:nvSpPr>
+        <dsp:cNvPr id="0" name=""/>
+        <dsp:cNvSpPr/>
+      </dsp:nvSpPr>
+      <dsp:spPr>
+        <a:xfrm>
+          <a:off x="0" y="1195"/>
+          <a:ext cx="3785616" cy="695831"/>
+        </a:xfrm>
+        <a:prstGeom prst="roundRect">
+          <a:avLst/>
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent2">
+            <a:hueOff val="0"/>
+            <a:satOff val="0"/>
+            <a:lumOff val="0"/>
+            <a:alphaOff val="0"/>
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln w="19050" cap="flat" cmpd="sng" algn="ctr">
+          <a:solidFill>
+            <a:schemeClr val="lt1">
+              <a:hueOff val="0"/>
+              <a:satOff val="0"/>
+              <a:lumOff val="0"/>
+              <a:alphaOff val="0"/>
+            </a:schemeClr>
+          </a:solidFill>
+          <a:prstDash val="solid"/>
+          <a:miter lim="800000"/>
+        </a:ln>
+        <a:effectLst/>
+      </dsp:spPr>
+      <dsp:style>
+        <a:lnRef idx="2">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:lnRef>
+        <a:fillRef idx="1">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:fillRef>
+        <a:effectRef idx="0">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1"/>
+        </a:fontRef>
+      </dsp:style>
+      <dsp:txBody>
+        <a:bodyPr spcFirstLastPara="0" vert="horz" wrap="square" lIns="106680" tIns="53340" rIns="106680" bIns="53340" numCol="1" spcCol="1270" anchor="ctr" anchorCtr="0">
+          <a:noAutofit/>
+        </a:bodyPr>
+        <a:lstStyle/>
+        <a:p>
+          <a:pPr marL="0" lvl="0" indent="0" algn="ctr" defTabSz="1244600">
+            <a:lnSpc>
+              <a:spcPct val="90000"/>
+            </a:lnSpc>
+            <a:spcBef>
+              <a:spcPct val="0"/>
+            </a:spcBef>
+            <a:spcAft>
+              <a:spcPct val="35000"/>
+            </a:spcAft>
+            <a:buNone/>
+          </a:pPr>
+          <a:r>
+            <a:rPr lang="en-US" sz="2800" kern="1200" dirty="0"/>
+            <a:t>Protocol Identification</a:t>
+          </a:r>
+        </a:p>
+      </dsp:txBody>
+      <dsp:txXfrm>
+        <a:off x="33968" y="35163"/>
+        <a:ext cx="3717680" cy="627895"/>
+      </dsp:txXfrm>
+    </dsp:sp>
+    <dsp:sp modelId="{088CA1C6-D3F4-ED4E-8F9F-5C7A253AA076}">
+      <dsp:nvSpPr>
+        <dsp:cNvPr id="0" name=""/>
+        <dsp:cNvSpPr/>
+      </dsp:nvSpPr>
+      <dsp:spPr>
+        <a:xfrm rot="5400000">
+          <a:off x="6872275" y="-2285257"/>
+          <a:ext cx="556665" cy="6729984"/>
+        </a:xfrm>
+        <a:prstGeom prst="round2SameRect">
+          <a:avLst/>
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent3">
+            <a:tint val="40000"/>
+            <a:alpha val="90000"/>
+            <a:hueOff val="0"/>
+            <a:satOff val="0"/>
+            <a:lumOff val="0"/>
+            <a:alphaOff val="0"/>
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln w="19050" cap="flat" cmpd="sng" algn="ctr">
+          <a:solidFill>
+            <a:schemeClr val="accent3">
+              <a:tint val="40000"/>
+              <a:alpha val="90000"/>
+              <a:hueOff val="0"/>
+              <a:satOff val="0"/>
+              <a:lumOff val="0"/>
+              <a:alphaOff val="0"/>
+            </a:schemeClr>
+          </a:solidFill>
+          <a:prstDash val="solid"/>
+          <a:miter lim="800000"/>
+        </a:ln>
+        <a:effectLst/>
+      </dsp:spPr>
+      <dsp:style>
+        <a:lnRef idx="2">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:lnRef>
+        <a:fillRef idx="1">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:fillRef>
+        <a:effectRef idx="0">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:effectRef>
+        <a:fontRef idx="minor"/>
+      </dsp:style>
+      <dsp:txBody>
+        <a:bodyPr spcFirstLastPara="0" vert="horz" wrap="square" lIns="60960" tIns="30480" rIns="60960" bIns="30480" numCol="1" spcCol="1270" anchor="ctr" anchorCtr="0">
+          <a:noAutofit/>
+        </a:bodyPr>
+        <a:lstStyle/>
+        <a:p>
+          <a:pPr marL="171450" lvl="1" indent="-171450" algn="l" defTabSz="711200">
+            <a:lnSpc>
+              <a:spcPct val="90000"/>
+            </a:lnSpc>
+            <a:spcBef>
+              <a:spcPct val="0"/>
+            </a:spcBef>
+            <a:spcAft>
+              <a:spcPct val="15000"/>
+            </a:spcAft>
+            <a:buChar char="•"/>
+          </a:pPr>
+          <a:r>
+            <a:rPr lang="en-US" sz="1600" kern="1200" dirty="0"/>
+            <a:t>Target Material, Sample Preparation…</a:t>
+          </a:r>
+        </a:p>
+      </dsp:txBody>
+      <dsp:txXfrm rot="-5400000">
+        <a:off x="3785616" y="828576"/>
+        <a:ext cx="6702810" cy="502317"/>
+      </dsp:txXfrm>
+    </dsp:sp>
+    <dsp:sp modelId="{F3C5457F-C3F3-2D4C-8C65-6BC2D8D17209}">
+      <dsp:nvSpPr>
+        <dsp:cNvPr id="0" name=""/>
+        <dsp:cNvSpPr/>
+      </dsp:nvSpPr>
+      <dsp:spPr>
+        <a:xfrm>
+          <a:off x="0" y="731818"/>
+          <a:ext cx="3785616" cy="695831"/>
+        </a:xfrm>
+        <a:prstGeom prst="roundRect">
+          <a:avLst/>
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent3">
+            <a:hueOff val="0"/>
+            <a:satOff val="0"/>
+            <a:lumOff val="0"/>
+            <a:alphaOff val="0"/>
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln w="19050" cap="flat" cmpd="sng" algn="ctr">
+          <a:solidFill>
+            <a:schemeClr val="lt1">
+              <a:hueOff val="0"/>
+              <a:satOff val="0"/>
+              <a:lumOff val="0"/>
+              <a:alphaOff val="0"/>
+            </a:schemeClr>
+          </a:solidFill>
+          <a:prstDash val="solid"/>
+          <a:miter lim="800000"/>
+        </a:ln>
+        <a:effectLst/>
+      </dsp:spPr>
+      <dsp:style>
+        <a:lnRef idx="2">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:lnRef>
+        <a:fillRef idx="1">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:fillRef>
+        <a:effectRef idx="0">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1"/>
+        </a:fontRef>
+      </dsp:style>
+      <dsp:txBody>
+        <a:bodyPr spcFirstLastPara="0" vert="horz" wrap="square" lIns="106680" tIns="53340" rIns="106680" bIns="53340" numCol="1" spcCol="1270" anchor="ctr" anchorCtr="0">
+          <a:noAutofit/>
+        </a:bodyPr>
+        <a:lstStyle/>
+        <a:p>
+          <a:pPr marL="0" lvl="0" indent="0" algn="ctr" defTabSz="1244600">
+            <a:lnSpc>
+              <a:spcPct val="90000"/>
+            </a:lnSpc>
+            <a:spcBef>
+              <a:spcPct val="0"/>
+            </a:spcBef>
+            <a:spcAft>
+              <a:spcPct val="35000"/>
+            </a:spcAft>
+            <a:buNone/>
+          </a:pPr>
+          <a:r>
+            <a:rPr lang="en-US" sz="2800" kern="1200" dirty="0"/>
+            <a:t>Samples</a:t>
+          </a:r>
+        </a:p>
+      </dsp:txBody>
+      <dsp:txXfrm>
+        <a:off x="33968" y="765786"/>
+        <a:ext cx="3717680" cy="627895"/>
+      </dsp:txXfrm>
+    </dsp:sp>
+    <dsp:sp modelId="{D2069653-5216-3D44-93F5-413079A97CE7}">
+      <dsp:nvSpPr>
+        <dsp:cNvPr id="0" name=""/>
+        <dsp:cNvSpPr/>
+      </dsp:nvSpPr>
+      <dsp:spPr>
+        <a:xfrm rot="5400000">
+          <a:off x="6872275" y="-1554634"/>
+          <a:ext cx="556665" cy="6729984"/>
+        </a:xfrm>
+        <a:prstGeom prst="round2SameRect">
+          <a:avLst/>
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent4">
+            <a:tint val="40000"/>
+            <a:alpha val="90000"/>
+            <a:hueOff val="0"/>
+            <a:satOff val="0"/>
+            <a:lumOff val="0"/>
+            <a:alphaOff val="0"/>
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln w="19050" cap="flat" cmpd="sng" algn="ctr">
+          <a:solidFill>
+            <a:schemeClr val="accent4">
+              <a:tint val="40000"/>
+              <a:alpha val="90000"/>
+              <a:hueOff val="0"/>
+              <a:satOff val="0"/>
+              <a:lumOff val="0"/>
+              <a:alphaOff val="0"/>
+            </a:schemeClr>
+          </a:solidFill>
+          <a:prstDash val="solid"/>
+          <a:miter lim="800000"/>
+        </a:ln>
+        <a:effectLst/>
+      </dsp:spPr>
+      <dsp:style>
+        <a:lnRef idx="2">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:lnRef>
+        <a:fillRef idx="1">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:fillRef>
+        <a:effectRef idx="0">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:effectRef>
+        <a:fontRef idx="minor"/>
+      </dsp:style>
+      <dsp:txBody>
+        <a:bodyPr spcFirstLastPara="0" vert="horz" wrap="square" lIns="60960" tIns="30480" rIns="60960" bIns="30480" numCol="1" spcCol="1270" anchor="ctr" anchorCtr="0">
+          <a:noAutofit/>
+        </a:bodyPr>
+        <a:lstStyle/>
+        <a:p>
+          <a:pPr marL="171450" lvl="1" indent="-171450" algn="l" defTabSz="711200">
+            <a:lnSpc>
+              <a:spcPct val="90000"/>
+            </a:lnSpc>
+            <a:spcBef>
+              <a:spcPct val="0"/>
+            </a:spcBef>
+            <a:spcAft>
+              <a:spcPct val="15000"/>
+            </a:spcAft>
+            <a:buChar char="•"/>
+          </a:pPr>
+          <a:r>
+            <a:rPr lang="en-US" sz="1600" kern="1200" dirty="0"/>
+            <a:t>Instrument Type, Instrument Configuration, Data Acquisition Software…</a:t>
+          </a:r>
+        </a:p>
+      </dsp:txBody>
+      <dsp:txXfrm rot="-5400000">
+        <a:off x="3785616" y="1559199"/>
+        <a:ext cx="6702810" cy="502317"/>
+      </dsp:txXfrm>
+    </dsp:sp>
+    <dsp:sp modelId="{8EF4B87F-F77D-5F42-96B9-0A6680280896}">
+      <dsp:nvSpPr>
+        <dsp:cNvPr id="0" name=""/>
+        <dsp:cNvSpPr/>
+      </dsp:nvSpPr>
+      <dsp:spPr>
+        <a:xfrm>
+          <a:off x="0" y="1462441"/>
+          <a:ext cx="3785616" cy="695831"/>
+        </a:xfrm>
+        <a:prstGeom prst="roundRect">
+          <a:avLst/>
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent4">
+            <a:hueOff val="0"/>
+            <a:satOff val="0"/>
+            <a:lumOff val="0"/>
+            <a:alphaOff val="0"/>
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln w="19050" cap="flat" cmpd="sng" algn="ctr">
+          <a:solidFill>
+            <a:schemeClr val="lt1">
+              <a:hueOff val="0"/>
+              <a:satOff val="0"/>
+              <a:lumOff val="0"/>
+              <a:alphaOff val="0"/>
+            </a:schemeClr>
+          </a:solidFill>
+          <a:prstDash val="solid"/>
+          <a:miter lim="800000"/>
+        </a:ln>
+        <a:effectLst/>
+      </dsp:spPr>
+      <dsp:style>
+        <a:lnRef idx="2">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:lnRef>
+        <a:fillRef idx="1">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:fillRef>
+        <a:effectRef idx="0">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1"/>
+        </a:fontRef>
+      </dsp:style>
+      <dsp:txBody>
+        <a:bodyPr spcFirstLastPara="0" vert="horz" wrap="square" lIns="106680" tIns="53340" rIns="106680" bIns="53340" numCol="1" spcCol="1270" anchor="ctr" anchorCtr="0">
+          <a:noAutofit/>
+        </a:bodyPr>
+        <a:lstStyle/>
+        <a:p>
+          <a:pPr marL="0" lvl="0" indent="0" algn="ctr" defTabSz="1244600">
+            <a:lnSpc>
+              <a:spcPct val="90000"/>
+            </a:lnSpc>
+            <a:spcBef>
+              <a:spcPct val="0"/>
+            </a:spcBef>
+            <a:spcAft>
+              <a:spcPct val="35000"/>
+            </a:spcAft>
+            <a:buNone/>
+          </a:pPr>
+          <a:r>
+            <a:rPr lang="en-US" sz="2800" kern="1200" dirty="0"/>
+            <a:t>Instrument &amp; Software</a:t>
+          </a:r>
+        </a:p>
+      </dsp:txBody>
+      <dsp:txXfrm>
+        <a:off x="33968" y="1496409"/>
+        <a:ext cx="3717680" cy="627895"/>
+      </dsp:txXfrm>
+    </dsp:sp>
+    <dsp:sp modelId="{B16A41D8-4F89-3345-83D8-70EDC63A69A8}">
+      <dsp:nvSpPr>
+        <dsp:cNvPr id="0" name=""/>
+        <dsp:cNvSpPr/>
+      </dsp:nvSpPr>
+      <dsp:spPr>
+        <a:xfrm rot="5400000">
+          <a:off x="6872275" y="-824011"/>
+          <a:ext cx="556665" cy="6729984"/>
+        </a:xfrm>
+        <a:prstGeom prst="round2SameRect">
+          <a:avLst/>
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent5">
+            <a:tint val="40000"/>
+            <a:alpha val="90000"/>
+            <a:hueOff val="0"/>
+            <a:satOff val="0"/>
+            <a:lumOff val="0"/>
+            <a:alphaOff val="0"/>
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln w="19050" cap="flat" cmpd="sng" algn="ctr">
+          <a:solidFill>
+            <a:schemeClr val="accent5">
+              <a:tint val="40000"/>
+              <a:alpha val="90000"/>
+              <a:hueOff val="0"/>
+              <a:satOff val="0"/>
+              <a:lumOff val="0"/>
+              <a:alphaOff val="0"/>
+            </a:schemeClr>
+          </a:solidFill>
+          <a:prstDash val="solid"/>
+          <a:miter lim="800000"/>
+        </a:ln>
+        <a:effectLst/>
+      </dsp:spPr>
+      <dsp:style>
+        <a:lnRef idx="2">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:lnRef>
+        <a:fillRef idx="1">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:fillRef>
+        <a:effectRef idx="0">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:effectRef>
+        <a:fontRef idx="minor"/>
+      </dsp:style>
+      <dsp:txBody>
+        <a:bodyPr spcFirstLastPara="0" vert="horz" wrap="square" lIns="60960" tIns="30480" rIns="60960" bIns="30480" numCol="1" spcCol="1270" anchor="ctr" anchorCtr="0">
+          <a:noAutofit/>
+        </a:bodyPr>
+        <a:lstStyle/>
+        <a:p>
+          <a:pPr marL="171450" lvl="1" indent="-171450" algn="l" defTabSz="711200">
+            <a:lnSpc>
+              <a:spcPct val="90000"/>
+            </a:lnSpc>
+            <a:spcBef>
+              <a:spcPct val="0"/>
+            </a:spcBef>
+            <a:spcAft>
+              <a:spcPct val="15000"/>
+            </a:spcAft>
+            <a:buChar char="•"/>
+          </a:pPr>
+          <a:r>
+            <a:rPr lang="en-US" sz="1600" kern="1200" dirty="0"/>
+            <a:t>Analytical Mode, Tuning Method, Instrument Settings, Analyte… </a:t>
+          </a:r>
+        </a:p>
+      </dsp:txBody>
+      <dsp:txXfrm rot="-5400000">
+        <a:off x="3785616" y="2289822"/>
+        <a:ext cx="6702810" cy="502317"/>
+      </dsp:txXfrm>
+    </dsp:sp>
+    <dsp:sp modelId="{7F8FD23C-4BB0-E246-94DB-1AF2A1906D0E}">
+      <dsp:nvSpPr>
+        <dsp:cNvPr id="0" name=""/>
+        <dsp:cNvSpPr/>
+      </dsp:nvSpPr>
+      <dsp:spPr>
+        <a:xfrm>
+          <a:off x="0" y="2193064"/>
+          <a:ext cx="3785616" cy="695831"/>
+        </a:xfrm>
+        <a:prstGeom prst="roundRect">
+          <a:avLst/>
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent5">
+            <a:hueOff val="0"/>
+            <a:satOff val="0"/>
+            <a:lumOff val="0"/>
+            <a:alphaOff val="0"/>
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln w="19050" cap="flat" cmpd="sng" algn="ctr">
+          <a:solidFill>
+            <a:schemeClr val="lt1">
+              <a:hueOff val="0"/>
+              <a:satOff val="0"/>
+              <a:lumOff val="0"/>
+              <a:alphaOff val="0"/>
+            </a:schemeClr>
+          </a:solidFill>
+          <a:prstDash val="solid"/>
+          <a:miter lim="800000"/>
+        </a:ln>
+        <a:effectLst/>
+      </dsp:spPr>
+      <dsp:style>
+        <a:lnRef idx="2">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:lnRef>
+        <a:fillRef idx="1">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:fillRef>
+        <a:effectRef idx="0">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1"/>
+        </a:fontRef>
+      </dsp:style>
+      <dsp:txBody>
+        <a:bodyPr spcFirstLastPara="0" vert="horz" wrap="square" lIns="106680" tIns="53340" rIns="106680" bIns="53340" numCol="1" spcCol="1270" anchor="ctr" anchorCtr="0">
+          <a:noAutofit/>
+        </a:bodyPr>
+        <a:lstStyle/>
+        <a:p>
+          <a:pPr marL="0" lvl="0" indent="0" algn="ctr" defTabSz="1244600">
+            <a:lnSpc>
+              <a:spcPct val="90000"/>
+            </a:lnSpc>
+            <a:spcBef>
+              <a:spcPct val="0"/>
+            </a:spcBef>
+            <a:spcAft>
+              <a:spcPct val="35000"/>
+            </a:spcAft>
+            <a:buNone/>
+          </a:pPr>
+          <a:r>
+            <a:rPr lang="en-US" sz="2800" kern="1200" dirty="0"/>
+            <a:t>Measurement Info</a:t>
+          </a:r>
+        </a:p>
+      </dsp:txBody>
+      <dsp:txXfrm>
+        <a:off x="33968" y="2227032"/>
+        <a:ext cx="3717680" cy="627895"/>
+      </dsp:txXfrm>
+    </dsp:sp>
+    <dsp:sp modelId="{63BF7112-70B1-1F41-B557-EFE6527D4864}">
+      <dsp:nvSpPr>
+        <dsp:cNvPr id="0" name=""/>
+        <dsp:cNvSpPr/>
+      </dsp:nvSpPr>
+      <dsp:spPr>
+        <a:xfrm rot="5400000">
+          <a:off x="6872275" y="-93388"/>
+          <a:ext cx="556665" cy="6729984"/>
+        </a:xfrm>
+        <a:prstGeom prst="round2SameRect">
+          <a:avLst/>
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent6">
+            <a:tint val="40000"/>
+            <a:alpha val="90000"/>
+            <a:hueOff val="0"/>
+            <a:satOff val="0"/>
+            <a:lumOff val="0"/>
+            <a:alphaOff val="0"/>
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln w="19050" cap="flat" cmpd="sng" algn="ctr">
+          <a:solidFill>
+            <a:schemeClr val="accent6">
+              <a:tint val="40000"/>
+              <a:alpha val="90000"/>
+              <a:hueOff val="0"/>
+              <a:satOff val="0"/>
+              <a:lumOff val="0"/>
+              <a:alphaOff val="0"/>
+            </a:schemeClr>
+          </a:solidFill>
+          <a:prstDash val="solid"/>
+          <a:miter lim="800000"/>
+        </a:ln>
+        <a:effectLst/>
+      </dsp:spPr>
+      <dsp:style>
+        <a:lnRef idx="2">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:lnRef>
+        <a:fillRef idx="1">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:fillRef>
+        <a:effectRef idx="0">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:effectRef>
+        <a:fontRef idx="minor"/>
+      </dsp:style>
+      <dsp:txBody>
+        <a:bodyPr spcFirstLastPara="0" vert="horz" wrap="square" lIns="60960" tIns="30480" rIns="60960" bIns="30480" numCol="1" spcCol="1270" anchor="ctr" anchorCtr="0">
+          <a:noAutofit/>
+        </a:bodyPr>
+        <a:lstStyle/>
+        <a:p>
+          <a:pPr marL="171450" lvl="1" indent="-171450" algn="l" defTabSz="711200">
+            <a:lnSpc>
+              <a:spcPct val="90000"/>
+            </a:lnSpc>
+            <a:spcBef>
+              <a:spcPct val="0"/>
+            </a:spcBef>
+            <a:spcAft>
+              <a:spcPct val="15000"/>
+            </a:spcAft>
+            <a:buChar char="•"/>
+          </a:pPr>
+          <a:r>
+            <a:rPr lang="en-US" sz="1600" kern="1200" dirty="0"/>
+            <a:t>Data Reduction Method, Blank Correction Method…</a:t>
+          </a:r>
+        </a:p>
+      </dsp:txBody>
+      <dsp:txXfrm rot="-5400000">
+        <a:off x="3785616" y="3020445"/>
+        <a:ext cx="6702810" cy="502317"/>
+      </dsp:txXfrm>
+    </dsp:sp>
+    <dsp:sp modelId="{C9109870-C3EB-4348-9056-F14FD44BE617}">
+      <dsp:nvSpPr>
+        <dsp:cNvPr id="0" name=""/>
+        <dsp:cNvSpPr/>
+      </dsp:nvSpPr>
+      <dsp:spPr>
+        <a:xfrm>
+          <a:off x="0" y="2923688"/>
+          <a:ext cx="3785616" cy="695831"/>
+        </a:xfrm>
+        <a:prstGeom prst="roundRect">
+          <a:avLst/>
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent6">
+            <a:hueOff val="0"/>
+            <a:satOff val="0"/>
+            <a:lumOff val="0"/>
+            <a:alphaOff val="0"/>
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln w="19050" cap="flat" cmpd="sng" algn="ctr">
+          <a:solidFill>
+            <a:schemeClr val="lt1">
+              <a:hueOff val="0"/>
+              <a:satOff val="0"/>
+              <a:lumOff val="0"/>
+              <a:alphaOff val="0"/>
+            </a:schemeClr>
+          </a:solidFill>
+          <a:prstDash val="solid"/>
+          <a:miter lim="800000"/>
+        </a:ln>
+        <a:effectLst/>
+      </dsp:spPr>
+      <dsp:style>
+        <a:lnRef idx="2">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:lnRef>
+        <a:fillRef idx="1">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:fillRef>
+        <a:effectRef idx="0">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1"/>
+        </a:fontRef>
+      </dsp:style>
+      <dsp:txBody>
+        <a:bodyPr spcFirstLastPara="0" vert="horz" wrap="square" lIns="106680" tIns="53340" rIns="106680" bIns="53340" numCol="1" spcCol="1270" anchor="ctr" anchorCtr="0">
+          <a:noAutofit/>
+        </a:bodyPr>
+        <a:lstStyle/>
+        <a:p>
+          <a:pPr marL="0" lvl="0" indent="0" algn="ctr" defTabSz="1244600">
+            <a:lnSpc>
+              <a:spcPct val="90000"/>
+            </a:lnSpc>
+            <a:spcBef>
+              <a:spcPct val="0"/>
+            </a:spcBef>
+            <a:spcAft>
+              <a:spcPct val="35000"/>
+            </a:spcAft>
+            <a:buNone/>
+          </a:pPr>
+          <a:r>
+            <a:rPr lang="en-US" sz="2800" kern="1200" dirty="0"/>
+            <a:t>Data Processing</a:t>
+          </a:r>
+        </a:p>
+      </dsp:txBody>
+      <dsp:txXfrm>
+        <a:off x="33968" y="2957656"/>
+        <a:ext cx="3717680" cy="627895"/>
+      </dsp:txXfrm>
+    </dsp:sp>
+    <dsp:sp modelId="{AF7D1422-E1F8-404F-BC1A-B77F9F1ADAF2}">
+      <dsp:nvSpPr>
+        <dsp:cNvPr id="0" name=""/>
+        <dsp:cNvSpPr/>
+      </dsp:nvSpPr>
+      <dsp:spPr>
+        <a:xfrm rot="5400000">
+          <a:off x="6872275" y="637235"/>
+          <a:ext cx="556665" cy="6729984"/>
+        </a:xfrm>
+        <a:prstGeom prst="round2SameRect">
+          <a:avLst/>
+        </a:prstGeom>
+        <a:solidFill>
+          <a:schemeClr val="accent4">
+            <a:lumMod val="40000"/>
+            <a:lumOff val="60000"/>
+            <a:alpha val="90000"/>
+          </a:schemeClr>
+        </a:solidFill>
+        <a:ln w="19050" cap="flat" cmpd="sng" algn="ctr">
+          <a:solidFill>
+            <a:srgbClr val="00B0F0">
+              <a:alpha val="90000"/>
+            </a:srgbClr>
+          </a:solidFill>
+          <a:prstDash val="solid"/>
+          <a:miter lim="800000"/>
+        </a:ln>
+        <a:effectLst/>
+      </dsp:spPr>
+      <dsp:style>
+        <a:lnRef idx="2">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:lnRef>
+        <a:fillRef idx="1">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:fillRef>
+        <a:effectRef idx="0">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:effectRef>
+        <a:fontRef idx="minor"/>
+      </dsp:style>
+      <dsp:txBody>
+        <a:bodyPr spcFirstLastPara="0" vert="horz" wrap="square" lIns="60960" tIns="30480" rIns="60960" bIns="30480" numCol="1" spcCol="1270" anchor="ctr" anchorCtr="0">
+          <a:noAutofit/>
+        </a:bodyPr>
+        <a:lstStyle/>
+        <a:p>
+          <a:pPr marL="171450" lvl="1" indent="-171450" algn="l" defTabSz="711200">
+            <a:lnSpc>
+              <a:spcPct val="90000"/>
+            </a:lnSpc>
+            <a:spcBef>
+              <a:spcPct val="0"/>
+            </a:spcBef>
+            <a:spcAft>
+              <a:spcPct val="15000"/>
+            </a:spcAft>
+            <a:buChar char="•"/>
+          </a:pPr>
+          <a:r>
+            <a:rPr lang="en-US" sz="1600" kern="1200" dirty="0"/>
+            <a:t>Precision, Accuracy, Detection Limit, Reference Material…</a:t>
+          </a:r>
+        </a:p>
+      </dsp:txBody>
+      <dsp:txXfrm rot="-5400000">
+        <a:off x="3785616" y="3751068"/>
+        <a:ext cx="6702810" cy="502317"/>
+      </dsp:txXfrm>
+    </dsp:sp>
+    <dsp:sp modelId="{ED124163-433A-3A4B-8A59-4095FEEA3476}">
+      <dsp:nvSpPr>
+        <dsp:cNvPr id="0" name=""/>
+        <dsp:cNvSpPr/>
+      </dsp:nvSpPr>
+      <dsp:spPr>
+        <a:xfrm>
+          <a:off x="0" y="3654311"/>
+          <a:ext cx="3785616" cy="695831"/>
+        </a:xfrm>
+        <a:prstGeom prst="roundRect">
+          <a:avLst/>
+        </a:prstGeom>
+        <a:solidFill>
+          <a:srgbClr val="0070C0"/>
+        </a:solidFill>
+        <a:ln w="19050" cap="flat" cmpd="sng" algn="ctr">
+          <a:solidFill>
+            <a:schemeClr val="lt1">
+              <a:hueOff val="0"/>
+              <a:satOff val="0"/>
+              <a:lumOff val="0"/>
+              <a:alphaOff val="0"/>
+            </a:schemeClr>
+          </a:solidFill>
+          <a:prstDash val="solid"/>
+          <a:miter lim="800000"/>
+        </a:ln>
+        <a:effectLst/>
+      </dsp:spPr>
+      <dsp:style>
+        <a:lnRef idx="2">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:lnRef>
+        <a:fillRef idx="1">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:fillRef>
+        <a:effectRef idx="0">
+          <a:scrgbClr r="0" g="0" b="0"/>
+        </a:effectRef>
+        <a:fontRef idx="minor">
+          <a:schemeClr val="lt1"/>
+        </a:fontRef>
+      </dsp:style>
+      <dsp:txBody>
+        <a:bodyPr spcFirstLastPara="0" vert="horz" wrap="square" lIns="106680" tIns="53340" rIns="106680" bIns="53340" numCol="1" spcCol="1270" anchor="ctr" anchorCtr="0">
+          <a:noAutofit/>
+        </a:bodyPr>
+        <a:lstStyle/>
+        <a:p>
+          <a:pPr marL="0" lvl="0" indent="0" algn="ctr" defTabSz="1244600">
+            <a:lnSpc>
+              <a:spcPct val="90000"/>
+            </a:lnSpc>
+            <a:spcBef>
+              <a:spcPct val="0"/>
+            </a:spcBef>
+            <a:spcAft>
+              <a:spcPct val="35000"/>
+            </a:spcAft>
+            <a:buNone/>
+          </a:pPr>
+          <a:r>
+            <a:rPr lang="en-US" sz="2800" kern="1200" dirty="0"/>
+            <a:t>QC &amp; Uncertainty</a:t>
+          </a:r>
+        </a:p>
+      </dsp:txBody>
+      <dsp:txXfrm>
+        <a:off x="33968" y="3688279"/>
+        <a:ext cx="3717680" cy="627895"/>
+      </dsp:txXfrm>
+    </dsp:sp>
+  </dsp:spTree>
+</dsp:drawing>

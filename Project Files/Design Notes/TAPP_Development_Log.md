@@ -2797,3 +2797,296 @@ installed skill copy in sync (26 files).
 (§1 analysis-is-a-session, §2 version-free file table, §4 the whole key section, §10 seven universal
 fields, §12 Rules 1–13), `SKILL.md` (Rule 13 invariant; `sample` added to the key list in mistake #5),
 and a stale deferral in `conventions.md` 7.12 naming the now-retired Lab-XCT field.
+
+---
+
+## 2026-08-14 — module architecture rebuilt in response to the schema developer's upstream requests
+
+**Trigger.** The JSON-schema developer filed `upstream-requests.md`: 83 LA fields in no module, seven
+near-universal fields in no module, one orphan field, and delivery-mechanics questions. Every count
+they reported reproduced exactly against the live library. Their one methodological gap was that the
+precondition test covered Columns C/D/E/I but **not B** — which Rule 6.4 makes module-owned, and
+which is the founding evidence for Rule 6 existing at all. Testing Column B changed the answer: of
+their seven "structurally identical" fields, only three had identical descriptions. The three clean
+ones were exactly those governed by an explicit universal rule (5, 8, 11); the four divergent ones
+had no rule. **A rule enforces by discipline; a module enforces by construction** — which is the
+argument for the whole day's work.
+
+### What changed
+
+| | before | after |
+|---|---|---|
+| modules | 8 | **12** |
+| module × consumer pairs | 50 | **99** |
+| conditional modules | 1 (`ReportingCore`) | **0** |
+| Column G populated rows | 27 | **767 of 1706 (45%)** |
+| lint | 0 ERROR / 0 WARN | 0 ERROR / 0 WARN |
+
+1. **Five field definitions reconciled** — `Acquisition Software` (8 variants), `Data Reduction
+   Software` (7), `Analytical Mode` (6), `Target Material` (7), plus the `Sample Persistent
+   Identifier` tier split. 63 Column B rewrites. Record:
+   `Archive/Worksheets (reconciled)/ModuleCore_Reconciliation_Decisions.csv`.
+2. **`Data Reduction Software` → `Data Processing Software(s)`.** Group 5 is already named "Data
+   Processing"; TEM had stretched "reduction" to cover image processing; Lab-XCT refused the name
+   outright. Not every technique *reduces* data — XCT reconstruction expands it. Lab-XCT's
+   `Segmentation and Analysis Software` was absorbed into it (→16/16); `Reconstruction Software` was
+   **retained** as technique-specific, being a stage the other fifteen lack and one reported in 12 of
+   16 XCT papers.
+3. **`Module_Group1` retired into `Module_Core`** — its 18 fields plus the universals that belonged to
+   no module. Multi-block, not `replace_group`: the new fields sit in Groups 2–6, where
+   `replace_group` would drop every technique-specific field. Group 1 order is now enforced by
+   `validate_tapp.py` (`group1-order`, `group1-coupling`), which was always the stronger check.
+4. **`ReportingCore` dissolved** into `TargetSelection`, `CalibrationFactor`, `Blank`, `Aggregation`.
+   It was the only conditional module and the only one not all-or-nothing: 9 of 16 consumers held all
+   six fields, and its five blocks had **four different consumer footprints** — four independent
+   modules sharing a file, bound by shared provenance rather than structure.
+5. **`Module_Analyte`** extracted (1 field, 13 consumers). Its build guard **refused first**: `Analyte`
+   had 4 unreconciled description variants. Reconciled, then composed.
+6. **Instrument field split** — `Instrument Manufacturer` (Controlled list) + `Instrument Model`.
+   Six TAPPs already had the pair; ten carried one combined field under three names. Split rather
+   than merged because Manufacturer as a controlled list is a **discovery facet** that free-text
+   make-and-model cannot support.
+7. **Column G provenance labels extended to all modules** (Rule 6.11). Supersedes the recorded
+   decision not to label the general modules "because it would be noise" — written when 8 modules
+   existed, 3 of them geochronology-specific. At 12 modules a reader could not tell what came from
+   where.
+8. **Register-writing tooling built.** `compose_tapp.py` now writes `composed_tapps.json` *and*
+   `TAPP_Composed_Variants.csv`; `build_module_register.py` generates `TAPP_Module_Register.csv`.
+   Closes most of Rule 6.9's "provenance is recorded but not enforced".
+
+### Rule changes
+
+- **6.10 condition 2 amended**: "five or more fields" → "**ten or more placements**" (fields ×
+  consumers). Not a new number — the same calibration point restated so it scales with consumer
+  count. Does not reopen past decisions: the two residues 6.9 declined score 3 and 6 placements.
+- **6.15 added — the sub-module test.** Every proposed module is tested against the existing ones:
+  footprint (mechanical) nominates, subject (judgment) decides, merge unless the subject test
+  separates them. Recorded in each manifest as `sub_module_test`.
+- **6.12 marked retired**, kept as the record of the 2026-08-11 over-composition incident. The
+  `conditional` guard in `compose_tapp.py` was **deliberately kept** despite the plan to remove it:
+  it fires only on `"conditional": true`, of which there are now none, so it costs nothing and makes
+  reintroduction a deliberate act.
+
+### Findings worth keeping
+
+- **The six LA tables are not one instance.** They descend from one 2026-08-11 split, but Phase 3 ran
+  independently: LA-Q has 6 literature procedures, LA-SF has 7, **fully disjoint**, and 58 of the 73
+  candidate fields (79%) are attested in both. That clears Rule 6.10's "prefer three to two".
+- **Description identity is a lineage artefact.** 72/73 within LA; **11/48** once the independent
+  Solution TAPPs are added. Reconciliation cost lives at the lineage boundary.
+- **Reconcile before composing, never after.** Every module built today composed as a **no-op**
+  (`--check` MATCH), so each shipped at v1 with no consumer churn. Doing it the other way would have
+  re-versioned 16 TAPPs per reconciliation round.
+- **Co-extension is not coherence.** `Analyte` and `Aggregation` have identical 13-TAPP footprints and
+  are still separate modules. Recorded as Rule 6.15's worked example.
+- **A check that stops running looks exactly like a check that passes.** Retiring `Module_Group1` made
+  `check_group1_template()` fall back to a non-existent path and skip silently. It now takes a
+  `restrict` argument; without it, 160 false findings (10 universals × 16 TAPPs).
+
+### Open
+
+- Solution ICP-MS TAPPs appear to be **missing ICP-MS fields the LA TAPPs carry** — `ICP Tuning`,
+  `Instrument Warm-up / Session Duration Limit`, `Ion Counter Dead Time`, `Sensitivity as Useful
+  Yield`, `Plasma / Make-up Gas Addition`. Same underlying instrument, so probably a gap rather than a
+  real difference. **Needs a literature assessment, and must precede the ICP-MS module extraction** —
+  a module built from the six LA tables alone would silently ratify the gap.
+- Solution MC-ICP-MS still has **0 literature columns**.
+- The ICP-MS-scoped module (62 fields still unmoduled across all six LA tables) is **not** the same as
+  `Module_LaserAblation`, which is the laser front end. Only ~16 of the 62 are genuinely LA-only.
+- A composed TAPP still makes **no self-declaration** of what built it; the register is the only
+  witness. Field removal is still only `--allow-drop`, which cannot distinguish a deliberate
+  retirement from an omission.
+
+---
+
+## 2026-08-14 (later) — the twelve unassessed fields, and why "not attested" was the wrong reading
+
+**Trigger.** New fields had accumulated in the Solution TAPPs and needed testing against the
+literature. Twelve were blank in **every** literature column of both Solution Q and SF — and the same
+twelve in each.
+
+**They had never been asked.** Version history put them at v6→v7 (Rules 5/8 + ReportingCore), v7→v8,
+v12→v16 (Rule 13) and v20→v21 (the instrument split); the papers were read in June, before the fields
+existed. The reading generalised: **7 of the 12 are blank in all 231 literature columns of all 16
+TAPPs.** This was a library-wide backlog, not a Solution defect.
+
+**Six of the twelve were never open to a keep/drop decision** — Rules 3, 5, 8, 9 and 13 mandate them,
+on the explicit argument that universal presence distinguishes "deliberately none" from "not asked".
+That is exactly the case a field the literature never fills was written for.
+
+**Result: 82 of 132 cells attested, 20 partial, 30 N. All twelve kept.** Findings worth keeping:
+
+- `Analytical Mode`'s two-value list is right and **both values are used** — Makishima 2011 runs
+  pseudo-flow-injection, and Lu 2007 runs *both* on two instruments in one paper.
+- `Uncertainty Level` earns its place by disagreement: six conventions across eleven procedures, two
+  of which (**RPD**, **combined standard uncertainty**) were not in its allowed values.
+- `Analysis Inclusion and Rejection Criteria` splits cleanly: every procedure reports the *outcome*
+  (n included), **not one** reported an acceptance rule. The field's two halves have very different
+  attestation.
+- `Goodness-of-Fit or Dispersion Statistic` is 0/11 by definitional mismatch — papers report a
+  *calibration* fit statistic (R² > 0.999), which the field as worded excludes and nothing else holds.
+- **Literature assessment cannot test an analysis-level identifier field.** `Session Identifier` is
+  0/11 and always will be; three procedures nonetheless organise themselves by session in prose.
+
+### The ICP-MS module question, answered by measurement rather than by footprint
+
+79 unmoduled fields across the 9 ICP-MS TAPPs fall into clean exact footprints — 31 fields in all 9,
+16 in the 6 LA tables, 7 in 8, 6 in the CRC-bearing 6. Placement counts clear Rule 6.10 easily, so the
+binding constraints are coherence and specificity, not size.
+
+**The trap: footprint 9 does not mean "ICP-MS-specific".** All nine descend from one template, so a
+field in all nine may be inherited rather than general. **The literature settles it**, because the LA
+branch (27 columns) and Solution branch (11) were assessed against disjoint paper sets: **21 of the 31
+are attested in both**.
+
+**And a zero must be read carefully.** Splitting blank from `N` reversed six verdicts — six fields
+have *never been asked* of the LA literature, so their zeros are artifacts, not evidence.
+
+Recommended and **not yet built**: `Module_CRC` (6 × 6, boundary physical — SF instruments have no
+cell) before `Module_ICPMS` (17 × 9). Nine general fields excluded from both: they sit in all 9 only
+by accident of build order and are gaps in the other seven TAPPs, not ICP-MS content.
+`Blank / Background Correction Method` needs no module at all — it is the procedure-level partner of
+`Procedural Blank Level`, which `Module_Blank` already owns.
+
+### Four gap fields added — closing this log's own open item
+
+`ICP Tuning` (attested 6 of 11), `Sensitivity as Useful Yield` → **a new `Instrument Sensitivity`**
+(solution work reports cps/ppb, never useful yield), `Instrument Warm-up / Session Duration Limit`,
+and `Ion Counter Dead Time` (distinct from the pulse/analog cross-calibration Solution already had).
+
+**`Plasma / Make-up Gas Addition` was not the duplicate it looked like.** The Solution field was
+scoped to desolvation only — *"Record 'N/A' if no desolvation system is used"* — while Lu 2007 reports
+make-up Ar on a cooled Scott chamber with no desolvator. A description defect, now fixed.
+
+Declined: `Signal Smoothing` (squid/ARIS exist because ablation is pulsed), `Sample Introduction`
+(`Module_SolutionIntroduction` is its counterpart), `Multi-Run Sequential Analysis Design`.
+
+---
+
+## 2026-08-14 (later) — `generate_paper_registry.py` found drifted, and repaired
+
+**`lit_assessment.md` instructed adding papers by editing the generator and re-running it. Following
+that instruction would have destroyed data.** The script held **21 papers against 55 live**, declared
+a single `Solution ICP-MS` column where the register had `Solution Q-ICP-MS` and `Solution SF-ICP-MS`
+separately, and lacked `Lab X-ray Computed Tomography (Lab-XCT)` entirely. Re-running it would have
+deleted 34 rows and collapsed the Q/SF split.
+
+Rebuilt **from the live CSV**, so generator and register now agree by construction. It gained
+`--check` (compare, non-zero exit on difference) and `--apply`; a bare run is a dry run; it refuses to
+emit blank cells or non-label values. **`--check` before every use** is now written into
+`lit_assessment.md`, replacing the instruction that caused this.
+
+Same silent-failure class as the `_excluded()` directory trap (7.8) and the mirror-exclusion trap
+(12.1): **a tool that looks like the maintained route and is not.**
+
+Register also gained `Solution ICP-MS` back (derived from the split pair, so the merged view survives
+if the split is ever reversed) and a `Thermal Ionization Mass Spectrometry (TIMS)` column, and the
+combined LA column was split into `LA-Q-ICP-MS` / `LA-SF-ICP-MS` after re-reading all eight papers
+under it — a clean 4/4. Two corrections found by reading: `Barnes2025` Solution SF N → Detailed,
+`Navarro2024` Solution Q N → Detailed.
+
+**Method note, recorded because it nearly wrote false data:** anchor acronym searches. An unanchored
+case-insensitive `TEM` matches "sys**tem**" and `SEM` matches "as**sem**blage"; the first technique
+scan produced 50–80 phantom hits per paper.
+
+---
+
+## 2026-08-17 — Solution MC-ICP-MS Phase 3, its first
+
+The TAPP had **0 literature columns** since it was built. 12 papers → **14 procedure columns**
+(Nowell describes two instruments at two labs; Barnes two labs), **585 of 1694 cells attested**.
+
+Notable: `Constants and Reference Values Used` hits 6 of 13 with citations, better than the 4 of 11 in
+Q/SF; `Instrument Sensitivity` is confirmed by seven independent statements, all in V/ppm, nA or
+volts and **none** a useful yield; and Pringle & Moynier's *"any ratio outside 2σ was discarded"* was,
+at that point, the only explicit rejection rule in 24 solution procedures.
+
+---
+
+## 2026-08-17 — triple-quadrupole platforms register under Q-ICP-MS, decided then re-tested
+
+**Decision.** A TQ instrument registers under the **Q-ICP-MS TAPP**, with the platform named in
+`Instrument Model`, its identity in `ICP-MS Type` (whose list already offered `Triple quadrupole`),
+and tandem operation in `CRC Configuration`. **TAPP assignment is not instrument identity**: analyser
+*family* decides the TAPP, *configuration* is a field value — the same line the library already draws
+in making Spot/Transect/Mapping mode flags rather than three TAPPs.
+
+**A reasoning error worth remembering.** Liu 2024's Agilent 8900 was first assigned to LA-Q by
+refusing to infer TQ operation from a model number. That inverted the source rule: the label asserts
+*single-quadrupole operation*, inferred from **silence**, while the model designation is written down.
+Right answer, wrong reason.
+
+**Then the author supplied three TQ papers, and one conclusion changed.** The earlier "residue zero"
+against Masuda 2024 was **an artefact of the sample** — Masuda ran KED, never tandem, so the
+hypothesis was untested rather than refuted. Against papers that do tandem chemistry the residue is
+small but real:
+
+- **`Reaction Product Ion / Mass-Shift Transition`** added (3 Q TAPPs) — five transitions across two
+  labs and two reagent gases (`125Te + ¹⁶O → 141TeO`; `(176+82)Hf` NH₃ adducts). `Monitored Masses`
+  records the mass measured, not the chemistry that produced it.
+- **`CRC Configuration` re-keyed `(none)` → `channel`** — Gil-Diaz runs KED for ¹²⁶Te and O₂
+  mass-shift for ¹²⁵Te *in one study*, which a scalar controlled list cannot express.
+- **`Monitored Isotopes` → `Monitored Masses`** (8 TAPPs). The field *defines* the channel domain,
+  and that domain demonstrably contains molecular products and adducts; a field named "Isotopes"
+  invites a curator to prune exactly the members that `Dwell Time per Mass` is keyed by. `Masses` was
+  chosen over `Species` because this library uses *species* to define `analyte`.
+- **`Collision/Reaction Gas Mixture Ratio`** added once a second, production instance appeared
+  (Gil-Diaz's He:H₂ 92:8 alongside Wu's NH₃:He 1:9).
+
+**Generalise: a residue of zero means "no residue in this sample", not "no residue".** State what the
+corpus could not have shown.
+
+---
+
+## 2026-08-17 — reconciliation sweep: five split-name pairs closed, two uncertainty fields added
+
+Every pair existed because the LA and Solution lineages were built separately. **None would have
+surfaced from reading descriptions; each was settled by comparing what curators had extracted.**
+
+| retired | survives |
+|---|---|
+| `Make-up Gas Flow Rate`, `Plasma / Make-up Gas Addition` | `Make-up Gas and Flow Rate` (9) |
+| `Sensitivity as Useful Yield` | `Instrument Sensitivity` (9) |
+| `In-Run Isotope Ratio Reproducibility…` | `Within-Session Analytical Precision…` (9) |
+| `Between-Session Reproducibility…` | `Between-Session (Long-Term) Analytical Precision…` (9) |
+| `Number of Replicates per Sample` | `Number of Replicates` (8) |
+| `Mass Cycles per Replicate` | `Number of Scans per Replicate` (2) |
+
+Method and findings, each recorded in `precedents.md`:
+
+- **Compare extractions, not descriptions.** A description states intent; an extraction states what
+  curators actually did. Descriptions had converged for make-up gas while proving nothing.
+- **Merging non-synonyms needs stronger evidence.** Useful yield and cps/ppb are physically different
+  quantities; the merge was justified by **13 attestations against 1** — useful yield appears once in
+  28 LA PDFs, and the field had come from a Horstwood best-practice *recommendation*, not from
+  observed practice. It survives as one permitted expression inside the merged field.
+- **When a name and a description disagree, the extractions follow the name.** "In-Run" drew *internal*
+  precision into a field defined as within-session; two of its three cells were wrong and were
+  corrected from the papers. A curator reads Column A far more often than Column B.
+- **A missing field does not leave a hole — it displaces data into the nearest field that will take
+  it.** That is why the mis-extractions were invisible: the cells were plausibly filled.
+
+Two fields added to close the level the library lacked:
+**`Internal (Within-Measurement) Analytical Precision and Assessment Method`** (9 ICP-MS) and
+**`Counting Statistics Error`** extended from the 3 electron-beam TAPPs to all 9 ICP-MS (now 12).
+Group 6 now reads as a ladder: predicted → observed-internal → within-session → between-session.
+Mittlefehldt 2024 quotes *"theoretical 1σ … ~0.6%"* against observed *"0.6 to 4.0%"* in one sentence,
+which is why two fields rather than one.
+
+- **A cross-reference is safe only in the direction of the smaller footprint.** `Counting Statistics
+  Error` (12) does not name the internal-precision field (9); the internal-precision field does name
+  it. Where footprints are *disjoint*, neither may name the other — `Number of Scans per Replicate`
+  and `Number of Cycles per Block` state their boundary generically instead.
+- **Adjacency beats separation** for closely related fields, reversing the instinct after the "In-Run"
+  finding. Separation is what let the mis-extraction hide.
+
+### Open
+
+- `Module_CRC` and `Module_ICPMS` are **specified but not built**.
+- The nine general fields of the ICP-MS analysis are **library gaps in the other seven TAPPs**, not
+  ICP-MS content — `Uncertainty Level` most obviously, a candidate for a universal rule in the style
+  of Rules 8 and 9.
+- `LA-ICP-TQ-MS` remains a **parked** registry column and a deferred planning-table row. To settle it,
+  add MS/MS-mode papers to LA-Q / Solution Q and re-measure the residue. Build nothing in advance.
+- Solution MC-ICP-MS's Phase 3 covers Groups 1–6 but its Group 2/6 coverage rests on what the PDFs
+  carry; several papers place digestion and QC detail in supplementary material.

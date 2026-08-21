@@ -109,7 +109,7 @@ the field's universal presence is itself informative.
 **Why D=Editable:** the constants in use are embedded in whatever data-reduction software/method is
 current; if community-recommended values are revised between procedure registration and a later analysis
 session, documenting the update shouldn't require registering a whole new procedure — same logic as
-`Data Reduction Software` (D=Editable, Rule 1).
+`Data Processing Software(s)` (D=Editable, Rule 1).
 
 ---
 
