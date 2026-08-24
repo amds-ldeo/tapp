@@ -1350,6 +1350,71 @@ triage verdict from a heuristic, not an adjudication — treat the 52 as unrevie
 
 ---
 
+#### 7.8.10 Column E uniformity — the last unchecked content column, implemented 2026-08-24
+
+**Cross-TAPP**: a field name shared across TAPPs carries the same `Data Type` in all of them, unless
+listed in the **Column E divergence register** (`COLE_DIVERGENCE_TRIAGED` in `validate_tapp.py`),
+each entry carrying a triage verdict and its evidence in
+`analysis/Triage_ColE_Uniformity_2026-08-24.csv`. A companion check applies the same rule across
+field-name **variants**, using the two-word suffix test 7.8.7 already defines.
+
+**Why this column needed its own check.** After 7.8.7 and 7.8.9, Column E was the only content
+column with nothing looking at it — A, B, C/D and I all had a cross-TAPP check, E had none:
+
+| Column | Check | Since |
+|---|---|---|
+| A — Metadata Item | `name-variant` | original |
+| B — Description | `colb-divergence` (7.8.9) | 2026-08-12 |
+| C/D — Tiers | `tier-divergence` | original |
+| **E — Data Type** | **`cole-divergence` (7.8.10)** | **2026-08-24** |
+| I — Keyed By | `keyed-by-divergence` (7.8.7) | 2026-08-12 |
+
+**The consequence is not internal.** Column E is what downstream schema generation reads. In
+`amds-ldeo/geochemBuildingBlocks`, `Text (free)` generates a string with no `schema:unitText`;
+`Numeric (<unit>)` generates a number with `schema:unitText` pinned to that unit as a const; and
+`Numeric + unit` generates a number with `schema:unitText` required but unpinned. A field typed
+three ways therefore ships **one metadata item in three incompatible shapes**, and blocks the
+consumer from collapsing it into a single shared definition. This check exists because
+`amds-ldeo/tapp#1` reported exactly that for `Detection Limit`, which is typed `Text (free)` in
+EPMA/SEM, `Numeric (ppm or wt%)` in the six LA tables and `Numeric + unit / Text` in the three
+Solution tables.
+
+**The numbers.** Of the field names appearing in more than one TAPP, **18** carry a divergent
+Column E, and the companion check finds **8** name-variant pairs on top of that.
+
+| Verdict | Fields | Meaning |
+|---|---|---|
+| LINEAGE | 14 | divergence tracks a known authorship boundary — LA/Solution (9) or EPMA/SEM (5) |
+| OPEN | 4 | tracks no boundary; not examined; needs adjudication |
+| PRINCIPLED | 0 | adjudicated as legitimate; no action expected |
+
+**Nothing was marked PRINCIPLED on the way in, deliberately.** 7.8.9's own closing caveat is the
+reason: a `PRINCIPLED` verdict recorded from a heuristic against a field nobody has read is how
+`Analyte` sat frozen as justified at similarity 0.01 while its divergence reached into the domain
+definition itself. Every entry here is a backlog entry, all report INFO on every run, and the
+register is worked down by removing entries after harmonising — not by reclassifying them.
+
+**LINEAGE is a provenance label, not a verdict.** Nine ICP-MS fields split the same way — the six LA
+tables free text or Boolean, the three Solution tables controlled lists — which is one authorship
+boundary, not nine decisions, and all nine would be settled in one pass by the ICP-MS-scoped module
+already on the plan. Two details argue the cluster is accumulated drift rather than two coherent
+house styles: `Pulse/Analog Detector Nonlinearity Correction` runs the opposite way, and
+`Mass Resolution Setting` splits 7/2 because Solution SF sides with the LA tables.
+
+**The companion check consults `KEY_NAME_VARIANT_EXEMPT` first.** Its three entries record why those
+pairs are *different fields*, and a rationale for field identity settles both columns at once — two
+genuinely distinct fields may of course carry two types. Only the five pairs it does not cover need
+an entry in `COLE_NAME_VARIANT_TRIAGED`, and all five are pairs whose **keys agree**, which is
+precisely why the 7.8.7 companion never saw them.
+
+> **`EDS Detection Limit` is the lesson.** Its *key* divergence was found by hand on 2026-08-12 and
+> fixed — both it and `Detection Limit` are `reported property` now — but the Data Type half of the
+> same two-column problem was never looked at, and TEM has sat on `Text (free)` ever since while
+> `Detection Limit` went three ways. **Fixing one column of a field is not fixing the field.** When
+> a check finds a divergence, ask which *other* columns of that row nothing is checking.
+
+---
+
 #### 7.9 Legends sheet
 
 The Legends sheet gains a fourth table:

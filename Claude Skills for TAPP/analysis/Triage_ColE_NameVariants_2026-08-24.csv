@@ -1,0 +1,9 @@
+﻿Base_field,Variant_field,Base_types,Variant_types,Keys_agree,Seen_by_key_check
+Background Correction Method,Blank / Background Correction Method,Controlled list,Controlled list | Text (free),yes,no
+Detection Limit,EDS Detection Limit,Numeric (ppm or wt%) | Numeric + unit / Text | Text (free),Text (free),yes,no
+Detection Limit,EELS Sensitivity and Detection Limit,Numeric (ppm or wt%) | Numeric + unit / Text | Text (free),Text (free),no,yes
+Detector Type,BSE Detector Type,Controlled list / Text,Controlled list,yes,no
+Detector Type,SE Detector Type,Controlled list / Text,Controlled list,yes,no
+Dwell Time per Pixel,STEM Dwell Time per Pixel,Numeric (ms) | Numeric + unit,Numeric (ms),no,yes
+Interference Corrections Applied,Isobaric Interference Corrections Applied,Boolean,Boolean | Controlled list,no,yes
+Segmentation Method,3D Segmentation Method,Controlled list / Text,Text (free),yes,no

@@ -382,6 +382,133 @@ COLB_DEFINER_STEM_EXEMPT = {
 }
 
 
+# --------------------------------------------------------------------------- #
+# Rule 6.4 / 7.8.10 — Column E uniformity across shared field names
+# --------------------------------------------------------------------------- #
+# Column E was the LAST content column with no cross-TAPP check. A (name), B (description),
+# C/D (tiers) and I (Keyed By) all had one; E had none, so a field name shared across TAPPs
+# could carry a different Data Type in each with nothing to say so.
+#
+# That matters more than it looks. Column E is what downstream schema generation reads: in
+# `amds-ldeo/geochemBuildingBlocks`, `Text (free)` generates a string with no `schema:unitText`,
+# `Numeric (<unit>)` generates a number with `schema:unitText` pinned to that unit as a const,
+# and `Numeric + unit` generates a number with `schema:unitText` required but unpinned. So one
+# metadata item typed three ways is one item generated in three incompatible shapes — which is
+# exactly what amds-ldeo/tapp#1 reports for `Detection Limit`.
+#
+# Divergences present on 2026-08-24 are frozen here with their verdict from
+# analysis/Triage_ColE_Uniformity_2026-08-24.csv, so the check ships at 0 WARN and catches NEW
+# divergence. Registered entries report INFO; anything unregistered reports WARN.
+#
+# Verdicts
+#   LINEAGE     the divergence tracks a known authorship boundary — the LA and Solution ICP-MS
+#               lineages, or EPMA and SEM — recorded per entry below. Expected to converge when
+#               the two lineages are reconciled or a scoped module comes to own the field. NOT a
+#               finding that the divergence is justified.
+#   OPEN        tracks no boundary; not examined. Needs adjudication.
+#   PRINCIPLED  adjudicated as legitimate technique-specific typing; no action expected.
+#               Currently unused — nothing here has been adjudicated yet.
+#
+# Every current entry is therefore a BACKLOG entry, and all of them report INFO on every lint
+# run so the backlog stays visible. Removing an entry after harmonising is how it is worked down.
+# Nothing was marked PRINCIPLED on the way in, deliberately: recording "the divergence is
+# justified" against a field nobody has read is the mis-triage that COLB_DIVERGENCE_TRIAGED
+# recorded against `Analyte`, where a PRINCIPLED verdict at similarity 0.01 hid a real defect.
+#
+# History
+#   2026-08-24  Check implemented. 18 divergences frozen: LINEAGE 14 (LA/Solution 9,
+#               EPMA/SEM 5), OPEN 4. Prompted by amds-ldeo/tapp#1.
+COLE_DIVERGENCE_TRIAGED = {
+    # OPEN — no authorship boundary explains these; each needs a call.
+    # `Detection Limit` and its Method split THREE ways, across all three lineages at once
+    # (electron-beam / LA / Solution), which is why neither is filed as LINEAGE. Both are the
+    # subject of amds-ldeo/tapp#1. Evidence assembled 2026-08-24: of 42 literature-attested
+    # cells across the 13 TAPPs carrying the field, ZERO are a bare number — 29 are per-analyte
+    # lists, 6 are ranges across analytes, 4 are qualitative — and the attested units span mass
+    # fraction (wt%, ppm, µg g⁻¹), mass concentration (µg/L, ng/L, pg/mL) and molar (nM,
+    # µmol/mol), so no const can be right across them. The LA `Numeric (ppm or wt%)` cell is
+    # also contradicted by its own row: Column B names three units and Column F's example is a
+    # string.
+    'Detection Limit': ("OPEN", 12),
+    'Detection Limit Method': ("OPEN", 12),
+    # 14 TAPPs say `Text (free)`, TEM alone says `Controlled list`. Plausibly a real closed list
+    # in TEM (FIB lift-out, ultramicrotomy, crushing, ion milling) rather than drift — which is
+    # the question, and it has not been asked.
+    'Sample Preparation Method': ("OPEN", 15),
+    # Two TAPPs, two variants: an unadjudicated coin flip, not a majority to defer to.
+    'Phase Identification Method': ("OPEN", 2),
+
+    # LINEAGE / LA-Solution — the 6 LA tables type these as free text or Boolean, the 3 Solution
+    # tables as controlled lists. Nine fields splitting the same way is one authorship boundary,
+    # not nine decisions. All nine are ICP-MS-only and would be settled in one pass by the
+    # ICP-MS-scoped module already on the plan (see TAPP_Development_Log.md).
+    # `Isobaric Interference Corrections Applied` is the sharpest: Boolean vs Controlled list is
+    # a disagreement about whether the field records WHETHER corrections were applied or WHICH.
+    # `Mass Resolution Setting` is the imperfect one — Solution SF sides with the LA tables, so
+    # the boundary is 7/2 rather than 6/3.
+    # `Pulse/Analog Detector Nonlinearity Correction` runs the OTHER way (LA controlled, Solution
+    # free text), which is why the cluster reads as accumulated drift rather than two coherent
+    # house styles.
+    'Blank / Background Correction Method': ("LINEAGE", 9),
+    'Isobaric Interference Corrections Applied': ("LINEAGE", 9),
+    'Limit of Quantification (LOQ) Method': ("LINEAGE", 9),
+    'Mass Resolution Setting': ("LINEAGE", 9),
+    'Per-Analyte Calibration Strategy': ("LINEAGE", 9),
+    'Signal Integration Interval Method': ("LINEAGE", 9),
+    'Internal Standard Approach': ("LINEAGE", 8),
+    'Mass Bias Correction Strategy': ("LINEAGE", 7),
+    'Pulse/Analog Detector Nonlinearity Correction': ("LINEAGE", 6),
+
+    # LINEAGE / EPMA-SEM — EPMA names the unit, SEM defers it to the user. Both forms are valid
+    # vocabulary, so this is lower stakes than the ICP-MS cluster, but downstream one pins
+    # `schema:unitText` to a const and the other does not, which is the same defect shape.
+    'Dwell Time per Pixel': ("LINEAGE", 5),
+    'Beam Diameter': ("LINEAGE", 3),
+    'Beam Raster Dimensions': ("LINEAGE", 3),
+    'Map Area': ("LINEAGE", 3),
+    'Step Size / Pixel Size': ("LINEAGE", 3),
+}
+
+# Rule 7.8.10 companion — type divergence across field-name VARIANTS.
+#
+# Same hole as the 7.8.7 companion, one column over: grouping by exact name lets a TAPP that
+# prefixes a shared field with a technique or signal qualifier escape the check. The suffix test
+# is reused verbatim from the key companion (whole-word suffix containment, minimum two words).
+#
+# The key companion's register is consulted FIRST. Its three entries record why those pairs are
+# DIFFERENT FIELDS, and a rationale for field identity settles both columns at once — a pair that
+# is genuinely two fields may of course carry two types. Only pairs it does not cover need an
+# entry here, and all five of them are pairs whose KEYS AGREE, which is precisely why the 7.8.7
+# companion never saw them.
+#
+# `EDS Detection Limit` is the instructive one. Its key divergence WAS found by hand on
+# 2026-08-12 and fixed — both are `reported property` now — but the Data Type half of the same
+# two-column problem was never looked at, and TEM has sat on `Text (free)` while `Detection Limit`
+# went three ways. Fixing one column of a field is not fixing the field.
+COLE_NAME_VARIANT_TRIAGED = {
+    ("Detection Limit", "EDS Detection Limit"):
+        "candidate, not adjudicated (2026-08-24 sweep). Keys were harmonised to `reported "
+        "property` on 2026-08-12; the types were not. Rides on the `Detection Limit` OPEN entry "
+        "above — settle that first, then this either follows it or becomes a Rule 1 name variant "
+        "that should not exist separately.",
+    ("Background Correction Method", "Blank / Background Correction Method"):
+        "candidate, not adjudicated (2026-08-24 sweep). Keys agree (`(none)`) and the shorter "
+        "name carries the `Controlled list` variant only, so this looks like the same LA/Solution "
+        "lineage split as the base field rather than two fields.",
+    ("Detector Type", "BSE Detector Type"):
+        "candidate, not adjudicated (2026-08-24 sweep). `Controlled list` against "
+        "`Controlled list / Text`; plausibly principled, since a named detector's type list can "
+        "be closed while a generic one needs an escape.",
+    ("Detector Type", "SE Detector Type"):
+        "candidate, not adjudicated (2026-08-24 sweep). As BSE Detector Type above.",
+    ("Segmentation Method", "3D Segmentation Method"):
+        "candidate, not adjudicated (2026-08-24 sweep). `Text (free)` against "
+        "`Controlled list / Text`; keys agree, and the '3D' qualifier may not name a different "
+        "field at all.",
+}
+
+
+
 # Rules 8 and 9 — mandatory in every TAPP. Rule 10 is restricted in scope and is
 # declared per TAPP in Phase 0, so its presence is not machine-enforced; when it is
 # present its Keyed By is checked like any other field.
@@ -944,6 +1071,7 @@ def check_cross_tapp(tapps, out):
     variants = defaultdict(set)          # normalized -> {(tapp, raw_name)}
     tiers = defaultdict(set)             # raw name -> {(tapp, C, D)}
     keyed = defaultdict(set)             # raw name -> {(tapp, Keyed By)}
+    dtypes = defaultdict(set)            # raw name -> {(tapp, Data Type)}
     descs = defaultdict(set)             # raw name -> {(tapp, normalised description)}
 
     for t in tapps:
@@ -952,6 +1080,7 @@ def check_cross_tapp(tapps, out):
             variants[normalize_name(raw)].add((t.name, raw))
             tiers[raw].add((t.name, t.cell(row, COL_C), t.cell(row, COL_D)))
             keyed[raw].add((t.name, t.cell(row, COL_KEYEDBY).strip()))
+            dtypes[raw].add((t.name, t.cell(row, COL_TYPE).strip()))
             descs[raw].add((t.name, re.sub(r"\s+", " ", t.cell(row, COL_DESC).strip())))
 
     # Near-duplicate spellings of the same field across TAPPs
@@ -1082,6 +1211,63 @@ def check_cross_tapp(tapps, out):
                 f"domain IS, so the TAPPs must agree on that sentence; technique-specific detail "
                 f"belongs after it. Give them a shared stem, or register the field in "
                 f"COLB_DEFINER_STEM_EXEMPT with a rationale.")
+
+    # Rule 7.8.10 — same field name, different Data Type. Column E is read by downstream schema
+    # generation, so a field typed three ways generates the same metadata item in three
+    # incompatible shapes. Divergences present at 2026-08-24 are frozen in
+    # COLE_DIVERGENCE_TRIAGED so this ships at 0 WARN and catches new drift.
+    for raw, entries in sorted(dtypes.items()):
+        seen = {d for _, d in entries if d}
+        if len(seen) <= 1 or len(entries) <= 1:
+            continue
+        tapps_n = len({tp for tp, _ in entries})
+        detail = "; ".join(f"{tp}: {d or '(blank)'}" for tp, d in sorted(entries))
+        if raw in COLE_DIVERGENCE_TRIAGED:
+            verdict, _ = COLE_DIVERGENCE_TRIAGED[raw]
+            msg = (f"Data Type differs across {tapps_n} TAPPs in {len(seen)} variants — {detail}. "
+                   f"Triaged 2026-08-24 as {verdict}.")
+            if verdict != "PRINCIPLED":
+                msg += (" On the harmonisation backlog: see "
+                        "analysis/Triage_ColE_Uniformity_2026-08-24.csv.")
+            add("INFO", "(cross-TAPP)", raw, f"cole-divergence-{verdict.lower()}", msg)
+        else:
+            add("WARN", "(cross-TAPP)", raw, "cole-divergence",
+                f"Data Type differs across {tapps_n} TAPPs in {len(seen)} variants — {detail}. "
+                f"Data Types are uniform by default (Rule 7.8.10): Column E drives schema "
+                f"generation, so divergence ships one metadata item in several shapes. Make them "
+                f"agree, or triage the field and record it in COLE_DIVERGENCE_TRIAGED.")
+
+    # Rule 7.8.10 companion — type divergence across field-name VARIANTS, reusing the 7.8.7
+    # suffix test. KEY_NAME_VARIANT_EXEMPT is consulted first: a rationale recording why two
+    # names are two different FIELDS settles Column E as well as Column I.
+    typesets = {raw: {d for _, d in ents if d} for raw, ents in dtypes.items()}
+    for short in sorted(typesets):
+        ws = name_words(short)
+        if len(ws) < 2:
+            continue
+        for long in sorted(typesets):
+            wl = name_words(long)
+            if long == short or len(wl) <= len(ws) or wl[-len(ws):] != ws:
+                continue
+            if typesets[short] == typesets[long]:
+                continue
+            detail = (f"'{long}' = {sorted(typesets[long])}; "
+                      f"'{short}' = {sorted(typesets[short])}")
+            pair = (short, long)
+            if pair in KEY_NAME_VARIANT_EXEMPT:
+                add("INFO", "(cross-TAPP)", long, "cole-name-variant-registered",
+                    f"Name variant with divergent Data Types — {detail}. Registered as different "
+                    f"fields in KEY_NAME_VARIANT_EXEMPT: {KEY_NAME_VARIANT_EXEMPT[pair]}")
+            elif pair in COLE_NAME_VARIANT_TRIAGED:
+                add("INFO", "(cross-TAPP)", long, "cole-name-variant-triaged",
+                    f"Name variant with divergent Data Types — {detail}. Triaged 2026-08-24: "
+                    f"{COLE_NAME_VARIANT_TRIAGED[pair]}")
+            else:
+                add("WARN", "(cross-TAPP)", long, "cole-name-variant",
+                    f"'{long}' ends with the field name '{short}' but carries a different Data "
+                    f"Type — {detail}. 7.8.10 groups by exact name, so a qualifier prefix hides "
+                    f"type divergence from it. Either make the types agree, rename per Rule 1, or "
+                    f"register the pair in COLE_NAME_VARIANT_TRIAGED with a rationale.")
 
 
 # --------------------------------------------------------------------------- #
