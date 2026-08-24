@@ -418,19 +418,19 @@ COLB_DEFINER_STEM_EXEMPT = {
 # History
 #   2026-08-24  Check implemented. 18 divergences frozen: LINEAGE 14 (LA/Solution 9,
 #               EPMA/SEM 5), OPEN 4. Prompted by amds-ldeo/tapp#1.
+#   2026-08-24  `Detection Limit` and `Detection Limit Method` harmonised and REMOVED (the issue
+#               itself). Register 18 -> 16, OPEN 4 -> 2. The name-variant pair
+#               (`Detection Limit`, `EDS Detection Limit`) left COLE_NAME_VARIANT_TRIAGED in the
+#               same patch, 5 -> 4, since the types now agree.
 COLE_DIVERGENCE_TRIAGED = {
     # OPEN — no authorship boundary explains these; each needs a call.
-    # `Detection Limit` and its Method split THREE ways, across all three lineages at once
-    # (electron-beam / LA / Solution), which is why neither is filed as LINEAGE. Both are the
-    # subject of amds-ldeo/tapp#1. Evidence assembled 2026-08-24: of 42 literature-attested
-    # cells across the 13 TAPPs carrying the field, ZERO are a bare number — 29 are per-analyte
-    # lists, 6 are ranges across analytes, 4 are qualitative — and the attested units span mass
-    # fraction (wt%, ppm, µg g⁻¹), mass concentration (µg/L, ng/L, pg/mL) and molar (nM,
-    # µmol/mol), so no const can be right across them. The LA `Numeric (ppm or wt%)` cell is
-    # also contradicted by its own row: Column B names three units and Column F's example is a
-    # string.
-    'Detection Limit': ("OPEN", 12),
-    'Detection Limit Method': ("OPEN", 12),
+    #
+    # `Detection Limit` ("OPEN", 12) and `Detection Limit Method` ("OPEN", 12) LEFT THIS REGISTER
+    # on 2026-08-24, resolved by fix_detection_limit_20260824.py: `Numeric + unit / Text` and
+    # `Controlled list / Text` respectively, uniform across all 12 TAPPs, plus TEM's
+    # `EDS Detection Limit`. That closes amds-ldeo/tapp#1. A register entry for a field that no
+    # longer diverges reads as an unresolved issue, so the entries are gone rather than
+    # reclassified; the reasoning is in the patch script header and in precedents.md.
     # 14 TAPPs say `Text (free)`, TEM alone says `Controlled list`. Plausibly a real closed list
     # in TEM (FIB lift-out, ultramicrotomy, crushing, ion milling) rather than drift — which is
     # the question, and it has not been asked.
@@ -486,11 +486,6 @@ COLE_DIVERGENCE_TRIAGED = {
 # two-column problem was never looked at, and TEM has sat on `Text (free)` while `Detection Limit`
 # went three ways. Fixing one column of a field is not fixing the field.
 COLE_NAME_VARIANT_TRIAGED = {
-    ("Detection Limit", "EDS Detection Limit"):
-        "candidate, not adjudicated (2026-08-24 sweep). Keys were harmonised to `reported "
-        "property` on 2026-08-12; the types were not. Rides on the `Detection Limit` OPEN entry "
-        "above — settle that first, then this either follows it or becomes a Rule 1 name variant "
-        "that should not exist separately.",
     ("Background Correction Method", "Blank / Background Correction Method"):
         "candidate, not adjudicated (2026-08-24 sweep). Keys agree (`(none)`) and the shorter "
         "name carries the `Controlled list` variant only, so this looks like the same LA/Solution "

@@ -1379,14 +1379,22 @@ consumer from collapsing it into a single shared definition. This check exists b
 EPMA/SEM, `Numeric (ppm or wt%)` in the six LA tables and `Numeric + unit / Text` in the three
 Solution tables.
 
-**The numbers.** Of the field names appearing in more than one TAPP, **18** carry a divergent
-Column E, and the companion check finds **8** name-variant pairs on top of that.
+**The numbers.** At implementation, **18** field names carried a divergent Column E and the
+companion check found **8** name-variant pairs on top of that. `Detection Limit` and
+`Detection Limit Method` were resolved the same day (see below), leaving **16** and **7**.
 
 | Verdict | Fields | Meaning |
 |---|---|---|
 | LINEAGE | 14 | divergence tracks a known authorship boundary — LA/Solution (9) or EPMA/SEM (5) |
-| OPEN | 4 | tracks no boundary; not examined; needs adjudication |
+| OPEN | 2 | tracks no boundary; not examined; needs adjudication |
 | PRINCIPLED | 0 | adjudicated as legitimate; no action expected |
+
+**Resolved 2026-08-24 — the issue that prompted the check.** `Detection Limit` →
+`Numeric + unit / Text` and `Detection Limit Method` → `Controlled list / Text`, uniform across all
+12 TAPPs, plus TEM's `EDS Detection Limit`. Both left the register: entries are worked down by
+harmonising, never by reclassifying, because an entry for a field that no longer diverges reads as
+an unresolved issue. Reasoning and evidence in `precedents.md`; patch in
+`Project Files/Scripts/fix_detection_limit_20260824.py`.
 
 **Nothing was marked PRINCIPLED on the way in, deliberately.** 7.8.9's own closing caveat is the
 reason: a `PRINCIPLED` verdict recorded from a heuristic against a field nobody has read is how
@@ -1407,11 +1415,12 @@ genuinely distinct fields may of course carry two types. Only the five pairs it 
 an entry in `COLE_NAME_VARIANT_TRIAGED`, and all five are pairs whose **keys agree**, which is
 precisely why the 7.8.7 companion never saw them.
 
-> **`EDS Detection Limit` is the lesson.** Its *key* divergence was found by hand on 2026-08-12 and
-> fixed — both it and `Detection Limit` are `reported property` now — but the Data Type half of the
-> same two-column problem was never looked at, and TEM has sat on `Text (free)` ever since while
+> **`EDS Detection Limit` was the lesson.** Its *key* divergence was found by hand on 2026-08-12 and
+> fixed — both it and `Detection Limit` became `reported property` — but the Data Type half of the
+> same two-column problem was never looked at, and TEM sat on `Text (free)` for twelve days while
 > `Detection Limit` went three ways. **Fixing one column of a field is not fixing the field.** When
-> a check finds a divergence, ask which *other* columns of that row nothing is checking.
+> a check finds a divergence, ask which *other* columns of that row nothing is checking. Both
+> columns were finally closed together on 2026-08-24.
 
 ---
 

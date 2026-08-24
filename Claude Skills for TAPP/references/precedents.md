@@ -1708,3 +1708,63 @@ primary, matrix and sensitivity RMs) — are **held pending the same literature 
 
 **Do not re-open on template evidence alone.** Reopen if a literature audit finds procedures publishing
 sensitivity as a table over reference materials; the AGN sheet by itself has now been weighed.
+
+---
+
+## `Detection Limit` and `Detection Limit Method` typed (2026-08-24) — amds-ldeo/tapp#1
+
+**Decision.** `Detection Limit` → **`Numeric + unit / Text`**; `Detection Limit Method` →
+**`Controlled list / Text`** with a uniform Column F. Applied to all 12 TAPPs carrying the pair,
+plus TEM's `EDS Detection Limit`. Keyed By is unchanged (`reported property`, settled 2026-08-12).
+
+**The question came from outside.** A schema-generation consumer reported that the same metadata
+item was being generated in three incompatible shapes — `Text (free)` → a string with no
+`schema:unitText`; `Numeric (ppm or wt%)` → a number with `schema:unitText` pinned to a const;
+`Numeric + unit / Text` → a number with `schema:unitText` required but unpinned — which blocked
+collapsing 12 duplicated parameters into one shared definition. The issue asked whether a detection
+limit is a dimensioned number (making EPMA/SEM the outlier) or legitimately free text (making the
+numeric typing over-tight).
+
+**The literature answered it, and the answer was neither.** Of 42 attested cells across the 13
+TAPPs, **zero** are a bare number: 29 per-analyte lists, 6 ranges across analytes, 4 qualitative.
+So option (1) is false. But the values are not prose either — they are dimensioned quantities that
+simply repeat over an axis the Data Type column cannot express, which is what `Keyed By:
+reported property` had been saying all along.
+
+**No const can be correct.** The attested units span three dimensions — mass fraction (wt%, ppm,
+µg g⁻¹), mass concentration (µg/L, ng/L, pg/mL) and molar (nM, µmol/mol). µg/L is the *normal* form
+for solution work, where the LOD is a property of the solution and not the rock, so adopting the LA
+`ppm or wt%` verbatim — which the issue floated — would have been actively wrong for three TAPPs.
+The LA cell was in any case contradicted by its own row: Column B named three units while Column E
+pinned one, and Column F's example was a string.
+
+**Generalise: when a keyed field's Data Type looks wrong, check whether the column is being asked to
+carry cardinality.** Column E states what kind of value a field holds and `Keyed By` states how many;
+each lineage here had independently collapsed a keyed multi-value into one Column E cell, and had
+collapsed it differently. EPMA/SEM degraded to free text (lossy but honest), LA to a pinned scalar
+(lossy and wrong), Solution split the difference and happened to land on the right answer.
+
+**Precedent for the form.** `Instrument Sensitivity` is the structural twin — a keyed, dimensioned,
+per-channel figure of merit — and has been `Numeric + unit / Text` across 9 TAPPs since 2026-08-14.
+The `/ Text` half is earned, not an escape from choosing: 10 of the 42 attested cells are ranges or
+qualitative statements, and *"LODs not formally reported; all concentrations above detection limits
+except noted"* is a real answer to the question the field asks.
+
+**Why the Method is a compound too.** All 10 of its attested cells name a formula, cite a source, or
+both; none is free prose. A typical value — *"Longerich et al. (1996): LOD = (3SD/S) × √(1/Nb +
+1/Na)"* — is a named family **and** a reference **and** an equation. Solution's `Controlled list`
+held the family but not the citation; LA's `Text / URI` held the citation but not the family. Each
+was half the answer, which is exactly the case `Controlled list / Text` exists for.
+
+**Column F**: `3σ blank | 3σ background | 3σ counting statistics | 3× blank mean | Poisson
+statistics | N/A | None`. No `Other: specify` — a compound whose first component is `Controlled
+list` must not ask twice for permission the `/ Text` half already grants. `3σ counting statistics`
+is the one value not resting on literature attestation; the electron-beam TAPPs have none on this
+field, and it is taken from their own Column F examples (Goldstein 2018, Llovet 2020 Eq. 4) because
+the alternative was forcing EPMA and SEM into `Poisson statistics` — the same over-tightening the
+patch exists to undo. **Recorded rather than buried**, so a future reader can challenge that one
+value without re-deriving the other six.
+
+**Not settled by this entry:** `EELS Sensitivity and Detection Limit` (TEM) keeps `Text (free)`. It
+bundles a specification (ZLP energy resolution) with a result (detection limit), so no single type
+fits it; splitting the field is the cleaner fix and remains open — see `KEY_NAME_VARIANT_EXEMPT`.
