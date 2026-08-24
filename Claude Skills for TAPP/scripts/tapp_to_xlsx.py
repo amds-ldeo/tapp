@@ -18,16 +18,19 @@ What this script does:
   - Adds a Legends sheet with tier and mode column definitions
   - Never modifies the CSV
 
-Column structure (columns A–H are fixed; I onward is dynamic):
+Column structure (columns A–I are fixed; I+1 onward is dynamic):
   A  Metadata Item
-  B  Description
+  B  Description / Purpose
   C  Procedure-Level Tier
   D  Analysis-Level Tier
   E  Data Type
   F  Example / Allowed Content
-  G  Comments (short field-level labels: "Analyte-Specific", "WDS specific", etc.)
-  H  Last update date
-  I … I+n   Mode flag columns (one per mode defined in Phase 0)
+  G  Comments (short field-level qualifiers that are neither mode nor cardinality —
+       instrument variant, signal/detector, conditional notes. Cardinality moved to
+       column I under Rule 7; the old "Analyte-Specific" labels were retired with it.)
+  H  Last Update
+  I  Keyed By (Rule 7) — never blank on a content row; `(none)` for a scalar
+  I+1 … I+n   Mode flag columns (one per mode defined in Phase 0)
   I+n+1     Sentinel column — header must be exactly "Literature Assessment";
              all data rows are empty. Marks the boundary between mode flag
              columns and literature assessment columns.

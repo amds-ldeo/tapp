@@ -413,10 +413,16 @@ less formalised. Whether those need the field is a separate question.
 
 C was resolved to Advanced across all 17 TAPPs on 2026-08-08, so a procedure may declare that it
 expects samples to carry a persistent identifier — a meaningful standing commitment given Astromat,
-EarthChem and SESAR. D remains split: D=Advanced in 14, D=Basic in the three Solution ICP-MS TAPPs.
-The question is whether supplying an IGSN at analysis time should be mandatory. That is a policy
-decision about how hard to push registration, not a technical one, and it was left open rather than
-resolved by majority.
+EarthChem and SESAR. D was split: D=Advanced in 14, D=Basic in the three Solution ICP-MS TAPPs.
+The question was whether supplying an IGSN at analysis time should be mandatory — a policy decision
+about how hard to push registration, not a technical one, and it was left open rather than resolved
+by majority.
+
+> **CLOSED — verified 2026-08-24.** The field now reads C=Advanced, D=Advanced, `URI / IGSN`, keyed
+> `sample` in **all 16 TAPPs**; the divergence no longer exists and `validate_tapp.py` reports no
+> `tier-divergence` for it. The entry is kept for the reasoning, not as an open item. `Analysis
+> Sequence` above is still genuinely split (6 D=Editable / 3 D=Read-Only across 9 TAPPs) and is
+> still reported.
 
 **Why these are recorded rather than fixed.** Both became visible only because the fields were
 renamed to their canonical forms; before that they were the same field under two names, which no
@@ -682,8 +688,14 @@ question to ask is whether the procedure could ever report more than one quantit
 could, `analyte` was never the right key.
 
 **Not settled by this entry:** the LA `Detection Limit` prose says *"Session detection limit"* while its key
-declares `sampling unit` (per spot), which the register rationale also states. That is a factual question
-about what the LA procedures report, not a vocabulary question, and it remains open.
+declared `sampling unit` (per spot), which the register rationale also stated. That is a factual question
+about what the LA procedures report, not a vocabulary question.
+
+> **SETTLED by the attested-axis rule in the very next entry (2026-08-12), confirmed 2026-08-24.** The
+> LA variant lost `sampling unit` and the field is `reported property` in all 12 TAPPs that carry it;
+> `Detection Limit` left `KEYED_BY_TECHNIQUE_DEPENDENT` on the same date. The prose and the key now
+> agree. **Its Column E did not follow** — the Data Type is still split three ways, which is
+> `amds-ldeo/tapp#1` and is tracked in `COLE_DIVERGENCE_TRIAGED` as OPEN (conventions.md 7.8.10).
 
 ---
 
@@ -1326,7 +1338,13 @@ identical in C, D, E and I across every TAPP holding it. The one surviving diver
 `Monitored Masses` (`analyte` in the two LA-MC TAPPs against `defines: channel per analyte`
 elsewhere), which is the registered `KEYED_BY_TECHNIQUE_DEPENDENT` entry and correct.
 
-### Still open — two concepts carrying two names each
+### Closed 2026-08-17 — two concepts that carried two names each
+
+> **Both entries below are now closed; the heading formerly read "Still open".** Corrected
+> 2026-08-24 after an audit found this section, and the two that follow it, describing items that
+> the 2026-08-17 reconciliations had already resolved. A register of open items that lists closed
+> ones cannot be planned from — which is why the closures are now stated inline rather than only in
+> the entries further down the file.
 
 Not divergence *within* a field, so the audit above passes them, but they are the same cross-TAPP
 naming problem one level up, and both were surfaced earlier in the session:
@@ -1419,7 +1437,7 @@ in the Q and SF variants, `Collector Configuration` in the MC ones) so 7.4a hold
 **Column E** took `Numeric + unit / Text` over `Numeric (%)`: the compound holds both expressions,
 whereas the LA type could hold only the one nobody reports.
 
-### Still open — candidates from a crude name-overlap scan, not yet examined
+### Closed 2026-08-17 — candidates from a crude name-overlap scan
 
 Both Solution/LA name splits are now closed. A word-overlap scan over fields with disjoint ICP-MS
 footprints throws up 18 pairs, most of them false positives sharing only generic words. Two look like
@@ -1483,9 +1501,13 @@ declare a number they cannot know; D=Read-Only would stop an analyst recording w
 The bare name survives because *"per Sample"* is wrong for spatially resolved work, where replicates
 are per grain or per location — as the LA description already said.
 
-### Still open — same defect class, outside the scope asked for
+### Closed 2026-08-17 — same defect class, outside the scope asked for
 
-`Mass Cycles per Replicate` (Solution Q) and `Number of Scans per Replicate` (Solution SF) carry
+> **Closed.** `Mass Cycles per Replicate` is retired; `Number of Scans per Replicate` survives in
+> both Solution Q and Solution SF (C=Basic, D=Read-Only, `Integer`, keyed `(none)`). Verified
+> 2026-08-24. The original text follows.
+
+`Mass Cycles per Replicate` (Solution Q) and `Number of Scans per Replicate` (Solution SF) carried
 near-identical descriptions — *"Number of complete mass scans (sweeps) accumulated per analytical
 replicate"* against *"Number of complete mass scans accumulated per analytical replicate"* — and are
 plainly one field. One TAPP each; a two-line rename whenever wanted.
@@ -1636,3 +1658,53 @@ and `Total Integration Time per Output Data Point`.
 `Make-up Gas` · `Instrument Sensitivity` · the precision/reproducibility pair · `Number of Replicates`
 · `Number of Scans per Replicate`. The word-overlap scan's remaining candidates were checked and are
 genuinely distinct fields sharing generic words.
+
+---
+
+## `Instrument Sensitivity` tested against an external template and left at `channel` (2026-08-23)
+
+**No change applied.** All 9 ICP-MS TAPPs keep Keyed By `channel`. Recorded because the argument for
+changing it was good enough that it will be made again.
+
+The AGN ICP-MS Template — a community workbook built as an explicitly relational schema, eight
+worksheets each joined on `analyticalSessionID` — devotes a whole sheet to sensitivity and keys it by
+`sensitivityReferenceMaterial` × `targetMass`, with `sensitivityBeamSize` alongside. That is a clean,
+well-formed cross-product, and read on its own it says TAPP's `channel` is missing an axis. TAPP's own
+Column B appeared to concede the point, asking for the value "with the isotope or channel it was
+measured on *and the conditions it applies to*" — cardinality in the description, which Rule 7 treats
+as a smell.
+
+**The literature does not support it.** 30 filled extraction cells across the 9 TAPPs; none reports
+sensitivity per reference material.
+
+| observed shape | evidence |
+|---|---|
+| one value per session | 572 V/ppm total Zr (Ibáñez-Mejía); ~1000 kcps/ppb Pb<sub>total</sub> (Desem); ~50 V for a 1 µg/ml Os solution (Nowell); total Zr beams 3.5–13 V at 30 ppb (Schönbächler) |
+| one value per isotope — `channel` | Makishima 2011 tabulates ¹¹¹Cd, ¹¹⁵In, ¹⁴⁹Sm, ²⁰⁵Tl, ²⁰⁹Bi; Hu 2022 gives 10 V for ¹⁴⁰Ce, 4 V for ¹⁴²Nd, 3.5 V for ¹⁵²Sm; Yu 2005 tabulates CPS/ppb per isotope |
+| per **reference material** | **0** |
+| nearest second axis anyone reports | *hardware configuration*, not `standard` — Misra 2014 across spray chamber and injector; Hopp 2021 wet vs dry plasma, MR vs HR |
+
+`audit_keys_vs_literature.py` concurs: the field is absent from its 38 findings, so declared shape and
+observed shape agree.
+
+**The reasoning is already precedent.** `Elemental Fractionation Correction` was adjudicated 2026-08-12
+at 14 ev — *"reference materials are mentioned because the correction uses them, not because the field
+repeats over them."* Sensitivity is the same case. The tuning concentrations quoted beside these values
+("1 ppb ¹¹⁵In", "~100 ppb Mo solution") qualify one number; they do not make it repeat. `ICP Tuning`
+keeps `(none)` on identical grounds despite naming both RMs and isotopes.
+
+### The general lesson: a template is a hypothesis, not attestation
+
+This is the first time an external reporting template was used as key evidence, and the failure mode is
+worth naming. A template is a **prospective schema** — it records what its authors think ought to be
+captured. A literature extraction records what practitioners actually reported. Rule 7.12 already
+breaks the tie ("the key is the finest axis attested in reported data"), and it should be applied to
+template-derived proposals exactly as to any other. A template can invite a column nobody fills.
+
+Two other proposals from the same comparison — `Primary Calibration Standard Name` keyed by
+`reported property` (AGN keys the PRM by `reductionTarget`), and reference-material ablation
+conditions keyed by `standard` (AGN carries separate beam size / fluence / repetition rate for
+primary, matrix and sensitivity RMs) — are **held pending the same literature test**, not adopted.
+
+**Do not re-open on template evidence alone.** Reopen if a literature audit finds procedures publishing
+sensitivity as a table over reference materials; the AGN sheet by itself has now been weighed.
