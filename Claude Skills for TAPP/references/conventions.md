@@ -207,6 +207,23 @@ These are not replacements for "Analytical Mode" and should not be confused with
 **"Analytical Mode" allowed values must mirror the mode flag column labels exactly:**
 The controlled vocabulary for "Analytical Mode" must use the exact strings that appear as mode flag column headers in that TAPP (defined in Phase 0). Do not paraphrase, abbreviate, or substitute synonyms. Because this correspondence must be exact, `Analytical Mode` is **exempt** from the requirement that every Controlled list field offer `N/A | None | Other: specify` — see the exemption table in the Data Type Vocabulary section. This ensures that a procedure declaring `Analytical Mode = WDS Point Analysis` is unambiguously linked to the `WDS Point Analysis` mode flag column, and that sub-TAPP filtering behaves correctly. If mode flag column labels are ever renamed in a future revision, the "Analytical Mode" allowed values must be updated in the same patch.
 
+> **Enforced from 2026-08-24 — `check_analytical_mode_vocabulary` (`rule3-mode-vocab`, WARN).** Only
+> the *placement* half of Rule 3 was ever checked (Analytical Mode must be first in Group 4); the
+> vocabulary half above was documented and unenforced, and the four SEM tables had drifted to an
+> informal vocabulary — SEM offered `EDS | SEM-WDS | CL` against mode columns naming
+> `EDS Point Analysis`, `EDS Mapping`, `WDS Point Analysis`, `WDS Mapping`, `CL Point Analysis`,
+> `CL Mapping`, plus the generic options this rule exempts it from.
+>
+> **The cost was not internal.** Curators enter publication values from this list, so a bad Column F
+> generates bad data: it produced **84 invalid `Analytical Mode` publication cells**, reported from
+> outside as `amds-ldeo/tapp#3` by a consumer generating `ada:analyticalMode` as an enum from the
+> mode-flag headers. A controlled list is not only a constraint on the field — it is an instruction
+> to whoever fills it, and an informal one propagates.
+>
+> Third time this pattern has been recorded (7.8.7 keys, 7.8.10 Data Types, now Rule 3 vocabulary):
+> **a documented invariant is not an enforced one.** When a rule says the validator "must enforce"
+> something, confirm the check exists.
+
 ---
 
 ### Rule 4 — Propagation obligation when a shared field is modified

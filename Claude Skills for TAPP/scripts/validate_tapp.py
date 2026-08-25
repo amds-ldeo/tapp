@@ -568,6 +568,8 @@ CONTROLLED_LIST_REQUIRED = ["N/A", "None", "Other: specify"]
 # See the exemption table in the Data Type Vocabulary section of conventions.md.
 # Closed list — extend only by explicit decision, documented there.
 CONTROLLED_LIST_EXEMPT = {"Analytical Mode", "Technique"}
+# Rule 3 exempts `Analytical Mode` from these; check_analytical_mode_vocabulary flags them.
+GENERIC_LIST_OPTIONS = {"N/A", "None", "Other: specify", "Multiple (specify)"}
 
 
 def _span(nums, limit=6):
@@ -814,6 +816,55 @@ def check_data_types(t: Tapp, out):
             if missing:
                 add("WARN", n, item, "controlled-list-options",
                     f"Controlled list is missing required option(s) {missing} in column F.")
+
+
+def check_analytical_mode_vocabulary(t: Tapp, out):
+    """Rule 3 — `Analytical Mode`'s Column F must mirror this TAPP's mode-flag headers exactly.
+
+    conventions.md has required this from the start: the allowed values "must use the exact strings
+    that appear as mode flag column headers in that TAPP. Do not paraphrase, abbreviate, or
+    substitute synonyms", because sub-TAPP filtering resolves on that correspondence. Rule 3 also
+    exempts the field from the generic `N/A | None | Other: specify` options for the same reason.
+
+    Only the placement half of Rule 3 was ever enforced (Analytical Mode must be first in Group 4).
+    The vocabulary half was not, and the four SEM tables drifted to an informal vocabulary — SEM
+    offered `EDS | SEM-WDS | CL` against mode columns naming `EDS Point Analysis`, `EDS Mapping`,
+    `WDS Point Analysis`, `WDS Mapping`, `CL Point Analysis`, `CL Mapping`. That bad vocabulary
+    then generated 84 invalid publication cells, reported from outside as amds-ldeo/tapp#3:
+    curators entered `EDS` and `CL` because the table told them those were the allowed values.
+    Implemented 2026-08-24, after the fix, so it ships at 0 findings.
+
+    A composite value joined with '; ' is valid when every member is a declared mode — the house
+    form carries one such example last.
+    """
+    add = lambda s, r, f, c, m: out.append(Finding(s, t.name, r, f, c, m))
+    if t.sentinel_idx is None or not t.mode_cols:
+        return
+    modes = [t.header[i] for i in range(FIRST_MODE_COL, t.sentinel_idx)]
+    for n, row in enumerate(t.rows[1:], start=2):
+        if t.cell(row, COL_ITEM) != "Analytical Mode":
+            continue
+        raw = t.cell(row, COL_EXAMPLE)
+        for value in (v.strip() for v in raw.split("|")):
+            value = re.sub(r"^e\.g\.,?\s*", "", value).strip().strip("'\"").strip()
+            if not value:
+                continue
+            if value in GENERIC_LIST_OPTIONS:
+                add("WARN", n, "Analytical Mode", "rule3-mode-vocab-generic",
+                    f"Column F offers '{value}'. Rule 3 exempts `Analytical Mode` from the generic "
+                    f"options: every procedure has a mode, and `Other: specify` would break the "
+                    f"exact correspondence sub-TAPP filtering depends on.")
+                continue
+            parts = [x.strip() for x in value.split(";")]
+            unknown = [x for x in parts if x not in modes]
+            if unknown:
+                add("WARN", n, "Analytical Mode", "rule3-mode-vocab",
+                    f"Column F offers {unknown}, which {'are' if len(unknown) > 1 else 'is'} not "
+                    f"among this TAPP's mode-flag headers {modes}. Rule 3 requires the exact "
+                    f"strings — no paraphrase, abbreviation or synonym — because sub-TAPP "
+                    f"filtering resolves on that correspondence, and because curators enter "
+                    f"publication values from this list.")
+        break
 
 
 def check_naming(t: Tapp, out):
@@ -1744,6 +1795,7 @@ def main():
             continue
         tapps.append(t)
         for check in (check_structure, check_tiers, check_modes, check_data_types,
+                      check_analytical_mode_vocabulary,
                       check_naming, check_rules, check_keyed_by, check_dates):
             check(t, findings)
 
