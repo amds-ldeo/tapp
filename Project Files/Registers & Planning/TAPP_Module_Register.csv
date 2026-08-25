@@ -7,6 +7,7 @@ CalibrationFactor,2,Externally Calibrated Conversion Factor,1,1,1,14 TAPP(s),act
 Core,2,Universal TAPP Core,30,6,2,16 TAPP(s),active
 Geochronology,2,Geochronology,6,1,5,3 TAPP(s),active
 Group1,2,Procedure Identification,18,1,4,0 TAPP(s),retired 2026-08-14 — superseded by Core
+ICPMS,2,"Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",13,4,1,9 TAPP(s),active
 LaserAblation,2,Laser Ablation Front End,18,3,3,6 TAPP(s),active
 MCICPMS,2,Multi-Collector ICP-MS Analyser,15,3,5,3 TAPP(s),active
 ReportingCore,2,Cross-Technique Reporting Core,6,5,6,0 TAPP(s),"retired 2026-08-14 — dissolved into TargetSelection, CalibrationFactor, Blank, Aggregation"

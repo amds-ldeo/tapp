@@ -1,0 +1,83 @@
+{
+    "module": "ICPMS",
+    "title": "Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",
+    "layer": 2,
+    "version": "1",
+    "source_of_truth": "modules/Module_ICPMS.csv",
+    "owned_columns": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "I"
+    ],
+    "overlay_columns": [
+        "F"
+    ],
+    "mode_flag_default": "Y",
+    "source_comment": "Source: ICP-MS module",
+    "conditional": false,
+    "blocks": [
+        {
+            "name": "instrument",
+            "target_group": "3. Instrument & Software",
+            "placement": "append_to_group",
+            "fields": [
+                "Instrument Serial Number or Lab Identifier",
+                "Torch Depth"
+            ]
+        },
+        {
+            "name": "session",
+            "target_group": "4. Measurement Information",
+            "placement": "append_to_group",
+            "fields": [
+                "ICP Tuning",
+                "Instrument Warm-up / Session Duration Limit",
+                "Make-up Gas and Flow Rate",
+                "Instrument Sensitivity",
+                "Ion Counter Dead Time",
+                "Oxide Production"
+            ]
+        },
+        {
+            "name": "reduction",
+            "target_group": "5. Data Processing",
+            "placement": "append_to_group",
+            "fields": [
+                "Uncertainty Level",
+                "Uncertainty Propagation Method"
+            ]
+        },
+        {
+            "name": "quality",
+            "target_group": "6. Quality Control & Uncertainty",
+            "placement": "append_to_group",
+            "fields": [
+                "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+                "Within-Session Analytical Precision and Assessment Method",
+                "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+            ]
+        }
+    ],
+    "consumed_by": [
+        "LA-Q-ICP-MS",
+        "LA-SF-ICP-MS",
+        "LA-MC-ICP-MS",
+        "LA-Q-ICP-MS U-Pb",
+        "LA-SF-ICP-MS U-Pb",
+        "LA-MC-ICP-MS U-Pb",
+        "Solution Q-ICP-MS",
+        "Solution SF-ICP-MS",
+        "Solution MC-ICP-MS",
+        "any future ICP-MS TAPP regardless of front end or analyser"
+    ],
+    "notes": "What every ICP-MS procedure shares once the sample has reached the plasma, independent of BOTH the front end (laser ablation or solution) and the analyser (quadrupole, sector-field, multi-collector). Complements Module_LaserAblation and Module_SolutionIntroduction, which own the two front ends; this module owns neither.",
+    "extraction": "Extracted 2026-08-25 under Rule 6.10. Candidate set was 'present in all 9 ICP-MS TAPPs and unowned by an existing module' = 46 fields. Seven were excluded for reaching BEYOND ICP-MS: Sample Preparation Method (15 TAPPs) and six shared with EPMA/SEM/SEM_Composition (Detection Limit, Detection Limit Method, Counting Statistics Error, Primary Calibration Standard Name, Secondary Reference Materials, Normalization / Standards-Based Correction). Those 12 TAPPs are the quantitative-composition set and are a candidate layer of their own; placing them here would have mis-scoped them, and for the Detection Limit pair would have undone the uniformity established the previous day under amds-ldeo/tapp#1. That left 39 ICP-MS-specific fields.",
+    "reconciliation": "v1 ships the 13 of 39 whose Columns B, C, D, E and I are ALREADY byte-identical across all nine consumers. v1 therefore changes no TAPP content and carries no authoring risk — it converts nine hand-maintained copies into one owned definition.\n\nThe other 26 are deferred, and why matters. The 2026-08-12 Column B harmonisation worked by adopting a superset variant where one existed. That rule does not apply here: of the 32 divergent descriptions tested, ZERO have a clear superset and 30 carry real content in more than one variant. These are genuine merges, not choices, and must be decided by reading — the same conclusion Module_SolutionIntroduction recorded, that the Rule 6.10 criteria 'are sound as criteria but are NOT automatable'.\n\n12 of the 26 additionally trip this library's governing disqualifier: their text names an ANALYSER rather than a purpose. For most, the wrapper can be stripped and the content adopted. For `Mass Resolution Setting` and `ICP-MS Type` the analyser-dependence IS the substance — the quadrupole text states that operator selection is impossible while the sector-field text describes choosing LR/MR/HR, and a module consumed by Q, SF and MC cannot assert either. Those two need an analyser layer or must stay TAPP-owned. Note the 2026-08-08 review already found no viable sector-field layer (0 fields shared by SF and MC but not Q).",
+    "decisions": [
+        "2026-08-25: prerequisite discharged BEFORE extraction. The 2026-08-14 log required a literature assessment of five fields the Solution TAPPs appeared to lack, warning that 'a module built from the six LA tables alone would silently ratify the gap'. Re-checked: ICP Tuning, Instrument Warm-up / Session Duration Limit and Ion Counter Dead Time are now in all 9; Sensitivity as Useful Yield and Plasma / Make-up Gas Addition were retired by the 2026-08-14 and 2026-08-17 reconciliations into Instrument Sensitivity and Make-up Gas and Flow Rate, both also in all 9. The gap is closed, so this module does not ratify it.",
+        "2026-08-25: v1 deliberately clears NONE of the outstanding Column E LINEAGE divergences. Five of the six ICP-MS ones — Blank / Background Correction Method, Isobaric Interference Corrections Applied, Limit of Quantification (LOQ) Method, Per-Analyte Calibration Strategy, Signal Integration Interval Method — sit in the deferred 26 because each ALSO diverges in Column B. Shipping them would have meant authoring their descriptions in the same stroke as deciding their types, which is how an unreviewed verdict enters a register."
+    ]
+}

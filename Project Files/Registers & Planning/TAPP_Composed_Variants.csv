@@ -1,6 +1,6 @@
 ﻿Variant,Instrument TAPP,System Module,File,Status
-LA-Q-ICP-MS x U-Pb,LA-Q-ICP-MS,U-Pb,LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v30.csv,built
-LA-SF-ICP-MS x U-Pb,LA-SF-ICP-MS,U-Pb,LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v30.csv,built
+LA-Q-ICP-MS x U-Pb,LA-Q-ICP-MS,U-Pb,LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v31.csv,built
+LA-SF-ICP-MS x U-Pb,LA-SF-ICP-MS,U-Pb,LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v31.csv,built
 Noble Gas MS x Ar-Ar,Noble Gas MS,Ar-Ar,,planned — Noble Gas MS TAPP does not exist yet
 TIMS x U-Pb,TIMS,U-Pb,,planned
-LA-MC-ICP-MS x U-Pb,LA-MC-ICP-MS,U-Pb,LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v27.csv,built
+LA-MC-ICP-MS x U-Pb,LA-MC-ICP-MS,U-Pb,LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v28.csv,built

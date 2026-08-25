@@ -3090,3 +3090,47 @@ which is why two fields rather than one.
   add MS/MS-mode papers to LA-Q / Solution Q and re-measure the residue. Build nothing in advance.
 - Solution MC-ICP-MS's Phase 3 covers Groups 1–6 but its Group 2/6 coverage rests on what the PDFs
   carry; several papers place digestion and QC detail in supplementary material.
+
+---
+
+## 2026-08-25 | MODULE | `Module_ICPMS` v1 extracted (13 of 39 fields), 26 deferred by evidence
+
+The ICP-MS-scoped module has been on the plan since 2026-08-14. It is now built, but deliberately
+smaller than planned, and the reason is the finding worth keeping.
+
+**Prerequisite discharged first.** The 2026-08-14 entry warned that "a module built from the six LA
+tables alone would silently ratify the gap" and named five fields the Solution TAPPs appeared to
+lack. Re-checked: three are now in all 9, and the other two were retired into `Instrument
+Sensitivity` and `Make-up Gas and Flow Rate` by the 2026-08-14 and 2026-08-17 reconciliations, both
+also in all 9. The gap closed itself while other work proceeded; the module does not ratify it.
+
+**Scope.** Candidates were "in all 9 ICP-MS TAPPs and unowned" = 46. Seven were excluded for
+reaching *beyond* ICP-MS: `Sample Preparation Method` (15 TAPPs) and six shared with
+EPMA/SEM/SEM_Composition. Those 12 tables are the quantitative-composition set — a candidate layer
+of its own — and two of the six are the `Detection Limit` pair, so filing them under ICP-MS would
+have undone the uniformity established the previous day. **39 fields are genuinely ICP-MS-specific.**
+
+**Why v1 ships 13 and not 39.** A module owns Columns B–E and I, so every field needs one
+authoritative description. 26 of the 39 diverge in Column B. The 2026-08-12 harmonisation handled
+that class by adopting a superset variant — and **that rule does not apply here: of 32 divergent
+descriptions, ZERO have a clear superset and 30 carry real content in more than one variant.** They
+are merges, not choices. `Module_SolutionIntroduction` reached the same conclusion in 2026-08-10 and
+needed a dedicated read-by-hand pass for 12 fields; this is twice that, and it is domain writing.
+
+v1 therefore ships only the 13 already byte-identical across all nine consumers. It changes **no
+TAPP content** — `compose_tapp.py --diff` moved exactly 13 cells, all of them the Rule 6.11
+provenance label — and converts nine hand-maintained copies into one owned definition.
+
+**Two fields are probably not moduleable at all.** `Mass Resolution Setting` and `ICP-MS Type` fail
+the governing disqualifier `Module_SolutionIntroduction` established (naming an ANALYSER disqualifies;
+naming a PURPOSE does not), and not as a strippable wrapper: the quadrupole text states operator
+selection is impossible while the sector-field text describes choosing LR/MR/HR. A module consumed
+by Q, SF and MC cannot assert either. They need an analyser layer or must stay TAPP-owned — and the
+2026-08-08 review already found no viable sector-field layer (0 fields shared by SF and MC but not Q).
+
+**Cost to the Column E backlog: nil, for now.** Five of the six ICP-MS `LINEAGE` divergences sit in
+the deferred 26 because each *also* diverges in Column B. Shipping them would have meant authoring a
+description in the same stroke as deciding a type — which is how an unreviewed verdict enters a
+register. The module is the right vehicle for them; it just has to carry a reconciliation first.
+
+Full extraction and reconciliation notes are in `modules/Module_ICPMS.json`.
