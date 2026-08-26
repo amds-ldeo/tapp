@@ -356,16 +356,17 @@ KEY_SPLIT_RE = re.compile(r"\s*>\s*|\s+x\s+")
 # ends with 'Sequence' while naming something unrelated. At two words the trial fired on exactly
 # three pairs, all three genuine and all three legitimate — registered below.
 KEY_NAME_VARIANT_EXEMPT = {
-    ("Detection Limit", "EELS Sensitivity and Detection Limit"):
-        "different fields. The EELS field reports per target edge — an EELS edge is a channel, "
-        "enumerated by `EELS Edges` — while `Detection Limit` is one per reported concentration "
-        "variable. **SPLIT ACCEPTED 2026-08-25, not yet executed**: the field bundles a "
-        "specification (ZLP energy resolution, a procedure setting) with a result (detection limit, "
-        "an outcome), which is why one key has to serve both and why no single Data Type fits it — "
-        "it was the one field left untyped by the amds-ldeo/tapp#1 pass for exactly that reason. "
-        "Splitting it gives the specification half a `Numeric (eV FWHM)` type alongside the other "
-        "EELS setup fields, and the result half `Numeric + unit / Text` keyed `channel` like its "
-        "`Detection Limit` sibling. Remove this entry when the split lands.",
+    ("Detection Limit", "EELS Detection Limit"):
+        "different fields, and the split that made them so landed 2026-08-26. `EELS Sensitivity "
+        "and Detection Limit` bundled a specification (ZLP energy resolution) with a result "
+        "(detection limit), which is why no single Data Type fitted it. On splitting, the "
+        "specification half turned out to need no new field at all — `EELS Energy Resolution` "
+        "already carries it, `Numeric (eV FWHM)`, and the bundled ZLP half was never once filled "
+        "in the literature assessment. So the field was renamed to `EELS Detection Limit`, the "
+        "duplicated half dropped, and the result half typed `Numeric + unit / Text` like its "
+        "`Detection Limit` sibling. The keys still differ and that is correct: an EELS edge is a "
+        "`channel`, enumerated by `EELS Edges`, while `Detection Limit` is one per reported "
+        "concentration variable.",
     ("Dwell Time per Pixel", "STEM Dwell Time per Pixel"):
         "different fields. STEM imaging has no spectrometer, so its per-pixel dwell is scalar; "
         "`Dwell Time per Pixel` is per spectrometer assignment where WDS mapping exists (see "
@@ -423,6 +424,14 @@ COLB_DEFINER_STEM_EXEMPT = {
 # History
 #   2026-08-24  Check implemented. 18 divergences frozen: LINEAGE 14 (LA/Solution 9,
 #               EPMA/SEM 5), OPEN 4. Prompted by amds-ldeo/tapp#1.
+#   2026-08-26  `Isobaric Interference Corrections Applied` -> `Controlled list / Text` and
+#               REMOVED. The decision was taken during the amds-ldeo/tapp#1 evidence pass — 44
+#               attested cells read "Yes — correction for doubly charged ions: ...", a Yes/No
+#               spine carrying detail, which neither `Boolean` nor a bare `Controlled list`
+#               holds — but was never applied; it sat in this register as though undecided.
+#               Column F is now `Yes | No | N/A | None`: `Analyte-specific` was dropped as a
+#               cardinality statement that belongs in Column I, and `Other: specify` because a
+#               compound's `/ Text` half already grants it. Register 8 -> 7.
 #   2026-08-26  Nine more harmonised and REMOVED on literature evidence — the five EPMA/SEM
 #               fields did NOT share one answer: `Beam Diameter` and `Step Size / Pixel Size`
 #               took `Numeric (µm) / Text` (unit unanimous, but "Focused (exact diameter N)" is
@@ -475,7 +484,6 @@ COLE_DIVERGENCE_TRIAGED = {
     # free text), which is why the cluster reads as accumulated drift rather than two coherent
     # house styles.
     'Blank / Background Correction Method': ("LINEAGE", 9),
-    'Isobaric Interference Corrections Applied': ("LINEAGE", 9),
     'Limit of Quantification (LOQ) Method': ("LINEAGE", 9),
     'Mass Resolution Setting': ("LINEAGE", 9),
     'Per-Analyte Calibration Strategy': ("LINEAGE", 9),
