@@ -2,7 +2,7 @@
     "module": "ICPMS",
     "title": "Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",
     "layer": 2,
-    "version": "2",
+    "version": "3",
     "source_of_truth": "modules/Module_ICPMS.csv",
     "owned_columns": [
         "A",
@@ -13,7 +13,8 @@
         "I"
     ],
     "overlay_columns": [
-        "F"
+        "F",
+        "J"
     ],
     "mode_flag_default": "Y",
     "source_comment": "Source: ICP-MS module",
@@ -79,6 +80,7 @@
     "decisions": [
         "2026-08-25: prerequisite discharged BEFORE extraction. The 2026-08-14 log required a literature assessment of five fields the Solution TAPPs appeared to lack, warning that 'a module built from the six LA tables alone would silently ratify the gap'. Re-checked: ICP Tuning, Instrument Warm-up / Session Duration Limit and Ion Counter Dead Time are now in all 9; Sensitivity as Useful Yield and Plasma / Make-up Gas Addition were retired by the 2026-08-14 and 2026-08-17 reconciliations into Instrument Sensitivity and Make-up Gas and Flow Rate, both also in all 9. The gap is closed, so this module does not ratify it.",
         "2026-08-25: v1 deliberately clears NONE of the outstanding Column E LINEAGE divergences. Five of the six ICP-MS ones — Blank / Background Correction Method, Isobaric Interference Corrections Applied, Limit of Quantification (LOQ) Method, Per-Analyte Calibration Strategy, Signal Integration Interval Method — sit in the deferred 26 because each ALSO diverges in Column B. Shipping them would have meant authoring their descriptions in the same stroke as deciding their types, which is how an unreviewed verdict enters a register.",
-        "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv."
+        "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
+        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves."
     ]
 }

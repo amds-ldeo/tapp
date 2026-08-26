@@ -2,7 +2,7 @@
     "module": "Core",
     "title": "Universal TAPP Core",
     "layer": 2,
-    "version": "3",
+    "version": "4",
     "source_of_truth": "modules/Module_Core.csv",
     "owned_columns": [
         "A",
@@ -109,6 +109,10 @@
         "Sample Preparation Method (15/16, absent from Lab-XCT) was NOT included — it is not universal, and its two tier variants are unreconciled.",
         "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content.",
         "2026-08-14 v2: added Instrument Manufacturer + Instrument Model (28 -> 30 fields). Six TAPPs already carried the pair; ten carried one combined field under three names (ICP-MS Manufacturer & Model, Instrument Make and Model, CT System Manufacturer and Model). Split rather than merged because Instrument Manufacturer is a Controlled list and therefore a discovery facet — find every procedure run on a given vendor's instrument — which free-text make-and-model cannot support. The combined field's Column F was already in Instrument Model form, so the rename carried its examples across; only the new Manufacturer row needed a vocabulary, which is consumer-owned and differs by technique. Instrument Model adopts Text (free): EPMA had it as a Controlled list, but a module owns Column E and cannot vary it, and model designations are not enumerable across techniques — EPMA's values survive as Column F allowed content.",
-        "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv."
+        "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
+        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves."
+    ],
+    "overlay_columns": [
+        "J"
     ]
 }

@@ -254,7 +254,7 @@ def _compose(source_rows, manifest, module_rows):
             before = out[i]
             out[i] = mrow[i] if i < len(mrow) else ""
             if src and before != out[i]:
-                overrides.append((name, "ABCDEFGHI"[i], before, out[i]))
+                overrides.append((name, "ABCDEFGHIJ"[i], before, out[i]))
 
         block.append(out)
 
@@ -346,7 +346,7 @@ def compose_overlay(source_rows, manifest, module_rows):
             if not val:
                 continue
             if before != val:
-                overrides.append((name, "ABCDEFGHI"[i], before, val))
+                overrides.append((name, "ABCDEFGHIJ"[i], before, val))
             row[i] = val
         overlaid.append(name)
 
@@ -390,7 +390,7 @@ def compose_overlay(source_rows, manifest, module_rows):
                     before = row[i] if i < len(row) else ""
                     val = mrow[i] if i < len(mrow) else ""
                     if before != val:
-                        overrides.append((name, "ABCDEFGHI"[i], before, val))
+                        overrides.append((name, "ABCDEFGHIJ"[i], before, val))
                     row[i] = val
                 overlaid.append(name)
                 continue
@@ -462,7 +462,7 @@ def compose_insert(source_rows, manifest, module_rows):
                 before = row[i] if i < len(row) else ""
                 val = mrow[i] if i < len(mrow) else ""
                 if before != val:
-                    overrides.append((name, "ABCDEFGHI"[i], before, val))
+                    overrides.append((name, "ABCDEFGHIJ"[i], before, val))
                 row[i] = val
             updated.append(name)
             continue

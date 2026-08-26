@@ -1,16 +1,16 @@
 ﻿Module,Layer,Title,Fields,Blocks,Version,Consumers,Status
-Aggregation,2,Aggregation of Multiple Analyses,2,2,2,13 TAPP(s),active
-Analyte,2,Analyte,1,1,1,13 TAPP(s),active
-ArAr,3,40Ar/39Ar Geochronology,16,2,5,0 TAPP(s),active
-Blank,2,Analytical Blank,1,1,2,12 TAPP(s),active
-CalibrationFactor,2,Externally Calibrated Conversion Factor,1,1,1,14 TAPP(s),active
-Core,2,Universal TAPP Core,30,6,3,16 TAPP(s),active
-Geochronology,2,Geochronology,6,1,6,3 TAPP(s),active
+Aggregation,2,Aggregation of Multiple Analyses,2,2,3,13 TAPP(s),active
+Analyte,2,Analyte,1,1,2,13 TAPP(s),active
+ArAr,3,40Ar/39Ar Geochronology,16,2,6,0 TAPP(s),active
+Blank,2,Analytical Blank,1,1,3,12 TAPP(s),active
+CalibrationFactor,2,Externally Calibrated Conversion Factor,1,1,2,14 TAPP(s),active
+Core,2,Universal TAPP Core,30,6,4,16 TAPP(s),active
+Geochronology,2,Geochronology,6,1,7,3 TAPP(s),active
 Group1,2,Procedure Identification,18,1,4,0 TAPP(s),retired 2026-08-14 — superseded by Core
-ICPMS,2,"Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",13,4,2,9 TAPP(s),active
-LaserAblation,2,Laser Ablation Front End,18,3,4,6 TAPP(s),active
-MCICPMS,2,Multi-Collector ICP-MS Analyser,15,3,6,3 TAPP(s),active
+ICPMS,2,"Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",13,4,3,9 TAPP(s),active
+LaserAblation,2,Laser Ablation Front End,18,3,5,6 TAPP(s),active
+MCICPMS,2,Multi-Collector ICP-MS Analyser,15,3,7,3 TAPP(s),active
 ReportingCore,2,Cross-Technique Reporting Core,6,5,6,0 TAPP(s),"retired 2026-08-14 — dissolved into TargetSelection, CalibrationFactor, Blank, Aggregation"
-SolutionIntroduction,2,Solution Sample Preparation and Introduction for MS,16,3,5,3 TAPP(s),active
-TargetSelection,2,Target Selection,2,1,1,13 TAPP(s),active
-UPb,3,U-Pb Geochronology,15,2,6,3 TAPP(s),active
+SolutionIntroduction,2,Solution Sample Preparation and Introduction for MS,16,3,6,3 TAPP(s),active
+TargetSelection,2,Target Selection,2,1,2,13 TAPP(s),active
+UPb,3,U-Pb Geochronology,15,2,7,3 TAPP(s),active

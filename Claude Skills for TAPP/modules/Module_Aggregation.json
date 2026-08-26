@@ -2,7 +2,7 @@
     "module": "Aggregation",
     "title": "Aggregation of Multiple Analyses",
     "layer": 2,
-    "version": "2",
+    "version": "3",
     "source_of_truth": "modules/Module_Aggregation.csv",
     "owned_columns": [
         "A",
@@ -13,7 +13,8 @@
         "I"
     ],
     "overlay_columns": [
-        "F"
+        "F",
+        "J"
     ],
     "consumer_columns": [
         "F",
@@ -50,6 +51,7 @@
         "2026-08-14 v1. Field text taken unchanged from Module_ReportingCore v6 — the dissolution moves fields between modules and changes no definition, so composition is a no-op and no consumer needs a version bump.",
         "Compose AFTER Core: the Group 5 and 6 blocks anchor on 'Constants and Reference Values Used' and 'Additional Notes', both owned by Core.",
         "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content.",
-        "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv."
+        "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
+        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves."
     ]
 }
