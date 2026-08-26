@@ -1,0 +1,351 @@
+﻿Module,Field,Sentence_no,STEP1_route,Rule,STEP2_flag,Reason,Sentence_TEXT_UNCHANGED
+Geochronology,Age Calculation Method,1,D,M1,,,"The equation used to convert the measured quantities into an age or date, together with a citation for that equation."
+Geochronology,Age Calculation Method,2,D,M3,,,"Name the equation unambiguously; where a procedure supports more than one, state which is used and under what conditions."
+Geochronology,Age Calculation Method,3,P,M2,,"external reporting standards require it — provenance, not our Column C (W3)",Required by every geochronology reporting standard surveyed (Condon et al. 2024; Schaen et al. 2021; Rooney et al. 2024; Flowers et al. 2024; Kohn et al. 2024; Mahan et al. 2023).
+Geochronology,Age Calculation Method,4,D,M3,,,"Distinct from Age Model and Software, which records how multiple analyses are combined into a single reported result."
+Geochronology,Reported Date Type,1,D,M1,,,The kind of date or age the procedure reports.
+Geochronology,Reported Date Type,2,P,M2,,why a bare age is ambiguous,"Most dating systems derive several different date types from the same measurements, so a reported age is ambiguous without this."
+Geochronology,Reported Date Type,3,D,M3,,,"Where more than one type is reported, list all, separated by semicolons."
+Geochronology,Reported Date Type,4,P,M2,,external standard provenance (W3),"Kohn et al. (2024) carry this as a named required item (""fission-track age type""); the equivalent distinction is required by all five other standards surveyed."
+Geochronology,Inherited or Initial Signal Correction,1,D,M1,,,"How any non-radiogenic, inherited or pre-existing component of the measured signal was accounted for, including the composition assumed, its source, and its uncertainty."
+Geochronology,Inherited or Initial Signal Correction,2,D,M3,,,Record 'None' where the measured quantity accumulates from zero and no such component exists.
+Geochronology,Inherited or Initial Signal Correction,3,P,M2,,scope rationale — which dating systems it applies to,"Applies to five of the six dating systems surveyed; fission track is the sole genuine exception, as tracks accumulate from zero."
+Geochronology,Inherited or Initial Signal Correction,4,P,"M2,M5",REWRITE-REDUNDANT(D=Editable),the sentence exists to justify the D tier; that is what Column D encodes,"D=Editable rather than Read-Only: the procedure registers the correction method and any default composition, but the value actually applied is frequently sample-specific (a two-stage model composition is evaluated at the interpreted age) or session-derived (a trapped composition solved from an isochron intercept), and a revision to the assumed composition should not require registering a new procedure."
+Geochronology,Inherited or Initial Signal Correction,5,P,M2,,library-internal design cross-reference to Rule 5,Same reasoning as Rule 5's Constants and Reference Values Used.
+Geochronology,Radiogenic Fraction of Measured Signal,1,D,M1,,,"The proportion of the measured signal that is radiogenic, as opposed to inherited, initial or otherwise non-radiogenic."
+Geochronology,Radiogenic Fraction of Measured Signal,2,D,"M3,M5",REWRITE-REDUNDANT(C=N/A),'records what the session actually produced' restates C=N/A; the companion boundary is real,"Measured companion to Inherited or Initial Signal Correction, which is procedure-level: this field records what the session actually produced."
+Geochronology,Radiogenic Fraction of Measured Signal,3,P,M2,,why the fraction matters for interpreting the age,"It indicates how strongly the reported age depends on the assumed non-radiogenic composition — a result derived from a low radiogenic fraction is sensitive to that assumption in a way a high-fraction result is not, and that sensitivity is invisible from the age and its uncertainty alone."
+Geochronology,Radiogenic Fraction of Measured Signal,4,P,M2,,library-internal design note — criterion-versus-measurement split,Follows the criterion-versus-measurement split used for Oxide Production.
+Geochronology,Age Model,1,D,M1,,,"The statistical model used to combine individual analyses into a single reported age, including any criteria governing which model is applied."
+Geochronology,Age Model,2,P,M2,,why the model choice changes the result,This is a methodological choice that changes the result: a Model-1 and a Model-3 regression of the same data yield different ages and different uncertainties.
+Geochronology,Age Model,3,D,M3,,,"Record the model only — the software implementing it belongs in Data Reduction Software (Group 3), whose scope already extends to age calculation; where reduction and age regression use different packages, list both there."
+Geochronology,Age Model,4,P,M2,,external standard provenance (W3),Required in some form by all six geochronology reporting standards surveyed.
+Geochronology,Age Datum / Reference Epoch,1,D,M1,,,"The zero point from which the reported age is measured, where this is not the present day, and the date it corresponds to."
+Geochronology,Age Datum / Reference Epoch,2,D,M3,,,Record 'Present day' where the conventional datum applies.
+Geochronology,Age Datum / Reference Epoch,3,D,M4,REWRITE-STRADDLE,external requirement plus concrete per-system instructions,"Explicitly required wherever the datum is not the present: year of sample collection for luminescence (Mahan et al. 2023), end of irradiation for 40Ar/39Ar decay corrections (Schaen et al. 2021)."
+Aggregation,Analysis Inclusion and Rejection Criteria,1,D,M1,,,"The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded."
+Aggregation,Analysis Inclusion and Rejection Criteria,2,D,M3,,,"Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value."
+Aggregation,Analysis Inclusion and Rejection Criteria,3,P,M2,,design rationale for combining criteria and outcome,"Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent."
+Aggregation,Goodness-of-Fit or Dispersion Statistic,1,D,M1,,,"The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value."
+Aggregation,Goodness-of-Fit or Dispersion Statistic,2,P,M2,,what the statistic answers,Answers whether a reported aggregate is defensible as a single population.
+Aggregation,Goodness-of-Fit or Dispersion Statistic,3,P,"M2,M4,M5",REWRITE-STRADDLE; REWRITE-REDUNDANT(C=N/A),"explains C=N/A explicitly, then adds a real boundary about the threshold","Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria."
+TargetSelection,Target Selection Criteria,1,D,M1,,,"The rules governing which part of the sample is analysed, and why."
+TargetSelection,Target Selection Criteria,2,D,M3,,,"Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position."
+TargetSelection,Target Selection Criteria,3,D,M3,,,"Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out."
+TargetSelection,Pre-Analysis Imaging and Screening,1,D,M1,,,"Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images."
+TargetSelection,Pre-Analysis Imaging and Screening,2,D,M3,,,Distinct from any imaging the procedure performs as its own measurement.
+TargetSelection,Pre-Analysis Imaging and Screening,3,D,M3,,,"Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields."
+Analyte,Analyte,1,D,M1,,,"The chemical species this procedure is designed to determine, recorded at whatever resolution the chemistry is resolved — element(s) for this technique; valence species where a procedure resolves oxidation state; compounds where it resolves molecules."
+Analyte,Analyte,2,D,M3,,,Isotopes are not analytes: isotopes of an element are the same chemical species.
+Analyte,Analyte,3,D,"M3,M5",REWRITE-REDUNDANT(C=Basic + D=Editable),'procedure registers the suite; at analysis level the analyst records the subset' is the C/D split,"The procedure registers the full analyte suite; at analysis level the analyst records the specific subset actually measured in the session, which may be narrower if species were excluded due to interferences or scope reduction."
+Analyte,Analyte,4,D,"M3,M5",REWRITE-REDUNDANT(Keyed By: analyte),restates what Column I encodes,Fields whose Keyed By column declares 'analyte' apply individually to each entry in this list.
+Blank,Procedural Blank Level,1,D,M1,,,"The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known."
+Blank,Procedural Blank Level,2,D,"M3,M5",REWRITE-REDUNDANT(D=Basic),'records what was actually measured' restates D=Basic; the companion boundary is real,"Companion to the blank correction method, which is procedure-level: this field records what was actually measured."
+Blank,Procedural Blank Level,3,P,M2,,library-internal design note,Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.
+CalibrationFactor,Calibration Factor and Determination Method,1,D,M1,,,"An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty."
+CalibrationFactor,Calibration Factor and Determination Method,2,D,M3,,,"Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone."
+CalibrationFactor,Calibration Factor and Determination Method,3,D,M3,,,"Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself."
+MCICPMS,Faraday Cup Array Configuration,1,D,M1,,,Description of the multi-collector Faraday cup array.
+MCICPMS,Faraday Cup Array Configuration,2,D,M3,,,"Specify the total number of Faraday cup detectors (fixed and moveable), their labeled positions (e.g., L4, L3, L2, L1, Ax, H1, H2, H3, H4 for a 9-cup Neptune), and the presence and position of any ion counter (SEM) or Daly detector in the collector block."
+MCICPMS,Faraday Cup Array Configuration,3,P,M2,,why cup count and span matter,The number and span of cups constrains which isotope combinations can be simultaneously collected.
+MCICPMS,Faraday Cup Amplifier Resistor Values,1,D,M1,,,Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers.
+MCICPMS,Faraday Cup Amplifier Resistor Values,2,D,M3,,,"Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second."
+MCICPMS,Faraday Cup Amplifier Resistor Values,3,P,M2,,why high-gain amplifiers are fitted,"High-gain amplifiers (10¹² or 10¹³ Ω) are fitted to selected cups to improve signal-to-noise for very low-intensity beams (e.g., 234U, low-abundance spike isotopes)."
+MCICPMS,Faraday Cup Amplifier Resistor Values,4,D,M3,,,"Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform."
+MCICPMS,Faraday Cup Gain Calibration Method,1,D,M1,,,Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session.
+MCICPMS,Faraday Cup Gain Calibration Method,2,P,M2,,why gain differences must be corrected,Relative gain differences between amplifiers cause systematic errors in isotope ratios if uncorrected.
+MCICPMS,Faraday Cup Gain Calibration Method,3,D,M3,,,"Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup."
+MCICPMS,Faraday Cup Gain Calibration Method,4,D,M3,,,"For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence."
+MCICPMS,Faraday Cup Gain Calibration Method,5,D,M3,,,"Specify frequency (per session, per block, weekly)."
+MCICPMS,Collector Configuration,1,D,M1,,,"Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the analyte each position serves."
+MCICPMS,Collector Configuration,2,D,M3,,,"Lists the mass number monitored in each collector position with its analyte element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no analyte)'."
+MCICPMS,Collector Configuration,3,D,M3,,,Interference-monitor and internal-standard positions serve no analyte and carry no parent element; the analyte list itself is given by the Analyte field and is never inferred from the mass labels here.
+MCICPMS,Collector Configuration,4,D,M3,,,"For static multi-collection procedures, one configuration applies throughout the measurement."
+MCICPMS,Collector Configuration,5,D,M3,,,"For multi-dynamic procedures, list all configurations and the cycling sequence."
+MCICPMS,Collector Configuration,6,P,M2,,why assignments differ between element systems,Different element systems require different mass assignments within the collector array span.
+MCICPMS,Number of Blocks per Measurement,1,D,M1,,,Number of measurement blocks acquired per sample or standard solution introduction.
+MCICPMS,Number of Blocks per Measurement,2,D,M3,,,"In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with a baseline (on-peak zero) measurement before the analytical cycles."
+MCICPMS,Number of Blocks per Measurement,3,P,M2,,why multiple blocks are useful,Multiple blocks per sample allow inspection of signal stability and within-measurement drift.
+MCICPMS,Number of Blocks per Measurement,4,D,"M3,M5",REWRITE-REDUNDANT(D=Editable),'procedure specifies; analyst may adjust' is the D=Editable definition,Procedure specifies the standard number; analyst may adjust for samples with low signal or for high-precision requirements.
+MCICPMS,Number of Cycles per Block,1,D,M1,,,Number of measurement cycles acquired per block.
+MCICPMS,Number of Cycles per Block,2,D,M3,,,One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration specified in Integration Time per Cycle.
+MCICPMS,Number of Cycles per Block,3,D,M3,,,Total integration time per sample = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement).
+MCICPMS,Number of Cycles per Block,4,D,"M3,M5",REWRITE-REDUNDANT(D=Editable),as above,Procedure specifies the standard value; analyst may adjust within procedure bounds.
+MCICPMS,Integration Time per Cycle,1,D,M1,,,Duration of signal integration per measurement cycle (seconds).
+MCICPMS,Integration Time per Cycle,2,P,M2,,what it determines,Determines counting statistics per cycle.
+MCICPMS,Integration Time per Cycle,3,P,M2,,the precision/drift trade-off,Longer integration times improve shot-noise precision but increase the impact of signal drift within the integration window.
+MCICPMS,Integration Time per Cycle,4,P,M2,,why high-gain channels need longer integration,"For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to accumulate sufficient charge."
+MCICPMS,Integration Time per Cycle,5,D,"M3,M5",REWRITE-REDUNDANT(D=Editable),as above,Procedure specifies the standard integration time; analyst may confirm or adjust within procedure bounds.
+MCICPMS,Integration Time per Cycle,6,D,M3,,,"Where different isotope channels use different integration schemes, record the time for each channel."
+MCICPMS,Baseline Measurement Approach,1,D,M1,,,"Method and timing for measuring the ion beam baseline (on-peak zero) during acquisition, and the portion of the acquisition it is taken from."
+MCICPMS,Baseline Measurement Approach,2,D,M4,REWRITE-STRADDLE,enumerates the three approaches (definition) with the reason each applies (rationale),"Three approaches are in use and the choice depends on how sample reaches the plasma: deflecting the ion beam (beam-off or electrostatic deflector); aspirating an acid blank, which applies only to solution introduction; or, for laser ablation, collecting a defined number of laser-off cycles at the start of the same block, since no blank can be aspirated mid-ablation."
+MCICPMS,Baseline Measurement Approach,3,D,M3,,,"State which, and how many cycles or how long."
+MCICPMS,Mass Fractionation Law,1,D,M1,,,Mathematical law used to parameterize instrumental isotope mass fractionation as a function of mass difference.
+MCICPMS,Mass Fractionation Law,2,P,M2,,why the exponential law is preferred,The exponential law (Maréchal et al. 1999) is most widely used and theoretically best justified for MC-ICP-MS.
+MCICPMS,Mass Fractionation Law,3,D,M3,,,The linear law assumes fractionation proportional to mass difference.
+MCICPMS,Mass Fractionation Law,4,D,M3,,,The power law is an alternative formulation.
+MCICPMS,Mass Fractionation Law,5,D,M3,,,"For double-spike procedures, the law is embedded in the inversion algorithm and must be consistent between spike calibration and sample data reduction."
+MCICPMS,Internal Normalization Element and Isotope Ratio,1,D,M1,,,Element and isotope ratio used as the internal normalization standard for mass bias correction.
+MCICPMS,Internal Normalization Element and Isotope Ratio,2,P,M2,,mechanism — how the correction works,"The measured ratio of the normalizing element is used to calculate the mass bias factor β using the chosen mass fractionation law, which is then applied to correct the analyte isotope ratios assuming β_norm ≈ β_analyte."
+MCICPMS,Internal Normalization Element and Isotope Ratio,3,D,M3,,,"Specify the element, the monitored isotope ratio (e.g., 113Cd/111Cd for Sb measurements), and the certified or consensus value used for correction."
+MCICPMS,Internal Normalization Element and Isotope Ratio,4,D,M3,,,Record 'N/A' if internal normalization is not used.
+MCICPMS,Internal Normalization Element and Isotope Ratio,5,D,M3,REWRITE-DUPLICATE,duplicates S4 almost exactly; one of the two must go,Record 'N/A' where the procedure does not use internal normalization.
+MCICPMS,Double-Spike Isotope Pair,1,D,M1,,,The pair of enriched isotopes used to construct the double spike.
+MCICPMS,Double-Spike Isotope Pair,2,D,M4,REWRITE-STRADDLE,selection constraints plus the reason for them,"Both isotopes must be naturally rare, free from isobaric interferences, and chosen to minimize error magnification in the inversion."
+MCICPMS,Double-Spike Isotope Pair,3,D,M3,,,The double spike composition must be accurately calibrated before use.
+MCICPMS,Double-Spike Isotope Pair,4,D,M3,,,Specify both isotope masses and the spike certificate or calibration reference.
+MCICPMS,Double-Spike Isotope Pair,5,D,M3,,,Record 'N/A' if double-spike method is not used.
+MCICPMS,Double-Spike Isotope Pair,6,D,M3,REWRITE-DUPLICATE,duplicates S5; one of the two must go,Record 'N/A' where the procedure does not use a double spike.
+MCICPMS,Double-Spike Mixing Ratio,1,D,M1,,,"Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio."
+MCICPMS,Double-Spike Mixing Ratio,2,D,M4,REWRITE-STRADDLE,why an optimum exists plus how it is determined,An optimal mixing ratio minimizes error propagation through the double-spike inversion; the optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent.
+MCICPMS,Double-Spike Mixing Ratio,3,D,M3,,,The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios.
+MCICPMS,Double-Spike Mixing Ratio,4,D,M3,,,Record 'N/A' if double-spike method is not used.
+MCICPMS,Double-Spike Mixing Ratio,5,D,M3,REWRITE-DUPLICATE,duplicates S4; one of the two must go,Record 'N/A' where the procedure does not use a double spike.
+MCICPMS,Double-Spike Inversion Algorithm,1,D,M1,,,Mathematical algorithm used to simultaneously solve for the true sample isotope ratio and the mass fractionation factor from the measured spike-sample mixture.
+MCICPMS,Double-Spike Inversion Algorithm,2,D,M3,,,"Common implementations: iterative Newton-Raphson solution, matrix algebraic approach, or published software (e.g., Rudge et al. 2009 Double Spike Toolbox)."
+MCICPMS,Double-Spike Inversion Algorithm,3,D,M3,,,Specify the algorithm or software reference and version.
+MCICPMS,Double-Spike Inversion Algorithm,4,D,M3,,,Record 'N/A' if double-spike method is not used.
+MCICPMS,Double-Spike Inversion Algorithm,5,D,M3,REWRITE-DUPLICATE,duplicates S4; one of the two must go,Record 'N/A' where the procedure does not use a double spike.
+MCICPMS,Peak Flatness Method and Threshold,1,D,M1,,,"Method used to verify that every collector sits on a flat region of its peak top simultaneously, and the acceptance threshold applied before analysis begins."
+MCICPMS,Peak Flatness Method and Threshold,2,P,M2,,why simultaneous collection makes peak flatness critical,"Specific to simultaneous collection: a sequential instrument centres one mass at a time, whereas a multi-collector array must have all cups on flat peak tops at once or the measured ratio carries a peak-shape bias that no downstream correction removes."
+MCICPMS,Peak Flatness Method and Threshold,3,D,M3,,,"Typically assessed by scanning across the peak plateau, or by comparing ratios measured at slightly offset mass positions."
+MCICPMS,Peak Flatness,1,D,M1,,,"Peak flatness actually achieved in the session, assessed against the criterion registered by the procedure."
+MCICPMS,Peak Flatness,2,P,M2,,library-internal design note — criterion-versus-measurement split,"Companion measured value to Peak Flatness Method and Threshold, following the criterion-versus-measurement split used for Oxide Production."
+LaserAblation,Pre-Ablation Surface Treatment,1,D,M1,,,Procedure applied immediately before each analysis to remove surface contamination or condition the sample surface.
+LaserAblation,Pre-Ablation Surface Treatment,2,D,M3,,,Distinct from general sample preparation.
+LaserAblation,Pre-Ablation Surface Treatment,3,D,M3,,,"For spot analysis, pre-ablation pulses are discarded before signal acquisition begins."
+LaserAblation,Pre-Ablation Surface Treatment,4,D,M4,REWRITE-STRADDLE,"guidance that it is omitted for mapping, plus the reason","For mapping, this step is typically omitted as the large area ablated averages out surface effects."
+LaserAblation,Laser Manufacturer & Model,1,D,M1,,,Manufacturer and model of the laser ablation system.
+LaserAblation,Laser Wavelength and Type,1,D,M1,,,Wavelength and type of the laser used for ablation in nanometres.
+LaserAblation,Ablation Cell Type,1,D,M1,,,"Type, design origin, and internal volume of the ablation cell."
+LaserAblation,Ablation Cell Type,2,P,M2,,why cell volume matters — washout and time resolution,Cell volume is a primary determinant of aerosol washout time and therefore the achievable time resolution of the data.
+LaserAblation,Laser Spot Geometry,1,D,M1,,,Shape and dimensions of the laser ablation spot in micrometres registered by the procedure.
+LaserAblation,Laser Spot Geometry,2,D,M3,,,"For circular spots, report diameter; for square or rectangular spots, report width × length."
+LaserAblation,Laser Spot Geometry,3,D,"M3,M5",REWRITE-REDUNDANT(D=Editable),'procedure registers...analysts may adjust' is the D=Editable definition,The procedure registers the typical geometry; analysts may adjust within procedure-allowed range.
+LaserAblation,Laser Spot Path / Ablation Mode,1,D,M1,,,Sampling mode or ablation pattern used during analysis.
+LaserAblation,Laser Energy,1,D,M1,,,Laser pulse energy in millijoules as set at the laser output or measured at the sample surface.
+LaserAblation,Laser Energy,2,P,M2,,why energy is less useful than fluence,Less commonly reported than fluence because it does not account for spot area.
+LaserAblation,Laser Energy,3,D,M3,,,Report only when the system displays energy directly.
+LaserAblation,Laser Energy,4,D,M3,STALE-CROSSREF,cites 'Default Laser Fluence'; the field is named 'Laser Fluence (Energy Density)',Laser fluence (J cm⁻²) is the preferred quantity and is captured in Default Laser Fluence.
+LaserAblation,Laser Fluence (Energy Density),1,D,M1,,,"Laser pulse energy per unit area at the sample surface in J cm⁻², as registered by the procedure."
+LaserAblation,Laser Fluence (Energy Density),2,P,M2,,why fluence is the physically meaningful quantity,"Fluence is the physically meaningful quantity controlling ablation rate, crater morphology, elemental fractionation, and particle size distribution."
+LaserAblation,Laser Fluence (Energy Density),3,D,M3,,,"If the system reports only as % of maximum output, include that value and note the system maximum where known."
+LaserAblation,Laser Beam Energy Profile,1,D,M1,,,"Spatial energy distribution of the laser beam at the sample surface, and whether a beam homogenizer is installed."
+LaserAblation,Laser Beam Energy Profile,2,P,M2,,why flat-top beats Gaussian,A flat-top (top-hat) profile produces more uniform ablation craters and more reproducible crater morphology than a Gaussian beam.
+LaserAblation,Laser Beam Energy Profile,3,D,"M3,M5",REWRITE-REDUNDANT(D=Read-Only),'fixed hardware property' is what D=Read-Only encodes,This is a fixed hardware property of the laser system.
+LaserAblation,Laser Repetition Rate,1,D,M1,,,Laser pulse repetition rate in hertz registered by the procedure.
+LaserAblation,Laser Repetition Rate,2,P,M2,,how it combines with other settings to set resolution,"For mapping methods, repetition rate together with scan speed and spot size determines pixel size and spatial resolution."
+LaserAblation,Laser Repetition Rate,3,D,"M3,M5",REWRITE-REDUNDANT(D=Editable),'analysts may adjust within bounds' is the D=Editable definition,Analysts may adjust within procedure-allowed bounds.
+LaserAblation,Laser Pulse Duration,1,D,M1,,,"Duration of each individual laser pulse, including units."
+LaserAblation,Laser Pulse Duration,2,P,M2,,why ns vs fs changes the ablation regime,Pulse duration determines the ablation regime: nanosecond (ns) pulses involve significant thermal effects and elemental fractionation; femtosecond (fs) pulses are non-thermal and substantially reduce elemental fractionation and matrix effects.
+LaserAblation,Laser Pulse Duration,3,D,"M3,M5",REWRITE-REDUNDANT(D=Read-Only),as above,This is a fixed hardware property of the laser system.
+LaserAblation,Ablation Duration per Spot,1,D,M1,,,"Total on-sample ablation (signal acquisition) time per individual spot in seconds, as set in the acquisition method."
+LaserAblation,Ablation Duration per Spot,2,P,"M2,M5",REWRITE-REDUNDANT(C=Basic),'this is a procedure-level parameter' restates C; the trade-off is the real content,"This is a procedure-level parameter for spot analysis: it reflects the deliberate trade-off between signal accumulation (longer = lower LOD), sample consumption, and session throughput."
+LaserAblation,Ablation Duration per Spot,3,D,M3,,,"For transect analysis, the equivalent procedure-level parameter is scan speed (captured in Transect Rate, Mapping Rate or Step Size)."
+LaserAblation,Ablation Duration per Spot,4,D,"M3,M5",REWRITE-REDUNDANT(C=N/A for mapping),'therefore analysis-level' restates the tier,"For mapping analysis, total acquisition time is sample-area-dependent and therefore analysis-level, not captured here."
+LaserAblation,Ablation Pit Depth and Ablation Rate,1,D,M1,,,"Depth of the ablation pit produced under the registered laser conditions, the method used to measure it, and the resulting per-pulse ablation rate."
+LaserAblation,Ablation Pit Depth and Ablation Rate,2,P,M2,,what pit depth governs,Sets the achievable depth resolution and governs downhole elemental fractionation.
+LaserAblation,Ablation Pit Depth and Ablation Rate,3,D,M3,,,For transect and mapping the equivalent quantity is trench depth under the same conditions.
+LaserAblation,Spot Diameter (Measured),1,D,M1,,,"Diameter of the laser spot as independently measured on the sample or on a test material, distinct from the nominal value the procedure registers."
+LaserAblation,Spot Diameter (Measured),2,P,M2,,why a measured companion is needed — nominal and delivered differ,Measured companion to Laser Spot Geometry: nominal and delivered spot size can differ appreciably with optics condition and focus.
+LaserAblation,"Transect Rate, Mapping Rate or Step Size",1,D,M1,,,For continuous line scan (transect) and raster mapping: the stage translation speed in µm s⁻¹.
+LaserAblation,"Transect Rate, Mapping Rate or Step Size",2,P,"M2,M5",REWRITE-REDUNDANT(C=Advanced),'the procedure-level parameter' restates C; the resolution relationship is the content,"This is the procedure-level parameter that, together with spot size and repetition rate, determines spatial resolution along the scan direction."
+LaserAblation,"Transect Rate, Mapping Rate or Step Size",3,D,M3,,,"For mapping, the mapping rate (mm² h⁻¹) may be reported as an alternative when scan speed is session-variable."
+LaserAblation,"Transect Rate, Mapping Rate or Step Size",4,D,M3,,,For stepped line profiles: the distance between successive spot positions in µm.
+LaserAblation,Raster Line Spacing (Mapping Only),1,D,M1,,,"Distance between adjacent raster lines in a 2D elemental map, measured perpendicular to the scan direction, in micrometres."
+LaserAblation,Raster Line Spacing (Mapping Only),2,P,M2,,why spacing relative to spot size matters,"Together with spot size, this determines whether adjacent lines are contiguous (line spacing = spot size), overlapping (line spacing < spot size), or have gaps (line spacing > spot size)."
+LaserAblation,Raster Line Spacing (Mapping Only),3,D,M3,,,Applies to raster mapping only.
+LaserAblation,Transect Length,1,D,M1,,,Total length of the transect line analysed in micrometres.
+LaserAblation,Transect Length,2,P,"M2,M5",REWRITE-REDUNDANT(C=N/A),explicitly justifies the analysis-level tier,This is an analysis-level parameter because it depends on the size of the feature of interest rather than being fixed in the procedure.
+LaserAblation,Transect Length,3,D,"M3,M5",REWRITE-REDUNDANT(D=Basic),'determined at analysis time' restates D=Basic,"The procedure fixes scan speed (captured in Transect Rate, Mapping Rate or Step Size); transect length is determined at analysis time based on grain or feature size."
+LaserAblation,Analysis Location/Spot Coordinates,1,D,M1,,,Location of the analysis on the sample surface.
+LaserAblation,Analysis Location/Spot Coordinates,2,D,M3,,,"For spot and transect analysis: stage coordinates (X, Y in µm) or a description relative to a named reference feature (e.g., mineral rim, inclusion boundary)."
+LaserAblation,Analysis Location/Spot Coordinates,3,D,M3,,,"For mapping: coordinates of the map corner(s) or centre, plus map dimensions."
+LaserAblation,Analysis Location/Spot Coordinates,4,P,M2,,what recording location enables,Enables spatial reconstruction and co-registration with other analytical images.
+SolutionIntroduction,Sample Aliquot Mass or Volume,1,D,M1,,,Mass (mg) of solid material digested or volume (mL) of liquid taken for dissolution.
+SolutionIntroduction,Sample Aliquot Mass or Volume,2,P,M2,,what the value is used for,Used for yield calculations and concentration back-calculation.
+SolutionIntroduction,Number of Digestion Steps,1,D,M1,,,Total number of distinct acid digestion steps required to dissolve the sample.
+SolutionIntroduction,Number of Digestion Steps,2,D,M3,,,"Some procedures require multiple sequential steps — for example, an initial open-beaker HF–HNO3 dissolution followed by a second closed-vessel step for residues retaining refractory minerals, or by an aqua regia reflux to destroy fluoride complexes."
+SolutionIntroduction,Digestion Vessel Type,1,D,M1,,,Type of vessel used for acid digestion.
+SolutionIntroduction,Digestion Vessel Type,2,P,M2,,why vessel type constrains what can be dissolved,"Vessel type constrains maximum temperature and pressure and determines suitability for refractory mineral dissolution (e.g., Parr bombs required for complete silicate digestion at high temperatures)."
+SolutionIntroduction,Digestion Acid(s),1,D,M1,,,Acid mixture used for sample dissolution.
+SolutionIntroduction,Digestion Acid(s),2,D,M3,,,"Record acid type(s) and concentration(s) where known (e.g., concentrated HF–HNO3 in Parr bombs is standard for silicate dissolution)."
+SolutionIntroduction,Digestion Acid(s),3,P,M2,,why complete dissolution matters for isotope-ratio work,"For isotope-ratio work, complete matrix dissolution is required to avoid isotopic fractionation during partial dissolution."
+SolutionIntroduction,Digestion Temperature,1,D,M1,,,Temperature at which acid digestion was carried out (°C).
+SolutionIntroduction,Digestion Temperature,2,D,"M3,M5",REWRITE-REDUNDANT(C=Basic),'procedure specifies the target' restates the procedure-level tier,Procedure specifies the target temperature.
+SolutionIntroduction,Digestion Duration,1,D,M1,,,Duration of the primary acid digestion step (hours or days).
+SolutionIntroduction,Chromatographic Separation Applied,1,D,M1,,,"Whether chromatographic separation of element groups (e.g., using ion exchange resin) was performed prior to analysis."
+SolutionIntroduction,Chromatographic Separation Applied,2,P,M2,,why separation is performed,"Separation may be required to remove matrix elements that cause variable mass bias, to eliminate isobaric interferences, or to isolate an element group before measurement (e.g., Fe and Cu–Zn for isotope dilution, Hf separation from REE, removal of Cr and Ni from Fe fractions)."
+SolutionIntroduction,Chromatographic Separation Applied,3,P,M2,,"when it is mandatory vs optional — technique scope, not our Column C (W3)",It is usually mandatory for isotope-ratio procedures and optional for concentration measurement.
+SolutionIntroduction,Chromatographic Separation Applied,4,D,M3,,,Record resin type and elution matrix conditions if applied.
+SolutionIntroduction,Chromatographic Separation Applied,5,D,M3,,,Record 'None' if the direct digestion solution is analyzed.
+SolutionIntroduction,Isotope Dilution Spike,1,D,M1,,,Isotopic spike material added to the sample before or during digestion for isotope dilution (ID) analysis or double-spike mass bias correction.
+SolutionIntroduction,Isotope Dilution Spike,2,D,M4,REWRITE-STRADDLE,"requirement to spike before digestion, plus the reason","For double-spike procedures, the spike must be added and equilibrated before digestion to correct for any isotopic fractionation during dissolution and column chemistry."
+SolutionIntroduction,Isotope Dilution Spike,3,D,M3,,,"For concentration ID, the spike must be added before digestion for complete equilibration."
+SolutionIntroduction,Isotope Dilution Spike,4,D,M3,,,"Record spike name or certificate reference, spike isotopes, and whether added pre- or post-digestion."
+SolutionIntroduction,Isotope Dilution Spike,5,D,M3,,,Record 'None' if ID or double-spike technique is not used.
+SolutionIntroduction,Final Solution Matrix,1,D,M1,,,Acid type and concentration of the final dissolved sample solution introduced to the instrument.
+SolutionIntroduction,Final Solution Matrix,2,P,M2,,what the matrix affects,Directly affects instrument response and ion transmission.
+SolutionIntroduction,Final Solution Matrix,3,D,M4,REWRITE-STRADDLE,matching requirement plus the reason for it,"For isotope-ratio procedures, acid molarity must be precisely matched between samples and bracketing standards to avoid matrix-induced mass bias offsets."
+SolutionIntroduction,Final Solution Matrix,4,D,M3,,,Procedures targeting HFSE may add trace HF to the final solution to keep those elements in solution.
+SolutionIntroduction,Nebulizer Type,1,D,M1,,,Type and material of the pneumatic nebulizer used for sample introduction.
+SolutionIntroduction,Nebulizer Type,2,P,M2,,what nebulizer choice affects,Affects droplet size distribution and sample introduction efficiency.
+SolutionIntroduction,Spray Chamber Type and Cooling Temperature,1,D,M1,,,Type of spray chamber and cooling temperature if thermostatted (°C).
+SolutionIntroduction,Spray Chamber Type and Cooling Temperature,2,P,M2,,what chamber and temperature control,Chamber type and temperature control aerosol droplet size and the solvent vapor load reaching the plasma.
+SolutionIntroduction,Spray Chamber Type and Cooling Temperature,3,P,M2,,why a chamber is sometimes placed downstream,In some procedures a spray chamber is placed downstream of a desolvating nebulizer to improve signal stability.
+SolutionIntroduction,Desolvation System,1,D,M1,,,Desolvating nebulizer or membrane desolvator used upstream of the plasma to reduce solvent load.
+SolutionIntroduction,Desolvation System,2,P,M2,,what desolvation achieves and when it is used,"Lowers oxide production rates and increases sensitivity, and is commonly used for low-abundance analytes or small sample sizes."
+SolutionIntroduction,Desolvation System,3,P,M2,,the mass-bias trade-off,Note the trade-off: desolvation can introduce additional instrumental mass bias instability relative to wet plasma introduction.
+SolutionIntroduction,Desolvation System,4,D,M3,,,Record 'None' if not used.
+SolutionIntroduction,Sample Uptake Rate,1,D,M1,,,Peristaltic pump speed or self-aspiration flow rate for sample introduction (µL/min or mL/min).
+SolutionIntroduction,Nebulizer Gas Flow Rate,1,D,M1,,,Flow rate of the carrier argon gas delivered through the nebulizer (L/min).
+SolutionIntroduction,Nebulizer Gas Flow Rate,2,P,M2,,what the flow controls,Controls aerosol transport and strongly influences signal sensitivity and stability.
+SolutionIntroduction,Nebulizer Gas Flow Rate,3,D,"M3,M5",REWRITE-REDUNDANT(D=Editable),'adjusted daily' restates D=Editable,Adjusted daily to optimize signal.
+SolutionIntroduction,Wash Time Between Samples,1,D,M1,,,Duration of instrument rinse between successive sample solutions (seconds).
+SolutionIntroduction,Wash Time Between Samples,2,P,M2,,what wash time controls,Controls carryover and memory effects.
+SolutionIntroduction,Wash Time Between Samples,3,P,M2,,why washout is critical for isotope-ratio work,"For isotope-ratio work, complete washout is critical to prevent cross-contamination between samples with differing isotopic compositions."
+SolutionIntroduction,Internal Standard Concentration,1,D,M1,,,Target concentration of internal standard element(s) in all measured solutions (µg/L or ppb).
+SolutionIntroduction,Internal Standard Concentration,2,D,M3,,,Record 'N/A' where Internal Standard Element is 'None'.
+ArAr,Neutron Irradiation Conditions,1,D,M1,,,"Reactor and irradiation position used to convert 39K to 39Ar, the irradiation duration, and whether cadmium shielding or sample rotation was used."
+ArAr,Neutron Irradiation Conditions,2,P,M2,,external standard provenance (W3),Required by Schaen et al. (2021).
+ArAr,Neutron Irradiation Conditions,3,P,M2,,why shielding and rotation matter — they propagate into J and every age,"Shielding and rotation determine the neutron energy spectrum and fluence gradient across the package, both of which propagate directly into J and hence into every age."
+ArAr,Neutron Irradiation Conditions,4,P,M2,MISPLACED-DEVNOTE,a library roadmap note about a future module; not content for a researcher filling the field,"Note: fission-track dating by the external detector method has an equivalent requirement (Kohn et al. 2024, 'Irradiation reactor'), so this is a candidate for generalisation once a second irradiation-based system module exists."
+ArAr,Neutron-Induced Interfering Isotope Production Ratios,1,D,M1,,,"Correction factors for argon isotopes produced during irradiation from potassium, calcium and chlorine rather than from the decay of 40K, with the reference for each."
+ArAr,Neutron-Induced Interfering Isotope Production Ratios,2,P,M2,,external standard provenance (W3),Required by Schaen et al. (2021).
+ArAr,Neutron-Induced Interfering Isotope Production Ratios,3,D,M3,,,"Distinct from spectral or isobaric interference in the mass spectrometer: these are nuclear production reactions occurring in the reactor, and the correction factors are properties of the irradiation facility, not of the instrument."
+ArAr,Neutron-Induced Interfering Isotope Production Ratios,4,P,M2,MISPLACED-DEVNOTE,roadmap note — 'candidate for a future general interference module',Candidate for a future general interference module.
+ArAr,Gas Extraction and Release Schedule,1,D,M1,,,"How argon was released from the sample: for incremental heating, the temperature or laser power of each step and its duration; for total fusion, the fusion conditions."
+ArAr,Gas Extraction and Release Schedule,2,P,M2,,external standard provenance (W3),Required by Schaen et al. (2021).
+ArAr,Gas Extraction and Release Schedule,3,P,M2,,why the schedule governs how an age spectrum is read,The schedule determines which diffusion domains contribute to each step and therefore how an age spectrum should be read.
+ArAr,Gas Extraction and Release Schedule,4,P,M2,MISPLACED-DEVNOTE,roadmap note about a future stepped-heating module,"Note: (U-Th)/He and continuous ramped heating have equivalent requirements (Flowers et al. 2024), so this is a candidate for generalisation once a stepped-heating system module exists."
+ArAr,F Value (40Ar*/39ArK),1,D,M1,,,"The corrected ratio of radiogenic 40Ar to potassium-derived 39Ar, with its uncertainty — the measured quantity from which the date is calculated once multiplied by J."
+ArAr,F Value (40Ar*/39ArK),2,P,M2,,provenance plus why reporting F enables recomputation,"Required by Schaen et al. (2021), who note that reporting it lets a reader recompute dates against any future revision of the monitor age or decay constants without returning to the raw isotope data."
+UPb,Chemical Abrasion Conditions,1,D,M1,,,"Annealing and partial-dissolution conditions applied to mitigate Pb loss before analysis, following Mattinson (2005): annealing temperature and duration, and the acid, temperature and duration of the partial-dissolution step."
+UPb,Chemical Abrasion Conditions,2,P,M2,,external standard provenance (W3),"Condon et al. (2024) require these where chemical abrasion was applied, and state that it generally should be for zircon."
+UPb,Chemical Abrasion Conditions,3,D,M4,REWRITE-STRADDLE,instruction to record 'None' plus the reason it matters,"Record 'None' where grains were analysed untreated, since the absence of treatment materially affects how discordance should be read."
+UPb,Intermediate Daughter Disequilibrium Correction,1,D,M1,,,"Correction for initial disequilibrium in intermediate daughter products of the U decay chains — principally 230Th, and where relevant 231Pa — together with the Th/U or Pa/U partitioning value assumed and its source."
+UPb,Intermediate Daughter Disequilibrium Correction,2,P,M2,,why the correction is unique to U-Pb,"Unique to U-Pb among dating systems, because the chains are long enough for intermediate-daughter disequilibrium at crystallisation to bias the 206Pb/238U date, most severely in young samples."
+UPb,Intermediate Daughter Disequilibrium Correction,3,D,M3,,,Record 'None' with a justification where no correction was applied.
+UPb,Intermediate Daughter Disequilibrium Correction,4,P,"M2,M5",REWRITE-REDUNDANT(C=Advanced),quotes the standard then says 'hence Advanced' — justifying the tier Column C already carries,"Condon et al. (2024) write ""we recommend these dates be reported corrected for initial 230Th and 231Pa daughter isotope disequilibrium"" — recommended rather than required, hence Advanced."
+UPb,Discordance Definition and Values,1,D,M1,,,"How discordance between the 206Pb/238U, 207Pb/235U and 207Pb/206Pb chronometers is defined for this procedure, and the discordance values obtained."
+UPb,Discordance Definition and Values,2,D,M4,REWRITE-STRADDLE,"rationale that definitions differ, plus the requirement to state the formula","Several definitions are in circulation and they are not interchangeable, so the formula must be stated."
+UPb,Discordance Definition and Values,3,P,M2,,why discordance is a test only U-Pb can run,"Genuinely specific to U-Pb: it is the only system in routine use with two independent decay schemes in the same mineral, so agreement between them is an internal consistency test no other system can run."
+UPb,Discordance Definition and Values,4,D,M3,,,"The rule for excluding discordant analyses, and how many were excluded, belong in Analysis Inclusion and Rejection Criteria."
+UPb,Discordance Definition and Values,5,P,"M2,M5",REWRITE-REDUNDANT(C=Advanced),"'useful and age-conditional rather than required, hence Advanced' justifies Column C","Condon et al. (2024) write that for samples older than a few hundred million years ""it is also useful to provide a measure of discordance"" — useful and age-conditional rather than required, hence Advanced."
+Core,Procedure Name,1,D,M1,,,"A short descriptive name for this analytical procedure, including a version number."
+Core,Procedure Name,2,D,M3,,,"Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature."
+Core,Technique,1,D,M1,,,Top-level analytical technique identifier.
+Core,Procedure Author,1,D,M1,,,Person(s) or laboratory responsible for developing and registering this procedure.
+Core,Procedure Author,2,D,M3,,,ORCID recommended for individuals.
+Core,Laboratory,1,D,M1,,,Name of the laboratory or institution hosting the instrument.
+Core,Laboratory ID,1,D,M1,,,"Persistent identifier for the laboratory (e.g., ROR ID)."
+Core,Procedure Start Date,1,D,M1,,,First date this procedure configuration was used in production.
+Core,Funding Source for Procedure Development,1,D,M1,,,"Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time."
+Core,Funding Source for Procedure Development,2,D,M3,,,Include grant numbers and funding agencies where applicable.
+Core,Procedure Reference(s),1,D,M1,,,"DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure."
+Core,Procedure DOI,1,D,M1,,,"DOI or unique persistent identifier for the registered procedure used in this analysis, generated upon procedure submission to a data repository."
+Core,Procedure DOI,2,D,"M4,M5",REWRITE-STRADDLE; REWRITE-REDUNDANT(D=Basic),'mandatory when submitting analytical data' restates D=Basic; remainder is rationale,"This field is mandatory when submitting analytical data, to encourage formal procedure registration and ensure traceability."
+Core,Procedure DOI,3,D,M3,,,"If a DOI has been applied for but not yet minted, enter ""pending""."
+Core,Session Identifier,1,D,M1,,,"Identifier for the analytical session this record describes — the laboratory's own run, sequence or batch identifier as generated by the instrument or acquisition software."
+Core,Session Identifier,2,P,M2,,wholly rationale — the session/sample model and what the id links to,"The analysis record corresponds to one session, which may cover several samples, and this is the link back to the raw instrument files."
+Core,Session Identifier,3,D,M3,,,Distinct from any persistent identifier a repository mints on submission.
+Core,Analyst,1,D,M1,,,Name(s) of the analyst(s) who performed the analysis session.
+Core,Analyst,2,D,M3,,,ORCID is recommended for persistent identification.
+Core,Analysis Start Date,1,D,M1,,,Date on which the analytical session began.
+Core,Analysis Start Date,2,D,M3,,,"For sessions spanning multiple days, use the date of the first session."
+Core,Analysis Start Date,3,D,M3,,,Format: YYYY-MM-DD.
+Core,Analysis End Date,1,D,M1,,,Date on which the analytical session ended.
+Core,Analysis End Date,2,D,M3,,,May equal Analysis Start Date for single-day sessions.
+Core,Analysis End Date,3,D,M3,,,Format: YYYY-MM-DD.
+Core,Funding Source for Analysis,1,D,M1,,,Grants and other funding sources that supported the specific sample analyses and data collection reported here.
+Core,Funding Source for Analysis,2,D,M3,,,Include grant numbers and funding agencies.
+Core,Funding Source for Analysis,3,D,M3,,,"Distinct from procedure development funding, which may have been awarded years earlier."
+Core,Coupled Technique(s),1,D,M1,,,Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure.
+Core,Coupled Technique(s),2,D,M3,,,"Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements."
+Core,Coupled Technique(s),3,D,M3,,,Use the same controlled vocabulary as the Technique field.
+Core,Coupled Technique(s),4,D,M3,,,"Enter ""None"" if no coupling is intended."
+Core,Coupling Description,1,D,M1,,,Description of how this procedure is coupled with the technique(s) listed above.
+Core,Coupling Description,2,D,M3,,,"Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive)."
+Core,Coupling Description,3,D,M3,,,"Required when Coupled Technique(s) is not ""None""."
+Core,Coupled Procedure DOI,1,D,M1,,,Registered procedure DOI for the coupled technique named above.
+Core,Coupled Procedure DOI,2,P,M2,,wholly rationale — why a citable procedure link is worth having,"Provides a stable, citable link to the companion method independent of whether a dataset has been deposited."
+Core,Coupled Procedure DOI,3,D,M3,,,"If the coupled procedure has not yet been registered, enter the DOI of a publication describing the coupled method, or ""pending""."
+Core,Coupled Procedure DOI,4,D,M3,,,"Enter ""None"" if no coupling is planned."
+Core,Coupled Dataset or Publication Reference,1,D,M1,,,DOI or other persistent identifier for the co-registered dataset or publication where both datasets are reported together.
+Core,Coupled Dataset or Publication Reference,2,D,M3,,,"Accepts: a dedicated dataset DOI (if separately deposited), a shared dataset DOI (if co-submitted in the same package), or a publication DOI."
+Core,Coupled Dataset or Publication Reference,3,D,M3,,,"Use ""same submission"" if the coupled dataset is included in this data package, or ""pending"" if not yet assigned."
+Core,Coupled Dataset or Publication Reference,4,D,M3,,,"If coupling is documented through a shared sample identifier only, that information is already captured in Sample Persistent Identifier (Group 2)."
+Core,Sample Name,1,D,M1,,,"Name or identifier of each sample analysed in this session, as used in the laboratory — a sample mount, section or aliquot counts as one entry where that is what the laboratory tracks."
+Core,Sample Name,2,P,"M2,M5",REWRITE-REDUNDANT(Keyed By: sample),"context not instruction, so Purpose; but duplicates what Column I encodes",The analysis record corresponds to one session and may cover several samples; fields whose Keyed By column declares 'sample' take one value per entry.
+Core,Sample Name,3,D,M3,,,Should match the identifier used in associated publications or data tables.
+Core,Sample Persistent Identifier,1,D,M1,,,"Globally unique, persistent identifier for each sample listed in Sample Name."
+Core,Sample Persistent Identifier,2,D,M3,,,"IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR."
+Core,Sample Persistent Identifier,3,D,M3,,,"Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed."
+Core,Target Material,1,D,M1,,,General description of the material type(s) this procedure is designed to analyse.
+Core,Target Material,2,P,M2,,wholly rationale — discoverability and matrix constraints,"Used for discoverability and procedure matching, and because the material type constrains sample preparation, calibration and matrix-matching requirements."
+Core,Sampling Unit,1,D,M1,,,"The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole."
+Core,Sampling Unit,2,D,"M3,M5",REWRITE-REDUNDANT(C=Basic + D=Basic),phrased as an instruction so it stays in B for now; Step 2 deletes it — nothing survives the strip,State the unit type at procedure level and the units actually analysed at analysis level.
+Core,Sampling Unit,3,D,M3,,,"Where units nest (e.g. confined tracks within grains), state both levels."
+Core,Instrument Manufacturer,1,D,"M1,M4",REWRITE-STRADDLE,S1 never moves; carries a trailing 'so that procedures can be found by vendor',"Manufacturer of the instrument that performs the measurement, recorded as a controlled value so that procedures can be found by vendor."
+Core,Instrument Manufacturer,2,D,M3,,,"Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument."
+Core,Instrument Manufacturer,3,D,M3,,,Instrument Model gives the specific designation.
+Core,Instrument Model,1,D,M1,,,"Model designation of the instrument that performs the measurement, including any generation or configuration suffix."
+Core,Instrument Model,2,D,M3,,,Conventionally written with the manufacturer name included;
+Core,Instrument Model,3,D,M3,,,"Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor."
+Core,Acquisition Software,1,D,M1,,,"Instrument control, automation and data acquisition software used to collect the raw data, including version number."
+Core,Acquisition Software,2,D,M3,,,"Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition."
+Core,Data Processing Software(s),1,D,M1,,,"All software applied to the data after acquisition in order to produce the reported quantities, including version numbers."
+Core,Data Processing Software(s),2,D,M3,,,List every package used.
+Core,Data Processing Software(s),3,D,M3,,,"Distinct from Acquisition Software, which controls the instrument and collects the raw data."
+Core,Analytical Mode,1,D,M1,,,Primary analytical mode(s) executed under this procedure.
+Core,Analytical Mode,2,D,M3,,,Records one value for a single-mode procedure and all applicable modes for a multi-mode one.
+Core,Analytical Mode,3,P,M2,,role and boundary against the mode flag columns,"Serves as the procedure-level declaration of measurement type, distinct from the mode flag columns, which state per-field applicability."
+Core,Analytical Mode,4,D,"M4,M5",REWRITE-STRADDLE; REWRITE-REDUNDANT(C=Basic),'Required even where...' restates C=Basic; comparability clause is rationale,"Required even where a procedure defines no mode flag columns, so that every procedure record is self-describing and comparable across the library."
+Core,Reported Variables and Units,1,D,M1,,,The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported.
+Core,Reported Variables and Units,2,P,M2,,wholly rationale — why a consumer needs the field,A procedure may acquire many channels and report a small number of derived quantities; without this field a data consumer cannot tell which.
+Core,Reported Variables and Units,3,D,M3,,,"Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date)."
+Core,Reported Variables and Units,4,D,M3,,,"Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'."
+Core,Constants and Reference Values Used,1,D,M1,,,"Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source."
+Core,Constants and Reference Values Used,2,D,M3,,,"Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants."
+Core,Constants and Reference Values Used,3,D,M3,,,"Record ""None"" if no citable, revisable physical constants feed into this procedure's data reduction."
+Core,Additional Notes,1,D,M1,,,"Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context."
+Core,Additional Notes,2,D,M3,,,"Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups."
+Core,Additional Notes,3,D,M3,,,Use sparingly; a structured field is preferred for anything that can be formally categorised.
+ICPMS,Instrument Serial Number or Lab Identifier,1,D,M1,,,Serial number or laboratory-internal identifier for the specific instrument unit.
+ICPMS,Instrument Serial Number or Lab Identifier,2,P,M2,,wholly rationale — traceability to service records,Supports traceability to instrument service records.
+ICPMS,Torch Depth,1,D,M1,,,"Distance between the load coil and the sampling cone tip (mm), also called injector depth or torch position depending on the instrument manufacturer."
+ICPMS,Torch Depth,2,P,M2,,wholly rationale — what the setting affects,"Affects ion transmission efficiency, oxide formation, and doubly-charged species production."
+ICPMS,Torch Depth,3,D,"M3,M5",REWRITE-REDUNDANT(D=Editable),'procedure specifies a target...analyst confirms or fine-adjusts' is almost verbatim the D=Editable definition,The procedure specifies a target value optimised during initial setup; the analyst confirms or fine-adjusts during session tuning.
+ICPMS,ICP Tuning,1,D,M1,,,"Description of the approach used to optimise ICP plasma conditions prior to analysis, including the reference material used for tuning and the acceptance criteria (e.g., oxide production threshold, sensitivity targets, mass calibration)."
+ICPMS,Instrument Warm-up / Session Duration Limit,1,D,M1,,,"Minimum warm-up time required after plasma ignition before analyses begin, and any maximum session duration enforced to maintain stable operating conditions."
+ICPMS,Instrument Warm-up / Session Duration Limit,2,D,"M3,M5",REWRITE-REDUNDANT(D=Read-Only),'cannot be varied by the analyst' is verbatim the D=Read-Only definition,These constraints are part of the procedure and cannot be varied by the analyst.
+ICPMS,Make-up Gas and Flow Rate,1,D,M1,,,"Supplementary gas added to the sample-carrying stream between the sample introduction system and the plasma, with its identity and the procedure-registered target flow rate."
+ICPMS,Make-up Gas and Flow Rate,2,P,M2,,why argon make-up exists and where it is needed,"Argon make-up is standard and maintains total gas delivery where the carrier flow alone is insufficient — downstream of an ablation cell, or of a desolvation system that has removed solvent load."
+ICPMS,Make-up Gas and Flow Rate,3,D,M4,REWRITE-STRADDLE,context on N2/H2 additions plus an instruction to record their own flow,"Small nitrogen or hydrogen additions are also made here to enhance sensitivity for some elements; record them with their own flow, whose unit commonly differs from the make-up flow."
+ICPMS,Make-up Gas and Flow Rate,4,D,M3,,,"Record 'None' explicitly where no supplementary gas is added, to distinguish it from not reported."
+ICPMS,Instrument Sensitivity,1,D,M1,,,"Instrument sensitivity achieved in the session, with the isotope or channel it was measured on and the conditions it applies to."
+ICPMS,Instrument Sensitivity,2,D,M3,,,"May be expressed either as detected signal per unit concentration or per unit mass of analyte delivered — counts per second per ppb, volts per ppm, counts per picogram — or as useful yield, the percentage of sampled atoms ultimately detected as ions, with the method used to derive it cited."
+ICPMS,Instrument Sensitivity,3,P,M2,,why useful yield is the more comparable form,"Useful yield is the more comparable of the two wherever the amount of material consumed varies between procedures, as it does with spot size, fluence and repetition rate."
+ICPMS,Instrument Sensitivity,4,D,"M3,M5",REWRITE-REDUNDANT(C=N/A),"boundary against tuning criteria is real, but 'records what the instrument actually delivered' restates C=N/A",Records what the instrument actually delivered; a sensitivity the procedure requires before analyses may begin belongs with the tuning acceptance criteria.
+ICPMS,Ion Counter Dead Time,1,D,M1,,,"Dead time of each ion-counting detector channel, used in the dead-time correction applied to high count rates."
+ICPMS,Ion Counter Dead Time,2,D,M3,,,"Distinct from pulse/analog cross-calibration, which relates the two detector modes rather than correcting counting losses within the pulse-counting mode."
+ICPMS,Oxide Production,1,D,M1,,,"Measured oxide production ratio obtained during session-start tuning, for the proxy specified in Oxide Production Method and Threshold."
+ICPMS,Oxide Production,2,D,M3,,,Record the measured value and confirm whether the procedure threshold was met.
+ICPMS,Uncertainty Level,1,D,M1,,,"The convention at which reported uncertainties are quoted — 1-sigma, 2-sigma, or a 95% confidence interval — and whether a measured spread is reported as a standard error or a standard deviation."
+ICPMS,Uncertainty Level,2,P,M2,,wholly rationale — why the convention must be stated,A reported uncertainty is not interpretable without it: the same numeric value means different things at 1-sigma and at 95% confidence.
+ICPMS,Uncertainty Level,3,D,M3,,,"State the convention applying to all values reported under this procedure, and state each separately where different reported quantities use different conventions."
+ICPMS,Uncertainty Level,4,D,M3,,,"Distinct from Uncertainty Propagation Method, which addresses how component uncertainties are combined rather than how the result is quoted."
+ICPMS,Uncertainty Propagation Method,1,D,M1,,,The approach used to propagate analytical uncertainty through the data reduction chain to the final reported value.
+ICPMS,Uncertainty Propagation Method,2,D,M3,,,"State which sources are included in the propagation: counting statistics, calibration standard uncertainty, internal standard uncertainty, drift correction, and any systematic contributions."
+ICPMS,Uncertainty Propagation Method,3,D,M3,,,"Distinct from Uncertainty Level, which states the convention at which the resulting uncertainty is quoted."
+ICPMS,Internal (Within-Measurement) Analytical Precision and Assessment Method,1,D,M1,,,"Precision of a single measurement, derived from the scatter of the cycles, sweeps or integrations that make it up, together with the method used to assess it."
+ICPMS,Internal (Within-Measurement) Analytical Precision and Assessment Method,2,D,M3,,,"State the statistic (2SE, 2SD, 1s RSD), the number of cycles it is computed over, and the reported quantity it applies to."
+ICPMS,Internal (Within-Measurement) Analytical Precision and Assessment Method,3,P,M2,,explanatory context — where this sits among the three precision levels,"This is the finest of the three precision levels the library records, below within-session and between-session precision: it describes the repeatability of one analysis rather than agreement between analyses, and is normally the smallest of the three."
+ICPMS,Internal (Within-Measurement) Analytical Precision and Assessment Method,4,D,M3,,,"Distinct from Counting Statistics Error, which records the uncertainty predicted from the counts rather than the scatter observed; where a procedure reports both, record the observed value here and the predicted value there."
+ICPMS,Within-Session Analytical Precision and Assessment Method,1,D,M1,,,Precision of repeated measurements within a single analytical session and the method used to assess it.
+ICPMS,Within-Session Analytical Precision and Assessment Method,2,D,M3,,,Report both the assessment method and the precision values.
+ICPMS,Within-Session Analytical Precision and Assessment Method,3,D,M3,,,"The assessment method must specify the reference material or standard measured, the number of replicates n, and the statistic reported (1s RSD, 2s RSD, 2SD, 2SE, 95% CI)."
+ICPMS,Within-Session Analytical Precision and Assessment Method,4,D,M3,,,"Distinct from the internal precision of a single measurement, which derives from counting statistics over the cycles of that measurement rather than from repeated analyses."
+ICPMS,Between-Session (Long-Term) Analytical Precision and Assessment Method,1,D,M1,,,Precision of measurements across multiple analytical sessions over weeks to months — long-term or intermediate precision — and the method used to assess it.
+ICPMS,Between-Session (Long-Term) Analytical Precision and Assessment Method,2,D,M3,,,"Report both the assessment method and the precision values, specifying the reference material, the number of measurements and sessions, the time span covered, and the statistic reported."
+ICPMS,Between-Session (Long-Term) Analytical Precision and Assessment Method,3,P,M2,,rationale — why long-term precision is the figure to carry,Long-term precision is normally poorer than within-session precision and is the figure a data user should carry when comparing results from different sessions.

@@ -1,0 +1,113 @@
+﻿Module,Field,Sentence_no,STEP1_route,Rule,STEP2_flag,Reason,Sentence_TEXT_UNCHANGED
+Geochronology,Age Calculation Method,1,D,M1,,,"The equation used to convert the measured quantities into an age or date, together with a citation for that equation."
+Geochronology,Age Calculation Method,2,D,M3,,,"Name the equation unambiguously; where a procedure supports more than one, state which is used and under what conditions."
+Geochronology,Age Calculation Method,3,P,M2,,"external reporting standards require it — provenance, not our Column C (W3)",Required by every geochronology reporting standard surveyed (Condon et al. 2024; Schaen et al. 2021; Rooney et al. 2024; Flowers et al. 2024; Kohn et al. 2024; Mahan et al. 2023).
+Geochronology,Age Calculation Method,4,D,M3,,,"Distinct from Age Model and Software, which records how multiple analyses are combined into a single reported result."
+Geochronology,Reported Date Type,1,D,M1,,,The kind of date or age the procedure reports.
+Geochronology,Reported Date Type,2,P,M2,,why a bare age is ambiguous,"Most dating systems derive several different date types from the same measurements, so a reported age is ambiguous without this."
+Geochronology,Reported Date Type,3,D,M3,,,"Where more than one type is reported, list all, separated by semicolons."
+Geochronology,Reported Date Type,4,P,M2,,external standard provenance (W3),"Kohn et al. (2024) carry this as a named required item (""fission-track age type""); the equivalent distinction is required by all five other standards surveyed."
+Geochronology,Inherited or Initial Signal Correction,1,D,M1,,,"How any non-radiogenic, inherited or pre-existing component of the measured signal was accounted for, including the composition assumed, its source, and its uncertainty."
+Geochronology,Inherited or Initial Signal Correction,2,D,M3,,,Record 'None' where the measured quantity accumulates from zero and no such component exists.
+Geochronology,Inherited or Initial Signal Correction,3,P,M2,,scope rationale — which dating systems it applies to,"Applies to five of the six dating systems surveyed; fission track is the sole genuine exception, as tracks accumulate from zero."
+Geochronology,Inherited or Initial Signal Correction,4,P,"M2,M5",REWRITE-REDUNDANT(D=Editable),the sentence exists to justify the D tier; that is what Column D encodes,"D=Editable rather than Read-Only: the procedure registers the correction method and any default composition, but the value actually applied is frequently sample-specific (a two-stage model composition is evaluated at the interpreted age) or session-derived (a trapped composition solved from an isochron intercept), and a revision to the assumed composition should not require registering a new procedure."
+Geochronology,Inherited or Initial Signal Correction,5,P,M2,,library-internal design cross-reference to Rule 5,Same reasoning as Rule 5's Constants and Reference Values Used.
+Geochronology,Radiogenic Fraction of Measured Signal,1,D,M1,,,"The proportion of the measured signal that is radiogenic, as opposed to inherited, initial or otherwise non-radiogenic."
+Geochronology,Radiogenic Fraction of Measured Signal,2,D,"M3,M5",REWRITE-REDUNDANT(C=N/A),'records what the session actually produced' restates C=N/A; the companion boundary is real,"Measured companion to Inherited or Initial Signal Correction, which is procedure-level: this field records what the session actually produced."
+Geochronology,Radiogenic Fraction of Measured Signal,3,P,M2,,why the fraction matters for interpreting the age,"It indicates how strongly the reported age depends on the assumed non-radiogenic composition — a result derived from a low radiogenic fraction is sensitive to that assumption in a way a high-fraction result is not, and that sensitivity is invisible from the age and its uncertainty alone."
+Geochronology,Radiogenic Fraction of Measured Signal,4,P,M2,,library-internal design note — criterion-versus-measurement split,Follows the criterion-versus-measurement split used for Oxide Production.
+Geochronology,Age Model,1,D,M1,,,"The statistical model used to combine individual analyses into a single reported age, including any criteria governing which model is applied."
+Geochronology,Age Model,2,P,M2,,why the model choice changes the result,This is a methodological choice that changes the result: a Model-1 and a Model-3 regression of the same data yield different ages and different uncertainties.
+Geochronology,Age Model,3,D,M3,,,"Record the model only — the software implementing it belongs in Data Reduction Software (Group 3), whose scope already extends to age calculation; where reduction and age regression use different packages, list both there."
+Geochronology,Age Model,4,P,M2,,external standard provenance (W3),Required in some form by all six geochronology reporting standards surveyed.
+Geochronology,Age Datum / Reference Epoch,1,D,M1,,,"The zero point from which the reported age is measured, where this is not the present day, and the date it corresponds to."
+Geochronology,Age Datum / Reference Epoch,2,D,M3,,,Record 'Present day' where the conventional datum applies.
+Geochronology,Age Datum / Reference Epoch,3,D,M4,REWRITE-STRADDLE,external requirement plus concrete per-system instructions,"Explicitly required wherever the datum is not the present: year of sample collection for luminescence (Mahan et al. 2023), end of irradiation for 40Ar/39Ar decay corrections (Schaen et al. 2021)."
+Aggregation,Analysis Inclusion and Rejection Criteria,1,D,M1,,,"The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded."
+Aggregation,Analysis Inclusion and Rejection Criteria,2,D,M3,,,"Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value."
+Aggregation,Analysis Inclusion and Rejection Criteria,3,P,M2,,design rationale for combining criteria and outcome,"Criteria and outcome are combined in one field because neither is interpretable without the other, following the precision/accuracy precedent."
+Aggregation,Goodness-of-Fit or Dispersion Statistic,1,D,M1,,,"The statistic reported to show whether scatter among the contributing analyses exceeds what analytical uncertainty alone predicts, together with its value."
+Aggregation,Goodness-of-Fit or Dispersion Statistic,2,P,M2,,what the statistic answers,Answers whether a reported aggregate is defensible as a single population.
+Aggregation,Goodness-of-Fit or Dispersion Statistic,3,P,"M2,M4,M5",REWRITE-STRADDLE; REWRITE-REDUNDANT(C=N/A),"explains C=N/A explicitly, then adds a real boundary about the threshold","Procedure-level tier is N/A because the value cannot be known before the analysis; the procedure may still state an acceptance threshold, which belongs with the inclusion criteria."
+TargetSelection,Target Selection Criteria,1,D,M1,,,"The rules governing which part of the sample is analysed, and why."
+TargetSelection,Target Selection Criteria,2,D,M3,,,"Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position."
+TargetSelection,Target Selection Criteria,3,D,M3,,,"Distinct from Target Material, which states the material type the procedure is designed for: this field states how, within such a sample, the analysed portion is picked out."
+TargetSelection,Pre-Analysis Imaging and Screening,1,D,M1,,,"Imaging or other characterisation performed before the measurement in order to select or locate the analysed target, including the technique, instrument and settings used, and how individual analyses are linked back to the images."
+TargetSelection,Pre-Analysis Imaging and Screening,2,D,M3,,,Distinct from any imaging the procedure performs as its own measurement.
+TargetSelection,Pre-Analysis Imaging and Screening,3,D,M3,,,"Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields."
+Analyte,Analyte,1,D,M1,,,"The chemical species this procedure is designed to determine, recorded at whatever resolution the chemistry is resolved — element(s) for this technique; valence species where a procedure resolves oxidation state; compounds where it resolves molecules."
+Analyte,Analyte,2,D,M3,,,Isotopes are not analytes: isotopes of an element are the same chemical species.
+Analyte,Analyte,3,D,"M3,M5",REWRITE-REDUNDANT(C=Basic + D=Editable),'procedure registers the suite; at analysis level the analyst records the subset' is the C/D split,"The procedure registers the full analyte suite; at analysis level the analyst records the specific subset actually measured in the session, which may be narrower if species were excluded due to interferences or scope reduction."
+Analyte,Analyte,4,D,"M3,M5",REWRITE-REDUNDANT(Keyed By: analyte),restates what Column I encodes,Fields whose Keyed By column declares 'analyte' apply individually to each entry in this list.
+Blank,Procedural Blank Level,1,D,M1,,,"The measured level of the analytical blank in the session, and — where the reported quantity is a ratio — its composition, since a blank subtracted from a ratio biases the result unless its own composition is known."
+Blank,Procedural Blank Level,2,D,"M3,M5",REWRITE-REDUNDANT(D=Basic),'records what was actually measured' restates D=Basic; the companion boundary is real,"Companion to the blank correction method, which is procedure-level: this field records what was actually measured."
+Blank,Procedural Blank Level,3,P,M2,,library-internal design note,Follows the criterion-versus-measurement split the library applies wherever a procedure sets a threshold and an analysis reports a value against it.
+CalibrationFactor,Calibration Factor and Determination Method,1,D,M1,,,"An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty."
+CalibrationFactor,Calibration Factor and Determination Method,2,D,M3,,,"Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone."
+CalibrationFactor,Calibration Factor and Determination Method,3,D,M3,,,"Distinct from the fields that name the calibration material and that state which approach applies to which analyte, where the technique has them: this field records the resulting factor itself."
+MCICPMS,Faraday Cup Array Configuration,1,D,M1,,,Description of the multi-collector Faraday cup array.
+MCICPMS,Faraday Cup Array Configuration,2,D,M3,,,"Specify the total number of Faraday cup detectors (fixed and moveable), their labeled positions (e.g., L4, L3, L2, L1, Ax, H1, H2, H3, H4 for a 9-cup Neptune), and the presence and position of any ion counter (SEM) or Daly detector in the collector block."
+MCICPMS,Faraday Cup Array Configuration,3,P,M2,,why cup count and span matter,The number and span of cups constrains which isotope combinations can be simultaneously collected.
+MCICPMS,Faraday Cup Amplifier Resistor Values,1,D,M1,,,Resistance values (Ω) of the feedback resistors in the Faraday cup amplifiers.
+MCICPMS,Faraday Cup Amplifier Resistor Values,2,D,M3,,,"Standard amplifiers use 10¹¹ Ω resistors, yielding 1 V per ~6.24 × 10⁶ ion counts per second."
+MCICPMS,Faraday Cup Amplifier Resistor Values,3,P,M2,,why high-gain amplifiers are fitted,"High-gain amplifiers (10¹² or 10¹³ Ω) are fitted to selected cups to improve signal-to-noise for very low-intensity beams (e.g., 234U, low-abundance spike isotopes)."
+MCICPMS,Faraday Cup Amplifier Resistor Values,4,D,M3,,,"Report the resistor value per cup position, or note 'all 10¹¹ Ω' if uniform."
+MCICPMS,Faraday Cup Gain Calibration Method,1,D,M1,,,Method used to calibrate the relative gain (amplification factor) of each Faraday cup amplifier at the start of or during each analytical session.
+MCICPMS,Faraday Cup Gain Calibration Method,2,P,M2,,why gain differences must be corrected,Relative gain differences between amplifiers cause systematic errors in isotope ratios if uncorrected.
+MCICPMS,Faraday Cup Gain Calibration Method,3,D,M3,,,"Common approaches: instrument internal gain calibration routine (measures signal in each cup sequentially using a common beam), amplifier rotation procedure, or measurement of a known isotope ratio solution in each cup."
+MCICPMS,Faraday Cup Gain Calibration Method,4,D,M3,,,"For instruments with SEM detectors, also describes the SEM-to-Faraday cross-calibration sequence."
+MCICPMS,Faraday Cup Gain Calibration Method,5,D,M3,,,"Specify frequency (per session, per block, weekly)."
+MCICPMS,Collector Configuration,1,D,M1,,,"Assignment of isotope masses to Faraday cup or ion counter detector positions for this procedure, and the analyte each position serves."
+MCICPMS,Collector Configuration,2,D,M3,,,"Lists the mass number monitored in each collector position with its analyte element where it has one — e.g. 'L3=116Sn (Sn); L2=117Sn (Sn); Ax=120Sn (Sn); H1=121Sb (interference monitor, no analyte)'."
+MCICPMS,Collector Configuration,3,D,M3,,,Interference-monitor and internal-standard positions serve no analyte and carry no parent element; the analyte list itself is given by the Analyte field and is never inferred from the mass labels here.
+MCICPMS,Collector Configuration,4,D,M3,,,"For static multi-collection procedures, one configuration applies throughout the measurement."
+MCICPMS,Collector Configuration,5,D,M3,,,"For multi-dynamic procedures, list all configurations and the cycling sequence."
+MCICPMS,Collector Configuration,6,P,M2,,why assignments differ between element systems,Different element systems require different mass assignments within the collector array span.
+MCICPMS,Number of Blocks per Measurement,1,D,M1,,,Number of measurement blocks acquired per sample or standard solution introduction.
+MCICPMS,Number of Blocks per Measurement,2,D,M3,,,"In MC-ICP-MS, data are structured as blocks of cycles; each block typically begins with a baseline (on-peak zero) measurement before the analytical cycles."
+MCICPMS,Number of Blocks per Measurement,3,P,M2,,why multiple blocks are useful,Multiple blocks per sample allow inspection of signal stability and within-measurement drift.
+MCICPMS,Number of Blocks per Measurement,4,D,"M3,M5",REWRITE-REDUNDANT(D=Editable),'procedure specifies; analyst may adjust' is the D=Editable definition,Procedure specifies the standard number; analyst may adjust for samples with low signal or for high-precision requirements.
+MCICPMS,Number of Cycles per Block,1,D,M1,,,Number of measurement cycles acquired per block.
+MCICPMS,Number of Cycles per Block,2,D,M3,,,One cycle corresponds to a single set of simultaneous Faraday cup readings integrated for the duration specified in Integration Time per Cycle.
+MCICPMS,Number of Cycles per Block,3,D,M3,,,Total integration time per sample = (Number of Cycles per Block) × (Integration Time per Cycle) × (Number of Blocks per Measurement).
+MCICPMS,Number of Cycles per Block,4,D,"M3,M5",REWRITE-REDUNDANT(D=Editable),as above,Procedure specifies the standard value; analyst may adjust within procedure bounds.
+MCICPMS,Integration Time per Cycle,1,D,M1,,,Duration of signal integration per measurement cycle (seconds).
+MCICPMS,Integration Time per Cycle,2,P,M2,,what it determines,Determines counting statistics per cycle.
+MCICPMS,Integration Time per Cycle,3,P,M2,,the precision/drift trade-off,Longer integration times improve shot-noise precision but increase the impact of signal drift within the integration window.
+MCICPMS,Integration Time per Cycle,4,P,M2,,why high-gain channels need longer integration,"For high-gain (10¹² or 10¹³ Ω) amplifier channels, longer integration times are often required to accumulate sufficient charge."
+MCICPMS,Integration Time per Cycle,5,D,"M3,M5",REWRITE-REDUNDANT(D=Editable),as above,Procedure specifies the standard integration time; analyst may confirm or adjust within procedure bounds.
+MCICPMS,Integration Time per Cycle,6,D,M3,,,"Where different isotope channels use different integration schemes, record the time for each channel."
+MCICPMS,Baseline Measurement Approach,1,D,M1,,,"Method and timing for measuring the ion beam baseline (on-peak zero) during acquisition, and the portion of the acquisition it is taken from."
+MCICPMS,Baseline Measurement Approach,2,D,M4,REWRITE-STRADDLE,enumerates the three approaches (definition) with the reason each applies (rationale),"Three approaches are in use and the choice depends on how sample reaches the plasma: deflecting the ion beam (beam-off or electrostatic deflector); aspirating an acid blank, which applies only to solution introduction; or, for laser ablation, collecting a defined number of laser-off cycles at the start of the same block, since no blank can be aspirated mid-ablation."
+MCICPMS,Baseline Measurement Approach,3,D,M3,,,"State which, and how many cycles or how long."
+MCICPMS,Mass Fractionation Law,1,D,M1,,,Mathematical law used to parameterize instrumental isotope mass fractionation as a function of mass difference.
+MCICPMS,Mass Fractionation Law,2,P,M2,,why the exponential law is preferred,The exponential law (Maréchal et al. 1999) is most widely used and theoretically best justified for MC-ICP-MS.
+MCICPMS,Mass Fractionation Law,3,D,M3,,,The linear law assumes fractionation proportional to mass difference.
+MCICPMS,Mass Fractionation Law,4,D,M3,,,The power law is an alternative formulation.
+MCICPMS,Mass Fractionation Law,5,D,M3,,,"For double-spike procedures, the law is embedded in the inversion algorithm and must be consistent between spike calibration and sample data reduction."
+MCICPMS,Internal Normalization Element and Isotope Ratio,1,D,M1,,,Element and isotope ratio used as the internal normalization standard for mass bias correction.
+MCICPMS,Internal Normalization Element and Isotope Ratio,2,P,M2,,mechanism — how the correction works,"The measured ratio of the normalizing element is used to calculate the mass bias factor β using the chosen mass fractionation law, which is then applied to correct the analyte isotope ratios assuming β_norm ≈ β_analyte."
+MCICPMS,Internal Normalization Element and Isotope Ratio,3,D,M3,,,"Specify the element, the monitored isotope ratio (e.g., 113Cd/111Cd for Sb measurements), and the certified or consensus value used for correction."
+MCICPMS,Internal Normalization Element and Isotope Ratio,4,D,M3,,,Record 'N/A' if internal normalization is not used.
+MCICPMS,Internal Normalization Element and Isotope Ratio,5,D,M3,REWRITE-DUPLICATE,duplicates S4 almost exactly; one of the two must go,Record 'N/A' where the procedure does not use internal normalization.
+MCICPMS,Double-Spike Isotope Pair,1,D,M1,,,The pair of enriched isotopes used to construct the double spike.
+MCICPMS,Double-Spike Isotope Pair,2,D,M4,REWRITE-STRADDLE,selection constraints plus the reason for them,"Both isotopes must be naturally rare, free from isobaric interferences, and chosen to minimize error magnification in the inversion."
+MCICPMS,Double-Spike Isotope Pair,3,D,M3,,,The double spike composition must be accurately calibrated before use.
+MCICPMS,Double-Spike Isotope Pair,4,D,M3,,,Specify both isotope masses and the spike certificate or calibration reference.
+MCICPMS,Double-Spike Isotope Pair,5,D,M3,,,Record 'N/A' if double-spike method is not used.
+MCICPMS,Double-Spike Isotope Pair,6,D,M3,REWRITE-DUPLICATE,duplicates S5; one of the two must go,Record 'N/A' where the procedure does not use a double spike.
+MCICPMS,Double-Spike Mixing Ratio,1,D,M1,,,"Target proportion of double-spike signal relative to total analyte signal in the spiked mixture, expressed as spike fraction (0–1) or spike:sample ratio."
+MCICPMS,Double-Spike Mixing Ratio,2,D,M4,REWRITE-STRADDLE,why an optimum exists plus how it is determined,An optimal mixing ratio minimizes error propagation through the double-spike inversion; the optimum is analyte-system specific and is typically determined using the Double Spike Toolbox or equivalent.
+MCICPMS,Double-Spike Mixing Ratio,3,D,M3,,,The achieved mixing ratio may deviate from the target within acceptable bounds (typically ±20% of optimal); the double-spike inversion corrects for actual mixing ratios.
+MCICPMS,Double-Spike Mixing Ratio,4,D,M3,,,Record 'N/A' if double-spike method is not used.
+MCICPMS,Double-Spike Mixing Ratio,5,D,M3,REWRITE-DUPLICATE,duplicates S4; one of the two must go,Record 'N/A' where the procedure does not use a double spike.
+MCICPMS,Double-Spike Inversion Algorithm,1,D,M1,,,Mathematical algorithm used to simultaneously solve for the true sample isotope ratio and the mass fractionation factor from the measured spike-sample mixture.
+MCICPMS,Double-Spike Inversion Algorithm,2,D,M3,,,"Common implementations: iterative Newton-Raphson solution, matrix algebraic approach, or published software (e.g., Rudge et al. 2009 Double Spike Toolbox)."
+MCICPMS,Double-Spike Inversion Algorithm,3,D,M3,,,Specify the algorithm or software reference and version.
+MCICPMS,Double-Spike Inversion Algorithm,4,D,M3,,,Record 'N/A' if double-spike method is not used.
+MCICPMS,Double-Spike Inversion Algorithm,5,D,M3,REWRITE-DUPLICATE,duplicates S4; one of the two must go,Record 'N/A' where the procedure does not use a double spike.
+MCICPMS,Peak Flatness Method and Threshold,1,D,M1,,,"Method used to verify that every collector sits on a flat region of its peak top simultaneously, and the acceptance threshold applied before analysis begins."
+MCICPMS,Peak Flatness Method and Threshold,2,P,M2,,why simultaneous collection makes peak flatness critical,"Specific to simultaneous collection: a sequential instrument centres one mass at a time, whereas a multi-collector array must have all cups on flat peak tops at once or the measured ratio carries a peak-shape bias that no downstream correction removes."
+MCICPMS,Peak Flatness Method and Threshold,3,D,M3,,,"Typically assessed by scanning across the peak plateau, or by comparing ratios measured at slightly offset mass positions."
+MCICPMS,Peak Flatness,1,D,M1,,,"Peak flatness actually achieved in the session, assessed against the criterion registered by the procedure."
+MCICPMS,Peak Flatness,2,P,M2,,library-internal design note — criterion-versus-measurement split,"Companion measured value to Peak Flatness Method and Threshold, following the criterion-versus-measurement split used for Oxide Production."

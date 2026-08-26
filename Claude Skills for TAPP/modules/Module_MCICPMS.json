@@ -2,7 +2,7 @@
     "module": "MCICPMS",
     "title": "Multi-Collector ICP-MS Analyser",
     "layer": 2,
-    "version": "5",
+    "version": "6",
     "source_of_truth": "modules/Module_MCICPMS.csv",
     "owned_columns": [
         "A",
@@ -68,6 +68,7 @@
         "Column I (Keyed By) added to every field 2026-08-11 under Rule 7; owned_columns gained \"I\". Module-owned, so the value is authoritative for all consumers. Also 2026-08-11: descriptions gained an explicit 'Record N/A where...' condition under Rule 7 A.4, propagated to all consumers by recomposition.",
         "2026-08-12: version 3 -> 4 with NO content change. composed_tapps.json recorded MCICPMS v4 against all 3 consumers while this manifest said 3 — the same drift found in Module_ReportingCore the same day, and resolved the same way: the register is written per TAPP by the composition tooling, the manifest is hand-edited, so the manifest is the likelier one to have been missed. Setting it to 4 makes the two agree without asserting a content change that did not happen. Found by the audit behind check_module_versions().",
         "2026-08-12: Collector Configuration `defines: channel` -> `defines: channel per analyte`, and its description now asks for the analyte each cup serves. Closes the binding gap in the three multicollector TAPPs: 7.4b makes Collector Configuration the channel definer where a cup array exists, which demotes Monitored Isotopes to plain `analyte` — and that demotion had silently dropped the channel-to-analyte binding, leaving it recoverable only by parsing element symbols out of the free-text cup string, which 7.3.1 forbids. Monitor cups carry no parent, which the nullable-parent semantics of 7.3.1 already cover.",
-        "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content."
+        "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content.",
+        "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv."
     ]
 }

@@ -2,7 +2,7 @@
     "module": "SolutionIntroduction",
     "title": "Solution Sample Preparation and Introduction for MS",
     "layer": 2,
-    "version": "4",
+    "version": "5",
     "source_of_truth": "modules/Module_SolutionIntroduction.csv",
     "owned_columns": [
         "A",
@@ -70,6 +70,7 @@
         "Column I (Keyed By) added to every field 2026-08-11 under Rule 7; owned_columns gained \"I\". Module-owned, so the value is authoritative for all consumers. Also 2026-08-11: descriptions gained an explicit 'Record N/A where...' condition under Rule 7 A.4, propagated to all consumers by recomposition.",
         "2026-08-11: Keyed By revised under the strengthened Rule 7 invariants — every key in use must have exactly one 'defines:' field, and 'defines: X' is used only where another field is keyed by X.",
         "2026-08-12: Keyed By updated for the session/sample restructure (Decision Record A1, A3, A4)",
-        "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content."
+        "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content.",
+        "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv."
     ]
 }

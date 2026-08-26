@@ -3,11 +3,11 @@
   "note": "TAPPs whose listed groups are composed build outputs. Per Rule 6.6 the composed rows must not be hand-edited — edit the module and recompose with scripts/compose_tapp.py. Verify with --check. In the `retired` list, `tapp` is the TAPP's HISTORICAL path — its identity while it was live — and `moved_to` gives the current location; `tapp` is deliberately not resolvable and must not be rewritten. Everywhere else (`composed[].tapp`, `derived_from`) paths are current and resolvable.",
   "composed": [
     {
-      "tapp": "EPMA/EPMA_TAPP_v26.csv",
+      "tapp": "EPMA/EPMA_TAPP_v27.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "2"
+          "version": "3"
         },
         {
           "name": "TargetSelection",
@@ -19,11 +19,11 @@
         },
         {
           "name": "Blank",
-          "version": "1"
+          "version": "2"
         },
         {
           "name": "Aggregation",
-          "version": "1"
+          "version": "2"
         },
         {
           "name": "Analyte",
@@ -32,20 +32,20 @@
       ]
     },
     {
-      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v28.csv",
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v29.csv",
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "2"
-        },
-        {
-          "name": "LaserAblation",
           "version": "3"
         },
         {
+          "name": "LaserAblation",
+          "version": "4"
+        },
+        {
           "name": "MCICPMS",
-          "version": "5"
+          "version": "6"
         },
         {
           "name": "TargetSelection",
@@ -57,11 +57,11 @@
         },
         {
           "name": "Blank",
-          "version": "1"
+          "version": "2"
         },
         {
           "name": "Aggregation",
-          "version": "1"
+          "version": "2"
         },
         {
           "name": "Analyte",
@@ -69,7 +69,7 @@
         },
         {
           "name": "ICPMS",
-          "version": "1"
+          "version": "2"
         }
       ],
       "note": "Phase 0 completed 2026-08-08 against seed paper Zhang et al. 2022 (At. Spectrosc. 43, in situ Rb-Sr dating of lunar meteorites by LA-MC-ICP-MS). See LA-MC-ICP-MS/PHASE0_LA-MC-ICP-MS_2026-08-08.md. Fourteen of fifteen methodological requirements in that paper are already covered by composition; the residue is one new field (peak flatness criterion) and one inherited description that is wrong for laser ablation (Baseline Measurement Approach, which offers acid-blank aspiration). v2 (2026-08-10) adds the first literature assessment column: Zhang et al. 2022 (At. Spectrosc. 43), field-name-matched from the retired LA-ICPMS_TAPP_v13. Column addition only; columns A-L byte-identical to v1 and all four modules still report --check MATCH, confirming literature assessment columns are consumer-owned under Rule 6.4.",
@@ -83,20 +83,20 @@
       ]
     },
     {
-      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v28.csv",
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v29.csv",
       "derived_from": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v1.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "2"
-        },
-        {
-          "name": "LaserAblation",
           "version": "3"
         },
         {
+          "name": "LaserAblation",
+          "version": "4"
+        },
+        {
           "name": "MCICPMS",
-          "version": "5"
+          "version": "6"
         },
         {
           "name": "TargetSelection",
@@ -108,19 +108,19 @@
         },
         {
           "name": "Blank",
-          "version": "1"
+          "version": "2"
         },
         {
           "name": "Aggregation",
-          "version": "1"
+          "version": "2"
         },
         {
           "name": "Geochronology",
-          "version": "5"
+          "version": "6"
         },
         {
           "name": "UPb",
-          "version": "5"
+          "version": "6"
         },
         {
           "name": "Analyte",
@@ -128,249 +128,16 @@
         },
         {
           "name": "ICPMS",
-          "version": "1"
+          "version": "2"
         }
       ],
       "note": "Derived from LA-MC-ICPMS_TAPP_v1.csv, i.e. before the Zhang et al. 2022 literature assessment column was added at v2. Recompose from v2 to inherit it."
     },
     {
-      "tapp": "SEM/SEM_Composition_TAPP_v24.csv",
+      "tapp": "SEM/SEM_Composition_TAPP_v25.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "2"
-        },
-        {
-          "name": "TargetSelection",
-          "version": "1"
-        },
-        {
-          "name": "CalibrationFactor",
-          "version": "1"
-        },
-        {
-          "name": "Blank",
-          "version": "1"
-        },
-        {
-          "name": "Aggregation",
-          "version": "1"
-        },
-        {
-          "name": "Analyte",
-          "version": "1"
-        }
-      ]
-    },
-    {
-      "tapp": "SEM/SEM_FIBSEM_TAPP_v15.csv",
-      "modules": [
-        {
-          "name": "Core",
-          "version": "2"
-        },
-        {
-          "name": "TargetSelection",
-          "version": "1"
-        }
-      ]
-    },
-    {
-      "tapp": "SEM/SEM_Imaging_TAPP_v15.csv",
-      "modules": [
-        {
-          "name": "Core",
-          "version": "2"
-        },
-        {
-          "name": "TargetSelection",
-          "version": "1"
-        }
-      ]
-    },
-    {
-      "tapp": "SEM/SEM_TAPP_v24.csv",
-      "modules": [
-        {
-          "name": "Core",
-          "version": "2"
-        },
-        {
-          "name": "TargetSelection",
-          "version": "1"
-        },
-        {
-          "name": "CalibrationFactor",
-          "version": "1"
-        },
-        {
-          "name": "Blank",
-          "version": "1"
-        },
-        {
-          "name": "Aggregation",
-          "version": "1"
-        },
-        {
-          "name": "Analyte",
-          "version": "1"
-        }
-      ]
-    },
-    {
-      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v32.csv",
-      "modules": [
-        {
-          "name": "Core",
-          "version": "2"
-        },
-        {
-          "name": "MCICPMS",
-          "version": "5"
-        },
-        {
-          "name": "CalibrationFactor",
-          "version": "1"
-        },
-        {
-          "name": "Blank",
-          "version": "1"
-        },
-        {
-          "name": "Aggregation",
-          "version": "1"
-        },
-        {
-          "name": "SolutionIntroduction",
-          "version": "4"
-        },
-        {
-          "name": "Analyte",
-          "version": "1"
-        },
-        {
-          "name": "ICPMS",
-          "version": "1"
-        }
-      ]
-    },
-    {
-      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v36.csv",
-      "modules": [
-        {
-          "name": "Core",
-          "version": "2"
-        },
-        {
-          "name": "CalibrationFactor",
-          "version": "1"
-        },
-        {
-          "name": "Blank",
-          "version": "1"
-        },
-        {
-          "name": "Aggregation",
-          "version": "1"
-        },
-        {
-          "name": "SolutionIntroduction",
-          "version": "4"
-        },
-        {
-          "name": "Analyte",
-          "version": "1"
-        },
-        {
-          "name": "ICPMS",
-          "version": "1"
-        }
-      ]
-    },
-    {
-      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v34.csv",
-      "modules": [
-        {
-          "name": "Core",
-          "version": "2"
-        },
-        {
-          "name": "CalibrationFactor",
-          "version": "1"
-        },
-        {
-          "name": "Blank",
-          "version": "1"
-        },
-        {
-          "name": "Aggregation",
-          "version": "1"
-        },
-        {
-          "name": "SolutionIntroduction",
-          "version": "4"
-        },
-        {
-          "name": "Analyte",
-          "version": "1"
-        },
-        {
-          "name": "ICPMS",
-          "version": "1"
-        }
-      ]
-    },
-    {
-      "tapp": "TEM/TEM_TAPP_v22.csv",
-      "modules": [
-        {
-          "name": "Core",
-          "version": "2"
-        },
-        {
-          "name": "TargetSelection",
-          "version": "1"
-        },
-        {
-          "name": "CalibrationFactor",
-          "version": "1"
-        },
-        {
-          "name": "Aggregation",
-          "version": "1"
-        },
-        {
-          "name": "Analyte",
-          "version": "1"
-        }
-      ]
-    },
-    {
-      "tapp": "XCT/Lab-XCT_TAPP_v21.csv",
-      "modules": [
-        {
-          "name": "Core",
-          "version": "2"
-        },
-        {
-          "name": "TargetSelection",
-          "version": "1"
-        },
-        {
-          "name": "CalibrationFactor",
-          "version": "1"
-        }
-      ]
-    },
-    {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v31.csv",
-      "modules": [
-        {
-          "name": "Core",
-          "version": "2"
-        },
-        {
-          "name": "LaserAblation",
           "version": "3"
         },
         {
@@ -383,11 +150,99 @@
         },
         {
           "name": "Blank",
-          "version": "1"
+          "version": "2"
         },
         {
           "name": "Aggregation",
+          "version": "2"
+        },
+        {
+          "name": "Analyte",
           "version": "1"
+        }
+      ]
+    },
+    {
+      "tapp": "SEM/SEM_FIBSEM_TAPP_v16.csv",
+      "modules": [
+        {
+          "name": "Core",
+          "version": "3"
+        },
+        {
+          "name": "TargetSelection",
+          "version": "1"
+        }
+      ]
+    },
+    {
+      "tapp": "SEM/SEM_Imaging_TAPP_v16.csv",
+      "modules": [
+        {
+          "name": "Core",
+          "version": "3"
+        },
+        {
+          "name": "TargetSelection",
+          "version": "1"
+        }
+      ]
+    },
+    {
+      "tapp": "SEM/SEM_TAPP_v25.csv",
+      "modules": [
+        {
+          "name": "Core",
+          "version": "3"
+        },
+        {
+          "name": "TargetSelection",
+          "version": "1"
+        },
+        {
+          "name": "CalibrationFactor",
+          "version": "1"
+        },
+        {
+          "name": "Blank",
+          "version": "2"
+        },
+        {
+          "name": "Aggregation",
+          "version": "2"
+        },
+        {
+          "name": "Analyte",
+          "version": "1"
+        }
+      ]
+    },
+    {
+      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v33.csv",
+      "modules": [
+        {
+          "name": "Core",
+          "version": "3"
+        },
+        {
+          "name": "MCICPMS",
+          "version": "6"
+        },
+        {
+          "name": "CalibrationFactor",
+          "version": "1"
+        },
+        {
+          "name": "Blank",
+          "version": "2"
+        },
+        {
+          "name": "Aggregation",
+          "version": "2"
+        },
+        {
+          "name": "SolutionIntroduction",
+          "version": "5"
         },
         {
           "name": "Analyte",
@@ -395,7 +250,152 @@
         },
         {
           "name": "ICPMS",
+          "version": "2"
+        }
+      ]
+    },
+    {
+      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v37.csv",
+      "modules": [
+        {
+          "name": "Core",
+          "version": "3"
+        },
+        {
+          "name": "CalibrationFactor",
           "version": "1"
+        },
+        {
+          "name": "Blank",
+          "version": "2"
+        },
+        {
+          "name": "Aggregation",
+          "version": "2"
+        },
+        {
+          "name": "SolutionIntroduction",
+          "version": "5"
+        },
+        {
+          "name": "Analyte",
+          "version": "1"
+        },
+        {
+          "name": "ICPMS",
+          "version": "2"
+        }
+      ]
+    },
+    {
+      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v35.csv",
+      "modules": [
+        {
+          "name": "Core",
+          "version": "3"
+        },
+        {
+          "name": "CalibrationFactor",
+          "version": "1"
+        },
+        {
+          "name": "Blank",
+          "version": "2"
+        },
+        {
+          "name": "Aggregation",
+          "version": "2"
+        },
+        {
+          "name": "SolutionIntroduction",
+          "version": "5"
+        },
+        {
+          "name": "Analyte",
+          "version": "1"
+        },
+        {
+          "name": "ICPMS",
+          "version": "2"
+        }
+      ]
+    },
+    {
+      "tapp": "TEM/TEM_TAPP_v23.csv",
+      "modules": [
+        {
+          "name": "Core",
+          "version": "3"
+        },
+        {
+          "name": "TargetSelection",
+          "version": "1"
+        },
+        {
+          "name": "CalibrationFactor",
+          "version": "1"
+        },
+        {
+          "name": "Aggregation",
+          "version": "2"
+        },
+        {
+          "name": "Analyte",
+          "version": "1"
+        }
+      ]
+    },
+    {
+      "tapp": "XCT/Lab-XCT_TAPP_v22.csv",
+      "modules": [
+        {
+          "name": "Core",
+          "version": "3"
+        },
+        {
+          "name": "TargetSelection",
+          "version": "1"
+        },
+        {
+          "name": "CalibrationFactor",
+          "version": "1"
+        }
+      ]
+    },
+    {
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v32.csv",
+      "modules": [
+        {
+          "name": "Core",
+          "version": "3"
+        },
+        {
+          "name": "LaserAblation",
+          "version": "4"
+        },
+        {
+          "name": "TargetSelection",
+          "version": "1"
+        },
+        {
+          "name": "CalibrationFactor",
+          "version": "1"
+        },
+        {
+          "name": "Blank",
+          "version": "2"
+        },
+        {
+          "name": "Aggregation",
+          "version": "2"
+        },
+        {
+          "name": "Analyte",
+          "version": "1"
+        },
+        {
+          "name": "ICPMS",
+          "version": "2"
         }
       ],
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
@@ -406,16 +406,16 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v31.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v32.csv",
       "derived_from": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v8.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "2"
+          "version": "3"
         },
         {
           "name": "LaserAblation",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "TargetSelection",
@@ -427,19 +427,19 @@
         },
         {
           "name": "Blank",
-          "version": "1"
+          "version": "2"
         },
         {
           "name": "Aggregation",
-          "version": "1"
+          "version": "2"
         },
         {
           "name": "Geochronology",
-          "version": "5"
+          "version": "6"
         },
         {
           "name": "UPb",
-          "version": "5"
+          "version": "6"
         },
         {
           "name": "Analyte",
@@ -447,21 +447,21 @@
         },
         {
           "name": "ICPMS",
-          "version": "1"
+          "version": "2"
         }
       ],
       "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record."
     },
     {
-      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v30.csv",
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v31.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "2"
+          "version": "3"
         },
         {
           "name": "LaserAblation",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "TargetSelection",
@@ -473,11 +473,11 @@
         },
         {
           "name": "Blank",
-          "version": "1"
+          "version": "2"
         },
         {
           "name": "Aggregation",
-          "version": "1"
+          "version": "2"
         },
         {
           "name": "Analyte",
@@ -485,7 +485,7 @@
         },
         {
           "name": "ICPMS",
-          "version": "1"
+          "version": "2"
         }
       ],
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
@@ -496,16 +496,16 @@
       ]
     },
     {
-      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v31.csv",
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v32.csv",
       "derived_from": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v8.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "2"
+          "version": "3"
         },
         {
           "name": "LaserAblation",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "TargetSelection",
@@ -517,19 +517,19 @@
         },
         {
           "name": "Blank",
-          "version": "1"
+          "version": "2"
         },
         {
           "name": "Aggregation",
-          "version": "1"
+          "version": "2"
         },
         {
           "name": "Geochronology",
-          "version": "5"
+          "version": "6"
         },
         {
           "name": "UPb",
-          "version": "5"
+          "version": "6"
         },
         {
           "name": "Analyte",
@@ -537,7 +537,7 @@
         },
         {
           "name": "ICPMS",
-          "version": "1"
+          "version": "2"
         }
       ],
       "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record."

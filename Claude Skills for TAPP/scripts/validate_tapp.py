@@ -45,7 +45,8 @@ from collections import defaultdict, Counter
 # ---------------------------------------------------------------------------
 COL_ITEM, COL_DESC, COL_C, COL_D, COL_TYPE, COL_EXAMPLE, COL_COMMENT, COL_UPDATE = range(8)
 COL_KEYEDBY = 8  # Rule 7
-FIRST_MODE_COL = 9
+COL_PURPOSE = 9    # Column J — consumer-owned (Phase 1, 2026-08-25)
+FIRST_MODE_COL = 10
 SENTINEL_HEADER = "Literature Assessment"
 
 VALID_C = {"Basic", "Advanced", "N/A"}
@@ -358,9 +359,13 @@ KEY_NAME_VARIANT_EXEMPT = {
     ("Detection Limit", "EELS Sensitivity and Detection Limit"):
         "different fields. The EELS field reports per target edge — an EELS edge is a channel, "
         "enumerated by `EELS Edges` — while `Detection Limit` is one per reported concentration "
-        "variable. Backlog: the EELS field bundles a specification (ZLP energy resolution) with a "
-        "result (detection limit), which is why one key has to serve both; splitting it would be "
-        "the cleaner fix.",
+        "variable. **SPLIT ACCEPTED 2026-08-25, not yet executed**: the field bundles a "
+        "specification (ZLP energy resolution, a procedure setting) with a result (detection limit, "
+        "an outcome), which is why one key has to serve both and why no single Data Type fits it — "
+        "it was the one field left untyped by the amds-ldeo/tapp#1 pass for exactly that reason. "
+        "Splitting it gives the specification half a `Numeric (eV FWHM)` type alongside the other "
+        "EELS setup fields, and the result half `Numeric + unit / Text` keyed `channel` like its "
+        "`Detection Limit` sibling. Remove this entry when the split lands.",
     ("Dwell Time per Pixel", "STEM Dwell Time per Pixel"):
         "different fields. STEM imaging has no spectrometer, so its per-pixel dwell is scalar; "
         "`Dwell Time per Pixel` is per spectrometer assignment where WDS mapping exists (see "
