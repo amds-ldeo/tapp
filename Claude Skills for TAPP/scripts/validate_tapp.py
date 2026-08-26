@@ -234,25 +234,18 @@ KEYED_BY_EXCEPTIONS = set(KEYED_BY_TECHNIQUE_DEPENDENT)   # back-compat alias
 # diverges any more. A register entry for a field that no longer diverges is dead weight that
 # reads as an unresolved issue.
 COLB_DIVERGENCE_TRIAGED = {
-    'Analytical Accuracy and Assessment Method': ("MIXED", 9),
     'Beam Mode': ("MIXED", 3),
     'Beam Raster Dimensions': ("MIXED", 3),
-    'Coolant (Plasma) Gas Flow Rate': ("MIXED", 9),
     'Detection Limit Method': ("MIXED", 12),
     'Doubly-Charged Species Production': ("MIXED", 8),
     'Dwell Time per Mass': ("MIXED", 6),
     'Dwell Time per Pixel': ("MIXED", 5),
     'EDS Acquisition Mode': ("MIXED", 4),
     'EDS Detector Configuration': ("MIXED", 4),
-    'Limit of Quantification (LOQ) Method': ("MIXED", 9),
     'Map Area': ("MIXED", 3),
-    'RF Power': ("MIXED", 9),
     'Secondary Reference Materials': ("MIXED", 12),
     'Stage Scan vs. Beam Scan': ("MIXED", 3),
-    'Within-Session Analytical Precision and Assessment Method': ("MIXED", 8),
     'Accelerating Voltage': ("PRINCIPLED", 7),
-    'Acquisition Software': ("PRINCIPLED", 16),
-    'Analysis Sequence': ("PRINCIPLED", 9),
     # Re-triaged 2026-08-12. Was frozen PRINCIPLED at similarity 0.01 across 6 variants — the
     # 2026-08-12 sweep judged wording, and this is a `defines:` field whose divergence reached
     # into the domain definition itself (six TAPPs described `analyte` as isotopes, the rest as
@@ -261,19 +254,13 @@ COLB_DIVERGENCE_TRIAGED = {
     # one shared sentence and differ only in technique-specific tails. Now 0.36 across 4 variants,
     # and PRINCIPLED is correct for the remaining divergence. The class of error that produced the
     # original mis-triage is now caught by check_definer_stem() below.
-    'Analyte': ("PRINCIPLED", 13),
-    'Analytical Mode': ("PRINCIPLED", 16),
-    'Auxiliary Gas Flow Rate': ("PRINCIPLED", 9),
     'Beam Current': ("PRINCIPLED", 5),
     'Beam Damage Minimization': ("PRINCIPLED", 3),
     'Beam Diameter': ("PRINCIPLED", 3),
-    'Blank / Background Correction Method': ("PRINCIPLED", 9),
-    'Calibration Standard Measurement Frequency': ("PRINCIPLED", 9),
     'Cell Exit Discrimination Voltage': ("PRINCIPLED", 6),
     'Collision Gas Flow Rate': ("PRINCIPLED", 6),
     'Collision Gas Type': ("PRINCIPLED", 6),
     'Collision/Reaction Cell (CRC) Configuration': ("PRINCIPLED", 6),
-    'Data Reduction Software': ("PRINCIPLED", 15),
     'Detection Limit': ("PRINCIPLED", 12),
     'Detector Configuration': ("PRINCIPLED", 8),
     'Doubly-Charged Species Monitor': ("PRINCIPLED", 8),
@@ -288,38 +275,17 @@ COLB_DIVERGENCE_TRIAGED = {
     # harmonised body 2026-08-12; EPMA/SEM cross-reference WDS Dead Time Correction; TEM carries its detector conditional
     'EDS Dead Time': ("PRINCIPLED", 4),
     'EDS Live Time per Point or Pixel': ("PRINCIPLED", 4),
-    'Guard Electrode': ("PRINCIPLED", 9),
-    'ICP-MS Type': ("PRINCIPLED", 9),
-    'Instrument Make and Model': ("PRINCIPLED", 3),
-    'Instrument Model': ("PRINCIPLED", 6),
-    'Interface Cone Configuration': ("PRINCIPLED", 9),
-    'Interference Correction Method': ("PRINCIPLED", 9),
-    'Interfering Species': ("PRINCIPLED", 9),
     'Internal Standard Approach': ("PRINCIPLED", 8),
-    'Internal Standard Element': ("PRINCIPLED", 9),
-    'Isobaric Interference Corrections Applied': ("PRINCIPLED", 9),
-    'Isotope Dilution Data Reduction Method': ("PRINCIPLED", 9),
     'Mass Bias Correction Strategy': ("PRINCIPLED", 7),
-    'Mass Resolution Setting': ("PRINCIPLED", 9),
-    'Memory Effect Mitigation': ("PRINCIPLED", 9),
     'Normalization / Standards-Based Correction': ("PRINCIPLED", 12),
     # harmonised body 2026-08-12; the oxide proxy is technique-specific: ThO+/Th+ in LA, CeO+/Ce+ in solution
-    'Oxide Production Method and Threshold': ("PRINCIPLED", 9),
-    'Per-Analyte Calibration Strategy': ("PRINCIPLED", 9),
     'Phase Identification Method': ("PRINCIPLED", 2),
-    'Plasma Thermal Mode': ("PRINCIPLED", 9),
     'Primary Calibration Standard Name': ("PRINCIPLED", 12),
     'Pulse/Analog Detector Nonlinearity Correction': ("PRINCIPLED", 6),
     'Reaction Gas Flow Rate': ("PRINCIPLED", 6),
     'Reaction Gas Type': ("PRINCIPLED", 6),
     'Sample Preparation Method': ("PRINCIPLED", 15),
-    'Sampler and Skimmer Cone Material': ("PRINCIPLED", 9),
-    'Signal Integration Interval Method': ("PRINCIPLED", 9),
-    'Signal Integration Time': ("PRINCIPLED", 9),
-    'Spike / Outlier Filtering Approach': ("PRINCIPLED", 9),
     'Step Size / Pixel Size': ("PRINCIPLED", 3),
-    'Target Material': ("PRINCIPLED", 16),
-    'Torch Type': ("PRINCIPLED", 9),
 }
 
 
@@ -483,11 +449,6 @@ COLE_DIVERGENCE_TRIAGED = {
     # `Pulse/Analog Detector Nonlinearity Correction` runs the OTHER way (LA controlled, Solution
     # free text), which is why the cluster reads as accumulated drift rather than two coherent
     # house styles.
-    'Blank / Background Correction Method': ("LINEAGE", 9),
-    'Limit of Quantification (LOQ) Method': ("LINEAGE", 9),
-    'Mass Resolution Setting': ("LINEAGE", 9),
-    'Per-Analyte Calibration Strategy': ("LINEAGE", 9),
-    'Signal Integration Interval Method': ("LINEAGE", 9),
             
     # LINEAGE / EPMA-SEM — EPMA names the unit, SEM defers it to the user. Both forms are valid
     # vocabulary, so this is lower stakes than the ICP-MS cluster, but downstream one pins

@@ -2,7 +2,7 @@
     "module": "ICPMS",
     "title": "Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",
     "layer": 2,
-    "version": "3",
+    "version": "4",
     "source_of_truth": "modules/Module_ICPMS.csv",
     "owned_columns": [
         "A",
@@ -26,7 +26,13 @@
             "placement": "append_to_group",
             "fields": [
                 "Instrument Serial Number or Lab Identifier",
-                "Torch Depth"
+                "Torch Depth",
+                "Torch Type",
+                "Guard Electrode",
+                "Interface Cone Configuration",
+                "ICP-MS Type",
+                "Mass Resolution Setting",
+                "Sampler and Skimmer Cone Material"
             ]
         },
         {
@@ -39,7 +45,12 @@
                 "Make-up Gas and Flow Rate",
                 "Instrument Sensitivity",
                 "Ion Counter Dead Time",
-                "Oxide Production"
+                "Oxide Production",
+                "Auxiliary Gas Flow Rate",
+                "Coolant (Plasma) Gas Flow Rate",
+                "RF Power",
+                "Oxide Production Method and Threshold",
+                "Plasma Thermal Mode"
             ]
         },
         {
@@ -48,7 +59,18 @@
             "placement": "append_to_group",
             "fields": [
                 "Uncertainty Level",
-                "Uncertainty Propagation Method"
+                "Uncertainty Propagation Method",
+                "Spike / Outlier Filtering Approach",
+                "Signal Integration Time",
+                "Blank / Background Correction Method",
+                "Internal Standard Element",
+                "Memory Effect Mitigation",
+                "Per-Analyte Calibration Strategy",
+                "Signal Integration Interval Method",
+                "Interference Correction Method",
+                "Interfering Species",
+                "Isobaric Interference Corrections Applied",
+                "Isotope Dilution Data Reduction Method"
             ]
         },
         {
@@ -58,7 +80,10 @@
             "fields": [
                 "Internal (Within-Measurement) Analytical Precision and Assessment Method",
                 "Within-Session Analytical Precision and Assessment Method",
-                "Between-Session (Long-Term) Analytical Precision and Assessment Method"
+                "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+                "Calibration Standard Measurement Frequency",
+                "Analytical Accuracy and Assessment Method",
+                "Limit of Quantification (LOQ) Method"
             ]
         }
     ],
@@ -81,6 +106,7 @@
         "2026-08-25: prerequisite discharged BEFORE extraction. The 2026-08-14 log required a literature assessment of five fields the Solution TAPPs appeared to lack, warning that 'a module built from the six LA tables alone would silently ratify the gap'. Re-checked: ICP Tuning, Instrument Warm-up / Session Duration Limit and Ion Counter Dead Time are now in all 9; Sensitivity as Useful Yield and Plasma / Make-up Gas Addition were retired by the 2026-08-14 and 2026-08-17 reconciliations into Instrument Sensitivity and Make-up Gas and Flow Rate, both also in all 9. The gap is closed, so this module does not ratify it.",
         "2026-08-25: v1 deliberately clears NONE of the outstanding Column E LINEAGE divergences. Five of the six ICP-MS ones — Blank / Background Correction Method, Isobaric Interference Corrections Applied, Limit of Quantification (LOQ) Method, Per-Analyte Calibration Strategy, Signal Integration Interval Method — sit in the deferred 26 because each ALSO diverges in Column B. Shipping them would have meant authoring their descriptions in the same stroke as deciding their types, which is how an unreviewed verdict enters a register.",
         "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
-        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves."
+        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves.",
+        "2026-08-26: extended from 13 to 38 fields. The 26 deferred descriptions were merged by reading (analysis/Merge_ICPMS_Descriptions_2026-08-26.csv, 24 of 26 synthesised); front-end- and analyser-specific content was relocated to consumer-owned Column F rather than dropped. Three residual blockers were resolved: `Mass Resolution Setting` D -> Editable (the split was exactly analyser-aligned, and on a quadrupole the procedure-defined bound is a single value, so Editable is true-but-vacuous where Read-Only would be false for SF/MC); `Per-Analyte Calibration Strategy` C -> Basic (the merged description gives ratio-only procedures a valid answer). `Analysis Sequence` is DEFERRED and is the one field of the 26 left out: its D-tier splits Editable/Read-Only on the LA/Solution line and precedents.md records that divergence as knowingly unresolved, so it is not this module's to settle."
     ]
 }
