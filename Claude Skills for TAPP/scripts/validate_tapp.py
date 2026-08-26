@@ -427,7 +427,10 @@ COLB_DEFINER_STEM_EXEMPT = {
 #               fields did NOT share one answer: `Beam Diameter` and `Step Size / Pixel Size`
 #               took `Numeric (µm) / Text` (unit unanimous, but "Focused (exact diameter N)" is
 #               attested too), `Beam Raster Dimensions` and `Map Area` took
-#               `Numeric pair (µm x µm)`, and `Dwell Time per Pixel` took `Numeric + unit`
+#               `Numeric pair (µm x µm)` — except `Map Area`, which the maintainer left at
+#               `Numeric + unit` on 2026-08-26 because it has ZERO attested cells and the
+#               pair form there rested only on symmetry with `Beam Raster Dimensions`; with no
+#               evidence, do not pin a unit. `Dwell Time per Pixel` took `Numeric + unit`
 #               because its single attestation reads "~0.5 s per step", disproving the `ms` pin.
 #               Register 16 -> 7, OPEN 2 -> 1.
 #   2026-08-24  `Detection Limit` and `Detection Limit Method` harmonised and REMOVED (the issue

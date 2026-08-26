@@ -3,7 +3,7 @@
   "note": "TAPPs whose listed groups are composed build outputs. Per Rule 6.6 the composed rows must not be hand-edited — edit the module and recompose with scripts/compose_tapp.py. Verify with --check. In the `retired` list, `tapp` is the TAPP's HISTORICAL path — its identity while it was live — and `moved_to` gives the current location; `tapp` is deliberately not resolvable and must not be rewritten. Everywhere else (`composed[].tapp`, `derived_from`) paths are current and resolvable.",
   "composed": [
     {
-      "tapp": "EPMA/EPMA_TAPP_v29.csv",
+      "tapp": "EPMA/EPMA_TAPP_v30.csv",
       "modules": [
         {
           "name": "Core",
@@ -134,7 +134,7 @@
       "note": "Derived from LA-MC-ICPMS_TAPP_v1.csv, i.e. before the Zhang et al. 2022 literature assessment column was added at v2. Recompose from v2 to inherit it."
     },
     {
-      "tapp": "SEM/SEM_Composition_TAPP_v27.csv",
+      "tapp": "SEM/SEM_Composition_TAPP_v28.csv",
       "modules": [
         {
           "name": "Core",
@@ -189,7 +189,7 @@
       ]
     },
     {
-      "tapp": "SEM/SEM_TAPP_v27.csv",
+      "tapp": "SEM/SEM_TAPP_v28.csv",
       "modules": [
         {
           "name": "Core",
