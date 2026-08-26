@@ -423,6 +423,13 @@ COLB_DEFINER_STEM_EXEMPT = {
 # History
 #   2026-08-24  Check implemented. 18 divergences frozen: LINEAGE 14 (LA/Solution 9,
 #               EPMA/SEM 5), OPEN 4. Prompted by amds-ldeo/tapp#1.
+#   2026-08-26  Nine more harmonised and REMOVED on literature evidence — the five EPMA/SEM
+#               fields did NOT share one answer: `Beam Diameter` and `Step Size / Pixel Size`
+#               took `Numeric (µm) / Text` (unit unanimous, but "Focused (exact diameter N)" is
+#               attested too), `Beam Raster Dimensions` and `Map Area` took
+#               `Numeric pair (µm x µm)`, and `Dwell Time per Pixel` took `Numeric + unit`
+#               because its single attestation reads "~0.5 s per step", disproving the `ms` pin.
+#               Register 16 -> 7, OPEN 2 -> 1.
 #   2026-08-24  `Detection Limit` and `Detection Limit Method` harmonised and REMOVED (the issue
 #               itself). Register 18 -> 16, OPEN 4 -> 2. The name-variant pair
 #               (`Detection Limit`, `EDS Detection Limit`) left COLE_NAME_VARIANT_TRIAGED in the
@@ -441,7 +448,17 @@ COLE_DIVERGENCE_TRIAGED = {
     # the question, and it has not been asked.
     'Sample Preparation Method': ("OPEN", 15),
     # Two TAPPs, two variants: an unadjudicated coin flip, not a majority to defer to.
-    'Phase Identification Method': ("OPEN", 2),
+    
+    # NOT a typing divergence — a NAME COLLISION, found 2026-08-26 when retyping it to
+    # `Controlled list / Text` tripped the Column F check and forced a look at what the two
+    # lineages actually mean. LA: "Method used to determine the internal standard (IS)
+    # CONCENTRATION for each unknown sample" — how the IS value is obtained (from EPMA, oxide-sum
+    # normalisation, stoichiometry). Solution: "ROLE(S) ASSIGNED to the internal standard(s) in
+    # data reduction: drift correction only, matrix normalization, or a combination" — what the IS
+    # corrects for. Two different fields under one name, so no Column E value is right for both and
+    # the distinctness ratio that drove the other eight decisions could not see it. Needs a Rule 1
+    # adjudication (rename one, or split), not a type.
+    'Internal Standard Approach': ("OPEN", 8),
 
     # LINEAGE / LA-Solution — the 6 LA tables type these as free text or Boolean, the 3 Solution
     # tables as controlled lists. Nine fields splitting the same way is one authorship boundary,
@@ -460,19 +477,11 @@ COLE_DIVERGENCE_TRIAGED = {
     'Mass Resolution Setting': ("LINEAGE", 9),
     'Per-Analyte Calibration Strategy': ("LINEAGE", 9),
     'Signal Integration Interval Method': ("LINEAGE", 9),
-    'Internal Standard Approach': ("LINEAGE", 8),
-    'Mass Bias Correction Strategy': ("LINEAGE", 7),
-    'Pulse/Analog Detector Nonlinearity Correction': ("LINEAGE", 6),
-
+            
     # LINEAGE / EPMA-SEM — EPMA names the unit, SEM defers it to the user. Both forms are valid
     # vocabulary, so this is lower stakes than the ICP-MS cluster, but downstream one pins
     # `schema:unitText` to a const and the other does not, which is the same defect shape.
-    'Dwell Time per Pixel': ("LINEAGE", 5),
-    'Beam Diameter': ("LINEAGE", 3),
-    'Beam Raster Dimensions': ("LINEAGE", 3),
-    'Map Area': ("LINEAGE", 3),
-    'Step Size / Pixel Size': ("LINEAGE", 3),
-}
+                    }
 
 # Rule 7.8.10 companion — type divergence across field-name VARIANTS.
 #
