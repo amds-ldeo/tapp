@@ -390,6 +390,15 @@ COLB_DEFINER_STEM_EXEMPT = {
 # History
 #   2026-08-24  Check implemented. 18 divergences frozen: LINEAGE 14 (LA/Solution 9,
 #               EPMA/SEM 5), OPEN 4. Prompted by amds-ldeo/tapp#1.
+#   2026-08-26  `Sample Preparation Method` -> `Controlled list / Text` and REMOVED. Its 123
+#               attested cells cluster at 0.50 distinctness, so a list was always the right
+#               shape; what blocked it was the assumption that 15 TAPPs spanning every technique
+#               needed ONE shared vocabulary. They do not — Column F is consumer-owned, so each
+#               family carries its own list: electron-beam (polished sections, mounts,
+#               conductive tape), laser ablation (adds fused beads and capsule sections),
+#               solution (powders, separates, waters, leachates) and TEM (FIB lift-out,
+#               ultramicrotomy), the last already in use and well attested at 17 of 21 cells.
+#               Register 2 -> 1.
 #   2026-08-26  `Isobaric Interference Corrections Applied` -> `Controlled list / Text` and
 #               REMOVED. The decision was taken during the amds-ldeo/tapp#1 evidence pass — 44
 #               attested cells read "Yes — correction for doubly charged ions: ...", a Yes/No
@@ -424,7 +433,6 @@ COLE_DIVERGENCE_TRIAGED = {
     # 14 TAPPs say `Text (free)`, TEM alone says `Controlled list`. Plausibly a real closed list
     # in TEM (FIB lift-out, ultramicrotomy, crushing, ion milling) rather than drift — which is
     # the question, and it has not been asked.
-    'Sample Preparation Method': ("OPEN", 15),
     # Two TAPPs, two variants: an unadjudicated coin flip, not a majority to defer to.
     
     # NOT a typing divergence — a NAME COLLISION, found 2026-08-26 when retyping it to
