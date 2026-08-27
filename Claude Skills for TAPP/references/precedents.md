@@ -1768,3 +1768,52 @@ value without re-deriving the other six.
 **Not settled by this entry:** `EELS Sensitivity and Detection Limit` (TEM) keeps `Text (free)`. It
 bundles a specification (ZLP energy resolution) with a result (detection limit), so no single type
 fits it; splitting the field is the cleaner fix and remains open — see `KEY_NAME_VARIANT_EXEMPT`.
+
+---
+
+## `Internal Standard Approach` retired from the solution lineage (2026-08-26)
+
+**Decision.** Retired from Solution Q-ICP-MS and Solution SF-ICP-MS; kept in the six LA TAPPs with
+the in-situ meaning, and moved into `Module_LaserAblation` (18 → 19 fields), whose consumer set it
+now matches exactly. This cleared the last entry in `COLE_DIVERGENCE_TRIAGED`.
+
+**It was never a typing problem, which is how it was first diagnosed.** The field appeared as a
+Column E divergence — `Text (free)` in the 6 LA tables, `Controlled list` in Solution Q/SF — and was
+retyped to `Controlled list / Text` on a 0.66 distinctness ratio. That retype tripped the Column F
+check, which forced a reading of what the two lineages actually meant:
+
+> LA — *"Method used to determine the internal standard (IS) **concentration** for each unknown
+> sample"* → `Single element from EPMA (SiO₂ wt% used as IS)`, `Sum-of-major-oxide normalization`
+>
+> Solution — *"**Role(s) assigned** to the internal standard(s) in data reduction"* →
+> `Drift correction only | Matrix normalization | Drift + matrix normalization`
+
+**The question is only meaningful in situ.** When the internal standard is native to the sample, how
+its concentration was obtained is a real design choice with several defensible answers. When it is
+added to a solution, the concentration is known by construction and the answer is always the same —
+and its value is already in `Internal Standard Concentration`. So the field was copied into a
+lineage where it had no discriminating answer, and rather than being dropped it was **repurposed**
+to ask something else.
+
+**What it was repurposed to ask, three other fields already answered.** All 11 attested Solution
+cells were checked individually before removal:
+
+| Solution cell | already recorded in |
+|---|---|
+| `Drift correction (Rh as IS)` ×3 | `Drift Correction Method` = *"IS normalization (Rh)"* |
+| `ID internal standard (149Sm for drift + concentration)` | `Isotope Dilution Data Reduction Method` + `Internal Standard Element` |
+| `Mass fractionation correction (Tl for Pb mass bias)` | `Drift Correction Method` = *"Tl mass bias correction…"* |
+| `N/A (no IS; matrix-matched external calibration)` | `Drift Correction Method` = *"Standard bracketing…"* |
+
+**Generalise: a field that must be repurposed to stay useful in a second lineage probably does not
+belong there.** The tell is not that the descriptions differ — plenty of legitimate fields differ by
+technique — but that the *question* has only one possible answer on one side. Check that before
+reconciling the wording.
+
+**A methodological caution recorded with it.** A token-overlap test of the 11 cells against the
+other fields reported 8 as carrying unique content. They did not: the "unique" tokens were
+*drift*, *correction*, *concentration* — role words supplied by the destination field's NAME, which
+a cell-content comparison cannot see. The redundancy was only visible by reading. This is the fifth
+occasion in one working session on which a lexical shortcut misread what reading settled, against
+three occasions on which an automated invariant check caught what reading missed. Both are
+necessary; neither substitutes for the other.

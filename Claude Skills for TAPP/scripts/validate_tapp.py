@@ -390,6 +390,14 @@ COLB_DEFINER_STEM_EXEMPT = {
 # History
 #   2026-08-24  Check implemented. 18 divergences frozen: LINEAGE 14 (LA/Solution 9,
 #               EPMA/SEM 5), OPEN 4. Prompted by amds-ldeo/tapp#1.
+#   2026-08-26  `Internal Standard Approach` REMOVED — the register is now EMPTY. It was never a
+#               typing problem: the field asks how the internal standard CONCENTRATION is obtained
+#               when the IS is native to the sample rather than added, which is a property of
+#               in-situ sampling. Copied into the solution lineage where that question has no
+#               discriminating answer, it had been repurposed to record the IS's ROLE instead.
+#               All 11 attested Solution cells were verified redundant with three other fields,
+#               so it was retired from Solution Q/SF and moved into Module_LaserAblation, whose
+#               6 consumers it now matches exactly. Register 1 -> 0.
 #   2026-08-26  `Sample Preparation Method` -> `Controlled list / Text` and REMOVED. Its 123
 #               attested cells cluster at 0.50 distinctness, so a list was always the right
 #               shape; what blocked it was the assumption that 15 TAPPs spanning every technique
@@ -435,16 +443,6 @@ COLE_DIVERGENCE_TRIAGED = {
     # the question, and it has not been asked.
     # Two TAPPs, two variants: an unadjudicated coin flip, not a majority to defer to.
     
-    # NOT a typing divergence — a NAME COLLISION, found 2026-08-26 when retyping it to
-    # `Controlled list / Text` tripped the Column F check and forced a look at what the two
-    # lineages actually mean. LA: "Method used to determine the internal standard (IS)
-    # CONCENTRATION for each unknown sample" — how the IS value is obtained (from EPMA, oxide-sum
-    # normalisation, stoichiometry). Solution: "ROLE(S) ASSIGNED to the internal standard(s) in
-    # data reduction: drift correction only, matrix normalization, or a combination" — what the IS
-    # corrects for. Two different fields under one name, so no Column E value is right for both and
-    # the distinctness ratio that drove the other eight decisions could not see it. Needs a Rule 1
-    # adjudication (rename one, or split), not a type.
-    'Internal Standard Approach': ("OPEN", 8),
 
     # LINEAGE / LA-Solution — the 6 LA tables type these as free text or Boolean, the 3 Solution
     # tables as controlled lists. Nine fields splitting the same way is one authorship boundary,
