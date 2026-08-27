@@ -163,7 +163,7 @@
       ]
     },
     {
-      "tapp": "SEM/SEM_FIBSEM_TAPP_v18.csv",
+      "tapp": "SEM/SEM_FIBSEM_TAPP_v19.csv",
       "modules": [
         {
           "name": "Core",
@@ -189,7 +189,7 @@
       ]
     },
     {
-      "tapp": "SEM/SEM_TAPP_v29.csv",
+      "tapp": "SEM/SEM_TAPP_v30.csv",
       "modules": [
         {
           "name": "Core",
@@ -346,7 +346,7 @@
       ]
     },
     {
-      "tapp": "XCT/Lab-XCT_TAPP_v23.csv",
+      "tapp": "XCT/Lab-XCT_TAPP_v24.csv",
       "modules": [
         {
           "name": "Core",
