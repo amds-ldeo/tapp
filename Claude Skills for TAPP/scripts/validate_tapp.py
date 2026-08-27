@@ -483,16 +483,6 @@ COLE_NAME_VARIANT_TRIAGED = {
         "intensity beneath a spectral peak (WDS off-peak interpolation, MAN background model); "
         "the ICP-MS field subtracts instrument background and procedural blank from a mass "
         "spectrum. Similar names, unrelated physics. No action; the similarity is coincidental.",
-    ("Detector Type", "BSE Detector Type"):
-        "DIFFERENT FIELDS — adjudicated 2026-08-26. Lab-XCT's records an X-ray detector "
-        "(flat-panel, CCD/CMOS + scintillator); SEM's records a backscattered-electron detector. "
-        "BACKLOG, not a collision: Lab-XCT's name is under-qualified relative to its SEM "
-        "counterparts and should probably become `X-ray Detector Type`, which would dissolve "
-        "this pair and the SE one below without changing any field's meaning.",
-    ("Detector Type", "SE Detector Type"):
-        "DIFFERENT FIELDS — adjudicated 2026-08-26. As `BSE Detector Type` above: an X-ray "
-        "detector against a secondary-electron detector. Same backlog item — renaming Lab-XCT's "
-        "to `X-ray Detector Type` clears both.",
 }
 
 

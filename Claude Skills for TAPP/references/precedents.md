@@ -391,23 +391,14 @@ Rule 4 step 4 requires that intentional or unresolved divergence be recorded her
 silently left in place. These two surfaced on 2026-08-08 during the Rule 1 naming harmonisation and
 are deliberately left open.
 
-**`Analysis Sequence` — three-way split across 10 TAPPs.**
-
-| Tiers | TAPPs |
-|---|---|
-| C=Basic, D=Editable | 5 |
-| C=Basic, D=Read-Only | 3 (the Solution ICP-MS TAPPs, formerly `Sample Sequence Design`) |
-| C=Advanced, D=Editable | 2 (the geochronology TAPPs) |
-
-The substantive question is D, not C: is the run order something the analyst may adjust within the
-procedure's bracketing strategy (Editable), or does changing it constitute a different procedure
-(Read-Only)? A defensible case exists either way — a bracketing interval is a procedure design
-commitment, but the exact interleaving of a given session's samples is not. The C=Advanced pair is
-almost certainly drift, consistent with Test 4's finding that 81% of that TAPP's tier differences
-were drift rather than design.
+**`Analysis Sequence` — RESOLVED 2026-08-27 to C=Basic, D=Editable across all 9 TAPPs.**
+See the entry at the end of this file. The three-way split recorded here on 2026-08-08 (C=Basic /
+D=Editable in 5, C=Basic / D=Read-Only in the 3 Solution tables, C=Advanced / D=Editable in the 2
+geochronology tables) had already lost its C dimension to later harmonisation; the D split was
+settled by the shared Column B.
 
 Absent from 7 TAPPs (EPMA, SEM x4, TEM, Lab-XCT), where the sequence of standards and unknowns is
-less formalised. Whether those need the field is a separate question.
+less formalised. Whether those need the field is a separate question, still open.
 
 **`Sample Persistent Identifier` — D split 14/3.**
 
@@ -1817,3 +1808,75 @@ a cell-content comparison cannot see. The redundancy was only visible by reading
 occasion in one working session on which a lexical shortcut misread what reading settled, against
 three occasions on which an automated invariant check caught what reading missed. Both are
 necessary; neither substitutes for the other.
+
+---
+
+## The reviewed segmenter had three bugs, and reading found all three (2026-08-27)
+
+**Context.** The sentence segmenter written for the Description/Purpose split had been reviewed and
+used on two passes — 358 module-owned sentences and 218 ICP-MS-slice sentences — before it was
+pointed at the 212 non-ICP-MS TAPP-owned texts. It carried three defects into all of that work.
+
+| Bug | Effect |
+|---|---|
+| A possessive apostrophe (`the procedure's target`) was treated as an opening quote | Quote state never closed, suppressing **every** subsequent sentence break in the cell |
+| A sentence beginning with a digit was not recognised | `…in micrometers. 0 indicates…`, `…file size. 1×1 indicates no binning.` stayed fused |
+| A sentence beginning with a quoted term was not recognised | `Instrument Variant` S1 stayed a four-sentence run-on |
+
+**How they were found, and how they were not.** An automated anomaly sweep over the same corpus —
+very short segments, segments starting lowercase, missing terminal punctuation, unbalanced
+parentheses — returned **one** flag, and that one was a correctly segmented short instruction. All
+three real bugs were found by reading the segmenter's output. The apostrophe bug is the instructive
+one: its symptom is a segment that is *too long*, and every cheap structural check for a bad segment
+looks for something malformed. A run-on of four grammatical sentences is not malformed.
+
+**Then automation established the blast radius, which reading could not.** Re-segmenting all 1750
+Description cells and the 138 module rows under the fixed segmenter showed the module corpus changes
+in exactly two cells, and that in both the newly separated sentences route to Description anyway —
+so no applied work was corrupted. Reading 1888 cells to establish that would not have been done.
+
+**Generalise: the two methods fail in opposite directions, and that is why the split of labour is
+stable.** Reading finds defects whose signature is semantic (a segment that is well-formed but
+wrong). Automated invariants find the scope of a defect once its shape is known, and catch the
+mechanical slips reading skims past. This is the sixth lexical-shortcut failure recorded against the
+fourth automated-check save; the ratio keeps favouring reading for *discovery* and automation for
+*extent*. Neither ordering works alone: reading first, then measure.
+
+**Operational consequence.** The segmenter now lives at `Project Files/Scripts/tapp_segment.py`.
+Both apply scripts that used it (`apply_step1_purpose_20260825.py`,
+`apply_step1_icpms_slice_20260825.py`) import it from a `/private/tmp/claude-501/...` scratchpad
+path belonging to a session that has ended. Those scripts are already applied and are kept as
+records, but they are **not re-runnable as written** — anything new must import the repo copy.
+
+---
+
+## `Analysis Sequence` D-tier divergence resolved by its own description (2026-08-27)
+
+**Decision.** `D=Read-Only` → **`D=Editable`** in Solution MC-, Q- and SF-ICP-MS, making all nine
+ICP-MS TAPPs `C=Basic, D=Editable`. This closed the older of the two divergences that the
+"Known unresolved tier divergences" section above had deliberately left open since 2026-08-08.
+
+**What changed was not the argument but the evidence.** In 2026-08-08 the three Solution tables
+still carried wording inherited from `Sample Sequence Design`, and with three lineages describing
+the field differently the tier split could be read as tracking a real difference in meaning. The
+2026-08-26 merge of the 26 ICP-MS descriptions made Column B **identical across all nine**, and the
+shared text ends:
+
+> *"Adjustments must maintain the bracketing strategy defined in the procedure."*
+
+A sentence that constrains **how** the analyst may adjust presupposes that the analyst may adjust.
+That is what `D=Editable` means. So the harmonised description contradicts `D=Read-Only`, and the
+question — *is the run order analyst-adjustable, or does changing it make a different procedure?* —
+is answered by the field's own text rather than by majority vote among the tables.
+
+**Generalise: harmonising a description can settle a tier divergence that was left open for want of
+evidence.** The 2026-08-08 entry was right to leave it open — at that time the descriptions differed
+and neither answer was better supported. Re-open the register's open items after any pass that
+merges wording; a divergence recorded as unresolved may have become decidable without anyone
+revisiting it. Worth doing for `Sample Persistent Identifier`, the other entry in that section,
+which is a policy question and probably will **not** be settled this way.
+
+**Consequence.** `Analysis Sequence` was the only one of the 26 ICP-MS-specific fields left out of
+`Module_ICPMS`, and this divergence was the reason. Moving it in is now unblocked — not done here,
+because it is a module change (`Module_ICPMS` 38 → 39 fields) touching all nine consumers, not a
+tier fix.

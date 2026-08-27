@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-26",
+  "generated": "2026-08-27",
   "note": "TAPPs whose listed groups are composed build outputs. Per Rule 6.6 the composed rows must not be hand-edited — edit the module and recompose with scripts/compose_tapp.py. Verify with --check. In the `retired` list, `tapp` is the TAPP's HISTORICAL path — its identity while it was live — and `moved_to` gives the current location; `tapp` is deliberately not resolvable and must not be rewritten. Everywhere else (`composed[].tapp`, `derived_from`) paths are current and resolvable.",
   "composed": [
     {
@@ -218,7 +218,7 @@
       ]
     },
     {
-      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v42.csv",
+      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v43.csv",
       "modules": [
         {
           "name": "Core",
@@ -255,7 +255,7 @@
       ]
     },
     {
-      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v47.csv",
+      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v48.csv",
       "modules": [
         {
           "name": "Core",
@@ -288,7 +288,7 @@
       ]
     },
     {
-      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v45.csv",
+      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v46.csv",
       "modules": [
         {
           "name": "Core",
@@ -321,7 +321,7 @@
       ]
     },
     {
-      "tapp": "TEM/TEM_TAPP_v27.csv",
+      "tapp": "TEM/TEM_TAPP_v28.csv",
       "modules": [
         {
           "name": "Core",
@@ -346,7 +346,7 @@
       ]
     },
     {
-      "tapp": "XCT/Lab-XCT_TAPP_v24.csv",
+      "tapp": "XCT/Lab-XCT_TAPP_v25.csv",
       "modules": [
         {
           "name": "Core",
