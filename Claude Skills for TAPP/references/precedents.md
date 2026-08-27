@@ -1892,3 +1892,59 @@ nine hand-maintained copies of 13 fields into one owned definition without chang
 
 With this, all **39** ICP-MS-specific fields identified at extraction are module-owned, and the
 26-field merge that began on 2026-08-26 is complete.
+
+---
+
+## `Module_CompositionQC` — the 12-TAPP quantitative-composition layer (2026-08-27)
+
+**Decision.** Five fields extracted into a new Layer 2 module consumed by the 12 TAPPs that report a
+calibrated quantitative composition: `Detection Limit`, `Detection Limit Method`,
+`Counting Statistics Error`, `Secondary Reference Materials`, and
+`Normalization / Standards-Based Correction`. `Module_ICPMS` set this set aside on 2026-08-25 as
+"the quantitative-composition set ... a candidate layer of their own"; this is that layer.
+
+**The consumer set is a real boundary, not an artefact of authoring.** All five fields are present in
+exactly the same 12 TAPPs and absent from exactly the same four — SEM_Imaging, SEM_FIBSEM, TEM and
+Lab-XCT, which are the imaging and structural techniques. A module whose fields disagreed about their
+consumers would be a sign the grouping was invented; these agree to the TAPP.
+
+**Two of the seven candidates were excluded, and the reasons differ.**
+
+`Sample Preparation Method` has **15** consumers, not 12, and sits in Group 2. A different consumer
+set is a different module. It also carries an unresolved D-tier split (Editable 11 / Read-Only 4).
+
+`Primary Calibration Standard Name` is the one deferred for a reason that may change, and it is worth
+stating precisely because it looks superficially like `Secondary Reference Materials`, which was
+resolved. Its `Keyed By` splits `analyte` (5 TAPPs) against `(none)` (7). A module owns Column I, so
+shipping it means declaring one key for all 12 — and **the per-analyte axis is genuinely attested**:
+8 of EPMA's 11 extracted cells assign standards per element (*"Anorthite (SiKα, AlKα, CaKα); albite
+(NaKα); fayalite (FeKα)…"*), and the 2026-08-12 audit set LA-SF to `analyte` on Navarro et al. 2024.
+`analyte` over-declares for the seven; `(none)` destroys structure the literature attests. That is
+exactly the **G3 conditional-key policy question** recorded in `Survey_ColB_ColI_Report_2026-08-12` —
+*declare the finest key unconditionally, or add a conditional marker?* — and it should be decided as
+policy, not settled sideways by one field's extraction.
+
+**`Secondary Reference Materials` went the other way, and the literature is why.**
+`defines: standard per analyte` (EPMA, SEM, SEM_Composition) → **`defines: standard`** (all 12).
+Across all 12 TAPPs, **zero** extracted cells are per-analyte shaped: EPMA's own four are plain
+standard lists (*"USNM San Carlos olivine (Fo90); Kakanui kaersutite"*), and SEM and SEM_Composition
+have no extractions at all. Only Column F's template example was per-analyte — and a template can
+invite a column nobody fills. The structural argument agrees: the per-element assessment of a
+secondary standard lives in `Analytical Accuracy` and `Analytical Precision`, both keyed
+`standard x reported property`, so carrying it here duplicated their key.
+
+**Generalise: two fields can look like the same problem and separate cleanly on evidence.** Both were
+`Keyed By` divergences on the same lineage boundary, in adjacent rows, about the same `analyte` axis.
+One resolved on 0-of-12 attestation; the other is blocked because 8-of-11 attest it. The
+distinguishing test was not the shape of the divergence but whether the finer axis appears in
+reported data — Rule 7.12, applied per field rather than per pattern.
+
+**What modularising did that splitting could not.** The Description/Purpose split was measured and
+found *not* to make divergent descriptions converge (0.17 → 0.21 similarity, 0 of 26 fields
+converging). Extraction does: these five went from **5 distinct descriptions each to 1**, with each
+lineage's Column F preserved as an overlay. Convergence is what a module is for; the split was never
+going to deliver it, and this is the contrast worth remembering when choosing between the two.
+
+**Effect on the registers.** 53 → 47 INFO. `Secondary Reference Materials` left both
+`keyed-by-divergence-registered` and `colb-definer-stem-registered`; `colb-divergence-principled`
+24 → 22 and `colb-divergence-mixed` 11 → 9. Registers shrink by harmonising, never by reclassifying.

@@ -3,7 +3,7 @@
   "note": "TAPPs whose listed groups are composed build outputs. Per Rule 6.6 the composed rows must not be hand-edited — edit the module and recompose with scripts/compose_tapp.py. Verify with --check. In the `retired` list, `tapp` is the TAPP's HISTORICAL path — its identity while it was live — and `moved_to` gives the current location; `tapp` is deliberately not resolvable and must not be rewritten. Everywhere else (`composed[].tapp`, `derived_from`) paths are current and resolvable.",
   "composed": [
     {
-      "tapp": "EPMA/EPMA_TAPP_v33.csv",
+      "tapp": "EPMA/EPMA_TAPP_v34.csv",
       "modules": [
         {
           "name": "Core",
@@ -28,11 +28,15 @@
         {
           "name": "Analyte",
           "version": "2"
+        },
+        {
+          "name": "CompositionQC",
+          "version": "1"
         }
       ]
     },
     {
-      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v40.csv",
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v41.csv",
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
       "modules": [
         {
@@ -70,6 +74,10 @@
         {
           "name": "ICPMS",
           "version": "5"
+        },
+        {
+          "name": "CompositionQC",
+          "version": "1"
         }
       ],
       "note": "Phase 0 completed 2026-08-08 against seed paper Zhang et al. 2022 (At. Spectrosc. 43, in situ Rb-Sr dating of lunar meteorites by LA-MC-ICP-MS). See LA-MC-ICP-MS/PHASE0_LA-MC-ICP-MS_2026-08-08.md. Fourteen of fifteen methodological requirements in that paper are already covered by composition; the residue is one new field (peak flatness criterion) and one inherited description that is wrong for laser ablation (Baseline Measurement Approach, which offers acid-blank aspiration). v2 (2026-08-10) adds the first literature assessment column: Zhang et al. 2022 (At. Spectrosc. 43), field-name-matched from the retired LA-ICPMS_TAPP_v13. Column addition only; columns A-L byte-identical to v1 and all four modules still report --check MATCH, confirming literature assessment columns are consumer-owned under Rule 6.4.",
@@ -83,7 +91,7 @@
       ]
     },
     {
-      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v40.csv",
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v41.csv",
       "derived_from": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v1.csv",
       "modules": [
         {
@@ -129,12 +137,16 @@
         {
           "name": "ICPMS",
           "version": "5"
+        },
+        {
+          "name": "CompositionQC",
+          "version": "1"
         }
       ],
       "note": "Derived from LA-MC-ICPMS_TAPP_v1.csv, i.e. before the Zhang et al. 2022 literature assessment column was added at v2. Recompose from v2 to inherit it."
     },
     {
-      "tapp": "SEM/SEM_Composition_TAPP_v31.csv",
+      "tapp": "SEM/SEM_Composition_TAPP_v32.csv",
       "modules": [
         {
           "name": "Core",
@@ -159,6 +171,10 @@
         {
           "name": "Analyte",
           "version": "2"
+        },
+        {
+          "name": "CompositionQC",
+          "version": "1"
         }
       ]
     },
@@ -189,7 +205,7 @@
       ]
     },
     {
-      "tapp": "SEM/SEM_TAPP_v32.csv",
+      "tapp": "SEM/SEM_TAPP_v33.csv",
       "modules": [
         {
           "name": "Core",
@@ -214,11 +230,15 @@
         {
           "name": "Analyte",
           "version": "2"
+        },
+        {
+          "name": "CompositionQC",
+          "version": "1"
         }
       ]
     },
     {
-      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v44.csv",
+      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v45.csv",
       "modules": [
         {
           "name": "Core",
@@ -251,11 +271,15 @@
         {
           "name": "ICPMS",
           "version": "5"
+        },
+        {
+          "name": "CompositionQC",
+          "version": "1"
         }
       ]
     },
     {
-      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v49.csv",
+      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v50.csv",
       "modules": [
         {
           "name": "Core",
@@ -284,11 +308,15 @@
         {
           "name": "ICPMS",
           "version": "5"
+        },
+        {
+          "name": "CompositionQC",
+          "version": "1"
         }
       ]
     },
     {
-      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v47.csv",
+      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v48.csv",
       "modules": [
         {
           "name": "Core",
@@ -317,6 +345,10 @@
         {
           "name": "ICPMS",
           "version": "5"
+        },
+        {
+          "name": "CompositionQC",
+          "version": "1"
         }
       ]
     },
@@ -363,7 +395,7 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v43.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v44.csv",
       "modules": [
         {
           "name": "Core",
@@ -396,6 +428,10 @@
         {
           "name": "ICPMS",
           "version": "5"
+        },
+        {
+          "name": "CompositionQC",
+          "version": "1"
         }
       ],
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
@@ -406,7 +442,7 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v43.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v44.csv",
       "derived_from": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v8.csv",
       "modules": [
         {
@@ -448,12 +484,16 @@
         {
           "name": "ICPMS",
           "version": "5"
+        },
+        {
+          "name": "CompositionQC",
+          "version": "1"
         }
       ],
       "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record."
     },
     {
-      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v42.csv",
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v43.csv",
       "modules": [
         {
           "name": "Core",
@@ -486,6 +526,10 @@
         {
           "name": "ICPMS",
           "version": "5"
+        },
+        {
+          "name": "CompositionQC",
+          "version": "1"
         }
       ],
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
@@ -496,7 +540,7 @@
       ]
     },
     {
-      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v43.csv",
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v44.csv",
       "derived_from": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v8.csv",
       "modules": [
         {
@@ -538,6 +582,10 @@
         {
           "name": "ICPMS",
           "version": "5"
+        },
+        {
+          "name": "CompositionQC",
+          "version": "1"
         }
       ],
       "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record."
