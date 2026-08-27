@@ -1,7 +1,9 @@
 # Step 1 (routing only) for the non-ICP-MS TAPP-owned descriptions — 2026-08-27
 
-**Deliverable:** `Step1_Routing_NONICPMS_2026-08-27.csv` — 556 rows, one per sentence, for review
-**before** anything is applied. No TAPP Description or Purpose cell has been changed by this pass.
+**Routing:** `Step1_Routing_NONICPMS_2026-08-27.csv` — 556 rows, one per sentence.
+
+**APPLIED 2026-08-27**, after review, by `Project Files/Scripts/apply_step1_nonicpms_20260827.py`.
+All 7 non-ICP-MS TAPPs bumped. See "As applied" at the end.
 
 ## Scope
 
@@ -97,3 +99,41 @@ These are recorded, not acted on. M6: nothing is deleted in Step 1.
 The nine ICP-MS TAPPs still hold **255 unsplit TAPP-owned Description cells** (83 distinct texts
 across 44 field names) beyond the 26 already done. These are the fields the planned ICP-MS-scoped
 modules would absorb, so splitting them before that decision would mean doing the work twice.
+
+---
+
+## As applied (2026-08-27)
+
+| TAPP | TAPP-owned cells | gained a Purpose |
+|---|---|---|
+| EPMA | 49 | 11 |
+| SEM | 82 | 34 |
+| SEM_Composition | 52 | 21 |
+| SEM_Imaging | 27 | 12 |
+| SEM_FIBSEM | 20 | 10 |
+| TEM | 54 | 22 |
+| Lab-XCT | 55 | 36 |
+| **total** | **339** | **146** |
+
+The other 193 cells route wholly to Description and were left byte-for-byte untouched — not
+rewritten, not restamped. Lab-XCT gains a Purpose on 36 of 55 cells, the highest share in the
+library, which is the same house style that produced its 14 tier-duplicating S1 sentences: that
+lineage wrote rationale into Column B more freely than the others.
+
+**How it was applied.** Routing was looked up by each cell's OWN segmented text rather than by field
+name plus a variant label, so a cell whose wording had drifted since review would fail to match and
+be skipped rather than split against a routing decided for different words. Nothing was skipped:
+all 339 matched. Three guards had to pass per row — routing covers every sentence, Column B keeps at
+least one sentence (M1), and Description + Purpose reproduce the original's exact multiset of words.
+None fired.
+
+**Verified after the write, against the superseded originals rather than against the script's own
+intentions:** 583 cells compared (the 339 TAPP-owned plus every module-owned cell in the same
+tables), 146 split, 437 identical, **0 violations** — no word lost or invented, no Description
+emptied, no S1 altered, and no module-owned row touched. `0 ERROR / 0 WARN / 53 INFO`; 16 MATCH,
+0 DIFFERS; module register up to date.
+
+**What Step 2 inherits.** The 101 flags stand as recorded — 25 `REWRITE-STRADDLE`, 76
+`REWRITE-REDUNDANT` — and the flagged text is now sitting in Column B, which is where W1 and W2
+expect to find it. The routing CSV remains the record of what moved and why, so any Step 2 edit is
+still traceable to a Step 1 rule.
