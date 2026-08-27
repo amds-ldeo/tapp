@@ -137,3 +137,57 @@ emptied, no S1 altered, and no module-owned row touched. `0 ERROR / 0 WARN / 53 
 `REWRITE-REDUNDANT` — and the flagged text is now sitting in Column B, which is where W1 and W2
 expect to find it. The routing CSV remains the record of what moved and why, so any Step 2 edit is
 still traceable to a Step 1 rule.
+
+---
+
+## Step 2 applied (2026-08-27)
+
+Rules W1–W5, acting only on Step 1's flags. Log with every before/after pair (W4) in
+`analysis/Step2_Applied_NonICPMS_2026-08-27.csv` — 133 rows.
+
+| Action | Count |
+|---|---|
+| `REWRITE` — clause stripped (W2 / W5.2) | 72 |
+| `SPLIT` — definition kept, rationale moved to Purpose (W1) | 26 |
+| `KEEP` — flag raised in Step 1, resolved as no change | 26 |
+| `DELETE` — sentence was wholly a restatement (W2) | 8 |
+| `DEFERRED` | 1 |
+
+93 cells changed across the 7 TAPPs; 490 cells with a Description were untouched. Verified against
+the superseded originals: **0 violations** — no Description emptied, none grew unexpectedly.
+`0 ERROR / 0 WARN / 53 INFO`; 16 MATCH; register up to date.
+
+**26 of 101 flags resolved as "no change", and that is the headline result.** A flag is a question,
+not a verdict. The ones that survived scrutiny:
+
+- **`defines:` fields** (`WDS Spectrometer Channel`, `EELS Edges`) — Column I is derived *from* those
+  descriptions, so stripping them would orphan the key. W5.1.
+- **`Dwell Time per Pixel` S2/S3 in EPMA** — revised from the queue's proposed W5.2 strip. The two
+  sentences form one WDS-vs-EDS contrast: WDS carries one value per spectrometer, EDS a single
+  value. Column I holds **one** key per field and cannot say the cardinality differs by mode.
+- **`Background Correction Method` S2/S3** — Column F lists all 11 methods flat and never says which
+  belong to WDS and which to EDS. The mapping is content Column F lacks.
+- **`EDS Spectral Processing Type`, `Output Bit Depth`, `BSE Detector Type`** — Column F *names*
+  these values; the descriptions carry their sequence, their gray-level counts and their mechanism.
+
+**Held back, deliberately:** the 10 flags on the 7 fields a 12-TAPP composition module would absorb
+(6 of the 7 carry five distinct descriptions, so extraction will re-merge Column B regardless), and
+`Dwell Time per Pixel` S3, which needs a scope decision rather than a wording edit — see the W5.3
+correction in the decision record.
+
+### Two things caught while authoring, both worth recording
+
+**A Step 1 flag withdrawal silently failed.** `BSE Detector Type` S4 was un-flagged during Step 1
+after the Column F rule was refined, but the edit was written as a `str.replace` against a reason
+string that had already changed. Python's `replace` returns the string unchanged when it does not
+match and raises nothing, so the withdrawal was reported as done and was not. Step 2 reached the
+right end state independently (KEEP), but the routing CSV records a flag that should not exist.
+**A no-op `replace` is indistinguishable from a successful one unless the result is asserted.**
+
+**One authored rewrite asserted something the source did not.** A draft of the `HAADF Collection
+Angles` split rendered *"Inner angle is most critical"* as *"the more critical of the two"* — turning
+a superlative into a comparison between inner and outer angles that the source never makes. Caught
+by the word-level diff of every recast, not by reading the sentence back, which had looked fine
+twice. The guard that flags any word appearing in the rewrite but not the original is what surfaced
+it; it fired 38 times, 37 of them benign grammar, and was worth every false positive.
+
