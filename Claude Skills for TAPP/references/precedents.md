@@ -1876,7 +1876,19 @@ merges wording; a divergence recorded as unresolved may have become decidable wi
 revisiting it. Worth doing for `Sample Persistent Identifier`, the other entry in that section,
 which is a policy question and probably will **not** be settled this way.
 
-**Consequence.** `Analysis Sequence` was the only one of the 26 ICP-MS-specific fields left out of
-`Module_ICPMS`, and this divergence was the reason. Moving it in is now unblocked — not done here,
-because it is a module change (`Module_ICPMS` 38 → 39 fields) touching all nine consumers, not a
-tier fix.
+**Consequence, executed the same day.** `Analysis Sequence` was the only one of the 26
+ICP-MS-specific fields left out of `Module_ICPMS`, and this divergence was the reason. It has now
+been moved in: `Module_ICPMS` **38 → 39 fields, manifest v4 → v5**, placed in the `session` block
+whose target group `4. Measurement Information` is where the field already sat in all nine.
+
+**The move changed no TAPP content.** All six module-owned columns (A, B, C, D, E, I) were already
+byte-identical across the nine consumers once the D-tier was resolved, so composition rewrote them
+to the values they already held. The only cell that changed in each TAPP is the Column G provenance
+stamp `Source: ICP-MS module` — one cell per TAPP, nine in total, confirmed by `--check` before the
+write. The four lineage-specific Column F example sets (LA bracketing counts; SSB and double-spike
+for Solution MC; matrix-matched bracketing for Solution SF) are untouched, because F is an overlay
+column and a consumer keeps its own. This is the same shape as `Module_ICPMS` v1, which converted
+nine hand-maintained copies of 13 fields into one owned definition without changing any content.
+
+With this, all **39** ICP-MS-specific fields identified at extraction are module-owned, and the
+26-field merge that began on 2026-08-26 is complete.
