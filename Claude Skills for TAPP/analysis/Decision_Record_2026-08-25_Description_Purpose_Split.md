@@ -30,6 +30,7 @@ versions; the benefit is that no sentence is silently reworded while being moved
 | **W2** | `REWRITE-REDUNDANT`: strip the duplicating clause. If nothing survives, delete the sentence — recording which column already carries it. |
 | **W3** | An obligation clause duplicates C/D **only** when it asserts this field's own *unconditional* requirement. Conditional obligations ("Required when X is not 'None'") and external-standard citations ("Required by Schaen et al. 2021") are real content and are never stripped — C and D express unconditional tiers only. |
 | **W4** | Every W1/W2 edit records the before text, so it is reversible. |
+| **W5** | `REWRITE-REDUNDANT(Keyed By: …)` is decided by what Column I *can* express. Column I states **which axis** a value repeats over and how axes nest (`>`), cross (`x`) or are enumerated (`defines:`). It cannot state order, alignment with another field, conditionality, or which members of an axis apply. Prose asserting only the axis is stripped; prose asserting anything Column I cannot encode is content and is kept. Four dispositions, W5.1–W5.4. |
 
 ## Evidence for W3, which is the rule that is easy to get wrong
 
@@ -47,3 +48,91 @@ was `"Required when Coupled Technique(s) is not 'None'"`, a conditional that C a
 `Sampling Unit` S2 reads *"State the unit type at procedure level and the units actually analysed at
 analysis level"*, and conventions.md justifies that field's tiers with the same sentence in
 substance. That is the clearest case of a description restating C and D.
+
+## W5 in full — the four dispositions
+
+Added 2026-08-27, before Step 2 began, because "strip the clause that duplicates `Keyed By`" is
+not safe as a single instruction. Of the 26 `Keyed By` flags raised by the non-ICP-MS Step 1 pass,
+only about 19 are the simple case.
+
+| | Disposition | When |
+|---|---|---|
+| **W5.1** | **KEEP** | The field's Column I is a `defines:` form. The field *enumerates* the key domain — Column I is derived **from** this description, not duplicated by it. Stripping orphans the definition. |
+| **W5.2** | **STRIP** | Column I already names the axis and the prose adds nothing else. Column I becomes the single source of truth. |
+| **W5.3** | **NOT A REWRITE — Column I defect** | Column I is `(none)` while the prose carries cardinality. The prose is the *only* record that the value repeats. Fix Column I; leave Column B alone. Never strip. |
+| **W5.4** | **NOT A REWRITE — adjudicate** | The prose names an axis that *disagrees* with Column I. Two columns contradict each other; that is a finding, not a wording problem. |
+
+**W5.3 and W5.4 are deliberately not Step 2 work.** They are schema corrections wearing the costume
+of a wording change, and filing them as rewrites would mislabel them. Route them out of the Step 2
+queue to their own item.
+
+### The ordering clause, which is the part most easily got wrong
+
+**Prose that states the ordering of a compound key is never stripped, even when it looks like pure
+repetition.** `conventions.md` §7.3 instructs the author to take the `x` ordering *from the field's
+own description*:
+
+> *"Choose the order from the field's own description where it states one — `Counting Statistics
+> Error` reads 'for each analyte per analysis', and is reported as one row per analysis with a
+> column per analyte, giving `sampling unit x analyte`."*
+
+`Counting Statistics Error` is one of the 26 flags. Its S1 still carries that clause, now as *"for
+each reported quantity per analysis"*. Strip it and Column I's ordering — which the convention
+states is *itself information*, not an arithmetic detail — loses the evidence that justified it, and
+the next reviewer re-deriving the key has nothing to work from. The same applies to every compound
+or definer key: **8 of the 26 flags carry `x`, `>` or `defines:`, and all 8 lean KEEP.**
+
+### Why this is not "strip every mention of the key"
+
+The instinct to remove all axis prose and restore it later, uniformly, was considered and rejected.
+It assumes the hard part is the writing; the hard part is deciding what the uniform expression
+should be, and deleting the prose that disambiguates the cases makes that decision harder, not
+easier. It would also destroy information in the W5.3 cases in the interval.
+
+Measured, not assumed — `Dwell Time per Pixel` S3 states the per-spectrometer cardinality. In SEM
+and SEM_Composition that repeats `Keyed By: channel`. In SEM_FIBSEM and SEM_Imaging **Column I is
+`(none)`**, so there the same sentence is the only record that the value repeats at all. A uniform
+strip is lossless in two tables and lossy in two others, from identical text.
+
+### A case that looks like W5 and is not
+
+`Technique per Analyte` S3 reads *"List in the same order as the Analyte field."* That has the shape
+of "report A for every B", but Column I says only that the value repeats over analyte; it says
+nothing about serialization order matching another column. Real content, routed M3 with no flag.
+**"Report A for every B" is redundant only when B is exactly the key and nothing further is
+asserted.**
+
+### Scope
+
+W5 governs Step 2, whose mandate is Step 1's flags — currently the 7 non-ICP-MS TAPPs. The modules
+and the 9 ICP-MS TAPPs carry their own already-applied Step 1 flags, and 255 ICP-MS cells are not
+routed at all. W5 is written to be reusable when those arrive, but it must be applied only where
+there is reading behind it: a fresh lexical sweep for "for each X" would reproduce the ~80%
+false-positive rate recorded for the W3 sweep. What makes the 26 tractable now is that they are
+**enumerated**, each carrying the Column I value it duplicates — not that they are findable.
+
+### The queue, and what happened when W5 was first applied mechanically
+
+`analysis/Step2_W5_Queue_KeyedBy_2026-08-27.csv` carries all 26 flags with a **proposed**
+disposition: W5.1 keep 9 · W5.2 strip 13 · W5.3 defect 1 · W5.4 adjudicate 2 · read 1. Proposed, not
+decided — the column is named `W5_disposition_PROPOSED` deliberately.
+
+**The first run of that classifier was wrong on three rows, in the direction the rule exists to
+prevent.** It bucketed the three `Detection Limit` fields as W5.4 contradictions because their text
+contains "analyte" while Column I says `reported property`. Read, they say:
+
+> *"…one per reported concentration variable (one per analyte, **these being the same set**)"*
+
+That names the key correctly and then **reconciles** it against the analyte set — an equivalence
+Column I has no way to express, and useful precisely because the library has settled elsewhere that
+analyte and reported property are not the same thing in general. Content, not contradiction. The
+matcher saw two tokens co-occur; the distinction lives in a subordinate clause.
+
+A second error came from the opposite direction: `Analytical Precision` was initially bucketed
+W5.1 and `Analytical Accuracy` W5.4, though both carry the same mismatch — only because a note had
+been written on one during Step 1 and not the other. **Provenance of a note is not evidence about
+the text.**
+
+Two errors in one small classifier over 26 rows, which is the sixth and seventh instance of a
+lexical shortcut losing to reading in this project. W5 is a rule for deciding, not a rule that can
+be executed. The queue exists to bound the reading, not to replace it.
