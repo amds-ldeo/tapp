@@ -136,3 +136,31 @@ the text.**
 Two errors in one small classifier over 26 rows, which is the sixth and seventh instance of a
 lexical shortcut losing to reading in this project. W5 is a rule for deciding, not a rule that can
 be executed. The queue exists to bound the reading, not to replace it.
+
+### Correction to W5.3, 2026-08-27 — the example that motivated it was wrong
+
+W5.3 was introduced with `Dwell Time per Pixel` as its worked case: the sentence *"For WDS mapping,
+the dwell time is per spectrometer per pixel"* restates `Keyed By: channel` in SEM and
+SEM_Composition, while SEM_FIBSEM and SEM_Imaging carry the same text with `Keyed By: (none)` — read
+as a Column I defect, the prose being the only surviving record of cardinality.
+
+**Checked against the mode flags, and it is not a defect.** SEM_FIBSEM declares only
+`TEM Sample Preparation` and `3D Tomography`; SEM_Imaging declares `SE Imaging`, `BSE Imaging`,
+`CL Point Analysis`, `CL Mapping` and `EBSD`. **Neither declares any WDS mode.** There is no
+spectrometer assignment in either sub-TAPP, so the dwell time really is scalar there and `(none)` is
+correct. The WDS sentence is inherited boilerplate describing a mode those tables do not have.
+
+That is a **scope leak**, not a cardinality question — the same class as the 70 out-of-scope
+literature columns dropped from the SEM sub-TAPPs on 2026-08-24, where the parent SEM table's
+content had been copied into children whose declared modes are narrower. It is reclassified `SCOPE`
+in the queue, and **W5.3 currently has no instance in this pass.**
+
+W5.3 is kept as a rule — a `(none)` key beside cardinality prose is still a defect worth catching —
+but it is now a rule with no worked example, which is worth saying plainly. The argument against
+bulk-removing axis prose does not depend on it: it rests on W5.1, and specifically on
+`conventions.md` §7.3 taking a compound key's ordering from the field's own description.
+
+**Method note.** The claim that survived three rounds of review here — that the clause was "the only
+record of cardinality" in two tables — was never checked against those tables' mode flags. It was
+inferred from Column I alone. Checking Column I against Column B, without also checking what the
+TAPP declares it does, produces exactly this error.
