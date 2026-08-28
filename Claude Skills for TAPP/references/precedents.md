@@ -1999,3 +1999,38 @@ Recovery was simple only because the registry repair is mechanical: any entry po
 file whose predecessor exists is rolled back one version. Worth knowing that `compose_tapp --out`
 mutates the register as a side effect, so any script that composes and then validates must be able
 to undo the register, or must validate before composing.
+
+---
+
+## G3 decided — declare the finest attested key unconditionally (2026-08-27)
+
+**Decision.** Recorded as `conventions.md` **7.3.2**. Where a field is scalar in a simple procedure
+and keyed in a complex one, Column I declares the finest key the literature attests, unconditionally.
+No conditional marker is added to the key notation.
+
+**The two errors are not symmetric, and that is the whole argument.** Under-declaring is lossy: a
+consumer generating a schema from Column I emits a scalar where the reported data is a list, and the
+structure survives only in prose it cannot read. That is exactly the defect reported in
+amds-ldeo/tapp#1. Over-declaring is verbose: a simple procedure fills a keyed table with one row,
+which is correct, just roomier. A conditional marker would be more exact than either and was
+rejected on cost — it makes every downstream consumer implement extra grammar for a handful of rows.
+
+**7.12 is unchanged and still binding.** "Finest *attested*" — 7.3.2 does not license inventing keys.
+It settles only what to do once the literature shows an axis is real but conditionally exercised.
+
+**The gap turned out to be nearly closed already.** G3 was raised on 2026-08-12 over 5 rows in
+`Integration Time per Cycle` and `Dwell Time per Mass`. Both now declare `channel` across every
+consumer — they were resolved in passing by later Column I work, and nobody recorded that the policy
+question they raised had lost its examples. **A policy question can be answered by drift before it is
+answered by decision**; the register should be re-read before a policy is drafted, not only before it
+is applied.
+
+**One live case, and it was the one that surfaced the question.**
+`Primary Calibration Standard Name` → `analyte` across all 12, changing the seven that declared
+`(none)`, and with that it joined `Module_CompositionQC` as its sixth field (v1 → v2). The axis is
+attested rather than assumed: 8 of EPMA's 11 extracted cells assign standards per element, and the
+2026-08-12 audit had already set LA-SF to `analyte` on Navarro et al. 2024. The seven `(none)`
+declarations were procedures that do not exercise the axis — the case 7.3.2 exists for.
+
+Registers: 41 → 39 INFO; the field left `keyed-by-divergence-registered` (4 → 3) and
+`colb-divergence-principled` fell 16 → 15.

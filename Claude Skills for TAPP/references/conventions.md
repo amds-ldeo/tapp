@@ -1121,6 +1121,34 @@ form over inverting `x`.
 
 ---
 
+#### 7.3.2 Conditional keys — declare the finest key unconditionally (policy, 2026-08-27)
+
+Some fields are scalar in a simple procedure and keyed in a complex one, and say so in Column B:
+`Integration Time per Cycle` reads *"Analyte-specific **when** different isotope channels use
+different integration schemes."* Column I can declare only one shape. This was raised as gap **G3**
+in `Survey_ColB_ColI_Report_2026-08-12` and left open as a policy question.
+
+**Decided 2026-08-27: declare the finest key that the literature attests, unconditionally.** No
+conditional marker is added to the notation.
+
+The reasoning is an asymmetry in how the two errors fail. Under-declaring is **lossy**: a consumer
+generating a schema from Column I emits a scalar where the reported data is a list, and the
+structure survives only in prose it cannot read. That is exactly the defect reported in
+amds-ldeo/tapp#1, where `Detection Limit` was typed as a scalar while all 42 attested cells were
+per-analyte lists. Over-declaring is merely **verbose**: a simple procedure fills a keyed table with
+one row, which is correct, just roomier than it needs to be. A conditional marker would be more
+exact than either, but it buys that exactness by making every downstream consumer implement extra
+grammar for a handful of rows.
+
+**"Finest attested" still governs, so this does not license inventing keys.** 7.12 is unchanged: the
+key is the finest axis attested in *reported data*, not the finest axis imaginable. 7.3.2 only
+settles what to do once the literature shows an axis is real but conditional — it says declare it,
+rather than declaring the coarse shape because some procedures do not exercise it.
+
+**Consequence for Column B.** Once the key is declared unconditionally, prose saying *"analyte-
+specific when …"* restates Column I and is stripped under W5.2. The condition is not lost; it is
+expressed by the fact that a simple procedure's keyed table has one row.
+
 #### 7.4 The declaration invariants
 
 **7.4a — every key in use must have its domain enumerated.** For every key K used by any field in a

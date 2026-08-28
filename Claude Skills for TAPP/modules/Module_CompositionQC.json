@@ -2,7 +2,7 @@
     "module": "CompositionQC",
     "title": "Composition quality control — detection limits, counting statistics, secondary reference materials and standards-based normalization",
     "layer": 2,
-    "version": "1",
+    "version": "2",
     "source_of_truth": "modules/Module_CompositionQC.csv",
     "owned_columns": [
         "A",
@@ -28,7 +28,8 @@
                 "Detection Limit",
                 "Detection Limit Method",
                 "Counting Statistics Error",
-                "Secondary Reference Materials"
+                "Secondary Reference Materials",
+                "Primary Calibration Standard Name"
             ]
         },
         {
@@ -61,6 +62,7 @@
         "2026-08-27: the other four descriptions were MERGED BY READING, five variants each. Lineage-specific content was relocated to consumer-owned Column F rather than dropped, following the 2026-08-26 Module_ICPMS precedent. Worksheet: analysis/Merge_CompositionQC_Descriptions_2026-08-27.csv.",
         "2026-08-27: `Secondary Reference Materials` Keyed By resolved to `defines: standard`, changing EPMA, SEM and SEM_Composition from `defines: standard per analyte`. The literature decides it: across all 12 TAPPs, ZERO extracted cells are per-analyte shaped — EPMA's own four are plain standard lists ('USNM San Carlos olivine (Fo90); Kakanui kaersutite'), and SEM and SEM_Composition have no extractions at all. Only Column F's template example was per-analyte, and a template can invite a column nobody fills (Rule 7.12 / the AGN precedent). The structural argument agrees: the per-element assessment of a secondary standard lives in `Analytical Accuracy` and `Analytical Precision`, both keyed `standard x reported property`, so carrying it here duplicated their key.",
         "2026-08-27: `Detection Limit Method` drops EPMA's sentence 'When the procedure does not specify a method, the analyst should complete this field.' It contradicted that field's own Analysis-Level Tier, which is Read-Only in all 12 — a tension flagged during the Step 1 routing and resolved here rather than propagated into a module.",
-        "2026-08-27: `Primary Calibration Standard Name` DEFERRED, and it is the one field of the seven left out for a reason that may change. Its Keyed By splits `analyte` (EPMA, SEM, SEM_Composition, LA-SF, LA-SF U-Pb) against `(none)` (7 others), and unlike Secondary Reference Materials the per-analyte axis is genuinely attested — 8 of EPMA's 11 extracted cells assign standards per element. A module owns Column I, so shipping it means declaring one key for all 12: `analyte` over-declares for the seven, `(none)` destroys structure the literature attests. That is the G3 conditional-key policy question recorded in Survey_ColB_ColI_Report_2026-08-12 — 'declare the finest key unconditionally, or add a conditional marker?' — and it should be decided as policy, not settled sideways by one field's extraction."
+        "2026-08-27: `Primary Calibration Standard Name` DEFERRED, and it is the one field of the seven left out for a reason that may change. Its Keyed By splits `analyte` (EPMA, SEM, SEM_Composition, LA-SF, LA-SF U-Pb) against `(none)` (7 others), and unlike Secondary Reference Materials the per-analyte axis is genuinely attested — 8 of EPMA's 11 extracted cells assign standards per element. A module owns Column I, so shipping it means declaring one key for all 12: `analyte` over-declares for the seven, `(none)` destroys structure the literature attests. That is the G3 conditional-key policy question recorded in Survey_ColB_ColI_Report_2026-08-12 — 'declare the finest key unconditionally, or add a conditional marker?' — and it should be decided as policy, not settled sideways by one field's extraction.",
+        "2026-08-27: extended to 6 fields — `Primary Calibration Standard Name` added, unblocked by the G3 policy decision recorded as conventions.md 7.3.2 (declare the finest ATTESTED key unconditionally). Its Keyed By becomes `analyte` across all 12, changing the seven that declared `(none)`. The axis is attested, not invented: 8 of EPMA's 11 extracted cells assign standards per element, and the 2026-08-12 audit set LA-SF to `analyte` on Navarro et al. 2024. The seven `(none)` declarations were procedures that do not exercise the axis, which is the case 7.3.2 settles — a simple procedure now fills a keyed table with one row, which is correct. Five descriptions merged by reading; C, D and E were already uniform."
     ]
 }
