@@ -2034,3 +2034,41 @@ declarations were procedures that do not exercise the axis — the case 7.3.2 ex
 
 Registers: 41 → 39 INFO; the field left `keyed-by-divergence-registered` (4 → 3) and
 `colb-divergence-principled` fell 16 → 15.
+
+---
+
+## Overlay defaults never reached consumers, and 18 cells were sitting undelivered (2026-08-27)
+
+**Defect.** The 2026-08-25 decision declared Column J `Purpose` an **overlay** column: *"the module
+supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same
+relationship Column F already has."* That was never implemented. `compose_overlay` writes only
+**owned** columns for a field already present in the consumer, so a module's overlay value reached a
+consumer only when the field was newly inserted. For every field a consumer already had — which is
+every field, whenever a module is extracted from existing TAPPs — the default was silently dropped.
+
+**It was not hypothetical.** Measured across the library: **18 cells** of Purpose text authored in
+`Module_ICPMS` (`Guard Electrode`, `Interface Cone Configuration`, `ICP-MS Type`) had never reached
+the six LA consumers, which showed empty where the module had content. The three Solution consumers
+had the text only because the 2026-08-25 ICP-MS slice pass wrote it into the TAPPs directly.
+
+**Fix.** Overlay columns are now filled **only where the consumer's cell is empty**. A consumer's own
+value is never overwritten, which is what "inherits, and owns thereafter" requires. Blast radius was
+exactly those 18 cells, all Column J, all previously blank.
+
+**How it stayed hidden for two days.** It was worked around three times before it was diagnosed —
+once for `Module_ArAr` (recorded at the time, but read as a quirk of a module with no consumers),
+once for `Module_CollisionCell`, once for `Primary Calibration Standard Name` — each time by leaving
+rationale in Column B and deferring the split. **Three workarounds for one cause is the signal; the
+first two were each cheap enough to take.**
+
+### And a register-clobbering bug in the bump scripts, same session, same shape
+
+`compose_tapp.record_composition` rewrites `composed_tapps.json` during composition, including each
+module's recorded version. The bump helper loaded the register **before** its compose loop and wrote
+that copy back afterwards, discarding those updates — which is how `CompositionQC` came to record v2
+against a v3 manifest and raise `module-version-drift`. Fixed by reloading the register after the
+loop and applying only what the script owns.
+
+Twice in one session a script and `compose_tapp` both wrote `composed_tapps.json` and the script
+won. **`compose_tapp --out` mutates the register as a side effect; any wrapper must either reload
+after it or not write the register at all.**

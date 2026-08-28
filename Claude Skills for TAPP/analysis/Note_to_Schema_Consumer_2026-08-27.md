@@ -1,6 +1,10 @@
-# Follow-up note for amds-ldeo/tapp issues #1 and #3 — DRAFT, NOT SENT
+# Follow-up note for amds-ldeo/tapp issues 1 and 3 — SUPERSEDED, NOT NEEDED
 
-**Status: unsent.** This is a draft for the maintainer to post (or not). It supersedes the
+**Status: never sent, and no longer needed.** The maintainer confirmed on 2026-08-27 that both
+issues had already been replied to and closed. Kept only for the measured count below, which is
+still accurate and is the reusable part; do not post this.
+
+**Original status when drafted:** unsent. This is a draft for the maintainer to post (or not). It supersedes the
 `issue1_reply.md` / `issue3_reply.md` drafts in the 2026-08-25 scratchpad, which are stale: they
 quote *34 attested Detection Limit cells* where `precedents.md` now records 42, and they were
 written before the Column E uniformity pass moved six more cells.

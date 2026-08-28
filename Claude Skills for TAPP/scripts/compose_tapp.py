@@ -392,6 +392,19 @@ def compose_overlay(source_rows, manifest, module_rows):
                     if before != val:
                         overrides.append((name, "ABCDEFGHIJ"[i], before, val))
                     row[i] = val
+                # Overlay columns are DEFAULTS: the module supplies one, the consumer
+                # inherits it on composition and owns it thereafter (decision of
+                # 2026-08-25, recorded in Module_ICPMS). Fill only where the consumer
+                # has nothing, so a consumer's own value is never clobbered. Without
+                # this the default never arrived for a field the consumer already had,
+                # which left 18 cells of Module_ICPMS Purpose text undelivered.
+                for i in overlay_cols:
+                    if i in owned_for(name, owned, manifest):
+                        continue
+                    val = mrow[i] if i < len(mrow) else ""
+                    if val and not (row[i] if i < len(row) else "").strip():
+                        overrides.append((name, "ABCDEFGHIJ"[i], "", val))
+                        row[i] = val
                 overlaid.append(name)
                 continue
 
