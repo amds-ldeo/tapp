@@ -36,7 +36,7 @@
       ]
     },
     {
-      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v41.csv",
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v43.csv",
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
       "modules": [
         {
@@ -45,7 +45,7 @@
         },
         {
           "name": "LaserAblation",
-          "version": "6"
+          "version": "7"
         },
         {
           "name": "MCICPMS",
@@ -78,6 +78,10 @@
         {
           "name": "CompositionQC",
           "version": "1"
+        },
+        {
+          "name": "CollisionCell",
+          "version": "1"
         }
       ],
       "note": "Phase 0 completed 2026-08-08 against seed paper Zhang et al. 2022 (At. Spectrosc. 43, in situ Rb-Sr dating of lunar meteorites by LA-MC-ICP-MS). See LA-MC-ICP-MS/PHASE0_LA-MC-ICP-MS_2026-08-08.md. Fourteen of fifteen methodological requirements in that paper are already covered by composition; the residue is one new field (peak flatness criterion) and one inherited description that is wrong for laser ablation (Baseline Measurement Approach, which offers acid-blank aspiration). v2 (2026-08-10) adds the first literature assessment column: Zhang et al. 2022 (At. Spectrosc. 43), field-name-matched from the retired LA-ICPMS_TAPP_v13. Column addition only; columns A-L byte-identical to v1 and all four modules still report --check MATCH, confirming literature assessment columns are consumer-owned under Rule 6.4.",
@@ -91,7 +95,7 @@
       ]
     },
     {
-      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v41.csv",
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v43.csv",
       "derived_from": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v1.csv",
       "modules": [
         {
@@ -100,7 +104,7 @@
         },
         {
           "name": "LaserAblation",
-          "version": "6"
+          "version": "7"
         },
         {
           "name": "MCICPMS",
@@ -140,6 +144,10 @@
         },
         {
           "name": "CompositionQC",
+          "version": "1"
+        },
+        {
+          "name": "CollisionCell",
           "version": "1"
         }
       ],
@@ -238,7 +246,7 @@
       ]
     },
     {
-      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v45.csv",
+      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v46.csv",
       "modules": [
         {
           "name": "Core",
@@ -275,11 +283,15 @@
         {
           "name": "CompositionQC",
           "version": "1"
+        },
+        {
+          "name": "CollisionCell",
+          "version": "1"
         }
       ]
     },
     {
-      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v50.csv",
+      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v51.csv",
       "modules": [
         {
           "name": "Core",
@@ -311,6 +323,10 @@
         },
         {
           "name": "CompositionQC",
+          "version": "1"
+        },
+        {
+          "name": "CollisionCell",
           "version": "1"
         }
       ]
@@ -395,7 +411,7 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v44.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v46.csv",
       "modules": [
         {
           "name": "Core",
@@ -403,7 +419,7 @@
         },
         {
           "name": "LaserAblation",
-          "version": "6"
+          "version": "7"
         },
         {
           "name": "TargetSelection",
@@ -432,6 +448,10 @@
         {
           "name": "CompositionQC",
           "version": "1"
+        },
+        {
+          "name": "CollisionCell",
+          "version": "1"
         }
       ],
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
@@ -442,7 +462,7 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v44.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v46.csv",
       "derived_from": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v8.csv",
       "modules": [
         {
@@ -451,7 +471,7 @@
         },
         {
           "name": "LaserAblation",
-          "version": "6"
+          "version": "7"
         },
         {
           "name": "TargetSelection",
@@ -488,12 +508,16 @@
         {
           "name": "CompositionQC",
           "version": "1"
+        },
+        {
+          "name": "CollisionCell",
+          "version": "1"
         }
       ],
       "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record."
     },
     {
-      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v43.csv",
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v44.csv",
       "modules": [
         {
           "name": "Core",
@@ -501,7 +525,7 @@
         },
         {
           "name": "LaserAblation",
-          "version": "6"
+          "version": "7"
         },
         {
           "name": "TargetSelection",
@@ -540,7 +564,7 @@
       ]
     },
     {
-      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v44.csv",
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v45.csv",
       "derived_from": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v8.csv",
       "modules": [
         {
@@ -549,7 +573,7 @@
         },
         {
           "name": "LaserAblation",
-          "version": "6"
+          "version": "7"
         },
         {
           "name": "TargetSelection",

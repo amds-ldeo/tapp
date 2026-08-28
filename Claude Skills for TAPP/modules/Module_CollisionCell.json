@@ -1,0 +1,60 @@
+{
+    "module": "CollisionCell",
+    "title": "Collision/reaction cell — configuration, cell gases and kinetic energy discrimination",
+    "layer": 2,
+    "version": "1",
+    "source_of_truth": "modules/Module_CollisionCell.csv",
+    "owned_columns": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "I"
+    ],
+    "overlay_columns": [
+        "F",
+        "J"
+    ],
+    "mode_flag_default": "Y",
+    "source_comment": "Source: collision/reaction cell module",
+    "conditional": false,
+    "blocks": [
+        {
+            "name": "hardware",
+            "target_group": "3. Instrument & Software",
+            "placement": "append_to_group",
+            "fields": [
+                "Collision/Reaction Cell (CRC) Configuration"
+            ]
+        },
+        {
+            "name": "acquisition",
+            "target_group": "4. Measurement Information",
+            "placement": "append_to_group",
+            "fields": [
+                "Collision Gas Type",
+                "Collision Gas Flow Rate",
+                "Reaction Gas Type",
+                "Reaction Gas Flow Rate",
+                "Cell Exit Discrimination Voltage"
+            ]
+        }
+    ],
+    "consumed_by": [
+        "LA-Q-ICP-MS",
+        "LA-Q-ICP-MS U-Pb",
+        "LA-MC-ICP-MS",
+        "LA-MC-ICP-MS U-Pb",
+        "Solution Q-ICP-MS",
+        "Solution MC-ICP-MS"
+    ],
+    "notes": "The collision/reaction cell subsystem, shared by every ICP-MS TAPP whose instrument can have a cell. The consumer set is the Q and MC lineages; the SF TAPPs are not consumers because sector-field instruments have no cell and do not carry these fields at all. Q and MC share the subsystem for the same reason — a hexapole or quadrupole cell upstream of the analyser — which is why this is a real layer and not an accident of which tables happened to be authored together.",
+    "extraction": "Extracted 2026-08-27 under Rule 6.10 from the fields left TAPP-owned after Module_ICPMS reached 39. Six fields, exactly the Rule 6.10 floor.",
+    "decisions": [
+        "2026-08-27: C, D, E and Keyed By were ALREADY uniform across all six consumers on every field; only the descriptions diverged, four variants each. A guard re-checks the authored tiers against the library and refuses to write on any mismatch, so this module cannot silently retype a field while merging its prose.",
+        "2026-08-27: the four description variants differed in two ways only — LA-MC and Solution MC add a conditional \"Record 'N/A' where CRC Configuration does not include KED/DRC\", and Solution MC adds MC-instrument context (most MC-ICP-MS have no cell; Nu Sapphire and Thermo Neoma MS/MS do). The merged text keeps the conditional, which is real content under W3, and generalises the instrument context to 'or the instrument has no cell' so it serves Q and MC alike. The LA descriptions' \"Record 'Not applicable' for SF-ICP-MS instruments\" was dropped: no SF TAPP consumes this module, so it was guidance about instruments outside the consumer set.",
+        "2026-08-27: these six have NOT been through the Description/Purpose split, so Column B still carries rationale. Deliberate. Column J is an overlay, and compose_tapp writes only OWNED columns for a field already present in a consumer, so Purpose text placed here would not reach the six TAPPs — the loss recorded for Module_ArAr on 2026-08-25. They join the module Step 1 backlog.",
+        "2026-08-27: three further cell fields — Collision/Reaction Gas Mixture Ratio, Reaction Product Ion / Mass-Shift Transition, Signal Collection Mode — were NOT included. They sit on a different consumer set (LA-Q, LA-Q U-Pb, Solution Q only), which is three, below the Rule 6.10 floor. Carrying them as a conditional block would reintroduce conditional modules, retired library-wide on 2026-08-14. They stay TAPP-owned."
+    ]
+}

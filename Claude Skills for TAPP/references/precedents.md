@@ -1948,3 +1948,54 @@ going to deliver it, and this is the contrast worth remembering when choosing be
 **Effect on the registers.** 53 → 47 INFO. `Secondary Reference Materials` left both
 `keyed-by-divergence-registered` and `colb-definer-stem-registered`; `colb-divergence-principled`
 24 → 22 and `colb-divergence-mixed` 11 → 9. Registers shrink by harmonising, never by reclassifying.
+
+---
+
+## Two more modules, and the difference between an extension and an extraction (2026-08-27)
+
+**`Module_LaserAblation` 19 → 29 fields (v6 → v7).** Ten fields present in exactly the six LA TAPPs
+and unowned by any module: `Background Count Time`, `Carrier Gas and Flow Rate`, `Elemental
+Fractionation Correction`, `Fusion Flux and Dilution Ratio`, `Mapping Area`, `Matrix Offset
+Correction (LIEF)`, `Multi-Run Sequential Analysis Design`, `Sample Form / Analytical Substrate`,
+`Sample Introduction`, `Signal Smoothing`.
+
+**All ten were already byte-identical across all six consumers on every owned column** — a pure
+ownership transfer, no authoring risk, and they mapped onto the module's four existing blocks by
+their current group so no new block was needed. INFO was unchanged at 47, because fields that agree
+were never in a divergence register to begin with. This is the cheapest kind of module work and it
+is worth looking for first: the question "which unowned fields already agree?" is answerable
+mechanically, and the answer was ten.
+
+**`Module_CollisionCell` v1, 6 fields, 6 consumers.** The collision/reaction cell subsystem, shared
+by the Q and MC lineages. The SF TAPPs are not consumers because sector-field instruments have no
+cell and do not carry these fields at all — the consumer set falls out of the hardware, which is the
+signature of a real layer rather than an accident of which tables were authored together. C, D, E and
+`Keyed By` were already uniform on every field; only the descriptions diverged, four variants each,
+and those were merged by reading. INFO 47 → 41.
+
+**Three cell fields were left out and the reason is structural.** `Collision/Reaction Gas Mixture
+Ratio`, `Reaction Product Ion / Mass-Shift Transition` and `Signal Collection Mode` sit on a
+*different* consumer set — LA-Q, LA-Q U-Pb and Solution Q only. Three is below the Rule 6.10 floor,
+and carrying them as a conditional block would reintroduce conditional modules, retired library-wide
+on 2026-08-14. A module whose blocks have different consumer sets is two modules wearing one name.
+
+**Generalise: sort module candidates by whether their columns already agree, not by size.** The ten
+LA fields and the six CRC fields looked equivalent in the survey — both "a coherent block of unowned
+fields on a clean consumer set". They were not equivalent in cost at all: one was a transfer that
+could be verified mechanically and written the same hour, the other needed six merges by reading.
+The distinguishing query is cheap to run and should precede the choice.
+
+### A guard fired correctly, and the failure mode it exposed
+
+The LaserAblation bump refused to write because the provenance stamp it was told to expect
+(`Source: laser ablation module`) did not match the module's actual `source_comment`
+(`Source: Laser Ablation module`). Right outcome — but it fired **after** `compose_tapp` had already
+written one composed file and, through `record_composition`, advanced that TAPP's entry in
+`composed_tapps.json` to a version that then had to be deleted. The registry was left pointing at a
+file that did not exist.
+
+**A late guard is not a safe guard when the step it guards has already committed side effects.**
+Recovery was simple only because the registry repair is mechanical: any entry pointing at a missing
+file whose predecessor exists is rolled back one version. Worth knowing that `compose_tapp --out`
+mutates the register as a side effect, so any script that composes and then validates must be able
+to undo the register, or must validate before composing.
