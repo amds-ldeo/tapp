@@ -37,19 +37,19 @@ in that particular TAPP.
 
 ## Contents
 
-- `EPMA_TAPP_v38.csv`
-- `LA-MC-ICPMS_TAPP_v51.csv`
-- `LA-MC-ICPMS_UPb_TAPP_v51.csv`
+- `EPMA_TAPP_v39.csv`
+- `LA-MC-ICPMS_TAPP_v52.csv`
+- `LA-MC-ICPMS_UPb_TAPP_v52.csv`
 - `LA-Q-ICP-MS_TAPP_v54.csv`
 - `LA-Q-ICP-MS_UPb_TAPP_v54.csv`
 - `LA-SF-ICP-MS_TAPP_v52.csv`
 - `LA-SF-ICP-MS_UPb_TAPP_v53.csv`
 - `Lab-XCT_TAPP_v29.csv`
-- `SEM_Composition_TAPP_v36.csv`
+- `SEM_Composition_TAPP_v37.csv`
 - `SEM_FIBSEM_TAPP_v23.csv`
 - `SEM_Imaging_TAPP_v22.csv`
-- `SEM_TAPP_v37.csv`
+- `SEM_TAPP_v38.csv`
 - `Solution_MC-ICP-MS_TAPP_v53.csv`
 - `Solution_Q-ICP-MS_TAPP_v58.csv`
 - `Solution_SF-ICP-MS_TAPP_v55.csv`
-- `TEM_TAPP_v33.csv`
+- `TEM_TAPP_v34.csv`

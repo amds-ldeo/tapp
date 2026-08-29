@@ -2304,3 +2304,49 @@ outright would have left the row to be regenerated away and the design lost to g
 Purpose sentences from its descriptions with nowhere to put them — a module composed into no TAPP had
 no consumer to inherit them — which is what prompted declaring Column J an overlay column. A module
 with no consumers is not free; it is exercised by every library-wide pass and cannot absorb the result.
+
+---
+
+## Two name variants retired; and a key "divergence" that was already correctly adjudicated (2026-08-27)
+
+**`STEM Dwell Time per Pixel` → `Dwell Time per Pixel`** (TEM), Data Type harmonised `Numeric (ms)`
+→ `Numeric + unit`. A Rule 1 name variant that should not have existed, as the register's own backlog
+note said. The stated reason for keeping it separate — STEM has no spectrometer, so the dwell is
+scalar — is *already* how `Dwell Time per Pixel` behaves in SEM_FIBSEM and SEM_Imaging, which carry
+it with `Keyed By: (none)`. The field handled the scalar case before the variant was minted.
+
+**`Background Correction Method` → `X-ray Background Correction Method`** (EPMA, SEM,
+SEM_Composition). Meaning unchanged; the name stops colliding with ICP-MS's
+`Blank / Background Correction Method`, whose physics is unrelated. Same move as `Detector Type` →
+`X-ray Detector Type` earlier the same day. Both retire register entries that existed only to keep
+explaining a coincidence of naming.
+
+Registers: 36 → 33 INFO. `cole-name-variant-triaged` and one `keyed-by-name-variant-registered`
+cleared.
+
+### The `Monitored Masses` proposal was wrong, and the register already said why
+
+It was proposed that LA-MC-ICPMS and LA-MC-ICPMS_UPb be changed from `analyte` to
+`defines: channel per analyte`, on the evidence that the other six consumers use the definer form,
+that conventions.md 7.3.1 names this field as its worked example, and that those two tables key
+`Interference Correction Method` by `channel` with no visible definer.
+
+**Applying it raised two ERRORs immediately.** `Collector Configuration` is already
+`defines: channel per analyte` in both tables: a multi-collector instrument enumerates its channels
+as collector cups, not as scanned masses, so `Monitored Masses` is keyed *by* analyte there rather
+than defining the channel domain. Rule 7's `rule7-multiple-definers` invariant caught it before
+commit. Reverted.
+
+**And the register entry already carried exactly that reason:**
+
+> `"Monitored Masses": "defines: channel per analyte where there is no collector array; analyte where the cup array defines the channel"`
+
+The divergence had been correctly adjudicated, with the precise mechanism written down. The proposal
+came from reading the register's *list of entries* and not this entry's *reason text*.
+
+**Generalise: a register of adjudicated divergences is documentation, not a to-do list.** Every entry
+in `KEYED_BY_TECHNIQUE_DEPENDENT` carries the reason it was accepted. Read the reason before
+proposing to close the entry — the argument for closing it may be the argument that was already
+weighed and rejected. This is the second wrong call on a key divergence in one session; the first
+was caught by reading the literature, this one by an ERROR-level invariant. **Both halves of the
+method earned their place today.**
