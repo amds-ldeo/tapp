@@ -2137,3 +2137,49 @@ used text matching from the start; only this module pass regressed to positions.
 **Generalise: never address a cell's contents by ordinal across a pipeline stage that can remove
 contents.** Step 1 is exactly such a stage. The routing CSV's sentence numbers are a record of what
 was decided, not a handle on what is now there.
+
+---
+
+## `Sample Preparation Method` — no module, and a tier divergence that is principled (2026-08-27)
+
+**There is no Sample Preparation module to build, and the reason is worth stating rather than
+leaving as an open backlog item.** Group 2 is already almost entirely module-owned: `Module_Core`
+holds the four universal fields, `Module_UPb` two, `Module_LaserAblation` three,
+`Module_SolutionIntroduction` nine. What remains TAPP-owned is `Sample Preparation Method` and a
+handful of single-TAPP fields. **One field cannot be a module** — Rule 6.10 requires five.
+
+**Nor can it join `Module_Core`.** Core has 16 consumers; `Sample Preparation Method` has 15, absent
+from Lab-XCT. The obvious question was whether Lab-XCT's `Sample Preparation Notes` is a Rule 1 name
+variant that would close the gap. **It is not.**
+
+| | `Sample Preparation Method` | `Sample Preparation Notes` |
+|---|---|---|
+| Data Type | `Controlled list / Text` | `Text (free)` |
+| Column C | Basic | Advanced |
+| Asks | what **form** the sample is in — polished thin section, grain mount, fused bead, FIB lift-out, whole-rock powder | what **steps** were applied — trimmed, dried, wrapped in PTFE, "scanned as received" |
+
+XCT scans an intact object, so there is no preparation *form* to choose from; that is why Lab-XCT
+carries no `Sample Preparation Method`, and the two fields are complementary rather than duplicates.
+Renaming either would merge a controlled vocabulary into free prose.
+
+### The D-tier divergence is principled, and structurally determined
+
+`Sample Preparation Method` splits `D=Editable` (11) / `D=Read-Only` (4) — the fifth of the five
+`tier-divergence` findings, and the one hidden behind the summary's "(+1 more)". It is not drift.
+The split falls **exactly** on whether the TAPP has a companion field that absorbs session-specific
+preparation detail:
+
+- **`D=Read-Only` (4)** — the three Solution TAPPs, whose `Digestion Temperature`,
+  `Digestion Duration` and `Sample Aliquot Mass or Volume` are all `D=Editable`; and TEM, whose
+  `Sample Preparation Details` is `D=Editable`. The *method* is fixed by the procedure; the session's
+  variation is recorded next door.
+- **`D=Editable` (11)** — EPMA, the four SEM tables and the six LA tables. **None** has such a
+  companion, so the field itself must carry the variation. EPMA's own description says so:
+  *"Includes session-specific variations from the procedure standard."*
+
+**Zero exceptions in 15 TAPPs.** Recorded here as intentional under Rule 2/4; no data changes.
+
+**Generalise: a tier divergence can be a consequence of field inventory rather than a disagreement.**
+The same field is legitimately Read-Only where a neighbour is Editable and Editable where it stands
+alone. Before harmonising a D-tier split, check whether the tables that differ also differ in what
+*else* they carry — the test is cheap and it settled this one outright.
