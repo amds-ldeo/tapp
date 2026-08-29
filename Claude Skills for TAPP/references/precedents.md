@@ -2350,3 +2350,49 @@ proposing to close the entry — the argument for closing it may be the argument
 weighed and rejected. This is the second wrong call on a key divergence in one session; the first
 was caught by reading the literature, this one by an ERROR-level invariant. **Both halves of the
 method earned their place today.**
+
+---
+
+## Both interference-flag fields renamed; the Data Type was right and Column F was wrong (2026-08-27)
+
+| | was | now |
+|---|---|---|
+| ICP-MS (9, module-owned) | `Isobaric Interference Corrections Applied` | **`Spectral Interference Corrections Applied`** |
+| Electron-beam (3) | `Interference Corrections Applied` | **`X-ray Line Overlap Corrections Applied`** |
+
+**Both old names were wrong, in opposite directions.** The ICP-MS name said *isobaric* while its own
+description covers "isobaric, polyatomic or residual" — and in ICP-MS usage "isobaric" specifically
+*excludes* polyatomic, so the name understated the field. The electron-beam name said only
+*interference* while its description says "spectral". "Spectral interference" is the standard
+umbrella in ICP-MS; "X-ray line overlap" is the standard electron-beam term and is the wording its
+own sibling `Interfering Elements` already uses: *"Element(s) whose X-ray lines overlap with the
+measured peak"*.
+
+**`Controlled list / Text` was RIGHT and Boolean would have been wrong.** Of **51 attested cells,
+zero are a bare Yes/No** — every one carries the answer together with what was corrected
+(*"Yes — ⁸⁷Rb on ⁸⁷Sr…"*, *"No explicit corrections applied; monitoring of Mg, Si, P, S used to
+detect and exclude inclusion-contaminated…"*). **Column F was the cell that did not match the data**,
+reading `Yes | No | N/A | None` while describing none of them; it is widened to the attested form.
+
+This is the mirror of amds-ldeo/tapp#1. There the Data Type was under-specified against the
+literature; here it was correct and Column F was under-specified. **When a type and its allowed
+content disagree, check which one the extractions support before assuming the type is the defect.**
+
+**Not split into isobaric / polyatomic / residual fields.** A single procedure routinely corrects
+several kinds at once — LA-MC corrects doubly-charged *and* isobaric; Solution MC isobaric *and*
+argides; Solution Q oxide *and* argide *and* isobaric on the same masses. Three flags would mostly
+all read "Yes" while losing the species-to-mass pairing, which already lives in `Interfering Species`
+and `Interference Correction Method`, both `channel`-keyed. One general flag plus two fine-grained
+keyed fields is the architecture the field's own description already describes.
+
+### The first rename moved the collision instead of dissolving it
+
+`X-ray Spectral Interference Corrections Applied` was tried first and raised two fresh WARNs. The
+name-variant checks match by **containment**, not by `normalize_name` (which only collapses
+punctuation) — and `Spectral Interference Corrections Applied` is a substring of the X-ray form, so
+the pair was still flagged, just under new names. `X-ray Line Overlap Corrections Applied` shares no
+stem and dissolves the entry outright. **A disambiguating prefix does not disambiguate a check that
+matches on containment.**
+
+Registers: 33 → 31 INFO; the `cole-name-variant` and `keyed-by-name-variant` entries for this pair
+are both retired.

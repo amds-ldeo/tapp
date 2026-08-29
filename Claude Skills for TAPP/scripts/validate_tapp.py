@@ -113,7 +113,7 @@ FORBIDDEN_NAMES = {
     "calibration material": "Primary Calibration Standard Name",
     "secondary standard": "Secondary Reference Materials",
     "monitor material": "Secondary Reference Materials",
-    "spectral interference correction": "Interference Corrections Applied",
+    "spectral interference correction": "X-ray Line Overlap Corrections Applied",
     "counting error": "Counting Statistics Error",
     "statistical error": "Counting Statistics Error",
     "method name": "Procedure Name",
@@ -338,10 +338,6 @@ KEY_NAME_VARIANT_EXEMPT = {
         "`Dwell Time per Pixel` is per spectrometer assignment where WDS mapping exists (see "
         "KEYED_BY_TECHNIQUE_DEPENDENT). Backlog: the STEM field is arguably a Rule 1 name variant "
         "that should not exist separately.",
-    ("Interference Corrections Applied", "Isobaric Interference Corrections Applied"):
-        "different fields. The ICP-MS field is a procedure-level Boolean by its own description, "
-        "with per-mass detail carried by `Interfering Species` and `Interference Correction "
-        "Method` (both `channel`); the electron-beam field records the correction per analyte.",
 }
 
 COLB_DEFINER_STEM_EXEMPT = {
