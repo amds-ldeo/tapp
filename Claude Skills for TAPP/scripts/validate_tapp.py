@@ -236,14 +236,12 @@ KEYED_BY_EXCEPTIONS = set(KEYED_BY_TECHNIQUE_DEPENDENT)   # back-compat alias
 COLB_DIVERGENCE_TRIAGED = {
     'Beam Mode': ("MIXED", 3),
     'Beam Raster Dimensions': ("MIXED", 3),
-    'Detection Limit Method': ("MIXED", 12),
     'Doubly-Charged Species Production': ("MIXED", 8),
     'Dwell Time per Mass': ("MIXED", 6),
     'Dwell Time per Pixel': ("MIXED", 5),
     'EDS Acquisition Mode': ("MIXED", 4),
     'EDS Detector Configuration': ("MIXED", 4),
     'Map Area': ("MIXED", 3),
-    'Secondary Reference Materials': ("MIXED", 12),
     'Stage Scan vs. Beam Scan': ("MIXED", 3),
     'Accelerating Voltage': ("PRINCIPLED", 7),
     # Re-triaged 2026-08-12. Was frozen PRINCIPLED at similarity 0.01 across 6 variants — the
@@ -257,11 +255,6 @@ COLB_DIVERGENCE_TRIAGED = {
     'Beam Current': ("PRINCIPLED", 5),
     'Beam Damage Minimization': ("PRINCIPLED", 3),
     'Beam Diameter': ("PRINCIPLED", 3),
-    'Cell Exit Discrimination Voltage': ("PRINCIPLED", 6),
-    'Collision Gas Flow Rate': ("PRINCIPLED", 6),
-    'Collision Gas Type': ("PRINCIPLED", 6),
-    'Collision/Reaction Cell (CRC) Configuration': ("PRINCIPLED", 6),
-    'Detection Limit': ("PRINCIPLED", 12),
     'Detector Configuration': ("PRINCIPLED", 8),
     'Doubly-Charged Species Monitor': ("PRINCIPLED", 8),
     'Drift Correction': ("PRINCIPLED", 3),
@@ -275,16 +268,10 @@ COLB_DIVERGENCE_TRIAGED = {
     # harmonised body 2026-08-12; EPMA/SEM cross-reference WDS Dead Time Correction; TEM carries its detector conditional
     'EDS Dead Time': ("PRINCIPLED", 4),
     'EDS Live Time per Point or Pixel': ("PRINCIPLED", 4),
-    'Internal Standard Approach': ("PRINCIPLED", 8),
     'Mass Bias Correction Strategy': ("PRINCIPLED", 7),
-    'Normalization / Standards-Based Correction': ("PRINCIPLED", 12),
     # harmonised body 2026-08-12; the oxide proxy is technique-specific: ThO+/Th+ in LA, CeO+/Ce+ in solution
     'Phase Identification Method': ("PRINCIPLED", 2),
-    'Primary Calibration Standard Name': ("PRINCIPLED", 12),
     'Pulse/Analog Detector Nonlinearity Correction': ("PRINCIPLED", 6),
-    'Reaction Gas Flow Rate': ("PRINCIPLED", 6),
-    'Reaction Gas Type': ("PRINCIPLED", 6),
-    'Sample Preparation Method': ("PRINCIPLED", 15),
     'Step Size / Pixel Size': ("PRINCIPLED", 3),
 }
 
