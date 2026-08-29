@@ -2276,3 +2276,31 @@ XPS (Fe-2p, O-1s, incident X-ray), Thompson et al. (2020) used Mössbauer, and M
 and Zeng et al. (2024) cite other people's measurements. For those procedures the concept does not
 apply — `N/A`, not `N`, per `lit_assessment.md`. **A keyword sweep for "oxidation state" would have
 returned all six and been wrong about four of them.**
+
+---
+
+## `Module_ArAr` retired, not deleted (2026-08-27)
+
+Moved to `Archive/Superseded Modules/` alongside `Group1` and `ReportingCore`; the module register
+carries the row forward as `retired — carried`. 15 live modules → 14; `module-unused` cleared,
+37 → 36 INFO.
+
+**Retired rather than deleted, because the work is not wrong — only unused.** Sixteen fields, four of
+which nothing else in the library can use (`Neutron Irradiation Conditions`, `Neutron-Induced
+Interfering Isotope Production Ratios`, `Gas Extraction and Release Schedule`,
+`F Value (40Ar*/39ArK)`), plus Step 1 routing already applied on 2026-08-25. The planning table still
+carries *Static Noble Gas & Nitrogen Mass Spectrometry* at priority **H** — the instrument half of
+the composition this module was built as the system half of. Reviving it is a file move.
+
+**The retirement reason is written into the manifest before the move**, so the archived copy explains
+itself without reference to a register it no longer appears in.
+
+**The library already had this mechanism and it is worth naming.** A module is "live" if its files
+are in `modules/`; `build_module_register.py` carries forward any register row whose files are gone.
+So retirement is a *move*, not a delete, and the register is what remembers. Deleting the files
+outright would have left the row to be regenerated away and the design lost to git archaeology.
+
+**It cost something while it lived, and that is recorded.** The 2026-08-25 module Step 1 pass stripped
+Purpose sentences from its descriptions with nowhere to put them — a module composed into no TAPP had
+no consumer to inherit them — which is what prompted declaring Column J an overlay column. A module
+with no consumers is not free; it is exercised by every library-wide pass and cannot absorb the result.
