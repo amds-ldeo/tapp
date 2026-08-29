@@ -2238,3 +2238,41 @@ the query was available the whole time.
 **Only after both changes could the field enter Core**, which has 16 consumers and owns Column D: a
 15-consumer field with a split D was ineligible on two independent counts.
 
+
+---
+
+## `EELS Chemical State Determination Method` — closing the gap the Detection Limit fix opened (2026-08-27)
+
+**Added to TEM.** `C=Advanced`, `D=Editable`, `Controlled list / Text`, `Keyed By: (none)`, Group 5,
+modes Y/Y/N. TAPP-owned: EELS is a TEM technique and no other TAPP carries the concept, so there is
+nothing to extract.
+
+**Why it exists.** Earlier the same day two cells were removed from `EELS Energy Resolution`, a field
+typed `Numeric (eV FWHM)` that was holding Fe-valence determination *methods*. They were correct data
+in the wrong field — and there was no right field to move them to, so the removal left them homeless.
+This is the field they belonged in all along.
+
+**The library's own vocabulary named the gap.** `EELS Energy Calibration` describes accurate
+calibration as required for *"ELNES edge identification, chemical-state analysis, and inter-lab
+comparability"* — it names the analysis while recording only the energy-axis calibration that
+precedes it. A field that cites a neighbouring activity it does not itself record is a reasonable
+place to look for a missing field.
+
+**Data Type follows the amds-ldeo/tapp#1 precedent.** Both attested cells name a method *family* and
+carry a citation or qualifier — *"Integral white-line intensity ratio I(L3)/I(L2) → Van Aken &
+Liebscher (2002) universal calibration curve"*, *"Peak position and lineshape comparison to reference
+standards (qualitative Fe valence state determination: Fe⁰, Fe²⁺, Fe³⁺)"*. That is exactly the shape
+`Controlled list / Text` exists for, and it matches `Detection Limit Method`.
+
+**`Keyed By: (none)`, deliberately.** A per-analyte or per-edge axis is plausible — a procedure could
+determine Fe and Ti states separately — but **both attested cells determine one element**. Rule 7.12
+keys on the finest axis *attested in reported data*, and 7.3.2 licenses declaring the finest
+**attested** key, not the finest imaginable one. Revisit if a multi-element chemical-state procedure
+is extracted.
+
+**Literature: 2 attested, 19 `N/A`, 0 `N`.** The distinction was read, not assumed. Four other
+assessed papers mention oxidation states, and none determined them by ELNES: Chaves et al. (2023) used
+XPS (Fe-2p, O-1s, incident X-ray), Thompson et al. (2020) used Mössbauer, and Matsumoto et al. (2021)
+and Zeng et al. (2024) cite other people's measurements. For those procedures the concept does not
+apply — `N/A`, not `N`, per `lit_assessment.md`. **A keyword sweep for "oxidation state" would have
+returned all six and been wrong about four of them.**
