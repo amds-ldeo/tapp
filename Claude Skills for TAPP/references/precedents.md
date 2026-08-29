@@ -2179,7 +2179,62 @@ preparation detail:
 
 **Zero exceptions in 15 TAPPs.** Recorded here as intentional under Rule 2/4; no data changes.
 
+> **SUPERSEDED the same day — this adjudication was wrong.** The 15/15 correlation was real; the
+> causation was not. See "`Sample Preparation Method` made universal" below: the literature shows the
+> *method itself* varies session to session, so `D=Read-Only` made a real choice unrecordable, and
+> the companion fields carry details rather than the method. The field is now `D=Editable` in all 16.
+> **A perfect correlation across a small library is not evidence of a principle — it is a hypothesis,
+> and it must still be tested against what the procedures report.**
+
 **Generalise: a tier divergence can be a consequence of field inventory rather than a disagreement.**
 The same field is legitimately Read-Only where a neighbour is Editable and Editable where it stands
 alone. Before harmonising a D-tier split, check whether the tables that differ also differ in what
 *else* they carry — the test is cheap and it settled this one outright.
+
+---
+
+## `Sample Preparation Method` made universal, and into `Module_Core` (2026-08-27)
+
+**Decision (maintainer's call).** The field is now present in **all 16 TAPPs** and owned by
+`Module_Core` (30 → 31 fields, v4 → v5), `D=Editable` throughout.
+
+**The argument for universality is that absence forecloses a true statement.** Lab-XCT was the only
+TAPP without it, on the reasoning that XCT scans intact objects. But if an XCT procedure *does* scan
+a prepared sample, it had no way to say so. Its own literature shows this happening: *"Chips
+(~10.3 g) crushed with mortar and pestle ... split into two ~4.6 g portions"*, *"Decanted for XCT;
+sample split along fractures during mounting into pipette tips"*, *"None; chip used as received"* —
+forms, being squeezed into the free-text `Sample Preparation Notes` for want of a Method field.
+
+**The two fields remain distinct and both are kept.** `Sample Preparation Method` is the **form**, a
+controlled list at `C=Basic` — thin section, grain mount, fused bead, FIB lift-out, whole-rock
+powder, and now bulk/core/powder/mounted for XCT. `Sample Preparation Notes` is the **handling steps**
+before scanning, free text at `C=Advanced` — trimmed, dried, wrapped in PTFE. Preparation performed
+by the analysing laboratory (making a section, lifting out a lamella) is not the same claim as
+handling applied to material in transit or storage.
+
+### The D-tier adjudication made hours earlier was wrong, and the literature is what overturned it
+
+That entry called the `Editable` 11 / `Read-Only` 4 split principled because it correlated perfectly
+with whether the TAPP had a companion field absorbing session-specific detail. **Fifteen of fifteen,
+and still wrong.** The extractions settle it:
+
+| TAPP | attested | distinct methods |
+|---|---|---|
+| TEM | 21 | **5** — FIB lift-out (Ga), FIB lift-out (Ga+), crushing/dispersion on grid, ultramicrotomy, Ar ion milling |
+| Solution MC | 10 | 9 |
+| Solution Q | 6 | 6 |
+| Solution SF | 6 | 6 |
+
+The *method* varies session to session in exactly the four tables that declared it `Read-Only`. The
+companion fields carry digestion temperature and duration — **details**, not the choice between FIB
+and ultramicrotomy. `Read-Only` made that choice unrecordable, which is the lossy direction, the same
+asymmetry that decided G3 (7.3.2) earlier the same day.
+
+**Generalise: test a structural hypothesis against the reported data before recording it as a
+principle.** The companion-field correlation was checked against *field inventory* — what the tables
+carry — and not against *extractions* — what the procedures do. It took one query to overturn, and
+the query was available the whole time.
+
+**Only after both changes could the field enter Core**, which has 16 consumers and owns Column D: a
+15-consumer field with a split D was ineligible on two independent counts.
+
