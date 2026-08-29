@@ -5,12 +5,12 @@ ArAr,3,40Ar/39Ar Geochronology,16,2,6,0 TAPP(s),active
 Blank,2,Analytical Blank,1,1,3,12 TAPP(s),active
 CalibrationFactor,2,Externally Calibrated Conversion Factor,1,1,2,14 TAPP(s),active
 CollisionCell,2,"Collision/reaction cell — configuration, cell gases and kinetic energy discrimination",6,2,2,6 TAPP(s),active
-CompositionQC,2,"Composition quality control — detection limits, counting statistics, secondary reference materials and standards-based normalization",6,2,3,12 TAPP(s),active
+CompositionQC,2,"Composition quality control — detection limits, counting statistics, secondary reference materials and standards-based normalization",6,2,4,12 TAPP(s),active
 Core,2,Universal TAPP Core,30,6,4,16 TAPP(s),active
 Geochronology,2,Geochronology,6,1,7,3 TAPP(s),active
 Group1,2,Procedure Identification,18,1,4,0 TAPP(s),retired 2026-08-14 — superseded by Core
-ICPMS,2,"Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",39,4,6,9 TAPP(s),active
-LaserAblation,2,Laser Ablation Front End,29,4,8,6 TAPP(s),active
+ICPMS,2,"Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",39,4,7,9 TAPP(s),active
+LaserAblation,2,Laser Ablation Front End,29,4,9,6 TAPP(s),active
 MCICPMS,2,Multi-Collector ICP-MS Analyser,15,3,7,3 TAPP(s),active
 ReportingCore,2,Cross-Technique Reporting Core,6,5,6,0 TAPP(s),"retired 2026-08-14 — dissolved into TargetSelection, CalibrationFactor, Blank, Aggregation"
 SolutionIntroduction,2,Solution Sample Preparation and Introduction for MS,16,3,6,3 TAPP(s),active

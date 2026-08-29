@@ -2109,3 +2109,31 @@ absent from the 2026-08-25 routing CSV?* That is exact, cheap, and needs no judg
 which 41 were multi-sentence. **When a backlog has a written record of what was covered, diff against
 the record; do not re-detect the population.** The reading then went where it belongs: deciding
 routes, not finding candidates.
+
+---
+
+## Step 2 on module rows, and why a sentence NUMBER is the wrong key (2026-08-27)
+
+The 7 flags from the module Step 1 backlog were applied — 4 rewrites, 2 splits, 1 deletion, across
+`CompositionQC`, `ICPMS` and `LaserAblation`. Each was made **once in the module** and composed out
+to its consumers, which is the return on having extracted those fields.
+
+**The Step 2 script failed on its first run, and the failure is worth keeping.** It addressed
+sentences by their number in the Step 1 routing CSV. But Step 1 had already *removed* the P-routed
+sentences from Column B, so those numbers no longer index the column: `Carrier Gas and Flow Rate` S2
+had gone to Purpose, shifting S3 into position 2. The script asked for sentence 3 of a two-sentence
+cell and stopped.
+
+It stopped rather than mis-edited only because the index was out of range. Had the cell held one
+more sentence, **the edit would have silently landed on the wrong one** — a rewrite applied to a
+sentence nobody reviewed, passing every guard, because the guards check word preservation and
+non-emptiness, not identity.
+
+**Fixed by keying every Step 2 edit on the original sentence TEXT.** A text key is immune to Step 1's
+removals and to any later reordering, and it fails loudly and specifically when the target is absent
+("it may already have been edited, or moved to Purpose by Step 1"). The TAPP-level Step 2 passes had
+used text matching from the start; only this module pass regressed to positions.
+
+**Generalise: never address a cell's contents by ordinal across a pipeline stage that can remove
+contents.** Step 1 is exactly such a stage. The routing CSV's sentence numbers are a record of what
+was decided, not a handle on what is now there.
