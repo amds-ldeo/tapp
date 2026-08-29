@@ -2,7 +2,7 @@
     "module": "CollisionCell",
     "title": "Collision/reaction cell — configuration, cell gases and kinetic energy discrimination",
     "layer": 2,
-    "version": "1",
+    "version": "2",
     "source_of_truth": "modules/Module_CollisionCell.csv",
     "owned_columns": [
         "A",
@@ -55,6 +55,7 @@
         "2026-08-27: C, D, E and Keyed By were ALREADY uniform across all six consumers on every field; only the descriptions diverged, four variants each. A guard re-checks the authored tiers against the library and refuses to write on any mismatch, so this module cannot silently retype a field while merging its prose.",
         "2026-08-27: the four description variants differed in two ways only — LA-MC and Solution MC add a conditional \"Record 'N/A' where CRC Configuration does not include KED/DRC\", and Solution MC adds MC-instrument context (most MC-ICP-MS have no cell; Nu Sapphire and Thermo Neoma MS/MS do). The merged text keeps the conditional, which is real content under W3, and generalises the instrument context to 'or the instrument has no cell' so it serves Q and MC alike. The LA descriptions' \"Record 'Not applicable' for SF-ICP-MS instruments\" was dropped: no SF TAPP consumes this module, so it was guidance about instruments outside the consumer set.",
         "2026-08-27: these six have NOT been through the Description/Purpose split, so Column B still carries rationale. Deliberate. Column J is an overlay, and compose_tapp writes only OWNED columns for a field already present in a consumer, so Purpose text placed here would not reach the six TAPPs — the loss recorded for Module_ArAr on 2026-08-25. They join the module Step 1 backlog.",
-        "2026-08-27: three further cell fields — Collision/Reaction Gas Mixture Ratio, Reaction Product Ion / Mass-Shift Transition, Signal Collection Mode — were NOT included. They sit on a different consumer set (LA-Q, LA-Q U-Pb, Solution Q only), which is three, below the Rule 6.10 floor. Carrying them as a conditional block would reintroduce conditional modules, retired library-wide on 2026-08-14. They stay TAPP-owned."
+        "2026-08-27: three further cell fields — Collision/Reaction Gas Mixture Ratio, Reaction Product Ion / Mass-Shift Transition, Signal Collection Mode — were NOT included. They sit on a different consumer set (LA-Q, LA-Q U-Pb, Solution Q only), which is three, below the Rule 6.10 floor. Carrying them as a conditional block would reintroduce conditional modules, retired library-wide on 2026-08-14. They stay TAPP-owned.",
+        "2026-08-27: Step 1 of the Description/Purpose split applied to the 4 field(s) of this module that post-dated the 2026-08-25 module routing. Move only — no text reworded or deleted. Routing recorded in analysis/Step1_Routing_MODULES_BACKLOG_2026-08-27.csv. The Purpose text reaches consumers because overlay-default propagation was fixed on 2026-08-27; written before that fix it would have stayed in the module and reached nobody."
     ]
 }

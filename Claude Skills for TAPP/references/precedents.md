@@ -2072,3 +2072,40 @@ loop and applying only what the script owns.
 Twice in one session a script and `compose_tapp` both wrote `composed_tapps.json` and the script
 won. **`compose_tapp --out` mutates the register as a side effect; any wrapper must either reload
 after it or not write the register at all.**
+
+---
+
+## Module Step 1 backlog closed, and the heuristic that nearly scoped it wrongly (2026-08-27)
+
+**Done.** The 49 module rows that entered their modules *after* the 2026-08-25 module routing were
+routed and split: `Module_ICPMS`'s 26 merged descriptions, `Module_LaserAblation`'s 11, and the two
+modules built on 2026-08-27. 68 non-S1 sentences read; **7 rows gained a Purpose**, in
+`CollisionCell` (4), `LaserAblation` (2) and `ICPMS` (1). Step 1 of the Description/Purpose split is
+now applied to every row in the library, module-owned and TAPP-owned alike.
+
+**It only became possible today.** Purpose written into a module reached no consumer until the
+overlay-default propagation was fixed earlier the same day. Had this backlog been cleared a week
+ago, the Purpose text would have sat in the modules and arrived nowhere — the `Module_ArAr` loss,
+repeated at scale.
+
+### The backlog was found structurally, and a lexical heuristic had it about half wrong
+
+A first pass looked for rationale words in Column B — *improves, controls, because, at the cost of,
+efficiency, suppression* — and returned **7 rows**. That number was right by coincidence and the
+membership was not. Set against what reading actually routed to Purpose:
+
+- **3 false positives** — `Core · Data Processing Software(s)`, `ICPMS · Isobaric Interference
+  Corrections Applied`, `LaserAblation · Mapping Area`. Each contains a rationale-shaped word inside
+  a sentence that is doing definitional or scope work.
+- **3 false negatives** — `CollisionCell · Collision Gas Type` and `· CRC Configuration`,
+  `ICPMS · Sampler and Skimmer Cone Material`. Each carries real rationale in vocabulary the word
+  list did not anticipate ("is standard for", "enables", "is used ... for its greater corrosion
+  resistance").
+
+Roughly 43% wrong in each direction, on a 7-row answer that looked precise.
+
+**What found it correctly was a structural question, not a better word list:** *which module rows are
+absent from the 2026-08-25 routing CSV?* That is exact, cheap, and needs no judgement — 49 rows, of
+which 41 were multi-sentence. **When a backlog has a written record of what was covered, diff against
+the record; do not re-detect the population.** The reading then went where it belongs: deciding
+routes, not finding candidates.
