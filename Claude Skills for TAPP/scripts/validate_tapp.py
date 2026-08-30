@@ -123,7 +123,6 @@ FORBIDDEN_NAMES = {
 # Rule 1 — required tiers for named cross-TAPP fields
 REQUIRED_TIERS = {
     "Acquisition Software": ("Basic", "Editable"),
-    "Data Reduction Software": ("Basic", "Editable"),
     "Analytical Mode": ("Basic", "Read-Only"),
     "Constants and Reference Values Used": ("Basic", "Editable"),
 }
@@ -193,8 +192,11 @@ KEYED_BY_TECHNIQUE_DEPENDENT = {
     # exists". The WDS dwell time is per spectrometer per pixel — both descriptions said so — so it
     # follows the other WDS setup fields onto `channel`.
     "Dwell Time per Pixel":              "channel (one value per spectrometer assignment) in the "
-                                         "three TAPPs with WDS compositional mapping; (none) in the "
-                                         "imaging-only SEM variants, which have no spectrometer",
+                                         "three TAPPs with WDS compositional mapping; (none) wherever "
+                                         "there is no spectrometer — the imaging-only SEM variants, "
+                                         "and TEM, whose STEM per-pixel dwell is scalar (TEM joined "
+                                         "this field on 2026-08-27, when `STEM Dwell Time per Pixel` "
+                                         "was merged into it as a Rule 1 name variant)",
     "Beam Current":                      "per phase where composition is measured, scalar in imaging-only TAPPs",
     "Monitored Masses":                  "defines: channel per analyte where there is no collector array; analyte where the cup array defines the channel",
 }
@@ -312,11 +314,6 @@ KEY_NAME_VARIANT_EXEMPT = {
         "`Detection Limit` sibling. The keys still differ and that is correct: an EELS edge is a "
         "`channel`, enumerated by `EELS Edges`, while `Detection Limit` is one per reported "
         "concentration variable.",
-    ("Dwell Time per Pixel", "STEM Dwell Time per Pixel"):
-        "different fields. STEM imaging has no spectrometer, so its per-pixel dwell is scalar; "
-        "`Dwell Time per Pixel` is per spectrometer assignment where WDS mapping exists (see "
-        "KEYED_BY_TECHNIQUE_DEPENDENT). Backlog: the STEM field is arguably a Rule 1 name variant "
-        "that should not exist separately.",
 }
 
 COLB_DEFINER_STEM_EXEMPT = {
@@ -453,11 +450,6 @@ COLE_DIVERGENCE_TRIAGED = {
 # two-column problem was never looked at, and TEM has sat on `Text (free)` while `Detection Limit`
 # went three ways. Fixing one column of a field is not fixing the field.
 COLE_NAME_VARIANT_TRIAGED = {
-    ("Background Correction Method", "Blank / Background Correction Method"):
-        "DIFFERENT FIELDS — adjudicated 2026-08-26. The electron-beam field corrects X-ray "
-        "intensity beneath a spectral peak (WDS off-peak interpolation, MAN background model); "
-        "the ICP-MS field subtracts instrument background and procedural blank from a mass "
-        "spectrum. Similar names, unrelated physics. No action; the similarity is coincidental.",
 }
 
 
