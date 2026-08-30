@@ -234,15 +234,7 @@ KEYED_BY_EXCEPTIONS = set(KEYED_BY_TECHNIQUE_DEPENDENT)   # back-compat alias
 # diverges any more. A register entry for a field that no longer diverges is dead weight that
 # reads as an unresolved issue.
 COLB_DIVERGENCE_TRIAGED = {
-    'Beam Mode': ("MIXED", 3),
-    'Beam Raster Dimensions': ("MIXED", 3),
-    'Doubly-Charged Species Production': ("MIXED", 8),
-    'Dwell Time per Mass': ("MIXED", 6),
-    'Dwell Time per Pixel': ("MIXED", 5),
-    'EDS Acquisition Mode': ("MIXED", 4),
-    'EDS Detector Configuration': ("MIXED", 4),
-    'Map Area': ("MIXED", 3),
-    'Stage Scan vs. Beam Scan': ("MIXED", 3),
+    'Dwell Time per Pixel': ("PRINCIPLED", 6),
     'Accelerating Voltage': ("PRINCIPLED", 7),
     # Re-triaged 2026-08-12. Was frozen PRINCIPLED at similarity 0.01 across 6 variants — the
     # 2026-08-12 sweep judged wording, and this is a `defines:` field whose divergence reached
