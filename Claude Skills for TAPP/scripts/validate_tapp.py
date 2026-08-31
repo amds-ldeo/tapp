@@ -528,7 +528,7 @@ def colf_members(ex):
 # 7.8.11 — Column F divergence on controlled lists, frozen 2026-08-30 so the check ships at
 # 0 WARN. PRINCIPLED = adjudicated, no action expected. BACKLOG = not yet examined.
 # WORKED DOWN 2026-08-30: `Plasma Thermal Mode`, `Diffracting Crystal`,
-# `Stage Scan vs. Beam Scan` harmonised and REMOVED — the triage note said
+# `Stage Scan vs. Beam Scan`, `Guard Electrode` harmonised and REMOVED — the triage note said
 # 'same domain, different verbosity', but Solution MC was also missing the `Mixed` member
 # outright. Triage notes are a starting point; read the variants before acting on one.
 # Work an entry down by harmonising and DELETING it, never by reclassifying: an entry for a
@@ -563,7 +563,6 @@ COLF_DIVERGENCE_TRIAGED = {
    "EPMA carries vendor-specific members (`Default constant 3 us (Cameca)`, "
    "`Super-precision`), SEM the generic set."),
  "Beam Mode": ("BACKLOG", "2 variants across 3 electron-beam TAPPs."),
- "Guard Electrode": ("BACKLOG", "2 variants across 9 ICP-MS TAPPs."),
  "Collision/Reaction Cell (CRC) Configuration": ("BACKLOG",
    "Examined 2026-08-30 and NOT a clean superset. `KED+DRC` is a genuine combined mode that "
    "applies to any cell instrument and should simply be added to the three MC tables. "
