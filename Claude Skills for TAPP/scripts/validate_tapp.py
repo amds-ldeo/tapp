@@ -559,8 +559,14 @@ COLF_DIVERGENCE_TRIAGED = {
  "Sample Preparation Method": ("BACKLOG", "5 variants across 16 TAPPs."),
  "Coupled Technique(s)": ("BACKLOG", "7 variants across 16 TAPPs."),
  "Chromatographic Separation Applied": ("BACKLOG", "2 variants across 3 Solution TAPPs."),
- "EDS Acquisition Mode": ("BACKLOG",
-   "3 variants across 4 electron-beam TAPPs; these should probably agree."),
+ "EDS Acquisition Mode": ("PRINCIPLED",
+   "Examined 2026-08-31. The shared core was drift and is harmonised — `Point | Line scan | "
+   "Map | Spectrum image` in all four, with `Map` and `Spectrum image` separated because they "
+   "are different acquisitions, not synonyms. What remains diverging is scoping: "
+   "`Simultaneous EDS+EELS` is meaningless without an energy-loss spectrometer (TEM only) and "
+   "`Automated mineralogy` is an SEM platform. A uniform list would offer every EPMA user a "
+   "mode their instrument cannot perform. The test: a member is principled if it names a "
+   "capability the technique does not have."),
  "Pulse/Analog Detector Nonlinearity Correction": ("BACKLOG", "3 variants across 6 TAPPs."),
  "Collision/Reaction Cell (CRC) Configuration": ("BACKLOG",
    "Examined 2026-08-30 and NOT a clean superset. `KED+DRC` is a genuine combined mode that "
