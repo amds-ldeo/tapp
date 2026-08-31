@@ -2516,3 +2516,37 @@ pass, with the domain genuinely differing per TAPP) and **13 BACKLOG**, not yet 
 **A PRINCIPLED class was required from day one, not added later.** `ICP-MS Type` is the proof:
 each TAPP lists only its own analyser family, and a Q-ICP-MS TAPP offering MC would be the
 defect. Without the class the check would flag it forever and train people to ignore it.
+
+---
+
+## `Sample Mounting Method` — a vocabulary rebuilt because its GRAIN was wrong (2026-08-30)
+
+The clearest case in the library of a Column F invented rather than observed: five of six
+attested cells named a vessel the list did not contain.
+
+| | |
+|---|---|
+| listed | straw, glass capillary, wax, modelling clay, flat quartz window, PTFE tape, stage pin |
+| attested | pipette tips, plexiglass tube, custom PVC tube, glass vial, polystyrene support |
+
+**The defect was the grain, not the members.** The list enumerated SPECIFIC VESSELS, and that
+domain is unbounded — any container can hold a sample, so extending it never terminates.
+Enumerating **holder classes** does terminate, and the `/ Text` half already existed to carry
+the specific vessel: `Tube or vial — 1 cm plastic straw`. All seven attested cells map onto
+the eight rebuilt members.
+
+**This is the mirror of the `Electron Source` fix.** There the list was too FINE for what
+papers report — it demanded Cold vs Schottky where the paper said only "FEG" — and the fix was
+one coarse member. Here the list was too SPECIFIC throughout, and the fix was a coarser axis
+for every member. Both failures look like "missing members" in a gap scan; neither is fixed by
+adding any.
+
+**Two of the six cells also showed containment PLUS a sealing layer** — `triple-sealed Teflon
+bag` inside a plexiglass tube, `triple-bagged in Teflon` then inside a straw — contamination
+control for planetary material, which the old list could not express at all because it forced
+a single choice. Column B now asks for both layers.
+
+**Generalises:** when attested cells cluster as *instances of* the listed members rather than
+alternatives to them, the list is pitched at the wrong grain. Count how many attested values
+could be added as members without the domain closing — if the answer is "indefinitely many",
+raise the axis instead of extending the list.
