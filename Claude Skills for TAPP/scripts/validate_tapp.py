@@ -527,6 +527,9 @@ def colf_members(ex):
 
 # 7.8.11 — Column F divergence on controlled lists, frozen 2026-08-30 so the check ships at
 # 0 WARN. PRINCIPLED = adjudicated, no action expected. BACKLOG = not yet examined.
+# WORKED DOWN: `Plasma Thermal Mode` harmonised and REMOVED 2026-08-30 — the triage note said
+# 'same domain, different verbosity', but Solution MC was also missing the `Mixed` member
+# outright. Triage notes are a starting point; read the variants before acting on one.
 # Work an entry down by harmonising and DELETING it, never by reclassifying: an entry for a
 # field that no longer diverges reads as a standing decision that was never made.
 COLF_DIVERGENCE_TRIAGED = {
@@ -555,9 +558,6 @@ COLF_DIVERGENCE_TRIAGED = {
  "EDS Acquisition Mode": ("BACKLOG",
    "3 variants across 4 electron-beam TAPPs; these should probably agree."),
  "Pulse/Analog Detector Nonlinearity Correction": ("BACKLOG", "3 variants across 6 TAPPs."),
- "Plasma Thermal Mode": ("BACKLOG",
-   "LA tables annotate the members with RF wattage, Solution tables do not — same domain, "
-   "different verbosity. Likely straightforward to harmonise."),
  "WDS Dead Time Correction": ("BACKLOG",
    "EPMA carries vendor-specific members (`Default constant 3 us (Cameca)`, "
    "`Super-precision`), SEM the generic set."),
