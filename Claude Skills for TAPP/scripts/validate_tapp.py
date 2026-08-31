@@ -268,7 +268,9 @@ COLB_DIVERGENCE_TRIAGED = {
     'Mass Bias Correction Strategy': ("PRINCIPLED", 7),
     # harmonised body 2026-08-12; the oxide proxy is technique-specific: ThO+/Th+ in LA, CeO+/Ce+ in solution
     'Phase Identification Method': ("PRINCIPLED", 2),
-    'Pulse/Analog Detector Nonlinearity Correction': ("PRINCIPLED", 6),
+    # `Pulse/Analog Detector Nonlinearity Correction` REMOVED 2026-08-31: its Column B was
+    # harmonised to one text across all six while its Column F was fixed under 7.8.11, so the
+    # field no longer diverges and a standing entry here would read as a decision never made.
     'Step Size / Pixel Size': ("PRINCIPLED", 3),
 }
 
@@ -529,7 +531,8 @@ def colf_members(ex):
 # 0 WARN. PRINCIPLED = adjudicated, no action expected. BACKLOG = not yet examined.
 # WORKED DOWN 2026-08-30: `Plasma Thermal Mode`, `Diffracting Crystal`,
 # `Stage Scan vs. Beam Scan`, `Guard Electrode`, `Beam Mode` harmonised and REMOVED;
-# `WDS Dead Time Correction` likewise 2026-08-31 — the first where the harmonised list
+# `WDS Dead Time Correction` and `Pulse/Analog Detector Nonlinearity Correction`
+# likewise 2026-08-31 — the first where the harmonised list
 # is SHORTER than a variant, EPMA's four constant-members being a {default,adjusted} x
 # {Cameca,JEOL} cross-product whose vendor axis `Instrument Manufacturer` already owns. — the triage note said
 # 'same domain, different verbosity', but Solution MC was also missing the `Mixed` member
@@ -567,7 +570,6 @@ COLF_DIVERGENCE_TRIAGED = {
    "`Automated mineralogy` is an SEM platform. A uniform list would offer every EPMA user a "
    "mode their instrument cannot perform. The test: a member is principled if it names a "
    "capability the technique does not have."),
- "Pulse/Analog Detector Nonlinearity Correction": ("BACKLOG", "3 variants across 6 TAPPs."),
  "Collision/Reaction Cell (CRC) Configuration": ("PRINCIPLED",
    "Resolved 2026-08-31. `KED+DRC` was a genuine shared mode the MC tables lacked and is now "
    "added. What still differs is real: the Q tables offer "
