@@ -1955,7 +1955,18 @@ a term plus a citation or a per-analyte assignment — `Controlled list / Text`.
 - On a plain `Controlled list`, it **contradicts the type**. The type says the list is closed; the option says it is not. Nothing could see the contradiction, which is exactly how `Technique` came to carry `Other: specify` in 13 of 16 TAPPs — the exemption below was implemented as *skip this field* rather than *verify it stays closed*, so the drift was invisible for months.
 - On a `Controlled list / Text`, it is the **wrong prompt**, not merely redundant. A compound wants a listed term *plus* qualification — the citation, the elements affected, the fit window. `Other: specify` invites "pick something else", which is the wrong behaviour.
 
-Enforced by `controlled-list-forbidden-options` in `validate_tapp.py`.
+**It must not appear on any other type either.** On `Text (free)` the field already admits any
+answer; on `Numeric (<unit>)` Column F is illustrative. 137 cells across 43 fields were still
+carrying it after the controlled-list sweep and were cleared on 2026-08-30. Enforced by
+`forbidden-options` in `validate_tapp.py`, which applies to every Data Type and has no
+exemptions — note this is deliberately *not* the same scope as `CONTROLLED_LIST_EXEMPT`, which
+governs the required options only.
+
+**A member list on a free-text type is a smell.** `Other: specify` turned out to appear
+*only* where Column F was written as a pipe-separated enumeration ending `N/A | None |
+Other: specify` — the controlled-list convention exactly — and never on a list prefixed
+`e.g.,`. Where a `Text (free)` field's Column F reads as an enumeration, ask whether the field
+is mis-typed before assuming the vocabulary is illustrative.
 
 **Where the guidance went.** The reference value of `Other: specify` — telling a user what they may enter — is real, and is now served once by the **Data Type table on the generated xlsx Legends sheet** rather than by 226 inline repetitions that can drift out of sync with the type they describe. Add to that table, not to Column F, when the guidance needs to change.
 

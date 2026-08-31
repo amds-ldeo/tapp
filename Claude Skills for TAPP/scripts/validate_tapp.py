@@ -833,22 +833,29 @@ def check_data_types(t: Tapp, out):
             else:
                 add("WARN", n, item, "datatype-invalid",
                     f"Data Type '{dt}' is not in the controlled vocabulary.")
-        if dt.startswith("Controlled list"):
+        if dt.startswith("Controlled list") and item not in CONTROLLED_LIST_EXEMPT:
             ex = t.cell(row, COL_EXAMPLE)
-            if item not in CONTROLLED_LIST_EXEMPT:
-                missing = [v for v in CONTROLLED_LIST_REQUIRED if v.lower() not in ex.lower()]
-                if missing:
-                    add("WARN", n, item, "controlled-list-options",
-                        f"Controlled list is missing required option(s) {missing} in column F.")
+            missing = [v for v in CONTROLLED_LIST_REQUIRED if v.lower() not in ex.lower()]
+            if missing:
+                add("WARN", n, item, "controlled-list-options",
+                    f"Controlled list is missing required option(s) {missing} in column F.")
+
+        # The forbidden-options check applies to EVERY type, not just controlled lists, and
+        # has no exemptions. `Other: specify` left the vocabulary on 2026-08-30: it contradicts
+        # a closed `Controlled list`, asks the wrong thing on a `Controlled list / Text`, and is
+        # simply meaningless on `Text (free)` or `Numeric (...)`, where 137 cells across 43
+        # fields were still carrying it after the controlled-list sweep.
+        if True:
+            ex = t.cell(row, COL_EXAMPLE)
             present = [v for v in CONTROLLED_LIST_FORBIDDEN if v.lower() in ex.lower()]
             if present:
-                add("WARN", n, item, "controlled-list-forbidden-options",
+                add("WARN", n, item, "forbidden-options",
                     f"Column F offers {present}. `Other: specify` left the vocabulary on "
-                    f"2026-08-30: on `Controlled list` it contradicts a closed type, and on "
+                    f"2026-08-30: on `Controlled list` it contradicts a closed type; on "
                     f"`Controlled list / Text` the `/ Text` half already grants an unlisted "
-                    f"answer — and asks for the wrong thing, since a compound wants a listed "
-                    f"term plus qualification. See the Legends sheet for the guidance it "
-                    f"used to carry.")
+                    f"answer, and it asks the wrong thing since a compound wants a listed term "
+                    f"plus qualification; and on `Text (free)` or `Numeric (...)` it is "
+                    f"meaningless. See the Legends sheet for the guidance it used to carry.")
 
 
 def check_analytical_mode_vocabulary(t: Tapp, out):
