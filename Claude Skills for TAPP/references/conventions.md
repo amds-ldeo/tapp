@@ -1962,11 +1962,24 @@ carrying it after the controlled-list sweep and were cleared on 2026-08-30. Enfo
 exemptions — note this is deliberately *not* the same scope as `CONTROLLED_LIST_EXEMPT`, which
 governs the required options only.
 
-**A member list on a free-text type is a smell.** `Other: specify` turned out to appear
-*only* where Column F was written as a pipe-separated enumeration ending `N/A | None |
-Other: specify` — the controlled-list convention exactly — and never on a list prefixed
-`e.g.,`. Where a `Text (free)` field's Column F reads as an enumeration, ask whether the field
-is mis-typed before assuming the vocabulary is illustrative.
+**Prefix an illustrative Column F with `e.g.,`.** On a `Controlled list` the values ARE the
+domain; on `Text (free)`, `Integer` or `Numeric (...)` they can only be examples, and the
+prefix is what tells a reader — and a scan — which they are looking at.
+
+**A member list on a free-text type is a smell.** `Other: specify` turned out to appear *only*
+where Column F was written as a pipe-separated enumeration ending `N/A | None | Other: specify`
+— the controlled-list convention exactly — and never on a list prefixed `e.g.,`. Measured
+across the 66 such fields on 2026-08-31, the smell was usually harmless: **44 of the 57 with
+attested cells had ZERO cells matching any listed member**, at distinctness 0.85–1.00, so the
+lists were examples wearing a vocabulary's clothes and took the prefix. Two rules settle it:
+
+- **A numeric or integer field's Column F is always illustrative.** There is no controlled list
+  of numbers.
+- **A `Text (free)` field's is illustrative when the literature says so** — at most a quarter of
+  attested cells matching a member, on three or more cells.
+
+Where a `Text (free)` field's list *is* matched by its cells, the field is probably mis-typed
+and wants a Column E decision, not a prefix.
 
 **Where the guidance went.** The reference value of `Other: specify` — telling a user what they may enter — is real, and is now served once by the **Data Type table on the generated xlsx Legends sheet** rather than by 226 inline repetitions that can drift out of sync with the type they describe. Add to that table, not to Column F, when the guidance needs to change.
 
