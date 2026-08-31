@@ -568,14 +568,13 @@ COLF_DIVERGENCE_TRIAGED = {
    "mode their instrument cannot perform. The test: a member is principled if it names a "
    "capability the technique does not have."),
  "Pulse/Analog Detector Nonlinearity Correction": ("BACKLOG", "3 variants across 6 TAPPs."),
- "Collision/Reaction Cell (CRC) Configuration": ("BACKLOG",
-   "Examined 2026-08-30 and NOT a clean superset. `KED+DRC` is a genuine combined mode that "
-   "applies to any cell instrument and should simply be added to the three MC tables. "
-   "`ICP-MS/MS (triple-quadrupole mode)` is different: a Nu Sapphire or Thermo Neoma MS/MS has "
-   "a pre-cell mass filter and a multi-collector array, NOT a triple quadrupole, so copying "
-   "that wording into the MC tables would state something false. MC MS/MS appears in those "
-   "tables' own `ICP-MS Type` list but in no MC literature cell, so a correctly-worded member "
-   "would be authored on no evidence. Needs a decision."),
+ "Collision/Reaction Cell (CRC) Configuration": ("PRINCIPLED",
+   "Resolved 2026-08-31. `KED+DRC` was a genuine shared mode the MC tables lacked and is now "
+   "added. What still differs is real: the Q tables offer "
+   "`ICP-MS/MS (triple-quadrupole mode)` and the MC tables `MS/MS (pre-cell mass filter)`, "
+   "because a Nu Sapphire or Thermo Neoma MS/MS has a pre-cell mass filter and a "
+   "multi-collector array, NOT a triple quadrupole. Same wording in both would be false in "
+   "one of them. Scoping, not drift."),
 }
 
 

@@ -2,7 +2,7 @@
   "module": "CollisionCell",
   "title": "Collision/reaction cell — configuration, cell gases and kinetic energy discrimination",
   "layer": 2,
-  "version": "3",
+  "version": "4",
   "source_of_truth": "modules/Module_CollisionCell.csv",
   "owned_columns": [
     "A",
@@ -37,7 +37,9 @@
         "Collision Gas Flow Rate",
         "Reaction Gas Type",
         "Reaction Gas Flow Rate",
-        "Cell Exit Discrimination Voltage"
+        "Cell Exit Discrimination Voltage",
+        "Collision/Reaction Gas Mixture Ratio",
+        "Reaction Product Ion / Mass-Shift Transition"
       ]
     }
   ],
@@ -49,7 +51,7 @@
     "Solution Q-ICP-MS",
     "Solution MC-ICP-MS"
   ],
-  "notes": "The collision/reaction cell subsystem, shared by every ICP-MS TAPP whose instrument can have a cell. The consumer set is the Q and MC lineages; the SF TAPPs are not consumers because sector-field instruments have no cell and do not carry these fields at all. Q and MC share the subsystem for the same reason — a hexapole or quadrupole cell upstream of the analyser — which is why this is a real layer and not an accident of which tables happened to be authored together.",
+  "notes": "The collision/reaction cell subsystem, shared by every ICP-MS TAPP whose instrument can have a cell. The consumer set is the Q and MC lineages; the SF TAPPs are not consumers because sector-field instruments have no cell and do not carry these fields at all. Q and MC share the subsystem for the same reason — a hexapole or quadrupole cell upstream of the analyser — which is why this is a real layer and not an accident of which tables happened to be authored together. 2026-08-31: `Collision/Reaction Gas Mixture Ratio` and `Reaction Product Ion / Mass-Shift Transition` moved IN from the three Q tables, which owned them privately. They are cell-subsystem fields exactly like the gas types, flows and cell-exit voltage already here, and the module's consumer set is precisely the six cell-capable TAPPs — so the three MC tables were missing them for no reason other than where they happened to be authored. This closes the MC-MS/MS gap without a separate TAPP: the transition field is what MS/MS adds over a plain collision cell, and MC instruments with a pre-cell mass filter (Nu Sapphire, Thermo Neoma MS/MS) need it. No MC-MS/MS procedure is attested yet — a Neoma appears in vanKooten+2026 but is run in plain MC mode — so this is capability-grounded, not literature-grounded, and is deliberately a field addition rather than a new TAPP.",
   "extraction": "Extracted 2026-08-27 under Rule 6.10 from the fields left TAPP-owned after Module_ICPMS reached 39. Six fields, exactly the Rule 6.10 floor.",
   "decisions": [
     "2026-08-27: C, D, E and Keyed By were ALREADY uniform across all six consumers on every field; only the descriptions diverged, four variants each. A guard re-checks the authored tiers against the library and refuses to write on any mismatch, so this module cannot silently retype a field while merging its prose.",
