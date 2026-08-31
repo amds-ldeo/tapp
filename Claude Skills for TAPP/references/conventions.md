@@ -205,7 +205,7 @@ These are not replacements for "Analytical Mode" and should not be confused with
 **Single-mode techniques:** Even if a technique has only one possible mode (e.g., a technique with a single fixed acquisition geometry), include "Analytical Mode" so that procedure records are self-describing and consistent across the TAPP library.
 
 **"Analytical Mode" allowed values must mirror the mode flag column labels exactly:**
-The controlled vocabulary for "Analytical Mode" must use the exact strings that appear as mode flag column headers in that TAPP (defined in Phase 0). Do not paraphrase, abbreviate, or substitute synonyms. Because this correspondence must be exact, `Analytical Mode` is **exempt** from the requirement that every Controlled list field offer `N/A | None | Other: specify` — see the exemption table in the Data Type Vocabulary section. This ensures that a procedure declaring `Analytical Mode = WDS Point Analysis` is unambiguously linked to the `WDS Point Analysis` mode flag column, and that sub-TAPP filtering behaves correctly. If mode flag column labels are ever renamed in a future revision, the "Analytical Mode" allowed values must be updated in the same patch.
+The controlled vocabulary for "Analytical Mode" must use the exact strings that appear as mode flag column headers in that TAPP (defined in Phase 0). Do not paraphrase, abbreviate, or substitute synonyms. Because this correspondence must be exact, `Analytical Mode` is **exempt** from the requirement that every Controlled list field offer `N/A | None` — see the exemption table in the Data Type Vocabulary section. This ensures that a procedure declaring `Analytical Mode = WDS Point Analysis` is unambiguously linked to the `WDS Point Analysis` mode flag column, and that sub-TAPP filtering behaves correctly. If mode flag column labels are ever renamed in a future revision, the "Analytical Mode" allowed values must be updated in the same patch.
 
 > **Enforced from 2026-08-24 — `check_analytical_mode_vocabulary` (`rule3-mode-vocab`, WARN).** Only
 > the *placement* half of Rule 3 was ever checked (Analytical Mode must be first in Group 4); the
@@ -1908,10 +1908,9 @@ Use these standardized data type labels in Column E:
 | Label | Use for |
 |---|---|
 | Text (free) | Free-text narrative; no controlled vocabulary |
-| Controlled list | Value must be one of a defined set; list allowed values in Column F |
+| Controlled list | Value must be one of a defined set — the list is **CLOSED**. List the allowed values in Column F. |
 | Numeric (unit) | A number with a specific unit; state the unit in parentheses, e.g., Numeric (W), Numeric (Hz), Numeric (µm) |
 | Numeric + unit | A number where the unit is variable and must be stated by the user |
-| Boolean | Yes / No only |
 | Integer | Whole number with no unit |
 | Date | YYYY-MM-DD format |
 | URI / DOI | A persistent identifier, URL, or DOI |
@@ -1929,13 +1928,16 @@ rather than introducing a new one.
 
 | Compound | Use for | In use |
 |---|---|---|
-| `Controlled list / Text` | a defined set of values, but the field must also accept an unlisted or qualifying answer | 41 uses, 14 TAPPs |
+| `Controlled list / Text` | a defined set of values, but the field also expects a qualifying answer — or accepts one the list cannot express | 211 cells, 40 fields |
 | `URI / DOI / Text` | an identifier is preferred, but placeholders such as "pending", "same submission" or "None" are valid answers | 14 uses |
 | `Numeric (unit) / Text` | a number is expected, but a qualifying statement is sometimes the honest answer | |
 
 **Use a compound only when the second form is a legitimate answer, not a way to avoid choosing.**
 If the fallback would only ever be used to record absence, the field is a plain `Controlled list`
-and `N/A | None | Other: specify` in Column F already covers it.
+and `N/A | None` in Column F already covers it. The test that decides it: **could the escape ever
+be retired by extending the list?** Yes — the out-of-list answer is a member you failed to
+enumerate — plain `Controlled list`, and complete the list. No — the answer is a different *shape*,
+a term plus a citation or a per-analyte assignment — `Controlled list / Text`.
 
 **Not compounds.** These forms appear in the library and are errors rather than compounds:
 
@@ -1945,16 +1947,25 @@ and `N/A | None | Other: specify` in Column F already covers it.
 | `URI / Text (free)` on an IGSN field | `URI / IGSN` | a named type already exists for this |
 | `Numeric + label` | `Text (free)` | the value is a single composite string (e.g. `'+5 mm (High), -5 mm (Low)'`), not a number with an alternative form |
 
-**For all Controlled list fields**, Column F must include the following options in addition to the technique-specific values: `N/A | None | Other: specify`. This ensures users can always document the absence of a feature or an unlisted option without leaving the field blank.
+**For all Controlled list fields — plain or compound** — Column F must include `N/A | None` in addition to the technique-specific values. These are conventional *values* a user must be shown they may enter, so that absence is recorded rather than left blank.
 
-**For a compound whose first component is `Controlled list`**, Column F must offer `N/A | None` but **not** `Other: specify`. The two requirements exist for different reasons: `N/A` and `None` are conventional *values* a user must be shown they may enter, whereas `Other: specify` exists to permit an unlisted answer — and in a compound the `/ Text` component already permits one. Requiring it as well would ask the user for permission the type has already granted.
+**`Other: specify` must NOT appear in Column F.** It left the vocabulary on 2026-08-30, stripped from 226 cells. It was wrong in both places it appeared:
 
-**Exemption — fields whose allowed values are bound by another rule to an exact enumeration.** A Controlled list field is exempt from the `N/A | None | Other: specify` requirement when a different rule fixes its allowed values to an exact, closed set, and adding the generic options would break that correspondence or be semantically empty.
+- On a plain `Controlled list`, it **contradicts the type**. The type says the list is closed; the option says it is not. Nothing could see the contradiction, which is exactly how `Technique` came to carry `Other: specify` in 13 of 16 TAPPs — the exemption below was implemented as *skip this field* rather than *verify it stays closed*, so the drift was invisible for months.
+- On a `Controlled list / Text`, it is the **wrong prompt**, not merely redundant. A compound wants a listed term *plus* qualification — the citation, the elements affected, the fit window. `Other: specify` invites "pick something else", which is the wrong behaviour.
+
+Enforced by `controlled-list-forbidden-options` in `validate_tapp.py`.
+
+**Where the guidance went.** The reference value of `Other: specify` — telling a user what they may enter — is real, and is now served once by the **Data Type table on the generated xlsx Legends sheet** rather than by 226 inline repetitions that can drift out of sync with the type they describe. Add to that table, not to Column F, when the guidance needs to change.
+
+**Closing a list is a claim, and it has a cost when wrong.** A closed list that is incomplete forces users into wrong answers: amds-ldeo/tapp#3 was 84 invalid publication cells, entered by curators because `Analytical Mode`'s Column F told them `EDS` and `CL` were the allowed values. **Verify a list is complete against its attested literature before closing it.** `Technique` is the standing example of one that is not yet — three TAPPs' lists omit their own technique — and it keeps `Other: specify` and its exemption until Rule 1 settles the cross-TAPP technique vocabulary.
+
+**Exemption — fields whose allowed values are bound by another rule to an exact enumeration.** A Controlled list field is exempt from the `N/A | None` requirement when a different rule fixes its allowed values to an exact, closed set, and adding the generic options would break that correspondence or be semantically empty.
 
 | Exempt field | Bound by | Why exempt |
 |---|---|---|
-| `Analytical Mode` | Rule 3 | Allowed values must mirror the mode flag column labels *exactly*, with no paraphrase or substitution, so that sub-TAPP filtering resolves correctly. `Other: specify` would break that correspondence; `N/A` and `None` are meaningless, since every procedure has an analytical mode. |
-| `Technique` | Rule 1 | The field is the TAPP's own top-level technique identifier, drawn from the cross-TAPP technique vocabulary. `N/A` and `None` are semantically empty — every procedure has a technique, and a procedure record that declared otherwise would be malformed. Several TAPPs correctly carry a single allowed value (`Solution Q-ICP-MS`), a closed enumeration of one. Added 2026-08-10; see `precedents.md`. |
+| `Analytical Mode` | Rule 3 | Allowed values must mirror the mode flag column labels *exactly*, with no paraphrase or substitution, so that sub-TAPP filtering resolves correctly. `N/A` and `None` are meaningless, since every procedure has an analytical mode. |
+| `Technique` | Rule 1 | The field is the TAPP's own top-level technique identifier, drawn from the cross-TAPP technique vocabulary. `N/A` and `None` are semantically empty — every procedure has a technique, and a procedure record that declared otherwise would be malformed. Several TAPPs correctly carry a single allowed value (`Solution Q-ICP-MS`), a closed enumeration of one. Added 2026-08-10; see `precedents.md`. **Its exemption is doing double duty as of 2026-08-30**: it is also the one field still carrying `Other: specify`, because its Column F is known incomplete — three TAPPs' lists omit their own technique against 14+ attested cells. Retire that half of the exemption when Rule 1 settles the vocabulary. |
 
 This exemption list is closed — add to it only by explicit decision, recorded here and in `references/precedents.md`. It does **not** extend to mode-adjacent fields such as `Analytical Sub-mode`, `EDS Acquisition Mode`, or `Beam Mode`, whose values are not bound to the mode flag column labels and which therefore carry the generic options like any other Controlled list.
 

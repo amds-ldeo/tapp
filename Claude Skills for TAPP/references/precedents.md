@@ -2396,3 +2396,65 @@ matches on containment.**
 
 Registers: 33 → 31 INFO; the `cole-name-variant` and `keyed-by-name-variant` entries for this pair
 are both retired.
+
+---
+
+## The Data Type vocabulary reduced to two controlled-list forms; `Boolean` and `Other: specify` retired (2026-08-30)
+
+**The defect.** Bare `Controlled list` is read as *closed* everywhere the term is load-bearing —
+JSON Schema `enum`, XSD `enumeration`, SKOS. In this library **178 of 197 such cells carried
+`Other: specify`** and were open. The label asserted closure and was wrong 90% of the time, and the
+open/closed distinction lived de facto in Column F — the one content column with no cross-TAPP
+check. `Technique` proves the cost: its Rule 1 exemption was implemented as *skip this field*
+rather than *verify it stays closed*, so it drifted to open in **13 of 16 TAPPs** unseen.
+
+**Rejected: a three-type scheme.** `Controlled list (open)` was considered and dropped. It and
+`/ Text` emit the same validation shape — neither rejects an out-of-enum value — so openness cannot
+separate them. The only property that does is facetability (the `Instrument Manufacturer` rationale
+in `Module_Core.json`: a discovery facet needs a near-complete enum, which `/ Text` destroys), and
+that was judged too thin to carry a third label.
+
+**Adopted.** `Controlled list` = closed. `Controlled list / Text` = open, and expects a listed term
+*plus* qualification. `Boolean` retired: of 4 attested cells across its 3 fields only **one** was a
+bare Yes/No. `Other: specify` retired from all 226 cells — on a closed list it contradicts the
+type, on a compound it asks for the wrong thing. Its reference value moved to a Data Type table on
+the generated xlsx Legends sheet.
+
+**Applied in three commits**, because only part of it was coupled. Retypes (51 cells) landed first:
+the validator already exempted compounds from the `Other: specify` requirement, so
+`Controlled list` → `/ Text` relaxed rather than tightened. The strip (213 cells), the two
+`/ Text` → `Controlled list` retypes, and the `CONTROLLED_LIST_REQUIRED` inversion had to land
+together or the baseline went 0 → ~226 WARN.
+
+**`Technique` was held back** and still carries `Other: specify`. Closing a list that is incomplete
+is what produced amds-ldeo/tapp#3's 84 invalid publication cells. Verify completeness before
+closing.
+
+### The measurement lesson — the scan was wrong, and reading found it
+
+Classification was measured by scoring each field's attested cells as bare list members vs
+qualified. **Four artefacts made the first run untrustworthy, every one found by reading cells, none
+by the script's own checks:** the not-reported sentinel written long-form as `N (not stated) [P4]`
+and counted as an extraction; `[P4]` provenance tags scored as content; `(stated section 3.1)` and
+`(explicitly stated: "…")` embedded inside values; and parentheticals that are part of the term
+(`Field Emission (FEG)`, `Normal plasma (1000 W RF)`) read as qualification.
+
+**The dominant false positive generalises.** Per-analyte and per-phase assignment —
+`LIFL (Fe, Mn); TAPL (Mg); PETL (Ca)` — reads as qualification to any text heuristic but is a
+**Column I `Keyed By` matter, not a Data Type one**. Three such fields already declared
+`Keyed By: channel` and were nearly retyped wrongly. On the thin-evidence fields the scan was wrong
+on **6 of 8**. Calibrate any future scan against `Technique`, `Analytical Mode` and
+`Instrument Manufacturer`, which must land ≥85% bare.
+
+### Two findings that fell out of the same pass
+
+**A closed list that enumerates subtypes needs a subtype-unstated member**, or a paper reporting the
+coarse answer is forced into `Other:`. `Electron Source` showed it plainest — 14 cells read
+`Other: FEG (type not specified in paper)` because the list demanded Cold vs Schottky. Three of the
+five true vocabulary gaps found were this one defect. Of 26 closed fields with unmatched values,
+only **5** had real gaps; the rest were synonym variance in the extraction cells, or answers on the
+wrong axis (`Instrument Variant` collected `FESEM` ×10, which is the `Electron Source` axis).
+
+**Normalising extraction cells was declined.** Rewriting a literature cell asserts something about a
+named third party, and no validator check reads right of the `Literature Assessment` sentinel — so
+nothing required it. Take it additively (a canonical column beside the extraction) if ever wanted.

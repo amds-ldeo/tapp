@@ -514,12 +514,25 @@ def parse_keyed_by(v):
 
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
-CONTROLLED_LIST_REQUIRED = ["N/A", "None", "Other: specify"]
+# 2026-08-30 — the two-type scheme. `Controlled list` now means CLOSED and
+# `Controlled list / Text` means open, so the TYPE carries the open/closed signal and
+# Column F no longer repeats it. `Other: specify` left the vocabulary entirely: on a
+# closed list it contradicted the type, and on a compound it was the wrong prompt (a
+# compound wants a term PLUS qualification, not "pick something else"). The user-facing
+# guidance now lives once on the xlsx Legends sheet. Both types still owe `N/A | None`,
+# which are conventional VALUES a user must be shown they may enter.
+CONTROLLED_LIST_REQUIRED = ["N/A", "None"]
+CONTROLLED_LIST_FORBIDDEN = ["Other: specify"]
 
-# Controlled list fields exempt from the N/A | None | Other: specify requirement,
-# because another rule binds their allowed values to an exact closed set.
+# Controlled list fields exempt from the N/A | None requirement, because another rule
+# binds their allowed values to an exact closed set.
 # See the exemption table in the Data Type Vocabulary section of conventions.md.
 # Closed list — extend only by explicit decision, documented there.
+#   `Analytical Mode` — Rule 3, permanent.
+#   `Technique`       — TEMPORARY. Its Column F is known incomplete (three TAPPs' lists
+#     omit their own technique against 14+ attested cells), so it still carries
+#     `Other: specify` and must not be closed until Rule 1 settles the cross-TAPP
+#     technique vocabulary. Remove from this set in the commit that closes it.
 CONTROLLED_LIST_EXEMPT = {"Analytical Mode", "Technique"}
 # Rule 3 exempts `Analytical Mode` from these; check_analytical_mode_vocabulary flags them.
 GENERIC_LIST_OPTIONS = {"N/A", "None", "Other: specify", "Multiple (specify)"}
@@ -760,15 +773,20 @@ def check_data_types(t: Tapp, out):
                 add("WARN", n, item, "datatype-invalid",
                     f"Data Type '{dt}' is not in the controlled vocabulary.")
         if dt.startswith("Controlled list") and item not in CONTROLLED_LIST_EXEMPT:
-            # A compound's "/ Text" component already permits an unlisted answer, so
-            # "Other: specify" is not required there — only the absence values are.
-            required = (CONTROLLED_LIST_REQUIRED if dt == "Controlled list"
-                        else [v for v in CONTROLLED_LIST_REQUIRED if v != "Other: specify"])
             ex = t.cell(row, COL_EXAMPLE)
-            missing = [v for v in required if v.lower() not in ex.lower()]
+            missing = [v for v in CONTROLLED_LIST_REQUIRED if v.lower() not in ex.lower()]
             if missing:
                 add("WARN", n, item, "controlled-list-options",
                     f"Controlled list is missing required option(s) {missing} in column F.")
+            present = [v for v in CONTROLLED_LIST_FORBIDDEN if v.lower() in ex.lower()]
+            if present:
+                add("WARN", n, item, "controlled-list-forbidden-options",
+                    f"Column F offers {present}. `Other: specify` left the vocabulary on "
+                    f"2026-08-30: on `Controlled list` it contradicts a closed type, and on "
+                    f"`Controlled list / Text` the `/ Text` half already grants an unlisted "
+                    f"answer — and asks for the wrong thing, since a compound wants a listed "
+                    f"term plus qualification. See the Legends sheet for the guidance it "
+                    f"used to carry.")
 
 
 def check_analytical_mode_vocabulary(t: Tapp, out):

@@ -251,6 +251,41 @@ def build_legends(wb, mode_headers, keys_used=()):
     row_pair(r+1, 1, 'N', 'This field does not apply to this analytical mode.')
 
 
+    # --- Data Type table -----------------------------------------------------
+    # Added 2026-08-30 with the two-type scheme. `Other: specify` was removed from 226
+    # Column F cells: on a closed `Controlled list` it contradicted the type, and on a
+    # `Controlled list / Text` it asked for the wrong thing. The guidance it used to
+    # carry inline lives here instead — stated once, where it cannot drift out of sync
+    # with the type it describes.
+    r += 3
+    hdr(r, 1, 'Data Type'); hdr(r, 2, 'What to enter')
+    r += 1
+    TYPE_DEFS = [
+        ('Controlled list',
+         'Choose one of the values listed in "Example / Allowed Content". The list is '
+         'CLOSED — it is meant to cover every case. If your value genuinely is not there, '
+         'that is a gap in the list worth reporting, not a reason to write your own.'),
+        ('Controlled list / Text',
+         'Choose a listed value AND qualify it in the same cell — the detail is expected, '
+         'not optional. Typically what was corrected, which analytes or phases it applied '
+         'to, the method or equation used, or the source it came from. An answer the list '
+         'cannot express is also valid here.'),
+        ('Numeric (unit)',
+         'A number in the unit named in brackets. Enter the number only — the unit is '
+         'fixed by the field.'),
+        ('Numeric + unit',
+         'A number AND its unit, because the unit varies between procedures. Write both, '
+         "e.g. '50 us' or '0.5 s'."),
+        ('Text (free)', 'Free text. No controlled vocabulary applies.'),
+        ('N/A | None',
+         'Offered by every controlled list. "N/A" means the field does not apply to this '
+         'procedure; "None" means it applies but nothing was used. Prefer either over '
+         'leaving the cell blank.'),
+    ]
+    for label, defn in TYPE_DEFS:
+        row_pair(r, 1, label, defn)
+        r += 1
+
     r += 3
     hdr(r, 1, 'Keyed By (Rule 7)'); hdr(r, 2, 'What the field\'s value repeats over')
     r += 1
