@@ -7,7 +7,7 @@ fs-LA-MC-ICP-MS
 China Univ. of Geosciences"
 1. Procedure Identification,,,,,,,,,,N,N,N,N,N
 Procedure Name,"A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",Basic,Read-Only,Text (free),"e.g., 'LA-ICP-MS Trace Elements Silicate Glass v1.2' | 'fs-LA-ICP-MS Major and Trace Elements Sulfide v1'",Source: Core module,2026-08-08,(none),,Y,Y,Y,,Zhang et al. (2022) Lunar Meteorite Rb-Sr Transect fs-LA-MC-ICP-MS v1
-Technique,Top-level analytical technique identifier.,Basic,Read-Only,Controlled list,LA-MC-ICP-MS | Other: specify | N/A | None,Source: Core module,2026-08-08,(none),,Y,Y,Y,,fs-LA-MC-ICP-MS
+Technique,Top-level analytical technique identifier.,Basic,Read-Only,Controlled list,LA-MC-ICP-MS,Source: Core module,2026-08-30,(none),,Y,Y,Y,,fs-LA-MC-ICP-MS
 Procedure Author,Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.,Basic,Read-Only,Text (free),"e.g., 'J. Smith (ORCID: 0000-0001-2345-6789)' | 'Isotope Geochemistry Lab, University of X'",Source: Core module,2026-08-08,(none),,Y,Y,Y,,Zhang et al. (China Univ. of Geosciences Wuhan)
 Laboratory,Name of the laboratory or institution hosting the instrument.,Basic,Editable,Text (free),"e.g., 'Geo-/Cosmochemistry Lab, University of Cologne'",Source: Core module,2026-05-06,(none),,Y,Y,Y,,"State Key Laboratory of Geological Processes and Mineral Resources, China Univ. Geosciences, Wuhan, China"
 Laboratory ID,"Persistent identifier for the laboratory (e.g., ROR ID).",Advanced,Editable,URI / DOI,ROR ID or equivalent URI (https://ror.org/),Source: Core module,2026-08-08,(none),,Y,Y,Y,,N

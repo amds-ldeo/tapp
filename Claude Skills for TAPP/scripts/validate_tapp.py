@@ -528,11 +528,13 @@ CONTROLLED_LIST_FORBIDDEN = ["Other: specify"]
 # binds their allowed values to an exact closed set.
 # See the exemption table in the Data Type Vocabulary section of conventions.md.
 # Closed list — extend only by explicit decision, documented there.
-#   `Analytical Mode` — Rule 3, permanent.
-#   `Technique`       — TEMPORARY. Its Column F is known incomplete (three TAPPs' lists
-#     omit their own technique against 14+ attested cells), so it still carries
-#     `Other: specify` and must not be closed until Rule 1 settles the cross-TAPP
-#     technique vocabulary. Remove from this set in the commit that closes it.
+#   `Analytical Mode` — Rule 3.
+#   `Technique`       — Rule 1. Both options are semantically empty: every procedure has a
+#     technique, and a record declaring otherwise would be malformed.
+# NOTE this set exempts a field from the REQUIRED options only. The forbidden-options check
+# below has no exemptions: `Other: specify` left the vocabulary entirely on 2026-08-30 and may
+# not reappear on any controlled list. `Technique` was the last field carrying it, closed once
+# Rule 1 settled its vocabulary — three TAPPs' lists had not contained their own technique.
 CONTROLLED_LIST_EXEMPT = {"Analytical Mode", "Technique"}
 # Rule 3 exempts `Analytical Mode` from these; check_analytical_mode_vocabulary flags them.
 GENERIC_LIST_OPTIONS = {"N/A", "None", "Other: specify", "Multiple (specify)"}
@@ -772,12 +774,13 @@ def check_data_types(t: Tapp, out):
             else:
                 add("WARN", n, item, "datatype-invalid",
                     f"Data Type '{dt}' is not in the controlled vocabulary.")
-        if dt.startswith("Controlled list") and item not in CONTROLLED_LIST_EXEMPT:
+        if dt.startswith("Controlled list"):
             ex = t.cell(row, COL_EXAMPLE)
-            missing = [v for v in CONTROLLED_LIST_REQUIRED if v.lower() not in ex.lower()]
-            if missing:
-                add("WARN", n, item, "controlled-list-options",
-                    f"Controlled list is missing required option(s) {missing} in column F.")
+            if item not in CONTROLLED_LIST_EXEMPT:
+                missing = [v for v in CONTROLLED_LIST_REQUIRED if v.lower() not in ex.lower()]
+                if missing:
+                    add("WARN", n, item, "controlled-list-options",
+                        f"Controlled list is missing required option(s) {missing} in column F.")
             present = [v for v in CONTROLLED_LIST_FORBIDDEN if v.lower() in ex.lower()]
             if present:
                 add("WARN", n, item, "controlled-list-forbidden-options",

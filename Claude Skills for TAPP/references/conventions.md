@@ -1958,7 +1958,13 @@ Enforced by `controlled-list-forbidden-options` in `validate_tapp.py`.
 
 **Where the guidance went.** The reference value of `Other: specify` — telling a user what they may enter — is real, and is now served once by the **Data Type table on the generated xlsx Legends sheet** rather than by 226 inline repetitions that can drift out of sync with the type they describe. Add to that table, not to Column F, when the guidance needs to change.
 
-**Closing a list is a claim, and it has a cost when wrong.** A closed list that is incomplete forces users into wrong answers: amds-ldeo/tapp#3 was 84 invalid publication cells, entered by curators because `Analytical Mode`'s Column F told them `EDS` and `CL` were the allowed values. **Verify a list is complete against its attested literature before closing it.** `Technique` is the standing example of one that is not yet — three TAPPs' lists omit their own technique — and it keeps `Other: specify` and its exemption until Rule 1 settles the cross-TAPP technique vocabulary.
+**Closing a list is a claim, and it has a cost when wrong.** A closed list that is incomplete forces users into wrong answers: amds-ldeo/tapp#3 was 84 invalid publication cells, entered by curators because `Analytical Mode`'s Column F told them `EDS` and `CL` were the allowed values. **Verify a list is complete against its attested literature before closing it.**
+
+`Technique` was the worked example. It was held back from the strip because three TAPPs' lists did not contain their own technique — LA-SF's offered `LA-ICP-MS | LA-ICP-OES | LA-MC-ICP-MS | LA-ICP-ToF-MS | LA-ICP-MS/MS` against 7 attested cells all reading `LA-SF-ICP-MS`. The vocabulary was fixed first (2026-08-30, Rule 1) and closed after:
+
+- **Each list holds the TAPP's own technique, not a menu of siblings.** The three Solution tables already worked this way and are the model: 29 of 29 attested cells match their single listed value.
+- **`Technique` is platform-level.** Attested `SEM-EDS`, `fs-LA-Q-ICP-MS` and TEM's `STEM; EDS; EELS` composites name a detector, a laser pulse duration and a set of spectroscopies — all of which other fields already record. A value belongs here only if no more specific field owns it.
+- **A subtype-unstated member goes in only where the literature reports coarsely.** The two LA-Q tables gained `LA-ICP-MS (analyser not specified)` for two such cells; LA-SF did not, because all seven of its cells name the analyser. Add members on evidence, not for symmetry.
 
 **Exemption — fields whose allowed values are bound by another rule to an exact enumeration.** A Controlled list field is exempt from the `N/A | None` requirement when a different rule fixes its allowed values to an exact, closed set, and adding the generic options would break that correspondence or be semantically empty.
 

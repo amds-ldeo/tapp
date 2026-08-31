@@ -1,7 +1,7 @@
 ﻿Metadata Item,Description,Procedure-Level Tier,Analysis-Level Tier,Data Type,Example / Allowed Content,Comments,Last Update,Keyed By,Purpose,Spot,Transect,Mapping,Literature Assessment
 1. Procedure Identification,,,,,,,,,,N,N,N,N
 Procedure Name,"A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",Basic,Read-Only,Text (free),"e.g., 'LA-ICP-MS Trace Elements Silicate Glass v1.2' | 'fs-LA-ICP-MS Major and Trace Elements Sulfide v1'",Source: Core module,2026-08-08,(none),,Y,Y,Y,
-Technique,Top-level analytical technique identifier.,Basic,Read-Only,Controlled list,LA-MC-ICP-MS | Other: specify | N/A | None,Source: Core module,2026-08-08,(none),,Y,Y,Y,
+Technique,Top-level analytical technique identifier.,Basic,Read-Only,Controlled list,LA-MC-ICP-MS,Source: Core module,2026-08-30,(none),,Y,Y,Y,
 Procedure Author,Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.,Basic,Read-Only,Text (free),"e.g., 'J. Smith (ORCID: 0000-0001-2345-6789)' | 'Isotope Geochemistry Lab, University of X'",Source: Core module,2026-08-08,(none),,Y,Y,Y,
 Laboratory,Name of the laboratory or institution hosting the instrument.,Basic,Editable,Text (free),"e.g., 'Geo-/Cosmochemistry Lab, University of Cologne'",Source: Core module,2026-05-06,(none),,Y,Y,Y,
 Laboratory ID,"Persistent identifier for the laboratory (e.g., ROR ID).",Advanced,Editable,URI / DOI,ROR ID or equivalent URI (https://ror.org/),Source: Core module,2026-08-08,(none),,Y,Y,Y,

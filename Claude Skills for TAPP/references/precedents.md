@@ -2458,3 +2458,34 @@ wrong axis (`Instrument Variant` collected `FESEM` ×10, which is the `Electron 
 **Normalising extraction cells was declined.** Rewriting a literature cell asserts something about a
 named third party, and no validator check reads right of the `Literature Assessment` sentinel — so
 nothing required it. Take it additively (a canonical column beside the extraction) if ever wanted.
+
+---
+
+## `Technique` closed, after its vocabulary was fixed (2026-08-30)
+
+The last field carrying `Other: specify`, held back from the strip because its Column F was
+known incomplete. **Three TAPPs' lists did not contain their own technique** — LA-SF offered
+`LA-ICP-MS | LA-ICP-OES | LA-MC-ICP-MS | LA-ICP-ToF-MS | LA-ICP-MS/MS` against 7 attested cells
+all reading `LA-SF-ICP-MS`, and Lab-XCT offered `XCT (laboratory, polychromatic cone-beam)`
+against 14 cells reading `Lab XCT`. Closing it in that state would have repeated
+amds-ldeo/tapp#3 exactly.
+
+**Adjudicated four ways.** Each list holds the TAPP's *own* technique, not a menu of siblings —
+the three Solution tables already worked this way, 29 of 29 attested cells matching their single
+listed value. `Technique` is **platform-level**: the attested `SEM-EDS`, `fs-LA-Q-ICP-MS` and
+TEM `STEM; EDS; EELS` composites name a detector, a laser pulse duration and a set of
+spectroscopies, each already owned by another field — `fs-` in particular would duplicate
+`Laser Pulse Duration`, whose own examples include `290 fs (Yb:KGW)`. Lab-XCT adopts the papers'
+`Lab XCT`, plus `Lab XCT (nano-CT)` on 4 attested cells. And the two LA-Q tables gain
+`LA-ICP-MS (analyser not specified)` — the subtype-unstated pattern — while LA-SF does not,
+because all seven of its cells name the analyser. **Add members on evidence, not for symmetry.**
+
+`N/A | None` also left the five lists still carrying them: Rule 1 already exempts `Technique`
+from those as semantically empty, and the Solution tables had always omitted them.
+
+**The validator's two exemptions are not the same exemption.** `CONTROLLED_LIST_EXEMPT` governs
+the REQUIRED options only. The forbidden-options check has no exemptions at all — verified by
+injecting `Other: specify` into `Technique` itself and confirming the WARN. A field can be
+exempt from owing `N/A | None` while still being forbidden `Other: specify`; conflating the two
+is what let `Technique` drift open in 13 of 16 TAPPs in the first place, since its exemption was
+implemented as *skip this field* rather than *verify it stays closed*.
