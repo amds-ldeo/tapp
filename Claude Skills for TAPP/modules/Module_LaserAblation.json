@@ -1,101 +1,101 @@
 {
-    "module": "LaserAblation",
-    "title": "Laser Ablation Front End",
-    "layer": 2,
-    "version": "9",
-    "source_of_truth": "modules/Module_LaserAblation.csv",
-    "owned_columns": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "I"
-    ],
-    "overlay_columns": [
-        "F",
-        "J"
-    ],
-    "mode_flag_default": "Y",
-    "source_comment": "Source: Laser Ablation module",
-    "conditional": false,
-    "blocks": [
-        {
-            "name": "la_sample",
-            "target_group": "2. Samples",
-            "placement": "append_to_group",
-            "fields": [
-                "Pre-Ablation Surface Treatment",
-                "Fusion Flux and Dilution Ratio",
-                "Sample Form / Analytical Substrate"
-            ]
-        },
-        {
-            "name": "la_hardware",
-            "target_group": "3. Instrument & Software",
-            "placement": "append_to_group",
-            "fields": [
-                "Laser Manufacturer & Model",
-                "Laser Wavelength and Type",
-                "Ablation Cell Type",
-                "Sample Introduction"
-            ]
-        },
-        {
-            "name": "la_acquisition",
-            "target_group": "4. Measurement Information",
-            "placement": "append_to_group",
-            "fields": [
-                "Laser Spot Geometry",
-                "Laser Spot Path / Ablation Mode",
-                "Laser Energy",
-                "Laser Fluence (Energy Density)",
-                "Laser Beam Energy Profile",
-                "Laser Repetition Rate",
-                "Laser Pulse Duration",
-                "Ablation Duration per Spot",
-                "Ablation Pit Depth and Ablation Rate",
-                "Spot Diameter (Measured)",
-                "Transect Rate, Mapping Rate or Step Size",
-                "Raster Line Spacing (Mapping Only)",
-                "Transect Length",
-                "Analysis Location/Spot Coordinates",
-                "Background Count Time",
-                "Carrier Gas and Flow Rate",
-                "Mapping Area",
-                "Multi-Run Sequential Analysis Design",
-                "Signal Smoothing"
-            ]
-        },
-        {
-            "name": "la_reduction",
-            "target_group": "5. Data Processing",
-            "placement": "append_to_group",
-            "fields": [
-                "Internal Standard Approach",
-                "Elemental Fractionation Correction",
-                "Matrix Offset Correction (LIEF)"
-            ]
-        }
-    ],
-    "consumed_by": [
-        "LA-Q/SF-ICP-MS",
-        "LA-MC-ICP-MS (#7a)",
-        "LA-ICP-ToF-MS (#7b)",
-        "LA-ICP-TQ-MS (#7c)"
-    ],
-    "notes": "Everything upstream of the plasma in a laser ablation system: the laser and its optics, the ablation cell, the beam parameters, and the spatial sampling geometry. Independent of which mass analyser follows, so it composes with quadrupole, sector-field, multi-collector or time-of-flight. Mode flags default to Y; a consumer whose modes differ from Spot/Transect/Mapping must set them.",
-    "extraction": "Extracted 2026-08-08 under Rule 6.10. Base content from LA-Q/SF-ICP-MS v5. Two reconciliation exceptions, both from Test 4's 'principled, propagate' finding: Ablation Cell Type takes the geochronology TAPP's description (cell volume governs washout time and therefore achievable time resolution) and C=Basic; Laser Pulse Duration keeps LA-Q/SF's fuller ns-vs-fs description but takes C=Basic. Two other geochronology descriptions looked longer but were only LA-Q/SF's text plus Horstwood Table 3 provenance notes that had leaked into Column B — length is not a proxy for quality.",
-    "decisions": [
-        "Column I (Keyed By) added to every field 2026-08-11 under Rule 7; owned_columns gained \"I\". Module-owned, so the value is authoritative for all consumers.",
-        "2026-08-12: Keyed By updated for the session/sample restructure (Decision Record A1, A3, A4)",
-        "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content.",
-        "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
-        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves.",
-        "2026-08-26: gained `Internal Standard Approach` (18 -> 19 fields), retired from Solution Q and SF in the same patch. The field asks how the internal standard CONCENTRATION is obtained when the IS is native to the sample rather than added — a property of in-situ sampling, not of the plasma or the analyser, which is why it belongs to this module and not Module_ICPMS. Copied into the solution lineage where that question has no discriminating answer (you added the IS, so you know its concentration), it had been repurposed there to record the IS's ROLE instead: 'drift correction only | matrix normalization'. All 11 attested Solution cells were verified redundant with `Drift Correction Method`, `Internal Standard Element` and `Isotope Dilution Data Reduction Method` before removal. Its 6 consumers now match this module's LA set exactly.",
-        "2026-08-27: extended 19 -> 29 fields. Ten fields present in exactly the six LA TAPPs and unowned by any module were taken over: Background Count Time, Carrier Gas and Flow Rate, Elemental Fractionation Correction, Fusion Flux and Dilution Ratio, Mapping Area, Matrix Offset Correction (LIEF), Multi-Run Sequential Analysis Design, Sample Form / Analytical Substrate, Sample Introduction, Signal Smoothing. ZERO content change — all ten were already byte-identical across all six consumers on A, B, C, D, E and I, verified per field by a guard that refuses to write otherwise, so composition rewrites them to the values they already hold. The only cell that moves in each TAPP is the Column G provenance stamp. They map onto the module's four existing blocks by their current group, so no new block was needed. This is the same shape as Module_ICPMS v1: six hand-maintained copies become one owned definition.",
-        "2026-08-27: Step 1 of the Description/Purpose split applied to the 2 field(s) of this module that post-dated the 2026-08-25 module routing. Move only — no text reworded or deleted. Routing recorded in analysis/Step1_Routing_MODULES_BACKLOG_2026-08-27.csv. The Purpose text reaches consumers because overlay-default propagation was fixed on 2026-08-27; written before that fix it would have stayed in the module and reached nobody.",
-        "2026-08-27: Step 2 (W1-W5) applied to the 5 flag(s) this module carried from the Step 1 backlog routing. Before/after pairs in analysis/Step2_Applied_MODULES_2026-08-27.csv."
-    ],
-    "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
+  "module": "LaserAblation",
+  "title": "Laser Ablation Front End",
+  "layer": 2,
+  "version": "10",
+  "source_of_truth": "modules/Module_LaserAblation.csv",
+  "owned_columns": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "I"
+  ],
+  "overlay_columns": [
+    "F",
+    "J"
+  ],
+  "mode_flag_default": "Y",
+  "source_comment": "Source: Laser Ablation module",
+  "conditional": false,
+  "blocks": [
+    {
+      "name": "la_sample",
+      "target_group": "2. Samples",
+      "placement": "append_to_group",
+      "fields": [
+        "Pre-Ablation Surface Treatment",
+        "Fusion Flux and Dilution Ratio",
+        "Sample Form / Analytical Substrate"
+      ]
+    },
+    {
+      "name": "la_hardware",
+      "target_group": "3. Instrument & Software",
+      "placement": "append_to_group",
+      "fields": [
+        "Laser Manufacturer & Model",
+        "Laser Wavelength and Type",
+        "Ablation Cell Type",
+        "Sample Introduction"
+      ]
+    },
+    {
+      "name": "la_acquisition",
+      "target_group": "4. Measurement Information",
+      "placement": "append_to_group",
+      "fields": [
+        "Laser Spot Geometry",
+        "Laser Spot Path / Ablation Mode",
+        "Laser Energy",
+        "Laser Fluence (Energy Density)",
+        "Laser Beam Energy Profile",
+        "Laser Repetition Rate",
+        "Laser Pulse Duration",
+        "Ablation Duration per Spot",
+        "Ablation Pit Depth and Ablation Rate",
+        "Spot Diameter (Measured)",
+        "Transect Rate, Mapping Rate or Step Size",
+        "Raster Line Spacing (Mapping Only)",
+        "Transect Length",
+        "Analysis Location/Spot Coordinates",
+        "Background Count Time",
+        "Carrier Gas and Flow Rate",
+        "Mapping Area",
+        "Multi-Run Sequential Analysis Design",
+        "Signal Smoothing"
+      ]
+    },
+    {
+      "name": "la_reduction",
+      "target_group": "5. Data Processing",
+      "placement": "append_to_group",
+      "fields": [
+        "Internal Standard Approach",
+        "Elemental Fractionation Correction",
+        "Matrix Offset Correction (LIEF)"
+      ]
+    }
+  ],
+  "consumed_by": [
+    "LA-Q/SF-ICP-MS",
+    "LA-MC-ICP-MS (#7a)",
+    "LA-ICP-ToF-MS (#7b)",
+    "LA-ICP-TQ-MS (#7c)"
+  ],
+  "notes": "Everything upstream of the plasma in a laser ablation system: the laser and its optics, the ablation cell, the beam parameters, and the spatial sampling geometry. Independent of which mass analyser follows, so it composes with quadrupole, sector-field, multi-collector or time-of-flight. Mode flags default to Y; a consumer whose modes differ from Spot/Transect/Mapping must set them.",
+  "extraction": "Extracted 2026-08-08 under Rule 6.10. Base content from LA-Q/SF-ICP-MS v5. Two reconciliation exceptions, both from Test 4's 'principled, propagate' finding: Ablation Cell Type takes the geochronology TAPP's description (cell volume governs washout time and therefore achievable time resolution) and C=Basic; Laser Pulse Duration keeps LA-Q/SF's fuller ns-vs-fs description but takes C=Basic. Two other geochronology descriptions looked longer but were only LA-Q/SF's text plus Horstwood Table 3 provenance notes that had leaked into Column B — length is not a proxy for quality.",
+  "decisions": [
+    "Column I (Keyed By) added to every field 2026-08-11 under Rule 7; owned_columns gained \"I\". Module-owned, so the value is authoritative for all consumers.",
+    "2026-08-12: Keyed By updated for the session/sample restructure (Decision Record A1, A3, A4)",
+    "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content.",
+    "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
+    "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves.",
+    "2026-08-26: gained `Internal Standard Approach` (18 -> 19 fields), retired from Solution Q and SF in the same patch. The field asks how the internal standard CONCENTRATION is obtained when the IS is native to the sample rather than added — a property of in-situ sampling, not of the plasma or the analyser, which is why it belongs to this module and not Module_ICPMS. Copied into the solution lineage where that question has no discriminating answer (you added the IS, so you know its concentration), it had been repurposed there to record the IS's ROLE instead: 'drift correction only | matrix normalization'. All 11 attested Solution cells were verified redundant with `Drift Correction Method`, `Internal Standard Element` and `Isotope Dilution Data Reduction Method` before removal. Its 6 consumers now match this module's LA set exactly.",
+    "2026-08-27: extended 19 -> 29 fields. Ten fields present in exactly the six LA TAPPs and unowned by any module were taken over: Background Count Time, Carrier Gas and Flow Rate, Elemental Fractionation Correction, Fusion Flux and Dilution Ratio, Mapping Area, Matrix Offset Correction (LIEF), Multi-Run Sequential Analysis Design, Sample Form / Analytical Substrate, Sample Introduction, Signal Smoothing. ZERO content change — all ten were already byte-identical across all six consumers on A, B, C, D, E and I, verified per field by a guard that refuses to write otherwise, so composition rewrites them to the values they already hold. The only cell that moves in each TAPP is the Column G provenance stamp. They map onto the module's four existing blocks by their current group, so no new block was needed. This is the same shape as Module_ICPMS v1: six hand-maintained copies become one owned definition.",
+    "2026-08-27: Step 1 of the Description/Purpose split applied to the 2 field(s) of this module that post-dated the 2026-08-25 module routing. Move only — no text reworded or deleted. Routing recorded in analysis/Step1_Routing_MODULES_BACKLOG_2026-08-27.csv. The Purpose text reaches consumers because overlay-default propagation was fixed on 2026-08-27; written before that fix it would have stayed in the module and reached nobody.",
+    "2026-08-27: Step 2 (W1-W5) applied to the 5 flag(s) this module carried from the Step 1 backlog routing. Before/after pairs in analysis/Step2_Applied_MODULES_2026-08-27.csv."
+  ],
+  "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }

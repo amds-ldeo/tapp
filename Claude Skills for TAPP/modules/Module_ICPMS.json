@@ -1,118 +1,118 @@
 {
-    "module": "ICPMS",
-    "title": "Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",
-    "layer": 2,
-    "version": "8",
-    "source_of_truth": "modules/Module_ICPMS.csv",
-    "owned_columns": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "I"
-    ],
-    "overlay_columns": [
-        "F",
-        "J"
-    ],
-    "mode_flag_default": "Y",
-    "source_comment": "Source: ICP-MS module",
-    "conditional": false,
-    "blocks": [
-        {
-            "name": "instrument",
-            "target_group": "3. Instrument & Software",
-            "placement": "append_to_group",
-            "fields": [
-                "Instrument Serial Number or Lab Identifier",
-                "Torch Depth",
-                "Torch Type",
-                "Guard Electrode",
-                "Interface Cone Configuration",
-                "ICP-MS Type",
-                "Mass Resolution Setting",
-                "Sampler and Skimmer Cone Material"
-            ]
-        },
-        {
-            "name": "session",
-            "target_group": "4. Measurement Information",
-            "placement": "append_to_group",
-            "fields": [
-                "ICP Tuning",
-                "Instrument Warm-up / Session Duration Limit",
-                "Make-up Gas and Flow Rate",
-                "Instrument Sensitivity",
-                "Ion Counter Dead Time",
-                "Oxide Production",
-                "Auxiliary Gas Flow Rate",
-                "Coolant (Plasma) Gas Flow Rate",
-                "RF Power",
-                "Oxide Production Method and Threshold",
-                "Plasma Thermal Mode",
-                "Analysis Sequence"
-            ]
-        },
-        {
-            "name": "reduction",
-            "target_group": "5. Data Processing",
-            "placement": "append_to_group",
-            "fields": [
-                "Uncertainty Level",
-                "Uncertainty Propagation Method",
-                "Spike / Outlier Filtering Approach",
-                "Signal Integration Time",
-                "Blank / Background Correction Method",
-                "Internal Standard Element",
-                "Memory Effect Mitigation",
-                "Per-Analyte Calibration Strategy",
-                "Signal Integration Interval Method",
-                "Interference Correction Method",
-                "Interfering Species",
-                "Spectral Interference Corrections Applied",
-                "Isotope Dilution Data Reduction Method"
-            ]
-        },
-        {
-            "name": "quality",
-            "target_group": "6. Quality Control & Uncertainty",
-            "placement": "append_to_group",
-            "fields": [
-                "Internal (Within-Measurement) Analytical Precision and Assessment Method",
-                "Within-Session Analytical Precision and Assessment Method",
-                "Between-Session (Long-Term) Analytical Precision and Assessment Method",
-                "Calibration Standard Measurement Frequency",
-                "Analytical Accuracy and Assessment Method",
-                "Limit of Quantification (LOQ) Method"
-            ]
-        }
-    ],
-    "consumed_by": [
-        "LA-Q-ICP-MS",
-        "LA-SF-ICP-MS",
-        "LA-MC-ICP-MS",
-        "LA-Q-ICP-MS U-Pb",
-        "LA-SF-ICP-MS U-Pb",
-        "LA-MC-ICP-MS U-Pb",
-        "Solution Q-ICP-MS",
-        "Solution SF-ICP-MS",
-        "Solution MC-ICP-MS",
-        "any future ICP-MS TAPP regardless of front end or analyser"
-    ],
-    "notes": "What every ICP-MS procedure shares once the sample has reached the plasma, independent of BOTH the front end (laser ablation or solution) and the analyser (quadrupole, sector-field, multi-collector). Complements Module_LaserAblation and Module_SolutionIntroduction, which own the two front ends; this module owns neither.",
-    "extraction": "Extracted 2026-08-25 under Rule 6.10. Candidate set was 'present in all 9 ICP-MS TAPPs and unowned by an existing module' = 46 fields. Seven were excluded for reaching BEYOND ICP-MS: Sample Preparation Method (15 TAPPs) and six shared with EPMA/SEM/SEM_Composition (Detection Limit, Detection Limit Method, Counting Statistics Error, Primary Calibration Standard Name, Secondary Reference Materials, Normalization / Standards-Based Correction). Those 12 TAPPs are the quantitative-composition set and are a candidate layer of their own; placing them here would have mis-scoped them, and for the Detection Limit pair would have undone the uniformity established the previous day under amds-ldeo/tapp#1. That left 39 ICP-MS-specific fields.",
-    "reconciliation": "v1 ships the 13 of 39 whose Columns B, C, D, E and I are ALREADY byte-identical across all nine consumers. v1 therefore changes no TAPP content and carries no authoring risk — it converts nine hand-maintained copies into one owned definition.\n\nThe other 26 are deferred, and why matters. The 2026-08-12 Column B harmonisation worked by adopting a superset variant where one existed. That rule does not apply here: of the 32 divergent descriptions tested, ZERO have a clear superset and 30 carry real content in more than one variant. These are genuine merges, not choices, and must be decided by reading — the same conclusion Module_SolutionIntroduction recorded, that the Rule 6.10 criteria 'are sound as criteria but are NOT automatable'.\n\n12 of the 26 additionally trip this library's governing disqualifier: their text names an ANALYSER rather than a purpose. For most, the wrapper can be stripped and the content adopted. For `Mass Resolution Setting` and `ICP-MS Type` the analyser-dependence IS the substance — the quadrupole text states that operator selection is impossible while the sector-field text describes choosing LR/MR/HR, and a module consumed by Q, SF and MC cannot assert either. Those two need an analyser layer or must stay TAPP-owned. Note the 2026-08-08 review already found no viable sector-field layer (0 fields shared by SF and MC but not Q).",
-    "decisions": [
-        "2026-08-25: prerequisite discharged BEFORE extraction. The 2026-08-14 log required a literature assessment of five fields the Solution TAPPs appeared to lack, warning that 'a module built from the six LA tables alone would silently ratify the gap'. Re-checked: ICP Tuning, Instrument Warm-up / Session Duration Limit and Ion Counter Dead Time are now in all 9; Sensitivity as Useful Yield and Plasma / Make-up Gas Addition were retired by the 2026-08-14 and 2026-08-17 reconciliations into Instrument Sensitivity and Make-up Gas and Flow Rate, both also in all 9. The gap is closed, so this module does not ratify it.",
-        "2026-08-25: v1 deliberately clears NONE of the outstanding Column E LINEAGE divergences. Five of the six ICP-MS ones — Blank / Background Correction Method, Isobaric Interference Corrections Applied, Limit of Quantification (LOQ) Method, Per-Analyte Calibration Strategy, Signal Integration Interval Method — sit in the deferred 26 because each ALSO diverges in Column B. Shipping them would have meant authoring their descriptions in the same stroke as deciding their types, which is how an unreviewed verdict enters a register.",
-        "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
-        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves.",
-        "2026-08-26: extended from 13 to 38 fields. The 26 deferred descriptions were merged by reading (analysis/Merge_ICPMS_Descriptions_2026-08-26.csv, 24 of 26 synthesised); front-end- and analyser-specific content was relocated to consumer-owned Column F rather than dropped. Three residual blockers were resolved: `Mass Resolution Setting` D -> Editable (the split was exactly analyser-aligned, and on a quadrupole the procedure-defined bound is a single value, so Editable is true-but-vacuous where Read-Only would be false for SF/MC); `Per-Analyte Calibration Strategy` C -> Basic (the merged description gives ratio-only procedures a valid answer). `Analysis Sequence` is DEFERRED and is the one field of the 26 left out: its D-tier splits Editable/Read-Only on the LA/Solution line and precedents.md records that divergence as knowingly unresolved, so it is not this module's to settle.",
-        "2026-08-27: extended to 39 fields — `Analysis Sequence` moved in, completing the 26 and with them the full 39-field ICP-MS-specific set identified at extraction. The 2026-08-26 entry above deferred it because its D-tier split Editable/Read-Only on the LA/Solution line and precedents.md recorded that divergence as knowingly unresolved. It was resolved on 2026-08-27 to D=Editable across all nine, decided not by majority but by the field's own text: the 2026-08-26 description merge had made Column B identical across all nine, and the shared wording — 'Adjustments must maintain the bracketing strategy defined in the procedure' — presupposes that the analyst may adjust, which is what D=Editable means. Adding it here changes NO TAPP content: all six owned columns were already byte-identical across the nine, so composition rewrites them to the values they already hold, and the four lineage-specific Column F example sets are untouched because F is an overlay column. Generalise: a merge pass that harmonises Column B can settle a tier divergence that was left open for want of evidence, and so unblock an extraction that was waiting on it — re-check a module's deferred list after any description merge.",
-        "2026-08-27: Step 1 of the Description/Purpose split applied to the 1 field(s) of this module that post-dated the 2026-08-25 module routing. Move only — no text reworded or deleted. Routing recorded in analysis/Step1_Routing_MODULES_BACKLOG_2026-08-27.csv. The Purpose text reaches consumers because overlay-default propagation was fixed on 2026-08-27; written before that fix it would have stayed in the module and reached nobody.",
-        "2026-08-27: Step 2 (W1-W5) applied to the 1 flag(s) this module carried from the Step 1 backlog routing. Before/after pairs in analysis/Step2_Applied_MODULES_2026-08-27.csv.",
-        "2026-08-27: `Isobaric Interference Corrections Applied` renamed to `Spectral Interference Corrections Applied`. The old name was narrower than the field: its own description covers isobaric, polyatomic AND residual interferences, while 'isobaric' in ICP-MS usage specifically excludes polyatomic. 'Spectral interference' is the standard umbrella term. Data Type UNCHANGED at `Controlled list / Text`, which the literature earns — of 51 attested cells none is a bare Yes/No; every one carries the answer with what was corrected. Column F was the mismatch, reading `Yes | No | N/A | None` while describing none of them, and is widened to the attested compound form. Not split into per-kind fields: one procedure routinely corrects several kinds at once, and the species-to-mass detail already lives in `Interfering Species` and `Interference Correction Method`, both channel-keyed."
-    ],
-    "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
+  "module": "ICPMS",
+  "title": "Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",
+  "layer": 2,
+  "version": "9",
+  "source_of_truth": "modules/Module_ICPMS.csv",
+  "owned_columns": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "I"
+  ],
+  "overlay_columns": [
+    "F",
+    "J"
+  ],
+  "mode_flag_default": "Y",
+  "source_comment": "Source: ICP-MS module",
+  "conditional": false,
+  "blocks": [
+    {
+      "name": "instrument",
+      "target_group": "3. Instrument & Software",
+      "placement": "append_to_group",
+      "fields": [
+        "Instrument Serial Number or Lab Identifier",
+        "Torch Depth",
+        "Torch Type",
+        "Guard Electrode",
+        "Interface Cone Configuration",
+        "ICP-MS Type",
+        "Mass Resolution Setting",
+        "Sampler and Skimmer Cone Material"
+      ]
+    },
+    {
+      "name": "session",
+      "target_group": "4. Measurement Information",
+      "placement": "append_to_group",
+      "fields": [
+        "ICP Tuning",
+        "Instrument Warm-up / Session Duration Limit",
+        "Make-up Gas and Flow Rate",
+        "Instrument Sensitivity",
+        "Ion Counter Dead Time",
+        "Oxide Production",
+        "Auxiliary Gas Flow Rate",
+        "Coolant (Plasma) Gas Flow Rate",
+        "RF Power",
+        "Oxide Production Method and Threshold",
+        "Plasma Thermal Mode",
+        "Analysis Sequence"
+      ]
+    },
+    {
+      "name": "reduction",
+      "target_group": "5. Data Processing",
+      "placement": "append_to_group",
+      "fields": [
+        "Uncertainty Level",
+        "Uncertainty Propagation Method",
+        "Spike / Outlier Filtering Approach",
+        "Signal Integration Time",
+        "Blank / Background Correction Method",
+        "Internal Standard Element",
+        "Memory Effect Mitigation",
+        "Per-Analyte Calibration Strategy",
+        "Signal Integration Interval Method",
+        "Interference Correction Method",
+        "Interfering Species",
+        "Spectral Interference Corrections Applied",
+        "Isotope Dilution Data Reduction Method"
+      ]
+    },
+    {
+      "name": "quality",
+      "target_group": "6. Quality Control & Uncertainty",
+      "placement": "append_to_group",
+      "fields": [
+        "Internal (Within-Measurement) Analytical Precision and Assessment Method",
+        "Within-Session Analytical Precision and Assessment Method",
+        "Between-Session (Long-Term) Analytical Precision and Assessment Method",
+        "Calibration Standard Measurement Frequency",
+        "Analytical Accuracy and Assessment Method",
+        "Limit of Quantification (LOQ) Method"
+      ]
+    }
+  ],
+  "consumed_by": [
+    "LA-Q-ICP-MS",
+    "LA-SF-ICP-MS",
+    "LA-MC-ICP-MS",
+    "LA-Q-ICP-MS U-Pb",
+    "LA-SF-ICP-MS U-Pb",
+    "LA-MC-ICP-MS U-Pb",
+    "Solution Q-ICP-MS",
+    "Solution SF-ICP-MS",
+    "Solution MC-ICP-MS",
+    "any future ICP-MS TAPP regardless of front end or analyser"
+  ],
+  "notes": "What every ICP-MS procedure shares once the sample has reached the plasma, independent of BOTH the front end (laser ablation or solution) and the analyser (quadrupole, sector-field, multi-collector). Complements Module_LaserAblation and Module_SolutionIntroduction, which own the two front ends; this module owns neither.",
+  "extraction": "Extracted 2026-08-25 under Rule 6.10. Candidate set was 'present in all 9 ICP-MS TAPPs and unowned by an existing module' = 46 fields. Seven were excluded for reaching BEYOND ICP-MS: Sample Preparation Method (15 TAPPs) and six shared with EPMA/SEM/SEM_Composition (Detection Limit, Detection Limit Method, Counting Statistics Error, Primary Calibration Standard Name, Secondary Reference Materials, Normalization / Standards-Based Correction). Those 12 TAPPs are the quantitative-composition set and are a candidate layer of their own; placing them here would have mis-scoped them, and for the Detection Limit pair would have undone the uniformity established the previous day under amds-ldeo/tapp#1. That left 39 ICP-MS-specific fields.",
+  "reconciliation": "v1 ships the 13 of 39 whose Columns B, C, D, E and I are ALREADY byte-identical across all nine consumers. v1 therefore changes no TAPP content and carries no authoring risk — it converts nine hand-maintained copies into one owned definition.\n\nThe other 26 are deferred, and why matters. The 2026-08-12 Column B harmonisation worked by adopting a superset variant where one existed. That rule does not apply here: of the 32 divergent descriptions tested, ZERO have a clear superset and 30 carry real content in more than one variant. These are genuine merges, not choices, and must be decided by reading — the same conclusion Module_SolutionIntroduction recorded, that the Rule 6.10 criteria 'are sound as criteria but are NOT automatable'.\n\n12 of the 26 additionally trip this library's governing disqualifier: their text names an ANALYSER rather than a purpose. For most, the wrapper can be stripped and the content adopted. For `Mass Resolution Setting` and `ICP-MS Type` the analyser-dependence IS the substance — the quadrupole text states that operator selection is impossible while the sector-field text describes choosing LR/MR/HR, and a module consumed by Q, SF and MC cannot assert either. Those two need an analyser layer or must stay TAPP-owned. Note the 2026-08-08 review already found no viable sector-field layer (0 fields shared by SF and MC but not Q).",
+  "decisions": [
+    "2026-08-25: prerequisite discharged BEFORE extraction. The 2026-08-14 log required a literature assessment of five fields the Solution TAPPs appeared to lack, warning that 'a module built from the six LA tables alone would silently ratify the gap'. Re-checked: ICP Tuning, Instrument Warm-up / Session Duration Limit and Ion Counter Dead Time are now in all 9; Sensitivity as Useful Yield and Plasma / Make-up Gas Addition were retired by the 2026-08-14 and 2026-08-17 reconciliations into Instrument Sensitivity and Make-up Gas and Flow Rate, both also in all 9. The gap is closed, so this module does not ratify it.",
+    "2026-08-25: v1 deliberately clears NONE of the outstanding Column E LINEAGE divergences. Five of the six ICP-MS ones — Blank / Background Correction Method, Isobaric Interference Corrections Applied, Limit of Quantification (LOQ) Method, Per-Analyte Calibration Strategy, Signal Integration Interval Method — sit in the deferred 26 because each ALSO diverges in Column B. Shipping them would have meant authoring their descriptions in the same stroke as deciding their types, which is how an unreviewed verdict enters a register.",
+    "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
+    "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves.",
+    "2026-08-26: extended from 13 to 38 fields. The 26 deferred descriptions were merged by reading (analysis/Merge_ICPMS_Descriptions_2026-08-26.csv, 24 of 26 synthesised); front-end- and analyser-specific content was relocated to consumer-owned Column F rather than dropped. Three residual blockers were resolved: `Mass Resolution Setting` D -> Editable (the split was exactly analyser-aligned, and on a quadrupole the procedure-defined bound is a single value, so Editable is true-but-vacuous where Read-Only would be false for SF/MC); `Per-Analyte Calibration Strategy` C -> Basic (the merged description gives ratio-only procedures a valid answer). `Analysis Sequence` is DEFERRED and is the one field of the 26 left out: its D-tier splits Editable/Read-Only on the LA/Solution line and precedents.md records that divergence as knowingly unresolved, so it is not this module's to settle.",
+    "2026-08-27: extended to 39 fields — `Analysis Sequence` moved in, completing the 26 and with them the full 39-field ICP-MS-specific set identified at extraction. The 2026-08-26 entry above deferred it because its D-tier split Editable/Read-Only on the LA/Solution line and precedents.md recorded that divergence as knowingly unresolved. It was resolved on 2026-08-27 to D=Editable across all nine, decided not by majority but by the field's own text: the 2026-08-26 description merge had made Column B identical across all nine, and the shared wording — 'Adjustments must maintain the bracketing strategy defined in the procedure' — presupposes that the analyst may adjust, which is what D=Editable means. Adding it here changes NO TAPP content: all six owned columns were already byte-identical across the nine, so composition rewrites them to the values they already hold, and the four lineage-specific Column F example sets are untouched because F is an overlay column. Generalise: a merge pass that harmonises Column B can settle a tier divergence that was left open for want of evidence, and so unblock an extraction that was waiting on it — re-check a module's deferred list after any description merge.",
+    "2026-08-27: Step 1 of the Description/Purpose split applied to the 1 field(s) of this module that post-dated the 2026-08-25 module routing. Move only — no text reworded or deleted. Routing recorded in analysis/Step1_Routing_MODULES_BACKLOG_2026-08-27.csv. The Purpose text reaches consumers because overlay-default propagation was fixed on 2026-08-27; written before that fix it would have stayed in the module and reached nobody.",
+    "2026-08-27: Step 2 (W1-W5) applied to the 1 flag(s) this module carried from the Step 1 backlog routing. Before/after pairs in analysis/Step2_Applied_MODULES_2026-08-27.csv.",
+    "2026-08-27: `Isobaric Interference Corrections Applied` renamed to `Spectral Interference Corrections Applied`. The old name was narrower than the field: its own description covers isobaric, polyatomic AND residual interferences, while 'isobaric' in ICP-MS usage specifically excludes polyatomic. 'Spectral interference' is the standard umbrella term. Data Type UNCHANGED at `Controlled list / Text`, which the literature earns — of 51 attested cells none is a bare Yes/No; every one carries the answer with what was corrected. Column F was the mismatch, reading `Yes | No | N/A | None` while describing none of them, and is widened to the attested compound form. Not split into per-kind fields: one procedure routinely corrects several kinds at once, and the species-to-mass detail already lives in `Interfering Species` and `Interference Correction Method`, both channel-keyed."
+  ],
+  "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }

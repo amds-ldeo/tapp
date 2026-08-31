@@ -1,67 +1,67 @@
 {
-    "module": "UPb",
-    "title": "U-Pb Geochronology",
-    "layer": 3,
-    "version": "7",
-    "source_of_truth": "modules/Module_UPb.csv",
-    "requires": [
-        "Geochronology",
-        "TargetSelection",
-        "CalibrationFactor",
-        "Blank",
-        "Aggregation"
-    ],
-    "owned_columns": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "I"
-    ],
-    "overlay_columns": [
-        "F",
-        "J"
-    ],
-    "mode_flag_default": "Y",
-    "blocks": [
-        {
-            "target_group": "2. Samples",
-            "placement": "append_to_group",
-            "fields": [
-                "Chemical Abrasion Conditions"
-            ]
-        },
-        {
-            "target_group": "5. Data Processing",
-            "placement": "insert_before",
-            "anchor_field": "Constants and Reference Values Used",
-            "fields": [
-                "Intermediate Daughter Disequilibrium Correction",
-                "Discordance Definition and Values"
-            ]
-        }
-    ],
-    "consumed_by": [
-        "Any instrument TAPP registering a U-Pb procedure: LA-Q/SF-ICP-MS, LA-MC-ICP-MS, LA-ICP-ToF-MS, TIMS (ID-TIMS), SIMS/SHRIMP."
-    ],
-    "evidence": [
-        "Condon et al. 2024, GSA Bulletin 136, 4233-4251"
-    ],
-    "notes": "Layer 3. Overlays Column F on the five Module_Geochronology fields with U-Pb-specific examples and allowed values, and adds four fields that are specific to U-Pb and are not instances of any general TAPP field.",
-    "deferred": [
-        "Resolved 2026-08-08: U-Pb tracer calibration, blank Pb composition, discordance-based rejection, MSWD, grain selection and CL/BSE screening are no longer deferred. Each is supplied as a Column F overlay on Module_ReportingCore, which is what that module was built for. The U-Pb-specific residue is the discordance metric itself, retained as 'Discordance Definition and Values'.",
-        "2026-08-08: 'Radiogenic to Common Pb Ratio (Pb*/Pbc)' was removed as a U-Pb extension and is now an overlay on Module_Geochronology's 'Radiogenic Fraction of Measured Signal'."
-    ],
-    "decisions": [
-        "2026-08-08: tier revision. See the field descriptions for the evidence. The two U-Pb demotions rest on Condon et al. (2024) prose; the paper's normative checklist is Figure 1, an image that was not machine-readable, so these should be re-checked against it.",
-        "Column I (Keyed By) added to every field 2026-08-11 under Rule 7; owned_columns gained \"I\". Module-owned, so the value is authoritative for all consumers.",
-        "2026-08-11: Keyed By revised under the strengthened Rule 7 invariants — every key in use must have exactly one 'defines:' field, and 'defines: X' is used only where another field is keyed by X.",
-        "2026-08-11: declares source_comment (Rule 6.11) so composition stamps field provenance into Column G of system variants. Documentation only — not read by validate_tapp.py and not part of the schema.",
-        "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
-        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves."
-    ],
-    "source_comment": "Source: U-Pb module",
-    "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
+  "module": "UPb",
+  "title": "U-Pb Geochronology",
+  "layer": 3,
+  "version": "8",
+  "source_of_truth": "modules/Module_UPb.csv",
+  "requires": [
+    "Geochronology",
+    "TargetSelection",
+    "CalibrationFactor",
+    "Blank",
+    "Aggregation"
+  ],
+  "owned_columns": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "I"
+  ],
+  "overlay_columns": [
+    "F",
+    "J"
+  ],
+  "mode_flag_default": "Y",
+  "blocks": [
+    {
+      "target_group": "2. Samples",
+      "placement": "append_to_group",
+      "fields": [
+        "Chemical Abrasion Conditions"
+      ]
+    },
+    {
+      "target_group": "5. Data Processing",
+      "placement": "insert_before",
+      "anchor_field": "Constants and Reference Values Used",
+      "fields": [
+        "Intermediate Daughter Disequilibrium Correction",
+        "Discordance Definition and Values"
+      ]
+    }
+  ],
+  "consumed_by": [
+    "Any instrument TAPP registering a U-Pb procedure: LA-Q/SF-ICP-MS, LA-MC-ICP-MS, LA-ICP-ToF-MS, TIMS (ID-TIMS), SIMS/SHRIMP."
+  ],
+  "evidence": [
+    "Condon et al. 2024, GSA Bulletin 136, 4233-4251"
+  ],
+  "notes": "Layer 3. Overlays Column F on the five Module_Geochronology fields with U-Pb-specific examples and allowed values, and adds four fields that are specific to U-Pb and are not instances of any general TAPP field.",
+  "deferred": [
+    "Resolved 2026-08-08: U-Pb tracer calibration, blank Pb composition, discordance-based rejection, MSWD, grain selection and CL/BSE screening are no longer deferred. Each is supplied as a Column F overlay on Module_ReportingCore, which is what that module was built for. The U-Pb-specific residue is the discordance metric itself, retained as 'Discordance Definition and Values'.",
+    "2026-08-08: 'Radiogenic to Common Pb Ratio (Pb*/Pbc)' was removed as a U-Pb extension and is now an overlay on Module_Geochronology's 'Radiogenic Fraction of Measured Signal'."
+  ],
+  "decisions": [
+    "2026-08-08: tier revision. See the field descriptions for the evidence. The two U-Pb demotions rest on Condon et al. (2024) prose; the paper's normative checklist is Figure 1, an image that was not machine-readable, so these should be re-checked against it.",
+    "Column I (Keyed By) added to every field 2026-08-11 under Rule 7; owned_columns gained \"I\". Module-owned, so the value is authoritative for all consumers.",
+    "2026-08-11: Keyed By revised under the strengthened Rule 7 invariants — every key in use must have exactly one 'defines:' field, and 'defines: X' is used only where another field is keyed by X.",
+    "2026-08-11: declares source_comment (Rule 6.11) so composition stamps field provenance into Column G of system variants. Documentation only — not read by validate_tapp.py and not part of the schema.",
+    "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
+    "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves."
+  ],
+  "source_comment": "Source: U-Pb module",
+  "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }
