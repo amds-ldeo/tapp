@@ -527,7 +527,8 @@ def colf_members(ex):
 
 # 7.8.11 — Column F divergence on controlled lists, frozen 2026-08-30 so the check ships at
 # 0 WARN. PRINCIPLED = adjudicated, no action expected. BACKLOG = not yet examined.
-# WORKED DOWN: `Plasma Thermal Mode` harmonised and REMOVED 2026-08-30 — the triage note said
+# WORKED DOWN 2026-08-30: `Plasma Thermal Mode`, `Diffracting Crystal`,
+# `Stage Scan vs. Beam Scan` harmonised and REMOVED — the triage note said
 # 'same domain, different verbosity', but Solution MC was also missing the `Mixed` member
 # outright. Triage notes are a starting point; read the variants before acting on one.
 # Work an entry down by harmonising and DELETING it, never by reclassifying: an entry for a
@@ -562,13 +563,15 @@ COLF_DIVERGENCE_TRIAGED = {
    "EPMA carries vendor-specific members (`Default constant 3 us (Cameca)`, "
    "`Super-precision`), SEM the generic set."),
  "Beam Mode": ("BACKLOG", "2 variants across 3 electron-beam TAPPs."),
- "Stage Scan vs. Beam Scan": ("BACKLOG", "2 variants across 3 TAPPs."),
  "Guard Electrode": ("BACKLOG", "2 variants across 9 ICP-MS TAPPs."),
  "Collision/Reaction Cell (CRC) Configuration": ("BACKLOG",
-   "The MS/MS member is present in some consumers and not others."),
- "Diffracting Crystal": ("BACKLOG",
-   "EPMA lists PETJ and ADP, the SEM tables do not. Crystal availability is instrument-"
-   "dependent, so this may be PRINCIPLED — but it has not been checked."),
+   "Examined 2026-08-30 and NOT a clean superset. `KED+DRC` is a genuine combined mode that "
+   "applies to any cell instrument and should simply be added to the three MC tables. "
+   "`ICP-MS/MS (triple-quadrupole mode)` is different: a Nu Sapphire or Thermo Neoma MS/MS has "
+   "a pre-cell mass filter and a multi-collector array, NOT a triple quadrupole, so copying "
+   "that wording into the MC tables would state something false. MC MS/MS appears in those "
+   "tables' own `ICP-MS Type` list but in no MC literature cell, so a correctly-worded member "
+   "would be authored on no evidence. Needs a decision."),
 }
 
 
