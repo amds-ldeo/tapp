@@ -561,7 +561,22 @@ COLF_DIVERGENCE_TRIAGED = {
    "and Cameca for the electron beam, Thermo and Agilent for ICP-MS."),
  # --- BACKLOG: diverges, not yet examined ---------------------------------------------
  "Target Material": ("BACKLOG", "7 variants across 16 TAPPs."),
- "Sample Preparation Method": ("BACKLOG", "5 variants across 16 TAPPs."),
+ "Sample Preparation Method": ("PRINCIPLED",
+   "Examined 2026-08-31 and found to need NO change. The five variants are five coherent "
+   "preparation domains, not subsets of one list: Solution destroys the sample (whole-rock "
+   "powder, mineral separate, natural water, leachate), TEM needs an electron-transparent foil "
+   "(FIB lift-out, ultramicrotomy, ion milling), Lab-XCT needs an intact 3-D specimen (bulk "
+   "fragment, core, tube-mounted), and the electron-beam and LA tables need a polished flat "
+   "surface (thin/thick section, block, grain mount). A uniform list would offer Solution "
+   "users `FIB lift-out (Ga ion)` and TEM users `Natural water`. Same test as "
+   "`EDS Acquisition Mode`: a member is principled if it names a preparation the technique "
+   "does not use. Checked for drift where the domains DO overlap and found none — every shared "
+   "member is worded identically (`Polished block or epoxy mount` x3, `Polished thin section` "
+   "x2, `Polished thick section` x2, `Grain mount` x2), and Column B is one text across all "
+   "16. The list is also doing real work, unlike `Coupled Technique(s)`: 23% of 121 attested "
+   "cells are bare members (`FIB lift-out (Ga+)` x13), with the preparation detail in the "
+   "`/ Text` half where it belongs. Only cosmetic observation, not acted on: TEM's list carries "
+   "`Unknown` and the others do not, which convention permits either way."),
  "EDS Acquisition Mode": ("PRINCIPLED",
    "Examined 2026-08-31. The shared core was drift and is harmonised — `Point | Line scan | "
    "Map | Spectrum image` in all four, with `Map` and `Spectrum image` separated because they "
