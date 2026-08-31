@@ -560,7 +560,18 @@ COLF_DIVERGENCE_TRIAGED = {
    "Consumer-owned vocabulary (see Module_Core.json) and vendors differ by technique: JEOL "
    "and Cameca for the electron beam, Thermo and Agilent for ICP-MS."),
  # --- BACKLOG: diverges, not yet examined ---------------------------------------------
- "Target Material": ("BACKLOG", "7 variants across 16 TAPPs."),
+ "Target Material": ("PRINCIPLED",
+   "Resolved 2026-08-31, the last entry off this backlog. Seven variants split on TWO axes and "
+   "only one split was drift. PRINCIPLED: in-situ techniques target a PHASE WITHIN a specimen "
+   "(silicate mineral, oxide, sulfide) while bulk techniques target the SPECIMEN (basalt, "
+   "chondrite, seawater, drill core). A Solution ICP-MS procedure does not target olivine; it "
+   "digests a basalt. The four bulk tables — three Solution and Lab-XCT — are untouched. The "
+   "DRIFT was inside the in-situ family and all of it sat in the LA list: named minerals "
+   "(`Feldspar | Pyroxene | Olivine`) where the electron-beam tables used classes, `Iron "
+   "meteorite` (a specimen type in a phase list), and three concepts worded three ways. The 12 "
+   "in-situ tables now share `Silicate mineral | Silicate glass | Oxide | Sulfide | Carbonate | "
+   "Phosphate | Metal or alloy` plus technique-scoped extras — inclusions for LA, regolith and "
+   "porous material for SEM, amorphous phase and nanoparticle for TEM."),
  "Sample Preparation Method": ("PRINCIPLED",
    "Examined 2026-08-31 and found to need NO change. The five variants are five coherent "
    "preparation domains, not subsets of one list: Solution destroys the sample (whole-rock "
