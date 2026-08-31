@@ -1412,6 +1412,7 @@ column with nothing looking at it — A, B, C/D and I all had a cross-TAPP check
 | B — Description | `colb-divergence` (7.8.9) | 2026-08-12 |
 | C/D — Tiers | `tier-divergence` | original |
 | **E — Data Type** | **`cole-divergence` (7.8.10)** | **2026-08-24** |
+| **F — Allowed Content** | **`colf-divergence` (7.8.11)** | **2026-08-30** |
 | I — Keyed By | `keyed-by-divergence` (7.8.7) | 2026-08-12 |
 
 **The consequence is not internal.** Column E is what downstream schema generation reads. In

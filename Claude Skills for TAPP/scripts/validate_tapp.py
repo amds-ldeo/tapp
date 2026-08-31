@@ -513,6 +513,65 @@ def parse_keyed_by(v):
     return "plain", [], [x.strip() for x in KEY_SPLIT_RE.split(v) if x.strip()]
 
 
+def colf_members(ex):
+    """Column F as a set of allowed values, for the 7.8.11 divergence check.
+
+    Order-insensitive and case-insensitive: two TAPPs listing the same members in a different
+    order are NOT divergent. The leading `e.g.,` is stripped so an illustrative preamble does
+    not count as a member.
+    """
+    ex = re.sub(r"^\s*e\.g\.,?\s*", "", ex or "")
+    return frozenset(re.sub(r"\s+", " ", v.strip().strip("'\"")).lower()
+                     for v in ex.split("|") if v.strip().strip("'\""))
+
+
+# 7.8.11 — Column F divergence on controlled lists, frozen 2026-08-30 so the check ships at
+# 0 WARN. PRINCIPLED = adjudicated, no action expected. BACKLOG = not yet examined.
+# Work an entry down by harmonising and DELETING it, never by reclassifying: an entry for a
+# field that no longer diverges reads as a standing decision that was never made.
+COLF_DIVERGENCE_TRIAGED = {
+ # --- PRINCIPLED: the domain genuinely differs per TAPP -------------------------------
+ "Technique": ("PRINCIPLED",
+   "Rule 1, adjudicated 2026-08-30: each list holds the TAPP's OWN technique, not a menu of "
+   "siblings. Divergence here is the design."),
+ "Analytical Mode": ("PRINCIPLED",
+   "Rule 3 binds the values to that TAPP's mode-flag column headers, which differ by "
+   "construction."),
+ "Matrix Correction Method": ("PRINCIPLED",
+   "Adjudicated 2026-08-30 on merging the EPMA/SEM and TEM name-variant pair: bulk "
+   "XPP/PAP/ZAF against thin-film Cliff-Lorimer/zeta-factor. Same question, different physics "
+   "regime."),
+ "ICP-MS Type": ("PRINCIPLED",
+   "Each TAPP lists only its own analyser family — a Q-ICP-MS TAPP should not offer MC. "
+   "Scoping, not drift."),
+ "Instrument Manufacturer": ("PRINCIPLED",
+   "Consumer-owned vocabulary (see Module_Core.json) and vendors differ by technique: JEOL "
+   "and Cameca for the electron beam, Thermo and Agilent for ICP-MS."),
+ # --- BACKLOG: diverges, not yet examined ---------------------------------------------
+ "Target Material": ("BACKLOG", "7 variants across 16 TAPPs."),
+ "Sample Preparation Method": ("BACKLOG", "5 variants across 16 TAPPs."),
+ "Coupled Technique(s)": ("BACKLOG", "7 variants across 16 TAPPs."),
+ "Chromatographic Separation Applied": ("BACKLOG", "2 variants across 3 Solution TAPPs."),
+ "EDS Acquisition Mode": ("BACKLOG",
+   "3 variants across 4 electron-beam TAPPs; these should probably agree."),
+ "Pulse/Analog Detector Nonlinearity Correction": ("BACKLOG", "3 variants across 6 TAPPs."),
+ "Plasma Thermal Mode": ("BACKLOG",
+   "LA tables annotate the members with RF wattage, Solution tables do not — same domain, "
+   "different verbosity. Likely straightforward to harmonise."),
+ "WDS Dead Time Correction": ("BACKLOG",
+   "EPMA carries vendor-specific members (`Default constant 3 us (Cameca)`, "
+   "`Super-precision`), SEM the generic set."),
+ "Beam Mode": ("BACKLOG", "2 variants across 3 electron-beam TAPPs."),
+ "Stage Scan vs. Beam Scan": ("BACKLOG", "2 variants across 3 TAPPs."),
+ "Guard Electrode": ("BACKLOG", "2 variants across 9 ICP-MS TAPPs."),
+ "Collision/Reaction Cell (CRC) Configuration": ("BACKLOG",
+   "The MS/MS member is present in some consumers and not others."),
+ "Diffracting Crystal": ("BACKLOG",
+   "EPMA lists PETJ and ADP, the SEM tables do not. Crystal availability is instrument-"
+   "dependent, so this may be PRINCIPLED — but it has not been checked."),
+}
+
+
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 # 2026-08-30 — the two-type scheme. `Controlled list` now means CLOSED and
 # `Controlled list / Text` means open, so the TYPE carries the open/closed signal and
@@ -1093,6 +1152,7 @@ def check_cross_tapp(tapps, out):
     keyed = defaultdict(set)             # raw name -> {(tapp, Keyed By)}
     dtypes = defaultdict(set)            # raw name -> {(tapp, Data Type)}
     descs = defaultdict(set)             # raw name -> {(tapp, normalised description)}
+    allowed = defaultdict(dict)          # raw name -> {tapp: frozenset(members)}  (7.8.11)
 
     for t in tapps:
         for _, row, _ in t.content_rows():
@@ -1102,6 +1162,8 @@ def check_cross_tapp(tapps, out):
             keyed[raw].add((t.name, t.cell(row, COL_KEYEDBY).strip()))
             dtypes[raw].add((t.name, t.cell(row, COL_TYPE).strip()))
             descs[raw].add((t.name, re.sub(r"\s+", " ", t.cell(row, COL_DESC).strip())))
+            if t.cell(row, COL_TYPE).strip().startswith("Controlled list"):
+                allowed[raw][t.name] = colf_members(t.cell(row, COL_EXAMPLE))
 
     # Near-duplicate spellings of the same field across TAPPs
     for _, entries in sorted(variants.items()):
@@ -1199,6 +1261,40 @@ def check_cross_tapp(tapps, out):
                 f"Description differs across {tapps_n} TAPPs in {len(texts)} variants "
                 f"(similarity {worst:.2f}) and is NOT in COLB_DIVERGENCE_TRIAGED. Descriptions are "
                 f"uniform by default (Rule 6.4): make them agree, or triage the field and record it.")
+
+    # 7.8.11 — same field name, different ALLOWED VALUES. Column F is normative on a
+    # controlled list (it IS the domain) and merely illustrative on `Text (free)` or
+    # `Numeric (...)`, so this check is scoped to controlled-list types: 18 fields diverge
+    # there against 109 that diverge on example lists, where variation is expected and
+    # correct. Implemented 2026-08-30, the 18 frozen in COLF_DIVERGENCE_TRIAGED so it ships
+    # at 0 WARN and catches new drift.
+    #
+    # Column F was the last content column with no cross-TAPP check, and it earned one:
+    # three separate defects in a single 2026-08-30 pass traced to it — `Dwell Time per
+    # Pixel` kept unit-free numerals after its type moved to `Numeric + unit`; the
+    # interference flags read `Yes | No | N/A` while describing none of 51 attested cells;
+    # and `Technique` drifted to `Other: specify` in 13 of 16 TAPPs. Every one was found by
+    # reading, because nothing was looking.
+    for raw, per in sorted(allowed.items()):
+        if len(per) < 2:
+            continue
+        vs = list({frozenset(m) for m in per.values()})
+        if len(vs) <= 1:
+            continue
+        worst = min((len(a & b) / len(a | b) if (a | b) else 1.0)
+                    for i, a in enumerate(vs) for b in vs[i + 1:])
+        n_tapps = len(per)
+        if raw in COLF_DIVERGENCE_TRIAGED:
+            verdict, why = COLF_DIVERGENCE_TRIAGED[raw]
+            msg = (f"Allowed values differ across {n_tapps} TAPPs in {len(vs)} variants "
+                   f"(worst overlap {worst:.2f}) — triaged 2026-08-30 as {verdict}. {why}")
+            add("INFO", "(cross-TAPP)", raw, f"colf-divergence-{verdict.lower()}", msg)
+        else:
+            add("WARN", "(cross-TAPP)", raw, "colf-divergence",
+                f"Allowed values differ across {n_tapps} TAPPs in {len(vs)} variants "
+                f"(worst overlap {worst:.2f}) and the field is NOT in COLF_DIVERGENCE_TRIAGED. "
+                f"On a controlled list Column F IS the domain, so divergence is either drift to "
+                f"harmonise or a technique-appropriate difference to register with a rationale.")
 
     # Rule 7.4a corollary — every `defines:` field must share an opening sentence across the TAPPs
     # that carry it. See COLB_DEFINER_STEM_EXEMPT for why similarity alone was not enough.

@@ -2489,3 +2489,30 @@ injecting `Other: specify` into `Technique` itself and confirming the WARN. A fi
 exempt from owing `N/A | None` while still being forbidden `Other: specify`; conflating the two
 is what let `Technique` drift open in 13 of 16 TAPPs in the first place, since its exemption was
 implemented as *skip this field* rather than *verify it stays closed*.
+
+---
+
+## Rule 7.8.11 — Column F gets the cross-TAPP check it had been missing (2026-08-30)
+
+Column F was the last content column with nothing looking at it, and it earned a check the
+hard way: **three separate defects in a single pass traced to it**, every one found by reading
+because nothing was watching. `Dwell Time per Pixel` kept unit-free numerals in EPMA and TEM
+after its type moved to `Numeric + unit`. The interference flags read `Yes | No | N/A` while
+describing none of 51 attested cells. And `Technique` carried `Other: specify` in 13 of 16
+TAPPs against its own Rule 1 exemption.
+
+**Scoped to controlled-list types, and that scoping is the whole design.** Column F is
+*normative* on a `Controlled list` — it IS the domain — and merely *illustrative* on
+`Text (free)` or `Numeric (<unit>)`, where each technique's examples should differ. The numbers
+bear it out: **18 controlled-list fields diverge against 109 fields of other types**. An
+unscoped check would have shipped 127 findings, nearly all correct behaviour, and been ignored.
+
+Comparison is on the member SET, order- and case-insensitive, so a reordered list is not a
+finding. The 18 are frozen in `COLF_DIVERGENCE_TRIAGED` so the check ships at 0 WARN: **5
+PRINCIPLED** (`Technique`, `Analytical Mode`, `Matrix Correction Method`, `ICP-MS Type`,
+`Instrument Manufacturer` — all four of the first adjudicated during the 2026-08-30 Data Type
+pass, with the domain genuinely differing per TAPP) and **13 BACKLOG**, not yet examined.
+
+**A PRINCIPLED class was required from day one, not added later.** `ICP-MS Type` is the proof:
+each TAPP lists only its own analyser family, and a Q-ICP-MS TAPP offering MC would be the
+defect. Without the class the check would flag it forever and train people to ignore it.
