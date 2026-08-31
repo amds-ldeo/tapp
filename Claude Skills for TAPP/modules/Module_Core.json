@@ -1,121 +1,121 @@
 {
-    "module": "Core",
-    "title": "Universal TAPP Core",
-    "layer": 2,
-    "version": "5",
-    "source_of_truth": "modules/Module_Core.csv",
-    "owned_columns": [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "I"
-    ],
-    "consumer_columns": [
-        "F",
-        "G",
-        "H"
-    ],
-    "mode_flag_default": "Y",
-    "source_comment": "Source: Core module",
-    "conditional": false,
-    "blocks": [
-        {
-            "name": "procedure_identification",
-            "target_group": "1. Procedure Identification",
-            "placement": "append_to_group",
-            "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
-            "fields": [
-                "Procedure Name",
-                "Technique",
-                "Procedure Author",
-                "Laboratory",
-                "Laboratory ID",
-                "Procedure Start Date",
-                "Funding Source for Procedure Development",
-                "Procedure Reference(s)",
-                "Procedure DOI",
-                "Session Identifier",
-                "Analyst",
-                "Analysis Start Date",
-                "Analysis End Date",
-                "Funding Source for Analysis",
-                "Coupled Technique(s)",
-                "Coupling Description",
-                "Coupled Procedure DOI",
-                "Coupled Dataset or Publication Reference"
-            ]
-        },
-        {
-            "name": "samples",
-            "target_group": "2. Samples",
-            "placement": "append_to_group",
-            "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
-            "fields": [
-                "Sample Name",
-                "Sample Persistent Identifier",
-                "Target Material",
-                "Sampling Unit",
-                "Sample Preparation Method"
-            ]
-        },
-        {
-            "name": "instrument_software",
-            "target_group": "3. Instrument & Software",
-            "placement": "append_to_group",
-            "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
-            "fields": [
-                "Instrument Manufacturer",
-                "Instrument Model",
-                "Acquisition Software",
-                "Data Processing Software(s)"
-            ]
-        },
-        {
-            "name": "measurement",
-            "target_group": "4. Measurement Information",
-            "placement": "append_to_group",
-            "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
-            "fields": [
-                "Analytical Mode",
-                "Reported Variables and Units"
-            ]
-        },
-        {
-            "name": "data_processing",
-            "target_group": "5. Data Processing",
-            "placement": "append_to_group",
-            "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
-            "fields": [
-                "Constants and Reference Values Used"
-            ]
-        },
-        {
-            "name": "quality_control",
-            "target_group": "6. Quality Control & Uncertainty",
-            "placement": "append_to_group",
-            "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
-            "fields": [
-                "Additional Notes"
-            ]
-        }
-    ],
-    "sub_module_test": "Run 2026-08-14 under Rule 6.15. Compared against all 7 existing modules. Footprint is 16/16 consumers — a strict superset of every other module (LaserAblation 6, MCICPMS 3, SolutionIntroduction 3, Geochronology 3, UPb 3, ArAr 0) and equal to ReportingCore's nominal 16, though ReportingCore is block-conditional and no consumer holds all six of its fields. Prong 1 nominated absorption of Group1, which is exactly what this module does — Group1 is retired into it. Prong 2 separated it from ReportingCore: 'what every registered procedure must carry' and 'selection, calibration and aggregation where they apply' are not one subject, and ReportingCore is being dissolved rather than merged. No other module was a candidate.",
-    "notes": "Retires and replaces Module_Group1. Holds every field present in all 16 TAPPs: Group 1's 18 procedure-identification fields plus the 10 universals that previously belonged to no module — four in Group 2, two in Group 3, two in Group 4, one in Group 5, one in Group 6. Seven of the 10 are mandated by an explicit universal rule (3, 5, 8, 9, 11, 13x2); the other three (Acquisition Software, Data Processing Software(s), Target Material) had no rule and were the worst-drifted fields in the library, at 8, 7 and 7 description variants respectively.\n\nMulti-block rather than replace_group. Group1 used replace_group, which rebuilds its target group from the module and is safe only because Group 1 is entirely module-owned. Groups 2-6 are mostly technique-specific, so replace_group there would drop every field this module does not define. The blocks path updates an existing field in place and inserts only what is genuinely absent, which for the current 16 consumers means composition is a pure column takeover with no reordering. Group 1 field order is no longer enforced by composition; it is enforced by validate_tapp.py (group1-order, group1-coupling), which was already the stronger check.\n\nCompose BEFORE ReportingCore and its successors: their Group 5 and 6 blocks anchor on Constants and Reference Values Used and Additional Notes, both owned here.",
-    "decisions": [
-        "2026-08-14 v1. Descriptions for Acquisition Software, Data Processing Software(s), Analytical Mode and Target Material were reconciled BEFORE composition, not after, so the module ships at v1 and does not churn its 16 consumers. Record: Archive/Worksheets (reconciled)/ModuleCore_Reconciliation_Decisions.csv.",
-        "2026-08-14 Sample Persistent Identifier resolved to D=Advanced library-wide (was Advanced in 13, Basic in 3 Solution TAPPs). Rule 6.5 forbids a module expressing both. Sample Name is already D=Basic everywhere, so the mandatory sample-identification burden is carried there.",
-        "Data Processing Software(s) qualified only after the 2026-08-14 rename and the absorption of Lab-XCT's Segmentation and Analysis Software took it from 15/16 to 16/16. Lab-XCT retains Reconstruction Software as a technique-specific field.",
-        "Sample Preparation Method (15/16, absent from Lab-XCT) was NOT included — it is not universal, and its two tier variants are unreconciled.",
-        "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content.",
-        "2026-08-14 v2: added Instrument Manufacturer + Instrument Model (28 -> 30 fields). Six TAPPs already carried the pair; ten carried one combined field under three names (ICP-MS Manufacturer & Model, Instrument Make and Model, CT System Manufacturer and Model). Split rather than merged because Instrument Manufacturer is a Controlled list and therefore a discovery facet — find every procedure run on a given vendor's instrument — which free-text make-and-model cannot support. The combined field's Column F was already in Instrument Model form, so the rename carried its examples across; only the new Manufacturer row needed a vocabulary, which is consumer-owned and differs by technique. Instrument Model adopts Text (free): EPMA had it as a Controlled list, but a module owns Column E and cannot vary it, and model designations are not enumerable across techniques — EPMA's values survive as Column F allowed content.",
-        "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
-        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves.",
-        "2026-08-27: `Sample Preparation Method` added — Core 30 -> 31 fields. It was present in 15 of 16 TAPPs; adding it to Lab-XCT made it universal. Excluding it meant an XCT procedure could not report a preparation that had happened, and its papers do report one (crushing and splitting, mounting in pipette tips, 'chip used as received'), squeezed into the free-text `Sample Preparation Notes` for want of a Method field. The two remain distinct fields: Method is the FORM as a controlled list, Notes is the handling STEPS before scanning. Its D-tier split (Editable 11 / Read-Only 4) was resolved to Editable, correcting an adjudication made earlier the same day that called the split principled: the literature shows the METHOD itself varies session to session (TEM reports 5 distinct methods across 21 extractions; the Solution TAPPs 9, 6 and 6 distinct), so Read-Only made a real choice unrecordable."
-    ],
-    "overlay_columns": [
-        "J"
-    ],
-    "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
+  "module": "Core",
+  "title": "Universal TAPP Core",
+  "layer": 2,
+  "version": "6",
+  "source_of_truth": "modules/Module_Core.csv",
+  "owned_columns": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "I"
+  ],
+  "consumer_columns": [
+    "F",
+    "G",
+    "H"
+  ],
+  "mode_flag_default": "Y",
+  "source_comment": "Source: Core module",
+  "conditional": false,
+  "blocks": [
+    {
+      "name": "procedure_identification",
+      "target_group": "1. Procedure Identification",
+      "placement": "append_to_group",
+      "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
+      "fields": [
+        "Procedure Name",
+        "Technique",
+        "Procedure Author",
+        "Laboratory",
+        "Laboratory ID",
+        "Procedure Start Date",
+        "Funding Source for Procedure Development",
+        "Procedure Reference(s)",
+        "Procedure DOI",
+        "Session Identifier",
+        "Analyst",
+        "Analysis Start Date",
+        "Analysis End Date",
+        "Funding Source for Analysis",
+        "Coupled Technique(s)",
+        "Coupling Description",
+        "Coupled Procedure DOI",
+        "Coupled Dataset or Publication Reference"
+      ]
+    },
+    {
+      "name": "samples",
+      "target_group": "2. Samples",
+      "placement": "append_to_group",
+      "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
+      "fields": [
+        "Sample Name",
+        "Sample Persistent Identifier",
+        "Target Material",
+        "Sampling Unit",
+        "Sample Preparation Method"
+      ]
+    },
+    {
+      "name": "instrument_software",
+      "target_group": "3. Instrument & Software",
+      "placement": "append_to_group",
+      "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
+      "fields": [
+        "Instrument Manufacturer",
+        "Instrument Model",
+        "Acquisition Software",
+        "Data Processing Software(s)"
+      ]
+    },
+    {
+      "name": "measurement",
+      "target_group": "4. Measurement Information",
+      "placement": "append_to_group",
+      "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
+      "fields": [
+        "Analytical Mode",
+        "Reported Variables and Units"
+      ]
+    },
+    {
+      "name": "data_processing",
+      "target_group": "5. Data Processing",
+      "placement": "append_to_group",
+      "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
+      "fields": [
+        "Constants and Reference Values Used"
+      ]
+    },
+    {
+      "name": "quality_control",
+      "target_group": "6. Quality Control & Uncertainty",
+      "placement": "append_to_group",
+      "applies_when": "Universal — every TAPP carries every field in this module. Unconditional: all blocks are always composed together.",
+      "fields": [
+        "Additional Notes"
+      ]
+    }
+  ],
+  "sub_module_test": "Run 2026-08-14 under Rule 6.15. Compared against all 7 existing modules. Footprint is 16/16 consumers — a strict superset of every other module (LaserAblation 6, MCICPMS 3, SolutionIntroduction 3, Geochronology 3, UPb 3, ArAr 0) and equal to ReportingCore's nominal 16, though ReportingCore is block-conditional and no consumer holds all six of its fields. Prong 1 nominated absorption of Group1, which is exactly what this module does — Group1 is retired into it. Prong 2 separated it from ReportingCore: 'what every registered procedure must carry' and 'selection, calibration and aggregation where they apply' are not one subject, and ReportingCore is being dissolved rather than merged. No other module was a candidate.",
+  "notes": "Retires and replaces Module_Group1. Holds every field present in all 16 TAPPs: Group 1's 18 procedure-identification fields plus the 10 universals that previously belonged to no module — four in Group 2, two in Group 3, two in Group 4, one in Group 5, one in Group 6. Seven of the 10 are mandated by an explicit universal rule (3, 5, 8, 9, 11, 13x2); the other three (Acquisition Software, Data Processing Software(s), Target Material) had no rule and were the worst-drifted fields in the library, at 8, 7 and 7 description variants respectively.\n\nMulti-block rather than replace_group. Group1 used replace_group, which rebuilds its target group from the module and is safe only because Group 1 is entirely module-owned. Groups 2-6 are mostly technique-specific, so replace_group there would drop every field this module does not define. The blocks path updates an existing field in place and inserts only what is genuinely absent, which for the current 16 consumers means composition is a pure column takeover with no reordering. Group 1 field order is no longer enforced by composition; it is enforced by validate_tapp.py (group1-order, group1-coupling), which was already the stronger check.\n\nCompose BEFORE ReportingCore and its successors: their Group 5 and 6 blocks anchor on Constants and Reference Values Used and Additional Notes, both owned here. 2026-08-31: `Coupled Technique(s)` retyped `Controlled list / Text` -> `Text (free)`, reversing this field's stated design intent — Column B used to say \"Use the same controlled vocabulary as the Technique field\" and now does not. 121 attested cells ignore it: 76 are distinct, 80% are `; `-joined composites and 90% carry instrument, laboratory or purpose detail in parentheses, and essentially none is a bare list member. The seven Column F variants were themselves split on intent — four tables wrote `e.g.` examples, three wrote bare member lists, and the member lists were arbitrary subsets of one another (LA offered Noble Gas MS but not TIMS; nobody listed XANES, STXM, micro-XRD or petrographic microscopy, all attested). A controlled list that controls nothing is worse than free text, because it asserts a closure the data does not have. Faceting was the argument for keeping it controlled, and 76 composite values had already destroyed that.",
+  "decisions": [
+    "2026-08-14 v1. Descriptions for Acquisition Software, Data Processing Software(s), Analytical Mode and Target Material were reconciled BEFORE composition, not after, so the module ships at v1 and does not churn its 16 consumers. Record: Archive/Worksheets (reconciled)/ModuleCore_Reconciliation_Decisions.csv.",
+    "2026-08-14 Sample Persistent Identifier resolved to D=Advanced library-wide (was Advanced in 13, Basic in 3 Solution TAPPs). Rule 6.5 forbids a module expressing both. Sample Name is already D=Basic everywhere, so the mandatory sample-identification burden is carried there.",
+    "Data Processing Software(s) qualified only after the 2026-08-14 rename and the absorption of Lab-XCT's Segmentation and Analysis Software took it from 15/16 to 16/16. Lab-XCT retains Reconstruction Software as a technique-specific field.",
+    "Sample Preparation Method (15/16, absent from Lab-XCT) was NOT included — it is not universal, and its two tier variants are unreconciled.",
+    "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content.",
+    "2026-08-14 v2: added Instrument Manufacturer + Instrument Model (28 -> 30 fields). Six TAPPs already carried the pair; ten carried one combined field under three names (ICP-MS Manufacturer & Model, Instrument Make and Model, CT System Manufacturer and Model). Split rather than merged because Instrument Manufacturer is a Controlled list and therefore a discovery facet — find every procedure run on a given vendor's instrument — which free-text make-and-model cannot support. The combined field's Column F was already in Instrument Model form, so the rename carried its examples across; only the new Manufacturer row needed a vocabulary, which is consumer-owned and differs by technique. Instrument Model adopts Text (free): EPMA had it as a Controlled list, but a module owns Column E and cannot vary it, and model designations are not enumerable across techniques — EPMA's values survive as Column F allowed content.",
+    "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
+    "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves.",
+    "2026-08-27: `Sample Preparation Method` added — Core 30 -> 31 fields. It was present in 15 of 16 TAPPs; adding it to Lab-XCT made it universal. Excluding it meant an XCT procedure could not report a preparation that had happened, and its papers do report one (crushing and splitting, mounting in pipette tips, 'chip used as received'), squeezed into the free-text `Sample Preparation Notes` for want of a Method field. The two remain distinct fields: Method is the FORM as a controlled list, Notes is the handling STEPS before scanning. Its D-tier split (Editable 11 / Read-Only 4) was resolved to Editable, correcting an adjudication made earlier the same day that called the split principled: the literature shows the METHOD itself varies session to session (TEM reports 5 distinct methods across 21 extractions; the Solution TAPPs 9, 6 and 6 distinct), so Read-Only made a real choice unrecordable."
+  ],
+  "overlay_columns": [
+    "J"
+  ],
+  "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }
