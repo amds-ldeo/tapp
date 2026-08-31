@@ -36,7 +36,7 @@
       ]
     },
     {
-      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v63.csv",
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v66.csv",
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
       "modules": [
         {
@@ -73,7 +73,7 @@
         },
         {
           "name": "ICPMS",
-          "version": "9"
+          "version": "10"
         },
         {
           "name": "CompositionQC",
@@ -95,7 +95,7 @@
       ]
     },
     {
-      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v63.csv",
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v66.csv",
       "derived_from": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v1.csv",
       "modules": [
         {
@@ -140,7 +140,7 @@
         },
         {
           "name": "ICPMS",
-          "version": "9"
+          "version": "10"
         },
         {
           "name": "CompositionQC",
@@ -246,7 +246,7 @@
       ]
     },
     {
-      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v64.csv",
+      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v66.csv",
       "modules": [
         {
           "name": "Core",
@@ -278,7 +278,7 @@
         },
         {
           "name": "ICPMS",
-          "version": "9"
+          "version": "10"
         },
         {
           "name": "CompositionQC",
@@ -291,7 +291,7 @@
       ]
     },
     {
-      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v70.csv",
+      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v72.csv",
       "modules": [
         {
           "name": "Core",
@@ -319,7 +319,7 @@
         },
         {
           "name": "ICPMS",
-          "version": "9"
+          "version": "10"
         },
         {
           "name": "CompositionQC",
@@ -332,7 +332,7 @@
       ]
     },
     {
-      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v66.csv",
+      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v68.csv",
       "modules": [
         {
           "name": "Core",
@@ -360,7 +360,7 @@
         },
         {
           "name": "ICPMS",
-          "version": "9"
+          "version": "10"
         },
         {
           "name": "CompositionQC",
@@ -411,7 +411,7 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v66.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v69.csv",
       "modules": [
         {
           "name": "Core",
@@ -443,7 +443,7 @@
         },
         {
           "name": "ICPMS",
-          "version": "9"
+          "version": "10"
         },
         {
           "name": "CompositionQC",
@@ -462,7 +462,7 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v66.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v69.csv",
       "derived_from": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v8.csv",
       "modules": [
         {
@@ -503,7 +503,7 @@
         },
         {
           "name": "ICPMS",
-          "version": "9"
+          "version": "10"
         },
         {
           "name": "CompositionQC",
@@ -517,7 +517,7 @@
       "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record."
     },
     {
-      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v63.csv",
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v66.csv",
       "modules": [
         {
           "name": "Core",
@@ -549,7 +549,7 @@
         },
         {
           "name": "ICPMS",
-          "version": "9"
+          "version": "10"
         },
         {
           "name": "CompositionQC",
@@ -564,7 +564,7 @@
       ]
     },
     {
-      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v64.csv",
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v67.csv",
       "derived_from": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v8.csv",
       "modules": [
         {
@@ -605,7 +605,7 @@
         },
         {
           "name": "ICPMS",
-          "version": "9"
+          "version": "10"
         },
         {
           "name": "CompositionQC",

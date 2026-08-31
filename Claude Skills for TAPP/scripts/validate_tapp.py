@@ -455,6 +455,25 @@ COLE_DIVERGENCE_TRIAGED = {
 # two-column problem was never looked at, and TEM has sat on `Text (free)` while `Detection Limit`
 # went three ways. Fixing one column of a field is not fixing the field.
 COLE_NAME_VARIANT_TRIAGED = {
+    # 2026-08-31 — raised when ICP-MS `Detector Configuration` was retyped to
+    # `Controlled list / Text`. The three electron-beam siblings share the English suffix and
+    # nothing else: each names a specific detector's MAKE, MODEL AND GEOMETRY, an unbounded
+    # vendor domain correctly left `Text (free)` — `Oxford Ultim Max 100 SDD, 100 mm2, polymer
+    # window, 35 deg take-off angle`, `Gatan MonoCL4, parabolic mirror, PMT 190-900 nm`,
+    # `Oxford AZtec Symmetry EBSD camera, 1244x1024 px`. The ICP-MS field records the DETECTION
+    # MODE ARRANGEMENT — pulse counting, analog, Faraday, multi-collector array — which closes.
+    # Same word, different questions; the types should NOT be made to agree.
+    ("Detector Configuration", "CL Detector Configuration"):
+        "Different fields. CL names the detector make, model and collection optics (unbounded "
+        "vendor domain, `Text (free)`); the ICP-MS field records the detection mode arrangement, "
+        "which is a closable list.",
+    ("Detector Configuration", "EBSD Detector Configuration"):
+        "Different fields. EBSD names the camera make, model and resolution (unbounded vendor "
+        "domain, `Text (free)`); the ICP-MS field records the detection mode arrangement.",
+    ("Detector Configuration", "EDS Detector Configuration"):
+        "Different fields. EDS names the detector type, area, window and take-off geometry "
+        "(unbounded vendor domain, `Text (free)`); the ICP-MS field records the detection mode "
+        "arrangement.",
 }
 
 

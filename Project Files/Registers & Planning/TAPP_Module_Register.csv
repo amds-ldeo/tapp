@@ -9,7 +9,7 @@ CompositionQC,2,"Composition quality control — detection limits, counting stat
 Core,2,Universal TAPP Core,31,6,6,16 TAPP(s),active
 Geochronology,2,Geochronology,6,1,7,3 TAPP(s),active
 Group1,2,Procedure Identification,18,1,4,0 TAPP(s),retired 2026-08-14 — superseded by Core
-ICPMS,2,"Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",39,4,9,9 TAPP(s),active
+ICPMS,2,"Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",39,4,10,9 TAPP(s),active
 LaserAblation,2,Laser Ablation Front End,29,4,10,6 TAPP(s),active
 MCICPMS,2,Multi-Collector ICP-MS Analyser,15,3,7,3 TAPP(s),active
 ReportingCore,2,Cross-Technique Reporting Core,6,5,6,0 TAPP(s),"retired 2026-08-14 — dissolved into TargetSelection, CalibrationFactor, Blank, Aggregation"
