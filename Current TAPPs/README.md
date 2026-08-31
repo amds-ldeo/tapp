@@ -49,7 +49,7 @@ in that particular TAPP.
 - `SEM_FIBSEM_TAPP_v27.csv`
 - `SEM_Imaging_TAPP_v26.csv`
 - `SEM_TAPP_v54.csv`
-- `Solution_MC-ICP-MS_TAPP_v62.csv`
-- `Solution_Q-ICP-MS_TAPP_v68.csv`
-- `Solution_SF-ICP-MS_TAPP_v64.csv`
+- `Solution_MC-ICP-MS_TAPP_v63.csv`
+- `Solution_Q-ICP-MS_TAPP_v69.csv`
+- `Solution_SF-ICP-MS_TAPP_v65.csv`
 - `TEM_TAPP_v44.csv`

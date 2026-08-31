@@ -531,8 +531,8 @@ def colf_members(ex):
 # 0 WARN. PRINCIPLED = adjudicated, no action expected. BACKLOG = not yet examined.
 # WORKED DOWN 2026-08-30: `Plasma Thermal Mode`, `Diffracting Crystal`,
 # `Stage Scan vs. Beam Scan`, `Guard Electrode`, `Beam Mode` harmonised and REMOVED;
-# `WDS Dead Time Correction` and `Pulse/Analog Detector Nonlinearity Correction`
-# likewise 2026-08-31 — the first where the harmonised list
+# `WDS Dead Time Correction`, `Pulse/Analog Detector Nonlinearity Correction` and
+# `Chromatographic Separation Applied` likewise 2026-08-31 — the first where the harmonised list
 # is SHORTER than a variant, EPMA's four constant-members being a {default,adjusted} x
 # {Cameca,JEOL} cross-product whose vendor axis `Instrument Manufacturer` already owns. — the triage note said
 # 'same domain, different verbosity', but Solution MC was also missing the `Mixed` member
@@ -561,7 +561,6 @@ COLF_DIVERGENCE_TRIAGED = {
  "Target Material": ("BACKLOG", "7 variants across 16 TAPPs."),
  "Sample Preparation Method": ("BACKLOG", "5 variants across 16 TAPPs."),
  "Coupled Technique(s)": ("BACKLOG", "7 variants across 16 TAPPs."),
- "Chromatographic Separation Applied": ("BACKLOG", "2 variants across 3 Solution TAPPs."),
  "EDS Acquisition Mode": ("PRINCIPLED",
    "Examined 2026-08-31. The shared core was drift and is harmonised — `Point | Line scan | "
    "Map | Spectrum image` in all four, with `Map` and `Spectrum image` separated because they "
