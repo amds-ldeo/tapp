@@ -53,8 +53,11 @@ VALID_C = {"Basic", "Advanced", "N/A"}
 VALID_D = {"Read-Only", "Editable", "Basic", "Advanced"}
 VALID_MODE_FLAG = {"Y", "N"}
 
+# `Boolean` RETIRED 2026-08-30. Of 4 attested cells across its 3 fields only 1 was a bare
+# Yes/No; all three moved to `Controlled list / Text` with Column F widened to the attested
+# form, following the `Spectral Interference Corrections Applied` precedent.
 VALID_DATA_TYPES = {
-    "Text (free)", "Controlled list", "Numeric + unit", "Boolean", "Integer",
+    "Text (free)", "Controlled list", "Numeric + unit", "Integer",
     "Date", "URI / DOI", "URI / IGSN", "Text / URI",
 }
 # "Numeric (unit)" is a family: Numeric (W), Numeric (Hz), Numeric (µm), ...
@@ -75,7 +78,7 @@ DATATYPE_SYNONYMS = {
 # Ratified compound types: a vocabulary label, " / ", then a fallback label.
 # See "Compound data types" in conventions.md.
 _ATOMIC = (r"Controlled list|URI / DOI|URI / IGSN|Text / URI|Numeric \+ unit|"
-           r"Numeric pair \([^)]+\)|Numeric \([^)]+\)|Integer|Boolean|Date")
+           r"Numeric pair \([^)]+\)|Numeric \([^)]+\)|Integer|Date")
 _FALLBACK = r"Text|Text \(free\)|Numeric \+ unit|Numeric \([^)]+\)"
 COMPOUND_RE = re.compile(rf"^(?:{_ATOMIC}) / (?:{_FALLBACK})$")
 
