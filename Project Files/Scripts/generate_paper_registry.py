@@ -1,4 +1,10 @@
 """
+2026-08-30 — Charles2018 and Treiman2022 moved Lab-XCT `Detailed` -> `N`. Their columns were
+removed from the Lab-XCT TAPP because their `Technique` cells read `Medical CT` and `NXCT`
+(neutron CT): separate techniques, each with its own folder at the repo root. The rows are KEPT
+rather than deleted so the PDFs stay on the record for the future Medical CT and NCT TAPPs,
+which have no registry column yet. They currently read N across every column.
+
 generate_paper_registry.py
 ==========================
 Writes paper_registry.csv for the TAPPs project.
@@ -874,7 +880,7 @@ papers = [   {   'Citation Key': 'Ma2015',
         'Laser Assisted Fluorination – IRMS (LAF)': 'N',
         'Accelerator Mass Spectrometry (AMS)': 'N',
         'Static Noble Gas & Nitrogen Mass Spectrometry (Noble Gas MS)': 'N',
-        'Lab X-ray Computed Tomography (Lab-XCT)': 'Detailed'},
+        'Lab X-ray Computed Tomography (Lab-XCT)': 'N'},
     {   'Citation Key': 'Treiman2022',
         'DOI': '10.1111/maps.13904',
         'PDF Filename': 'Meteorit   Planetary Scien - 2022 - Treiman - Coordinated neutron and X‐ray '
@@ -902,7 +908,7 @@ papers = [   {   'Citation Key': 'Ma2015',
         'Laser Assisted Fluorination – IRMS (LAF)': 'N',
         'Accelerator Mass Spectrometry (AMS)': 'N',
         'Static Noble Gas & Nitrogen Mass Spectrometry (Noble Gas MS)': 'N',
-        'Lab X-ray Computed Tomography (Lab-XCT)': 'Detailed'},
+        'Lab X-ray Computed Tomography (Lab-XCT)': 'N'},
     {   'Citation Key': 'Glavin2023',
         'DOI': '10.1111/maps.14111',
         'PDF Filename': 'Meteorit   Planetary Scien - 2023 - Glavin - Investigating the impact of x‐ray '
