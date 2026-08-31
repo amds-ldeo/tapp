@@ -1604,6 +1604,20 @@ retired it for want of a user, and one user does not justify reviving an abstrac
 Splitting the field into a configuration list plus a cycling sequence remains the better option if this
 is ever revisited.
 
+**`Desolvation System` — the second candidate, also declined (2026-08-31).** Raised because its cells
+assign the introduction path per analyte, per resolution mode and per session — `ESI Apex Ω for HR-mode
+dry plasma work; none for MR-mode wet plasma`, `Apex HF (Cr); Apex Omega (Mg)`. Reviving
+`acquisition pass` for it would have needed a definer field in every Solution TAPP, and three arguments
+say no. The key is **retired by rule**, not merely undefined — a distinction worth stating, because a
+missing definer looks like an oversight to fix and a retired key does not. `Collector Configuration`
+already made this exact case and was declined; **two users still do not justify reviving an abstraction
+7.4b/c removed** for want of any. And the field fails Rule 7's own test: the key is the finest axis
+attested in *reported data*, and reported data is indexed by analyte and reported property, never by
+which pass produced it — Run 1 and Run 2 merge into one result table. `Desolvation System` therefore
+stays `(none)`, with the per-analyte and per-mode assignment written inline, which is the same
+convention `Mass Resolution Setting` uses ("where individual analytes are assigned to different modes,
+state each"). Revisit only if reported data itself ever becomes pass-indexed.
+
 **Both key questions the sweep left open were then settled against the literature (7.12).** The LA
 `Detection Limit` was resolved *against* its key, not its prose, and the `Primary Calibration Standard
 Name` register rationale was corrected.
