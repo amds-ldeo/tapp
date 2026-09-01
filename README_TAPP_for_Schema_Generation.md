@@ -47,22 +47,22 @@ generated artifact (colour-coded, with a Legends sheet) and should not be parsed
 
 | TAPP | Modules composed |
 |---|---|
-| `EPMA/EPMA_TAPP_v*.csv` | Core, TargetSelection, CalibrationFactor, Blank, Aggregation |
-| `LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v*.csv` | Core, LaserAblation, MCICPMS, TargetSelection, CalibrationFactor, Blank, Aggregation |
-| `LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v*.csv` | Core, LaserAblation, MCICPMS, TargetSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb |
-| `SEM/SEM_Composition_TAPP_v*.csv` | Core, TargetSelection, CalibrationFactor, Blank, Aggregation |
-| `SEM/SEM_FIBSEM_TAPP_v*.csv` | Core, TargetSelection |
-| `SEM/SEM_Imaging_TAPP_v*.csv` | Core, TargetSelection |
-| `SEM/SEM_TAPP_v*.csv` | Core, TargetSelection, CalibrationFactor, Blank, Aggregation |
+| `EPMA/EPMA_TAPP_v*.csv` | Core, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation |
+| `LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v*.csv` | Core, LaserAblation, MCICPMS, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation |
+| `LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v*.csv` | Core, LaserAblation, MCICPMS, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb |
+| `SEM/SEM_Composition_TAPP_v*.csv` | Core, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation |
+| `SEM/SEM_FIBSEM_TAPP_v*.csv` | Core, SamplingUnitSelection |
+| `SEM/SEM_Imaging_TAPP_v*.csv` | Core, SamplingUnitSelection |
+| `SEM/SEM_TAPP_v*.csv` | Core, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation |
 | `Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v*.csv` | Core, MCICPMS, CalibrationFactor, Blank, Aggregation, SolutionIntroduction |
 | `Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v*.csv` | Core, CalibrationFactor, Blank, Aggregation, SolutionIntroduction |
 | `Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v*.csv` | Core, CalibrationFactor, Blank, Aggregation, SolutionIntroduction |
-| `TEM/TEM_TAPP_v*.csv` | Core, TargetSelection, CalibrationFactor, Aggregation |
-| `XCT/Lab-XCT_TAPP_v*.csv` | Core, TargetSelection, CalibrationFactor |
-| `LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v*.csv` | Core, LaserAblation, TargetSelection, CalibrationFactor, Blank, Aggregation |
-| `LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v*.csv` | Core, LaserAblation, TargetSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb |
-| `LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v*.csv` | Core, LaserAblation, TargetSelection, CalibrationFactor, Blank, Aggregation |
-| `LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v*.csv` | Core, LaserAblation, TargetSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb |
+| `TEM/TEM_TAPP_v*.csv` | Core, SamplingUnitSelection, CalibrationFactor, Aggregation |
+| `XCT/Lab-XCT_TAPP_v*.csv` | Core, SamplingUnitSelection, CalibrationFactor |
+| `LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v*.csv` | Core, LaserAblation, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation |
+| `LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v*.csv` | Core, LaserAblation, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb |
+| `LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v*.csv` | Core, LaserAblation, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation |
+| `LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v*.csv` | Core, LaserAblation, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb |
 
 **No module is conditional any more.** Every module listed above is all-or-nothing: a TAPP
 composes it or does not, and if it does, it holds every one of that module's fields. The former
@@ -139,7 +139,7 @@ One caveat if you use it to reason about provenance: it marks fields the geochro
 *contribute*, not everything U-Pb-specific. `Module_UPb` also overlays U-Pb-specific *examples* (Column F)
 onto six general fields it does not own — `Calibration Factor and Determination Method`,
 `Procedural Blank Level`, `Analysis Inclusion and Rejection Criteria`,
-`Goodness-of-Fit or Dispersion Statistic`, `Target Selection Criteria`,
+`Goodness-of-Fit or Dispersion Statistic`, `Sampling Unit Selection Criteria`,
 `Pre-Analysis Imaging and Screening` — and those stay unlabelled, because the *field* is general even
 though its examples are not.
 
@@ -442,7 +442,7 @@ several TAPPs is not a coincidence — it is one definition, guaranteed identica
 | `LaserAblation` | 18 | 6 | 2 |
 | `MCICPMS` | 15 | 3 | 2 |
 | `SolutionIntroduction` | 16 | 3 | 2 |
-| `TargetSelection` | 2 | 13 | 2 |
+| `SamplingUnitSelection` | 2 | 13 | 2 |
 | `CalibrationFactor` | 1 | 14 | 2 |
 | `Blank` | 1 | 12 | 2 |
 | `Aggregation` | 2 | 13 | 2 |
@@ -478,7 +478,7 @@ independent modules sharing one file:
 
 | new module | fields | consumers | applies when |
 |---|---|---|---|
-| `TargetSelection` | `Target Selection Criteria`, `Pre-Analysis Imaging and Screening` | 13 | the procedure analyses a selected part of a sample, not the bulk |
+| `SamplingUnitSelection` | `Sampling Unit Selection Criteria`, `Pre-Analysis Imaging and Screening` | 13 | the procedure analyses a selected part of a sample, not the bulk |
 | `CalibrationFactor` | `Calibration Factor and Determination Method` | 14 | the reported quantity depends on an externally calibrated factor |
 | `Blank` | `Procedural Blank Level` | 12 | the technique has a measurable analytical blank |
 | `Aggregation` | `Analysis Inclusion and Rejection Criteria`, `Goodness-of-Fit or Dispersion Statistic` | 13 | the procedure combines multiple analyses into one reported value |
@@ -487,12 +487,21 @@ independent modules sharing one file:
 machinery to model. A TAPP either composes a module — and then holds *every* one of its fields — or does
 not. `composed_tapps.json` lists exactly which. The earlier advice to emit one `$def` per block applied
 only to `ReportingCore` and is now obsolete; if you keyed `$def` names on its block names, three of the
-four carry straight over (`target_selection` → `TargetSelection`, `calibration_factor` →
+four carry straight over (`target_selection` → `SamplingUnitSelection`, `calibration_factor` →
 `CalibrationFactor`, `blank` → `Blank`), and `aggregation` + `aggregation_qc` merge into `Aggregation`.
 
 The field-level facts are unchanged: `Procedural Blank Level` is still absent from TEM and Lab-XCT (no
-analytical blank), and `Target Selection Criteria` is still absent from the three Solution TAPPs (bulk
+analytical blank), and `Sampling Unit Selection Criteria` is still absent from the three Solution TAPPs (bulk
 techniques). What changed is that this is now expressed by which modules they compose.
+
+> **Renamed 2026-09-01 — if you hold an earlier copy of this README.** The module `TargetSelection`
+> is now `SamplingUnitSelection` (v3) and its field `Target Selection Criteria` is now
+> `Sampling Unit Selection Criteria`. Nothing else about the module changed: same 2 fields, same 13
+> consumers, same `applies_when`. The rename resolves a collision in which "Target" carried two
+> senses — the type-level *what the procedure is designed for* of `Target Material` and
+> `Target Feature(s)`, which are unchanged, and this field's instance-level *which portion of a
+> given sample is analysed*. The new head noun names the `sampling unit` domain the field selects
+> from. `Sampling Unit` itself, and every `sampling unit` key, are untouched.
 
 ---
 

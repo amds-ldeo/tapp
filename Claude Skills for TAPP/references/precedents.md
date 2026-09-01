@@ -2550,3 +2550,39 @@ a single choice. Column B now asks for both layers.
 alternatives to them, the list is pitched at the wrong grain. Count how many attested values
 could be added as members without the domain closing — if the answer is "indefinitely many",
 raise the axis instead of extending the list.
+
+---
+
+## Two senses of "Target", and the rename that separated them (2026-09-01)
+
+**Decision: `Target Selection Criteria` → `Sampling Unit Selection Criteria`, and
+`Module_TargetSelection` → `Module_SamplingUnitSelection` (v3). `Target Material` and
+`Target Feature(s)` are unchanged.** Full record:
+`analysis/Decision_Record_2026-09-01_Sampling_Unit_Selection.md`.
+
+**The distinction.** "Target" was doing two incompatible jobs. *Type-level*: what the procedure is
+designed for — `Target Material`, `Target Feature(s)`, the sanctioned exception in the level-neutral
+naming rule. *Instance-level*: which portion of a particular sample was picked out — this field
+alone. The evidence that the second was the odd one out was already in the validator:
+`TARGET_EXEMPT` had to carry it past the ban on "Target" in field names.
+
+**Two senses were deliberately NOT swept, and a future sweep should not touch them.** *Set-point vs
+achieved* ("target voxel size", "target flow rate", ~12 fields' prose) is where `conventions.md`
+explicitly routes the target/achieved distinction — sweeping it would break the rule. *X-ray tube
+anode* ("Reflection target, microfocal") is standard terminology and sits in a Column F controlled
+vocabulary.
+
+**A field rename cannot be expressed by composition.** `compose_tapp.py` matches by field name, so a
+renamed module field is ADDED while the old row survives — both rows land in the TAPP and the old
+row's consumer-owned Column F is orphaned. Rename Column A in the consumer first, then compose.
+Likewise `stamp_source_comment` only fills an EMPTY Column G, so a module rename orphans every stamp
+it already wrote (26 here) and recomposition reports MATCH. Patch Column G directly.
+
+**The composition registry drifts silently, and the mechanism is now known.**
+`bump_for_module_20260827.py` sets `generated` but never updates `e["tapp"]`, so every bump left
+`composed_tapps.json` naming the file it had just moved into `Superseded TAPPs/`. Six of sixteen
+entries had drifted. Because `compose_tapp.py` writes to the recorded path, a pass run on top of that
+edits the SUPERSEDED copy and reports MATCH; and `check_library_freshness` builds its
+"what is current" map from the same paths, so document staleness was being measured against a stale
+baseline. Now `register-stale-tapp-path` (**ERROR**), plus `stamp-orphaned-module` (WARN). Both
+functionally tested. **A new bump script must copy the 2026-09-01 one, not the 2026-08-27 one.**

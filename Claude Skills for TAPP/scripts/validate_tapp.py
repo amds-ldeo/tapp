@@ -132,7 +132,11 @@ REQUIRED_TIERS = {
 
 # Level-encoding words banned from field names (conventions.md "Level-neutral naming")
 LEVEL_WORDS = ["Default", "Achieved", "Typical", "Actual"]
-TARGET_EXEMPT = {"Target Material", "Target Feature(s)", "Target Selection Criteria"}
+TARGET_EXEMPT = {"Target Material", "Target Feature(s)"}
+# `Target Selection Criteria` left this set on 2026-09-01 when it became `Sampling Unit Selection
+# Criteria`. It was the only member using "Target" in the instance-level sense — the portion of a
+# sample actually picked out — rather than the type-level "what the procedure is designed for" that
+# the two survivors carry. Needing an exemption was the signal the name was wrong.
 
 # Unit-only parentheticals: the unit belongs in Column E, not the field name.
 # "(s)" is excluded — it is the pervasive English plural convention
@@ -1468,6 +1472,9 @@ HISTORICAL_DOCS = {
         "dated change history — naming retired fields is how a log works",
 }
 RETIRED_FIELDS = {
+    "Target Selection Criteria":       "renamed 2026-09-01 -> Sampling Unit Selection Criteria — "
+                                       "'Target' was carrying two senses in the library and this "
+                                       "was the odd one out; the new head noun names the `sampling unit` domain the field selects from",
     "Mass Cycles per Replicate":       "renamed 2026-08-17 -> Number of Scans per Replicate — 'cycle' is "
                                        "reserved for simultaneous multi-collection readouts, a "
                                        "different acquisition mode from a sequential mass scan",
@@ -1519,11 +1526,25 @@ def rel_is_register(fname):
 # Files whose job includes naming a field in order to record that it was retired or renamed.
 # Distinct from HISTORICAL_DOCS: these are live and authoritative, and a retirement that went
 # unrecorded in them would be the actual defect.
+# A value may be a STRING (blanket exemption for the file, as before) or a DICT of
+# {retired field name: reason}, which exempts only those names and leaves the file guarded against
+# every other retirement. Prefer the dict: README_TAPP_for_Schema_Generation.md is the live spec
+# handed to the schema developer, and a blanket exemption there would hide a genuinely stale field.
 RETIRED_FIELD_MENTION_OK = {
     "Claude Skills for TAPP/references/precedents.md":
         "the precedent recording a retirement has to name what it retired",
     "Claude Skills for TAPP/references/conventions.md":
         "rule text closing a deferred question has to name the field the question was about",
+    "Project Files/Registers & Planning/TAPP_Module_Register.csv": {
+        "Target Selection Criteria":
+            "the retired TargetSelection row has to name the field it was renamed from — that row "
+            "IS the retirement record, the same treatment ReportingCore's row carries",
+    },
+    "README_TAPP_for_Schema_Generation.md": {
+        "Target Selection Criteria":
+            "the 2026-09-01 migration note has to name the old identifier so a schema developer "
+            "holding an earlier copy can map an existing $def onto the new name",
+    },
 }
 TAPP_REF_RE = re.compile(r"([A-Za-z0-9_\-]+_TAPP(?:_UPb)?)_v(\d+)\.csv")
 
@@ -1535,6 +1556,41 @@ def check_library_freshness(root, out):
     if not os.path.exists(regp):
         return
     reg = json.load(open(regp, encoding="utf-8"))
+
+    # --- the composition register must name the files that are actually live.
+    #
+    # Nothing checked this until 2026-09-01, when six of sixteen entries were found to have drifted
+    # one or two versions behind the technique folders. The drift is silent twice over:
+    # `compose_tapp.py` writes to the path recorded here, so a recomposition edits the SUPERSEDED
+    # copy, reports MATCH, and leaves the live TAPP untouched; and `current` below is derived from
+    # these same paths, so `doc-stale-version-ref` quietly starts measuring live documents against a
+    # stale baseline. ERROR rather than WARN because any pass run on top of the drift edits the
+    # wrong library while every check reports clean.
+    on_disk = {os.path.basename(p).rsplit("_v", 1)[0]: p for p in discover(root)}
+    registered = set()
+    for e in reg["composed"]:
+        rel = e["tapp"]
+        stem = os.path.basename(rel).rsplit("_v", 1)[0]
+        registered.add(stem)
+        livep = on_disk.get(stem)
+        if livep is None:
+            add("ERROR", "composed_tapps.json", "register-tapp-absent",
+                f"names '{rel}', but no live TAPP has that stem. Either the file was archived "
+                f"without updating the register, or the stem was renamed and the register missed it.")
+            continue
+        if os.path.basename(livep) != os.path.basename(rel):
+            add("ERROR", "composed_tapps.json", "register-stale-tapp-path",
+                f"names '{rel}' but the live file is '{os.path.relpath(livep, root)}'. "
+                f"compose_tapp.py writes to the recorded path, so recomposing now would edit the "
+                f"superseded copy and report MATCH while the live TAPP goes untouched. "
+                f"Update the register before any composition pass.")
+    for stem, livep in sorted(on_disk.items()):
+        if stem not in registered:
+            add("WARN", "composed_tapps.json", "register-tapp-unregistered",
+                f"'{os.path.relpath(livep, root)}' is a live TAPP with no entry in the composition "
+                f"register. It is invisible to compose_tapp.py and to the doc-staleness baseline. "
+                f"Add it, with an empty module list if it is composed from nothing.")
+
     current = {os.path.basename(e["tapp"]).rsplit("_v", 1)[0]: os.path.basename(e["tapp"])
                for e in reg["composed"]}
 
@@ -1560,6 +1616,32 @@ def check_library_freshness(root, out):
                 add("WARN", m, "register-stale-consumers",
                     f"TAPP_Module_Register.csv records '{r[6].strip()}' consumers for {m}; "
                     f"composed_tapps.json has {used.get(m, 0)}.")
+
+    # --- Column G provenance stamps must name a module that still exists.
+    #
+    # `compose_tapp.stamp_source_comment` only ever fills an EMPTY Column G, so that consumer
+    # annotation is never clobbered and recomposition stays idempotent. The cost of that design is
+    # that a module RENAME orphans every stamp it has already written: recomposition reports MATCH
+    # and leaves `Source: <old name> module` in place indefinitely. Found on 2026-09-01, when
+    # renaming TargetSelection -> SamplingUnitSelection left 26 stale stamps across 13 TAPPs that
+    # `--check` could not see. WARN, not ERROR: the label is documentation, with no schema meaning.
+    labels = set()
+    for j in sorted(glob.glob(os.path.join(root, "Claude Skills for TAPP", "modules", "Module_*.json"))):
+        lab = json.load(open(j, encoding="utf-8")).get("source_comment")
+        if lab:
+            labels.add(lab.strip())
+    if labels:
+        stamp_re = re.compile(r"^Source:\s.+\smodule$")
+        for tp in discover(root):
+            t = load(tp)
+            for i, r in enumerate(t.rows[1:], start=2):
+                cur = r[COL_COMMENT].strip() if len(r) > COL_COMMENT else ""
+                if cur and stamp_re.match(cur) and cur not in labels:
+                    out.append(Finding(
+                        "WARN", t.name, i, r[0].strip(), "stamp-orphaned-module",
+                        f"Column G reads '{cur}', but no module declares that source_comment. "
+                        f"A module rename leaves these behind — compose_tapp only fills an EMPTY "
+                        f"Column G, so recomposition will not repair it. Patch Column G directly."))
 
     # --- live documents naming superseded versions or retired fields
     seen = set()
@@ -1589,9 +1671,10 @@ def check_library_freshness(root, out):
                             f"names '{name}' but the current file is '{current[stem]}'. A live "
                             f"document must not point at a superseded version; date the file or "
                             f"add it to HISTORICAL_DOCS if it is a record rather than a guide.")
+                exempt = RETIRED_FIELD_MENTION_OK.get(rel)
                 for fld, why in RETIRED_FIELDS.items():
-                    if rel in RETIRED_FIELD_MENTION_OK:
-                        break
+                    if exempt is not None and (isinstance(exempt, str) or fld in exempt):
+                        continue
                     if re.search(r"(?<![A-Za-z])" + re.escape(fld) + r"(?![A-Za-z])", text):
                         add("WARN", rel, "doc-retired-field",
                             f"names the field '{fld}' — {why}. Update the text, or add the file "

@@ -1883,10 +1883,9 @@ in 13 TAPPs.
 - ✓ "Laser Fluence (Energy Density)", "Carrier Gas and Flow Rate", "Voxel Size"
 - ✗ "Default Laser Fluence", "Carrier Gas and Default Flow Rate", "Target Voxel Size"
 
-**Exceptions — "Target" retained for scope-defining fields**: These field types use "Target" because it denotes *what the procedure is aimed at*, not a value with a later "achieved" counterpart:
+**Exceptions — "Target" retained for scope-defining fields**: These field types use "Target" because it denotes *what the procedure is aimed at*, not a value with a later "achieved" counterpart. Both are **type-level**: they name the kind of material or feature a procedure is designed for, never the particular portion of a particular sample, which is `Sampling Unit Selection Criteria` (renamed from `Target Selection Criteria` on 2026-09-01 for exactly this reason):
 - "Target Material" — the material type the procedure is designed to analyze
 - "Target Feature(s)" — the microstructural features or properties the procedure is designed to characterize
-- "Target Selection Criteria" — the rules governing which part of the sample is analysed
 
 **"(Measured)" companion field**: Use to distinguish the analysis-level measured value from the procedure-level acceptance criterion when a split is required (see Q3 in `references/field-review.md` and Oxide Production in `references/precedents.md`).
 - Procedure field: "Oxide Production Method and Threshold" (the criterion)

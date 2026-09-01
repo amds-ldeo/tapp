@@ -1,0 +1,49 @@
+{
+    "module": "SamplingUnitSelection",
+    "title": "Sampling Unit Selection",
+    "layer": 2,
+    "version": "3",
+    "source_of_truth": "modules/Module_TargetSelection.csv",
+    "owned_columns": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "I"
+    ],
+    "overlay_columns": [
+        "F",
+        "J"
+    ],
+    "consumer_columns": [
+        "F",
+        "G",
+        "H"
+    ],
+    "mode_flag_default": "Y",
+    "source_comment": "Source: Sampling Unit Selection module",
+    "conditional": false,
+    "applies_when": "The procedure analyses a selected part of a sample rather than the bulk. Omit for bulk techniques (solution ICP-MS, TGA, gas pycnometry, INAA).",
+    "blocks": [
+        {
+            "name": "sampling_unit_selection",
+            "target_group": "2. Samples",
+            "placement": "append_to_group",
+            "fields": [
+                "Sampling Unit Selection Criteria",
+                "Pre-Analysis Imaging and Screening"
+            ]
+        }
+    ],
+    "sub_module_test": "Run 2026-08-14 under Rule 6.15 during the ReportingCore dissolution. Footprint 13 consumers. Against the other three successors — CalibrationFactor: overlapping, neither contained; Blank: overlapping, neither contained; Aggregation: overlapping, neither contained. No IDENTICAL relation, so prong 1 nominated no merger; TargetSelection and Aggregation are both 13 consumers but different sets, which is why co-extension had to be tested rather than assumed from the count. Subset of Core (16/16), which holds only fields universal to every TAPP and so cannot absorb a conditional one. Existing technique modules (LaserAblation, MCICPMS, SolutionIntroduction, Geochronology, UPb, ArAr) are all strict subsets and differ in subject.",
+    "notes": "Was ReportingCore block 'target_selection'. Split out of Module_ReportingCore on 2026-08-14. ReportingCore was the only conditional module and the only one that was not all-or-nothing: 9 of its 16 consumers held all six fields and its five blocks had four different consumer footprints, so it was four independent modules sharing a file — bound by shared provenance (the geochronology specificity re-triage that produced them) rather than by structure. Each successor is unconditional and all-or-nothing, carrying its applies_when at module level where a reader will find it. Consumers select by composing the module or not, so 'one $def per module' holds again for every module in the library. Renamed 2026-09-01 from Module_TargetSelection: 'Target' carried two incompatible senses in the library — the type-level 'what the procedure is designed for' of Target Material and Target Feature(s), and this module's instance-level 'the portion actually picked out'. Only the second moved.",
+    "decisions": [
+        "2026-08-14 v1. Field text taken unchanged from Module_ReportingCore v6 — the dissolution moves fields between modules and changes no definition, so composition is a no-op and no consumer needs a version bump.",
+        "Compose AFTER Core: the Group 5 and 6 blocks anchor on 'Constants and Reference Values Used' and 'Additional Notes', both owned by Core.",
+        "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content.",
+        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves.",
+        "2026-09-01 v3. `Target Selection Criteria` -> `Sampling Unit Selection Criteria`, and the module renamed with it. Two senses of 'Target' coexisted: type-level design intent (Target Material 16/16, Target Feature(s) 1) and instance-level locus (this module). validate_tapp.py had to carry this field in TARGET_EXEMPT to pass its own ban on 'Target' in field names — the rule was already being bent for it. The new head noun ties the field to the `sampling unit` key, which is exactly the domain it selects from, and follows the existing `VOI Selection Criteria` naming pattern. Column I stays `(none)`: the field holds one set of rules per procedure, not one value per unit. Purpose stays EMPTY on both rows — all six sentences were routed D in the 2026-08-25 Step 1 routing (M1/M3) and the module Step 1 backlog closed 2026-08-27, so blank Purpose here is the adjudicated outcome, not a gap. The disambiguation sentence stays in Description and now names Sampling Unit as well as Target Material, because the rename makes that the nearer neighbour."
+    ],
+    "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
+}
