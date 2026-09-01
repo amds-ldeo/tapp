@@ -146,3 +146,68 @@ was missing. Any future bump script must do the same; the ERROR check now catche
   should copy the 2026-09-01 script, not the 2026-08-27 one.
 - The wider `Analyte` / `channel` / `reported property` naming question raised by the schema developer
   is untouched by this pass and remains open.
+
+---
+
+# Addendum — Decision 2 resolved, and the Lab-XCT extraction gap closed (same day)
+
+## Is the VOI the sampling unit for Lab-XCT? No.
+
+**Decision: `VOI Selection Criteria` and `Sampling Unit Selection Criteria` do not overlap. No merge,
+no rename.** Three independent reasons, in order of weight:
+
+1. **The VOI is never restricted.** `VOI Selection Criteria` reads `N` in **14 of 14 attested
+   procedures** — "full scan volume", "entire chip volume", "full core length per sub-volume", "full
+   vial volume", "full 8 mm core". A VOI that is always the entire reconstructed volume cannot be
+   *"the physical subdivision of the sample … as distinct from the sample as a whole"*; that is the
+   `Sampling Unit` definition, and the attested VOI is its opposite.
+2. **Different kind of thing.** VOI criteria are an artefact-exclusion mask — cone-beam zones, beam
+   hardening halos, holder signal — answering *which voxels are trustworthy*. `Sampling Unit` answers
+   *what one row of reported values corresponds to*.
+3. **The two axes appear in one sentence.** Tomkinson et al. 2015: *"entire chip volume; six 2D slices
+   at ~1 mm spacing selected for modal analysis"*. The VOI is the whole chip; the modal mineralogy is
+   reported per slice (Table 1 has one row per slice).
+
+Also: `VOI Selection Criteria` (C=Advanced, the criterion) pairs with `VOI Applied` (C=N/A, D=Basic,
+the result) — a correct procedure-criterion/analysis-result split under the Oxide Production
+precedent. Merging the criterion into the sampling-unit family would break a working pair.
+
+**Now evidenced rather than argued.** With `Sampling Unit` extracted, the attested domain across the
+14 procedures is: Whole sample (6) · Region of interest, i.e. an individual inclusion, > Phase (4) ·
+Sub-volume (2) · Grain (1) · Aliquot (1). **Not one procedure reports per VOI.**
+
+## The extraction gap was shaped, and is now closed
+
+**Before: 10 of 89 rows had no extraction. All ten were module-composed; 0 of 55 native rows were
+blank, against 10 of 34 composed rows.** The Phase 3 pass had evidently been run against the
+technique-specific field list, so every field that arrived by composition was skipped — including
+`Instrument Manufacturer`, which is blank while the column headers name Nikon, Zeiss, NSI, Phoenix
+and XRADIA.
+
+**After: 89 of 89 rows extracted, 0 blank.** 224 cells across 10 fields plus the 6 group header rows,
+which Lab-XCT had left empty where every other TAPP writes `N`. Script:
+`Project Files/Scripts/patch_labxct_extraction_20260901.py`. Every value was read from the source PDF
+in the session that wrote the script, per the Source Rule; `N` where applicable but not stated.
+
+Two traps avoided, both of the "read the raw extraction, not the aggregate" kind:
+- **Tait 2014's "density of 3.40 g/cm3 (Britt et al. 2002)"** is a parent-body thermal-model constant,
+  not an XCT reference value. `Constants and Reference Values Used` is `N`.
+- **Nascimento-Dias 2019's "mass attenuation coefficient"** belongs to the micro-XRF Rayleigh/Compton
+  work, not the micro-CT. Also `N`.
+
+`Reported Variables and Units` Column F was still the generic library list (d56Fe, 206Pb/238U dates)
+for a technique reporting volumes, modal mineralogy and porosity. Column F is consumer-owned under
+Module_Core, so this was a TAPP-level edit; the new list is drawn from what the 14 procedures actually
+report. Lab-XCT v36 -> v37.
+
+## Discovered, NOT caused by this pass: 8 unadjudicated audit findings
+
+`audit_keys_vs_literature.py` has not been re-run since 2026-08-12 and now reports **8 NEW findings
+needing adjudication** (5 OVER-DECLARED, 3 UNDER-DECLARED) — strongest: `Primary Calibration Standard
+Name` (14 ev), `Beam Mode` and `Beam Diameter` in EPMA (13 ev each), `Spectral Interference
+Corrections Applied` (9 ev), `Phase Identification Method` in Lab-XCT (8 ev).
+
+**None is attributable to this extraction.** Verified for the Lab-XCT finding by diffing the
+lit-assessment cells of `Phase Identification Method` between the superseded v36 and v37: byte
+identical. These accumulated as the library moved from v30-era to v59-era without the Rule 7.12 audit
+being re-run. Open backlog.
