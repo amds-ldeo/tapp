@@ -3,7 +3,7 @@
   "note": "TAPPs whose listed groups are composed build outputs. Per Rule 6.6 the composed rows must not be hand-edited — edit the module and recompose with scripts/compose_tapp.py. Verify with --check. In the `retired` list, `tapp` is the TAPP's HISTORICAL path — its identity while it was live — and `moved_to` gives the current location; `tapp` is deliberately not resolvable and must not be rewritten. Everywhere else (`composed[].tapp`, `derived_from`) paths are current and resolvable.",
   "composed": [
     {
-      "tapp": "EPMA/EPMA_TAPP_v59.csv",
+      "tapp": "EPMA/EPMA_TAPP_v60.csv",
       "modules": [
         {
           "name": "Core",
@@ -19,7 +19,7 @@
         },
         {
           "name": "Blank",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "Aggregation",
@@ -36,7 +36,7 @@
       ]
     },
     {
-      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v67.csv",
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v68.csv",
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
       "modules": [
         {
@@ -61,7 +61,7 @@
         },
         {
           "name": "Blank",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "Aggregation",
@@ -95,7 +95,7 @@
       ]
     },
     {
-      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v67.csv",
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v68.csv",
       "derived_from": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v1.csv",
       "modules": [
         {
@@ -120,7 +120,7 @@
         },
         {
           "name": "Blank",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "Aggregation",
@@ -154,7 +154,7 @@
       "note": "Derived from LA-MC-ICPMS_TAPP_v1.csv, i.e. before the Zhang et al. 2022 literature assessment column was added at v2. Recompose from v2 to inherit it."
     },
     {
-      "tapp": "SEM/SEM_Composition_TAPP_v57.csv",
+      "tapp": "SEM/SEM_Composition_TAPP_v58.csv",
       "modules": [
         {
           "name": "Core",
@@ -170,7 +170,7 @@
         },
         {
           "name": "Blank",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "Aggregation",
@@ -213,7 +213,7 @@
       ]
     },
     {
-      "tapp": "SEM/SEM_TAPP_v58.csv",
+      "tapp": "SEM/SEM_TAPP_v59.csv",
       "modules": [
         {
           "name": "Core",
@@ -229,7 +229,7 @@
         },
         {
           "name": "Blank",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "Aggregation",
@@ -246,7 +246,7 @@
       ]
     },
     {
-      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v66.csv",
+      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v67.csv",
       "modules": [
         {
           "name": "Core",
@@ -262,7 +262,7 @@
         },
         {
           "name": "Blank",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "Aggregation",
@@ -291,7 +291,7 @@
       ]
     },
     {
-      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v72.csv",
+      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v73.csv",
       "modules": [
         {
           "name": "Core",
@@ -303,7 +303,7 @@
         },
         {
           "name": "Blank",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "Aggregation",
@@ -332,7 +332,7 @@
       ]
     },
     {
-      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v68.csv",
+      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v69.csv",
       "modules": [
         {
           "name": "Core",
@@ -344,7 +344,7 @@
         },
         {
           "name": "Blank",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "Aggregation",
@@ -411,7 +411,7 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v70.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v71.csv",
       "modules": [
         {
           "name": "Core",
@@ -431,7 +431,7 @@
         },
         {
           "name": "Blank",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "Aggregation",
@@ -462,7 +462,7 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v70.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v71.csv",
       "derived_from": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v8.csv",
       "modules": [
         {
@@ -483,7 +483,7 @@
         },
         {
           "name": "Blank",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "Aggregation",
@@ -517,7 +517,7 @@
       "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record."
     },
     {
-      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v67.csv",
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v68.csv",
       "modules": [
         {
           "name": "Core",
@@ -537,7 +537,7 @@
         },
         {
           "name": "Blank",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "Aggregation",
@@ -564,7 +564,7 @@
       ]
     },
     {
-      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v68.csv",
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v69.csv",
       "derived_from": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v8.csv",
       "modules": [
         {
@@ -585,7 +585,7 @@
         },
         {
           "name": "Blank",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "Aggregation",

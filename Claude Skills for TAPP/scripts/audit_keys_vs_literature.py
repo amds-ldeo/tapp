@@ -108,6 +108,48 @@ EXCLUDE_FIELDS = {
 # sees only genuinely new disagreements. Rationale for each is in precedents.md under
 # "Validating keys against the literature assessment".
 ADJUDICATED = {
+    # ---- adjudicated 2026-09-01. Seven of eight NEW findings were detector artefacts; the
+    # ---- eighth was real. The generalisable result is the single-analyte unfalsifiability rule
+    # ---- recorded under Primary Calibration Standard Name below.
+    ("Beam Diameter", "OVER-DECLARED"):
+        "KEEP sample > sampling unit — the detector tallied sampling unit=2 of 13; READING THE RAW "
+        "CELLS GIVES 6 of 14. Liu+2016 (both), Pang+2016, McCoy+2025_SI, Zega+2025 and Barnes+2025 "
+        "(JEOL) each give a per-phase diameter, e.g. '1-2 um (olivine, pyroxene, Fe-Ti-Cr oxides); "
+        "5-10 um defocused (maskelynite, phosphate, sulfide, glass)'. Far stronger than the 2-of-13 "
+        "that kept Beam Current. The detector recognises only a narrow phrasing.",
+    ("Beam Mode", "OVER-DECLARED"):
+        "KEEP sample > sampling unit — same evidence and same undercount as Beam Diameter: 6 of 14 "
+        "give a per-phase mode ('Focused (olivine, pyroxene, Fe-Ti-Cr oxides); Defocused 5-10 um "
+        "(maskelynite, phosphate, sulfide, glass)'). Keyed deliberately in the electron-beam setup "
+        "cluster pass and confirmed here on evidence.",
+    ("Phase Identification Method", "OVER-DECLARED"):
+        "KEEP sample > sampling unit — Genge et al. 2025 gives two different criteria for two phases "
+        "('sulphide rims by bright contrast; silicate glass by contrast relative to matrix') and Tait "
+        "2014 a per-phase outcome ('plagioclase targeted; olivine + pyroxene not separately resolved; "
+        "troilite/oxyhydroxide indistinguishable'). Same 2-of-N shape that kept Beam Current. The "
+        "Lab-XCT Sampling Unit domain, extracted 2026-09-01, carries '> Phase' in 4 of 14 procedures.",
+    ("Primary Calibration Standard Name", "OVER-DECLARED"):
+        "KEEP analyte. THE RULE THIS ESTABLISHES: a SINGLE-ANALYTE procedure cannot falsify a "
+        "per-analyte key — the field has exactly one value because there is exactly one analyte, and "
+        "the detector scores that as scalar. Only MULTI-analyte procedures test the axis. In Solution "
+        "MC, 6 of the 8 'scalar' cells are single-analyte (Mo, S, Fe, Zr, Rb, Os); both multi-analyte "
+        "procedures give an explicit per-analyte mapping — van Kooten et al. 2026 'Fe, Cr and Mg' -> "
+        "'IRMM-014, SRM979, DTS-2b', Barnes et al. 2025 'K, Cu and Zn' -> 'NIST-SRM 3141a, NIST-SRM "
+        "976, JMC-Lyon'. In Solution Q, Lopez Garcia et al. 2026 assigns standards to element groups, "
+        "the same shape that keyed LA-SF on Navarro. Weight only the multi-analyte procedures.",
+    ("Spectral Interference Corrections Applied", "UNDER-DECLARED"):
+        "KEEP (none) — a procedure-level Boolean whose own description says so and explicitly "
+        "delegates the per-mass detail: 'Detail for each affected mass is carried by Interfering "
+        "Species and Interference Correction Method', both of which ARE keyed channel. The "
+        "extractions are 'Y (...masses...)' / 'N'; the masses are parenthetical context for the "
+        "Boolean, not per-channel values. Identical to the Isobaric Interference Corrections Applied "
+        "disposition — the two sibling fields must be read the same way.",
+    ("Procedural Blank Level", "UNDER-DECLARED"):
+        "APPLIED 2026-09-01 -> analyte (Module_Blank v4, all 12 consumers). The one real finding of "
+        "the eight. Solution Q attests per-element blanks in 5 of 9 extractions (3 tabulated with "
+        "values), Solution SF in 4 of 6 (3 valued). Solution MC's 9 scalar cells are all "
+        "single-analyte procedures — unfalsifiable, not contrary. See the rule under Primary "
+        "Calibration Standard Name.",
     # ---- adjudicated 2026-08-17, after the Solution MC Phase 3, the TQ round and the
     # ---- reconciliation sweep added 19 literature columns and 7 fields.
     ("Collector Configuration", "AXIS-MISMATCH"):

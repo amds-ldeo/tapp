@@ -2,7 +2,7 @@
 Aggregation,2,Aggregation of Multiple Analyses,2,2,3,13 TAPP(s),active
 Analyte,2,Analyte,1,1,2,13 TAPP(s),active
 ArAr,3,40Ar/39Ar Geochronology,16,2,6,0 TAPP(s),active
-Blank,2,Analytical Blank,1,1,3,12 TAPP(s),active
+Blank,2,Analytical Blank,1,1,4,12 TAPP(s),active
 CalibrationFactor,2,Externally Calibrated Conversion Factor,1,1,2,14 TAPP(s),active
 CollisionCell,2,"Collision/reaction cell — configuration, cell gases and kinetic energy discrimination",8,2,4,6 TAPP(s),active
 CompositionQC,2,"Composition quality control — detection limits, counting statistics, secondary reference materials and standards-based normalization",6,2,5,12 TAPP(s),active

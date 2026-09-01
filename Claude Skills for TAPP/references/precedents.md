@@ -2586,3 +2586,63 @@ edits the SUPERSEDED copy and reports MATCH; and `check_library_freshness` build
 "what is current" map from the same paths, so document staleness was being measured against a stale
 baseline. Now `register-stale-tapp-path` (**ERROR**), plus `stamp-orphaned-module` (WARN). Both
 functionally tested. **A new bump script must copy the 2026-09-01 one, not the 2026-08-27 one.**
+
+---
+
+## The single-analyte unfalsifiability rule, and a detector that undercounts (2026-09-01)
+
+**Eight NEW findings from `audit_keys_vs_literature.py`, adjudicated: seven KEEP, one applied.**
+Dispositions are in the script's `ADJUDICATED` table; it reports **0 NEW** again.
+
+### The rule worth reusing
+
+**A single-analyte procedure cannot falsify a per-analyte key.** The field has exactly one value
+because there is exactly one analyte, and every scalar-shaped detector scores that as evidence
+*against* the key. It is not evidence either way — it is unfalsifiability. **Weight only the
+multi-analyte procedures.**
+
+`Primary Calibration Standard Name` in Solution MC looked over-declared at 6 scalar of 8. Six of those
+six are single-analyte procedures (Mo, S, Fe, Zr, Rb, Os). Both procedures that *could* test the axis
+attest it outright, and you only see it by reading the `Analyte` row alongside:
+
+| procedure | `Analyte` | `Primary Calibration Standard Name` |
+|---|---|---|
+| van Kooten et al. 2026 | Fe, Cr and Mg | IRMM-014, SRM979, DTS-2b |
+| Barnes et al. 2025 | K, Cu and Zn | NIST-SRM 3141a, NIST-SRM 976, JMC-Lyon |
+
+The same rule saved `Procedural Blank Level` from being read as scalar in Solution MC, where all nine
+extractions are single-analyte totals.
+
+### The detector undercounts per-phase axes by roughly three-fold
+
+`Beam Diameter` and `Beam Mode` in EPMA were each reported `sampling unit=2 of 13`. Reading the raw
+cells gives **6 of 14** — Liu+2016 (both procedures), Pang+2016, McCoy+2025_SI, Zega+2025 and
+Barnes+2025 all give per-phase values, e.g. *"1-2 um (olivine, pyroxene, Fe-Ti-Cr oxides); 5-10 um
+defocused (maskelynite, phosphate, sulfide, glass)"*. Far stronger than the 2-of-13 that kept
+`Beam Current`. **Third time this class of error has appeared** — after the `Analytical Accuracy`
+withdrawal and the `XRAY_LINE_RE` phantom. The standing instruction stands: read the raw extraction,
+never the aggregate.
+
+### Sibling fields must be read together
+
+`Spectral Interference Corrections Applied` was flagged UNDER-DECLARED at `channel` because its cells
+read `Y (114,115Sn+ on 114Cd+/115In+)`. Its own description settles it: *"Detail for each affected
+mass is carried by Interfering Species and Interference Correction Method"* — both of which **are**
+keyed `channel`. The masses are parenthetical context for a procedure-level Boolean. Identical to the
+`Isobaric Interference Corrections Applied` disposition; the two siblings must not be adjudicated
+apart.
+
+### The one real finding
+
+**`Procedural Blank Level` `(none)` -> `analyte`, Module_Blank v4, all 12 consumers.** Solution Q
+attests per-element blanks in 5 of 9 extractions, 3 tabulated with values (Hu & Gao 2008 *"B 0.39 +/-
+0.26; Zn 0.80 +/- 0.56"*); Solution SF in 4 of 6, 3 valued (Milne et al. 2010 per-element reagent
+blanks with 1 S.D.). Valid as a module-owned key because all 12 consumers carry `defines: analyte` —
+the constraint from the `Calibration Factor` precedent, where `analyte` was rejected because Lab-XCT
+has no analyte anchor. **Column B was deliberately not touched:** cardinality lives in Column I.
+
+### Two release-tooling defects found by fixing the first
+
+`bump_for_module_20260827.py` never advanced `composed_tapps.json`'s `tapp` paths (the six-entry drift)
+**and** never advanced the module's recorded version, which surfaces as `module-version-drift` +
+`register-stale-module-version`. Both are fixed in **`bump_for_module_20260901.py`** — copy that one.

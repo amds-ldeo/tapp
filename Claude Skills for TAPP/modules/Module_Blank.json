@@ -2,7 +2,7 @@
     "module": "Blank",
     "title": "Analytical Blank",
     "layer": 2,
-    "version": "3",
+    "version": "4",
     "source_of_truth": "modules/Module_Blank.csv",
     "owned_columns": [
         "A",
@@ -43,7 +43,8 @@
         "Compose AFTER Core: the Group 5 and 6 blocks anchor on 'Constants and Reference Values Used' and 'Additional Notes', both owned by Core.",
         "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content.",
         "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
-        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves."
+        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves.",
+        "2026-09-01 v4. `Procedural Blank Level` Keyed By `(none)` -> `analyte`, on the Rule 7.12 audit. Solution Q attests per-element blanks in 5 of 9 extractions, 3 of them tabulated with values (Hu & Gao 2008 'B 0.39 +/- 0.26; Zn 0.80 +/- 0.56'; Makishima et al. 2011 per-element pg; Lu et al. 2007 'tabulated per element'); Solution SF in 4 of 6, 3 valued (Milne et al. 2010 per-element reagent blanks with 1 S.D.). Solution MC looks scalar in all 9 of its extractions, but every one of those is a SINGLE-ANALYTE procedure, where a per-analyte field cannot look like anything but a scalar -- that is unfalsifiability, not counter-evidence. The other 9 consumers have no extraction for this field, so the key is attested where it can be tested and contradicted nowhere. `analyte` is valid as a module-owned key because all 12 consumers carry `defines: analyte` (the constraint from the CalibrationFactor precedent, where `analyte` was rejected because Lab-XCT had no analyte anchor). Column B deliberately NOT changed: cardinality belongs in Column I, never in the description."
     ],
     "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }
