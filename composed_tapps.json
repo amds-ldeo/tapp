@@ -667,6 +667,42 @@
         }
       ],
       "note": "DRAFT - not a Phase 0 reviewed TAPP. Seeded from the ADA XRD detail schema; source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library. Same module set as Lab-XCT and the VNMIR draft. Zero mode-flag columns: it delivers a single technique componentType (XRDTabular), so there is no mode axis to flag."
+    },
+    {
+      "tapp": "draftTAPPs/RAMAN_TAPP_draft_v2.csv",
+      "modules": [
+        {
+          "name": "Core",
+          "version": "6"
+        },
+        {
+          "name": "SamplingUnitSelection",
+          "version": "3"
+        },
+        {
+          "name": "CalibrationFactor",
+          "version": "2"
+        }
+      ],
+      "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. RAMAN has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything RAMAN-specific. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
+    },
+    {
+      "tapp": "draftTAPPs/XANES_TAPP_draft_v2.csv",
+      "modules": [
+        {
+          "name": "Core",
+          "version": "6"
+        },
+        {
+          "name": "SamplingUnitSelection",
+          "version": "3"
+        },
+        {
+          "name": "CalibrationFactor",
+          "version": "2"
+        }
+      ],
+      "note": "DRAFT - not a Phase 0 reviewed TAPP, and CORE-ONLY: the native technique layer is EMPTY. XANES has no ADA detail schema and no technique property anywhere in its records, so there was nothing to seed a native layer from and none was invented. This registers the procedure skeleton - identity, laboratory, instrument, samples, session, reported variables - and needs Phase 0 seed papers before it says anything XANES-specific. Source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library."
     }
   ],
   "retired": [
