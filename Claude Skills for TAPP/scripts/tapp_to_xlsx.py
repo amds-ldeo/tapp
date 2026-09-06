@@ -30,11 +30,14 @@ Column structure (columns A–I are fixed; I+1 onward is dynamic):
        column I under Rule 7; the old "Analyte-Specific" labels were retired with it.)
   H  Last Update
   I  Keyed By (Rule 7) — never blank on a content row; `(none)` for a scalar
-  I+1 … I+n   Mode flag columns (one per mode defined in Phase 0)
-  I+n+1     Sentinel column — header must be exactly "Literature Assessment";
+  J  Purpose — prose rationale for the field (added library-wide 2026-08-25).
+       NOT a mode flag: it is located by its exact header and styled as prose.
+       Absent from files written before that date, in which case modes start at I+1.
+  J+1 … J+n   Mode flag columns (one per mode defined in Phase 0), values Y/N only
+  J+n+1     Sentinel column — header must be exactly "Literature Assessment";
              all data rows are empty. Marks the boundary between mode flag
              columns and literature assessment columns.
-  I+n+2 …  Literature assessment columns (one per extracted procedure)
+  J+n+2 …  Literature assessment columns (one per extracted procedure)
 
   Fallback: if no sentinel column is found, the script uses a length-based
   heuristic (header ≤ 25 chars → mode flag; longer → literature assessment).
@@ -91,6 +94,7 @@ LIT_FILL      = PatternFill('solid', fgColor='FFF2CC')  # light yellow for lit a
 SENTINEL_FILL = PatternFill('solid', fgColor='D9D9D9')  # light grey for sentinel column
 
 SENTINEL_HEADER = 'Literature Assessment'  # exact string used to mark the mode/lit boundary
+PURPOSE_HEADER  = 'Purpose'                # column J since 2026-08-25; NOT a mode flag
 
 WRAP_TOP = Alignment(wrap_text=True, vertical='top')
 WRAP_CTR = Alignment(wrap_text=True, vertical='top', horizontal='center')
@@ -110,20 +114,27 @@ COL_WIDTHS = {
     9: 24,   # I — Keyed By (Rule 7)
     # J onward: set dynamically below
 }
-MODE_COL_WIDTH = 13
-LIT_COL_WIDTH  = 30
+MODE_COL_WIDTH    = 13
+LIT_COL_WIDTH     = 30
+PURPOSE_COL_WIDTH = 48   # J — Purpose: prose, sized like Column F, not like a Y/N flag
 
 # ---------------------------------------------------------------------------
 # Detect structure from header row
 # ---------------------------------------------------------------------------
 def detect_structure(rows):
     """
-    Returns (mode_cols, lit_cols, sentinel_col) where each is a list or int
-    of 0-based column indices.
+    Returns (mode_cols, lit_cols, sentinel_col, purpose_col) where each is a list
+    or int of 0-based column indices.
 
     Primary method: look for a column whose header is exactly SENTINEL_HEADER
-    ('Literature Assessment'). Columns between H and the sentinel are mode flag
-    columns; columns after the sentinel are literature assessment columns.
+    ('Literature Assessment'). Columns between `Purpose` and the sentinel are mode
+    flag columns; columns after the sentinel are literature assessment columns.
+
+    `Purpose` (column J, added library-wide 2026-08-25) sits between `Keyed By` and
+    the mode block and is NOT a mode flag — it holds a prose rationale. Counting it
+    as one gave it the 13-character Y/N column width and centre alignment, which
+    made the sentence unreadable in every exported TAPP. Mode detection therefore
+    starts after it, falling back to I+1 for files written before it existed.
 
     Fallback (no sentinel found): use the old length-based heuristic — headers
     ≤ 25 chars with no newlines are treated as mode flag columns; longer headers
@@ -134,10 +145,18 @@ def detect_structure(rows):
     mode_cols    = []
     lit_cols     = []
     sentinel_col = None
+    purpose_col  = None
 
-    # Fixed columns: A=0 B=1 C=2 D=3 E=4 F=5 G=6 H=7
-    # Mode flags start at index 8 (I)
+    # Fixed columns: A=0 B=1 C=2 D=3 E=4 F=5 G=6 H=7 I=8 (Keyed By)
     for i in range(9, len(header)):
+        if header[i].strip() == PURPOSE_HEADER:
+            purpose_col = i
+            break
+
+    # Mode flags begin after Purpose where present, else at I+1.
+    first_mode = (purpose_col + 1) if purpose_col is not None else 9
+
+    for i in range(first_mode, len(header)):
         h = header[i].strip()
         if h == SENTINEL_HEADER:
             sentinel_col = i
@@ -153,7 +172,7 @@ def detect_structure(rows):
     if sentinel_col is None:
         mode_cols, lit_cols = [], []
         in_mode = True
-        for i in range(9, len(header)):
+        for i in range(first_mode, len(header)):
             h = header[i].strip()
             if not h:
                 continue
@@ -163,7 +182,7 @@ def detect_structure(rows):
                 in_mode = False
                 lit_cols.append(i)
 
-    return mode_cols, lit_cols, sentinel_col
+    return mode_cols, lit_cols, sentinel_col, purpose_col
 
 
 # ---------------------------------------------------------------------------
@@ -350,7 +369,7 @@ def convert(csv_path, xlsx_path):
         print("ERROR: CSV is empty.")
         sys.exit(1)
 
-    mode_cols, lit_cols, sentinel_col = detect_structure(rows)
+    mode_cols, lit_cols, sentinel_col, purpose_col = detect_structure(rows)
     mode_headers = [rows[0][i] for i in mode_cols]
     # Rule 7 — Legends Table 4 lists only the keys this TAPP actually uses.
     _seen, keys_used = set(), []
@@ -363,6 +382,7 @@ def convert(csv_path, xlsx_path):
 
     print(f"  Rows: {len(rows)}")
     print(f"  Columns: {n_cols}")
+    print(f"  Purpose column: {'col ' + str(purpose_col) if purpose_col is not None else 'not present'}")
     print(f"  Mode flag columns ({len(mode_cols)}): {mode_headers}")
     print(f"  Sentinel column: {'col ' + str(sentinel_col) if sentinel_col is not None else 'not found (using fallback heuristic)'}")
     print(f"  Literature assessment columns: {len(lit_cols)}")
@@ -414,6 +434,10 @@ def convert(csv_path, xlsx_path):
                     cell.fill = MODE_N_FILL
                 cell.alignment = WRAP_CTR
 
+            # Purpose column — prose rationale; wrap top-aligned like Column B
+            elif col_idx == purpose_col:
+                cell.alignment = WRAP_TOP
+
             # Sentinel column — style all rows with grey fill; bold header
             elif col_idx == sentinel_col:
                 cell.fill = SENTINEL_FILL
@@ -434,6 +458,10 @@ def convert(csv_path, xlsx_path):
     # Mode flag columns
     for col_idx in mode_cols:
         ws.column_dimensions[get_column_letter(col_idx + 1)].width = MODE_COL_WIDTH
+
+    # Purpose column — prose, not a Y/N flag
+    if purpose_col is not None:
+        ws.column_dimensions[get_column_letter(purpose_col + 1)].width = PURPOSE_COL_WIDTH
 
     # Sentinel column — narrow
     if sentinel_col is not None:
