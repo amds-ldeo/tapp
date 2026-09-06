@@ -631,6 +631,42 @@
         }
       ],
       "note": "DRAFT - not a Phase 0 reviewed TAPP. Seeded from the ADA VNMIR detail schema; source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library. Aggregation deliberately not composed: VNMIR reports per-measurement spectra, not values aggregated from multiple analyses - same module set as Lab-XCT."
+    },
+    {
+      "tapp": "draftTAPPs/QRIS_TAPP_draft_v2.csv",
+      "modules": [
+        {
+          "name": "Core",
+          "version": "6"
+        },
+        {
+          "name": "SamplingUnitSelection",
+          "version": "3"
+        },
+        {
+          "name": "CalibrationFactor",
+          "version": "2"
+        }
+      ],
+      "note": "DRAFT - not a Phase 0 reviewed TAPP. Seeded from the ADA QRIS detail schema; source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library. Same module set as Lab-XCT and the VNMIR draft. Zero mode-flag columns: its ada:componentTypes (Raw / Calibrated / CalibrationFile) are pipeline stages of one acquisition, not acquisition modes."
+    },
+    {
+      "tapp": "draftTAPPs/XRD_TAPP_draft_v2.csv",
+      "modules": [
+        {
+          "name": "Core",
+          "version": "6"
+        },
+        {
+          "name": "SamplingUnitSelection",
+          "version": "3"
+        },
+        {
+          "name": "CalibrationFactor",
+          "version": "2"
+        }
+      ],
+      "note": "DRAFT - not a Phase 0 reviewed TAPP. Seeded from the ADA XRD detail schema; source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library. Same module set as Lab-XCT and the VNMIR draft. Zero mode-flag columns: it delivers a single technique componentType (XRDTabular), so there is no mode axis to flag."
     }
   ],
   "retired": [
