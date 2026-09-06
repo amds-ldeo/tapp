@@ -613,6 +613,24 @@
         }
       ],
       "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record."
+    },
+    {
+      "tapp": "draftTAPPs/VNMIR_TAPP_draft_v2.csv",
+      "modules": [
+        {
+          "name": "Core",
+          "version": "6"
+        },
+        {
+          "name": "SamplingUnitSelection",
+          "version": "3"
+        },
+        {
+          "name": "CalibrationFactor",
+          "version": "2"
+        }
+      ],
+      "note": "DRAFT - not a Phase 0 reviewed TAPP. Seeded from the ADA VNMIR detail schema; source lives in the geochemBuildingBlocks repo (draftTAPPs/), not this library. Aggregation deliberately not composed: VNMIR reports per-measurement spectra, not values aggregated from multiple analyses - same module set as Lab-XCT."
     }
   ],
   "retired": [
