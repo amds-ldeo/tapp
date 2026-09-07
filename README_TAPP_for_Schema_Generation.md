@@ -171,7 +171,7 @@ Column I is never blank on a content row.
 |---|---|---|
 | `(none)` | Scalar — one value per procedure, or **per session** at analysis level. 76% of fields. | Ordinary property on the parent object |
 | `sample` | One value per sample covered by the session | Property of an object in the `samples` array |
-| `analyte` | One value per chemical species determined — **the element or species, never the isotope** | Property of an object in the `analytes` array |
+| `target species` | One value per chemical species determined — **the element or species, never the isotope** | Property of an object in the `target species` array |
 | `channel` | One value per instrument selection position (mass, cup, X-ray line, energy-loss edge) | Property of an object in the `channels` array |
 | `reported property` | One value per reported quantity or nominal property, at any point in the chain — ratios *and* dates alike, plus their uncertainties | Property of an object in the `reportedProperties` array |
 | `sampling unit` | One value per subdivision of the sample carrying its own row — grain, spot, aliquot, phase | Property of an object in the `samplingUnits` array |
@@ -181,11 +181,11 @@ Column I is never blank on a content row.
 | `A x B` | Cross-product — one value per combination. **Ordered**: read as "for each A, one value per B" | 2-D: array of objects nested one level |
 | `A > B` | Containment — B exists only within A | Nested array. **In use since 2026-08-12**: `sample > sampling unit`, 16 rows |
 | `A > B x C` | Containment then cross-product — "within each A, for each B, one value per C" | One row: `sample > sampling unit x reported property` |
-| `defines: A per B` | **The field enumerates domain A and carries a parent key into B.** This is the channel↔analyte binding | Child array for A, with a **nullable** foreign key to B on each member |
+| `defines: A per B` | **The field enumerates domain A and carries a parent key into B.** This is the channel↔target species binding | Child array for A, with a **nullable** foreign key to B on each member |
 | `pair: A` | Keyed by an unordered pair of A | Property on a pair object, e.g. `{"between": ["206Pb/238U date", "207Pb/235U date"], "value": …}` |
 
 **Seven** keys are in use library-wide: `sample`, `sampling unit`, `reported property`, `channel`,
-`analyte`, `standard`, `preparation step`. (`sample` was added 2026-08-12 with Rule 13.) Four more
+`target species`, `standard`, `preparation step`. (`sample` was added 2026-08-12 with Rule 13.) Four more
 (`conversion`, `acquisition pass`, `background position`, `model component`) are documented but
 retired from use — you may ignore them.
 
@@ -197,12 +197,12 @@ renders the cross-product with a multiplication sign, but the CSV cells contain
 ```
 (none)
 sample                             sampling unit
-analyte                            channel
+target species                            channel
 reported property                  preparation step
 defines: sample                    defines: sampling unit
-defines: analyte                   defines: reported property
+defines: target species                   defines: reported property
 defines: standard                  defines: preparation step
-defines: channel per analyte       defines: standard per analyte
+defines: channel per target species       defines: standard per target species
 pair: reported property
 sample > sampling unit
 sample > sampling unit x reported property
@@ -222,18 +222,18 @@ the file was written.
 - A field name normally carries the same `Keyed By` in every TAPP. Five are technique-dependent by
   design: `Detection Limit`, `Primary Calibration Standard Name`, `Dwell Time per Pixel`,
   `Beam Current`, `Monitored Masses`. Do not assume one global mapping of field name → key.
-- **Where a TAPP declares both an analyte domain and a channel domain, the field that defines the
-  channel carries the binding** as `defines: channel per analyte`. All 13 such TAPPs do, since
+- **Where a TAPP declares both an target species domain and a channel domain, the field that defines the
+  channel carries the binding** as `defines: channel per target species`. All 13 such TAPPs do, since
   2026-08-12. The defining field differs by technique: `Monitored Masses` (single-collector ICP-MS),
   `Collector Configuration` (multicollector), `WDS Spectrometer Channel` (electron beam),
   `EELS Edges` (TEM).
 - **That parent key is optional per row — model it nullable, never `NOT NULL`.** `per B` means "where
   a B exists", not "for every row". Interference monitors, internal standards and carriers are
-  channels with no analyte: Desem et al. 2022 monitors `202Hg, 203Tl, 204Pb, 205Tl, 206Pb, 207Pb,
-  208Pb` for a procedure whose analyte is **Pb alone**. Keep parentless rows — they are part of the run
+  channels with no target species: Desem et al. 2022 monitors `202Hg, 203Tl, 204Pb, 205Tl, 206Pb, 207Pb,
+  208Pb` for a procedure whose target species is **Pb alone**. Keep parentless rows — they are part of the run
   table and are needed to assess interference corrections.
-- **Never infer domain membership from a child table.** The analyte list comes from the
-  `defines: analyte` field only. Parsing `202Hg` into "Hg" and adding Hg to the analytes records a
+- **Never infer domain membership from a child table.** The target species list comes from the
+  `defines: target species` field only. Parsing `202Hg` into "Hg" and adding Hg to the target species records a
   determinand the procedure never determined.
 
 ### Worked example
@@ -246,8 +246,8 @@ From the LA-SF-ICP-MS U-Pb TAPP (resolve the current version via `composed_tapps
 | `Session Identifier` | `(none)` |
 | `Sample Name` | `defines: sample` |
 | `Sample Persistent Identifier` | `sample` |
-| `Analyte` | `defines: analyte` |
-| `Monitored Masses` | `defines: channel per analyte` |
+| `Target Species` | `defines: target species` |
+| `Monitored Masses` | `defines: channel per target species` |
 | `Dwell Time per Mass` | `channel` |
 | `Reported Variables and Units` | `defines: reported property` |
 | `Analytical Accuracy and Assessment Method` | `standard x reported property` |
@@ -264,11 +264,11 @@ From the LA-SF-ICP-MS U-Pb TAPP (resolve the current version via `composed_tapps
     { "name": "Z-115", "persistentIdentifier": "IGSN:AU1234568" }
   ],
 
-  "analytes":  [ { "name": "U" }, { "name": "Pb" } ],    // domain from `Analyte`
-  "channels":  [                                         // `defines: channel per analyte`
-    { "id": "206Pb", "analyte": "Pb", "dwellTimePerMass": "10 ms" },
-    { "id": "238U",  "analyte": "U",  "dwellTimePerMass": "6 ms" },
-    { "id": "202Hg", "analyte": null, "dwellTimePerMass": "6 ms" }  // monitor: no parent analyte
+  "target species":  [ { "name": "U" }, { "name": "Pb" } ],    // domain from `Target Species`
+  "channels":  [                                         // `defines: channel per target species`
+    { "id": "206Pb", "target species": "Pb", "dwellTimePerMass": "10 ms" },
+    { "id": "238U",  "target species": "U",  "dwellTimePerMass": "6 ms" },
+    { "id": "202Hg", "target species": null, "dwellTimePerMass": "6 ms" }  // monitor: no parent target species
   ],
   "reportedProperties": [                                // domain from `Reported Variables and Units`
     { "id": "206Pb/238U date", "unit": "Ma" },
@@ -302,8 +302,8 @@ From the LA-SF-ICP-MS U-Pb TAPP (resolve the current version via `composed_tapps
 }
 ```
 
-**The schema can express the relationship; it cannot enumerate the members.** `Analyte` defines the
-analyte domain, but *which* analytes exist is content supplied when a procedure is registered. Generate
+**The schema can express the relationship; it cannot enumerate the members.** `Target Species` defines the
+target species domain, but *which* target species exist is content supplied when a procedure is registered. Generate
 the array structure and, if you want referential integrity, a validation rule that keyed entries must
 reference an id present in the defining field's value.
 
@@ -493,6 +493,20 @@ four carry straight over (`target_selection` → `SamplingUnitSelection`, `calib
 The field-level facts are unchanged: `Procedural Blank Level` is still absent from TEM and Lab-XCT (no
 analytical blank), and `Sampling Unit Selection Criteria` is still absent from the three Solution TAPPs (bulk
 techniques). What changed is that this is now expressed by which modules they compose.
+
+> **Renamed 2026-09-01 (second rename, same day) — `Analyte` is now `Target Species`.** The module
+> `Analyte` is now `SamplingUnitSelection`'s sibling `TargetSpecies` (v3); the field `Analyte` is
+> `Target Species`; and the Rule 7 key `analyte` is `target species`. Field name and key were renamed
+> **together** on purpose — splitting them is what produced the `Reported Variables and Units` /
+> `reported property` mismatch that still exists elsewhere. Four dependent field names moved with it:
+> `Per-Analyte Calibration Strategy` → `Calibration Strategy per Target Species`,
+> `Analyte Estimation Method` → `Target Species Estimation Method`,
+> `Technique per Analyte` → `Technique per Target Species`,
+> `EPMA Technique per Analyte` → `EPMA Technique per Target Species`.
+> **Nothing about the domain changed** — same definition, same 13 consumers, and isotopes are still
+> never target species. `conventions.md` keeps `analyte` as the cited IUPAC/ISO term so the VIM3
+> lineage stays traceable: VIM3 §2.3 names "analyte" only to warn that using it *as* the measurand is
+> erroneous, which is precisely the split TAPP encodes as `target species` vs `reported property`.
 
 > **Renamed 2026-09-01 — if you hold an earlier copy of this README.** The module `TargetSelection`
 > is now `SamplingUnitSelection` (v3) and its field `Target Selection Criteria` is now

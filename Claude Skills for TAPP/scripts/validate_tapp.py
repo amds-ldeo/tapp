@@ -132,7 +132,9 @@ REQUIRED_TIERS = {
 
 # Level-encoding words banned from field names (conventions.md "Level-neutral naming")
 LEVEL_WORDS = ["Default", "Achieved", "Typical", "Actual"]
-TARGET_EXEMPT = {"Target Material", "Target Feature(s)"}
+TARGET_EXEMPT = {"Target Material", "Target Feature(s)", "Target Species",
+                 "Calibration Strategy per Target Species", "Target Species Estimation Method",
+                 "Technique per Target Species", "EPMA Technique per Target Species"}
 # `Target Selection Criteria` left this set on 2026-09-01 when it became `Sampling Unit Selection
 # Criteria`. It was the only member using "Target" in the instance-level sense — the portion of a
 # sample actually picked out — rather than the type-level "what the procedure is designed for" that
@@ -179,7 +181,7 @@ DESC_LEAK_RE = re.compile(
 # cover many samples (conventions.md 7.2; Decision Record A1). Defined ahead of its retrofit —
 # no field declares it until steps 8-9, which is not a 7.4c violation: 7.4c constrains definers
 # without consumers, not vocabulary without users.
-KEY_ANCHORS = {"sample", "sampling unit", "reported property", "channel", "analyte"}
+KEY_ANCHORS = {"sample", "sampling unit", "reported property", "channel", "target species"}
 KEY_SECONDARY = {"standard", "conversion", "model component", "acquisition pass",
                  "preparation step", "background position"}
 KEY_VOCAB = KEY_ANCHORS | KEY_SECONDARY
@@ -193,8 +195,8 @@ KEYED_BY_TECHNIQUE_DEPENDENT = {
     # `Detection Limit` left this register 2026-08-12: the literature audit showed 7 of 7 papers
     # reporting one LOD per element aggregated over the session, never per spot, so the LA variant
     # became `reported property` like everywhere else and the field is now uniform across all 12.
-    "Primary Calibration Standard Name": "analyte in EPMA/SEM and LA-SF; (none) in LA-Q, LA-MC and the Solution TAPPs, which use a single primary or one joint calibration set",
-    "Secondary Reference Materials":     "defines: standard per analyte in EPMA/SEM, which report assessed elements per RM; defines: standard in the 9 isotope TAPPs, which report the RM list only",
+    "Primary Calibration Standard Name": "target species in EPMA/SEM and LA-SF; (none) in LA-Q, LA-MC and the Solution TAPPs, which use a single primary or one joint calibration set",
+    "Secondary Reference Materials":     "defines: standard per target species in EPMA/SEM, which report assessed elements per RM; defines: standard in the 9 isotope TAPPs, which report the RM list only",
     # Rewritten 2026-08-12 (Decision Record C1): was "analyte only where compositional mapping
     # exists". The WDS dwell time is per spectrometer per pixel — both descriptions said so — so it
     # follows the other WDS setup fields onto `channel`.
@@ -205,7 +207,7 @@ KEYED_BY_TECHNIQUE_DEPENDENT = {
                                          "this field on 2026-08-27, when `STEM Dwell Time per Pixel` "
                                          "was merged into it as a Rule 1 name variant)",
     "Beam Current":                      "per phase where composition is measured, scalar in imaging-only TAPPs",
-    "Monitored Masses":                  "defines: channel per analyte where there is no collector array; analyte where the cup array defines the channel",
+    "Monitored Masses":                  "defines: channel per target species where there is no collector array; target species where the cup array defines the channel",
 }
 KEYED_BY_EXCEPTIONS = set(KEYED_BY_TECHNIQUE_DEPENDENT)   # back-compat alias
 
@@ -312,6 +314,14 @@ KEY_SPLIT_RE = re.compile(r"\s*>\s*|\s+x\s+")
 # ends with 'Sequence' while naming something unrelated. At two words the trial fired on exactly
 # three pairs, all three genuine and all three legitimate — registered below.
 KEY_NAME_VARIANT_EXEMPT = {
+    ("Target Species", "Calibration Strategy per Target Species"):
+        "registered 2026-09-01 when `Analyte` became `Target Species`. The suffix test needs TWO words, so these pairs were invisible while the base field was the one-word `Analyte` — the rename activated a dormant check rather than creating a defect. The base field is the DEFINER (`defines: target species`); this one is a "
+        "CONSUMER (`target species`), one calibration strategy per species. Definer and consumer of "
+        "the same domain must differ in Column I — that is Rule 7.4a working, not a divergence.",
+    ("Target Species", "Technique per Target Species"):
+        "registered 2026-09-01 when `Analyte` became `Target Species`. The suffix test needs TWO words, so these pairs were invisible while the base field was the one-word `Analyte` — the rename activated a dormant check rather than creating a defect. As above: definer versus consumer of the same domain.",
+    ("Target Species", "EPMA Technique per Target Species"):
+        "registered 2026-09-01 when `Analyte` became `Target Species`. The suffix test needs TWO words, so these pairs were invisible while the base field was the one-word `Analyte` — the rename activated a dormant check rather than creating a defect. As above: definer versus consumer of the same domain.",
     ("Detection Limit", "EELS Detection Limit"):
         "different fields, and the split that made them so landed 2026-08-26. `EELS Sensitivity "
         "and Detection Limit` bundled a specification (ZLP energy resolution) with a result "
@@ -327,7 +337,7 @@ KEY_NAME_VARIANT_EXEMPT = {
 
 COLB_DEFINER_STEM_EXEMPT = {
     'Secondary Reference Materials':
-        "key is itself technique-dependent — `defines: standard per analyte` in EPMA/SEM, which "
+        "key is itself technique-dependent — `defines: standard per target species` in EPMA/SEM, which "
         "report assessed elements per RM, vs `defines: standard` in the 9 isotope TAPPs, which "
         "report plain RM lists (see KEYED_BY_TECHNIQUE_DEPENDENT and precedents.md). The "
         "descriptions diverge for the same recorded reason. On the harmonisation backlog: a "
@@ -459,6 +469,12 @@ COLE_DIVERGENCE_TRIAGED = {
 # two-column problem was never looked at, and TEM has sat on `Text (free)` while `Detection Limit`
 # went three ways. Fixing one column of a field is not fixing the field.
 COLE_NAME_VARIANT_TRIAGED = {
+    ("Target Species", "Technique per Target Species"):
+        "registered 2026-09-01 when `Analyte` became `Target Species`. The suffix test needs TWO words, so these pairs were invisible while the base field was the one-word `Analyte` — the rename activated a dormant check rather than creating a defect. Different fields. `Target Species` enumerates an open chemical domain, correctly "
+        "`Text (free)`; `Technique per Target Species` records WHICH acquisition technique serves each "
+        "species (WDS/EDS), a closed instrument vocabulary. The types should not be made to agree.",
+    ("Target Species", "EPMA Technique per Target Species"):
+        "registered 2026-09-01 when `Analyte` became `Target Species`. The suffix test needs TWO words, so these pairs were invisible while the base field was the one-word `Analyte` — the rename activated a dormant check rather than creating a defect. As above: an open chemical domain versus a closed technique vocabulary.",
     # 2026-08-31 — raised when ICP-MS `Detector Configuration` was retyped to
     # `Controlled list / Text`. The three electron-beam siblings share the English suffix and
     # nothing else: each names a specific detector's MAKE, MODEL AND GEOMETRY, an unbounded
@@ -992,9 +1008,10 @@ def check_naming(t: Tapp, out):
                 f"Field name embeds a unit '{m.group(0)}'. Units belong in Column E "
                 f"(Data Type), e.g. 'Numeric (W)'.")
 
-        if "element-specific" in low:
-            add("WARN", n, item, "name-element-specific",
-                "Use 'Analyte-Specific' rather than 'Element-Specific' (technique-agnostic).")
+        if "element-specific" in low or "analyte-specific" in low:
+            add("WARN", n, item, "name-cardinality-in-name",
+                "Field name encodes cardinality ('Element-Specific' / 'Analyte-Specific'). Rule 7.6 "
+                "retired both labels: cardinality is declared in Column I (Keyed By), never in the name.")
 
     # Column B describes the field, not the source paper
     for n, row, _ in t.content_rows():
@@ -1006,12 +1023,15 @@ def check_naming(t: Tapp, out):
                 f"Column B. It also inflates the description, which can bias a reconciliation that "
                 f"treats length as a quality signal.")
 
-    # Column G should carry the Analyte-Specific label, not columns B or F
+    # Cardinality belongs in Column I, not in prose. Both labels were retired by Rule 7.6; the
+    # message used to recommend 'Analyte-Specific', which sent curators to the retired one.
     for n, row, _ in t.content_rows():
         for col, letter in ((COL_DESC, "B"), (COL_EXAMPLE, "F")):
-            if "element-specific" in t.cell(row, col).lower():
-                add("WARN", n, t.cell(row, COL_ITEM), "name-element-specific",
-                    f"Column {letter} uses 'Element-Specific'; the correct term is 'Analyte-Specific'.")
+            low = t.cell(row, col).lower()
+            if "element-specific" in low or "analyte-specific" in low:
+                add("WARN", n, t.cell(row, COL_ITEM), "name-cardinality-in-name",
+                    f"Column {letter} encodes cardinality with a label Rule 7.6 retired. "
+                    f"Declare it in Column I (Keyed By) instead.")
 
 
 def check_rules(t: Tapp, out):
@@ -1472,6 +1492,14 @@ HISTORICAL_DOCS = {
         "dated change history — naming retired fields is how a log works",
 }
 RETIRED_FIELDS = {
+    "Analyte":                        "renamed 2026-09-01 -> Target Species, with the Rule 7 key "
+                                       "`analyte` -> `target species` in the same pass; 'analyte' reads "
+                                       "as the physical thing put into the instrument, not the chemical "
+                                       "species determined. conventions.md keeps 'analyte' as the cited "
+                                       "IUPAC/ISO term",
+    "Per-Analyte Calibration Strategy": "renamed 2026-09-01 -> Calibration Strategy per Target Species",
+    "Analyte Estimation Method":       "renamed 2026-09-01 -> Target Species Estimation Method",
+    "Technique per Analyte":           "renamed 2026-09-01 -> Technique per Target Species",
     "Target Selection Criteria":       "renamed 2026-09-01 -> Sampling Unit Selection Criteria — "
                                        "'Target' was carrying two senses in the library and this "
                                        "was the odd one out; the new head noun names the `sampling unit` domain the field selects from",
@@ -1535,12 +1563,26 @@ RETIRED_FIELD_MENTION_OK = {
         "the precedent recording a retirement has to name what it retired",
     "Claude Skills for TAPP/references/conventions.md":
         "rule text closing a deferred question has to name the field the question was about",
+    "Claude Skills for TAPP/analysis/README.md": {
+        "Analyte":
+            "an index of DATED analysis artifacts; each row describes what that dated file "
+            "established, in the vocabulary of the time — the same treatment precedents.md gets",
+    },
     "Project Files/Registers & Planning/TAPP_Module_Register.csv": {
+        "Analyte":
+            "the retired Analyte module row has to name the field it was renamed from — that row IS "
+            "the retirement record",
         "Target Selection Criteria":
             "the retired TargetSelection row has to name the field it was renamed from — that row "
             "IS the retirement record, the same treatment ReportingCore's row carries",
     },
     "README_TAPP_for_Schema_Generation.md": {
+        "Analyte":
+            "the 2026-09-01 migration note must name the old identifier so a schema developer holding "
+            "an earlier copy can map an existing $def onto Target Species",
+        "Per-Analyte Calibration Strategy": "named in the same migration note",
+        "Analyte Estimation Method": "named in the same migration note",
+        "Technique per Analyte": "named in the same migration note",
         "Target Selection Criteria":
             "the 2026-09-01 migration note has to name the old identifier so a schema developer "
             "holding an earlier copy can map an existing $def onto the new name",

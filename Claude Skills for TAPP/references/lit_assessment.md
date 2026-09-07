@@ -13,9 +13,9 @@ These rules override everything else. They exist because past extractions were c
 
 Examples of prohibited inferences:
 - Paper says "JEOL JXA-8200" → do NOT infer "LaB6 electron source" (not stated)
-- Paper says "Cameca SX100" → do NOT infer "WDS (all analytes)" unless WDS is written
+- Paper says "Cameca SX100" → do NOT infer "WDS (all target species)" unless WDS is written
 - Paper says "Probe for EPMA" → do NOT infer matrix correction algorithm (unless stated separately)
-- Standard assignment for element X → analyte X is confirmed; crystal, line, and spectrometer are NOT unless stated
+- Standard assignment for element X → target species X is confirmed; crystal, line, and spectrometer are NOT unless stated
 
 ### Source Rule
 **Every value you record must be traceable to a specific sentence, table cell, or figure caption in the source document read in the current session.** If you have not read the source document directly, read it before filling any column. Session summaries, prior session notes, and common knowledge about instrument types are not valid sources.
@@ -57,7 +57,7 @@ with pdfplumber.open('path/to/paper.pdf') as pdf:
                'carbon coat', 'polished', 'thin section', 'peak count', 'x-ray map']
    ```
 3. **Read the full methods section page by page** — do not rely on grep matches alone. Read each methods page in full to capture context.
-4. **Check data tables explicitly** — detection limits, interference corrections, and analyte lists are often in tables or supplementary material, not the main text. Scan table captions for EPMA-relevant content.
+4. **Check data tables explicitly** — detection limits, interference corrections, and target species lists are often in tables or supplementary material, not the main text. Scan table captions for EPMA-relevant content.
 5. **Re-read source sentences before writing** — do not rely on notes from step 2/3 without re-reading.
 
 ---
@@ -101,11 +101,11 @@ Give each column a header identifying: Author+Year | Instrument Model | Lab.
 ### Instrument fields
 - State the instrument exactly as written: `"JEOL JXA-8200 electron microprobe"` → Instrument Model = `JXA-8200 (stated as "JEOL JXA-8200 electron microprobe")`
 - If the paper uses a non-standard model name (e.g., "JEOL 8200" without "JXA" prefix), note that in the value.
-- WDS vs. EDS: Record `N` for EPMA Technique per Analyte unless the paper explicitly uses the term "WDS," "wavelength-dispersive," "EDS," or "energy-dispersive" in the context of which analytes were measured.
+- WDS vs. EDS: Record `N` for EPMA Technique per Target Species unless the paper explicitly uses the term "WDS," "wavelength-dispersive," "EDS," or "energy-dispersive" in the context of which target species were measured.
 
 ### Standards
 - Record the full standard list exactly as stated if given. If the paper says only "natural and synthetic minerals" without naming them, record that phrasing + `(specific names NR)`.
-- For analyte-specific standards (e.g., F-phlogopite for F), note the association: `synthetic F-phlogopite (for F, LDE1 crystal)`.
+- For target-species-specific standards (e.g., F-phlogopite for F), note the association: `synthetic F-phlogopite (for F, LDE1 crystal)`.
 
 ### Background methods
 - MAN (mean atomic number) background: off-peak counting time and positions = `N/A` (no off-peak counting is performed).
@@ -117,13 +117,13 @@ Give each column a header identifying: Author+Year | Instrument Model | Lab.
 - `Probe for EPMA` alone does NOT imply a specific matrix correction — the software supports multiple. Record `N` unless the correction is named.
 - CITZAF is specific to Armstrong 1995 and is NOT the same as PAP. The Caltech GPS Analytical Facility (Chi Ma) uses CITZAF, not PAP.
 
-### Analytes
-- If an explicit analyte list appears in methods: record it.
-- If analytes can be reconstructed from standards assignments (e.g., "Kakanui kaersutite for Si, Al, Ti..."): record the reconstructed list, noting the source.
+### Target Species
+- If an explicit target species list appears in methods: record it.
+- If target species can be reconstructed from standards assignments (e.g., "Kakanui kaersutite for Si, Al, Ti..."): record the reconstructed list, noting the source.
 - If only results tables or individual element mentions exist without a formal methods-section list: record `N`, with a note in Additional Notes about what elements appeared in results.
 
 ### X-ray lines
-- X-ray lines are often NOT stated even when analytes are. Do not infer Kα for light elements, Lα for heavy elements, etc. — record `N` unless stated.
+- X-ray lines are often NOT stated even when target species are. Do not infer Kα for light elements, Lα for heavy elements, etc. — record `N` unless stated.
 - Diffracting crystal is a separate field: record it separately from the X-ray line.
 
 ### Detection limits

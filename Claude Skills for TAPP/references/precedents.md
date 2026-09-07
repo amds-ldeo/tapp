@@ -2646,3 +2646,58 @@ has no analyte anchor. **Column B was deliberately not touched:** cardinality li
 `bump_for_module_20260827.py` never advanced `composed_tapps.json`'s `tapp` paths (the six-entry drift)
 **and** never advanced the module's recorded version, which surfaces as `module-version-drift` +
 `register-stale-module-version`. Both are fixed in **`bump_for_module_20260901.py`** — copy that one.
+
+---
+
+## `Analyte` → `Target Species`, field and key together (2026-09-01)
+
+**Decision: the field `Analyte` becomes `Target Species` and the Rule 7 key `analyte` becomes
+`target species`, in one pass, across all 16 TAPPs.** Requested by the schema developer.
+`Module_Analyte` → `Module_TargetSpecies` v3.
+
+**Note for reading older entries.** Every dated entry above this one — and conventions.md §7.10–7.12 —
+keeps the word *analyte*, because those are records of what was decided when. The same treatment
+`Monitored Isotopes` got in 7.3.1. **Nothing about the domain changed:** the definition, the 13
+consumers, the boundary tests and the rule that *an isotope is never a target species* all carry over
+verbatim. Read "analyte" in earlier entries as "target species".
+
+**Why it went through.** The objection was that "analyte" reads to a researcher as the physical thing
+put into the instrument, whereas the field holds the chemical **species** the procedure determines —
+which is what its description has always said. The counter-argument I ran first was a collision:
+`Target Material` and `Target Feature(s)` already use "Target". That argument was **wrong**, and the
+correction is worth recording. In `Target Material` the head noun is *Material* and "Target" is the
+qualifier meaning *what the procedure is designed for*. `Target Species` parses identically — same
+type-level sense, no new sense of "Target" introduced. The instance-level sense was removed the same
+day when `Target Selection Criteria` became `Sampling Unit Selection Criteria`.
+
+**Field and key were renamed TOGETHER, deliberately.** Renaming only the user-facing field would have
+recreated the `Reported Variables and Units` / `reported property` mismatch that still exists
+elsewhere in the library and that this session flagged as a defect.
+
+**IUPAC/VIM3 traceability is preserved, not dropped.** conventions.md's vocabulary table keeps
+*analyte* as the cited IUPAC/ISO term and now states why the split matters: **VIM3 §2.3 names
+"analyte" only to warn that using it *as* the measurand is erroneous, "because these terms do not
+refer to quantities."** That warning is exactly the distinction TAPP encodes as `target species` vs
+`reported property`, so the rename moves the label without loosening the metrology.
+
+### Two non-obvious consequences, both real
+
+**A one-word → two-word field name activates a dormant check.** `keyed-by-name-variant` and
+`cole-name-variant` (7.8.7 / 7.8.10) test for a **two-word** suffix. While the base field was the
+one-word `Analyte`, `Technique per Analyte` and `Per-Analyte Calibration Strategy` were invisible to
+them. Renaming to the two-word `Target Species` made three pairs fire at once. They are correct
+findings and now carry rationales — definer versus consumer of the same domain (`defines: target
+species` vs `target species`), and an open chemical domain versus a closed technique vocabulary. **Any
+future one-to-two-word rename should expect the same.**
+
+**The audit's own tag vocabulary is coupled to the key names.** `audit_keys_vs_literature.py` emits
+internal shape tags — `"analyte"`, `"analyte:valued"` — and compares them against declared Column I
+values. Renaming the key without renaming the tags would have silently broken every
+analyte-direction comparison while still reporting `0 NEW`. Both were renamed; the audit still reports
+`0 NEW / 41 adjudicated`. **A key rename is a code change, not only a data change.**
+
+### One stale check fixed in passing
+
+`name-element-specific` told curators *"Use 'Analyte-Specific' rather than 'Element-Specific'"* — but
+Rule 7.6 retired **both** labels on 2026-08-11 in favour of Column I. The check was directing people to
+a retired term. It is now `name-cardinality-in-name` and says cardinality belongs in Column I.

@@ -79,7 +79,7 @@ Worked example (LA-MC-ICP-MS, 2026-08-08):
 **Outputs:**
 - Technique scope document (1–2 paragraphs): what the technique IS, what it is NOT, and how it relates to adjacent techniques that get separate TAPPs
 - Sub-mode decision: either (a) list of modes with mode flag column assignments and labels, or (b) decision to create separate TAPPs per mode
-- Key vocabulary decision (Rule 7): which `Keyed By` anchors apply to this technique, which are **absent**, and any technique-specific keys with their definitions. Record absences explicitly — `analyte` does not apply to Lab-XCT, Raman or fission track, and `channel` does not apply to fission track. An absent anchor is a finding, not an omission
+- Key vocabulary decision (Rule 7): which `Keyed By` anchors apply to this technique, which are **absent**, and any technique-specific keys with their definitions. Record absences explicitly — `target species` does not apply to Lab-XCT, Raman or fission track, and `channel` does not apply to fission track. An absent anchor is a finding, not an omission
 - Phase 1 inputs: seed papers and/or existing procedure templates (see below)
 - Reference TAPP: which existing TAPP to use as the structural template (default: LA-ICP-MS)
 
@@ -237,7 +237,7 @@ Common split candidates across technique families:
 - Acceptance criterion / threshold (procedure) vs. measured value (analysis) — split when these are genuinely different types of information (e.g., Oxide Production Method and Threshold vs. Oxide Production)
 
 Fields that should NOT be split — use D=Editable instead:
-- Procedure scope vs. analysis execution for the same quantity (e.g., Analyte: procedure registers the intended suite; analyst records the actual subset) — use C=Basic, D=Editable
+- Procedure scope vs. analysis execution for the same quantity (e.g., Target Species: procedure registers the intended suite; analyst records the actual subset) — use C=Basic, D=Editable
 - Procedure target vs. session-actual value for tunable parameters (e.g., flow rates, fluence, spot size) — use D=Editable, not a separate analysis-level field
 
 #### Question 4 — Tier Assignment: Assign C and D values

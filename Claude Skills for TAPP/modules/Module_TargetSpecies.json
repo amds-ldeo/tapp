@@ -1,8 +1,8 @@
 {
-    "module": "Analyte",
-    "title": "Analyte",
+    "module": "TargetSpecies",
+    "title": "Target Species",
     "layer": 2,
-    "version": "2",
+    "version": "3",
     "source_of_truth": "modules/Module_Analyte.csv",
     "owned_columns": [
         "A",
@@ -22,17 +22,17 @@
         "H"
     ],
     "mode_flag_default": "Y",
-    "source_comment": "Source: Analyte module",
+    "source_comment": "Source: Target Species module",
     "conditional": false,
     "applies_when": "The procedure determines chemical composition. Omit for techniques that resolve no chemical species — imaging, tomography, sample preparation.",
     "blocks": [
         {
-            "name": "analyte",
+            "name": "target_species",
             "target_group": "4. Measurement Information",
             "placement": "insert_before",
             "anchor_field": "Reported Variables and Units",
             "fields": [
-                "Analyte"
+                "Target Species"
             ]
         }
     ],
@@ -42,7 +42,8 @@
         "2026-08-14 v1. Field text taken unchanged from the library, which was verified uniform across all 13 holders first; composition is therefore a no-op and no consumer needs a version bump.",
         "Compose AFTER Core: the block anchors on Reported Variables and Units, owned by Core.",
         "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content.",
-        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves."
+        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves.",
+        "2026-09-01 v3. Module_Analyte -> Module_TargetSpecies and the field `Analyte` -> `Target Species`, with the Rule 7 key `analyte` -> `target species` in the same pass. Requested by the schema developer: 'analyte' reads to researchers as the physical thing put into the instrument, whereas the field holds the chemical SPECIES the procedure determines -- which is what its description has always said. `Target Species` joins the type-level sense of `Target Material` and `Target Feature(s)` (what the procedure is designed for), so it adds no new sense of 'Target'; the instance-level sense was removed the same day when `Target Selection Criteria` became `Sampling Unit Selection Criteria`. Field name and key were renamed TOGETHER on purpose: splitting them would recreate the `Reported Variables and Units` / `reported property` drift. IUPAC/VIM3 traceability is preserved in conventions.md, which keeps 'analyte' as the cited term."
     ],
     "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }

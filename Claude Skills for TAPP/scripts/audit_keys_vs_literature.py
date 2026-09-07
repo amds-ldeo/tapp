@@ -3,7 +3,7 @@
 
 Generalises the Detection Limit finding. An extracted cell is evidence about a field's *shape*: if
 15 EPMA procedures all state one accelerating voltage, the field is scalar; if they all state a
-value per element, it is analyte-keyed. Where the observed shape and the declared key disagree, one
+value per element, it is target-species-keyed. Where the observed shape and the declared key disagree, one
 of them is wrong.
 
 Method
@@ -76,7 +76,7 @@ def element_hits(text):
     The distinction matters for UNDER-DECLARED. A bare list of elements is a field *holding a
     list*, which 7.4c says is `(none)`, not a keyed field — `Target Material` listing mineral
     types is not keyed by mineral. Only element symbols carrying their own value are evidence
-    that the field repeats over analyte.
+    that the field repeats over target species.
     """
     valued, listed = set(), set()
     for m in re.finditer(r"\b([A-Z][a-z]?)\s*[:=]?\s*(?:<|~|≈)?\s*\d", text):
@@ -99,7 +99,7 @@ EXCLUDE_FIELDS = {
     "Coupled Technique(s)", "Coupling Description", "Coupled Procedure DOI",
     "Coupled Dataset or Publication Reference", "Acquisition Software",
     "Data Reduction Software", "Sample Preparation Method", "Technique",
-    "Reported Variables and Units", "Sampling Unit", "Analyte", "Interfering Elements",
+    "Reported Variables and Units", "Sampling Unit", "Target Species", "Interfering Elements",
 }
 
 
@@ -109,7 +109,7 @@ EXCLUDE_FIELDS = {
 # "Validating keys against the literature assessment".
 ADJUDICATED = {
     # ---- adjudicated 2026-09-01. Seven of eight NEW findings were detector artefacts; the
-    # ---- eighth was real. The generalisable result is the single-analyte unfalsifiability rule
+    # ---- eighth was real. The generalisable result is the single-target-species unfalsifiability rule
     # ---- recorded under Primary Calibration Standard Name below.
     ("Beam Diameter", "OVER-DECLARED"):
         "KEEP sample > sampling unit — the detector tallied sampling unit=2 of 13; READING THE RAW "
@@ -129,14 +129,14 @@ ADJUDICATED = {
         "troilite/oxyhydroxide indistinguishable'). Same 2-of-N shape that kept Beam Current. The "
         "Lab-XCT Sampling Unit domain, extracted 2026-09-01, carries '> Phase' in 4 of 14 procedures.",
     ("Primary Calibration Standard Name", "OVER-DECLARED"):
-        "KEEP analyte. THE RULE THIS ESTABLISHES: a SINGLE-ANALYTE procedure cannot falsify a "
-        "per-analyte key — the field has exactly one value because there is exactly one analyte, and "
-        "the detector scores that as scalar. Only MULTI-analyte procedures test the axis. In Solution "
-        "MC, 6 of the 8 'scalar' cells are single-analyte (Mo, S, Fe, Zr, Rb, Os); both multi-analyte "
-        "procedures give an explicit per-analyte mapping — van Kooten et al. 2026 'Fe, Cr and Mg' -> "
+        "KEEP target species. THE RULE THIS ESTABLISHES: a SINGLE-ANALYTE procedure cannot falsify a "
+        "per-target-species key — the field has exactly one value because there is exactly one target species, and "
+        "the detector scores that as scalar. Only MULTI-target species procedures test the axis. In Solution "
+        "MC, 6 of the 8 'scalar' cells are single-target-species (Mo, S, Fe, Zr, Rb, Os); both multi-target-species "
+        "procedures give an explicit per-target-species mapping — van Kooten et al. 2026 'Fe, Cr and Mg' -> "
         "'IRMM-014, SRM979, DTS-2b', Barnes et al. 2025 'K, Cu and Zn' -> 'NIST-SRM 3141a, NIST-SRM "
         "976, JMC-Lyon'. In Solution Q, Lopez Garcia et al. 2026 assigns standards to element groups, "
-        "the same shape that keyed LA-SF on Navarro. Weight only the multi-analyte procedures.",
+        "the same shape that keyed LA-SF on Navarro. Weight only the multi-target-species procedures.",
     ("Spectral Interference Corrections Applied", "UNDER-DECLARED"):
         "KEEP (none) — a procedure-level Boolean whose own description says so and explicitly "
         "delegates the per-mass detail: 'Detail for each affected mass is carried by Interfering "
@@ -145,19 +145,19 @@ ADJUDICATED = {
         "Boolean, not per-channel values. Identical to the Isobaric Interference Corrections Applied "
         "disposition — the two sibling fields must be read the same way.",
     ("Procedural Blank Level", "UNDER-DECLARED"):
-        "APPLIED 2026-09-01 -> analyte (Module_Blank v4, all 12 consumers). The one real finding of "
+        "APPLIED 2026-09-01 -> target species (Module_Blank v4, all 12 consumers). The one real finding of "
         "the eight. Solution Q attests per-element blanks in 5 of 9 extractions (3 tabulated with "
         "values), Solution SF in 4 of 6 (3 valued). Solution MC's 9 scalar cells are all "
-        "single-analyte procedures — unfalsifiable, not contrary. See the rule under Primary "
+        "single-target-species procedures — unfalsifiable, not contrary. See the rule under Primary "
         "Calibration Standard Name.",
     # ---- adjudicated 2026-08-17, after the Solution MC Phase 3, the TQ round and the
     # ---- reconciliation sweep added 19 literature columns and 7 fields.
     ("Collector Configuration", "AXIS-MISMATCH"):
-        "KEEP defines: channel per analyte — the definer role is invisible to the detector, which "
+        "KEEP defines: channel per target species — the definer role is invisible to the detector, which "
         "sees a list of cup assignments and reports the domain it enumerates as if it were keyed by "
         "it. Same shape as Monitored Masses below.",
     ("Monitored Masses", "AXIS-MISMATCH"):
-        "KEEP defines: channel per analyte — as above. Renamed from Monitored Isotopes 2026-08-17; "
+        "KEEP defines: channel per target species — as above. Renamed from Monitored Isotopes 2026-08-17; "
         "the key and its registered LA-MC divergence are unchanged.",
     ("Constants and Reference Values Used", "UNDER-DECLARED"):
         "KEEP (none) — Rule 5 field holding a LIST of constants. The detector reads the isotope "
@@ -166,17 +166,17 @@ ADJUDICATED = {
     ("Calibration Factor and Determination Method", "AXIS-MISMATCH"):
         "KEEP reported property — module-owned (CalibrationFactor, 14 consumers) and settled in "
         "Rule 7.11: the factor converts the measured quantity into the REPORTED quantity, and a "
-        "module key must be valid in every consumer including Lab-XCT, which has no analyte anchor. "
+        "module key must be valid in every consumer including Lab-XCT, which has no target species anchor. "
         "The detector sees isotopes named in interference-correction prose.",
     ("ICP Tuning", "UNDER-DECLARED"):
         "KEEP (none) — tuning is a session-level procedure. The isotopes named (11B, 115In, 175Lu, "
         "CeO+/Ce+) are the species tuned ON, not values the field repeats over.",
     ("Interference Correction Method", "AXIS-MISMATCH"):
         "KEEP channel — corrections are applied per monitored mass. The detector reads element "
-        "names in the correction equations (Lu, Yb, Hf) and infers analyte. 3 ev, weakest in the set.",
-    ("Per-Analyte Calibration Strategy", "AXIS-MISMATCH"):
-        "KEEP analyte — the extraction lists one standard PER ANALYTE (IRMM-014 for Fe, SRM979 for "
-        "Cr, DTS-2b for Mg), so the detector sees standards. The field is per-analyte by definition; "
+        "names in the correction equations (Lu, Yb, Hf) and infers target species. 3 ev, weakest in the set.",
+    ("Calibration Strategy per Target Species", "AXIS-MISMATCH"):
+        "KEEP target species — the extraction lists one standard PER ANALYTE (IRMM-014 for Fe, SRM979 for "
+        "Cr, DTS-2b for Mg), so the detector sees standards. The field is per-target-species by definition; "
         "the standards are its values.",
     ("Integration Time per Cycle", "OVER-DECLARED"):
         "KEEP channel — the Rule 7.11 G3 case, decided deliberately: declare the finest key "
@@ -192,8 +192,8 @@ ADJUDICATED = {
         "at 220 C, 1 day at 150 C, 1 day at 80 C) and Schoenbaechler 2025. Scalar single-step "
         "procedures are that axis with one member.",
     ("delta or epsilon Value Reference Standard", "OVER-DECLARED"):
-        "KEEP analyte — attested per analyte in van Kooten 2026 (IRMM-014 for Fe, SRM979 for Cr, "
-        "DTS-2b for Mg). Single-analyte procedures are that axis with one member.",
+        "KEEP target species — attested per target species in van Kooten 2026 (IRMM-014 for Fe, SRM979 for Cr, "
+        "DTS-2b for Mg). Single-target species procedures are that axis with one member.",
     ("Sample Aliquot Mass or Volume", "OVER-DECLARED"):
         "KEEP sample — attested per sample in Lopez Garcia 2026, which lists eight individual "
         "particle masses (4.325, 1.868, 2.311 mg ...). Scalar elsewhere.",
@@ -203,8 +203,8 @@ ADJUDICATED = {
         "revisit with the electron-beam TAPPs, not with ICP-MS work.",
     ("Primary Calibration Standard Name", "AXIS-MISMATCH"):
         "CONSISTENT — a field that NAMES standards always looks standard-shaped to the detector. "
-        "Key set to analyte in LA-SF 2026-08-12 because Navarro et al. 2024 assigns standards to "
-        "analyte groups; 6 of 7 use one joint set, which is that axis with one member.",
+        "Key set to target species in LA-SF 2026-08-12 because Navarro et al. 2024 assigns standards to "
+        "target species groups; 6 of 7 use one joint set, which is that axis with one member.",
     ("Isobaric Interference Corrections Applied", "UNDER-DECLARED"):
         "KEEP (none) — Solution extractions are Boolean answers with the affected masses as "
         "parenthetical detail ('Y (204Hg on 204Pb corrected using 202Hg monitor)'). The value is "
@@ -220,12 +220,12 @@ ADJUDICATED = {
         "KEEP (none) — reference materials are mentioned because the correction uses them, not "
         "because the field repeats over them.",
     ("Spike / Outlier Filtering Approach", "UNDER-DECLARED"):
-        "KEEP (none) — element names are rejection criteria, not per-analyte values.",
+        "KEEP (none) — element names are rejection criteria, not per-target-species values.",
     ("Detection Limit", "AXIS-MISMATCH"):
-        "CONSISTENT in EPMA — per-element values are covered by the analyte/reported-property "
+        "CONSISTENT in EPMA — per-element values are covered by the target species/reported-property "
         "isomorphism precedent (2026-08-12).",
     ("Monitored Isotopes", "AXIS-MISMATCH"):
-        "CONSISTENT — the per-analyte grouping is implicit in isotope notation ('47Ti, 49Ti, "
+        "CONSISTENT — the per-target-species grouping is implicit in isotope notation ('47Ti, 49Ti, "
         "93Nb'); the detector cannot see it.",
     ("Within-Session Analytical Precision and Assessment Method", "OVER-DECLARED"):
         "KEEP standard x reported property — every Solution extraction references reference "
@@ -234,16 +234,16 @@ ADJUDICATED = {
     ("Analytical Accuracy and Assessment Method", "OVER-DECLARED"):
         "KEEP standard x reported property — same detector failure; accuracy is assessed against "
         "RMs in all 9 extractions.",
-    ("EPMA Technique per Analyte", "OVER-DECLARED"):
-        "KEEP analyte — the per-analyte assignment is the field's entire purpose; the surveyed "
+    ("EPMA Technique per Target Species", "OVER-DECLARED"):
+        "KEEP target species — the per-target-species assignment is the field's entire purpose; the surveyed "
         "procedures happen to use one technique throughout.",
-    ("Per-Analyte Calibration Strategy", "OVER-DECLARED"):
-        "KEEP analyte — as above.",
+    ("Calibration Strategy per Target Species", "OVER-DECLARED"):
+        "KEEP target species — as above.",
     ("Mass Resolution per Analyte", "AXIS-MISMATCH"):
-        "KEEP analyte — SF procedures assign one resolution mode per element; papers name the "
-        "masses because that is how they label the analytes. 4 extractions, 1 TAPP.",
+        "KEEP target species — SF procedures assign one resolution mode per element; papers name the "
+        "masses because that is how they label the target species. 4 extractions, 1 TAPP.",
     ("Peak Counting Time", "OVER-DECLARED"):
-        "KEEP analyte — 3 of 4 extractions are 'not stated'; insufficient evidence either way.",
+        "KEEP target species — 3 of 4 extractions are 'not stated'; insufficient evidence either way.",
     ("Interference Correction Method", "OVER-DECLARED"):
         "KEEP channel — the correction applies per interfered-upon mass; 3 extractions only.",
     ("EDS Live Time per Point or Pixel", "UNDER-DECLARED"):
@@ -276,10 +276,10 @@ def classify(text):
     if len(lines) >= 2 or len(set(CRYSTAL_RE.findall(t))) >= 2:
         tags.add("channel")
     if len(valued) >= 3:
-        tags.add("analyte")
-        tags.add("analyte:valued")
+        tags.add("target species")
+        tags.add("target species:valued")
     elif len(listed) >= 3:
-        tags.add("analyte")
+        tags.add("target species")
     if len(set(MINERAL_RE.findall(t))) >= 2 or PERUNIT_RE.search(t):
         tags.add("sampling unit")
     if len(set(x.lower() for x in RM_RE.findall(t))) >= 2:
@@ -336,11 +336,11 @@ def main():
             n_ev = len(shapes)
             n_scalar = tally["scalar"]
             observed = {k for k, v in tally.items()
-                        if k not in ("scalar", "unclear", "analyte:valued")
+                        if k not in ("scalar", "unclear", "target species:valued")
                         and v >= max(2, 0.34 * n_ev)}
             # value-bearing enumeration only, for the UNDER-DECLARED direction
             observed_valued = {k for k in observed
-                               if k != "analyte" or tally["analyte:valued"] >= max(2, 0.34 * n_ev)}
+                               if k != "target species" or tally["target species:valued"] >= max(2, 0.34 * n_ev)}
 
             # A definer's extraction IS the list of members, so enumeration is expected and
             # carries no information about a second key. Only judge definers on their `per` key.

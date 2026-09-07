@@ -14,8 +14,8 @@ These terms are aligned with the BIPM/JCGM 200:2012 *International Vocabulary of
 | **Method** | Generic description of a logical organization of operations used in a measurement (VIM3 "measurement method," §2.5) | Use "Method" for assessment methods, calculation methods, and other named component methods (e.g., "Detection Limit Method", "Signal Integration Interval Method") |
 | **Procedure** | Detailed description of a measurement according to one or more measurement principles and to a given measurement method, based on a measurement model and including any calculation to obtain a measurement result (VIM3 "measurement procedure," §2.6). Registerable with a DOI | The object captured in TAPP procedure-level columns (C); receives a DOI upon registration |
 | **Analysis** | The working, user-facing label for the specific execution of a procedure in an analytical session — what was actually done, including any deviations. Formally corresponds to VIM3 "measurement" (§2.1: "process of experimentally obtaining one or more quantity values that can reasonably be attributed to a quantity"), but "Analysis" is retained throughout TAPP content (e.g., "Analysis-Level Tier") to avoid a same-document collision with Group 4's unrelated "Measurement Information" | The object captured in TAPP analysis-level columns (D) |
-| **Measurand** | Quantity intended to be measured (VIM3 §2.3). **TAPP's `reported property` key is the measurand**, and the `Reported Variables and Units` field (Rule 8) enumerates the measurands of a procedure | Distinguishes the *quantity* measured from the *substance* it is measured on — see `analyte` below |
-| **Analyte** | The chemical species a measurement is performed on. Not a VIM3 term; standard IUPAC/ISO usage, and the complement of Measurand — the analyte is *what* is analysed, the measurand is *which quantity* of it is obtained | TAPP's `analyte` key (Rule 7.2). Fe is the analyte; ⁵⁶Fe/⁵⁴Fe and [Fe] in µg/g are measurands |
+| **Measurand** | Quantity intended to be measured (VIM3 §2.3). **TAPP's `reported property` key is the measurand**, and the `Reported Variables and Units` field (Rule 8) enumerates the measurands of a procedure | Distinguishes the *quantity* measured from the *substance* it is measured on — see `target species` below |
+| **Target Species** | The chemical species a measurement is performed on — TAPP's name, since 2026-09-01, for what IUPAC/ISO call the **analyte**. Not a VIM3 term, and deliberately so: VIM3 §2.3 names 'analyte' only to warn that using it *as* the measurand is erroneous, "because these terms do not refer to quantities". Target Species is the complement of Measurand — it is *what* is analysed, the measurand is *which quantity* of it is obtained | TAPP's `target species` key (Rule 7.2). Fe is the target species; ⁵⁶Fe/⁵⁴Fe and [Fe] in µg/g are measurands |
 
 **Key rule:** Use **"Procedure"** when referring to the registerable procedure object. Use **"Method"** only for assessment methods, calculation methods, or named component methods. Never use "Method" as a synonym for the overall registered procedure.
 
@@ -744,11 +744,11 @@ titles, could a registrant say which one a given field is in?* If not, they are 
 unrelated conditions in this library select the same set of TAPPs — so it nominates, it does not
 decide. Coherence (condition 3) is what decides.
 
-**Worked example.** `Analyte` was proposed as its own module with 13 consumers. `Aggregation` also has
+**Worked example.** `Target Species` was proposed as its own module with 13 consumers. `Aggregation` also has
 13, and they are the **same** 13 — every TAPP that determines a chemical composition. Prong 1
 nominated a merger; prong 2 refused it. "Which chemical species does this procedure determine" and
 "which analyses contribute to the reported value" are not one subject, and a registrant hunting for
-the analyte list would not open a module about aggregation. They stay separate.
+the target species list would not open a module about aggregation. They stay separate.
 
 The lesson generalises: **co-extension is not coherence.** Those two conditions select the same TAPPs
 because determining a composition and aggregating analyses happen to co-occur across this library's
@@ -867,26 +867,26 @@ gets its labels from composition, with nothing to remember.
 
 Every content row in every TAPP carries a **`Keyed By`** value stating what the field's value repeats
 over — the field's *cardinality key*. A field holding one value per procedure declares `(none)`. A field
-holding one value per analyte, per mass, per reported quantity, or per grain declares that key.
+holding one value per target species, per mass, per reported quantity, or per grain declares that key.
 
-Rule 7 replaced the Column G label `Analyte-Specific`, which was doing this job badly. `Analyte-Specific` appeared 150
+Rule 7 replaced the Column G label `Target-Species-Specific`, which was doing this job badly. `Target-Species-Specific` appeared 150
 times across 45 field names and was found to carry **at least four distinct keys** while missing a fifth
 entirely:
 
 | Symptom | Evidence |
 |---|---|
-| Fewer than half of labelled fields are actually keyed by analyte | 22 of 45 (49%) |
-| The label conflates keys with opposite tier signatures | analyte/channel fields are 90% D=Read-Only-or-Editable; reported-property fields are 82% D=Basic (Fisher exact p = 9.8 × 10⁻⁶) |
+| Fewer than half of labelled fields are actually keyed by target species | 22 of 45 (49%) |
+| The label conflates keys with opposite tier signatures | target species/channel fields are 90% D=Read-Only-or-Editable; reported-property fields are 82% D=Basic (Fisher exact p = 9.8 × 10⁻⁶) |
 | Fields with the same label cannot be joined | one Fe-isotope session yields row counts 1, 6, 6, 3, 2, 2, 2, 0 under a single label |
 | A whole key had no label at all | 13 unlabelled fields are keyed by reported property, including all 6 fields of Module_Geochronology and Rule 5's `Constants and Reference Values Used` |
 | The label is technique-conditional, not universal | XCT 0 instances, SEM_Imaging 1, SEM_FIBSEM 1, TEM 3 — 5 of 150 across the four least chemical TAPPs |
 
 The framework had already written the distinction into a field description without propagating it into the
-vocabulary. `Reported Variables and Units` reads: *"distinct from Analyte and Monitored Masses, which
+vocabulary. `Reported Variables and Units` reads: *"distinct from Target Species and Monitored Masses, which
 record what was acquired. A procedure may acquire many masses and report a small number of derived
 quantities."*
 
-**`Analyte-Specific` is not renamed or redefined by this rule. It is demoted** — from a label to one value
+**`Target-Species-Specific` is not renamed or redefined by this rule. It is demoted** — from a label to one value
 among several, and not the most common one.
 
 ---
@@ -931,7 +931,7 @@ here instead.
 | `sampling unit` *(universal)* | a subdivision of the physical sample carrying its own row of values | Would a second grain / spot / phase produce another row? | EPMA analysis point; zircon grain; digestion aliquot; Mössbauer phase; fission-track confined track; XCT segmented phase; OSL aliquot |
 | `reported property` *(universal)* | anything the procedure reports, **at any point in the chain** — quantities and nominal properties alike, plus their uncertainties | Does it appear in the reported data product? | ²⁰⁶Pb/²⁰⁴Pb ratio *and* ²⁰⁶Pb/²³⁸U date; ⁵⁶Fe/⁵⁴Fe *and* δ⁵⁶Fe; Dᴇ, D_R *and* OSL age; Fe³⁺/ΣFe; mineral species + match score; porosity |
 | `channel` *(where a dispersive, selective or swept axis exists)* | a position on the axis the instrument steps through or selects across — mass, wavelength, energy, angle, temperature, field, pressure, time. **The address, not the signal** | Does the position exist even with zero signal there? | m/z 238; cup L2 at magnet step 1; Fe Kα on LIF spectrometer 2 (one WDS spectrometer assignment); Fe L₂,₃ edge; velocity channel 137/256; 855 cm⁻¹ bin; demagnetisation step 40 mT; DSC temperature setpoint |
-| `analyte` *(chemistry only)* | the chemical species determined, at whatever granularity the procedure determines it | Would substituting a different isotope of the same element leave the target of determination unchanged? Yes → `channel`. No → `analyte`. | Si, Mg, Fe, Ca, Ni (EPMA); Fe (MC-ICP-MS); U, Pb, Th (U-Pb); Fe²⁺/Fe³⁺ at valence resolution (Mössbauer) |
+| `target species` *(chemistry only)* | the chemical species determined, at whatever granularity the procedure determines it | Would substituting a different isotope of the same element leave the target of determination unchanged? Yes → `channel`. No → `target species`. | Si, Mg, Fe, Ca, Ni (EPMA); Fe (MC-ICP-MS); U, Pb, Th (U-Pb); Fe²⁺/Fe³⁺ at valence resolution (Mössbauer) |
 
 **Two notes on the anchors, both dated 2026-08-12.**
 
@@ -955,7 +955,7 @@ users.
 
 | Value | Keys on | Examples |
 |---|---|---|
-| `standard` | a reference against which something is anchored — physical **or virtual**. Record which axis it anchors; this varies by technique. | albite (anchors analyte); IRMM-014 (anchors reported property); α-Fe foil NBS SRM 1541 (anchors *channel*); RRUFF reference spectrum (virtual); dosimeter glass |
+| `standard` | a reference against which something is anchored — physical **or virtual**. Record which axis it anchors; this varies by technique. | albite (anchors target species); IRMM-014 (anchors reported property); α-Fe foil NBS SRM 1541 (anchors *channel*); RRUFF reference spectrum (virtual); dosimeter glass |
 | `conversion` *(defined, not in use)* | a correction or calculation step, **only where it cannot be attributed to a single reported property** | retired 2026-08-11 — `Constants and Reference Values Used` was its only user *and* its only plausible definer, so it failed 7.4b/7.4c |
 | `model component` | a component of a fitted decomposition of the signal | Mössbauer doublets/sextets (IS, QS, B_hf, Area%); Raman fitted peaks; XRD Rietveld phases; EELS edge components |
 | `acquisition pass` *(defined, not in use)* | a distinct pass over the sample with its own instrument settings | retired 2026-08-11 — once `Beam Current` moved to `sampling unit`, the only remaining user was `Multi-Run Sequential Analysis Design`, which would have been its own definer |
@@ -975,10 +975,10 @@ key would duplicate existing machinery.
 | Form | Meaning | Example |
 |---|---|---|
 | `(none)` | scalar — one value per procedure/analysis. The default and the most common value. | `RF Power`; `Instrument Make and Model` |
-| `A > B` | **containment** — B exists only within A; one value per B within each A | `sampling unit > model component` (Mössbauer components fitted per phase). No field in the current library uses nesting: `analyte > background position` was retired 2026-08-11 under 7.4c |
-| `A x B` | **cross-product** — A and B are independent domains; one value per combination. Ordered: read as *"for each A, one value per B."* | `standard x reported property` (`Analytical Precision`); `sampling unit x analyte` (`Counting Statistics Error`) |
-| `defines: A` | the field **enumerates** the key domain rather than being keyed by it — it is the header of the child table, not a column in it | `Analyte`; `Reported Variables and Units`; `Reported Date Type` |
-| `defines: A per B` | the field enumerates domain A **and** repeats over key B — a definer whose child table carries a parent key. One key only; see 7.3.1 | `Monitored Masses` (`defines: channel per analyte`); `EELS Edges`; `Secondary Reference Materials` |
+| `A > B` | **containment** — B exists only within A; one value per B within each A | `sampling unit > model component` (Mössbauer components fitted per phase). No field in the current library uses nesting: `target species > background position` was retired 2026-08-11 under 7.4c |
+| `A x B` | **cross-product** — A and B are independent domains; one value per combination. Ordered: read as *"for each A, one value per B."* | `standard x reported property` (`Analytical Precision`); `sampling unit x target species` (`Counting Statistics Error`) |
+| `defines: A` | the field **enumerates** the key domain rather than being keyed by it — it is the header of the child table, not a column in it | `Target Species`; `Reported Variables and Units`; `Reported Date Type` |
+| `defines: A per B` | the field enumerates domain A **and** repeats over key B — a definer whose child table carries a parent key. One key only; see 7.3.1 | `Monitored Masses` (`defines: channel per target species`); `EELS Edges`; `Secondary Reference Materials` |
 | `pair: A` | keyed by an unordered pair of A | `Discordance Definition and Values`; error correlation ρ between ²⁰⁶Pb/²³⁸U and ²⁰⁷Pb/²³⁵U |
 | `A > B x C` | containment then cross-product — *"within each A, for each B, one value per C."* Added 2026-08-12 | `Counting Statistics Error` (`sample > sampling unit x reported property`): within each sample, for each analysis spot, one uncertainty per reported concentration variable |
 
@@ -999,10 +999,10 @@ parsing silently.
 **Distinguishing `>` from `x` — the enumerability test.** *Can you enumerate B without reference to A?*
 
 - **No → `>`.** Background positions are stated relative to a peak; "high side, +2 mm" is meaningless
-  without knowing which analyte's peak. Mössbauer sub-spectral components come from fitting one phase's
+  without knowing which target species's peak. Mössbauer sub-spectral components come from fitting one phase's
   spectrum and do not exist independently of that phase.
 - **Yes → `x`.** Secondary reference materials are enumerated by their own field, independently of any
-  reported property. Analysis spots are enumerated independently of any analyte. `Analytical Precision` is
+  reported property. Analysis spots are enumerated independently of any target species. `Analytical Precision` is
   therefore a two-dimensional table — one row per reported property, one column per reference material —
   not a hierarchy.
 
@@ -1021,11 +1021,11 @@ how the reporting table is actually laid out. `Analytical Precision` is reported
 material listing each property, not as a block per property listing each material.
 
 Choose the order from the field's own description where it states one — `Counting Statistics Error` reads
-*"for each analyte per analysis"*, and is reported as one row per analysis with a column per analyte,
-giving `sampling unit x analyte`.
+*"for each target species per analysis"*, and is reported as one row per analysis with a column per target species,
+giving `sampling unit x target species`.
 
-`defines:` is the distinction that the old label could not make. `Analyte` and `Detection Limit` both wore
-`Analyte-Specific`, but one *is* the list and the other is indexed *by* the list.
+`defines:` is the distinction that the old label could not make. `Target Species` and `Detection Limit` both wore
+`Target-Species-Specific`, but one *is* the list and the other is indexed *by* the list.
 
 ---
 
@@ -1036,12 +1036,12 @@ giving `sampling unit x analyte`.
 > isotopes — Wu et al. 2023 assign a dwell time to `(176+82)Hf`, Gil-Diaz et al. 2020 measure
 > `125Te + 16O → 141TeO`. A field named "Isotopes" invites a curator to prune exactly the members
 > that `Dwell Time per Mass` and `Interference Correction Method` are keyed by. `Masses` was chosen
-> over `Species` because this document defines Analyte as "the chemical species a measurement is
+> over `Species` because this document defines Target Species as "the chemical species a measurement is
 > performed on"; reusing the word for the channel side would blur that line. The two dated tables
 > in 7.11 and 7.12 keep the old name, being records of what was executed on 2026-08-12.
 
 Added 2026-08-12. A field may enumerate one domain while repeating over another: `Monitored Masses`
-lists the masses acquired — so it defines `channel` — but it lists them *per analyte element*, one row
+lists the masses acquired — so it defines `channel` — but it lists them *per target species element*, one row
 per element. Before this form existed, Column I could state only the definer role and the second key
 survived in prose, which is how it went unnoticed. Four fields in the library are of this shape; the
 survey behind the addition is in `analysis/Survey_ColB_ColI_Report_2026-08-12.md`.
@@ -1051,9 +1051,9 @@ Added 2026-08-12. The gloss above says *"one row per element"*, which asserts th
 domain A has a parent in B. It does not, and the counter-example is in the library's own literature:
 
 > Desem et al. 2022 records `Monitored Masses` as `202Hg, 203Tl, 204Pb, 205Tl, 206Pb, 207Pb, 208Pb`
-> for a procedure whose analyte is **Pb alone**. ²⁰²Hg is the interference monitor for ²⁰⁴Pb and
+> for a procedure whose target species is **Pb alone**. ²⁰²Hg is the interference monitor for ²⁰⁴Pb and
 > ²⁰³Tl/²⁰⁵Tl are the internal standard for mass fractionation correction. Three elements' worth of
-> masses; one analyte.
+> masses; one target species.
 
 Makishima et al. 2011 (¹⁴⁹Sm as the ID-IS reference) and Lu et al. 2007 (⁹³Nb as internal standard
 for Ti) are the same shape. **Orphan members are normal, not exceptional**: interference monitors,
@@ -1062,7 +1062,7 @@ spectrometer assignment used for a standard-only or background-only measurement.
 
 Whether the parent is total or partial **varies by field and the notation does not distinguish
 them**. `EELS Edges` is total: every ionisation edge belongs to an element. `Monitored Masses` is
-partial. Both are written `defines: channel per analyte`, so a consumer must assume partial.
+partial. Both are written `defines: channel per target species`, so a consumer must assume partial.
 
 **For a schema generator, concretely.** The child table gets a **nullable** foreign key to the parent
 domain, never a required one:
@@ -1071,10 +1071,10 @@ domain, never a required one:
 |---|---|
 | model the parent as an optional column on the child table | make it `NOT NULL`, or a required property |
 | leave it empty for monitors, internal standards and carriers | drop rows that have no parent — they are part of the run table and are needed to assess interference corrections |
-| take the parent domain's membership from its own definer (`Analyte`) | **infer membership from the child** — parsing `202Hg` to "Hg" and adding Hg to the analyte list is wrong; Hg is monitored, never determined |
+| take the parent domain's membership from its own definer (`Target Species`) | **infer membership from the child** — parsing `202Hg` to "Hg" and adding Hg to the target species list is wrong; Hg is monitored, never determined |
 
-The last row is the failure this note exists to prevent: the analyte list is authoritative and comes
-from the `defines: analyte` field, never from the element symbols appearing in the channel list.
+The last row is the failure this note exists to prevent: the target species list is authoritative and comes
+from the `defines: target species` field, never from the element symbols appearing in the channel list.
 
 **7.4a is unaffected.** `defines: A per B` still creates a requirement for a `defines: B` field,
 because *some* rows carry a parent and those rows need a domain to point into. A field whose parent
@@ -1090,7 +1090,7 @@ abstractions with no user. If a consumer ever needs to rely on a parent being to
 
 **Note that this is not `A > B`.** The containment form requires B to be unenumerable without A, and
 the enumerability test in 7.3 fails here: m/z 238 is a position on the instrument axis and exists
-independently of any analyte. `analyte > channel` would assert a containment that does not hold. The
+independently of any target species. `target species > channel` would assert a containment that does not hold. The
 field is a definer with a parent key, not a hierarchy.
 
 **One key only.** The right-hand side takes a single key, not a compound. `defines: A per B x C` is
@@ -1124,7 +1124,7 @@ form over inverting `x`.
 #### 7.3.2 Conditional keys — declare the finest key unconditionally (policy, 2026-08-27)
 
 Some fields are scalar in a simple procedure and keyed in a complex one, and say so in Column B:
-`Integration Time per Cycle` reads *"Analyte-specific **when** different isotope channels use
+`Integration Time per Cycle` reads *"Target-species-specific **when** different isotope channels use
 different integration schemes."* Column I can declare only one shape. This was raised as gap **G3**
 in `Survey_ColB_ColI_Report_2026-08-12` and left open as a policy question.
 
@@ -1135,7 +1135,7 @@ The reasoning is an asymmetry in how the two errors fail. Under-declaring is **l
 generating a schema from Column I emits a scalar where the reported data is a list, and the
 structure survives only in prose it cannot read. That is exactly the defect reported in
 amds-ldeo/tapp#1, where `Detection Limit` was typed as a scalar while all 42 attested cells were
-per-analyte lists. Over-declaring is merely **verbose**: a simple procedure fills a keyed table with
+per-target-species lists. Over-declaring is merely **verbose**: a simple procedure fills a keyed table with
 one row, which is correct, just roomier than it needs to be. A conditional marker would be more
 exact than either, but it buys that exactness by making every downstream consumer implement extra
 grammar for a handful of rows.
@@ -1145,7 +1145,7 @@ key is the finest axis attested in *reported data*, not the finest axis imaginab
 settles what to do once the literature shows an axis is real but conditional — it says declare it,
 rather than declaring the coarse shape because some procedures do not exercise it.
 
-**Consequence for Column B.** Once the key is declared unconditionally, prose saying *"analyte-
+**Consequence for Column B.** Once the key is declared unconditionally, prose saying *"target species-
 specific when …"* restates Column I and is stripped under W5.2. The condition is not lost; it is
 expressed by the fact that a simple procedure's keyed table has one row.
 
@@ -1172,7 +1172,7 @@ the invariant was written assuming a list, so it is stated here rather than left
 **7.4b — exactly one definer per key.** Two fields both declaring `defines: X` leave a consumer no way
 to know which one builds the child table. Where two fields both enumerate a domain, one is the definer
 and the other is keyed by it — in a multicollector TAPP `Collector Configuration` defines the channel and
-`Monitored Masses` is keyed by analyte; in a single-collector TAPP there is no cup array and
+`Monitored Masses` is keyed by target species; in a single-collector TAPP there is no cup array and
 `Monitored Masses` is itself the definer.
 
 **7.4c — a definer needs a consumer.** `defines: X` where no field is keyed by X declares a domain
@@ -1211,7 +1211,7 @@ them in a `keyed_by_overridable` array in the module manifest. `compose_tapp.py 
 difference on those rows only, and reports `DIFFERS` everywhere else as usual.
 
 The mechanism is specified because the need is demonstrated, but **no module field currently requires it.**
-The two known technique-dependent fields — `Primary Calibration Standard Name` (`analyte` in EPMA,
+The two known technique-dependent fields — `Primary Calibration Standard Name` (`target species` in EPMA,
 `reported property` in MC-ICP-MS) and `Secondary Reference Materials` — are TAPP-owned, not module-owned.
 Every module field audited holds one key across all consumers: Module_Geochronology's six are all
 `reported property`, Module_MCICPMS's `Collector Configuration` is `channel` everywhere,
@@ -1260,7 +1260,7 @@ Phase 0 must now declare **two** things, not one:
 Both belong in Phase 0 for the same reason. Getting the keys wrong is as expensive to correct
 retroactively as getting the modes wrong, because both are structural and both propagate into every row.
 
-Record explicitly which anchors are **absent** — `analyte` for XCT, Raman and fission track; `channel`
+Record explicitly which anchors are **absent** — `target species` for XCT, Raman and fission track; `channel`
 for fission track. An absent anchor is a finding, not an omission.
 
 ---
@@ -1444,7 +1444,7 @@ an unresolved issue. Reasoning and evidence in `precedents.md`; patch in
 
 **Nothing was marked PRINCIPLED on the way in, deliberately.** 7.8.9's own closing caveat is the
 reason: a `PRINCIPLED` verdict recorded from a heuristic against a field nobody has read is how
-`Analyte` sat frozen as justified at similarity 0.01 while its divergence reached into the domain
+`Target Species` sat frozen as justified at similarity 0.01 while its divergence reached into the domain
 definition itself. Every entry here is a backlog entry, all report INFO on every run, and the
 register is worked down by removing entries after harmonising — not by reclassifying them.
 
@@ -1477,7 +1477,7 @@ The Legends sheet gains a fourth table:
 **Table 4: Keyed By definitions** — one row per key value used in that TAPP, with its definition from 7.2
 and any technique-specific extensions declared in Phase 0; plus the five notation forms from 7.3.
 
-Only keys actually used in that TAPP are listed. A reader of the Lab-XCT legend should not see `analyte`.
+Only keys actually used in that TAPP are listed. A reader of the Lab-XCT legend should not see `target species`.
 
 ---
 
@@ -1899,14 +1899,14 @@ in 13 TAPPs.
 - ✓ "Detection Limit Method", "Signal Integration Interval Method"
 - ✗ "Method Name", "Method DOI" — use "Procedure Name", "Procedure DOI"
 
-**Cardinality is declared in Column I, not in Comments**: the former Column G label "Analyte-Specific" is superseded by Rule 7. Do not reach for `analyte` by default — it applies to fewer than half the fields that once carried that label, and it is absent entirely from techniques with no chemical species (Lab-XCT, Raman, fission track).
+**Cardinality is declared in Column I, not in Comments**: the former Column G label "Target-Species-Specific" is superseded by Rule 7. Do not reach for `target species` by default — it applies to fewer than half the fields that once carried that label, and it is absent entirely from techniques with no chemical species (Lab-XCT, Raman, fission track).
 
 ### Vocabulary for common concepts
 
 | Preferred term | Avoid | Reason |
 |---|---|---|
 | Procedure | Method (for the registered procedure object) | Precise vocabulary; see definitions above |
-| Keyed By value (Rule 7) | Analyte-Specific, Element-Specific | Cardinality is a column, not a comment; `analyte` is one key among several |
+| Keyed By value (Rule 7) | Target-Species-Specific, Element-Specific | Cardinality is a column, not a comment; `target species` is one key among several |
 | Analytical mode | Ablation mode, measurement mode | General across techniques |
 | Session | Run (when "run" is ambiguous with sub-runs in multi-run designs) | Clarity |
 | Background | Gas blank | "Gas blank" is specific to gas-phase instruments; "Background" applies across techniques |
@@ -1951,7 +1951,7 @@ If the fallback would only ever be used to record absence, the field is a plain 
 and `N/A | None` in Column F already covers it. The test that decides it: **could the escape ever
 be retired by extending the list?** Yes — the out-of-list answer is a member you failed to
 enumerate — plain `Controlled list`, and complete the list. No — the answer is a different *shape*,
-a term plus a citation or a per-analyte assignment — `Controlled list / Text`.
+a term plus a citation or a per-target-species assignment — `Controlled list / Text`.
 
 **Not compounds.** These forms appear in the library and are errors rather than compounds:
 

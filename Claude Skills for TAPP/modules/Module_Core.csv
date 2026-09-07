@@ -1,5 +1,5 @@
 ﻿Metadata Item,Description,Procedure-Level Tier,Analysis-Level Tier,Data Type,Example / Allowed Content,Comments,Last Update,Keyed By,Purpose
-Procedure Name,"A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — analyte, material, or feature.",Basic,Read-Only,Text (free),,,,(none),
+Procedure Name,"A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — target species, material, or feature.",Basic,Read-Only,Text (free),,,,(none),
 Technique,Top-level analytical technique identifier.,Basic,Read-Only,Controlled list,,,,(none),
 Procedure Author,Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.,Basic,Read-Only,Text (free),,,,(none),
 Laboratory,Name of the laboratory or institution hosting the instrument.,Basic,Editable,Text (free),,,,(none),

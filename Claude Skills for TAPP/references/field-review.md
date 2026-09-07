@@ -26,7 +26,7 @@ Examples of both-level fields that should be split:
 - Oxide production threshold (procedure: acceptance criterion) vs. oxide production measured (analysis: actual ratio) — split because these are different *types* of information (criterion vs. measurement)
 
 Examples of both-level fields that should NOT be split (use D=Editable instead):
-- Analyte (procedure: range of isotopes the procedure is designed to measure; analysis: specific isotopes measured in this session, which may be a subset) — same type of information at different stages; D=Editable captures that the analyst may narrow the set
+- Target Species (procedure: range of isotopes the procedure is designed to measure; analysis: specific isotopes measured in this session, which may be a subset) — same type of information at different stages; D=Editable captures that the analyst may narrow the set
 - Laser fluence (procedure: target value; analysis: as-run value) — same quantity; D=Editable is correct
 
 - RF power: the procedure specifies it; the analysis uses the same value. Read-Only at analysis level is the correct representation, not a split.
@@ -93,9 +93,9 @@ Fields that commonly follow this pattern:
 - Instrumental blank threshold (procedure) / Procedural blank measured (analysis) [solution ICP-MS]
 
 **Scope fields with D=Editable:**
-A procedure defines the *scope* of what it is designed to measure (e.g., the analyte suite). An analysis may measure a subset of that scope. Use a single field with D=Editable: the procedure registers the intended scope; the analyst confirms or narrows it at analysis time. Do not split into separate procedure-scope and analysis-execution fields.
+A procedure defines the *scope* of what it is designed to measure (e.g., the target species suite). An analysis may measure a subset of that scope. Use a single field with D=Editable: the procedure registers the intended scope; the analyst confirms or narrows it at analysis time. Do not split into separate procedure-scope and analysis-execution fields.
 
-- Analyte (C=Basic, D=Editable): procedure registers the full isotope suite; analyst may record a subset actually measured
+- Target Species (C=Basic, D=Editable): procedure registers the full isotope suite; analyst may record a subset actually measured
 - Target material (procedure) / Sample name (analysis) [different concepts entirely — already separate fields in Group 2]
 
 ---
@@ -157,7 +157,7 @@ See `references/conventions.md` for the full vocabulary. Key naming rules for fi
 - **Exception**: "Target Material" and "Target Feature(s)" retain "Target" because it means *the type of material or feature the procedure is designed to analyze*, not a value with an achieved counterpart
 - Use **"(Measured)"** or a separate field name for analysis-level values corresponding to procedure-level *acceptance criteria* (thresholds, pass/fail gates) only: "Oxide Production" (measured) vs. "Oxide Production Method and Threshold" (criterion). This is distinct from session-tunable parameters, which use D=Editable.
 - Use **"Procedure"** rather than **"Method"** when referring to the overall registered procedure object: "Procedure DOI", "Procedure Name", "Funding Source for Procedure Development"
-- Declare cardinality in **Column I (`Keyed By`)**, never in Comments — see Rule 7 in `conventions.md`. Ask what the field's value repeats over: `(none)`, `analyte`, `channel`, `reported property`, `sampling unit`, or a secondary key. The superseded label "Analyte-Specific" named only one of these, and not the most common one
-- **If the field declares `defines: X`, ask a second question: does it also repeat over something?** A definer can carry a parent key — `Monitored Masses` enumerates the masses (`channel`) but does so *per analyte element*, so it is `defines: channel per analyte` (Rule 7.3.1). Four of the library's eight definers turned out to be of this shape, and two of them said so only through their example values ("Fe L2,3; O K" — an edge named per element), never in cardinality language. **Read Column B and Column F against Column I, not Column I alone**
+- Declare cardinality in **Column I (`Keyed By`)**, never in Comments — see Rule 7 in `conventions.md`. Ask what the field's value repeats over: `(none)`, `target species`, `channel`, `reported property`, `sampling unit`, or a secondary key. The superseded label "Target-Species-Specific" named only one of these, and not the most common one
+- **If the field declares `defines: X`, ask a second question: does it also repeat over something?** A definer can carry a parent key — `Monitored Masses` enumerates the masses (`channel`) but does so *per target species element*, so it is `defines: channel per target species` (Rule 7.3.1). Four of the library's eight definers turned out to be of this shape, and two of them said so only through their example values ("Fe L2,3; O K" — an edge named per element), never in cardinality language. **Read Column B and Column F against Column I, not Column I alone**
 - **Mine Column B for information that belongs in a structured column, then delete it from the prose.** A description asserting a key that Column I does not carry is the defect the 2026-08-12 survey was built to find; a description restating a key Column I already carries is redundant text to remove. Neither is visible from Column I alone
 - Use **"(Mode Only)"** suffix in field names when a field is restricted to a single mode: "Raster Line Spacing (Mapping Only)"
