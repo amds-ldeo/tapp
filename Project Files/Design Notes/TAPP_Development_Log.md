@@ -5,6 +5,12 @@
 > `Superseded TAPPs/`, and working files moved to `Archive/`. **Paths written in dated entries below
 > were correct when written and have not been rewritten.** For current locations see
 > `Project Files/Design Notes/PLAN_Folder_Reorganisation_2026-08-12.md`.
+> **Terminology note (2026-09-01):** the field `Analyte` is now **`Target Species`** and the Rule 7
+> key `analyte` is **`target species`**; `Per-Analyte Calibration Strategy`, `Analyte Estimation
+> Method`, `Technique per Analyte` and `EPMA Technique per Analyte` moved with them. **Part I below
+> has been updated.** Every dated entry from Part II onward keeps its original wording — read
+> "analyte" there as "target species". The domain itself did not change, and `conventions.md`
+> keeps "analyte" as the cited IUPAC/ISO term.
 > **Terminology note (2026-07-24):** TAPP vocabulary was realigned with BIPM VIM3 (JCGM 200:2012) on this
 > date — "Protocol" is now "Procedure"; the old "Procedure" is formally "Measurement" (VIM3 §2.1), though
 > the working label "Analysis" is unchanged. **Part I below has been updated to the new terminology.**
@@ -69,7 +75,7 @@ These apply to every TAPP in the library. Changes here require review across all
 | D | Analysis-Level Tier | Read-Only / Editable / Basic / Advanced |
 | E | Data Type | Controlled vocabulary |
 | F | Example / Allowed Content | Examples or controlled list values |
-| G | Comments | Short field-level labels (e.g., "Analyte-Specific") |
+| G | Comments | Short field-level labels (e.g., "Target-Species-Specific") |
 | H | Last Update | YYYY-MM-DD |
 | I … | Mode flag columns | One per mode; start at col I (index 8); order by decreasing frequency |
 | — | Sentinel column | Header exactly "Literature Assessment"; cells empty; marks mode/lit boundary |
@@ -109,7 +115,7 @@ These apply to every TAPP in the library. Changes here require review across all
 1. **Level-neutral:** No "Default", "Target" (when meaning ideal), "Achieved", "Typical", "Actual" as prefix/suffix. The tier columns encode level.
 2. **Exceptions:** "Target Material" and "Target Feature(s)" retain "Target" because it denotes the material/feature type the procedure is designed to analyze — not a value with a later "achieved" counterpart.
 3. **"Procedure" vs "Method":** Use "Procedure" for the registerable object (Procedure Name, Procedure DOI). Use "Method" only for sub-procedures, calculation methods, or assessment methods.
-4. **"Analyte-Specific" not "Element-Specific":** Use Analyte-Specific to remain technique-agnostic.
+4. **"Target-Species-Specific" not "Element-Specific":** Use Target-Species-Specific to remain technique-agnostic.
 5. **"(Mode Only)" suffix:** Use when a field applies to a single mode only, e.g., "Raster Line Spacing (Mapping Only)".
 6. **Template:** Every new TAPP begins Group 1 from `tapp_files/Template TAPP Group 1.csv` to prevent field name and tier drift.
 
@@ -123,7 +129,7 @@ These have been formally adopted and propagated across TAPPs. See `references/pr
 |---|---|---|
 | 1 | Procedure value vs. measured value | When procedure specifies a threshold/criterion and analysis records the actual measurement, split into two fields with different tier assignments |
 | 2 | Acceptance criterion vs. measured value | [Concept] Method and Threshold (C=Basic, D=Read-Only) + [Concept] (C=N/A, D=Basic) |
-| 3 | Single merged field with D=Editable | Use when procedure scope and analysis execution describe the same quantity at different stages (e.g., Analyte) |
+| 3 | Single merged field with D=Editable | Use when procedure scope and analysis execution describe the same quantity at different stages (e.g., Target Species) |
 | 4 | Editable for software fields | Minor version updates ≠ new procedure; D=Editable for acquisition/reconstruction/analysis software |
 | 5 | Reference materials: C=Basic, D=Editable | Procedure commits to specific RM; substitution allowed at analysis time due to availability |
 | 6 | Signal smoothing: Y for all modes with caveat | Set mode flag=N only when genuinely inapplicable; use description caveat when applicable but problematic |

@@ -267,7 +267,7 @@ def build_legends(wb, mode_headers, keys_used=()):
          'that is a gap in the list worth reporting, not a reason to write your own.'),
         ('Controlled list / Text',
          'Choose a listed value AND qualify it in the same cell — the detail is expected, '
-         'not optional. Typically what was corrected, which analytes or phases it applied '
+         'not optional. Typically what was corrected, which target species or phases it applied '
          'to, the method or equation used, or the source it came from. An answer the list '
          'cannot express is also valid here.'),
         ('Numeric (unit)',
@@ -294,7 +294,7 @@ def build_legends(wb, mode_headers, keys_used=()):
         'sampling unit': 'One value per subdivision of the physical sample that carries its own row — grain, spot, aliquot, phase, sub-volume.',
         'reported property': 'One value per reported quantity or nominal property, at any point in the chain — ratios and dates alike, plus their uncertainties.',
         'channel': "One value per position on the instrument's selection axis — the address, not the signal. Mass, cup, line + crystal, energy-loss edge, wavenumber.",
-        'analyte': 'One value per chemical species determined, at whatever granularity the procedure determines it.',
+        'target species': 'One value per chemical species determined, at whatever granularity the procedure determines it.',
         'standard': 'One value per reference material or reference database entry.',
         'conversion': 'One value per correction or calculation step, where it cannot be attributed to a single reported property.',
         'model component': 'One value per component of a fitted decomposition of the signal.',

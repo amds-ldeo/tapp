@@ -32,7 +32,7 @@ analytical mode, a sentinel column headed `Literature Assessment`, and then one 
 extracted from the literature.
 
 `Keyed By` states what a field's value repeats over — `(none)` for a scalar, or a key such as
-`analyte`, `channel`, `reported property`, `sampling unit`. The xlsx Legends sheet lists the keys used
+`target species`, `channel`, `reported property`, `sampling unit`. The xlsx Legends sheet lists the keys used
 in that particular TAPP.
 
 ## Contents
