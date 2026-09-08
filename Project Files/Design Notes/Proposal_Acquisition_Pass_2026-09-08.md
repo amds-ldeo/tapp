@@ -250,7 +250,7 @@ instrument needs to be made explicitly rather than assumed.
 
 ---
 
-## 4A. The definer must be new and neutral
+## 4A. The definer: neutral, domain-named, and EPMA already has it
 
 `Multi-Run Sequential Analysis Design` **cannot serve**, for a hard reason as well as a conceptual one.
 
@@ -265,10 +265,66 @@ reasons — resolution in Misra, cup array in Nowell, cell chemistry in Gil-Diaz
 spot size and internal-standard strategy in Chernonozhkin. No single content field is present in, or
 distinguishing for, all of them. The definer must be neutral about *what* varies.
 
-**The library already has that pattern.** `preparation step`'s definer is **`Number of Digestion
-Steps`** — a *count* field, with the steps described inline, presuming nothing about what distinguishes
-them. The acquisition-side parallel is **`Number of Acquisition Passes`** (named to match; an ordinal
-per row is what Column I already supplies).
+### The definer ENUMERATES the passes; it does not count them — corrected 2026-09-08
+
+An earlier draft proposed **`Number of Acquisition Passes`**, taking `preparation step`'s definer
+`Number of Digestion Steps` as the pattern to copy. **That was the wrong lesson**: it is the shape to
+avoid, and the library shows why.
+
+**Nine of the ten definers are named for their domain** — `Target Species`, `Sampling Unit`,
+`Monitored Masses`, `Collector Configuration`, `EELS Edges`, `Sample Name`, `Reported Variables and
+Units`, `Secondary Reference Materials`, `WDS Spectrometer Channel`. `Number of Digestion Steps` is the
+sole count-named one, and one of its cells reads:
+
+> **"Two ('These steps were performed twice')"**
+
+A count with **no member identities at all** — yet `Digestion Acid(s)`, `Digestion Duration` and
+`Digestion Temperature` are all keyed `preparation step` and must point at members. In that procedure
+they have nothing to anchor to. Li et al. 2016 *does* enumerate ("2 (step 1: 6M HCl + 8M HNO₃…; step 2:
+evaporate + re-dissolve…)"), so the field works when a curator goes beyond its name — **the name invites
+the failure.**
+
+> **Name a definer for its domain and curators enumerate; name it for its cardinality and they answer
+> with a cardinality.** Fields keyed by a pass anchor to the *identity* of each pass, so the definer
+> must establish those identities. The count falls out of the enumeration; the identities do not fall
+> out of the count.
+
+**The definer is therefore `Acquisition Pass`.** Its value enumerates: *"Pass 1 (LR); Pass 2 (MR)"*;
+*"Pass 1 = Mg, Al, Fe, Ca, Ti; Pass 2 = Na, Si, Mn, K, Cr"*; *"Pre-ablation; Run 1 (major, MR, 30 µm);
+Run 2 (trace, LR, 130 µm)"*.
+
+⚠ `Number of Digestion Steps` is a latent defect of the same kind. It is **module-owned by
+`Module_SolutionIntroduction`** (3 consumers), so renaming it is a separate module change — recorded,
+not bundled here.
+
+### EPMA already has this field, under the name `Sequence`
+
+So the definer is not a new field everywhere — it is **one library-wide field that EPMA already carries
+under a narrower name**. `Sequence` is TAPP-owned (no module owns it) and its Neuman cell is exactly a
+pass enumeration: *"Two passes per stage map: pass 1 = Mg, Al, Fe, Ca, Ti; pass 2 = Na, Si, Mn, K, Cr."*
+
+| TAPP | current key | extraction | proposed |
+|---|---|---|---|
+| EPMA | `channel` | **1 real of 15** | rename to **`Acquisition Pass`**, `defines: acquisition pass`, description rewritten |
+| SEM | `channel` | **0 real of 35** | ⚠ see below |
+| SEM_Composition | `channel` | **0 real of 9** | ⚠ see below |
+| ICP-MS family | — | — | gains `Acquisition Pass` |
+
+⚠ **The SEM snag — 7.4c.** If `Sequence` became `defines: acquisition pass` in all three, SEM would
+carry a definer for a key it does not use, and 7.4c says a definer needs a consumer. SEM has no passes
+(absent anchor: `WDS Spectrometer Channel` is `N/A` in all 44 SEM-family columns, and SEM-EDS collects
+every channel simultaneously). Either retire `Sequence` from the SEM TAPPs — it is 0 real of 44 and
+arguably `N/A` there — or leave it as `channel` and register the name divergence under 7.8.7. **Open.**
+
+### A companion scalar, proposed but not settled
+
+**`Number of Acquisition Passes`**, keyed `(none)` — neither a definer nor keyed by anything — to carry
+the procedure's structure in a machine-readable form that a free-text enumeration does not. Precedent:
+`Number of Blocks per Measurement` and `Number of Cycles per Block` are exactly this shape.
+
+⚠ It faces the **same redundancy question already open for `Mass Resolution Setting`**: is a scalar
+summary still needed once the passes enumerate themselves? Both should be answered together rather than
+separately.
 
 `Multi-Run Sequential Analysis Design` then becomes a **consumer** — and possibly a redundant one, since
 its content is "describe the passes". Whether it survives the Rule 6 admission test once a real definer
@@ -418,9 +474,9 @@ acquired N times and summed to limit beam damage.
 ## 5. Recommendation
 
 1. **Admit `acquisition pass`** on 7.4a–c, at Phase 0, per 7.12.1. Consumers: ~21 fields across
-   **~6 TAPPs** (§4C) — not the 9 an earlier draft inferred from uniformity. **Definer: a new, neutral `Number of Acquisition Passes`** (§4A) — not
-   `Multi-Run Sequential Analysis Design`, which fails 7.4a by being absent from all three Solution
-   TAPPs and is LA-specific in wording.
+   **~6 TAPPs** (§4C) — not the 9 an earlier draft inferred from uniformity. **Definer: `Acquisition Pass`** (§4A) — domain-named, not count-named; EPMA already carries it
+   as `Sequence`. Not `Multi-Run Sequential Analysis Design`, which fails 7.4a by being absent from all
+   three Solution TAPPs and is LA-specific in wording.
 2. ~~Settle the definer collision first (§3C).~~ **Done — see §3C RESOLVED.** No definer changes and
    no grammar change; containment is a consumer-side declaration.
 3. **Re-key category B, and `Mass Resolution Assignment` from category A.** The other seven
