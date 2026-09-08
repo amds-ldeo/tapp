@@ -424,9 +424,17 @@ registry.
 Neuman **is** X-ray mapping **and** has two passes. Both halves are true separately — within one pass
 the fixed spectrometers do collect simultaneously at each pixel — but when the element count exceeds
 the spectrometer count the whole map is run again. Ten elements on five fixed spectrometers requires
-two passes. The description asserts a non-applicability the evidence disproves, the same shape of
-defect as `Mass Resolution per Analyte`'s name asserting the key its evidence disproved. **Needs
-fixing independently of this proposal.**
+two passes. The description asserted a non-applicability the evidence disproves, the same shape of
+defect as `Mass Resolution per Analyte`'s name asserting the key its evidence disproved.
+
+**FIXED 2026-09-08** in all three carriers (EPMA v63, SEM v61, SEM_Composition v60 — the description was
+byte-identical in all three, so they moved together under Rule 7.8.9). It now reads: *"Order in which
+spectrometer assignments are acquired, and — where the element suite exceeds the number of spectrometers
+— the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect
+simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count
+therefore requires the acquisition to be run more than once, each pass covering a different subset of
+elements."* Column I was deliberately **not** touched — re-keying to `acquisition pass` belongs to this
+proposal, not to a description fix.
 
 ⚠ **The audit will not surface this.** At 1 real of 15, `Sequence` sits below
 `audit_keys_vs_literature.py`'s evidence threshold, so it reports no finding. The key change has to come
@@ -498,9 +506,10 @@ acquired N times and summed to limit beam damage.
   passes enumerate themselves? This is a Rule 6 admission question over three fields, not two, and it
   generalises — the same shape will recur wherever a "Setting" field summarises what the passes now
   carry (`Detector Configuration`, `Plasma Thermal Mode`).
-- ~~Extract Neuman et al. 2025 into EPMA.~~ **Done 2026-09-08** — `EPMA_TAPP_v62`. Successors: fix
-  `Sequence`'s description, which denies applicability to mapping (§4C); and decide whether `Sequence`
-  is EPMA's pass definer or a consumer of `Number of Acquisition Passes`. If it is the definer, EPMA
+- ~~Extract Neuman et al. 2025 into EPMA.~~ **Done 2026-09-08** — `EPMA_TAPP_v62`.
+  ~~Fix `Sequence`'s description.~~ **Done 2026-09-08** — EPMA v63, SEM v61, SEM_Composition v60.
+  Remaining successor: decide whether `Sequence` is EPMA's pass definer or a consumer of a neutral
+  field. If it is the definer, EPMA
   differs from the ICP-MS family, which needs the neutral field — worth checking against §4A before
   assuming one definer serves both.
 - Do the four "stated per run but identical" fields (§2) get keyed? Only if another procedure attests a
