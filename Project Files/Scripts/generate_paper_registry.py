@@ -775,7 +775,12 @@ papers = [   {   'Citation Key': 'Ma2015',
         'PDF Filename': 'JGR Planets - 2025 - Neuman - Revealing the Moon s Taurus‐Littrow Landslide via '
                         'Integrated Analysis of Pristine Apollo 17.pdf',
         'File Location': 'XCT/Literature Assessment',
-        'Electron Probe Microanalysis (EPMA)': 'N',
+        # 2026-09-08: EPMA N -> Detailed. Section 2.6 'Electron Microprobe Quantitative Imaging'
+        # states instrument model (JEOL JXA-8200), beam conditions (15 kV, 100 nA, fixed 10 um),
+        # count time (25 msec dwell), acquisition parameters (1,024 x 1,024, 9.5 um step, two
+        # passes) and software (Probe for EPMA / CalcImage) - well past the Detailed threshold.
+        # Extracted into EPMA_TAPP_v62 the same day.
+        'Electron Probe Microanalysis (EPMA)': 'Detailed',
         'Scanning Electron Microscopy (SEM / FIB-SEM)': 'N',
         'Transmission Electron Microscopy (TEM / STEM)': 'N',
         'Raman Vibrational Spectroscopy': 'N',
