@@ -305,16 +305,48 @@ pass enumeration: *"Two passes per stage map: pass 1 = Mg, Al, Fe, Ca, Ti; pass 
 
 | TAPP | current key | extraction | proposed |
 |---|---|---|---|
-| EPMA | `channel` | **1 real of 15** | rename to **`Acquisition Pass`**, `defines: acquisition pass`, description rewritten |
-| SEM | `channel` | **0 real of 35** | ⚠ see below |
-| SEM_Composition | `channel` | **0 real of 9** | ⚠ see below |
+| EPMA | `channel` | **1 real of 15** | rename to **`Acquisition Pass`**, `defines: acquisition pass` |
+| SEM | `channel` | 0 real of 35 | same rename — WDS is in scope (see below) |
+| SEM_Composition | `channel` | 0 real of 9 | same rename |
 | ICP-MS family | — | — | gains `Acquisition Pass` |
 
-⚠ **The SEM snag — 7.4c.** If `Sequence` became `defines: acquisition pass` in all three, SEM would
-carry a definer for a key it does not use, and 7.4c says a definer needs a consumer. SEM has no passes
-(absent anchor: `WDS Spectrometer Channel` is `N/A` in all 44 SEM-family columns, and SEM-EDS collects
-every channel simultaneously). Either retire `Sequence` from the SEM TAPPs — it is 0 real of 44 and
-arguably `N/A` there — or leave it as `channel` and register the name divergence under 7.8.7. **Open.**
+### RESOLVED 2026-09-08 — the SEM 7.4c snag dissolves, and it was my error
+
+I raised it on the ground that SEM has no passes, citing `WDS Spectrometer Channel` being `N/A` in all
+44 SEM-family columns. **That is attestation, not scope — the exact error 7.12.1 was written to
+prevent, applied one week after writing it.**
+
+SEM and SEM_Composition **declare `WDS Point Analysis` and `WDS Mapping` as modes**, and
+`WDS Spectrometer Configuration` explicitly addresses *"SEM-WDS configurations (third-party WDS on a
+non-EPMA platform)"*. WDS is in scope. More decisively, both carry **the same 11 channel-keyed fields as
+EPMA**:
+
+```
+X-ray Line · Diffracting Crystal · WDS Spectrometer Channel · Sequence
+Proportional Counter / Detector · WDS PHA Setting · Peak Counting Time
+Background Counting Time · Background Position(s) · Dwell Time per Pixel
+X-ray Background Correction Method
+```
+
+So if `Sequence` becomes `defines: acquisition pass` there, the other ten become its consumers through
+the containment established in §3C (`acquisition pass > channel`). **7.4c is satisfied.** No retirement,
+no name divergence.
+
+The `N/A` cells mean no *attested* SEM procedure uses WDS — the conditional-applicability case the
+library already handles by the A.4 treatment: state the condition in Column B and let `N/A` be an
+explicit value.
+
+**And the same test corrects §4C.** SEM ×4 was listed there as absent anchor. Only two of the four are:
+
+| | TAPPs | evidence |
+|---|---|---|
+| in scope, **attested** | LA-SF ×2, Solution SF/MC/Q, EPMA | 69 cells; EPMA via Neuman |
+| in scope, **untested** | **SEM, SEM_Composition** | WDS modes declared; 11 channel-keyed fields; no attested WDS procedure — the status EPMA held before Neuman |
+| in scope, attested **single-pass** → register divergence | LA-Q ×2, LA-MC ×2, TEM | "Single spot per location"; DualEELS simultaneous |
+| **absent anchor** (7.7) | SEM_FIBSEM, SEM_Imaging, Lab-XCT | no WDS mode, **0 channel-keyed fields**, no `Sequence` |
+
+**8 TAPPs in scope** (6 attested + 2 untested), 5 registered single-pass, 3 absent. TEM keeps 3
+channel-keyed fields but has no `Sequence` and no WDS, and its one pass candidate is closed by DualEELS.
 
 ### A companion scalar, proposed but not settled
 
