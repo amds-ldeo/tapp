@@ -77,11 +77,11 @@ strategy and cycle count.
 
 **No key needs replacing, and no key's definition changes.** The impact sorts into three categories.
 
-### A — currently `channel`, value is per-pass: **no change needed** (8 fields, 12 cells)
+### A — currently `channel`, value is per-pass: **7 stay, 1 is re-keyed** (8 fields, 12 cells)
 
 `Dwell Time per Mass`, `Integration Time per Cycle`, `Instrument Sensitivity`,
-`Interference Correction Method`, `Mass Resolution Assignment`, `Collision/Reaction Cell (CRC)
-Configuration`, `Collision Gas Type`, `Reaction Product Ion / Mass-Shift Transition`.
+`Interference Correction Method`, `Collision/Reaction Cell (CRC) Configuration`, `Collision Gas Type`,
+`Reaction Product Ion / Mass-Shift Transition` — **stay `channel`**.
 
 An acquisition pass is **coarser** than a channel, so a per-pass value is representable as a per-channel
 value with repeats. Rule **7.3.2** already governs this and points the same way: *"declare the finest
@@ -90,6 +90,22 @@ tables, which the rule calls harmless.
 
 Cost of leaving them: the *fact* that a value is uniform within a pass is not recoverable. Misra states
 two dwell times; the current key asks for fourteen.
+
+#### ⚠ `Mass Resolution Assignment` is the exception — corrected 2026-09-08
+
+It was listed here in the first draft. It does not belong, and the discriminating question is whether
+the value **can vary between channels within a single pass**:
+
+| field | can it vary within one pass? | verdict |
+|---|---|---|
+| `Dwell Time per Mass` | **yes** — Lu et al. 2007 gives ⁴⁷Ti/⁴⁹Ti a specific dwell, all inside MR | `channel` is genuinely exercised → **stays** |
+| `Mass Resolution Assignment` | **no, never** — the pass *is* the resolution setting for its masses | → **`acquisition pass`** |
+
+For every other category-A field, `channel` over-declares in a way some procedure *does* exercise. For
+`Mass Resolution Assignment` it over-declares in a way that **can never** be exercised, because
+uniformity within a pass is definitional rather than incidental. That is a re-key, not a tolerable
+over-declaration — and it moves the field from the finest key that is attested to the finest key that is
+*possible*, which is what 7.3.2 actually asks for.
 
 ### B — currently `(none)`, value is per-pass, **not representable as any existing key** (25 fields, 46 cells)
 
@@ -204,7 +220,8 @@ the target species — the asymmetry the two rows above record.
 | `Target Species` | **unchanged** — `defines: target species` (the domain is the union; the pass partitions it) |
 | **new** `Number of Acquisition Passes` | `defines: acquisition pass` |
 | the ~21 pass-only consumers (§3B) | `acquisition pass` |
-| channel-keyed consumers (§3A) | **stay `channel`** under 7.3.2 — the pass is coarser |
+| channel-keyed consumers (§3A) | **7 stay `channel`** under 7.3.2 — the pass is coarser |
+| `Mass Resolution Assignment` (§3A) | **re-keyed to `acquisition pass`** — cannot vary within a pass |
 | a field taking one value per channel *within* each pass | `acquisition pass > channel` — available, possibly with no initial users |
 
 ⚠ **Side finding.** The 7.3 notation table still reads *"No field in the current library uses
@@ -303,7 +320,8 @@ to this survey.
    TAPPs and is LA-specific in wording.
 2. ~~Settle the definer collision first (§3C).~~ **Done — see §3C RESOLVED.** No definer changes and
    no grammar change; containment is a consumer-side declaration.
-3. **Re-key category B, leave category A alone.** A is already correct under 7.3.2.
+3. **Re-key category B, and `Mass Resolution Assignment` from category A.** The other seven
+   category-A fields are already correct under 7.3.2.
 4. **Re-examine the 2026-08-31 `Desolvation System` decline** on its own terms: Hopp's cell is per-pass,
    and the decline rested partly on the test 7.12.1 has since demoted.
 
@@ -313,6 +331,14 @@ to this survey.
   consumer. Open successor: does it survive the Rule 6 admission test once `Number of Acquisition
   Passes` exists, or is it absorbed? It currently holds the whole design in prose — the same fidelity
   failure found in `Collector Configuration` (Decision_Record_2026-09-01, §3).
+- **The resolution cluster needs rationalising once the key exists.** Three fields would overlap:
+  `Mass Resolution Assignment` (per pass, after the §3A correction), `Mass Resolution Setting`
+  (`(none)`, "LR and MR" — the procedure-level list, now derivable from the passes) and the new
+  `Number of Acquisition Passes`. Their descriptions already cross-reference: *"The overall mode(s)
+  used in the procedure are recorded in Mass Resolution Setting."* Is `Setting` still needed when the
+  passes enumerate themselves? This is a Rule 6 admission question over three fields, not two, and it
+  generalises — the same shape will recur wherever a "Setting" field summarises what the passes now
+  carry (`Detector Configuration`, `Plasma Thermal Mode`).
 - Do the four "stated per run but identical" fields (§2) get keyed? Only if another procedure attests a
   difference — 7.3.2. Worth re-checking when the NGMS and TIMS literature is extracted.
 - Does the pre-ablation pass in Chernonozhkin count as an acquisition pass, or as preparation? It uses
