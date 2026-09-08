@@ -119,12 +119,54 @@ Representative members: `Mass Resolution Setting`, `Laser Spot Geometry`, `Laser
 Expressing both groupings needs `defines: channel per (target species × acquisition pass)` — which
 Rule **7.3.1 explicitly refuses**; `validate_tapp.py` raises `rule7-compound-definer-key` as an **ERROR**.
 
-⚠ **This is the one place where admitting the key requires a rules change, not just a declaration.**
+### RESOLVED 2026-09-08 — the collision dissolves; no grammar change is needed
 
-Note the domain itself is *not* pass-scoped: Chernonozhkin's procedure determines the **union** of Run 1
-and Run 2 nuclides, and the pass **partitions** that union. That points at containment —
-`acquisition pass > channel` — rather than a compound `per`, and containment (`A > B`) is already in the
-7.3 notation and already in use (`sample > sampling unit`, 16 rows).
+**Containment is declared on CONSUMERS, never on definers.** That is the whole answer, and the library
+already demonstrates it:
+
+```
+Sample Name        defines: sample            <- definer, plain
+Sampling Unit      defines: sampling unit     <- definer, plain
+...consumers...    sample > sampling unit     <- 46 rows carry the containment
+```
+
+No definer in the library carries a containment. So `acquisition pass > channel` is expressed where
+fields are keyed, and **`Monitored Masses`, `Collector Configuration` and `Target Species` do not change
+at all.** The compound-definer refusal in 7.3.1 stands untouched — it was never the obstacle.
+
+**Does containment actually hold?** 7.3's test is that **B must be unenumerable without A**, and the
+library's own worked rejection is instructive: `target species > channel` was refused because *"m/z 238
+is a position on the instrument axis and exists independently of any target species."*
+
+The parallel **fails for the pass**, which is why the two cases differ:
+
+| | `target species > channel` | `acquisition pass > channel` |
+|---|---|---|
+| is the parent external to acquisition? | **yes** — Fe is a chemical fact | **no** — the pass *is* acquisition configuration |
+| can a channel exist without the parent? | **yes** — interference monitors and internal standards are analyte-orphans (¹⁸²W, ²⁰²Hg, ⁴³Ca) | **no** — every channel is acquired in exactly one pass |
+| verdict | containment refused, `per` used instead | **containment holds** |
+
+A channel is the acquisition **slot**, and the slot `LR/⁴³Ca` is *created by* the LR pass — it is not a
+pre-existing position the pass happens to visit. Misra's ⁴³Ca proves it: the same mass yields two
+slots because there are two passes. Hence the parent is **NOT NULL** for the pass and **nullable** for
+the target species — the asymmetry the two rows above record.
+
+### What actually changes
+
+| | |
+|---|---|
+| `Monitored Masses` | **unchanged** — `defines: channel per target species` |
+| `Collector Configuration` | **unchanged** — `defines: channel per target species` |
+| `Target Species` | **unchanged** — `defines: target species` (the domain is the union; the pass partitions it) |
+| **new** `Number of Acquisition Passes` | `defines: acquisition pass` |
+| the ~21 pass-only consumers (§3B) | `acquisition pass` |
+| channel-keyed consumers (§3A) | **stay `channel`** under 7.3.2 — the pass is coarser |
+| a field taking one value per channel *within* each pass | `acquisition pass > channel` — available, possibly with no initial users |
+
+⚠ **Side finding.** The 7.3 notation table still reads *"No field in the current library uses
+nesting"*. That is **stale**: `sample > sampling unit` carries **25 rows** and
+`sample > sampling unit x reported property` a further **21** — 46 in total, since Rule 13. Corrected in
+conventions.md in the same pass.
 
 ---
 
@@ -215,8 +257,8 @@ to this survey.
    built TAPPs (§2). **Definer: a new, neutral `Number of Acquisition Passes`** (§4A) — not
    `Multi-Run Sequential Analysis Design`, which fails 7.4a by being absent from all three Solution
    TAPPs and is LA-specific in wording.
-2. **Settle the definer collision first (§3C)** — containment `acquisition pass > channel` looks
-   likelier than extending 7.3.1 to compound keys, and costs no grammar change.
+2. ~~Settle the definer collision first (§3C).~~ **Done — see §3C RESOLVED.** No definer changes and
+   no grammar change; containment is a consumer-side declaration.
 3. **Re-key category B, leave category A alone.** A is already correct under 7.3.2.
 4. **Re-examine the 2026-08-31 `Desolvation System` decline** on its own terms: Hopp's cell is per-pass,
    and the decline rested partly on the test 7.12.1 has since demoted.

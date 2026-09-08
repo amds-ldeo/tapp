@@ -975,7 +975,7 @@ key would duplicate existing machinery.
 | Form | Meaning | Example |
 |---|---|---|
 | `(none)` | scalar — one value per procedure/analysis. The default and the most common value. | `RF Power`; `Instrument Make and Model` |
-| `A > B` | **containment** — B exists only within A; one value per B within each A | `sampling unit > model component` (Mössbauer components fitted per phase). No field in the current library uses nesting: `target species > background position` was retired 2026-08-11 under 7.4c |
+| `A > B` | **containment** — B exists only within A; one value per B within each A | `sampling unit > model component` (Mössbauer components fitted per phase). **In use since Rule 13**: `sample > sampling unit` (25 rows) and `sample > sampling unit x reported property` (21). Corrected 2026-09-08 — this cell previously read "No field in the current library uses nesting", which was true when written and has not been since. `target species > background position` was retired 2026-08-11 under 7.4c |
 | `A x B` | **cross-product** — A and B are independent domains; one value per combination. Ordered: read as *"for each A, one value per B."* | `standard x reported property` (`Analytical Precision`); `sampling unit x target species` (`Counting Statistics Error`) |
 | `defines: A` | the field **enumerates** the key domain rather than being keyed by it — it is the header of the child table, not a column in it | `Target Species`; `Reported Variables and Units`; `Reported Date Type` |
 | `defines: A per B` | the field enumerates domain A **and** repeats over key B — a definer whose child table carries a parent key. One key only; see 7.3.1 | `Monitored Masses` (`defines: channel per target species`); `EELS Edges`; `Secondary Reference Materials` |
