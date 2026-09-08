@@ -312,10 +312,92 @@ to this survey.
 
 ---
 
+## 4C. Which TAPPs are affected — tested, not assumed
+
+An earlier draft put this at 9 TAPPs by applying Rule 7.8.7 uniformity to the whole ICP-MS family.
+**That was inference, not evidence.** Each family was then tested against its own literature, and the
+answer moved in both directions.
+
+| | TAPPs | basis |
+|---|---|---|
+| **Attested multi-pass** — key applies | LA-SF ×2, Solution SF, Solution MC, Solution Q, **EPMA** | 69 surveyed cells; EPMA via Neuman et al. 2025 (see below) |
+| **Attested SINGLE-pass** — register as divergence | LA-Q ×2, LA-MC ×2, **TEM** | the question was asked *and answered* |
+| **Absent anchor** (Rule 7.7) | SEM ×4, Lab-XCT | no dispersive sequence exists to have |
+
+**~6 TAPPs, not 9.** Four LA variants move out; EPMA moves in.
+
+### LA-Q and LA-MC: positive evidence, not a null
+
+`Multi-Run Sequential Analysis Design` exists in both and was answered — **LA-Q 6 real of 7 columns,
+every one "Single spot per location"** (Nakanishi 2022, Liu 2024, Liu 2025 ×2 …); LA-MC's single column
+reads "Single line scan per location (1 block of 120 cycles)". These are not corpus gaps; the field was
+asked and said *single*. They become registered divergences in `KEYED_BY_TECHNIQUE_DEPENDENT`, the same
+treatment `Secondary Reference Materials` received.
+
+⚠ **LA-MC rests on n = 1.** Re-check when its Phase 3 is extended — two further papers are already
+listed as outstanding in its Phase 0 record.
+
+### EPMA moves IN, on a paper the library already holds
+
+EPMA's own fields say nothing: `Sequence` **0 real of 14**, `WDS Spectrometer Channel` **0 real of 14**.
+But precedents.md already forbids reading that as evidence — *"all 14 are meteoritics and mineralogy
+application papers, which do not publish the setup table, whereas method papers do."*
+
+The positive evidence is in **Neuman et al. 2025**, currently extracted only into Lab-XCT:
+
+> "**Two passes** were used to collect X-ray intensities for **Mg, Al, Fe, Ca, and Ti in pass 1, and Na,
+> Si, Mn, K, and Cr in pass 2.** These mapping runs each required 18 hr per map…"
+
+Two passes partitioning the target-species domain five and five — structurally identical to Misra's
+LR/MR. `Sequence` (currently `channel`, *"order in which spectrometer assignments are acquired"*) is
+really per-pass.
+
+⚠ **Separate Phase 3 finding:** Neuman 2025 carries a method-paper-grade EPMA description (five stage
+maps, 1024×1024, 9.5 µm step, 10 µm beam, 15 kV, 100 nA, 25 ms dwell, two passes, CalcImage Φ(ρz)) and
+is extracted into the wrong TAPP. It is exactly the kind of paper the EPMA corpus was noted to lack.
+
+### SEM: absent anchor, and the null is physical — but mode-dependent
+
+`WDS Spectrometer Channel` is **`N/A` in all 44 SEM-family columns** (35 SEM + 9 SEM_Composition) —
+`N/A`, not `N`. Every attested SEM procedure is EDS, where the SDD collects the whole spectrum
+simultaneously. There is no sequence to have, and with 70 literature columns across the four SEM TAPPs
+this is the library's largest corpus. The null is trustworthy.
+
+⚠ **Recorded so it is not misread: this is MODE-dependent, not technique-dependent.** A SEM fitted with
+WDS would inherit EPMA's pass structure exactly. The finding is "no attested SEM procedure uses WDS",
+not "SEM cannot have passes".
+
+### TEM: the one candidate is explicitly simultaneous
+
+Low-loss versus core-loss EELS is the only place a TEM pass could arise — on older spectrometers the two
+require separate acquisitions at different settings. Cymes 2023 closes it:
+
+> `EELS Spectrometer` — "Gatan Enfinium ER **Dual EELS** spectrometer (**simultaneous** low-loss and
+> core-loss)" · `EELS Acquisition Mode` — "Dual EELS spectrum imaging (simultaneous)"
+
+Positive evidence of single-pass, like LA-Q's.
+
+### The criterion this sharpened: a pass is not a replicate
+
+Zega 2025 looked like a multi-pass case and is not:
+
+> `STEM Frame Averaging` — "**Sequential acquisition** several minutes to >1 h; combined using Python
+> (light-element volatilization control)"
+
+Genuinely sequential, genuinely multiple — but the repeats are **identically configured**: the same map
+acquired N times and summed to limit beam damage.
+
+> **A pass is a sub-procedure with its own configuration. Identical repeats are replicates.**
+> Chernonozhkin's Run 1 and Run 2 differ in spot size, resolution, detector and internal standard;
+> Zega's frames differ in nothing. Replication is already carried by `Number of Replicates` and
+> `STEM Frame Averaging` and must not migrate to the pass key.
+
+---
+
 ## 5. Recommendation
 
-1. **Admit `acquisition pass`** on 7.4a–c, at Phase 0, per 7.12.1. Consumers: ~21 fields across four
-   built TAPPs (§2). **Definer: a new, neutral `Number of Acquisition Passes`** (§4A) — not
+1. **Admit `acquisition pass`** on 7.4a–c, at Phase 0, per 7.12.1. Consumers: ~21 fields across
+   **~6 TAPPs** (§4C) — not the 9 an earlier draft inferred from uniformity. **Definer: a new, neutral `Number of Acquisition Passes`** (§4A) — not
    `Multi-Run Sequential Analysis Design`, which fails 7.4a by being absent from all three Solution
    TAPPs and is LA-specific in wording.
 2. ~~Settle the definer collision first (§3C).~~ **Done — see §3C RESOLVED.** No definer changes and
@@ -339,6 +421,8 @@ to this survey.
   passes enumerate themselves? This is a Rule 6 admission question over three fields, not two, and it
   generalises — the same shape will recur wherever a "Setting" field summarises what the passes now
   carry (`Detector Configuration`, `Plasma Thermal Mode`).
+- **Extract Neuman et al. 2025 into EPMA** (§4C). Independently worthwhile — it is a method-grade EPMA
+  description sitting in Lab-XCT's corpus — and it is the evidence EPMA's pass key rests on.
 - Do the four "stated per run but identical" fields (§2) get keyed? Only if another procedure attests a
   difference — 7.3.2. Worth re-checking when the NGMS and TIMS literature is extracted.
 - Does the pre-ablation pass in Chernonozhkin count as an acquisition pass, or as preparation? It uses
