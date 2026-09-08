@@ -1,0 +1,485 @@
+[
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Mass Resolution Setting",
+  "current_key": "(none)",
+  "cell": "Run 1: Medium resolution (M/ΔM = 4000) for major elements; Run 2: Low resolution (M/ΔM = 300) for trace elements"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Laser Spot Geometry",
+  "current_key": "(none)",
+  "cell": "Run 1 (major): 30 µm circular; Run 2 (trace): 130 µm circular"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Laser Spot Path / Ablation Mode",
+  "current_key": "(none)",
+  "cell": "Transect (line scan, run 1) + Spot (run 2 on same location after pre-ablation)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Laser Fluence (Energy Density)",
+  "current_key": "(none)",
+  "cell": "Run 1 (major): 4.72 J cm⁻²; Run 2 (trace): 4.72 J cm⁻²"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Laser Repetition Rate",
+  "current_key": "(none)",
+  "cell": "Run 1 (major): 20 Hz; Run 2 (trace): 40 Hz"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Transect Rate, Mapping Rate or Step Size",
+  "current_key": "(none)",
+  "cell": "10 µm s⁻¹ (line scan run 1); spot mode (run 2)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Make-up Gas and Flow Rate",
+  "current_key": "(none)",
+  "cell": "Ar make-up: 0.947 l min⁻¹ (run 1 and run 2); N₂ not added"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Coolant (Plasma) Gas Flow Rate",
+  "current_key": "(none)",
+  "cell": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.90 l min⁻¹ (run 1 and run 2)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "RF Power",
+  "current_key": "(none)",
+  "cell": "1000 W (run 1 major elements + run 2 trace elements)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Analysis Sequence",
+  "current_key": "(none)",
+  "cell": "GRM block (3–5×) → unknowns → GRM block (3–5×); same structure for run 1 and run 2"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Target Species",
+  "current_key": "defines: target species",
+  "cell": "Run 1 (major): ²⁵Mg, ²⁹Si, ³¹P, ⁴⁴Ca, ⁵³Cr, ⁵⁵Mn, ⁵⁷Fe (7 nuclides; medium resolution); Run 2 (trace): ⁷Li, ⁴⁵Sc, ⁵¹V, ⁵³Cr, ⁵⁹Co, ⁶⁰Ni, ⁶³Cu, ⁶⁶Zn, ⁸⁹Y, ⁹⁰Zr, ⁹³Nb, ¹³³Cs, ¹³⁷Ba, ¹³⁹La–¹⁷⁵Lu (all REE), ¹⁸⁰Hf, ¹⁸¹Ta, ¹⁸²W, ¹⁸⁵Re, ¹⁹³Ir, ¹⁹⁵Pt, ¹⁹⁷Au, ²³²Th, ²³⁸U (36 nuclides)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Dwell Time per Mass",
+  "current_key": "channel",
+  "cell": "Run 1 (major): 0.01 s per nuclide; samples per peak: 18; duty cycle: 2.069 s; Run 2 (trace): 0.01 s per nuclide; samples per peak: 7; duty cycle: 2.062 s"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Background Count Time",
+  "current_key": "(none)",
+  "cell": "Run 1: 5 gas blank scans; 24 ablation scans; Run 2: 5 gas blank scans; 24 ablation scans"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Multi-Run Sequential Analysis Design",
+  "current_key": "(none)",
+  "cell": "Three-stage sequential design on same olivine location:\n(1) Pre-ablation pass (2 J cm⁻², 150 µm square, 300 µm s⁻¹) to remove surface contamination;\n(2) Run 1 — major elements (30 µm circular, MR M/ΔM=4000, 20 Hz, 7 nuclides);\n(3) Run 2 — trace elements (130 µm circular, LR M/ΔM=300, 40 Hz, 36 nuclides; Cr from run 1 as IS)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Number of Replicates",
+  "current_key": "(none)",
+  "cell": "3 replicate analyses per grain (3× run 1 + 3× run 2 on same location)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Internal Standard Approach",
+  "current_key": "(none)",
+  "cell": "Run 1 (major elements): sum-of-oxide normalization (MgO+FeO+SiO₂+P₂O₅=100 wt%; Liu et al. 2008); Run 2 (trace elements): single element IS from Run 1 (⁵³Cr concentration from major element run used as IS for trace element run)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Internal Standard Element",
+  "current_key": "(none)",
+  "cell": "Run 1: No single IS; oxide sum normalization; Run 2: ⁵³Cr (concentration from Run 1 major-element analysis on 30 µm spot used as IS for 130 µm spot trace element run)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Elemental Fractionation Correction",
+  "current_key": "(none)",
+  "cell": "Run 1: Oxide sum normalization corrects for ablation yield variation; external calibration using glass GRMs (NIST + USGS + MPI-DING); Run 2: Cr from run 1 as IS corrects for ablation yield; external calibration with expanded glass GRM set"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Signal Integration Time",
+  "current_key": "(none)",
+  "cell": "Run 1: ~50 s (34 runs covering 400 µm line + 10 s blank + washout); Run 2: same structure; actual integrated signal window within run not separately stated"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Pulse/Analog Detector Nonlinearity Correction",
+  "current_key": "(none)",
+  "cell": "Applied: Run 1 medium resolution with Faraday for major elements; Run 2 low resolution; cross-calibration performed"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Normalization / Standards-Based Correction",
+  "current_key": "reported property",
+  "cell": "Run 1: 100% oxide sum normalization; Run 2: Cr IS from Run 1 applied; no further post-acquisition normalization"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Primary Calibration Standard Name",
+  "current_key": "target species",
+  "cell": "Same glass GRM set as mapping for Run 1; expanded set additionally includes MPI-DING KL2-G, ML3B-G, StHs6/80-G, T1-G, ATHO-G, BM90/21-G, GOR128-G, GOR132-G for Run 2 trace elements"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Additional Notes",
+  "current_key": "(none)",
+  "cell": "Multi-run sequential design is the key methodological innovation: Run 1 (major elements, 30 µm, MR) provides Cr IS for Run 2 (trace elements, 130 µm, LR); pre-ablation pass removes surface contamination before Run 1"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Mass Resolution Setting",
+  "current_key": "(none)",
+  "cell": "Run 1: Medium resolution (M/ΔM = 4000) for major elements; Run 2: Low resolution (M/ΔM = 300) for trace elements"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Laser Spot Geometry",
+  "current_key": "(none)",
+  "cell": "Run 1 (major): 30 µm circular; Run 2 (trace): 130 µm circular"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Laser Spot Path / Ablation Mode",
+  "current_key": "(none)",
+  "cell": "Transect (line scan, run 1) + Spot (run 2 on same location after pre-ablation)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Laser Fluence (Energy Density)",
+  "current_key": "(none)",
+  "cell": "Run 1 (major): 4.72 J cm⁻²; Run 2 (trace): 4.72 J cm⁻²"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Laser Repetition Rate",
+  "current_key": "(none)",
+  "cell": "Run 1 (major): 20 Hz; Run 2 (trace): 40 Hz"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Transect Rate, Mapping Rate or Step Size",
+  "current_key": "(none)",
+  "cell": "10 µm s⁻¹ (line scan run 1); spot mode (run 2)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Make-up Gas and Flow Rate",
+  "current_key": "(none)",
+  "cell": "Ar make-up: 0.947 l min⁻¹ (run 1 and run 2); N₂ not added"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Coolant (Plasma) Gas Flow Rate",
+  "current_key": "(none)",
+  "cell": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.90 l min⁻¹ (run 1 and run 2)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "RF Power",
+  "current_key": "(none)",
+  "cell": "1000 W (run 1 major elements + run 2 trace elements)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Analysis Sequence",
+  "current_key": "(none)",
+  "cell": "GRM block (3–5×) → unknowns → GRM block (3–5×); same structure for run 1 and run 2"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Target Species",
+  "current_key": "defines: target species",
+  "cell": "Run 1 (major): ²⁵Mg, ²⁹Si, ³¹P, ⁴⁴Ca, ⁵³Cr, ⁵⁵Mn, ⁵⁷Fe (7 nuclides; medium resolution); Run 2 (trace): ⁷Li, ⁴⁵Sc, ⁵¹V, ⁵³Cr, ⁵⁹Co, ⁶⁰Ni, ⁶³Cu, ⁶⁶Zn, ⁸⁹Y, ⁹⁰Zr, ⁹³Nb, ¹³³Cs, ¹³⁷Ba, ¹³⁹La–¹⁷⁵Lu (all REE), ¹⁸⁰Hf, ¹⁸¹Ta, ¹⁸²W, ¹⁸⁵Re, ¹⁹³Ir, ¹⁹⁵Pt, ¹⁹⁷Au, ²³²Th, ²³⁸U (36 nuclides)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Dwell Time per Mass",
+  "current_key": "channel",
+  "cell": "Run 1 (major): 0.01 s per nuclide; samples per peak: 18; duty cycle: 2.069 s; Run 2 (trace): 0.01 s per nuclide; samples per peak: 7; duty cycle: 2.062 s"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Background Count Time",
+  "current_key": "(none)",
+  "cell": "Run 1: 5 gas blank scans; 24 ablation scans; Run 2: 5 gas blank scans; 24 ablation scans"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Multi-Run Sequential Analysis Design",
+  "current_key": "(none)",
+  "cell": "Three-stage sequential design on same olivine location:\n(1) Pre-ablation pass (2 J cm⁻², 150 µm square, 300 µm s⁻¹) to remove surface contamination;\n(2) Run 1 — major elements (30 µm circular, MR M/ΔM=4000, 20 Hz, 7 nuclides);\n(3) Run 2 — trace elements (130 µm circular, LR M/ΔM=300, 40 Hz, 36 nuclides; Cr from run 1 as IS)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Number of Replicates",
+  "current_key": "(none)",
+  "cell": "3 replicate analyses per grain (3× run 1 + 3× run 2 on same location)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Internal Standard Approach",
+  "current_key": "(none)",
+  "cell": "Run 1 (major elements): sum-of-oxide normalization (MgO+FeO+SiO₂+P₂O₅=100 wt%; Liu et al. 2008); Run 2 (trace elements): single element IS from Run 1 (⁵³Cr concentration from major element run used as IS for trace element run)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Internal Standard Element",
+  "current_key": "(none)",
+  "cell": "Run 1: No single IS; oxide sum normalization; Run 2: ⁵³Cr (concentration from Run 1 major-element analysis on 30 µm spot used as IS for 130 µm spot trace element run)"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Elemental Fractionation Correction",
+  "current_key": "(none)",
+  "cell": "Run 1: Oxide sum normalization corrects for ablation yield variation; external calibration using glass GRMs (NIST + USGS + MPI-DING); Run 2: Cr from run 1 as IS corrects for ablation yield; external calibration with expanded glass GRM set"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Signal Integration Time",
+  "current_key": "(none)",
+  "cell": "Run 1: ~50 s (34 runs covering 400 µm line + 10 s blank + washout); Run 2: same structure; actual integrated signal window within run not separately stated"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Pulse/Analog Detector Nonlinearity Correction",
+  "current_key": "(none)",
+  "cell": "Applied: Run 1 medium resolution with Faraday for major elements; Run 2 low resolution; cross-calibration performed"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Normalization / Standards-Based Correction",
+  "current_key": "reported property",
+  "cell": "Run 1: 100% oxide sum normalization; Run 2: Cr IS from Run 1 applied; no further post-acquisition normalization"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Primary Calibration Standard Name",
+  "current_key": "target species",
+  "cell": "Same glass GRM set as mapping for Run 1; expanded set additionally includes MPI-DING KL2-G, ML3B-G, StHs6/80-G, T1-G, ATHO-G, BM90/21-G, GOR128-G, GOR132-G for Run 2 trace elements"
+ },
+ {
+  "tapp": "LA-SF-ICP-MS_UPb",
+  "procedure": "Chernonozhkin et al. 2021 (Chem Geol 562",
+  "field": "Additional Notes",
+  "current_key": "(none)",
+  "cell": "Multi-run sequential design is the key methodological innovation: Run 1 (major elements, 30 µm, MR) provides Cr IS for Run 2 (trace elements, 130 µm, LR); pre-ablation pass removes surface contamination before Run 1"
+ },
+ {
+  "tapp": "Solution_MC-ICP-MS",
+  "procedure": "Hopp+etal2021 | Neptune (Plus spec) | Un",
+  "field": "Desolvation System",
+  "current_key": "(none)",
+  "cell": "ESI Apex Ω for HR-mode dry plasma work, \"with no auxiliary N2 flow\"; none for MR-mode wet plasma"
+ },
+ {
+  "tapp": "Solution_MC-ICP-MS",
+  "procedure": "Hopp+etal2021 | Neptune (Plus spec) | Un",
+  "field": "Plasma Thermal Mode",
+  "current_key": "(none)",
+  "cell": "Both, by mode — \"either a cyclonic glass spray chamber (wet plasma, MR-mode, Pt cones) or an ESI Apex Ω desolvating nebulizer system (dry plasma, HR-mode, Ni cones)\""
+ },
+ {
+  "tapp": "Solution_MC-ICP-MS",
+  "procedure": "IbanezMejia+Tissot2020 | Nu Plasma II | ",
+  "field": "Plasma Thermal Mode",
+  "current_key": "(none)",
+  "cell": "Dry plasma — \"Analyses were conducted in dry plasma mode using a Cetac Aridus II desolvator nebulizer\""
+ },
+ {
+  "tapp": "Solution_MC-ICP-MS",
+  "procedure": "Barnes+etal2025 | Neptune Plus | WUSTL",
+  "field": "Plasma Thermal Mode",
+  "current_key": "(none)",
+  "cell": "Dry plasma for K — \"all K isotope analyses were undertaken using a 'dry plasma' technique with the Elemental Scientific APEX Ω high-sensitivity desolvation system\"; wet plasma for Cu and Zn via a quartz glass dual cyclonic spray chamber"
+ },
+ {
+  "tapp": "Solution_MC-ICP-MS",
+  "procedure": "Hopp+etal2021 | Neptune (Plus spec) | Un",
+  "field": "Instrument Sensitivity",
+  "current_key": "channel",
+  "cell": "Typical 56Fe+ intensities 1.4 nA (wet plasma, MR) to 2 nA (dry plasma, HR)"
+ },
+ {
+  "tapp": "Solution_MC-ICP-MS",
+  "procedure": "Hu+etal2022 | Neptune Plus | Univ Chicag",
+  "field": "Collector Configuration",
+  "current_key": "defines: channel per target species",
+  "cell": "Static mode for most REEs; a subconfiguration for Dy and Yb to monitor isobaric interferences"
+ },
+ {
+  "tapp": "Solution_MC-ICP-MS",
+  "procedure": "Nowell+etal2008 | Nu Plasma | NIGL",
+  "field": "Collector Configuration",
+  "current_key": "defines: channel per target species",
+  "cell": "Two-sequence static multi-collection"
+ },
+ {
+  "tapp": "Solution_MC-ICP-MS",
+  "procedure": "Barnes+etal2025 | Neptune Plus | ETH Zur",
+  "field": "Collector Configuration",
+  "current_key": "defines: channel per target species",
+  "cell": "\"Titanium isotopes were collected in two cup configurations\""
+ },
+ {
+  "tapp": "Solution_MC-ICP-MS",
+  "procedure": "Hu+etal2022 | Neptune Plus | Univ Chicag",
+  "field": "Number of Cycles per Block",
+  "current_key": "(none)",
+  "cell": "40 cycles in the main configuration; the subconfiguration measured twice"
+ },
+ {
+  "tapp": "Solution_MC-ICP-MS",
+  "procedure": "Hu+etal2022 | Neptune Plus | Univ Chicag",
+  "field": "Integration Time per Cycle",
+  "current_key": "channel",
+  "cell": "4.142 s in the subconfiguration"
+ },
+ {
+  "tapp": "Solution_MC-ICP-MS",
+  "procedure": "Hu+etal2022 | Neptune Plus | Univ Chicag",
+  "field": "Interference Correction Method",
+  "current_key": "channel",
+  "cell": "Subconfiguration scaling — 166Er measured only in the subconfiguration, 163Dy in both; the 166Er/163Dy ratio is scaled onto the main configuration and multiplied by 162Er/166Er and 164Er/166Er to subtract the interferences"
+ },
+ {
+  "tapp": "Solution_Q-ICP-MS",
+  "procedure": "GilDiaz+etal2020 | Thermo iCAP-TQ | lab ",
+  "field": "Collision/Reaction Cell (CRC) Configuration",
+  "current_key": "channel",
+  "cell": "Per analyte: KED (He) for 126Te; ICP-MS/MS O2 mass-shift mode for spiked/experimental 125Te"
+ },
+ {
+  "tapp": "Solution_Q-ICP-MS",
+  "procedure": "GilDiaz+etal2020 | Thermo iCAP-TQ | lab ",
+  "field": "Collision Gas Type",
+  "current_key": "channel",
+  "cell": "He for KED; O2 for the mass-shift mode"
+ },
+ {
+  "tapp": "Solution_Q-ICP-MS",
+  "procedure": "GilDiaz+etal2020 | Thermo iCAP-TQ | lab ",
+  "field": "Reaction Product Ion / Mass-Shift Transition",
+  "current_key": "channel",
+  "cell": "125Te + 16O -> 141TeO (mass-shift O2 mode); 126Te measured on-mass in KED"
+ },
+ {
+  "tapp": "Solution_SF-ICP-MS",
+  "procedure": "Willbold2005 | ThermoFinnigan ELEMENT2 |",
+  "field": "Final Solution Matrix",
+  "current_key": "(none)",
+  "cell": "0.4 mol/l HNO3 (dilution factor ~21000 for LR, ~1000 for HR; stated sample prep section)"
+ },
+ {
+  "tapp": "Solution_SF-ICP-MS",
+  "procedure": "Misra+etal2014 | Thermo Element XR | Uni",
+  "field": "Monitored Masses",
+  "current_key": "defines: channel per target species",
+  "cell": "LR: 7Li, 11B, 25Mg, 27Al, 43Ca, 87Sr, 111Cd, 137Ba, 238U; MR: 23Na, 43Ca, 55Mn, 56Fe, 66Zn (Table 3)"
+ },
+ {
+  "tapp": "Solution_SF-ICP-MS",
+  "procedure": "Milne+etal2010 | Thermo Finnigan Element",
+  "field": "Mass Resolution Assignment",
+  "current_key": "channel",
+  "cell": "MR (R ~4000): 55Mn, 57Fe, 59Co, 62Ni, 65Cu, 68Zn; LR (R ~300): 111Cd, 207Pb (stated section 2.4)"
+ },
+ {
+  "tapp": "Solution_SF-ICP-MS",
+  "procedure": "Misra+etal2014 | Thermo Element XR | Uni",
+  "field": "Mass Resolution Assignment",
+  "current_key": "channel",
+  "cell": "LR: 7Li, 11B, 25Mg, 27Al, 43Ca, 87Sr, 111Cd, 137Ba, 238U; MR: 23Na, 43Ca, 55Mn, 56Fe, 66Zn (Table 3)"
+ },
+ {
+  "tapp": "Solution_SF-ICP-MS",
+  "procedure": "Willbold2005 | ThermoFinnigan ELEMENT2 |",
+  "field": "Mass Resolution Assignment",
+  "current_key": "channel",
+  "cell": "LR (M/Delta-m = 300): Rb, Sr, Y, Zr, Nb, Cs, Ba, La-Nd, Hf, Ta, Pb, Th, U; HR (M/Delta-m = 11000): Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (stated section on instrumentation)"
+ },
+ {
+  "tapp": "Solution_SF-ICP-MS",
+  "procedure": "Misra+etal2014 | Thermo Element XR | Uni",
+  "field": "Dwell Time per Mass",
+  "current_key": "channel",
+  "cell": "LR: 50-100 ms sample time per mass; MR: 25 ms sample time per mass (Table 3)"
+ },
+ {
+  "tapp": "Solution_SF-ICP-MS",
+  "procedure": "Misra+etal2014 | Thermo Element XR | Uni",
+  "field": "Number of Scans per Replicate",
+  "current_key": "(none)",
+  "cell": "LR: 15 passes x 3 runs = 45 total; MR: 3 passes x 3 runs = 9 total (Table 3)"
+ },
+ {
+  "tapp": "Solution_SF-ICP-MS",
+  "procedure": "Willbold2005 | ThermoFinnigan ELEMENT2 |",
+  "field": "Procedural Blank Level",
+  "current_key": "target species",
+  "cell": "Partially -- \"Limits of detection (LOD) were calculated according to the 3s criterion on a data set of fifty measurements in LR mode and twenty measurements in HR mode of total procedural blanks (including spiking)\"; LODs \"ranged between about 0.1 and 10 ng g-1 sample equivalents for most elements\". The blank levels themselves are not tabulated"
+ },
+ {
+  "tapp": "Solution_SF-ICP-MS",
+  "procedure": "Willbold2005 | ThermoFinnigan ELEMENT2 |",
+  "field": "Constants and Reference Values Used",
+  "current_key": "(none)",
+  "cell": "Relative atomic masses M_El and M_S \"(Loss 2003)\"; \"the known natural isotopic abundances of the isotopes i and k in the sample (Rosman and Taylor 1998)\", stated to be adequately known (\"uncertainty < 0.2%\"); in-run mass fractionation determined \"by comparing determined 47Ti/49Ti, 99Ru/101Ru (in LR mode), 151Eu/153Eu (in HR mode) and 185Re/187Re ratios with known values (Rosman and Taylor 1998)\". "
+ }
+]
