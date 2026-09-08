@@ -958,7 +958,7 @@ users.
 | `standard` | a reference against which something is anchored — physical **or virtual**. Record which axis it anchors; this varies by technique. | albite (anchors target species); IRMM-014 (anchors reported property); α-Fe foil NBS SRM 1541 (anchors *channel*); RRUFF reference spectrum (virtual); dosimeter glass |
 | `conversion` *(defined, not in use)* | a correction or calculation step, **only where it cannot be attributed to a single reported property** | retired 2026-08-11 — `Constants and Reference Values Used` was its only user *and* its only plausible definer, so it failed 7.4b/7.4c |
 | `model component` | a component of a fitted decomposition of the signal | Mössbauer doublets/sextets (IS, QS, B_hf, Area%); Raman fitted peaks; XRD Rietveld phases; EELS edge components |
-| `acquisition pass` *(defined, not in use)* | a distinct pass over the sample with its own instrument settings | retired 2026-08-11 — once `Beam Current` moved to `sampling unit`, the only remaining user was `Multi-Run Sequential Analysis Design`, which would have been its own definer |
+| `acquisition pass` *(defined, not in use)* | a distinct pass over the sample with its own instrument settings | retired 2026-08-11 — once `Beam Current` moved to `sampling unit`, the only remaining user was `Multi-Run Sequential Analysis Design`, which would have been its own definer. **Retired for want of a consumer, not for want of pass-indexed data (7.12.1)** — a technique that supplies real consumers may argue for it in its own Phase 0 |
 | `preparation step` | a stage in sample preparation | multi-step digestion (temperature, duration, acid per step); sequential chromatography columns; etch steps |
 
 **Technique-specific extensions** are permitted. They are declared in Phase 0 (7.7) and listed in the
@@ -1262,6 +1262,9 @@ retroactively as getting the modes wrong, because both are structural and both p
 
 Record explicitly which anchors are **absent** — `target species` for XCT, Raman and fission track; `channel`
 for fission track. An absent anchor is a finding, not an omission.
+
+**Phase 0 is where a key is admitted or refused**, on the 7.4a–c invariants. The literature test in
+7.12 validates a declaration in Phase 3; it does not gate one here. See 7.12.1.
 
 ---
 
@@ -1616,7 +1619,7 @@ attested in *reported data*, and reported data is indexed by analyte and reporte
 which pass produced it — Run 1 and Run 2 merge into one result table. `Desolvation System` therefore
 stays `(none)`, with the per-analyte and per-mode assignment written inline, which is the same
 convention `Mass Resolution Setting` uses ("where individual analytes are assigned to different modes,
-state each"). Revisit only if reported data itself ever becomes pass-indexed.
+state each"). **Amended 2026-09-01 (7.12.1):** this sentence read "Revisit only if reported data itself ever becomes pass-indexed", which turned a Phase 3 validation test into a Phase 0 design gate. The two declines above stand on their 7.4b/c grounds — no consumer, and a retired key is a stronger state than an undefined one. Revisit when a technique supplies real consumers at Phase 0, whether or not its reported data is pass-indexed.
 
 **Both key questions the sweep left open were then settled against the literature (7.12).** The LA
 `Detection Limit` was resolved *against* its key, not its prose, and the `Primary Calibration Standard
@@ -1680,6 +1683,50 @@ literature assessment columns are added or extended, run `scripts/audit_keys_vs_
 reconcile before closing the phase. It carries an `ADJUDICATED` table of the 2026-08-12 dispositions,
 so a re-run reports only genuinely new disagreements — it printed `0 NEW` at the close of this pass.
 Its detectors locate candidates; they do not decide. **Read the raw extraction before changing a key.**
+
+---
+
+##### 7.12.1 What this rule is for, and what it is NOT for (amendment, 2026-09-01)
+
+**7.12 is a Phase 3 VALIDATION step. It is not a Phase 0 design gate.** The distinction was implicit
+in the workflow and was then lost in practice, so it is stated here explicitly.
+
+| gate | phase | decides |
+|---|---|---|
+| **7.4a–c** — a key needs a definer; a definer needs a consumer | **Phase 0**, design time | **whether** an axis may be a key |
+| **7.12** — the finest axis attested in reported data | **Phase 3**, validation | **what the key is**, when a declaration and the evidence disagree |
+
+**Why the division is structural, not stylistic.** Rule 7.7 requires the key vocabulary to be declared
+in **Phase 0**, which is technique scoping — before any literature is extracted and long before any
+procedure is executed. And a TAPP registers a **procedure**, with a DOI, prospectively: Column C exists
+to be filled when no data exists at all. Rule 7.1 defines the column accordingly — *"Data Type states
+what kind of value a field holds, `Keyed By` states how many"* — which is a property of the **field**,
+not an index over a dataset. A procedure that declares *"six magnet steps; step 1 covers m/e 86–79;
+step 2 downshifts two mass units"* states a design fact that is registrable, citable and complete with
+no sample ever run.
+
+**So absence of pass-indexed reported data is NOT grounds to refuse a key.** It is grounds to demote a
+key that was declared as though the axis survived into the reported table when it does not — which is a
+different finding, and one that should be recorded rather than used to suppress the axis.
+
+**What 7.12 does still guard, and must keep guarding:** a key that exists only as an intermediate
+computation artefact. LA `Detection Limit` is the worked case — a per-spot LOD is genuinely computed
+during reduction and then averaged away before anything is reported, so `sampling unit` was a wrong
+declaration and the evidence corrected it. That is adjudication of a disagreement. It is not the same
+move as refusing an axis the procedure itself designs.
+
+**Nothing in 7.4c requires a consumer to be analysis-level.** A procedure-level field
+(`C=Basic, D=Read-Only`) is a legitimate consumer. An axis can therefore be wholly procedure-side and
+still satisfy the declaration invariants.
+
+**Consequence for the retired keys.** `acquisition pass` was declined three times (7.11, and twice on
+2026-08-31) on three arguments: it is *retired by rule* rather than merely undefined; *two users do not
+justify reviving an abstraction 7.4b/c removed for want of any*; and the reported-data test. The first
+two are design-time arguments and stand. The second is explicitly a **count**, and counts change. The
+third should carry no weight at Phase 0. A technique whose procedure genuinely designs an acquisition
+sequence — static noble-gas MS, where Meshik et al. 2011 registers six magnet steps and Péron &
+Mukhopadhyay 2025 two Xe steps per gas — must therefore be argued on 7.4c, in its own Phase 0, and not
+dismissed on the pass-indexing test. See precedents.md, "7.12 is validation, not a design gate".
 
 ---
 

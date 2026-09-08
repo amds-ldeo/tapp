@@ -2701,3 +2701,52 @@ analyte-direction comparison while still reporting `0 NEW`. Both were renamed; t
 `name-element-specific` told curators *"Use 'Analyte-Specific' rather than 'Element-Specific'"* — but
 Rule 7.6 retired **both** labels on 2026-08-11 in favour of Column I. The check was directing people to
 a retired term. It is now `name-cardinality-in-name` and says cardinality belongs in Column I.
+
+---
+
+## 7.12 is validation, not a design gate (amendment, 2026-09-01)
+
+**Decision: Rule 7.12's reported-data test is scoped explicitly to Phase 3 validation. Whether an axis
+may be a key is decided at Phase 0 on the 7.4a–c invariants, and nowhere else.** Written into
+conventions.md as **7.12.1**, with corrections at 7.7, at the `acquisition pass` vocabulary row, and at
+the 2026-08-31 `Desolvation System` decline.
+
+**The question that forced it, asked by the TAPP author:** a procedure is designed and registered
+before any data exists — so on what grounds is reported data the arbiter of its structure?
+
+**It never was, and the workflow already said so.** Rule 7.7 requires the key vocabulary to be declared
+in **Phase 0**, technique scoping — before literature extraction, before any execution. Rule 7.12 is
+titled *"Key **validation** against the literature assessment"* and closes *"this validation is now part
+of **Phase 3**"*. Rule 7.1 defines the column as cardinality of the **field** — *"Data Type states what
+kind of value a field holds, `Keyed By` states how many"* — not as an index over a dataset. And a TAPP
+registers a **procedure with a DOI, prospectively**: Column C is filled when no data exists at all.
+
+**How it went wrong.** The 2026-08-31 `Desolvation System` decline closed with *"Revisit only if
+reported data itself ever becomes pass-indexed."* That sentence promoted a Phase 3 check into a Phase 0
+gate, and it was then quoted in later discussion as if it were the whole basis for refusing
+`acquisition pass`. It was one of **three** arguments; the other two — *retired by rule rather than
+merely undefined*, and *two users do not justify reviving an abstraction 7.4b/c removed for want of
+any* — are design-time arguments and still stand.
+
+**Note the second one is a COUNT.** Counts change. A technique that supplies real consumers is a
+different case from the two that were declined, and must be argued on its merits rather than turned
+away by the pass-indexing sentence.
+
+**What 7.12 must keep doing.** Its real target is a key that exists only as an intermediate computation
+artefact — LA `Detection Limit`, where a per-spot LOD is computed during reduction and averaged away
+before anything is reported. That is a wrong declaration corrected by evidence. It is not the same move
+as refusing an axis that the procedure itself designs and registers.
+
+**And 7.4c does not require an analysis-level consumer.** A procedure-level field
+(`C=Basic, D=Read-Only`) is a legitimate consumer, so an axis can be wholly procedure-side and still
+satisfy the declaration invariants. That is the point the pass-indexing sentence obscured.
+
+**Live consequence.** Static noble-gas MS designs its acquisition sequence explicitly — Meshik et al.
+2011 registers six magnet steps (2 Kr, 2 Xe, 2 baseline), Péron & Mukhopadhyay 2025 two Xe steps per
+gas — with candidate consumers in `Mass Resolution Assignment`, the magnet-step assignment, per-pass
+dwell, baseline steps and cup configuration. Whether that revives `acquisition pass` is now an open
+Phase 0 question for the NGMS TAPP, to be settled on 7.4c. It is no longer foreclosed.
+
+**General lesson, and the reason this is recorded rather than quietly patched:** a validation heuristic
+that earns its keep in one phase will be reached for in another, because it is concrete and the design
+rule is abstract. **State the phase a rule belongs to in the rule itself.**
