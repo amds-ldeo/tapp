@@ -134,11 +134,55 @@ No definer in the library carries a containment. So `acquisition pass > channel`
 fields are keyed, and **`Monitored Masses`, `Collector Configuration` and `Target Species` do not change
 at all.** The compound-definer refusal in 7.3.1 stands untouched — it was never the obstacle.
 
-**Does containment actually hold?** 7.3's test is that **B must be unenumerable without A**, and the
-library's own worked rejection is instructive: `target species > channel` was refused because *"m/z 238
-is a position on the instrument axis and exists independently of any target species."*
+### Does containment actually hold? Four checks
 
-The parallel **fails for the pass**, which is why the two cases differ:
+First, what the three forms mean, because they are different mechanisms in different places:
+
+| form | meaning | side |
+|---|---|---|
+| `A > B` | **containment** — B exists only within A | **consumer** — how a field's values are indexed |
+| `A x B` | **cross-product** — A and B are *independent*; one value per combination | **consumer** |
+| `defines: A per B` | a **definer** whose child table carries a parent FK | **definer** — one `per` slot each |
+
+`Monitored Masses` already spends its one `per` slot on `target species`. Containment is never written
+on a definer, so it does not compete for that slot. **That alone dissolves the collision**; the four
+checks below establish that containment is also the *correct* form.
+
+Rule 7.3's stated test: **"Can you enumerate B without reference to A? No → `>`. Yes → `x`."**
+
+**1 — The definition already puts the pass inside the channel's identity.** Rule 7.2's own examples of a
+channel are *"m/z 238; **cup L2 at magnet step 1**; Fe Kα on LIF spectrometer 2; Fe L₂,₃ edge…"*. The
+acquisition step is already part of what names a channel, decided long before this discussion.
+
+**2 — Enumerability fails, concretely.** Misra's channel domain is `LR: 7Li 11B 25Mg 27Al 43Ca 87Sr
+111Cd 137Ba 238U` + `MR: 23Na 43Ca 55Mn 56Fe 66Zn`. Strip the passes and **13 distinct masses remain
+against 14 channels** — ⁴³Ca collapses and the missing one cannot be recovered without knowing the
+passes. That is the test failing.
+
+**3 — It is not a cross-product.** `x` requires *independent* domains, one value per combination. Two
+passes × 13 masses would be **26**; only **14** exist, and which 14 the pass determines entirely.
+Independent domains do not produce that sparsity; contained ones do.
+
+**4 — The orphan asymmetry**, the cleanest single discriminator. **Analyte-orphan channels exist** —
+¹⁸²W and ¹⁸⁵Re in Nowell's cup array, ²⁰²Hg and ²⁰³Tl in Desem, ⁴³Ca in Misra: monitored, never
+determined. A container cannot have members belonging to nothing, so the analyte is a nullable *parent*,
+not a container — which is exactly why `target species > channel` was refused and `per` used instead.
+**Pass-orphan channels cannot exist**: every channel is acquired in exactly one pass, so the FK is
+`NOT NULL`. That is what a container looks like.
+
+**The counter-argument, and why it loses.** One could argue `channel` is the *mass* (13 of them) and
+pass × mass is merely a sparse cross-product. It loses on check 1 — the library defined a channel as the
+acquisition *address*, not the mass — and on the evidence behind that: in Misra,
+`Mass Resolution Assignment` and `Dwell Time per Mass` take **different values for LR/⁴³Ca and
+MR/⁴³Ca**. One channel would need two values for one key, the exact failure the 2026-08-12
+`Mass Resolution Assignment` re-keying was made to avoid.
+
+**The degenerate case does not break it.** In Lu et al. 2007 there is one pass, so the channels
+enumerate fine without it. In a single-sample session the sampling units also enumerate fine without the
+sample, and `sample > sampling unit` is still the key on 25 rows. **Containment is a statement about the
+structural relationship, not about how many members the outer domain happens to have.**
+
+Summarised against the library's own rejected case:
 
 | | `target species > channel` | `acquisition pass > channel` |
 |---|---|---|
