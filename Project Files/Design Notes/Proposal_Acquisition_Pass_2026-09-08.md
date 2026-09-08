@@ -91,7 +91,7 @@ tables, which the rule calls harmless.
 Cost of leaving them: the *fact* that a value is uniform within a pass is not recoverable. Misra states
 two dwell times; the current key asks for fourteen.
 
-#### ⚠ `Mass Resolution Assignment` is the exception — corrected 2026-09-08
+#### ⚠ Two exceptions — `Mass Resolution Assignment` and `Sequence`
 
 It was listed here in the first draft. It does not belong, and the discriminating question is whether
 the value **can vary between channels within a single pass**:
@@ -100,6 +100,7 @@ the value **can vary between channels within a single pass**:
 |---|---|---|
 | `Dwell Time per Mass` | **yes** — Lu et al. 2007 gives ⁴⁷Ti/⁴⁹Ti a specific dwell, all inside MR | `channel` is genuinely exercised → **stays** |
 | `Mass Resolution Assignment` | **no, never** — the pass *is* the resolution setting for its masses | → **`acquisition pass`** |
+| `Sequence` (EPMA, added 2026-09-08) | **no** — it *names* the passes: "pass 1 = Mg, Al, Fe, Ca, Ti; pass 2 = Na, Si, Mn, K, Cr" | → **`acquisition pass`**, and a candidate pass definer for EPMA |
 
 For every other category-A field, `channel` over-declares in a way some procedure *does* exercise. For
 `Mass Resolution Assignment` it over-declares in a way that **can never** be exercised, because
@@ -320,7 +321,7 @@ answer moved in both directions.
 
 | | TAPPs | basis |
 |---|---|---|
-| **Attested multi-pass** — key applies | LA-SF ×2, Solution SF, Solution MC, Solution Q, **EPMA** | 69 surveyed cells; EPMA via Neuman et al. 2025 (see below) |
+| **Attested multi-pass** — key applies | LA-SF ×2, Solution SF, Solution MC, Solution Q, **EPMA** | 69 surveyed cells; EPMA via Neuman et al. 2025, **extracted 2026-09-08** (see below) |
 | **Attested SINGLE-pass** — register as divergence | LA-Q ×2, LA-MC ×2, **TEM** | the question was asked *and answered* |
 | **Absent anchor** (Rule 7.7) | SEM ×4, Lab-XCT | no dispersive sequence exists to have |
 
@@ -352,9 +353,29 @@ Two passes partitioning the target-species domain five and five — structurally
 LR/MR. `Sequence` (currently `channel`, *"order in which spectrometer assignments are acquired"*) is
 really per-pass.
 
-⚠ **Separate Phase 3 finding:** Neuman 2025 carries a method-paper-grade EPMA description (five stage
-maps, 1024×1024, 9.5 µm step, 10 µm beam, 15 kV, 100 nA, 25 ms dwell, two passes, CalcImage Φ(ρz)) and
-is extracted into the wrong TAPP. It is exactly the kind of paper the EPMA corpus was noted to lack.
+**EXTRACTED 2026-09-08 — `EPMA_TAPP_v62`, 16th literature column.** 86 cells, none blank, 37
+substantive. `Sequence` moved from **0 real of 14 to 1 real of 15**, and now carries the two-pass
+structure verbatim. The paper also gave EPMA its first method-grade values for `Pre-Analysis Imaging and
+Screening`, `Dwell Time per Pixel`, `Step Size / Pixel Size`, `Map Dimensions`, `Stage Scan vs. Beam
+Scan` and `X-ray Background Correction Method`. `Neuman2025` moved EPMA `N` → `Detailed` in the paper
+registry.
+
+⚠ **The extraction surfaced a Column B defect.** `Sequence`'s description reads:
+
+> "Order in which spectrometer assignments are acquired during point analysis. **Not applicable to X-ray
+> mapping, where all assigned spectrometers collect simultaneously at each pixel.**"
+
+Neuman **is** X-ray mapping **and** has two passes. Both halves are true separately — within one pass
+the fixed spectrometers do collect simultaneously at each pixel — but when the element count exceeds
+the spectrometer count the whole map is run again. Ten elements on five fixed spectrometers requires
+two passes. The description asserts a non-applicability the evidence disproves, the same shape of
+defect as `Mass Resolution per Analyte`'s name asserting the key its evidence disproved. **Needs
+fixing independently of this proposal.**
+
+⚠ **The audit will not surface this.** At 1 real of 15, `Sequence` sits below
+`audit_keys_vs_literature.py`'s evidence threshold, so it reports no finding. The key change has to come
+through this proposal, not through Rule 7.12 — a concrete instance of the 7.12.1 point that Phase 3
+validation cannot be the gate on Phase 0 design.
 
 ### SEM: absent anchor, and the null is physical — but mode-dependent
 
@@ -421,8 +442,11 @@ acquired N times and summed to limit beam damage.
   passes enumerate themselves? This is a Rule 6 admission question over three fields, not two, and it
   generalises — the same shape will recur wherever a "Setting" field summarises what the passes now
   carry (`Detector Configuration`, `Plasma Thermal Mode`).
-- **Extract Neuman et al. 2025 into EPMA** (§4C). Independently worthwhile — it is a method-grade EPMA
-  description sitting in Lab-XCT's corpus — and it is the evidence EPMA's pass key rests on.
+- ~~Extract Neuman et al. 2025 into EPMA.~~ **Done 2026-09-08** — `EPMA_TAPP_v62`. Successors: fix
+  `Sequence`'s description, which denies applicability to mapping (§4C); and decide whether `Sequence`
+  is EPMA's pass definer or a consumer of `Number of Acquisition Passes`. If it is the definer, EPMA
+  differs from the ICP-MS family, which needs the neutral field — worth checking against §4A before
+  assuming one definer serves both.
 - Do the four "stated per run but identical" fields (§2) get keyed? Only if another procedure attests a
   difference — 7.3.2. Worth re-checking when the NGMS and TIMS literature is extracted.
 - Does the pre-ablation pass in Chernonozhkin count as an acquisition pass, or as preparation? It uses
