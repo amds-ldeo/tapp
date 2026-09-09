@@ -9,12 +9,12 @@ CompositionQC,2,"Composition quality control — detection limits, counting stat
 Core,2,Universal TAPP Core,31,6,6,16 TAPP(s),active
 Geochronology,2,Geochronology,6,1,7,3 TAPP(s),active
 Group1,2,Procedure Identification,18,1,4,0 TAPP(s),retired 2026-08-14 — superseded by Core
-ICPMS,2,"Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",39,4,10,9 TAPP(s),active
-LaserAblation,2,Laser Ablation Front End,29,4,10,6 TAPP(s),active
-MCICPMS,2,Multi-Collector ICP-MS Analyser,15,3,7,3 TAPP(s),active
+ICPMS,2,"Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",41,4,12,9 TAPP(s),active
+LaserAblation,2,Laser Ablation Front End,29,4,11,6 TAPP(s),active
+MCICPMS,2,Multi-Collector ICP-MS Analyser,15,3,8,3 TAPP(s),active
 ReportingCore,2,Cross-Technique Reporting Core,6,5,6,0 TAPP(s),"retired 2026-08-14 — dissolved into TargetSelection, CalibrationFactor, Blank, Aggregation"
 SamplingUnitSelection,2,Sampling Unit Selection,2,1,3,13 TAPP(s),active
-SolutionIntroduction,2,Solution Sample Preparation and Introduction for MS,16,3,7,3 TAPP(s),active
+SolutionIntroduction,2,Solution Sample Preparation and Introduction for MS,16,3,8,3 TAPP(s),active
 TargetSelection,2,Target Selection,2,1,2,0 TAPP(s),retired 2026-09-01 — renamed to SamplingUnitSelection; field Target Selection Criteria -> Sampling Unit Selection Criteria
 TargetSpecies,2,Target Species,1,1,3,13 TAPP(s),active
 UPb,3,U-Pb Geochronology,15,2,8,3 TAPP(s),active

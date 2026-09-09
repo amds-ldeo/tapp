@@ -2750,3 +2750,53 @@ Phase 0 question for the NGMS TAPP, to be settled on 7.4c. It is no longer forec
 **General lesson, and the reason this is recorded rather than quietly patched:** a validation heuristic
 that earns its keep in one phase will be reached for in another, because it is concrete and the design
 rule is abstract. **State the phase a rule belongs to in the rule itself.**
+
+---
+
+## `acquisition pass` minted — a retired key reinstated on evidence (2026-09-08)
+
+**Decision: `acquisition pass` is in use.** Definer `Acquisition Pass`, 15 consumers, 9 ICP-MS TAPPs,
+92 rows. Full argument in `Project Files/Design Notes/Proposal_Acquisition_Pass_2026-09-08.md`.
+
+**Why a retired key came back.** It was retired 2026-08-11 for want of a consumer and declined twice on
+2026-08-31. Rule **7.12.1** (2026-09-01) then removed the reported-data test as a Phase 0 gate, leaving
+the consumer count — and a survey found **69 pass-structured cells in 10 procedures across 4 TAPPs**.
+Two cells settled that a pass is not a channel facet: Hopp et al. 2021 assigns a *different desolvation
+system and plasma mode* per pass, and Willbold 2005 a *different solution dilution*. A spray chamber and
+a dilution factor are not properties of a mass channel. **A pass is a sub-procedure.**
+
+### What execution changed that the proposal had wrong
+
+- **21 consumers → 13.** Verifying every cell showed 8 were stated per pass with **identical values**
+  (Laser Fluence 4.72/4.72, RF Power, Make-up Gas, Coolant Gas, Background Count Time, Analysis
+  Sequence, Signal Integration Time, Number of Replicates). Those show the *researcher* thinks in
+  passes, not that the *field* varies; they stay `(none)` under 7.3.2.
+- **Registered divergences were moot.** 16 of 19 fields are module-owned, and Column I is a module-owned
+  column, so the key is uniform by construction. LA-Q and LA-MC take the key from the module and simply
+  record single-pass values — the `Beam Current` precedent at module level.
+
+### ⚠ EPMA and SEM were deferred, on 7.4c
+
+The proposal had `Sequence` → `Acquisition Pass` as a settled special. Execution showed it fails:
+**EPMA, SEM and SEM_Composition have ZERO fields keyed `acquisition pass`**, against 6–11 in each ICP-MS
+TAPP. In Neuman et al. 2025 the *only* thing differing between EPMA's two passes is which elements are
+measured — which is the definer's own content; kV, nA, dwell and step are identical. And §3C settled
+that channel-keyed fields stay `channel` because the pass is coarser. So a definer there would be, in
+7.4c's own words, *"a field holding a list, not a definer."*
+
+`Sequence` keeps its `channel` key and its corrected description. It becomes the definer the moment a
+second EPMA method paper attests something varying per pass — a different beam current or counting time.
+**The rule that blocked it is the one the proposal itself leant on to justify the key elsewhere.**
+
+### The disposition that keeps the audit quiet
+
+Minting the key raised **23 NEW** audit findings, all one pattern, all adjudicated:
+
+> **The single-pass unfalsifiability rule** — the single-target-species rule one axis over. A
+> single-pass procedure cannot falsify a per-pass key: the field has one value because there is one
+> pass, and the detector scores that as scalar. Only multi-pass procedures test the axis, and every one
+> of them attests it. Weight only the multi-pass procedures.
+
+Two `AXIS-MISMATCH` findings are the familiar detector failure: `Elemental Fractionation Correction`
+names reference materials inside a per-pass description, so it reads standard-shaped — the same shape as
+the withdrawn `Analytical Accuracy` finding.

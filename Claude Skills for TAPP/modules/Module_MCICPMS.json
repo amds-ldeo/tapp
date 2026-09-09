@@ -2,7 +2,7 @@
     "module": "MCICPMS",
     "title": "Multi-Collector ICP-MS Analyser",
     "layer": 2,
-    "version": "7",
+    "version": "8",
     "source_of_truth": "modules/Module_MCICPMS.csv",
     "owned_columns": [
         "A",
@@ -71,7 +71,8 @@
         "2026-08-12: Collector Configuration `defines: channel` -> `defines: channel per analyte`, and its description now asks for the analyte each cup serves. Closes the binding gap in the three multicollector TAPPs: 7.4b makes Collector Configuration the channel definer where a cup array exists, which demotes Monitored Isotopes to plain `analyte` — and that demotion had silently dropped the channel-to-analyte binding, leaving it recoverable only by parsing element symbols out of the free-text cup string, which 7.3.1 forbids. Monitor cups carry no parent, which the nullable-parent semantics of 7.3.1 already cover.",
         "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content.",
         "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
-        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves."
+        "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves.",
+        "2026-09-08 v8. 1 field(s) re-keyed to `acquisition pass`, executing Proposal_Acquisition_Pass_2026-09-08. Each was verified against its raw literature cell to give DIFFERENT values between passes; fields stated per pass with identical values (Laser Fluence, RF Power, Make-up Gas, Coolant Gas, Background Count Time, Analysis Sequence, Signal Integration Time, Number of Replicates) stay `(none)` under 7.3.2 until a difference is attested."
     ],
     "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }
