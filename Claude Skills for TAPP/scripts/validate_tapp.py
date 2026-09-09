@@ -230,11 +230,24 @@ KEYED_BY_EXCEPTIONS = set(KEYED_BY_TECHNIQUE_DEPENDENT)   # back-compat alias
 #               18 of those 20 fields became fully uniform and left this register; the remaining
 #               2 keep a shared body with a legitimately technique-specific tail and are
 #               reclassified PRINCIPLED. Register 89 -> 71.
+#   2026-08-26  Module_ICPMS took ownership of 26 merged descriptions; register 60 -> 36.
+#   2026-08-29  13 entries removed as dead: their fields converged on becoming module-owned.
+#               INFO was UNCHANGED at 31 — a triaged entry only produces a finding while its
+#               field actually diverges, so these were dead register lines, not reported
+#               findings. Removal still improves the check: such a field re-diverging now
+#               raises a WARN as new drift instead of being silently excused. 36 -> 23.
+#   2026-08-30  7 harmonised, 1 reclassified. **`colb-divergence-mixed` cleared entirely.** 23 -> 15.
+#   2026-08-31  15 -> 14.
 #
-# Current state: PRINCIPLED 54 (legitimate technique-specific content, no action expected) and
-# MIXED 17 (the remaining harmonisation BACKLOG — some variants technique-specific, others merely
-# shorter; needs reading variant by variant). The backlog stays visible: MIXED entries report
-# INFO in every lint run, and removing an entry after harmonising is how it is worked down.
+# Current state: every entry is PRINCIPLED — legitimate technique-specific content, no action
+# expected. **The MIXED harmonisation backlog is closed**; no entry is awaiting a read.
+#
+# The register size is deliberately NOT restated here. Until 2026-09-09 this block read "PRINCIPLED
+# 54 and MIXED 17 (the remaining harmonisation BACKLOG)", which stopped being true on 2026-08-30 and
+# went on telling every reader for ten days that work was outstanding when it was not. Count
+# COLB_DIVERGENCE_TRIAGED if you need the number; a hand-written count of a live register is a
+# statement that decays, and this file now carries three of them that had to be corrected
+# (see also `schema-spec-stale-counts`, added 2026-09-08 for the same failure one file over).
 #
 # Verified 2026-08-12: normalising British/American spelling (-ise/-ize, centre/center,
 # artefact/artifact) changed NOTHING — 89 before, 89 after, zero fields differing by spelling
