@@ -2785,7 +2785,8 @@ that channel-keyed fields stay `channel` because the pass is coarser. So a defin
 7.4c's own words, *"a field holding a list, not a definer."*
 
 `Sequence` keeps its `channel` key and its corrected description. It becomes the definer the moment a
-second EPMA method paper attests something varying per pass — a different beam current or counting time.
+second EPMA method paper attests something varying per pass — see the named falsifier below, which
+narrows "something" to the beam and rules counting time out.
 **The rule that blocked it is the one the proposal itself leant on to justify the key elsewhere.**
 
 ### The disposition that keeps the audit quiet
@@ -2800,3 +2801,64 @@ Minting the key raised **23 NEW** audit findings, all one pattern, all adjudicat
 Two `AXIS-MISMATCH` findings are the familiar detector failure: `Elemental Fractionation Correction`
 names reference materials inside a per-pass description, so it reads standard-shaped — the same shape as
 the withdrawn `Analytical Accuracy` finding.
+
+---
+
+## The named falsifier for the EPMA/SEM `acquisition pass` deferral (2026-09-08)
+
+**Decision: the EPMA deferral above is not left open-ended. One specific observation reverses it —
+a beam condition that differs between passes on the same phase — and counting time is explicitly
+ruled out as a falsifier.** Raised by the TAPP author asking whether beam current or beam diameter
+ever differ per element on chemical grounds, volatile Na against refractory elements.
+
+**The practice is real, and the library already names it.** `Beam Damage Minimization`'s allowed
+content reads `'Na measured first with 10 um defocused beam at 5 nA'`, and `Sequence`'s Purpose says
+the field is *"relevant for minimizing beam damage (volatile elements measured first)."* Both were
+written by a curator anticipating the pattern.
+
+**It has zero attestations in 15 EPMA procedures.** The two nearest misses fall short in instructive
+ways: Ma et al. 2017 lowered current to 5 nA *for the whole analysis* and still saw Na diffusion in
+liebermannite; Seifert et al. 2026 tested 10 µm against 3 µm on Durango apatite for halogen loss, then
+adopted one 2 µm condition for everything. Both reasoned about volatility; neither split the beam.
+
+**Every attested beam divergence is keyed by phase, not element.** Liu et al. 2016 (20 nA / 1–2 µm for
+olivine, pyroxene and oxides against 10 nA / 5–10 µm for maskelynite, phosphate, sulfide and glass),
+Zega et al. 2025 (20 nA focused / 8 nA / 4 nA at 2 µm across silicates, phosphates and carbonates),
+McCoy et al. 2025_SI, Pang et al. 2016, Barnes et al. 2025. That is why `Beam Current` and
+`Beam Diameter` are keyed `sample > sampling unit`, and the declaration is correct.
+
+**The chemistry is nonetheless the driver — the phase is its proxy.** The phases singled out are
+precisely the Na-, K-, F-, Cl- and CO₃-bearing ones: maskelynite, plagioclase, glass, phosphate,
+carbonate. `Beam Damage Minimization` says so in its own description. The beam hits the phase, not the
+element, so volatility reaches the record through the phase.
+
+### Why the beam is the falsifier and counting time is not
+
+**Physical constraint.** Beam current and diameter are properties of the *spot*, not the channel. Within
+one WDS pass every assigned spectrometer collects simultaneously from one beam on one point. Per-element
+beam conditions are therefore impossible *unless the elements are split across passes* — which makes a
+beam divergence, and only a beam divergence, diagnostic of a pass.
+
+**The asymmetry that decides it:**
+
+- A **counting time** that differs per element is already fully expressible under `channel`, and is
+  already attested that way — Barnes et al. 2025 gives 200 ms for Al, Ti, Ca, Mn, Cr against 20 ms for
+  Mg, Fe, Si. Observing more of it demands no new key. It is a weak falsifier and the earlier entry was
+  corrected in place to stop naming it as one.
+- A **beam current or diameter** that differs between passes on the same phase is expressible under **no
+  existing key**. `sample > sampling unit` cannot carry it, because the sampling unit is identical — same
+  spot, same phase, two passes. Only `acquisition pass` can.
+
+**So the watch item is exactly this sentence, in a future EPMA or SEM method paper:** *"Na was measured
+first at 5 nA with a 10 µm defocused beam; the remaining elements at 20 nA focused."* On that
+observation, `Beam Current` and `Beam Diameter` gain a genuine per-pass consumer, 7.4c is satisfied, and
+`Sequence` becomes `defines: acquisition pass`. Until then the deferral stands.
+
+**Note what Neuman et al. 2025 does not supply.** Its two passes put Na and K in pass 2 — the volatile
+elements, second rather than first — but the beam is identical in both (100 nA, 10 µm) and no reason is
+stated. It attests the pass structure and nothing that varies across it. That is precisely the gap.
+
+**General lesson:** a deferral is only as good as the evidence that would end it. **State the falsifier
+in the same breath as the deferral, and state it narrowly enough that a near-miss cannot be mistaken for
+it** — otherwise the next curator reads "something varying per pass", finds a per-element counting time,
+and reverses a decision on evidence that never tested it.
