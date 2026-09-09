@@ -2938,3 +2938,57 @@ exist in the data; only the definer was never asked for them, because an Integer
 to leave it blank rather than count something contestable. One cell is left explicitly unresolved —
 Hu et al. 2022's *"These steps were performed twice"* is either one repeated attack or two distinct ones,
 and the extract as it stands cannot say. **Phase 3 follow-up, not bundled here.**
+
+---
+
+## Phase 3: `Digestion Step` filled from the sources, and six neighbouring cells falsified (2026-09-08)
+
+**Decision: the extraction gap the re-type exposed is closed.** `Digestion Step` is now substantive in
+**26 of 29** literature columns across Solution MC **v71**, Q **v77** and SF **v73**, read from the 15
+source PDFs. A Phase 3 extraction bumps the version — v70/v76/v72 had been published an hour earlier,
+and were superseded byte-for-byte rather than edited in place.
+The 3 remaining `N` are the two extra Gil-Díaz instrument columns and Long et al. 2025, following the
+curator convention already in the file: the digestion is assessed once, on the column that states it.
+
+**The cell left open this morning is resolved.** Hu et al. 2022 reads: HF/HNO3 3:1 with a few drops of
+HClO4 at 160 °C for 2 weeks, then evaporation and re-dissolution in HCl:HNO3 2:1 for 1 week, and *"these
+steps were performed twice."* The **pair** is repeated, so the members are **2, not 4** — the grain rule
+settles it, and the count field never could have.
+
+### The part worth recording: asking for members falsifies cells that a count never touched
+
+Six neighbouring cells turned out to be wrong, none of them sought. They surfaced because enumerating a
+sequence forces you to read it, where counting one does not.
+
+| cell | was | is |
+|---|---|---|
+| Hu 2022 `Digestion Acid(s)` | started at the *second* attack | the first HF-HNO3-HClO4 attack was missing entirely |
+| Hu 2022 `Digestion Temperature` | "Hot plate, temperature not stated" | **160 °C**, stated plainly |
+| Ibáñez-Mejía `Digestion Duration` | "48 hours (U-Pb) and 60 hours (Zr isotopes)" | 48 h; the **60 h is the 900 °C annealing**, not a digestion |
+| van Kooten `Temperature` / `Duration` | folded in 130 °C / 3 h / >1 week | those are **Cr(VI) speciation during column chemistry** |
+| Broussard `Temperature` / `Duration` | "70 °C … 140 °C", "20 h" | **150 °C, ~1 week** — the old figures belong to a *different preparation in the same paper* |
+| Desem, Willbold `Digestion Acid(s)` | one route each | **three routes** and a mid-run HF refill respectively |
+
+**Two distinct failure modes, both invisible to a count.** Ibáñez-Mejía and Broussard are *wrong-procedure*
+errors — a number lifted from a neighbouring paragraph describing something else (annealing; a
+cosmogenic-radionuclide dissolution). Hu and Desem are *truncation* — the sequence recorded from where
+the curator started reading. An Integer definer sitting beside them asked nothing that would have caught
+either.
+
+**The audit noticed.** `Digestion Duration` in Solution MC had stood as an adjudicated OVER-DECLARED
+finding — the detector read it as scalar. With Hu now reading "2 weeks … then 1 week" and van Kooten
+"3 days … then 2 days", the finding no longer arises: 62 adjudications became 61. **A disposition
+retired because the data improved, not because it was suppressed** — the healthy direction, and worth
+distinguishing from the unfalsifiability rules, which retire findings the evidence *cannot* settle.
+
+### What the enumerated members look like
+
+Two to four attacks is the norm; the most complex is Desem et al. 2022 with three routes, the soil
+total-dissolution route running four (an HNO3 organic-destruction leach that is *discarded*, then HF,
+then HNO3, then HCl). Willbold 2005 splits by refractoriness — 12 h at 130 °C on a hotplate for
+non-refractory samples against 7 days at 180 °C in Parr bombs for granites, **with the bombs opened at
+day 3 and refilled with 0.5 ml HF**. Neither of those is expressible as a number.
+
+**Not steps, and now said so in the cells:** final uptakes (Craddock's 4 ml 2% HNO3, Barnes's 5 ml
+0.5 M HNO3), Ibáñez-Mejía's 900 °C annealing, and van Kooten's NaOH fusion — recorded as a *fusion*
+rather than an acid digestion, which is the forward tension the naming decision already flagged.

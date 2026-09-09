@@ -246,7 +246,7 @@
       ]
     },
     {
-      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v70.csv",
+      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v71.csv",
       "modules": [
         {
           "name": "Core",
@@ -291,7 +291,7 @@
       ]
     },
     {
-      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v76.csv",
+      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v77.csv",
       "modules": [
         {
           "name": "Core",
@@ -332,7 +332,7 @@
       ]
     },
     {
-      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v72.csv",
+      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v73.csv",
       "modules": [
         {
           "name": "Core",
