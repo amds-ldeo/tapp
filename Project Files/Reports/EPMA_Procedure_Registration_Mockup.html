@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EPMA Procedure Registration</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#eef2f2; --surface:#ffffff; --surface-2:#f6f9f9;
+  --ink:#12191b; --ink-2:#53656a; --ink-3:#7c8e92;
+  --line:#d5e0e0; --line-2:#e6eded;
+  --acc:#0d5c63; --acc-soft:#dcefef; --acc-ink:#0a4a50;
+  --amber:#8a5a0c; --amber-soft:#f8eed8;
+  --flag:#98342a; --flag-soft:#fae3df;
+  --ok:#1f6b4a;
+  --sans:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --cond:"IBM Plex Sans Condensed","IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --r:3px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0d1214; --surface:#141c1e; --surface-2:#111819;
+    --ink:#e4ecec; --ink-2:#9aacb0; --ink-3:#71858a;
+    --line:#263336; --line-2:#1d282a;
+    --acc:#54c2cb; --acc-soft:#10312f; --acc-ink:#7fd6dd;
+    --amber:#d9a34e; --amber-soft:#2c2314;
+    --flag:#e0857a; --flag-soft:#331916;
+    --ok:#5cbb8e;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0d1214; --surface:#141c1e; --surface-2:#111819;
+  --ink:#e4ecec; --ink-2:#9aacb0; --ink-3:#71858a;
+  --line:#263336; --line-2:#1d282a;
+  --acc:#54c2cb; --acc-soft:#10312f; --acc-ink:#7fd6dd;
+  --amber:#d9a34e; --amber-soft:#2c2314;
+  --flag:#e0857a; --flag-soft:#331916;
+  --ok:#5cbb8e;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:14px;line-height:1.5}
+h1,h2,h3{font-family:var(--cond);text-wrap:balance;margin:0}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* ---------- masthead ---------- */
+.mast{border-bottom:1px solid var(--line);background:var(--surface)}
+.mast-in{max-width:1400px;margin:0 auto;padding:22px 28px 18px;display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap}
+.mast h1{font-size:26px;font-weight:700;letter-spacing:-.01em;line-height:1.15}
+.mast .sub{color:var(--ink-2);font-size:13px;margin-top:5px;max-width:62ch}
+.mast .src{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink-3);text-align:right;line-height:1.7}
+.mast .src b{color:var(--ink-2);font-weight:500}
+.demo{display:inline-block;font-family:var(--cond);font-size:11px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--amber);background:var(--amber-soft);border:1px solid var(--amber);border-radius:2px;padding:2px 7px;margin-bottom:9px}
+
+/* ---------- shell ---------- */
+.shell{max-width:1400px;margin:0 auto;padding:24px 28px 80px;display:grid;grid-template-columns:264px minmax(0,1fr);gap:34px;align-items:start}
+@media(max-width:1000px){.shell{grid-template-columns:1fr;gap:20px}.rail{position:static!important}}
+
+/* ---------- rail ---------- */
+.rail{position:sticky;top:18px;display:flex;flex-direction:column;gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.card>h3{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+  padding:11px 14px;border-bottom:1px solid var(--line-2)}
+.card .body{padding:13px 14px}
+.meter-n{font-family:var(--cond);font-size:30px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.meter-n small{font-size:14px;font-weight:500;color:var(--ink-3)}
+.bar{height:5px;background:var(--line-2);border-radius:99px;overflow:hidden;margin:10px 0 8px}
+.bar i{display:block;height:100%;background:var(--acc)}
+.meter-cap{font-size:12px;color:var(--ink-2)}
+.modelist{display:flex;flex-direction:column;gap:1px}
+.modelist button{all:unset;cursor:pointer;padding:7px 10px;font-size:12.5px;border-radius:2px;display:flex;justify-content:space-between;gap:8px;color:var(--ink-2)}
+.modelist button:hover{background:var(--surface-2);color:var(--ink)}
+.modelist button[aria-pressed="true"]{background:var(--acc-soft);color:var(--acc-ink);font-weight:600}
+.modelist .n{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.modelist button[aria-pressed="true"] .n{color:var(--acc-ink)}
+.navlist{display:flex;flex-direction:column}
+.navlist a{display:flex;justify-content:space-between;gap:8px;padding:6px 14px;font-size:12.5px;color:var(--ink-2);text-decoration:none;border-left:2px solid transparent}
+.navlist a:hover{color:var(--ink);border-left-color:var(--line);background:var(--surface-2)}
+.navlist a .n{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.sw{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--ink-2);cursor:pointer;padding:3px 0}
+.sw input{accent-color:var(--acc);width:14px;height:14px;margin:0}
+.legend{font-size:11.5px;color:var(--ink-2);display:flex;flex-direction:column;gap:7px}
+.legend div{display:flex;gap:8px;align-items:baseline}
+
+/* ---------- chips ---------- */
+.chip{font-family:var(--cond);font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+  padding:1.5px 6px;border-radius:2px;white-space:nowrap;border:1px solid transparent}
+.chip.basic{color:var(--acc-ink);background:var(--acc-soft);border-color:var(--acc)}
+.chip.adv{color:var(--ink-2);background:var(--surface-2);border-color:var(--line)}
+.chip.conflict{color:var(--flag);background:var(--flag-soft);border-color:var(--flag)}
+.keychip{font-family:var(--mono);font-size:11px;color:var(--ink-3);white-space:nowrap}
+.keychip b{color:var(--acc);font-weight:500}
+
+/* ---------- sections ---------- */
+.sec{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);margin-bottom:18px;scroll-margin-top:16px}
+.sec>header{display:flex;align-items:baseline;gap:12px;padding:15px 20px;border-bottom:1px solid var(--line)}
+.sec>header .num{font-family:var(--mono);font-size:12px;color:var(--acc);font-weight:500}
+.sec>header h2{font-size:17px;font-weight:600;letter-spacing:-.005em}
+.sec>header .cnt{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+
+/* ---------- field ---------- */
+.f{padding:15px 20px;border-bottom:1px solid var(--line-2);display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:8px 30px}
+.f:last-child{border-bottom:0}
+@media(max-width:820px){.f{grid-template-columns:1fr;gap:8px}}
+.f.hid{display:none}
+.f.flagged{background:var(--flag-soft)}
+.f-l{min-width:0}
+.f-name{font-family:var(--cond);font-size:14.5px;font-weight:600;line-height:1.3;display:flex;gap:7px;align-items:baseline;flex-wrap:wrap}
+.f-meta{display:flex;gap:9px;flex-wrap:wrap;align-items:baseline;margin-top:5px}
+.f-desc{font-size:12px;color:var(--ink-2);margin-top:6px;line-height:1.5;max-width:52ch}
+.f-r{min-width:0;display:flex;flex-direction:column;gap:6px}
+input[type=text],select,textarea{width:100%;font-family:var(--sans);font-size:13.5px;color:var(--ink);
+  background:var(--surface-2);border:1px solid var(--line);border-radius:2px;padding:7px 9px}
+input[type=text]:focus,select:focus,textarea:focus{background:var(--surface);border-color:var(--acc)}
+textarea{resize:vertical;min-height:60px;line-height:1.5}
+.num{display:flex;align-items:stretch}
+.num input{border-radius:2px 0 0 2px}
+.num .u{font-family:var(--mono);font-size:12px;color:var(--ink-2);background:var(--line-2);
+  border:1px solid var(--line);border-left:0;border-radius:0 2px 2px 0;padding:0 9px;display:flex;align-items:center}
+.hint{font-family:var(--mono);font-size:11px;color:var(--ink-3);line-height:1.6;word-break:break-word}
+.note{font-size:11.5px;color:var(--amber);display:flex;gap:6px;align-items:baseline}
+.note::before{content:"—";color:var(--ink-3)}
+.flagnote{font-size:12px;color:var(--flag);line-height:1.5}
+
+/* keyed widgets */
+.kw{border:1px solid var(--line);border-radius:2px;background:var(--surface-2)}
+.kw-head{display:flex;align-items:center;gap:10px;padding:7px 9px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.kw-head .lbl{font-family:var(--mono);font-size:11px;color:var(--ink-2)}
+.seg{display:flex;border:1px solid var(--line);border-radius:2px;overflow:hidden;margin-left:auto}
+.seg button{all:unset;cursor:pointer;font-family:var(--cond);font-size:11px;font-weight:600;letter-spacing:.04em;
+  padding:3.5px 9px;color:var(--ink-2);background:var(--surface)}
+.seg button[aria-pressed="true"]{background:var(--acc);color:#fff}
+:root[data-theme="dark"] .seg button[aria-pressed="true"]{color:#08181a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .seg button[aria-pressed="true"]{color:#08181a}}
+.seg button:disabled{opacity:.4;cursor:not-allowed}
+.kw-body{padding:9px}
+.rows{display:flex;flex-direction:column;gap:5px;max-height:280px;overflow:auto}
+.row{display:grid;grid-template-columns:120px minmax(0,1fr);gap:9px;align-items:center}
+.row .m{font-family:var(--mono);font-size:11.5px;color:var(--acc);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.row input{padding:5px 8px;font-size:12.5px}
+.blocked{padding:10px;font-size:12px;color:var(--ink-2);line-height:1.55}
+.blocked b{color:var(--flag);font-weight:600}
+
+/* definer */
+.members{display:flex;flex-wrap:wrap;gap:5px;padding:9px}
+.mem{font-family:var(--mono);font-size:11.5px;background:var(--acc-soft);color:var(--acc-ink);
+  border:1px solid var(--acc);border-radius:2px;padding:2px 7px}
+.mem.empty{background:transparent;color:var(--ink-3);border:1px dashed var(--line);font-style:italic}
+
+/* excluded */
+.excl{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 20px}
+.excl h2{font-size:15px;font-weight:600;margin-bottom:5px}
+.excl p{font-size:12.5px;color:var(--ink-2);margin:0 0 11px;max-width:70ch}
+.excl ul{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:5px}
+.excl li{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);background:var(--surface-2);
+  border:1px solid var(--line-2);border-radius:2px;padding:2.5px 7px}
+.foot{max-width:1400px;margin:0 auto;padding:0 28px 40px;font-size:11.5px;color:var(--ink-3);line-height:1.7}
+</style>
+</head>
+<body>
+
+<div class="mast"><div class="mast-in">
+  <div>
+    <span class="demo">Mockup · example content</span>
+    <h1 id="ttl"></h1>
+    <p class="sub">Every field, tier, data type and cardinality on this form is generated from the TAPP. Nothing is hand-authored.</p>
+  </div>
+  <div class="src" id="src"></div>
+</div></div>
+
+<div class="shell">
+  <aside class="rail">
+    <div class="card">
+      <h3>Procedure completeness</h3>
+      <div class="body">
+        <div class="meter-n" id="mn">0<small id="md">/0</small></div>
+        <div class="bar"><i id="mb" style="width:0%"></i></div>
+        <div class="meter-cap">Required (<em>Basic</em>) procedure-level fields answered. Advanced fields are optional and not counted.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Analytical mode</h3>
+      <div class="body">
+        <div class="modelist" id="modes"></div>
+        <div style="border-top:1px solid var(--line-2);margin-top:10px;padding-top:9px">
+          <label class="sw"><input type="checkbox" id="showall"> Show fields not applicable to this mode</label>
+          <label class="sw"><input type="checkbox" id="showadv" checked> Show Advanced fields</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Sections</h3>
+      <nav class="navlist" id="nav"></nav>
+    </div>
+
+    <div class="card">
+      <h3>Reading the form</h3>
+      <div class="body legend">
+        <div><span class="chip basic">Basic</span><span>Required to register</span></div>
+        <div><span class="chip adv">Advanced</span><span>Optional detail</span></div>
+        <div><span class="keychip">repeats over <b>channel</b></span></div>
+        <div style="color:var(--ink-3)">Column I of the TAPP decides whether a field takes one value or one value per member of a domain.</div>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main"></main>
+</div>
+
+<div class="foot" id="foot"></div>
+
+<script>
+const TAPP = {"groups": [{"title": "1. Procedure Identification", "fields": [{"name": "Procedure Name", "desc": "A short descriptive name for this analytical procedure, including a version number. Should identify the instrument, the technique, and the scope of what is measured — target species, material, or feature.", "tier": "Basic", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'EPMA-WDS Major Element Silicate Minerals' | 'EPMA-WDS+EDS Minor Element Phosphates'", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "EPMA-WDS quantitative compositional mapping, Apollo 17 core 73001 continuous thin sections (Washington University in St. Louis)", "note": "", "warn": ""}, {"name": "Technique", "desc": "Top-level analytical technique identifier.", "tier": "Basic", "dtype": "Controlled list", "unit": "", "opts": ["EPMA-WDS", "EPMA-EDS", "EPMA-WDS+EDS"], "ex": "EPMA-WDS | EPMA-EDS | EPMA-WDS+EDS", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "EPMA-WDS", "note": "", "warn": ""}, {"name": "Procedure Author", "desc": "Person(s) or laboratory responsible for developing and registering this procedure. ORCID recommended for individuals.", "tier": "Basic", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Chi Ma, Caltech' | 'ARES Geochemistry Lab, NASA JSC'", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "no individual operator named for the EPMA work", "warn": ""}, {"name": "Laboratory", "desc": "Name of the laboratory or institution hosting the instrument.", "tier": "Basic", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Caltech GPS Division Analytical Facility' | 'ARES, NASA Johnson Space Center'", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "Washington University in St. Louis", "note": "", "warn": ""}, {"name": "Laboratory ID", "desc": "Persistent identifier for the laboratory (e.g., ROR ID).", "tier": "Advanced", "dtype": "URI / DOI", "unit": "", "opts": [], "ex": "e.g., 'https://ror.org/05dxps055' (Caltech ROR)", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Procedure Start Date", "desc": "First date this procedure configuration was used in production.", "tier": "Basic", "dtype": "Date", "unit": "", "opts": [], "ex": "YYYY-MM-DD", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Funding Source for Procedure Development", "desc": "Grants and other funding sources that supported instrument acquisition, major upgrades, procedure development, and associated personnel time. Include grant numbers and funding agencies where applicable.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'NSF EAR-1234567' | 'NASA 80NSSC20K0371' | 'None'", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Procedure Reference(s)", "desc": "DOI or URL for peer-reviewed publications or technical reports describing, validating, or benchmarking this procedure.", "tier": "Advanced", "dtype": "URI / DOI", "unit": "", "opts": [], "ex": "e.g., 'https://doi.org/10.1234/example'", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "Neuman et al. 2025, J. Geophys. Res. Planets 130, e2024JE008556; doi:10.1029/2024JE008556 (section 2.6)", "note": "", "warn": ""}, {"name": "Coupled Technique(s)", "desc": "Other analytical techniques applied to the same sample(s) whose results are intended to be interpreted together with data from this procedure. Document coupling with any technique whose results are functionally linked to this dataset — providing calibration inputs, complementary spatial context, or required companion measurements. Name the instrument, laboratory or purpose alongside each technique where known, and join multiple techniques with '; '. Enter \"None\" if no coupling is intended.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'EPMA (Brown University CAMECA SX-100)' | 'FIB-SEM (Crossbeam 540) for 3D tomography; EDS for mineral analysis' | 'NanoSIMS; STXM; Raman' | 'None' | 'N/A'", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)", "note": "", "warn": ""}, {"name": "Coupling Description", "desc": "Description of how this procedure is coupled with the technique(s) listed above. Include: (1) the functional relationship — what data or context flows between techniques, or how results are combined (e.g. which output from the coupled technique serves as input to data reduction for this technique); and (2) the analytical sequence — which technique is performed first and why (e.g. non-destructive before destructive). Required when Coupled Technique(s) is not \"None\".", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'EPMA WDS major element concentrations used as internal standard for LA-ICP-MS trace element data reduction. EPMA performed first because LA-ICP-MS ablation is destructive.'", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "Single-element and RGB composite X-ray maps are compared with BSE and optical image mosaics (reflected light, plane polarized, crossed polars) to discriminate crystalline from glassy phases; an Al-Mg-Fe RGB composite X-ray map is used to discriminate feldspathic (red) from ferromagnesian (green and blue) phases", "note": "", "warn": ""}]}, {"title": "2. Samples", "fields": [{"name": "Target Material", "desc": "General description of the material type(s) this procedure is designed to analyse.", "tier": "Basic", "dtype": "Controlled list / Text", "unit": "", "opts": ["Silicate mineral", "Silicate glass", "Oxide", "Sulfide", "Carbonate", "Phosphate", "Metal or alloy", "N/A", "None"], "ex": "Silicate mineral | Silicate glass | Oxide | Sulfide | Carbonate | Phosphate | Metal or alloy | N/A | None", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "Lunar regolith (Apollo 17 double drive tube, lower section 73001), as continuous thin sections", "note": "", "warn": ""}, {"name": "Sample Preparation Method", "desc": "The form in which the sample is presented to the instrument, and the preparation that brought it to that form — for example mounting, sectioning, polishing, coating, crushing, fusion, or extraction of an electron-transparent section. Record 'None' where the material is analysed as received.", "tier": "Basic", "dtype": "Controlled list / Text", "unit": "", "opts": ["Polished thin section", "Polished thick section", "Polished block or epoxy mount", "Grain mount", "Fragments or particles on conductive tape", "Bulk specimen, polished face", "Acid-dissolution residue", "N/A", "None"], "ex": "Polished thin section | Polished thick section | Polished block or epoxy mount | Grain mount | Fragments or particles on conductive tape | Bulk specimen, polished face | Acid-dissolution residue | N/A | None", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N", "note": "", "warn": ""}, {"name": "Sampling Unit", "desc": "The physical subdivision of the sample to which one row of reported values corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. Where units nest (e.g. confined tracks within grains), state both levels.", "tier": "Basic", "dtype": "Controlled list / Text", "unit": "", "opts": ["Whole sample", "Aliquot", "Grain", "Spot", "Analysis point", "Phase", "Sub-volume", "Region of interest", "N/A", "None"], "ex": "Whole sample | Aliquot | Grain | Spot | Analysis point | Phase | Sub-volume | Region of interest | N/A | None", "key": "defines: sampling unit", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)", "note": "", "warn": ""}, {"name": "Sample Persistent Identifier", "desc": "Globally unique, persistent identifier for each sample listed in Sample Name. IGSN (International Geo Sample Number) is the recommended standard for geological and cosmochemical samples, as used by Astromat, EarthChem and SESAR. Where a sample and its sub-samples are separately registered, record the identifier at the level actually analysed.", "tier": "Advanced", "dtype": "URI / IGSN", "unit": "", "opts": [], "ex": "e.g., 'IGSN:AU1234567'", "key": "sample", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "NASA curation sample numbers given as names; not stated as persistent identifiers", "warn": ""}, {"name": "Sampling Unit Selection Criteria", "desc": "The rules governing which sampling unit(s) within a sample are selected for analysis, and why. Covers the criteria applied when choosing grains, aliquots, spots, or a region of interest — size, morphology, clarity, freedom from inclusions or alteration, phase identity, or spatial position. Distinct from Target Material, which states the material type the procedure is designed for, and from Sampling Unit, which names the kind of subdivision one row of reported values corresponds to: this field states how, within such a sample, the unit actually analysed is picked out.", "tier": "Basic", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "continuous thin sections of the whole core; five stage maps per section, no selection rule stated", "warn": ""}, {"name": "Pre-Analysis Imaging and Screening", "desc": "Imaging or other characterisation performed before the measurement in order to select or locate the sampling unit to be analysed, including the technique, instrument and settings used, and how individual analyses are linked back to the images. Distinct from any imaging the procedure performs as its own measurement. Where the imaging is performed on a separate instrument, it should also be recorded in the Group 1 coupling fields.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "", "key": "sample", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "BSE mosaic: approximately 325 backscattered-electron images collected with the JEOL guide-net mapping software at 15 kV, 2 nA probe current and 70x magnification, stitched with the ImageJ Fiji grid-collection stitching plug-in (Donovan et al., 2021) into a 20k x 5k pixel mosaic at ~1.5 um pixel resolution", "note": "", "warn": ""}]}, {"title": "3. Instrument & Software", "fields": [{"name": "Instrument Manufacturer", "desc": "Manufacturer of the instrument that performs the measurement, recorded as a controlled value. Where a procedure couples a sample-introduction system to an analysing instrument, this records the analysing instrument. Instrument Model gives the specific designation.", "tier": "Basic", "dtype": "Controlled list", "unit": "", "opts": ["JEOL", "Cameca", "Unknown", "N/A", "None"], "ex": "JEOL | Cameca | Unknown | N/A | None", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "JEOL", "note": "", "warn": ""}, {"name": "Instrument Model", "desc": "Model designation of the instrument that performs the measurement, including any generation or configuration suffix. Conventionally written with the manufacturer name included; Instrument Manufacturer records the vendor separately, as a controlled value, so that procedures remain findable by vendor.", "tier": "Basic", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., JXA-8530F Plus | JXA-8230 | JXA-8200 | JXA-8100 | SXFiveTactis | SXFive | SX100 | iHP200F | Unknown | N/A | None", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "JEOL JXA-8200", "note": "", "warn": ""}, {"name": "Electron Source", "desc": "Type of electron gun used in the instrument.", "tier": "Basic", "dtype": "Controlled list", "unit": "", "opts": ["Cold-FEG", "Schottky FEG (X-FEG)", "Schottky FEG (standard)", "Field emission gun (FEG) — subtype not specified", "LaB6 / CeB6", "Tungsten (W)", "Unknown", "N/A", "None"], "ex": "Cold-FEG | Schottky FEG (X-FEG) | Schottky FEG (standard) | Field emission gun (FEG) — subtype not specified | LaB6 / CeB6 | Tungsten (W) | Unknown | N/A | None", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Acquisition Software", "desc": "Instrument control, automation and data acquisition software used to collect the raw data, including version number. Distinct from Data Processing Software(s), which covers everything applied to the data after acquisition.", "tier": "Basic", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Probe for EPMA v12.9.5' | 'JEOL PC-EPMA v3.0' | 'Cameca PeakSight 6.2'", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps", "note": "", "warn": ""}, {"name": "Data Processing Software(s)", "desc": "All software applied to the data after acquisition in order to produce the reported quantities, including version numbers. List every package used. Distinct from Acquisition Software, which controls the instrument and collects the raw data.", "tier": "Basic", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Probe for EPMA (built-in)' | 'CalcZAF v12' | 'CITZAF (Armstrong 1995)' | 'XMapTools 4.1 (for mapping)'", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks", "note": "", "warn": ""}, {"name": "WDS Spectrometer Configuration", "desc": "Number, type, and crystal range of WDS spectrometers on the instrument. Include manufacturer, model, and crystal range. For SEM-WDS configurations (third-party WDS on a non-EPMA platform), include WDS manufacturer and model.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., '5 Rowland-circle WDS spectrometers (JEOL), crystal range LDE1-LIFH' | '4 WDS spectrometers (Cameca)'", "key": "(none)", "modes": {"EDS Point Analysis": false, "EDS Mapping": false, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "Fixed wavelength-dispersive spectrometers; count not stated (five elements collected per pass)", "note": "", "warn": ""}, {"name": "EDS Detector Configuration", "desc": "EDS detector type, manufacturer, number of detector elements, active area and solid angle, window type, and geometry (take-off angle, position). List multiple detectors separately. Record 'N/A' where the procedure has no EDS detector.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Oxford Ultim Max 100 SDD, 100 mm2, polymer window, 35 deg take-off angle' | 'JEOL (e2v/Gresham) SDD, Be window'", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": false, "WDS Mapping": false}, "val": "N/A - WDS mapping; no EDS used for the EPMA work", "note": "", "warn": ""}]}, {"title": "4. Measurement Information", "fields": [{"name": "Analytical Mode", "desc": "Primary analytical mode(s) executed under this procedure. Records one value for a single-mode procedure and all applicable modes for a multi-mode one. Applies even where a procedure defines no mode flag columns.", "tier": "Basic", "dtype": "Controlled list", "unit": "", "opts": ["EDS Point Analysis", "EDS Mapping", "WDS Point Analysis", "WDS Mapping"], "ex": "EDS Point Analysis | EDS Mapping | WDS Point Analysis | WDS Mapping", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "WDS Mapping", "note": "", "warn": ""}, {"name": "Beam Mode", "desc": "Whether the electron beam was operated as a stationary focused spot, defocused to a specified diameter, or rastered over a small area during a single-point analysis. Must be consistent with the Beam Diameter and Beam Raster Dimensions fields. For mapping, beam scanning is controlled by Step Size / Pixel Size and Stage Scan vs. Beam Scan instead.", "tier": "Basic", "dtype": "Controlled list / Text", "unit": "", "opts": ["Focused", "Defocused", "Rastered", "N/A", "None"], "ex": "Focused | Defocused | Rastered | N/A | None", "key": "sample > sampling unit", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "Fixed 10 um beam (stated 'a fixed 10 um electron beam')", "note": "", "warn": ""}, {"name": "Accelerating Voltage", "desc": "Electron beam accelerating voltage in kilovolts (kV). Justify any deviation from the standard operating voltage.", "tier": "Basic", "dtype": "Numeric (kV)", "unit": "kV", "opts": [], "ex": "e.g., 15 | 20 | 10 | 7.5", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "15 kV (stage maps and BSE mosaic)", "note": "", "warn": ""}, {"name": "Beam Current", "desc": "Probe current in nanoamperes (nA). Often varies by phase type or target species; record the procedure-standard value(s).", "tier": "Basic", "dtype": "Numeric (nA)", "unit": "nA", "opts": [], "ex": "e.g., 5 | 10 | 20 | 50 | 100", "key": "sample > sampling unit", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "100 nA probe current (stage maps); 2 nA (BSE mosaic)", "note": "", "warn": ""}, {"name": "Beam Diameter", "desc": "Diameter of the electron beam in micrometers. 0 indicates a fully focused beam. Document defocused diameter when used to minimize beam damage or improve spatial averaging for beam-sensitive phases.", "tier": "Basic", "dtype": "Numeric (µm) / Text", "unit": "µm", "opts": [], "ex": "e.g., 0 (focused) | 1 | 2 | 5 | 10 | 20", "key": "sample > sampling unit", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "10 um (fixed)", "note": "", "warn": ""}, {"name": "Beam Raster Dimensions", "desc": "Dimensions of the small area over which the beam is rastered at a single analysis point, reported as width × height in µm. Applicable when Beam Mode = Rastered; defines the effective spatial footprint of the measurement. Not applicable when mapping.", "tier": "Advanced", "dtype": "Numeric pair (µm x µm)", "unit": "µm x µm", "opts": [], "ex": "e.g., 5x5 | 10x10 | None", "key": "sample > sampling unit", "modes": {"EDS Point Analysis": true, "EDS Mapping": false, "WDS Point Analysis": true, "WDS Mapping": false}, "val": "N/A - stage scan, not beam scan", "note": "", "warn": ""}, {"name": "Beam Damage Minimization", "desc": "Measures taken to minimize beam damage, particularly volatilization or migration of Na, K, F, and Cl in hydrous minerals, glasses, feldspars, phosphates, and carbonates. Document approach, beam conditions used, and phases for which it was applied.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Na measured first with 10 um defocused beam at 5 nA' | 'Time-resolved acquisition extrapolated to t=0 for Na and K' | 'None required (anhydrous minerals)'", "key": "sample > sampling unit", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Drift Correction", "desc": "Method used to monitor and correct for instrument drift (beam current drift, spectrometer drift) during the analytical session.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Primary standards re-measured at start, midpoint, and end of session; calibration linearly interpolated' | 'Faraday cup beam current verified every 30 min' | 'None'", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Target Species", "desc": "The chemical species this procedure is designed to determine, recorded at whatever resolution the chemistry is resolved — element(s) for this technique; valence species where a procedure resolves oxidation state; compounds where it resolves molecules. Isotopes are not target species: isotopes of an element are the same chemical species. The subset actually measured may be narrower than the registered suite where species were excluded due to interferences or scope reduction.", "tier": "Basic", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Si, Ti, Al, Fe, Mn, Mg, Ca, Na, K, Cr, Ni, P, S, Cl, F' | 'Si, Al, Fe, Mg, Ca, Na, K'", "key": "defines: target species", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "Mg, Al, Fe, Ca, Ti, Na, Si, Mn, K, Cr (ten elements, collected in two passes)", "note": "", "warn": ""}, {"name": "Reported Variables and Units", "desc": "The final variable(s) this procedure reports and their units — distinct from the fields recording what was *acquired* rather than what is reported. Record every reported variable, including intermediate quantities reported alongside final ones (e.g. both the 206Pb/238U ratio and the 206Pb/238U date). Where a reported variable is a nominal property with no magnitude (e.g. a mineral identification), record the variable and give the unit as 'N/A — nominal property'.", "tier": "Basic", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Element concentration (ppm); oxide (wt%)' | 'd56Fe (permil vs IRMM-014); d57Fe (permil vs IRMM-014)' | '206Pb/238U date (Ma); 207Pb/206Pb date (Ma)' | 'Mineral identity (N/A — nominal property); match score (0-1)'", "key": "defines: reported property", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "Quantitative element and oxide wt.% maps; cation stoichiometry; derived mineral endmember maps (32-bit floating point .tiff)", "note": "", "warn": ""}, {"name": "EPMA Technique per Target Species", "desc": "Whether the measurement was made by WDS or EDS. Applies where a procedure uses both WDS and EDS.", "tier": "Basic", "dtype": "Controlled list", "unit": "", "opts": ["WDS", "EDS", "N/A", "None"], "ex": "WDS | EDS | N/A | None", "key": "target species", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "WDS (all ten elements)", "note": "", "warn": ""}, {"name": "X-ray Line", "desc": "X-ray emission line measured.", "tier": "Basic", "dtype": "Controlled list", "unit": "", "opts": ["Ka", "Kb", "La", "Lb", "Lg", "Ma", "Mb", "N/A", "None"], "ex": "Ka | Kb | La | Lb | Lg | Ma | Mb | N/A | None", "key": "channel", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Diffracting Crystal", "desc": "Analyzing crystal (monochromator).", "tier": "Basic", "dtype": "Controlled list", "unit": "", "opts": ["LIF", "LLIF", "LIFL", "LIFH", "PET", "LPET", "PETL", "PETH", "PETJ", "TAP", "TAPL", "TAPH", "LTAP", "LDE1", "LDE2", "LDE3", "RAP", "KAP", "ADP", "Unknown", "N/A", "None"], "ex": "LIF | LLIF | LIFL | LIFH | PET | LPET | PETL | PETH | PETJ | TAP | TAPL | TAPH | LTAP | LDE1 | LDE2 | LDE3 | RAP | KAP | ADP | Unknown | N/A | None", "key": "channel", "modes": {"EDS Point Analysis": false, "EDS Mapping": false, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "WDS Spectrometer Channel", "desc": "WDS spectrometer position(s) assigned to each target species, one entry per assignment. An target species may be assigned to more than one spectrometer with intensities aggregated (aggregate intensity counting), and one spectrometer serves several target species across a run, so the assignment — not the target species — is the unit carrying the spectrometer setup.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Si=Sp1; Ti=Sp2; Cr=Sp2+Sp3 (aggregate intensity counting); Fe=Sp3' | 'Mg=Sp1; Ca=Sp4; Na=Sp5'", "key": "defines: channel per target species", "modes": {"EDS Point Analysis": false, "EDS Mapping": false, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "spectrometer-to-element assignments not stated", "warn": ""}, {"name": "Sequence", "desc": "Order in which spectrometer assignments are acquired, and — where the element suite exceeds the number of spectrometers — the passes the acquisition is divided into. Within a single pass all assigned spectrometers collect simultaneously, including at every pixel in X-ray mapping; a suite larger than the spectrometer count therefore requires the acquisition to be run more than once, each pass covering a different subset of elements.", "tier": "Advanced", "dtype": "Integer", "unit": "", "opts": [], "ex": "e.g., 1 | 2 | 3 | 4", "key": "channel", "modes": {"EDS Point Analysis": false, "EDS Mapping": false, "WDS Point Analysis": true, "WDS Mapping": false}, "val": "Two passes per stage map: pass 1 = Mg, Al, Fe, Ca, Ti; pass 2 = Na, Si, Mn, K, Cr", "note": "", "warn": ""}, {"name": "Proportional Counter / Detector", "desc": "Type of detector used.", "tier": "Advanced", "dtype": "Controlled list", "unit": "", "opts": ["High Pressure P10 Flow", "Low Pressure P10 Flow", "Xe Sealed", "SDD", "Si(Li)", "Unknown", "N/A", "None"], "ex": "High Pressure P10 Flow | Low Pressure P10 Flow | Xe Sealed | SDD | Si(Li) | Unknown | N/A | None", "key": "channel", "modes": {"EDS Point Analysis": false, "EDS Mapping": false, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "WDS PHA Setting", "desc": "Pulse height analyzer (PHA) setting for the WDS detector. Integral mode accepts all pulses above a threshold; Differential mode selects a narrow energy window to reject higher-order reflections and escape peaks.", "tier": "Advanced", "dtype": "Controlled list", "unit": "", "opts": ["Integral", "Differential", "Unknown", "N/A", "None"], "ex": "Integral | Differential | Unknown | N/A | None", "key": "channel", "modes": {"EDS Point Analysis": false, "EDS Mapping": false, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Peak Counting Time", "desc": "Time spent counting X-ray intensity at the peak position, in seconds. Adjustments stay within procedure-defined bounds.", "tier": "Basic", "dtype": "Numeric (s)", "unit": "s", "opts": [], "ex": "e.g., 10 | 20 | 30 | 60", "key": "channel", "modes": {"EDS Point Analysis": false, "EDS Mapping": false, "WDS Point Analysis": true, "WDS Mapping": false}, "val": "25 msec dwell per pixel, all on-peak - the MAN background correction 'allows all map collection time to be dedicated to on-peak X-ray measurement'", "note": "", "warn": ""}, {"name": "Background Counting Time", "desc": "Total time spent counting at off-peak background position(s) in seconds, summed across all background positions.", "tier": "Basic", "dtype": "Numeric (s)", "unit": "s", "opts": [], "ex": "e.g., 5 | 10 | 20", "key": "channel", "modes": {"EDS Point Analysis": false, "EDS Mapping": false, "WDS Point Analysis": true, "WDS Mapping": false}, "val": "N/A - MAN (mean atomic number) background calibration; no off-peak counting", "note": "", "warn": ""}, {"name": "Background Position(s)", "desc": "Location(s) of off-peak background measurement(s) relative to the peak, in mm or sin-theta, and whether on the high- or low-energy side.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., '+5 mm (High), -5 mm (Low)' | 'High only (+4 mm)' | 'MAN method (no off-peak positions)'", "key": "channel", "modes": {"EDS Point Analysis": false, "EDS Mapping": false, "WDS Point Analysis": true, "WDS Mapping": false}, "val": "N/A - MAN background calibration; no off-peak positions", "note": "", "warn": ""}, {"name": "EDS Live Time per Point or Pixel", "desc": "EDS spectral acquisition live time per analysis point in seconds. Previously referred to as \"EDS Acquisition Time\" in this TAPP and commonly used under that name in EPMA and SEM-EDS contexts. Renamed to align with TEM-EDS usage, where the per-point vs. per-pixel distinction (point/line mode vs. spectrum image) is explicit. In EPMA, acquisition is always per point.", "tier": "Basic", "dtype": "Numeric (s)", "unit": "s", "opts": [], "ex": "e.g., 30 | 60 | 120", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": false, "WDS Point Analysis": false, "WDS Mapping": false}, "val": "N/A", "note": "", "warn": ""}, {"name": "EDS Acquisition Mode", "desc": "Spatial acquisition sub-strategy for EDS measurements: stationary-beam point acquisition, line scan (beam stepped along a transect at defined intervals), or area map / spectrum image (beam rastered over a pixel grid). Specifies how the beam is positioned during data collection within the declared analytical mode. Record 'N/A' where the procedure has no EDS detector. 'Point' covers what the literature also calls spot or point-spectrum analysis. 'Map' and 'Spectrum image' are distinct acquisitions, not synonyms: a map may retain element intensities alone, whereas a spectrum image retains a full spectrum at every pixel and can be requantified afterwards — record which was acquired. Where more than one mode was used, join them with '; ' rather than looking for a combined member.", "tier": "Basic", "dtype": "Controlled list", "unit": "", "opts": ["Point", "Line scan", "Map", "Spectrum image", "N/A", "None"], "ex": "Point | Line scan | Map | Spectrum image | N/A | None", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": false, "WDS Mapping": false}, "val": "N/A", "note": "", "warn": ""}, {"name": "Dwell Time per Pixel", "desc": "Time spent acquiring X-ray signal at each pixel during X-ray mapping, in milliseconds. For WDS: one value per spectrometer assignment per pixel. For EDS: total live-time per spectrum per pixel, a single value.", "tier": "Basic", "dtype": "Numeric + unit", "unit": "", "opts": [], "ex": "e.g., '10 ms' | '100 ms' | '0.5 s'", "key": "channel", "modes": {"EDS Point Analysis": false, "EDS Mapping": true, "WDS Point Analysis": false, "WDS Mapping": true}, "val": "25 msec", "note": "", "warn": ""}, {"name": "Step Size / Pixel Size", "desc": "Distance between adjacent measurement points in the X-ray map in micrometers, defining the spatial resolution. Report both X and Y step if they differ.", "tier": "Basic", "dtype": "Numeric (µm) / Text", "unit": "µm", "opts": [], "ex": "e.g., 0.5 | 1 | 2 | 5 | 10; or '1 um (X) x 2 um (Y)'", "key": "(none)", "modes": {"EDS Point Analysis": false, "EDS Mapping": true, "WDS Point Analysis": false, "WDS Mapping": true}, "val": "9.5 um (stage maps); ~1.5 um per pixel (BSE mosaic)", "note": "", "warn": ""}, {"name": "Stage Scan vs. Beam Scan", "desc": "For mapping modes, whether the map was acquired by moving the stage while the beam is held fixed (stage scan), or by deflecting the beam across the field while the stage is stationary (beam scan).", "tier": "Advanced", "dtype": "Controlled list", "unit": "", "opts": ["Stage scan", "Beam scan", "Combined stage and beam scan", "Unknown", "N/A", "None"], "ex": "Stage scan | Beam scan | Combined stage and beam scan | Unknown | N/A | None", "key": "(none)", "modes": {"EDS Point Analysis": false, "EDS Mapping": true, "WDS Point Analysis": false, "WDS Mapping": true}, "val": "Stage scan (stated 'EPMA stage maps')", "note": "", "warn": ""}]}, {"title": "5. Data Processing", "fields": [{"name": "Matrix Correction Method", "desc": "X-ray matrix correction algorithm applied during quantitative EDS or WDS data reduction. For X-ray mapping, applies when raw count maps are converted to quantitative concentration maps. Where the k-factors or calibration constants themselves came from — measured standards, a vendor library, or theoretical cross-sections — is a separate question answered by this technique's calibration-standard field, not here; a procedure may be both absorption-corrected and standardless.", "tier": "Basic", "dtype": "Controlled list / Text", "unit": "", "opts": ["PAP (Pouchou & Pichoir Full)", "XPP (Simplified PAP)", "PhiRhoZ Bastin (EPQ-91)", "Love-Scott I", "Love-Scott II", "Armstrong / Love-Scott", "ZAF", "CITZAF (Armstrong 1995)", "Bence-Albee", "Unknown", "N/A", "None"], "ex": "PAP (Pouchou & Pichoir Full) | XPP (Simplified PAP) | PhiRhoZ Bastin (EPQ-91) | Love-Scott I | Love-Scott II | Armstrong / Love-Scott | ZAF | CITZAF (Armstrong 1995) | Bence-Albee | Unknown | N/A | None", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "Full Phi(rho-z) correction applied at each pixel, of the form C = k x ZAF, where ZAF is the compositionally dependent correction for atomic number, X-ray absorption and characteristic fluorescence in both sample and standard", "note": "", "warn": ""}, {"name": "Mass Absorption Coefficients (MACs)", "desc": "Database of mass absorption coefficients used in the matrix correction.", "tier": "Basic", "dtype": "Controlled list", "unit": "", "opts": ["LINEMU", "CITZMU", "MCMASTER", "MAC30", "MACJTA", "FFAST", "Unknown", "N/A", "None"], "ex": "LINEMU | CITZMU | MCMASTER | MAC30 | MACJTA | FFAST | Unknown | N/A | None", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "X-ray Background Correction Method", "desc": "Method used to estimate and subtract background X-ray intensity beneath the peak. For WDS: typically 2-point off-peak linear interpolation or Mean Atomic Number (MAN) background model. For EDS: spectral background fitting or top-hat filter applied during spectral processing.", "tier": "Basic", "dtype": "Controlled list", "unit": "", "opts": ["2-point off-peak linear", "2-point off-peak exponential", "2-point off-peak polynomial", "2-point off-peak (interpolation not specified)", "1-point high with slope factor", "1-point low with slope factor", "Mean Atomic Number (MAN)", "EDS background fit", "Top-hat filter", "N/A", "None"], "ex": "2-point off-peak linear | 2-point off-peak exponential | 2-point off-peak polynomial | 2-point off-peak (interpolation not specified) | 1-point high with slope factor | 1-point low with slope factor | Mean Atomic Number (MAN) | EDS background fit | Top-hat filter | N/A | None", "key": "channel", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "MAN (mean atomic number) background calibration, using EPMA standards spanning a range of average atomic number Z", "note": "", "warn": ""}, {"name": "Time-Dependent Intensity Correction", "desc": "Type of time-dependent intensity (TDI) correction applied to compensate for beam-induced volatilization or migration of sensitive elements (e.g., Na, K, F in glasses, feldspars, carbonates).", "tier": "Advanced", "dtype": "Controlled list", "unit": "", "opts": ["None", "Linear", "Exponential", "Double exponential", "Unknown", "N/A"], "ex": "None | Linear | Exponential | Double exponential | Unknown | N/A", "key": "target species", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Target Species Estimation Method", "desc": "Whether elemental concentrations were calculated directly from measured X-ray intensities, or estimated by cation stoichiometry (e.g., oxygen calculated from cation proportions in silicates; carbon from stoichiometry in carbonates).", "tier": "Advanced", "dtype": "Controlled list / Text", "unit": "", "opts": ["Direct (measured)", "Stoichiometry from cations", "By difference", "Unknown", "N/A", "None"], "ex": "Direct (measured) | Stoichiometry from cations | By difference | Unknown | N/A | None", "key": "target species", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Halogen Correction on Oxygen", "desc": "Whether oxygen content was adjusted to account for halogen substitution (F and/or Cl replacing OH) in halogen-bearing phases such as apatite, amphibole, and mica, where oxygen is calculated by stoichiometry.", "tier": "Advanced", "dtype": "Controlled list / Text", "unit": "", "opts": ["No", "N/A", "None"], "ex": "e.g., 'Yes — F and Cl substitution in apatite; O calculated as 1-F-Cl=OH' | 'No' | N/A | None", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "N/A", "note": "", "warn": ""}, {"name": "WDS Dead Time Correction", "desc": "Method used to correct for WDS proportional counter dead time at high count rates. Unlike EDS dead time — which is hardware-managed and reported as a session QC percentage (see EDS Dead Time) — WDS dead time correction is a user-selectable algorithm in the data reduction software. No separate measured WDS dead time value is reported; the correction is applied transparently during intensity-to-concentration conversion. Record the algorithm here and any instrument-specific constant alongside it — 'Default constant (manufacturer) — 3 µs, Cameca'. The instrument vendor itself is recorded by Instrument Manufacturer, not by this field's allowed values.", "tier": "Basic", "dtype": "Controlled list / Text", "unit": "", "opts": ["Default constant (manufacturer)", "Adjusted constant", "Logarithmic", "High-precision (Probe for EPMA)", "Super-precision (Probe for EPMA)", "Unknown", "N/A", "None"], "ex": "Default constant (manufacturer) | Adjusted constant | Logarithmic | High-precision (Probe for EPMA) | Super-precision (Probe for EPMA) | Unknown | N/A | None", "key": "(none)", "modes": {"EDS Point Analysis": false, "EDS Mapping": false, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "EDS Spectral Processing Type", "desc": "Method used to process EDS spectra and extract net peak intensities from raw spectral data. Applied before quantification (see Matrix Correction Method). Common approaches include background fitting and subtraction followed by peak integration, and filter fit or Gaussian deconvolution for overlapping peaks.", "tier": "Advanced", "dtype": "Controlled list", "unit": "", "opts": ["Background fitting", "Peak deconvolution", "Top-hat filter", "Gaussian fit", "Filter fit", "Unknown", "N/A", "None"], "ex": "Background fitting | Peak deconvolution | Top-hat filter | Gaussian fit | Filter fit | Unknown | N/A | None", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": false, "WDS Mapping": false}, "val": "N/A", "note": "", "warn": ""}, {"name": "Blank Correction", "desc": "Method and reference material(s) used to determine and subtract blank signal contributions (e.g., carbon coat contribution to C signal, or background contamination for trace elements).", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Blank C signal subtracted using carbon-coated polished glass reference' | 'None'", "key": "target species", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Normalization / Standards-Based Correction", "desc": "Post-acquisition normalization applied to the reported data beyond the primary calibration — for example correction to a reference value derived from secondary reference materials, or correction for a systematic bias those materials reveal. Record 'None' if no additional normalization is applied.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Normalization to accepted values of Kakanui kaersutite run as secondary standard' | 'None'", "key": "reported property", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "k-ratio against the calibration standard: k = (P-B)smp / (P-B)std, the background-corrected relative peak X-ray intensity at each pixel compared to the calibration standard", "note": "", "warn": ""}, {"name": "Calibration Factor and Determination Method", "desc": "An externally-calibrated factor that converts the measured quantity into the reported quantity, how it was determined, and its uncertainty. Applies where the conversion depends on a factor calibrated against a reference of independently known value, rather than on the instrument response alone. Distinct from the fields that name the calibration material and that state which approach applies to which target species, where the technique has them: this field records the resulting factor itself.", "tier": "Basic", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "", "key": "reported property", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Analysis Inclusion and Rejection Criteria", "desc": "The rules determining which individual analyses contribute to a reported aggregate result, together with the outcome of applying them: how many analyses were acquired, how many were included, and on what grounds any were excluded. Distinct from within-analysis outlier filtering, which removes anomalous points inside a single analysis: this field decides which whole analyses enter the reported value.", "tier": "Basic", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Constants and Reference Values Used", "desc": "Physical constants and reference values used in data reduction to calculate the final reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable reference values used in a correction or calculation), together with their source. Distinct from the Group 6 reference-material fields, which document accepted values for specific calibration/validation materials rather than universal physical constants. Record \"None\" if no citable, revisable physical constants feed into this procedure's data reduction.", "tier": "Basic", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., \"λ238U = 1.55125×10⁻¹⁰ yr⁻¹, λ235U = 9.8485×10⁻¹⁰ yr⁻¹ (Jaffey et al. 1971); 238U/235U = 137.818 (Hiess et al. 2012)\" | \"None\"", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}]}, {"title": "6. Quality Control & Uncertainty", "fields": [{"name": "Primary Calibration Standard Name", "desc": "Name and reference material identifier of the primary reference material(s) against which the instrument is calibrated — converting raw signal intensities to concentrations, or anchoring an isotope ratio as the bracketing standard or zero-delta reference. Give the material name, its source or supplier, and a citation for the accepted values used. Where calibration instead uses the vendor's stored library or theoretical response factors rather than measured reference materials — 'standardless' or 'semi-quantitative' quantification — record that here, naming the library or model used. 'None' means no calibration was performed at all, which is a different answer.", "tier": "Basic", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Smithsonian anorthite (Si Ka, Al Ka, Ca Ka)' | 'Amelia albite (Na Ka)' | 'Synthetic fayalite (Fe Ka)' | 'SrF2 (F Ka)'", "key": "target species", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "'EPMA standards having a range of average atomic number Z' are used for the MAN background calibration; individual standards not named", "warn": ""}, {"name": "Secondary Reference Materials", "desc": "Quality-control reference material(s) measured as unknowns alongside samples to assess accuracy independently and to monitor drift. Give the material name, its source, and a citation for the accepted or reference values used for comparison.", "tier": "Basic", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Kakanui kaersutite (Si, Al, Ti, Fe, Mg, Ca, Na, K; n=5; within 1% of GeoReM values)' | 'Durango apatite (F, Cl, P, Ca; Wudarska et al. 2021)' | 'USNM San Carlos olivine 111312 (Mg, Fe, Si)'", "key": "defines: standard", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "X-ray Line Overlap Corrections Applied", "desc": "Whether a spectral interference correction was applied. Common interferences include Ti Kb on V Ka, Cr Kb on Mn Ka, and Ba La on Ti Ka.", "tier": "Basic", "dtype": "Controlled list / Text", "unit": "", "opts": ["Yes — specify the overlapping lines and the correction method", "No", "N/A", "None"], "ex": "Yes — specify the overlapping lines and the correction method | No | N/A | None", "key": "target species", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Interfering Elements", "desc": "Element(s) whose X-ray lines overlap with the measured peak, requiring a correction.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Ti Kb overlaps V Ka' | 'Cr Kb overlaps Mn Ka' | 'Ba La overlaps Ti Ka'", "key": "target species", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Interference Correction Standard", "desc": "Reference material used to quantify and calibrate the interference correction.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'Synthetic TiO2 (for Ti Kb on V correction)' | 'Chromite USNM 117075 (for Cr Kb on Mn correction)'", "key": "target species", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Detection Limit", "desc": "Detection limit, one per reported concentration variable (one per target species, these being the same set). State the units and whether the values are procedure-typical estimates or session-specific measured values. The calculation method is recorded separately in Detection Limit Method. Record 'N/A' where the procedure reports no concentrations.", "tier": "Advanced", "dtype": "Numeric + unit / Text", "unit": "", "opts": [], "ex": "e.g., 'SiO2: 0.02 wt% (3-sigma, 20 s peak, 10 s bg)' | 'Na2O: 0.03 wt%' | 'F: 0.04 wt%'", "key": "reported property", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "0.1-0.2 element wt.% for all elements in this map set", "note": "", "warn": ""}, {"name": "Detection Limit Method", "desc": "Formula or approach used to calculate the detection limits, with a citation for the method where one exists. Must be consistent with the values reported in Detection Limit.", "tier": "Basic", "dtype": "Controlled list / Text", "unit": "", "opts": ["3σ blank", "3σ background", "3σ counting statistics", "3× blank mean", "Poisson statistics", "N/A", "None"], "ex": "3σ blank | 3σ background | 3σ counting statistics | 3× blank mean | Poisson statistics | N/A | None", "key": "reported property", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'", "warn": ""}, {"name": "Analytical Precision", "desc": "Reproducibility of repeated measurements on the same or equivalent reference material, expressed as 1-sigma relative standard deviation (%). Include reference material name, number of analyses (n), and the measured value.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'SiO2: 0.5% 1-sigma RSD (n=20, Kakanui kaersutite)' | 'FeO: 1.2% 1-sigma RSD (n=15, San Carlos olivine)'", "key": "standard x reported property", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Analytical Accuracy", "desc": "Offset between measured and accepted reference values for secondary standards, expressed as percent relative bias. Include reference material, reference value source, and the measured value.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'SiO2: +0.5% relative to GeoReM preferred value (Kakanui kaersutite)' | 'CaO: -1.2% relative to accepted value'", "key": "standard x reported property", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Counting Statistics Error", "desc": "Uncertainty predicted from counting statistics — the theoretical limit set by the Poisson distribution of the counts accumulated — for each reported quantity per analysis, with the sigma level stated. Derived from the counts on the target species together with those on any background or blank subtracted from it. Distinct from the scatter actually observed within a measurement or between repeated measurements, which is recorded separately.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "e.g., 'SiO2: +-0.04 wt% (1-sigma)' | 'Na2O: +-0.03 wt% (1-sigma)'", "key": "sample > sampling unit x reported property", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "", "note": "not stated in source", "warn": ""}, {"name": "Additional Notes", "desc": "Any procedure- or analysis-specific information not captured by a structured field anywhere in this TAPP — including anomalies, deviations from the registered procedure, instrument modifications, and supplementary context. Scope is the whole document, not Group 6: this is the last field of the TAPP and covers all six groups. Use sparingly; a structured field is preferred for anything that can be formally categorised.", "tier": "Advanced", "dtype": "Text (free)", "unit": "", "opts": [], "ex": "Free text", "key": "(none)", "modes": {"EDS Point Analysis": true, "EDS Mapping": true, "WDS Point Analysis": true, "WDS Mapping": true}, "val": "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes.", "note": "", "warn": ""}]}], "modes": ["EDS Point Analysis", "EDS Mapping", "WDS Point Analysis", "WDS Mapping"], "excluded": ["Procedure DOI", "Session Identifier", "Analyst", "Analysis Start Date", "Analysis End Date", "Funding Source for Analysis", "Coupled Procedure DOI", "Coupled Dataset or Publication Reference", "Sample Name", "Map Dimensions", "Map Area", "Procedural Blank Level", "EDS Dead Time", "Goodness-of-Fit or Dispersion Statistic"], "perMember": {}, "meta": {"title": "EPMA Mapping Registration", "schema": "EPMA_TAPP_v65", "cite": ["schema &nbsp;<b>EPMA_TAPP_v65</b>", "prefilled from &nbsp;<b>Neuman et al. 2025</b>", "<span style='color:var(--ink-3)'>J. Geophys. Res. Planets 130, e2024JE008556</span>", "Apollo 17 core 73001 · WashU · JEOL JXA-8200"], "foot": "Mockup generated from <b>EPMA_TAPP_v65</b> — 72 procedure-level fields across 6 groups. Values are extracted from the published method section of Neuman et&nbsp;al. 2025 and shown as an example of a filled form; they are not a registered procedure. Fields the source does not state are left empty and marked.", "defaultMode": "WDS Mapping", "sourceMode": "WDS Mapping"}};
+const META = TAPP.meta;
+
+document.getElementById("ttl").textContent = META.title;
+document.title = META.title;
+document.getElementById("src").innerHTML = META.cite.map(c=>c).join("<br>");
+document.getElementById("foot").innerHTML = META.foot;
+
+/* ---------- domains ---------- */
+const DEFINER_OF = {
+  "target species":"defines: target species",
+  "reported property":"defines: reported property",
+  "channel":"defines: channel per target species",
+  "standard":"defines: standard",
+  "sampling unit":"defines: sampling unit",
+  "acquisition pass":"defines: acquisition pass"
+};
+const allFields = TAPP.groups.flatMap(g=>g.fields);
+const byKey = k => allFields.find(f=>f.key===DEFINER_OF[k]);
+function parseMembers(v){
+  if(!v) return [];
+  let s = v.replace(/\s*\([^)]*\)\s*$/,"").trim();
+  let parts = s.includes(";") ? s.split(";") : s.split(",");
+  return parts.map(p=>p.trim()).filter(Boolean).map(p=>{
+    let label = p.split(" — ")[0].split(" - ")[0].trim();
+    return label.length>46 ? label.slice(0,44)+"…" : label;
+  });
+}
+const DOMAINS = {};
+for (const k of Object.keys(DEFINER_OF)){
+  const d = byKey(k);
+  /* a field flagged as mis-extracted cannot be trusted to define its domain */
+  const usable = d && !d.warn;
+  DOMAINS[k] = { definer: d ? d.name : "(none)", members: usable ? parseMembers(d.val) : [],
+                 tainted: !!(d && d.warn) };
+}
+function domainFor(key){
+  if (DOMAINS[key]) return DOMAINS[key];
+  if (key==="sample") return {definer:"Sample Name", members:[], sessionOnly:true};
+  if (key.includes(" x ")){
+    const parts = key.split(/\s+x\s+/).map(s=>s.trim());
+    const ds = parts.map(domainFor);
+    const missing = parts.filter((p,i)=>!ds[i].members.length);
+    return {definer:ds.map(d=>d.definer).join(" × "), members:[], cross:true, missing,
+            sessionOnly: ds.some(d=>d.sessionOnly)};
+  }
+  if (key.includes(" > ")){
+    const outer = domainFor(key.split(" > ")[0].trim());
+    return {definer:key.split(" > ").join(" › "), members:[], sessionOnly:true, nested:true, outer};
+  }
+  return {definer:"(none)", members:[]};
+}
+
+/* ---------- controls ---------- */
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function ctrl(f, val, small){
+  const v = val===undefined ? f.val : val;
+  if (f.opts.length){
+    const open = f.dtype.includes("/ Text");     /* "/ Text" = open list; bare = closed */
+    const off  = v && !f.opts.includes(v);       /* value the vocabulary cannot express */
+    const s = document.createElement("select");
+    s.innerHTML = `<option value="">— select —</option>` +
+      f.opts.map(o=>`<option${o===v?" selected":""}>${esc(o)}</option>`).join("") +
+      (open ? `<option value="__o"${off?" selected":""}>Other — specify…</option>`
+            : (off?`<option value="__x" selected>⚠ outside the controlled list</option>`:""));
+    if (off){
+      /* never drop the extracted value just because the list has no slot for it */
+      const w=document.createElement("div"); w.style.cssText="display:flex;flex-direction:column;gap:5px";
+      const t=document.createElement("textarea"); t.value=v; t.rows=Math.min(4,Math.ceil(v.length/78)+1);
+      w.append(s,t);
+      if(!open) w.insertAdjacentHTML("beforeend",
+        `<div class="note">source value is not in this closed vocabulary — recorded verbatim pending a vocabulary decision</div>`);
+      return w;
+    }
+    return s;
+  }
+  if (/^Numeric/.test(f.dtype) && !small){
+    const w=document.createElement("div"); w.className="num";
+    const i=document.createElement("input"); i.type="text"; i.value=v; w.append(i);
+    if(f.unit){const u=document.createElement("span");u.className="u";u.textContent=f.unit;w.append(u);}
+    return w;
+  }
+  if (!small && v.length>90){
+    const t=document.createElement("textarea"); t.value=v; t.rows=Math.min(7,Math.ceil(v.length/78)+1); return t;
+  }
+  const i=document.createElement("input"); i.type="text"; i.value=v;
+  if (f.dtype.startsWith("Date")) i.placeholder="YYYY-MM-DD";
+  if (f.dtype.startsWith("URI")) i.placeholder="https://doi.org/…";
+  return i;
+}
+
+/* ---------- one field ---------- */
+function renderField(f){
+  const el=document.createElement("div"); el.className="f";
+  el.dataset.tier=f.tier; el.dataset.name=f.name;
+  const isDefiner=f.key.startsWith("defines:");
+  const L=document.createElement("div"); L.className="f-l";
+  L.innerHTML =
+    `<div class="f-name">${esc(f.name)}</div>` +
+    `<div class="f-meta"><span class="chip ${f.tier==="Basic"?"basic":"adv"}">${f.tier}</span>` +
+      `<span class="keychip">${esc(f.dtype)}</span>` +
+      (f.key==="(none)"?"":`<span class="keychip">${isDefiner?"establishes":"repeats over"} <b>${esc(f.key.replace(/^defines:\s*/,""))}</b></span>`) +
+    `</div>` +
+    (f.desc?`<div class="f-desc">${esc(f.desc.length>230?f.desc.slice(0,228)+"…":f.desc)}</div>`:"");
+
+  const R=document.createElement("div"); R.className="f-r";
+
+  if (isDefiner){
+    const k=f.key.replace(/^defines:\s*/,"").split(" per ")[0];
+    const dom=DOMAINS[k]||{members:parseMembers(f.val),tainted:false};
+    R.append(ctrl(f));
+    const box=document.createElement("div"); box.className="kw";
+    box.innerHTML=`<div class="kw-head"><span class="lbl">${dom.members.length} member${dom.members.length===1?"":"s"} of <b style="color:var(--acc)">${esc(k)}</b> established by this field</span></div>`;
+    const m=document.createElement("div"); m.className="members";
+    m.innerHTML = dom.members.length
+      ? dom.members.map(x=>`<span class="mem">${esc(x)}</span>`).join("")
+      : `<span class="mem empty">${dom.tainted?"value does not enumerate this domain — see note":"domain not established — every field keyed by "+esc(k)+" collapses to a single value"}</span>`;
+    box.append(m); R.append(box);
+  }
+  else if (f.key!=="(none)"){
+    const dom=domainFor(f.key);
+    const box=document.createElement("div"); box.className="kw";
+    const head=document.createElement("div"); head.className="kw-head";
+    head.innerHTML=`<span class="lbl">one value per <b style="color:var(--acc)">${esc(f.key)}</b></span>`;
+    const seg=document.createElement("div"); seg.className="seg";
+    const bAll=document.createElement("button"); bAll.type="button"; bAll.textContent="Same for all";
+    const bPer=document.createElement("button"); bPer.type="button";
+    bPer.textContent = dom.members.length?`Per ${f.key} (${dom.members.length})`:`Per ${f.key}`;
+    seg.append(bAll,bPer); head.append(seg); box.append(head);
+    const body=document.createElement("div"); body.className="kw-body"; box.append(body);
+
+    const drawAll=()=>{body.className="kw-body";body.innerHTML="";body.append(ctrl(f));};
+    const drawPer=()=>{
+      body.className="kw-body"; body.innerHTML="";
+      if(!dom.members.length){
+        const b=document.createElement("div"); b.className="blocked";
+        if(dom.sessionOnly)
+          b.innerHTML=`<b>Not available at procedure level.</b> <code>${esc(f.key)}</code> is established by <b style="color:var(--ink-2)">${esc(dom.definer)}</b>, which is only known once a session runs. The procedure registers one value applying to every ${esc(f.key)}.`;
+        else if(dom.cross)
+          b.innerHTML=`<b>Cross-product incomplete.</b> <code>${esc(f.key)}</code> needs both domains enumerated; ${dom.missing.map(m=>`<code>${esc(m)}</code>`).join(" and ")} ${dom.missing.length>1?"are":"is"} not established for this procedure.`;
+        else if(dom.tainted)
+          b.innerHTML=`<b>Domain unusable.</b> The definer <b style="color:var(--ink-2)">${esc(dom.definer)}</b> holds a value that does not enumerate ${esc(f.key)} — see the note on that field.`;
+        else
+          b.innerHTML=`<b>Domain not established.</b> The definer <b style="color:var(--ink-2)">${esc(dom.definer)}</b> is empty for this procedure, so there are no ${esc(f.key)} members to key against. Fill it first, or record one value for all.`;
+        body.append(b); return;
+      }
+      const rows=document.createElement("div"); rows.className="rows";
+      const pm=(TAPP.perMember||{})[f.name]||null;
+      dom.members.forEach(m=>{
+        const r=document.createElement("div"); r.className="row";
+        const lab=document.createElement("div"); lab.className="m"; lab.textContent=m; lab.title=m;
+        const v = pm ? (pm[m]||"") : f.val.replace(/\s*\(all [^)]*\)\s*$/,"");
+        r.append(lab, ctrl(f,v,true)); rows.append(r);
+      });
+      body.append(rows);
+    };
+    const set=per=>{bAll.setAttribute("aria-pressed",String(!per));bPer.setAttribute("aria-pressed",String(per));per?drawPer():drawAll();};
+    bAll.onclick=()=>set(false); bPer.onclick=()=>set(true);
+    /* open on the per-member view when the source actually gives per-member values */
+    set(!!((TAPP.perMember||{})[f.name]) && dom.members.length>0);
+    R.append(box);
+  }
+  else R.append(ctrl(f));
+
+  if (f.warn) R.insertAdjacentHTML("beforeend",`<div class="flagnote"><b>Extraction defect.</b> ${esc(f.warn)}</div>`);
+  if (f.note) R.insertAdjacentHTML("beforeend",`<div class="note">${esc(f.note)}</div>`);
+  if (f.ex && !f.opts.length) R.insertAdjacentHTML("beforeend",`<div class="hint">${esc(f.ex.length>150?f.ex.slice(0,148)+"…":f.ex)}</div>`);
+  el.append(L,R); return el;
+}
+
+/* ---------- build ---------- */
+const main=document.getElementById("main");
+TAPP.groups.forEach((g,i)=>{
+  const s=document.createElement("section"); s.className="sec"; s.id="g"+i;
+  const [num,...t]=g.title.split(". ");
+  s.innerHTML=`<header><span class="num">${esc(num)}</span><h2>${esc(t.join(". "))}</h2><span class="cnt" data-cnt></span></header>`;
+  g.fields.forEach(f=>s.append(renderField(f)));
+  main.append(s);
+});
+main.insertAdjacentHTML("beforeend",
+  `<div class="excl"><h2>Not on this form</h2>
+   <p>${TAPP.excluded.length} fields in ${esc(META.schema)} carry <b>Procedure-Level Tier = N/A</b>. They have no value until the instrument is actually run, so they belong to the session record, not the procedure registration.</p>
+   <ul>${TAPP.excluded.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`);
+
+/* ---------- modes ---------- */
+let MODE = META.defaultMode;
+const SOURCE_MODE = META.sourceMode;
+const modeBox=document.getElementById("modes");
+TAPP.modes.forEach(m=>{
+  const n=allFields.filter(f=>f.modes[m]).length;
+  const b=document.createElement("button"); b.type="button"; b.dataset.mode=m;
+  b.innerHTML=`<span>${esc(m)}${m===SOURCE_MODE?' <span style="opacity:.6">· source</span>':''}</span><span class="n">${n}</span>`;
+  b.onclick=()=>{MODE=m;apply();}; modeBox.append(b);
+});
+const nav=document.getElementById("nav");
+TAPP.groups.forEach((g,i)=>{
+  const a=document.createElement("a"); a.href="#g"+i;
+  a.innerHTML=`<span>${esc(g.title)}</span><span class="n" data-nav="${i}"></span>`; nav.append(a);
+});
+
+function apply(){
+  const showAll=document.getElementById("showall").checked;
+  const showAdv=document.getElementById("showadv").checked;
+  [...modeBox.children].forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.mode===MODE)));
+  let bt=0,bd=0;
+  TAPP.groups.forEach((g,gi)=>{
+    let vis=0;
+    const els=document.querySelectorAll("#g"+gi+" .f");
+    g.fields.forEach((f,fi)=>{
+      const el=els[fi], applies=f.modes[MODE];
+      const na=/^n\/a\b/i.test(f.val.trim());
+      /* a substantive value on a field this mode excludes */
+      const carried = !applies && !!f.val && !na;
+      const show=(applies||showAll||carried)&&(f.tier==="Basic"||showAdv);
+      el.classList.toggle("hid",!show);
+      el.classList.toggle("flagged",show&&carried);
+      let fn=el.querySelector(".modenote");
+      if(show&&carried&&!fn){
+        const msg = MODE===SOURCE_MODE
+          ? `<b>Mode-flag conflict.</b> ${esc(META.schema)} flags this field <code>N</code> for ${esc(MODE)}, but the source procedure — itself ${esc(MODE)} — states a value. The flag looks too narrow.`
+          : `<b>Carried from the source mode.</b> This field does not apply to ${esc(MODE)}. The value shown was recorded for a <b>${esc(SOURCE_MODE)}</b> procedure and would not be collected here.`;
+        el.querySelector(".f-r").insertAdjacentHTML("beforeend",`<div class="flagnote modenote">${msg}</div>`);
+        el.querySelector(".f-name").insertAdjacentHTML("beforeend",
+          `<span class="chip conflict">${MODE===SOURCE_MODE?"flag conflict":"other mode"}</span>`);
+      } else if((!show||!carried)&&fn){ fn.remove(); el.querySelector(".chip.conflict")?.remove(); }
+      if(show)vis++;
+      if(show&&f.tier==="Basic"){bt++; if(f.val)bd++;}
+    });
+    document.querySelector("#g"+gi+" [data-cnt]").textContent=vis+" fields";
+    document.querySelector(`[data-nav="${gi}"]`).textContent=vis;
+  });
+  document.getElementById("mn").firstChild.textContent=bd;
+  document.getElementById("md").textContent="/"+bt;
+  document.getElementById("mb").style.width=(bt?bd/bt*100:0)+"%";
+}
+document.getElementById("showall").onchange=apply;
+document.getElementById("showadv").onchange=apply;
+apply();
+</script>
+</body>
+</html>

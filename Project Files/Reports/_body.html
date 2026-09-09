@@ -1,0 +1,296 @@
+<body>
+
+<div class="mast"><div class="mast-in">
+  <div>
+    <span class="demo">Mockup · example content</span>
+    <h1 id="ttl"></h1>
+    <p class="sub">Every field, tier, data type and cardinality on this form is generated from the TAPP. Nothing is hand-authored.</p>
+  </div>
+  <div class="src" id="src"></div>
+</div></div>
+
+<div class="shell">
+  <aside class="rail">
+    <div class="card">
+      <h3>Procedure completeness</h3>
+      <div class="body">
+        <div class="meter-n" id="mn">0<small id="md">/0</small></div>
+        <div class="bar"><i id="mb" style="width:0%"></i></div>
+        <div class="meter-cap">Required (<em>Basic</em>) procedure-level fields answered. Advanced fields are optional and not counted.</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Analytical mode</h3>
+      <div class="body">
+        <div class="modelist" id="modes"></div>
+        <div style="border-top:1px solid var(--line-2);margin-top:10px;padding-top:9px">
+          <label class="sw"><input type="checkbox" id="showall"> Show fields not applicable to this mode</label>
+          <label class="sw"><input type="checkbox" id="showadv" checked> Show Advanced fields</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Sections</h3>
+      <nav class="navlist" id="nav"></nav>
+    </div>
+
+    <div class="card">
+      <h3>Reading the form</h3>
+      <div class="body legend">
+        <div><span class="chip basic">Basic</span><span>Required to register</span></div>
+        <div><span class="chip adv">Advanced</span><span>Optional detail</span></div>
+        <div><span class="keychip">repeats over <b>channel</b></span></div>
+        <div style="color:var(--ink-3)">Column I of the TAPP decides whether a field takes one value or one value per member of a domain.</div>
+      </div>
+    </div>
+  </aside>
+
+  <main id="main"></main>
+</div>
+
+<div class="foot" id="foot"></div>
+
+<script>
+const TAPP = /*__DATA__*/;
+const META = TAPP.meta;
+
+document.getElementById("ttl").textContent = META.title;
+document.title = META.title;
+document.getElementById("src").innerHTML = META.cite.map(c=>c).join("<br>");
+document.getElementById("foot").innerHTML = META.foot;
+
+/* ---------- domains ---------- */
+const DEFINER_OF = {
+  "target species":"defines: target species",
+  "reported property":"defines: reported property",
+  "channel":"defines: channel per target species",
+  "standard":"defines: standard",
+  "sampling unit":"defines: sampling unit",
+  "acquisition pass":"defines: acquisition pass"
+};
+const allFields = TAPP.groups.flatMap(g=>g.fields);
+const byKey = k => allFields.find(f=>f.key===DEFINER_OF[k]);
+function parseMembers(v){
+  if(!v) return [];
+  let s = v.replace(/\s*\([^)]*\)\s*$/,"").trim();
+  let parts = s.includes(";") ? s.split(";") : s.split(",");
+  return parts.map(p=>p.trim()).filter(Boolean).map(p=>{
+    let label = p.split(" — ")[0].split(" - ")[0].trim();
+    return label.length>46 ? label.slice(0,44)+"…" : label;
+  });
+}
+const DOMAINS = {};
+for (const k of Object.keys(DEFINER_OF)){
+  const d = byKey(k);
+  /* a field flagged as mis-extracted cannot be trusted to define its domain */
+  const usable = d && !d.warn;
+  DOMAINS[k] = { definer: d ? d.name : "(none)", members: usable ? parseMembers(d.val) : [],
+                 tainted: !!(d && d.warn) };
+}
+function domainFor(key){
+  if (DOMAINS[key]) return DOMAINS[key];
+  if (key==="sample") return {definer:"Sample Name", members:[], sessionOnly:true};
+  if (key.includes(" x ")){
+    const parts = key.split(/\s+x\s+/).map(s=>s.trim());
+    const ds = parts.map(domainFor);
+    const missing = parts.filter((p,i)=>!ds[i].members.length);
+    return {definer:ds.map(d=>d.definer).join(" × "), members:[], cross:true, missing,
+            sessionOnly: ds.some(d=>d.sessionOnly)};
+  }
+  if (key.includes(" > ")){
+    const outer = domainFor(key.split(" > ")[0].trim());
+    return {definer:key.split(" > ").join(" › "), members:[], sessionOnly:true, nested:true, outer};
+  }
+  return {definer:"(none)", members:[]};
+}
+
+/* ---------- controls ---------- */
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function ctrl(f, val, small){
+  const v = val===undefined ? f.val : val;
+  if (f.opts.length){
+    const open = f.dtype.includes("/ Text");     /* "/ Text" = open list; bare = closed */
+    const off  = v && !f.opts.includes(v);       /* value the vocabulary cannot express */
+    const s = document.createElement("select");
+    s.innerHTML = `<option value="">— select —</option>` +
+      f.opts.map(o=>`<option${o===v?" selected":""}>${esc(o)}</option>`).join("") +
+      (open ? `<option value="__o"${off?" selected":""}>Other — specify…</option>`
+            : (off?`<option value="__x" selected>⚠ outside the controlled list</option>`:""));
+    if (off){
+      /* never drop the extracted value just because the list has no slot for it */
+      const w=document.createElement("div"); w.style.cssText="display:flex;flex-direction:column;gap:5px";
+      const t=document.createElement("textarea"); t.value=v; t.rows=Math.min(4,Math.ceil(v.length/78)+1);
+      w.append(s,t);
+      if(!open) w.insertAdjacentHTML("beforeend",
+        `<div class="note">source value is not in this closed vocabulary — recorded verbatim pending a vocabulary decision</div>`);
+      return w;
+    }
+    return s;
+  }
+  if (/^Numeric/.test(f.dtype) && !small){
+    const w=document.createElement("div"); w.className="num";
+    const i=document.createElement("input"); i.type="text"; i.value=v; w.append(i);
+    if(f.unit){const u=document.createElement("span");u.className="u";u.textContent=f.unit;w.append(u);}
+    return w;
+  }
+  if (!small && v.length>90){
+    const t=document.createElement("textarea"); t.value=v; t.rows=Math.min(7,Math.ceil(v.length/78)+1); return t;
+  }
+  const i=document.createElement("input"); i.type="text"; i.value=v;
+  if (f.dtype.startsWith("Date")) i.placeholder="YYYY-MM-DD";
+  if (f.dtype.startsWith("URI")) i.placeholder="https://doi.org/…";
+  return i;
+}
+
+/* ---------- one field ---------- */
+function renderField(f){
+  const el=document.createElement("div"); el.className="f";
+  el.dataset.tier=f.tier; el.dataset.name=f.name;
+  const isDefiner=f.key.startsWith("defines:");
+  const L=document.createElement("div"); L.className="f-l";
+  L.innerHTML =
+    `<div class="f-name">${esc(f.name)}</div>` +
+    `<div class="f-meta"><span class="chip ${f.tier==="Basic"?"basic":"adv"}">${f.tier}</span>` +
+      `<span class="keychip">${esc(f.dtype)}</span>` +
+      (f.key==="(none)"?"":`<span class="keychip">${isDefiner?"establishes":"repeats over"} <b>${esc(f.key.replace(/^defines:\s*/,""))}</b></span>`) +
+    `</div>` +
+    (f.desc?`<div class="f-desc">${esc(f.desc.length>230?f.desc.slice(0,228)+"…":f.desc)}</div>`:"");
+
+  const R=document.createElement("div"); R.className="f-r";
+
+  if (isDefiner){
+    const k=f.key.replace(/^defines:\s*/,"").split(" per ")[0];
+    const dom=DOMAINS[k]||{members:parseMembers(f.val),tainted:false};
+    R.append(ctrl(f));
+    const box=document.createElement("div"); box.className="kw";
+    box.innerHTML=`<div class="kw-head"><span class="lbl">${dom.members.length} member${dom.members.length===1?"":"s"} of <b style="color:var(--acc)">${esc(k)}</b> established by this field</span></div>`;
+    const m=document.createElement("div"); m.className="members";
+    m.innerHTML = dom.members.length
+      ? dom.members.map(x=>`<span class="mem">${esc(x)}</span>`).join("")
+      : `<span class="mem empty">${dom.tainted?"value does not enumerate this domain — see note":"domain not established — every field keyed by "+esc(k)+" collapses to a single value"}</span>`;
+    box.append(m); R.append(box);
+  }
+  else if (f.key!=="(none)"){
+    const dom=domainFor(f.key);
+    const box=document.createElement("div"); box.className="kw";
+    const head=document.createElement("div"); head.className="kw-head";
+    head.innerHTML=`<span class="lbl">one value per <b style="color:var(--acc)">${esc(f.key)}</b></span>`;
+    const seg=document.createElement("div"); seg.className="seg";
+    const bAll=document.createElement("button"); bAll.type="button"; bAll.textContent="Same for all";
+    const bPer=document.createElement("button"); bPer.type="button";
+    bPer.textContent = dom.members.length?`Per ${f.key} (${dom.members.length})`:`Per ${f.key}`;
+    seg.append(bAll,bPer); head.append(seg); box.append(head);
+    const body=document.createElement("div"); body.className="kw-body"; box.append(body);
+
+    const drawAll=()=>{body.className="kw-body";body.innerHTML="";body.append(ctrl(f));};
+    const drawPer=()=>{
+      body.className="kw-body"; body.innerHTML="";
+      if(!dom.members.length){
+        const b=document.createElement("div"); b.className="blocked";
+        if(dom.sessionOnly)
+          b.innerHTML=`<b>Not available at procedure level.</b> <code>${esc(f.key)}</code> is established by <b style="color:var(--ink-2)">${esc(dom.definer)}</b>, which is only known once a session runs. The procedure registers one value applying to every ${esc(f.key)}.`;
+        else if(dom.cross)
+          b.innerHTML=`<b>Cross-product incomplete.</b> <code>${esc(f.key)}</code> needs both domains enumerated; ${dom.missing.map(m=>`<code>${esc(m)}</code>`).join(" and ")} ${dom.missing.length>1?"are":"is"} not established for this procedure.`;
+        else if(dom.tainted)
+          b.innerHTML=`<b>Domain unusable.</b> The definer <b style="color:var(--ink-2)">${esc(dom.definer)}</b> holds a value that does not enumerate ${esc(f.key)} — see the note on that field.`;
+        else
+          b.innerHTML=`<b>Domain not established.</b> The definer <b style="color:var(--ink-2)">${esc(dom.definer)}</b> is empty for this procedure, so there are no ${esc(f.key)} members to key against. Fill it first, or record one value for all.`;
+        body.append(b); return;
+      }
+      const rows=document.createElement("div"); rows.className="rows";
+      const pm=(TAPP.perMember||{})[f.name]||null;
+      dom.members.forEach(m=>{
+        const r=document.createElement("div"); r.className="row";
+        const lab=document.createElement("div"); lab.className="m"; lab.textContent=m; lab.title=m;
+        const v = pm ? (pm[m]||"") : f.val.replace(/\s*\(all [^)]*\)\s*$/,"");
+        r.append(lab, ctrl(f,v,true)); rows.append(r);
+      });
+      body.append(rows);
+    };
+    const set=per=>{bAll.setAttribute("aria-pressed",String(!per));bPer.setAttribute("aria-pressed",String(per));per?drawPer():drawAll();};
+    bAll.onclick=()=>set(false); bPer.onclick=()=>set(true);
+    /* open on the per-member view when the source actually gives per-member values */
+    set(!!((TAPP.perMember||{})[f.name]) && dom.members.length>0);
+    R.append(box);
+  }
+  else R.append(ctrl(f));
+
+  if (f.warn) R.insertAdjacentHTML("beforeend",`<div class="flagnote"><b>Extraction defect.</b> ${esc(f.warn)}</div>`);
+  if (f.note) R.insertAdjacentHTML("beforeend",`<div class="note">${esc(f.note)}</div>`);
+  if (f.ex && !f.opts.length) R.insertAdjacentHTML("beforeend",`<div class="hint">${esc(f.ex.length>150?f.ex.slice(0,148)+"…":f.ex)}</div>`);
+  el.append(L,R); return el;
+}
+
+/* ---------- build ---------- */
+const main=document.getElementById("main");
+TAPP.groups.forEach((g,i)=>{
+  const s=document.createElement("section"); s.className="sec"; s.id="g"+i;
+  const [num,...t]=g.title.split(". ");
+  s.innerHTML=`<header><span class="num">${esc(num)}</span><h2>${esc(t.join(". "))}</h2><span class="cnt" data-cnt></span></header>`;
+  g.fields.forEach(f=>s.append(renderField(f)));
+  main.append(s);
+});
+main.insertAdjacentHTML("beforeend",
+  `<div class="excl"><h2>Not on this form</h2>
+   <p>${TAPP.excluded.length} fields in ${esc(META.schema)} carry <b>Procedure-Level Tier = N/A</b>. They have no value until the instrument is actually run, so they belong to the session record, not the procedure registration.</p>
+   <ul>${TAPP.excluded.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`);
+
+/* ---------- modes ---------- */
+let MODE = META.defaultMode;
+const SOURCE_MODE = META.sourceMode;
+const modeBox=document.getElementById("modes");
+TAPP.modes.forEach(m=>{
+  const n=allFields.filter(f=>f.modes[m]).length;
+  const b=document.createElement("button"); b.type="button"; b.dataset.mode=m;
+  b.innerHTML=`<span>${esc(m)}${m===SOURCE_MODE?' <span style="opacity:.6">· source</span>':''}</span><span class="n">${n}</span>`;
+  b.onclick=()=>{MODE=m;apply();}; modeBox.append(b);
+});
+const nav=document.getElementById("nav");
+TAPP.groups.forEach((g,i)=>{
+  const a=document.createElement("a"); a.href="#g"+i;
+  a.innerHTML=`<span>${esc(g.title)}</span><span class="n" data-nav="${i}"></span>`; nav.append(a);
+});
+
+function apply(){
+  const showAll=document.getElementById("showall").checked;
+  const showAdv=document.getElementById("showadv").checked;
+  [...modeBox.children].forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.mode===MODE)));
+  let bt=0,bd=0;
+  TAPP.groups.forEach((g,gi)=>{
+    let vis=0;
+    const els=document.querySelectorAll("#g"+gi+" .f");
+    g.fields.forEach((f,fi)=>{
+      const el=els[fi], applies=f.modes[MODE];
+      const na=/^n\/a\b/i.test(f.val.trim());
+      /* a substantive value on a field this mode excludes */
+      const carried = !applies && !!f.val && !na;
+      const show=(applies||showAll||carried)&&(f.tier==="Basic"||showAdv);
+      el.classList.toggle("hid",!show);
+      el.classList.toggle("flagged",show&&carried);
+      let fn=el.querySelector(".modenote");
+      if(show&&carried&&!fn){
+        const msg = MODE===SOURCE_MODE
+          ? `<b>Mode-flag conflict.</b> ${esc(META.schema)} flags this field <code>N</code> for ${esc(MODE)}, but the source procedure — itself ${esc(MODE)} — states a value. The flag looks too narrow.`
+          : `<b>Carried from the source mode.</b> This field does not apply to ${esc(MODE)}. The value shown was recorded for a <b>${esc(SOURCE_MODE)}</b> procedure and would not be collected here.`;
+        el.querySelector(".f-r").insertAdjacentHTML("beforeend",`<div class="flagnote modenote">${msg}</div>`);
+        el.querySelector(".f-name").insertAdjacentHTML("beforeend",
+          `<span class="chip conflict">${MODE===SOURCE_MODE?"flag conflict":"other mode"}</span>`);
+      } else if((!show||!carried)&&fn){ fn.remove(); el.querySelector(".chip.conflict")?.remove(); }
+      if(show)vis++;
+      if(show&&f.tier==="Basic"){bt++; if(f.val)bd++;}
+    });
+    document.querySelector("#g"+gi+" [data-cnt]").textContent=vis+" fields";
+    document.querySelector(`[data-nav="${gi}"]`).textContent=vis;
+  });
+  document.getElementById("mn").firstChild.textContent=bd;
+  document.getElementById("md").textContent="/"+bt;
+  document.getElementById("mb").style.width=(bt?bd/bt*100:0)+"%";
+}
+document.getElementById("showall").onchange=apply;
+document.getElementById("showadv").onchange=apply;
+apply();
+</script>
+</body>
+</html>
