@@ -385,7 +385,12 @@ def main():
                 TAPP=name, Row=n, Field=r[0].strip(), Declared_I=decl, Verdict=verdict,
                 N_evidence=n_ev, N_scalar=n_scalar,
                 Observed=" + ".join(sorted(observed)) or "scalar",
-                Tally="; ".join(f"{k}={v}" for k, v in tally.most_common()),
+                # sorted by count then label, NOT most_common(): classify() returns a SET, so the
+                # order tags are inserted into the Counter varies between processes with string hash
+                # randomisation, and most_common() breaks ties on insertion order. That made every
+                # re-run of a clean library emit a spurious diff (found 2026-09-09).
+                Tally="; ".join(f"{k}={v}" for k, v in
+                                sorted(tally.items(), key=lambda kv: (-kv[1], kv[0]))),
                 Sample=" || ".join(c[:110] for c in cells[:3])))
 
     with open(OUT, "w", newline="", encoding="utf-8-sig") as f:
