@@ -246,7 +246,7 @@
       ]
     },
     {
-      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v69.csv",
+      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v70.csv",
       "modules": [
         {
           "name": "Core",
@@ -270,7 +270,7 @@
         },
         {
           "name": "SolutionIntroduction",
-          "version": "8"
+          "version": "9"
         },
         {
           "name": "TargetSpecies",
@@ -291,7 +291,7 @@
       ]
     },
     {
-      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v75.csv",
+      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v76.csv",
       "modules": [
         {
           "name": "Core",
@@ -311,7 +311,7 @@
         },
         {
           "name": "SolutionIntroduction",
-          "version": "8"
+          "version": "9"
         },
         {
           "name": "TargetSpecies",
@@ -332,7 +332,7 @@
       ]
     },
     {
-      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v71.csv",
+      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v72.csv",
       "modules": [
         {
           "name": "Core",
@@ -352,7 +352,7 @@
         },
         {
           "name": "SolutionIntroduction",
-          "version": "8"
+          "version": "9"
         },
         {
           "name": "TargetSpecies",

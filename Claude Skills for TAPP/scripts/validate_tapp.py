@@ -531,6 +531,11 @@ CURRENT_DIR = "Current TAPPs"
 # declining to populate `keyed_by_overridable` speculatively.
 DEFINES_PER_RE = re.compile(r"^defines:\s*(.+?)\s+per\s+(.+)$")
 
+# Rule 7.4a — a definer names its members, so it is text-typed. Any scalar numeric type
+# (`Integer`, `Numeric (nA)`, `Numeric + unit`) is an error. Matched on the type's head
+# word so a new unit spelling does not slip past.
+DEFINER_SCALAR_TYPE_RE = re.compile(r"^(Integer|Numeric|Decimal|Float|Date|Boolean)\b", re.I)
+
 
 def parse_keyed_by(v):
     """Return (kind, [defined domains], [keys the field repeats over]).
@@ -1137,6 +1142,21 @@ def check_keyed_by(t: Tapp, out):
             defined[k].append(item)
         used.update(keys)
 
+        # A definer must be text-typed. Its job is to name the members of its domain so
+        # consumers have rows to attach values to; a scalar number gives ordinal labels
+        # with no identity, and `Digestion Temperature` cannot attach '190 C' to '2'.
+        # 7.4a carried a carve-out for exactly one field (`Number of Digestion Steps`,
+        # Integer); that field's own literature falsified it and the carve-out was retired
+        # 2026-09-08 with the field renamed to `Digestion Step` and re-typed.
+        if domains and DEFINER_SCALAR_TYPE_RE.match(t.cell(row, COL_TYPE).strip()):
+            add("ERROR", n, item, "rule7-definer-scalar-type",
+                f"'{item}' declares '{raw}' but is typed "
+                f"'{t.cell(row, COL_TYPE).strip()}'. A definer must be 'Text (free)' or "
+                f"'Controlled list / Text' — it has to name its members, and a scalar "
+                f"number cannot. Where the count is worth keeping, split it into a "
+                f"separate '(none)'-keyed field (the `Acquisition Pass` / `Number of "
+                f"Acquisition Passes` pattern).")
+
     # Invariant 4 — EVERY key in use must have its domain enumerated somewhere.
     # Applies to secondary keys as well as anchors: a key whose domain is never
     # enumerated cannot be populated, whichever key it is.
@@ -1503,6 +1523,12 @@ RETIRED_FIELDS = {
     "Target Selection Criteria":       "renamed 2026-09-01 -> Sampling Unit Selection Criteria — "
                                        "'Target' was carrying two senses in the library and this "
                                        "was the odd one out; the new head noun names the `sampling unit` domain the field selects from",
+    "Number of Digestion Steps":       "renamed 2026-09-08 -> Digestion Step, and re-typed Integer -> "
+                                       "Text (free). It was the library's only definer typed as a "
+                                       "scalar number; a count gives consumers ordinal labels with no "
+                                       "identity, so `Digestion Temperature` had nothing to attach a "
+                                       "value to. No count field was retained: the count was the "
+                                       "contested quantity, not a useful summary",
     "Mass Cycles per Replicate":       "renamed 2026-08-17 -> Number of Scans per Replicate — 'cycle' is "
                                        "reserved for simultaneous multi-collection readouts, a "
                                        "different acquisition mode from a sequential mass scan",

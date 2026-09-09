@@ -1164,10 +1164,22 @@ a `defines: standard` field and a `defines: reported property` field. For `defin
 satisfies the invariant *for A* and creates a requirement *for B* — the domain it enumerates and the key
 it repeats over are counted separately.
 
-**An ordinal count enumerates its domain.** A definer need not list its members where they are ordinal
-and the count fixes them: `Number of Digestion Steps` is an Integer declaring `defines: preparation
-step`, and "3" fully enumerates steps 1, 2, 3. This is the only definer of that shape in the library and
-the invariant was written assuming a list, so it is stated here rather than left to be re-argued.
+**A definer must be text-typed — an ordinal count does NOT enumerate its domain.** This paragraph
+previously said the opposite, carving out `Number of Digestion Steps` (an Integer declaring `defines:
+preparation step`) on the reasoning that "3" fully enumerates steps 1, 2, 3. **Retired 2026-09-08**: the
+carve-out was written for one legacy field and that field's own literature falsified it. Six of its nine
+assessed cells carried the step *names* beside or instead of the count, two carried no number at all
+("Three", "Four heating stages are described"), and Hu & Gao 2008 read `2` beside "five steps explicitly
+numbered" — a contradiction the type could not resolve, because an ordinal label carries no way to say
+what step 1 *was*. A count gives a consumer rows with no identity; `Digestion Temperature` cannot attach
+"190 °C" to "2".
+
+So a `defines:` field carries `Text (free)` or `Controlled list / Text`. A scalar numeric type
+(`Integer`, `Numeric (…)`) is an error, caught by `rule7-definer-scalar-type`. Where the count is itself
+worth recording, split it into a separate `(none)`-keyed field — the `Acquisition Pass` /
+`Number of Acquisition Passes` pattern of 2026-09-08. `Number of Digestion Steps` was instead renamed to
+`Digestion Step` and re-typed, with no count field retained, because its count was the contested
+quantity rather than a useful summary.
 
 **7.4b — exactly one definer per key.** Two fields both declaring `defines: X` leave a consumer no way
 to know which one builds the child table. Where two fields both enumerate a domain, one is the definer

@@ -2,7 +2,7 @@
     "module": "SolutionIntroduction",
     "title": "Solution Sample Preparation and Introduction for MS",
     "layer": 2,
-    "version": "8",
+    "version": "9",
     "source_of_truth": "modules/Module_SolutionIntroduction.csv",
     "owned_columns": [
         "A",
@@ -26,7 +26,7 @@
             "placement": "append_to_group",
             "fields": [
                 "Sample Aliquot Mass or Volume",
-                "Number of Digestion Steps",
+                "Digestion Step",
                 "Digestion Vessel Type",
                 "Digestion Acid(s)",
                 "Digestion Temperature",
@@ -74,7 +74,8 @@
         "2026-08-14: source_comment declared. Rule 6.11 originally withheld the label from the general modules as noise; with 12 modules supplying most of the library, naming the source of every field is what makes a composed TAPP readable. Documentation only — no structural meaning, not schema content.",
         "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
         "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves.",
-        "2026-09-08 v8. 2 field(s) re-keyed to `acquisition pass`, executing Proposal_Acquisition_Pass_2026-09-08. Each was verified against its raw literature cell to give DIFFERENT values between passes; fields stated per pass with identical values (Laser Fluence, RF Power, Make-up Gas, Coolant Gas, Background Count Time, Analysis Sequence, Signal Integration Time, Number of Replicates) stay `(none)` under 7.3.2 until a difference is attested."
+        "2026-09-08 v8. 2 field(s) re-keyed to `acquisition pass`, executing Proposal_Acquisition_Pass_2026-09-08. Each was verified against its raw literature cell to give DIFFERENT values between passes; fields stated per pass with identical values (Laser Fluence, RF Power, Make-up Gas, Coolant Gas, Background Count Time, Analysis Sequence, Signal Integration Time, Number of Replicates) stay `(none)` under 7.3.2 until a difference is attested.",
+        "2026-09-08 v9. `Number of Digestion Steps` -> `Digestion Step`, Data Type Integer -> Text (free); Column I unchanged at `defines: preparation step`. It was the library's only definer typed as a scalar number, against 95 definer rows typed `Text (free)` or `Controlled list / Text`. 7.4a's `An ordinal count enumerates its domain` carve-out, written for this one field, was retired at the same time: its own literature falsifies it -- 6 of 9 assessed cells carry the step names beside or instead of the count, 2 carry no number at all, and Hu & Gao 2008 reads `2` beside `five steps explicitly numbered`. Column B now defines a step by what the consumers distinguish, which settles that grain question. Kept `Digestion` rather than `Preparation Step` because all three consumers are `Digestion X` and could not describe a non-digestion member."
     ],
     "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }

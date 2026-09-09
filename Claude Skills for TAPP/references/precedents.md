@@ -2862,3 +2862,79 @@ stated. It attests the pass structure and nothing that varies across it. That is
 in the same breath as the deferral, and state it narrowly enough that a near-miss cannot be mistaken for
 it** — otherwise the next curator reads "something varying per pass", finds a per-element counting time,
 and reverses a decision on evidence that never tested it.
+
+---
+
+## `Number of Digestion Steps` → `Digestion Step`, Integer → Text (free) (2026-09-08)
+
+**Decision: the library's last scalar-typed definer is retired, and 7.4a's carve-out permitting one goes
+with it.** Field renamed, re-typed, Column I unchanged at `defines: preparation step`.
+`Module_SolutionIntroduction` v8 → v9; Solution MC v70, Q v76, SF v72.
+
+**The defect.** 95 of the library's 98 definer rows are typed `Text (free)` or `Controlled list / Text`.
+The remaining 3 were this one field in its three consumers. A definer's job under 7.4c is to name the
+members of its domain so consumers have rows to attach values to; "3" gives ordinal labels with no
+identity, and `Digestion Temperature` cannot attach "190 °C" to "2".
+
+**7.4a had explicitly blessed it**, in a paragraph written for this single field: *"An ordinal count
+enumerates its domain … '3' fully enumerates steps 1, 2, 3."* That is the part worth recording, because
+the carve-out was not careless — it is a reasonable-sounding argument, and it survived two Rule 7 sweeps.
+
+### What killed it was the field's own literature
+
+| cell | what the curator wrote |
+|---|---|
+| Hu & Gao 2008 | `2` — beside "five steps explicitly numbered" |
+| Schönbächler+2025 | `Ivuna high PT: two (HF-HNO3 then HCl)` |
+| Nie & Dauphas 2019 | `Three` |
+| López-García 2026 | `Four heating stages are described` |
+| Li+2016 | `2 (step 1: 6M HCl + 8M HNO3 …; step 2: evaporate + re-dissolve in 10M HCl)` |
+
+**Six of nine assessed cells carry the step names beside or instead of the count; two carry no number at
+all.** Curators kept smuggling the enumeration into an Integer field because the count alone could not
+do the definer's work. And Hu & Gao is the carve-out refuting itself in one cell: `2` against `five`.
+The ordinals were never agreed, so they could not fix the members.
+
+**The general form: when every curator works around a type, the type is wrong.** A field whose cells
+repeatedly exceed their declared type is reporting a design error, not curator sloppiness — the same
+signal that split `Mass Resolution` into `Setting` and `Assignment`.
+
+### Two things settled in passing
+
+**The grain question, which the count could not even pose.** Column B now defines a step by what the
+consumers distinguish: *a step is distinct when its acid mixture, vessel, temperature or duration differs
+from the one before; an evaporation carrying no attack of its own is part of the step it follows, and an
+identical attack repeated on the residue is a repeat rather than a new step.* That is the 2026-09-08
+`acquisition pass` rule one axis over, and it settles Hu & Gao at 2 (the two intervening HNO3 fumings
+are evaporations) and Li+2016 at 2 (step 2 changes the acid, so it is an attack).
+
+**No count field was retained**, deliberately departing from the `Acquisition Pass` /
+`Number of Acquisition Passes` split minted the same day. There, the count recorded procedure structure
+nothing else carried. Here the count is exactly the contested quantity — Hu & Gao's `2` vs `five` is a
+disagreement about grain, and a count field cannot say which grain it counted. Retaining it would
+preserve the one thing the fix removes.
+
+**And the name stayed `Digestion`, not `Preparation Step`,** though the key is `preparation step`. All
+three consumers are `Digestion Acid(s)` / `Temperature` / `Duration` and could not describe a
+non-digestion member. Noted as a forward tension: 7.4b permits one definer per key per TAPP, so a future
+fusion or column-chemistry step in the same TAPP has nowhere to go. van Kooten 2026's NaOH fusion is
+already absorbed into `Digestion Acid(s)`, so the tension is live but not new.
+
+### Guarded against recurrence
+
+New validator check **`rule7-definer-scalar-type` (ERROR)**: a `defines:` row typed `Integer`, `Numeric`,
+`Decimal`, `Float`, `Date` or `Boolean` is refused, with the split-off-the-count pattern named in the
+message. Verified to fire before being verified to pass. `Number of Digestion Steps` added to
+`RETIRED_FIELDS`.
+
+### ⚠ An extraction gap the re-type exposed, not closed
+
+The 8 cells holding counts were re-expressed as enumerations, drawn only from each TAPP's own
+neighbouring `Digestion Acid(s)` / `Temperature` / `Duration` cells — no paper was re-read. The definer
+is still **empty in 14 columns whose digestion consumers carry content**, and reading those consumer
+cells shows **at least 8 describing two or more sequential attacks** (Budde 2016, Craddock 2008, Hopp
+2021, Pringle & Moynier 2017, van Kooten 2026, Broussard 2026, Barnes 2025, Desem 2022). The members
+exist in the data; only the definer was never asked for them, because an Integer field invited a curator
+to leave it blank rather than count something contestable. One cell is left explicitly unresolved —
+Hu et al. 2022's *"These steps were performed twice"* is either one repeated attack or two distinct ones,
+and the extract as it stands cannot say. **Phase 3 follow-up, not bundled here.**
