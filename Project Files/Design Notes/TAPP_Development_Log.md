@@ -3140,3 +3140,307 @@ description in the same stroke as deciding a type — which is how an unreviewed
 register. The module is the right vehicle for them; it just has to carry a reconciliation first.
 
 Full extraction and reconciliation notes are in `modules/Module_ICPMS.json`.
+
+---
+
+> **Backfill note, 2026-09-08.** Entries between 2026-08-26 and 2026-09-08 were written on 2026-09-08
+> from the commit record, `precedents.md` and the module manifests, not contemporaneously. They are
+> accurate but compressed, and they are not the complete record of the period: **2026-08-26 to
+> 2026-08-30 is deliberately not reconstructed here.** That stretch is module construction and the
+> Description/Purpose split — `Module_ICPMS` 13 → 39 fields, `Module_LaserAblation` 19 → 29,
+> `Module_CompositionQC` and `Module_CollisionCell` v1, Step 1 and Step 2 of the Column J split across
+> every module and TAPP, `Module_ArAr` retired, and roughly a dozen Column F harmonisations. All of it
+> is recorded where that kind of work belongs: the `decisions` arrays of the module manifests and the
+> dated routing artifacts under `Claude Skills for TAPP/analysis/`. Restating it here would duplicate
+> a record that already exists in a better place. What follows is the decision-level work — rules,
+> renames, key vocabulary — which has no other home.
+
+## 2026-08-28 | CROSS-TAPP | Rule 7.3.2 — declare the finest attested key unconditionally
+
+Where a field is scalar in a simple procedure and keyed in a complex one, Column I declares the finest
+key the literature attests, unconditionally. No conditional marker is added to the notation.
+
+**The two errors are not symmetric.** Under-declaring is lossy: a consumer generating a schema from
+Column I emits a scalar where the reported data is a list, and the structure survives only in prose it
+cannot read — the defect reported in `amds-ldeo/tapp#1`. Over-declaring is verbose: a simple procedure
+fills a keyed table with one row, which is correct. A conditional marker would be more exact than
+either and was rejected on cost, since it makes every downstream consumer implement extra grammar for
+a handful of rows.
+
+**7.12 is unchanged and still binds** — "finest *attested*", not finest imaginable. 7.3.2 settles only
+what to do once the literature shows an axis is real but conditionally exercised.
+
+**The gap had nearly closed itself.** G3 was raised 2026-08-12 over 5 rows in `Integration Time per
+Cycle` and `Dwell Time per Mass`; both now declare `channel` across every consumer, resolved in passing
+by later Column I work, and nobody recorded that the policy question had lost its examples. **A policy
+question can be answered by drift before it is answered by decision — re-read the register before
+drafting a policy, not only before applying it.**
+
+One live case remained, the one that surfaced the question: `Primary Calibration Standard Name` →
+`analyte` across all 12, changing the seven that declared `(none)`, and with that it joined
+`Module_CompositionQC` as its sixth field (v1 → v2). The axis is attested rather than assumed — 8 of
+EPMA's 11 extracted cells assign standards per element.
+
+## 2026-08-31 | CROSS-TAPP | `acquisition pass` declined a second time; five retype candidates split 3/2
+
+**The decline, and a correction to my own note.** Asked to build an `acquisition pass` definer so
+`Desolvation System` could be keyed, I had written that "no Solution TAPP declares a `defines:
+acquisition pass` field, so Rule 7.4a cannot be satisfied without first adding one" — which frames a
+retirement as an oversight. It is not. 7.4b/c **retired** `acquisition pass`, `conversion`,
+`background position` and `model component` on 2026-08-11, taking the vocabulary from ten keys to six.
+`conventions.md` now records the second decline beside the first, stating explicitly that **a retired
+key is not a missing definer**: the former looks like an oversight to fix, and is not.
+
+Three arguments were given. Two are design-time and still stand: retired by rule rather than merely
+undefined, and two users do not justify reviving an abstraction 7.4b/c removed for want of any. The
+third — *"reported data is indexed by target species and reported property, never by which pass
+produced it"* — closed with *"revisit only if reported data itself ever becomes pass-indexed."* **That
+sentence promoted a Phase 3 check into a Phase 0 gate and was corrected on 2026-09-01.** See 7.12.1.
+
+**Five Data Type retype candidates, and a fifth measurement artefact.** Three were retyped to
+`Controlled list / Text` because the list is doing work — `Isotope Dilution Data Reduction Method`,
+`Sampler and Skimmer Cone Material`, `Detector Configuration`. Two were **never candidates**: the bare
+percentage that flagged `Isotope Dilution Spike` and `Internal Standard Element` came from **my
+detector counting 'None' as a member match**. Genuine member matches: zero. That is the fifth such
+artefact after four found on 2026-08-30 — counting `None` and `N/A` as matches inflates bare% on any
+field where absence is common.
+
+## 2026-09-01 | CROSS-TAPP | `Target Selection Criteria` → `Sampling Unit Selection Criteria`; the registry found drifting
+
+**"Target" was carrying two incompatible senses.** Type-level — what the procedure is *designed for* —
+is `Target Material` (16/16) and `Target Feature(s)`, both unchanged and both the sanctioned exception
+to the level-neutral naming rule. Instance-level — which portion of a particular sample was picked out
+— was this field alone. The evidence it was the odd one out was already in the validator:
+`TARGET_EXEMPT` existed to carry it past the ban on "Target" in field names. That set is now two, both
+type-level. `Module_TargetSelection` → `Module_SamplingUnitSelection` v3, across 13 TAPPs.
+
+Two other senses were deliberately **not** swept: set-point-vs-achieved ("target voxel size", ~12
+fields' prose) is exactly where `conventions.md` routes that distinction, and X-ray tube anode
+("Reflection target, microfocal") is standard terminology in a Column F controlled vocabulary. Sweeping
+either would break a rule rather than fix one.
+
+### The finding that mattered more than the rename: the composition registry drifts silently
+
+**Six of sixteen `composed_tapps.json` entries pointed at superseded files.** Diffed on module-owned
+columns first: 0 diffs, no Rule 6.6 violation — paths only. The mechanism is
+`bump_for_module_20260827.py`, which sets `generated` but never updates `e["tapp"]`: it moves the
+published file into `Superseded TAPPs/` and leaves the registry naming it. **Silent twice over.**
+`compose_tapp` writes to the recorded path, so a later pass edits the *superseded* copy and reports
+MATCH; and `check_library_freshness` derives "what is current" from those same paths, so document
+staleness was being measured against a stale baseline.
+
+Three guards added, **each functionally tested by injecting the fault** rather than assumed to work:
+`register-stale-tapp-path` (ERROR), `stamp-orphaned-module` (WARN), and per-field
+`RETIRED_FIELD_MENTION_OK` dicts in place of blanket file exemptions.
+
+Two mechanics recorded because both are silent: **a field rename cannot be expressed by composition**
+(compose matches rows by name, so the renamed field is *added* while the old row survives with its
+Column F orphaned — rename Column A in the consumer *before* composing), and **`stamp_source_comment`
+only ever fills an EMPTY Column G**, so a module rename leaves 26 `Source: <old> module` stamps behind
+and recomposition still reports MATCH.
+
+## 2026-09-01 | Lab-XCT v36 → v37 | The VOI is not the sampling unit; a shaped Phase 3 gap closed
+
+**Answers the question directly: no.** `VOI Selection Criteria` reads N in 14 of 14 attested procedures
+— "full scan volume", "entire chip volume", "full core length per sub-volume", "full vial volume",
+"full 8 mm core". A VOI that is always the entire reconstructed volume cannot be "the physical
+subdivision of the sample as distinct from the sample as a whole". The two are different kinds of
+thing: VOI criteria are an **artefact-exclusion mask** (cone-beam zones, beam-hardening halos, holder
+signal) answering which voxels are trustworthy; `Sampling Unit` answers what one row of reported values
+corresponds to. Tomkinson et al. 2015 puts both axes in one sentence — "entire chip volume; six 2D
+slices at ~1 mm spacing selected for modal analysis" — and its Table 1 has one row per slice.
+
+**The extraction gap was shaped, and that shape was the diagnosis.** Before: 10 of 89 rows unextracted
+— **0 of 55 native rows blank, against 10 of 34 module-composed rows**. Every gap was a field that
+arrived by composition, so the Phase 3 pass had been run against the technique-specific field list
+only. That is why `Sampling Unit` (Rule 9) and `Reported Variables and Units` (Rule 8), both mandatory,
+were unvalidated — and why the VOI question looked open at all. After: 89 of 89, 224 cells across 10
+fields, every value read from the source PDF in the session that wrote the script, per the Source Rule.
+
+## 2026-09-01 | CROSS-TAPP | Eight audit findings adjudicated, and the unfalsifiability rule
+
+**One real finding.** `Procedural Blank Level` `(none)` → `analyte`; `Module_Blank` v3 → v4, all 12
+consumers bumped. Solution Q attests per-element blanks in 5 of 9 extractions, 3 tabulated with values;
+Solution SF in 4 of 6. Valid as a module-owned key because all 12 consumers carry `defines: analyte` —
+the constraint from the `CalibrationFactor` precedent, where `analyte` was rejected because Lab-XCT has
+no analyte anchor.
+
+### The rule this pass established
+
+> **A single-target-species procedure cannot falsify a per-species key.** The field has one value
+> because there is one species, and any scalar-shaped detector scores that as evidence *against* the
+> key. It is unfalsifiability, not counter-evidence. **Weight only the multi-species procedures.**
+
+`Primary Calibration Standard Name` in Solution MC looked over-declared at 6 scalar of 8; six of those
+six are single-species (Mo, S, Fe, Zr, Rb, Os). Both procedures that *could* test the axis attest it,
+visible only by reading the Target Species row alongside — van Kooten 2026 (Fe, Cr, Mg → IRMM-014,
+SRM979, DTS-2b) and Barnes 2025 (K, Cu, Zn → NIST-SRM 3141a, 976, JMC-Lyon).
+
+**The detector undercounts per-phase axes about threefold.** `Beam Diameter` and `Beam Mode` in EPMA
+were each reported as `sampling unit` = 2 of 13; reading the raw cells gave **6 of 14**.
+
+## 2026-09-07 | CROSS-TAPP | `Analyte` → `Target Species`, field and key renamed together
+
+Requested by the schema developer. "Analyte" reads to a researcher as the physical thing put into the
+instrument, whereas the field holds the chemical **species** the procedure determines — which is what
+its description has always said. `Module_Analyte` → `Module_TargetSpecies` v3. 83 keyed rows, 27 module
+cells, ~230 TAPP rows across 16 files.
+
+**Field and key renamed together, deliberately.** Renaming only the user-facing field would have
+recreated the `Reported Variables and Units` / `reported property` mismatch that still exists elsewhere
+and that the same session flagged as a defect. Four sibling fields moved with it
+(`Calibration Strategy per Target Species`, `Target Species Estimation Method`, `Technique per Target
+Species`, `EPMA Technique per Target Species`).
+
+**My earlier objection was wrong and the correction is on record.** I argued `Target Species` collided
+with `Target Material` / `Target Feature(s)`. It does not: in `Target Material` the head noun is
+*Material* and "Target" is the qualifier meaning *what the procedure is designed for*. `Target Species`
+parses identically — same type-level sense, no new sense of "Target".
+
+### Four live surfaces the first pass missed
+
+An audit of every tracked file for residual "analyte", classified live versus deliberately frozen,
+found four **live** surfaces — and the first is the one worth remembering:
+
+1. **The xlsx Legends sheet, in every workbook.** `tapp_to_xlsx.py` writes a key glossary into every
+   generated file, and its entry was still keyed `analyte`. All 16 workbooks shipped a glossary
+   matching no Column I value. Fixed at the generator and regenerated.
+2. `Module_ICPMS.json` block `reduction` still listed `Per-Analyte Calibration Strategy` — functional,
+   since compose selects block fields by name.
+3. The mirror README, generated by `sync_current_tapps.py` and handed to other developers as part of
+   `Current TAPPs/`.
+4. This log's Part I, per its own stated policy; the 48 dated occurrences from Part II onward were
+   left alone and a terminology note added to the header.
+
+**The lesson: a rename is not finished when the CSVs are clean.** Three of the four were *generated*
+surfaces, invisible to a grep of the tracked source because the stale string lived in a generator.
+
+## 2026-09-08 | CROSS-TAPP | Rule 7.12.1; and the acquisition landscape of all 68 planned techniques
+
+**7.12.1 — what Rule 7.12 is for, and what it is NOT for.** Prompted by a question that the workflow
+should already have answered: a procedure is designed and registered before any data exists, so on what
+grounds is reported data the arbiter of its structure? **It never was.** Rule 7.7 requires the key
+vocabulary to be declared in Phase 0; 7.12 is titled *"Key **validation** against the literature
+assessment"* and closes *"this validation is now part of **Phase 3**"*; and a TAPP registers a
+procedure with a DOI, prospectively. **Whether an axis may be a key is decided at Phase 0 on the
+7.4a–c invariants, and nowhere else.**
+
+How it went wrong: the 2026-08-31 `Desolvation System` decline closed with "revisit only if reported
+data itself ever becomes pass-indexed", and that sentence was later quoted as if it were the whole
+basis for refusing `acquisition pass`. **General lesson, and the reason this is recorded rather than
+quietly patched: a validation heuristic that earns its keep in one phase will be reached for in
+another, because it is concrete and the design rule is abstract. State the phase a rule belongs to in
+the rule itself.**
+
+**The landscape note.** Asked whether the four procedure shapes in use were exhaustive: **no.** They
+cover E1/E3 × A1/A3 — a 2×2 inside a much larger space — and they conflate two different
+multiplicities. Two axes replace them: **E** (how material reaches the measurement) E0 none · E1
+one-time bulk · E2 parallel in-situ · E3 serial stepped · E4 continuous separation; **A** (how the
+analyser produces values) A0 non-instrumental · A1 simultaneous · A2 sequential scan · A3 multi-pass
+batch · A4c sweep that collapses · A4r sweep that *is* reported.
+
+**E2 vs E3 is the distinction the four-type model collapsed.** A 40-spot LA session and a 47-step
+degassing experiment both give "many extractions", but spots are independent material you may reorder
+while heating steps are cumulative — each removes what the next cannot get. The first is `sampling
+unit`; the second has no key at all. **A4c vs A4r decides whether a swept axis needs a key**: both
+sweep, only A4r survives into the reported table. 21 of 30 cells are occupied by the 68 planned
+techniques; only 7 contain a built TAPP.
+
+## 2026-09-08 | CROSS-TAPP | `acquisition pass` minted — 15 consumers, 92 rows; EPMA and SEM deferred
+
+**A key retired 2026-08-11 and declined twice on 2026-08-31 is reinstated on evidence.** 7.12.1 removed
+the reported-data test as a Phase 0 gate, leaving the consumer count — and a survey found **69
+pass-structured cells in 10 procedures across 4 TAPPs**. Two cells settled that a pass is not a channel
+facet: Hopp et al. 2021 assigns a different *desolvation system and plasma mode* per pass, Willbold
+2005 a different *solution dilution*. A spray chamber and a dilution factor are not properties of a
+mass channel. **A pass is a sub-procedure; identical repeats are replicates.** Definer `Acquisition
+Pass` in `Module_ICPMS` v12, 15 consumers, 92 rows, 9 ICP-MS TAPPs.
+
+**Execution corrected the proposal twice.** 21 consumers became **13**: verifying every cell showed 8
+were stated per pass with *identical values* (Laser Fluence 4.72/4.72, RF Power, Make-up Gas, Coolant
+Gas, Background Count Time, Analysis Sequence, Signal Integration Time, Number of Replicates), which
+shows the *researcher* thinks in passes, not that the *field* varies — they stay `(none)` under 7.3.2.
+And the planned registered divergences were moot: 16 of 19 fields are module-owned and Column I is a
+module-owned column, so the key is uniform by construction.
+
+**EPMA and SEM deferred, on 7.4c.** The proposal had `Sequence` → `Acquisition Pass` as a settled
+special. It fails: EPMA, SEM and SEM_Composition have **zero** fields keyed `acquisition pass`, against
+6–11 in each ICP-MS TAPP. In Neuman et al. 2025 the only thing differing between EPMA's two passes is
+which elements are measured — the definer's own content — while kV, nA, dwell and step are identical.
+A definer there would be, in 7.4c's own words, *"a field holding a list, not a definer."* **The rule
+that blocked it is the one the proposal leant on to justify the key elsewhere.**
+
+**The falsifier was then named narrowly**, because the deferral first said `Sequence` becomes the
+definer on "a different beam current or counting time" and only half of that works. A per-element
+**counting time** is already expressible under `channel` and already attested (Barnes et al. 2025: 200
+ms for Al, Ti, Ca, Mn, Cr against 20 ms for Mg, Fe, Si) — a weak falsifier, struck out. A per-pass
+**beam current or diameter** is expressible under no existing key, because `sample > sampling unit`
+cannot carry it when the sampling unit is identical. Surveying 15 EPMA procedures found the practice
+named in the library (`Beam Damage Minimization` allows *"Na measured first with 10 µm defocused beam
+at 5 nA"*) with **zero attestations**; every attested beam divergence is by **phase**, not element —
+the phase being the proxy, since the beam hits the phase and the phases singled out are the Na-, K-,
+F-, Cl- and CO3-bearing ones. **State the falsifier in the same breath as the deferral, and state it
+narrowly enough that a near-miss cannot be mistaken for it.**
+
+**Audit:** 23 NEW findings, one pattern, adjudicated by **the single-pass unfalsifiability rule** — the
+single-target-species rule one axis over. Only multi-pass procedures test the axis, and every one
+attests it.
+
+## 2026-09-08 | MODULE | `Number of Digestion Steps` → `Digestion Step`, and its Phase 3 backfill
+
+**The library's last scalar-typed definer is retired, and 7.4a's carve-out permitting one goes with
+it.** 95 of 98 definer rows are `Text (free)` or `Controlled list / Text`; the other 3 were this field
+in its three consumers. `Module_SolutionIntroduction` v8 → v9.
+
+**7.4a had explicitly blessed it** — a paragraph written for this single field: *"An ordinal count
+enumerates its domain … '3' fully enumerates steps 1, 2, 3."* Not careless; it survived two Rule 7
+sweeps. **What killed it was the field's own literature.** Six of nine assessed cells carried the step
+*names* beside or instead of the count, two carried no number at all, and Hu & Gao 2008 read `2` beside
+"five steps explicitly numbered" — the carve-out refuting itself in one cell. **When every curator
+works around a type, the type is wrong.**
+
+**No count field was retained,** deliberately departing from the `Acquisition Pass` / `Number of
+Acquisition Passes` split minted the same day. There the count recorded structure nothing else carried;
+here the count *is* the contested quantity, and a count field cannot say which grain it counted.
+Guarded by a new `rule7-definer-scalar-type` (ERROR), **verified to fire before being verified to
+pass.**
+
+### Phase 3: what asking for members exposed
+
+The definer was then filled from the 15 source PDFs — substantive in **26 of 29** literature columns —
+and **six neighbouring cells turned out to be wrong, none of them sought.** Two failure modes, both
+invisible to a count: **wrong-procedure** errors, where a number was lifted from a neighbouring
+paragraph describing something else (Ibáñez-Mejía's "60 h" is a 900 °C *annealing*; Broussard's
+"70 °C … 140 °C, 20 h" belongs to a *cosmogenic-radionuclide dissolution* in the same paper, against an
+actual 150 °C for ~1 week); and **truncation**, where the sequence was recorded from where the curator
+started reading (Hu et al. 2022 was missing its entire first HF-HNO3-HClO4 attack, and its "temperature
+not stated" is stated plainly as 160 °C). **An Integer definer sitting beside them asked nothing that
+would have caught either.**
+
+The audit registered the improvement: `Digestion Duration` in Solution MC had stood as an adjudicated
+OVER-DECLARED finding, and with the corrected cells it no longer arises — 62 adjudications became 61.
+**A disposition retired because the data improved, not because it was suppressed** — the opposite
+direction from the unfalsifiability rules, which retire findings the evidence *cannot* settle.
+
+## 2026-09-08 | CROSS-TAPP | Reference files reconciled; the schema spec was materially wrong
+
+Prompted by the question "has every reference and skill file been updated?" — `composed_tapps.json` and
+the skill files were current; two documents were not.
+
+**`README_TAPP_for_Schema_Generation.md` is the live spec handed to the schema developer, and it still
+listed `acquisition pass` among the keys "retired from use — you may ignore them".** A schema built
+from that sentence would silently drop an array of 92 rows across nine TAPPs. Corrected, with the
+EPMA/SEM exception stated. Every count in the spec was also recomputed and every one had drifted:
+`(none)` 76% → **67%**, fields needing arrays ~20% → **33%**, Column G provenance 767/1706 → **1370 of
+1777**, distinct key strings 18 → **19**, `sample > sampling unit` 16 rows → **25**,
+technique-dependent field names 5 → **3**. And `defines: standard per target species` sat in the spec's
+closed value set while occurring **nowhere** in the library — the same stale reading was registered in
+`validate_tapp.py`'s `KEY_NAME_VARIANTS`, which is precisely why nothing ever flagged it.
+
+**The general point.** The spec's own advice — "recount before you rely on it" — was correct and
+insufficient: nobody recounts on advice. The counts that matter to an outside consumer should be
+generated, not written. Recorded here as an open weakness rather than fixed, because generating them
+means a script and a decision about where its output lives.
+
+**And this log was the second stale document** — it ended at 2026-08-25 while the library moved through
+the passes above. See the backfill note at the head of this section.
