@@ -196,7 +196,7 @@ KEYED_BY_TECHNIQUE_DEPENDENT = {
     # reporting one LOD per element aggregated over the session, never per spot, so the LA variant
     # became `reported property` like everywhere else and the field is now uniform across all 12.
     "Primary Calibration Standard Name": "target species in EPMA/SEM and LA-SF; (none) in LA-Q, LA-MC and the Solution TAPPs, which use a single primary or one joint calibration set",
-    "Secondary Reference Materials":     "defines: standard per target species in EPMA/SEM, which report assessed elements per RM; defines: standard in the 9 isotope TAPPs, which report the RM list only",
+    "Secondary Reference Materials":     "registered 2026-08-12 for defines: standard per target species in EPMA/SEM vs defines: standard in the isotope TAPPs. NOTE 2026-09-08: the per-target-species form no longer occurs anywhere in the library — the field is a plain defines: standard in all 12 TAPPs that carry it, so this entry is currently dormant. Kept, not deleted, because the EPMA/SEM reading is defensible and may return.",
     # Rewritten 2026-08-12 (Decision Record C1): was "analyte only where compositional mapping
     # exists". The WDS dwell time is per spectrometer per pixel — both descriptions said so — so it
     # follows the other WDS setup fields onto `channel`.

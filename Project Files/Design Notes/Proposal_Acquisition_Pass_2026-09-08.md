@@ -295,7 +295,9 @@ Run 2 (trace, LR, 130 µm)"*.
 
 ⚠ `Number of Digestion Steps` is a latent defect of the same kind. It is **module-owned by
 `Module_SolutionIntroduction`** (3 consumers), so renaming it is a separate module change — recorded,
-not bundled here.
+not bundled here. **RESOLVED 2026-09-08**: renamed to `Digestion Step` and re-typed `Integer` ->
+`Text (free)` in module v9, with the 7.4a ordinal-count carve-out retired and a
+`rule7-definer-scalar-type` check added. See precedents.md.
 
 ### EPMA already has this field, under the name `Sequence`
 
@@ -404,7 +406,7 @@ typed **`Integer`** *and* declared `defines: preparation step`. **An Integer def
 members** — the type forbids it, which is why one of its cells reads "Two ('These steps were performed
 twice')". This is not a curation lapse; the Data Type makes enumeration impossible. It confirms both
 that `Acquisition Pass` must be text-typed, and that `Number of Digestion Steps` needs re-typing as
-well as renaming when `Module_SolutionIntroduction` is next touched.
+well as renaming when `Module_SolutionIntroduction` is next touched. **Both done 2026-09-08.**
 
 ### `Multi-Run Sequential Analysis Design` — SETTLED 2026-09-08: survives, narrowed and re-keyed
 

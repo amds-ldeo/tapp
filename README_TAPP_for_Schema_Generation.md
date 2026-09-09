@@ -110,7 +110,7 @@ column will break on those three.
 
 Column G was cleared library-wide on 2026-08-11 (mode applicability moved to the mode-flag columns,
 cardinality to Column I, conditional rules into Column B) and then **repopulated on 2026-08-14 with
-field-provenance labels**. It now carries a label on **767 of 1706 content rows — 45% of the library**.
+field-provenance labels**. It now carries a label on **1370 of 1777 content rows — 77% of the library** (recounted 2026-09-08).
 If you read an earlier drop, this column was almost blank; that is no longer true.
 
 Every field supplied by a module names that module, written automatically by composition
@@ -161,7 +161,7 @@ Only one of the three is a field.
 
 **This is the column that determines schema shape, and it has no equivalent in an ordinary
 spreadsheet-to-schema conversion.** It states what a field's value repeats over. Ignoring it produces a
-flat object where roughly 20% of fields should be arrays of objects.
+flat object where **33%** of fields should be arrays of objects (579 of 1777, recounted 2026-09-08).
 
 Column I is never blank on a content row.
 
@@ -169,7 +169,7 @@ Column I is never blank on a content row.
 
 | Value | Meaning | Schema consequence |
 |---|---|---|
-| `(none)` | Scalar — one value per procedure, or **per session** at analysis level. 76% of fields. | Ordinary property on the parent object |
+| `(none)` | Scalar — one value per procedure, or **per session** at analysis level. 67% of fields (1198 of 1777, recounted 2026-09-08). | Ordinary property on the parent object |
 | `sample` | One value per sample covered by the session | Property of an object in the `samples` array |
 | `target species` | One value per chemical species determined — **the element or species, never the isotope** | Property of an object in the `target species` array |
 | `channel` | One value per instrument selection position (mass, cup, X-ray line, energy-loss edge) | Property of an object in the `channels` array |
@@ -177,17 +177,23 @@ Column I is never blank on a content row.
 | `sampling unit` | One value per subdivision of the sample carrying its own row — grain, spot, aliquot, phase | Property of an object in the `samplingUnits` array |
 | `standard` | One value per reference material or reference database entry | Property of an object in the `standards` array |
 | `preparation step` | One value per sample-preparation stage | Property of an object in the `preparationSteps` array |
+| `acquisition pass` | One value per traversal of the measurement with its own configuration, run in sequence on the same material — a sub-procedure. Identical repeats are replicates, not passes | Property of an object in the `acquisitionPasses` array |
 | `defines: X` | **This field enumerates the domain X.** It is the header of the child table, not a column in it | Its value populates the key set for the `X` array |
 | `A x B` | Cross-product — one value per combination. **Ordered**: read as "for each A, one value per B" | 2-D: array of objects nested one level |
-| `A > B` | Containment — B exists only within A | Nested array. **In use since 2026-08-12**: `sample > sampling unit`, 16 rows |
+| `A > B` | Containment — B exists only within A | Nested array. **In use since 2026-08-12**: `sample > sampling unit`, 25 rows |
 | `A > B x C` | Containment then cross-product — "within each A, for each B, one value per C" | One row: `sample > sampling unit x reported property` |
 | `defines: A per B` | **The field enumerates domain A and carries a parent key into B.** This is the channel↔target species binding | Child array for A, with a **nullable** foreign key to B on each member |
 | `pair: A` | Keyed by an unordered pair of A | Property on a pair object, e.g. `{"between": ["206Pb/238U date", "207Pb/235U date"], "value": …}` |
 
-**Seven** keys are in use library-wide: `sample`, `sampling unit`, `reported property`, `channel`,
-`target species`, `standard`, `preparation step`. (`sample` was added 2026-08-12 with Rule 13.) Four more
-(`conversion`, `acquisition pass`, `background position`, `model component`) are documented but
-retired from use — you may ignore them.
+**Eight** keys are in use library-wide: `sample`, `sampling unit`, `reported property`, `channel`,
+`target species`, `standard`, `preparation step`, `acquisition pass`. (`sample` was added 2026-08-12
+with Rule 13; **`acquisition pass` 2026-09-08** — see below.) Three more (`conversion`,
+`background position`, `model component`) are documented but retired from use — you may ignore those.
+
+⚠ **`acquisition pass` was listed here as retired until 2026-09-08 and is now IN USE** — definer
+`Acquisition Pass`, 15 consumers, 92 rows across the nine ICP-MS TAPPs. A schema built from the earlier
+text would drop the array entirely. It is not present in EPMA, SEM or SEM_Composition, where `Sequence`
+holds the pass enumeration but is keyed `channel`; treat those three as having no pass array.
 
 **Separator is a literal ASCII lowercase `x`, not `×`.** The specification prose in `conventions.md`
 renders the cross-product with a multiplication sign, but the CSV cells contain
@@ -202,16 +208,17 @@ reported property                  preparation step
 defines: sample                    defines: sampling unit
 defines: target species                   defines: reported property
 defines: standard                  defines: preparation step
-defines: channel per target species       defines: standard per target species
-pair: reported property
+defines: channel per target species       acquisition pass
+defines: acquisition pass          pair: reported property
 sample > sampling unit
 sample > sampling unit x reported property
 standard x reported property
 ```
 
-**Eighteen** distinct strings across the whole library — small enough to handle as a closed set.
-Recount before you rely on it; this set was last verified 2026-08-12 and has changed twice since
-the file was written.
+**Nineteen** distinct strings across the whole library — small enough to handle as a closed set.
+Recounted 2026-09-08. `defines: standard per target species` was listed here until then and does not
+occur: `Secondary Reference Materials` is a plain `defines: standard` in all twelve TAPPs that carry it.
+Recount before you rely on this set; it has changed on most working days.
 
 ### Invariants you can rely on
 
@@ -219,9 +226,10 @@ the file was written.
 - A `defines: X` field exists only where some other field is keyed by X — with two exceptions,
   `Reported Variables and Units` and `Sampling Unit`, which are mandatory in every TAPP for their own
   declarative purpose and may have no consumers.
-- A field name normally carries the same `Keyed By` in every TAPP. Five are technique-dependent by
-  design: `Detection Limit`, `Primary Calibration Standard Name`, `Dwell Time per Pixel`,
-  `Beam Current`, `Monitored Masses`. Do not assume one global mapping of field name → key.
+- A field name normally carries the same `Keyed By` in every TAPP. **Three** are technique-dependent by
+  design: `Dwell Time per Pixel`, `Beam Current`, `Monitored Masses`. Do not assume one global mapping of
+  field name → key. (`Detection Limit` and `Primary Calibration Standard Name` were listed here until
+  2026-09-08; both are now uniform library-wide.)
 - **Where a TAPP declares both an target species domain and a channel domain, the field that defines the
   channel carries the binding** as `defines: channel per target species`. All 13 such TAPPs do, since
   2026-08-12. The defining field differs by technique: `Monitored Masses` (single-collector ICP-MS),
@@ -542,7 +550,7 @@ express that this procedure was run alongside another. That is the mechanism for
 
 1. **Don't parse the xlsx.** It is generated from the CSV. Colour encodes the tier already present in
    Columns C/D, and the Legends sheet is documentation, not data.
-2. **Column G is now 45% populated, and all of it is provenance.** Since 2026-08-14 every module-supplied field names its module (`Source: <name> module`); 767 of 1706 rows. A blank cell means the field belongs to no module. Documentation only, not schema content — see §3.1.
+2. **Column G is now 45% populated, and all of it is provenance.** Since 2026-08-14 every module-supplied field names its module (`Source: <name> module`); 1370 of 1777 rows. A blank cell means the field belongs to no module. Documentation only, not schema content — see §3.1.
 3. **Don't hard-code column indices past I.** Mode-block width varies 0–11; find `Literature Assessment`.
 4. **Three TAPPs have no mode columns at all.**
 5. **Match A–I by position, not header text** — Columns B and F have two spellings each.
