@@ -348,15 +348,63 @@ explicit value.
 **8 TAPPs in scope** (6 attested + 2 untested), 5 registered single-pass, 3 absent. TEM keeps 3
 channel-keyed fields but has no `Sequence` and no WDS, and its one pass candidate is closed by DualEELS.
 
-### A companion scalar, proposed but not settled
+### The scalar-summary pattern — SETTLED 2026-09-08, both cases KEEP
 
-**`Number of Acquisition Passes`**, keyed `(none)` — neither a definer nor keyed by anything — to carry
-the procedure's structure in a machine-readable form that a free-text enumeration does not. Precedent:
-`Number of Blocks per Measurement` and `Number of Cycles per Block` are exactly this shape.
+The library holds exactly **three** genuine scalar summaries: a `(none)`-keyed field standing beside a
+keyed field that carries the per-member detail.
 
-⚠ It faces the **same redundancy question already open for `Mass Resolution Setting`**: is a scalar
-summary still needed once the passes enumerate themselves? Both should be answered together rather than
-separately.
+| scalar `(none)` | its keyed partner | the tell |
+|---|---|---|
+| `Mass Resolution Setting` | `Mass Resolution Assignment` [`channel`] | *"The overall mode(s) used in the procedure are recorded in Mass Resolution Setting"* |
+| `Spectral Interference Corrections Applied` | `Interfering Species` + `Interference Correction Method` [`channel`] | *"Detail for each affected mass is carried by…"* |
+| `WDS Spectrometer Configuration` | `WDS Spectrometer Channel` [`defines: channel per target species`] | instrument inventory vs. per-assignment domain |
+
+Most apparent pairs are not summaries and should not be re-raised: **conditionality** (`Collision Gas
+Flow Rate`, `Reaction Gas Flow Rate`, the four `Spectroscopic Detector(s)` references — *"Record 'N/A'
+where…"*), **disambiguation** (`Sampling Unit Selection Criteria`, `Uncertainty Level` — *"Distinct
+from…"*), and one **explicit non-summary**: `Total Integration Time per Output Data Point` says
+outright *"Not recoverable from Dwell Time per Mass alone, because settling time is not captured
+there."*
+
+#### The test, corrected by the evidence
+
+I first proposed: *a summary earns its place when it states what the keyed field cannot, and is
+redundant when it merely aggregates.* **Checking the Data Types shows that test is wrong** — it would
+have retired `Mass Resolution Setting`, destroying something real:
+
+```
+Mass Resolution Setting      Controlled list / Text   "Unit resolution (quadrupole, fixed) | Low resolution (LR) | …"
+Mass Resolution Assignment   Text (free)              "LR: Ag, Cd, Sb…; MR: Ga, Ge, Mo…"
+```
+
+The scalar carries a **closable, queryable vocabulary**; the keyed field is free text. "Find every
+SF-ICP-MS procedure operated in HR" is answerable from one and not the other. Aggregation is not the
+test — **type is**.
+
+> **A scalar summary earns its place when it carries a Data Type its keyed partner cannot support, or
+> states availability rather than aggregation.** It is redundant only when it duplicates both the
+> content and the type.
+
+All three existing summaries pass: `Mass Resolution Setting` and `Spectral Interference Corrections
+Applied` on **type** (`Controlled list / Text` against `Text (free)`), `WDS Spectrometer Configuration`
+on **content** (what the instrument *has*, not what was assigned).
+
+#### Both open questions settled
+
+- **`Mass Resolution Setting` — KEEP.** Its controlled vocabulary is not reconstructible from the
+  free-text assignment, and it survives the re-key of `Mass Resolution Assignment` to `acquisition
+  pass` unchanged.
+- **`Number of Acquisition Passes` — KEEP**, `(none)`, `Integer`. Same ground: an integer count is
+  queryable where the free-text enumeration in `Acquisition Pass` is not. Precedent in shape and type:
+  `Number of Blocks per Measurement`, `Number of Cycles per Block`, `Number of Projections` — all
+  `(none)`, all `Integer`.
+
+⚠ **A third finding falls out of the same check, and it hardens §4A.** `Number of Digestion Steps` is
+typed **`Integer`** *and* declared `defines: preparation step`. **An Integer definer cannot enumerate
+members** — the type forbids it, which is why one of its cells reads "Two ('These steps were performed
+twice')". This is not a curation lapse; the Data Type makes enumeration impossible. It confirms both
+that `Acquisition Pass` must be text-typed, and that `Number of Digestion Steps` needs re-typing as
+well as renaming when `Module_SolutionIntroduction` is next touched.
 
 `Multi-Run Sequential Analysis Design` then becomes a **consumer** — and possibly a redundant one, since
 its content is "describe the passes". Whether it survives the Rule 6 admission test once a real definer
@@ -530,7 +578,9 @@ acquired N times and summed to limit beam damage.
   consumer. Open successor: does it survive the Rule 6 admission test once `Number of Acquisition
   Passes` exists, or is it absorbed? It currently holds the whole design in prose — the same fidelity
   failure found in `Collector Configuration` (Decision_Record_2026-09-01, §3).
-- **The resolution cluster needs rationalising once the key exists.** Three fields would overlap:
+- ~~The resolution cluster needs rationalising once the key exists.~~ **SETTLED 2026-09-08 (§4A):
+  both KEEP** — the scalar carries a controlled vocabulary the free-text keyed field cannot. Original
+  framing kept below for the record. Three fields would overlap:
   `Mass Resolution Assignment` (per pass, after the §3A correction), `Mass Resolution Setting`
   (`(none)`, "LR and MR" — the procedure-level list, now derivable from the passes) and the new
   `Number of Acquisition Passes`. Their descriptions already cross-reference: *"The overall mode(s)
