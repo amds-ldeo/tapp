@@ -406,9 +406,44 @@ twice')". This is not a curation lapse; the Data Type makes enumeration impossib
 that `Acquisition Pass` must be text-typed, and that `Number of Digestion Steps` needs re-typing as
 well as renaming when `Module_SolutionIntroduction` is next touched.
 
-`Multi-Run Sequential Analysis Design` then becomes a **consumer** — and possibly a redundant one, since
-its content is "describe the passes". Whether it survives the Rule 6 admission test once a real definer
-exists is a separate question.
+### `Multi-Run Sequential Analysis Design` — SETTLED 2026-09-08: survives, narrowed and re-keyed
+
+Its description makes **five** asks. Four of them migrate to the new machinery; the fifth is unique in
+the library.
+
+| ask | after the key exists |
+|---|---|
+| "whether the procedure uses a single acquisition pass or multiple sequential runs" | `Number of Acquisition Passes` |
+| "the number of runs" | `Number of Acquisition Passes` |
+| "their purpose" | `Acquisition Pass` — the enumeration names them ("Run 1 — major elements") |
+| "key laser and instrument settings per run" | the ~21 fields keyed `acquisition pass` (§3B) |
+| **"how outputs of one run feed into data reduction of another"** | ⚠ **nothing else in the library** |
+
+A search of all 353 field descriptions found **no other field that asks for a dependency between
+passes**. And a per-pass field cannot supply it: keying `Internal Standard Element` by
+`acquisition pass` yields *"Run 1: none; Run 2: ⁵³Cr"* and loses **"from Run 1"**. A per-pass field
+records what each pass used; it cannot record that one pass's *output* was another's *input*.
+
+The dependency is attested, and currently packed into two fields at once —
+`Multi-Run Sequential Analysis Design`: *"(3) Run 2 — trace elements (130 µm circular, LR M/ΔM=300,
+40 Hz, 36 nuclides; **Cr from run 1 as IS**)"*, and `Internal Standard Element`: *"Run 2: ⁵³Cr
+(**concentration from Run 1** major-element analysis on 30 µm spot used as IS for 130 µm spot trace
+element run)"*. Two fields carrying the same fact because neither is the right home.
+
+**Verdict: the field survives, narrowed to the fifth ask, renamed and re-keyed.** Everything else it
+currently carries is duplication once the pass machinery exists — Rule 6's "must not already exist
+elsewhere in the library" bites on four of five asks, not on the field as a whole.
+
+- **scope** → the inter-pass data dependency only
+- **key** → `(none)` → **`acquisition pass`**: one value per pass, naming which earlier pass supplied
+  inputs to it; null for the first. Ordered, so `pair:` (unordered) does not fit
+- **name** → something matching the narrowed scope; the current name describes ask 1, which is leaving
+
+⚠ **Its "not applicable to raster mapping" clause is CORRECT** — unlike `Sequence`'s superficially
+similar clause, which §4C had to fix. In LA raster mapping each spatial location is visited exactly
+once, so there is no second pass over the same material. In EPMA WDS mapping the map *is* re-run when
+the element suite exceeds the spectrometer count. The two clauses look alike and only one was wrong;
+worth recording so the next sweep does not "fix" this one too.
 
 ---
 
@@ -574,9 +609,9 @@ acquired N times and summed to limit beam damage.
 
 ## Open questions
 
-- ~~Is `Multi-Run Sequential Analysis Design` the definer?~~ **Answered in §4A: no.** It becomes a
-  consumer. Open successor: does it survive the Rule 6 admission test once `Number of Acquisition
-  Passes` exists, or is it absorbed? It currently holds the whole design in prose — the same fidelity
+- ~~Is `Multi-Run Sequential Analysis Design` the definer? Does it survive Rule 6?~~ **Both answered
+  in §4A: it is not the definer, and it survives narrowed** — four of its five asks are absorbed, the
+  fifth (inter-pass data dependency) is unique in the library. It currently holds the whole design in prose — the same fidelity
   failure found in `Collector Configuration` (Decision_Record_2026-09-01, §3).
 - ~~The resolution cluster needs rationalising once the key exists.~~ **SETTLED 2026-09-08 (§4A):
   both KEEP** — the scalar carries a controlled vocabulary the free-text keyed field cannot. Original
