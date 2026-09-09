@@ -1625,6 +1625,35 @@ def check_library_freshness(root, out):
         return
     reg = json.load(open(regp, encoding="utf-8"))
 
+    # --- the schema spec's counts are GENERATED, and must match the library.
+    #
+    # On 2026-09-08 every count in README_TAPP_for_Schema_Generation.md -- the live document handed
+    # to the schema developer -- had drifted, the Column G share by 32 points, and one key
+    # (`acquisition pass`) was described as retired on the day it went into use, which would have
+    # made a consumer drop an array of 92 rows. The file already advised its reader to recount
+    # before relying on it; nobody recounts on advice. The block is now generated, and stale is an
+    # ERROR rather than a note somebody may or may not act on.
+    gen = os.path.join(root, "Project Files", "Scripts", "build_schema_spec_counts.py")
+    spec = os.path.join(root, "README_TAPP_for_Schema_Generation.md")
+    if os.path.exists(gen) and os.path.exists(spec):
+        import importlib.util
+        sp = importlib.util.spec_from_file_location("_ssc", gen)
+        mod = importlib.util.module_from_spec(sp)
+        sp.loader.exec_module(mod)
+        text = open(spec, encoding="utf-8").read()
+        if mod.BEGIN not in text or mod.END not in text:
+            add("ERROR", "README_TAPP_for_Schema_Generation.md", "schema-spec-stale-counts",
+                "the generated library-counts block is missing its markers. Restore "
+                f"{mod.BEGIN} / {mod.END} and run build_schema_spec_counts.py --apply.")
+        else:
+            have = text[text.index(mod.BEGIN):text.index(mod.END) + len(mod.END)]
+            if have != mod.render(root):
+                add("ERROR", "README_TAPP_for_Schema_Generation.md", "schema-spec-stale-counts",
+                    "the generated library-counts block no longer matches the library. Run "
+                    "`python3 'Project Files/Scripts/build_schema_spec_counts.py' --apply`. This "
+                    "file is handed to the schema developer; a stale count there becomes a wrong "
+                    "schema.")
+
     # --- the composition register must name the files that are actually live.
     #
     # Nothing checked this until 2026-09-01, when six of sixteen entries were found to have drifted

@@ -2992,3 +2992,39 @@ day 3 and refilled with 0.5 ml HF**. Neither of those is expressible as a number
 **Not steps, and now said so in the cells:** final uptakes (Craddock's 4 ml 2% HNO3, Barnes's 5 ml
 0.5 M HNO3), Ibáñez-Mejía's 900 °C annealing, and van Kooten's NaOH fusion — recorded as a *fusion*
 rather than an acid digestion, which is the forward tension the naming decision already flagged.
+
+---
+
+## The schema spec's counts are generated now, not written (2026-09-08)
+
+**Decision: every figure in `README_TAPP_for_Schema_Generation.md` that changes when a TAPP changes
+lives in a generated block, and stale is refused at save time.**
+`Project Files/Scripts/build_schema_spec_counts.py` (`--check` / `--apply`),
+`validate_tapp.py`'s `schema-spec-stale-counts` (ERROR), and a refusal in `tapp-save.sh`.
+
+**Why the file's own advice was not enough.** It already told its reader *"recount before you rely on
+it; this set was last verified 2026-08-12."* That is honest and it failed completely: on 2026-09-08
+every count in it had drifted — the `(none)` share by 9 points, the Column G share by 32 — and
+`acquisition pass` was still described as *"retired from use — you may ignore"* on the day it went into
+use, which would have made a consumer drop an array of 92 rows. **Nobody recounts on advice.** A
+warning addressed to a future reader is not a control; it is a note that the author knew and did
+nothing.
+
+**Where the line falls.** The block carries anything that moves with the library: row totals, the
+scalar/keyed split, the Column G share, the complete `Keyed By` value set with row counts, the keys in
+use, the definer fields, and the field names whose key is technique-dependent. **Prose outside the
+markers must stay true across drift** — write "about a third of fields", not "33%", and let the block
+carry the figure. Six inline numbers were rewritten that way rather than being wired into the
+generator, because a sentence that survives recounting is better than a sentence that must be
+regenerated.
+
+**Three layers, deliberately.** The generator is the fix; the validator ERROR catches a hand-edit; the
+`tapp-save.sh` refusal catches the case the ERROR does not, which is nobody running the validator.
+**An ERROR that only helps someone who runs it is the same failure one level up** — the exact shape of
+the advice it replaced. The refusal fires only when a TAPP CSV or the spec itself is staged, and prints
+the regeneration command. All three were tested by injecting a wrong row count, then restored.
+
+**What it caught immediately.** One figure I had corrected by hand an hour earlier was still wrong:
+§7 read *"Column G is now 45% populated"* beside a hand-fixed `1370 of 1777`, because the percentage
+sat in a different sentence from the fraction. That is the argument for generation in one line — a hand
+correction fixes the instance, not the class.

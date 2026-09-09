@@ -58,6 +58,22 @@ if [ -n "$BIG" ]; then
     exit 1
 fi
 
+# --- the schema spec's generated counts must not be committed stale ---------
+#
+# README_TAPP_for_Schema_Generation.md is handed to the schema developer. Its counts drifted
+# unnoticed for weeks before 2026-09-08, and `validate_tapp.py` reporting an ERROR only helps
+# someone who runs it. Refuse the save instead. Skipped when neither the spec nor a TAPP is staged.
+if git diff --cached --name-only | grep -qE '^(Current TAPPs/.*\.csv|README_TAPP_for_Schema_Generation\.md)$'; then
+    if ! python3 "$REPO/Project Files/Scripts/build_schema_spec_counts.py" >/dev/null 2>&1; then
+        echo "error: README_TAPP_for_Schema_Generation.md's generated counts are stale." >&2
+        python3 "$REPO/Project Files/Scripts/build_schema_spec_counts.py" 2>&1 | sed 's/^/  /' >&2
+        echo "Regenerate, then re-run:" >&2
+        echo "  python3 'Project Files/Scripts/build_schema_spec_counts.py' --apply" >&2
+        unstage
+        exit 1
+    fi
+fi
+
 if [ "$DRY" -eq 1 ]; then
     echo "(dry run — nothing committed)"
     unstage
