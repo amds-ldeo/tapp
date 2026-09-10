@@ -181,7 +181,11 @@ DESC_LEAK_RE = re.compile(
 # cover many samples (conventions.md 7.2; Decision Record A1). Defined ahead of its retrofit —
 # no field declares it until steps 8-9, which is not a 7.4c violation: 7.4c constrains definers
 # without consumers, not vocabulary without users.
-KEY_ANCHORS = {"sample", "sampling unit", "reported property", "channel", "target species"}
+KEY_ANCHORS = {"sample", "sampling unit", "reported property", "channel", "target species",
+               # defined 2026-09-10, no user yet — see the third note under Rule 7.2 in
+               # conventions.md. Declared here so the vocabulary check accepts it the moment
+               # a field does; `conversion` and `background position` sit in the same state.
+               "monitored property"}
 KEY_SECONDARY = {"standard", "conversion", "model component", "acquisition pass",
                  "preparation step", "background position"}
 KEY_VOCAB = KEY_ANCHORS | KEY_SECONDARY

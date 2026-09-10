@@ -923,7 +923,7 @@ here instead.
 
 #### 7.2 Key vocabulary
 
-**Anchors.** Three are universal; two are conditional and legitimately absent from some techniques.
+**Anchors.** Three are universal; three are conditional and legitimately absent from some techniques.
 
 | Value | Keys on | Test to apply | Examples |
 |---|---|---|---|
@@ -931,6 +931,7 @@ here instead.
 | `sampling unit` *(universal)* | a subdivision of the physical sample carrying its own row of values | Would a second grain / spot / phase produce another row? | EPMA analysis point; zircon grain; digestion aliquot; Mössbauer phase; fission-track confined track; XCT segmented phase; OSL aliquot |
 | `reported property` *(universal)* | anything the procedure reports, **at any point in the chain** — quantities and nominal properties alike, plus their uncertainties | Does it appear in the reported data product? | ²⁰⁶Pb/²⁰⁴Pb ratio *and* ²⁰⁶Pb/²³⁸U date; ⁵⁶Fe/⁵⁴Fe *and* δ⁵⁶Fe; Dᴇ, D_R *and* OSL age; Fe³⁺/ΣFe; mineral species + match score; porosity |
 | `channel` *(where a dispersive, selective or swept axis exists)* | a position on the axis the instrument steps through or selects across — mass, wavelength, energy, angle, temperature, field, pressure, time. **The address, not the signal** | Does the position exist even with zero signal there? | m/z 238; cup L2 at magnet step 1; Fe Kα on LIF spectrometer 2 (one WDS spectrometer assignment); Fe L₂,₃ edge; velocity channel 137/256; 855 cm⁻¹ bin; demagnetisation step 40 mT; DSC temperature setpoint |
+| `monitored property` *(defined 2026-09-10, not yet in use)* | what the procedure **measures** in order to determine a target species — the layer between determinand and output. Includes everything acquired for the determination, not only what is determined | Is it acquired in order to compute something that is reported? (Determined → `target species`. In the data product → `reported property`.) | ⁸⁵Rb, ⁸⁴Sr, ⁸⁶Sr, ⁸⁷Sr; ⁸³Kr and ¹⁶⁷Er²⁺ interference monitors; ¹²⁵Te measured as ¹⁴¹TeO⁺; Si Kα, Cr Kα (EPMA); Fe L₂,₃ (EELS) |
 | `target species` *(chemistry only)* | the chemical species determined, at whatever granularity the procedure determines it | Would substituting a different isotope of the same element leave the target of determination unchanged? Yes → `channel`. No → `target species`. | Si, Mg, Fe, Ca, Ni (EPMA); Fe (MC-ICP-MS); U, Pb, Th (U-Pb); Fe²⁺/Fe³⁺ at valence resolution (Mössbauer) |
 
 **Two notes on the anchors, both dated 2026-08-12.**
@@ -951,6 +952,55 @@ analysis record is the session; the retrofit that populates it (Rule 13, `define
 which is not a 7.4c violation — 7.4c constrains definers without consumers, not vocabulary without
 users.
 
+**A third note, 2026-09-10.**
+
+*`monitored property` — the layer between determinand and output.* A procedure determines a
+`target species`, reports a `reported property`, and to get from one to the other it **measures**
+something. That middle layer had no key, and `channel` was carrying it:
+
+```
+target species     what is DETERMINED    Rb, Sr
+monitored property what is MEASURED      85Rb, 86Sr, 87Sr, 83Kr, 167Er2+
+reported property  what is REPORTED      87Sr/86Sr, 87Rb/86Sr, isochron age (Ma)
+```
+
+It is not `target species` — interference monitors and internal standards are monitored and never
+determined (⁸³Kr, ¹⁶⁷Er²⁺, ¹⁷³Yb²⁺ in Zhang et al. 2022). It is not `reported property` — ⁸⁷Sr/⁸⁶Sr is
+computed from two monitored properties and is one row of output, not two rows of measurement.
+
+*And it is not `channel`.* `channel` is the **address** — a position on a swept or selective axis, and
+its test is whether the position exists with zero signal there. Three cases separate them: a mass-shift
+reaction monitors Te at m/z 141; a doubly-charged monitor reads Er at m/z 83.5; and EPMA's aggregate
+intensity counting monitors one element on **two** spectrometers at once (`Cr=Sp2+Sp3`), which is why
+`WDS Spectrometer Channel` currently holds a set where every other key holds a position. In a mass
+spectrometer the two axes are near-isomorphic, which is why one key served so far. They are not the
+same axis.
+
+**DEFINED, NOT YET IN USE.** No field declares it. This is the state `sample` occupied between
+2026-08-12 and Rule 13, and it is not a 7.4c violation — 7.4c constrains definers without consumers,
+not vocabulary without users. The retrofit, its definer assignments per technique family, and the two
+new fields it needs (`Monitored Masses` in Solution MC-ICP-MS; `Monitored Elements` in EPMA/SEM) are
+in `Project Files/Design Notes/Proposal_Monitored_Property_2026-09-10.md`.
+
+*`channel` is unchanged and retained.* After the retrofit no field in the current 16 TAPPs would be
+keyed by it, but the twenty-odd planned techniques that sweep an axis with no discrete measurand —
+Raman spectral bins, XRD 2θ, Mössbauer velocity channels, DSC temperature setpoints, demagnetisation
+field steps — may still need it. Whether they want `channel` or `monitored property` is a question for
+the TAPPs that have the evidence. Held, not decided.
+
+*A `detector` key was proposed the same day and refused.* The four candidate consumers were the
+Faraday cup amplifier and gain fields, `Ion Counter Dead Time` and `Proportional Counter / Detector`.
+Three have **zero** attestations anywhere in the corpus, and the fourth is attested on the *other*
+axis: all seven of its cells state the resistor per mass — *"10¹⁰ Ω for ⁵⁶Fe⁺; 10¹¹ Ω for ⁵⁴Fe, ⁵⁷Fe,
+⁵⁸Fe; 10¹² Ω for the ⁵³Cr and ⁶⁰Ni interference monitors"* — and not one names a cup position.
+Researchers describe an amplifier by the mass it serves. The per-cup reading came from that field's
+Column F, which holds **examples we authored**, not evidence; the key failed 7.4b/7.4c on the same
+test that retired `conversion`. **What would revive it**: a multi-dynamic procedure publishing a
+per-cup quantity that cannot be restated per mass, where one cup reads several masses across steps.
+See §10 of the proposal.
+
+---
+
 **Secondary keys.**
 
 | Value | Keys on | Examples |
@@ -963,7 +1013,9 @@ users.
 
 **Technique-specific extensions** are permitted. They are declared in Phase 0 (7.7) and listed in the
 TAPP's Legends sheet. Prefer an existing anchor before minting one: `phase`, `sub-volume`, `replicate`,
-`spot` and `grain` are all `sampling unit`; `cup`, `detector` and `energy-loss edge` are all `channel`.
+`spot` and `grain` are all `sampling unit`; an `energy-loss edge` is a `monitored property`; a `cup`
+or a `detector` is neither — see the 2026-09-10 note below, which refused that key for want of a
+single attested consumer.
 
 **`mode` is not a valid value.** Mode applicability is carried by the mode-flag columns (Rule 3). A mode
 key would duplicate existing machinery.
