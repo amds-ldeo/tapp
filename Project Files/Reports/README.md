@@ -40,9 +40,9 @@ in a spreadsheet and immediate on a form.
 
 | Mockup | Built from | Column | Mode shown |
 |---|---|---|---|
-| `EPMA_Procedure_Registration_Mockup.html` | `EPMA_TAPP_v65.csv` | 30 — Neuman et al. 2025 | WDS Mapping |
-| `EPMA_Point_Analysis_Mockup.html` | `EPMA_TAPP_v65.csv` | 19 — Ma et al. 2017 | WDS Point Analysis |
-| `LA-MC-ICP-MS_Spot_Mockup.html` | `LA-MC-ICPMS_TAPP_v72.csv` | 14 — Zhang et al. 2022 | Spot |
+| `EPMA_Procedure_Registration_Mockup.html` | `EPMA_TAPP_v66.csv` | 30 — Neuman et al. 2025 | WDS Mapping |
+| `EPMA_Point_Analysis_Mockup.html` | `EPMA_TAPP_v66.csv` | 19 — Ma et al. 2017 | WDS Point Analysis |
+| `LA-MC-ICP-MS_Spot_Mockup.html` | `LA-MC-ICPMS_TAPP_v73.csv` | 14 — Zhang et al. 2022 | Spot |
 
 A mockup is a snapshot of the TAPP it was built from. Bump that TAPP and the page is out of date
 until it is rebuilt — the version it was built from is printed in its own masthead, so check there

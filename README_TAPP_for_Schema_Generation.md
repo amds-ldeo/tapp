@@ -221,7 +221,7 @@ definer fields               11
 
 keys in use library-wide (8):
   acquisition pass
-  channel
+  monitored property
   preparation step
   reported property
   sample
@@ -235,44 +235,44 @@ retired, and absent from every TAPP (3):
   model component
 
 the complete set of Keyed By strings present, with row counts:
-  (none)                                      1198
-  acquisition pass                              83
-  channel                                      113
-  defines: acquisition pass                      9
-  defines: channel per target species           13
-  defines: preparation step                      3
-  defines: reported property                    16
-  defines: sample                               16
-  defines: sampling unit                        16
-  defines: standard                             12
-  defines: target species                       13
-  pair: reported property                        7
-  preparation step                               9
-  reported property                            101
-  sample                                        32
-  sample > sampling unit                        25
-  sample > sampling unit x reported property    21
-  standard x reported property                  33
-  target species                                57
+  (none)                                          1198
+  acquisition pass                                  83
+  defines: acquisition pass                          9
+  defines: monitored property per target species    13
+  defines: preparation step                          3
+  defines: reported property                        16
+  defines: sample                                   16
+  defines: sampling unit                            16
+  defines: standard                                 12
+  defines: target species                           13
+  monitored property                               113
+  pair: reported property                            7
+  preparation step                                   9
+  reported property                                101
+  sample                                            32
+  sample > sampling unit                            25
+  sample > sampling unit x reported property        21
+  standard x reported property                      33
+  target species                                    57
 
 field names whose key is technique-dependent (3) -- do NOT assume one
 global mapping of field name to key:
   Beam Current                       (none) | sample > sampling unit
-  Dwell Time per Pixel               (none) | channel
-  Monitored Masses                   defines: channel per target species | target species
+  Dwell Time per Pixel               (none) | monitored property
+  Monitored Masses                   defines: monitored property per target species | target species
 
 definer fields, and what each enumerates:
   Acquisition Pass                   defines: acquisition pass
-  Collector Configuration            defines: channel per target species
+  Collector Configuration            defines: monitored property per target species
   Digestion Step                     defines: preparation step
-  EELS Edges                         defines: channel per target species
-  Monitored Masses                   defines: channel per target species
+  EELS Edges                         defines: monitored property per target species
+  Monitored Masses                   defines: monitored property per target species
   Reported Variables and Units       defines: reported property
   Sample Name                        defines: sample
   Sampling Unit                      defines: sampling unit
   Secondary Reference Materials      defines: standard
   Target Species                     defines: target species
-  WDS Spectrometer Channel           defines: channel per target species
+  WDS Spectrometer Channel           defines: monitored property per target species
 ```
 
 <!-- END GENERATED library-counts -->

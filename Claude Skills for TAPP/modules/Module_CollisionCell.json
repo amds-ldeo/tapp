@@ -2,7 +2,7 @@
   "module": "CollisionCell",
   "title": "Collision/reaction cell — configuration, cell gases and kinetic energy discrimination",
   "layer": 2,
-  "version": "4",
+  "version": "5",
   "source_of_truth": "modules/Module_CollisionCell.csv",
   "owned_columns": [
     "A",
