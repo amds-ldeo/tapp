@@ -5,6 +5,7 @@
 #   tapp-save                     snapshot with an auto-generated message
 #   tapp-save "Bump EPMA to v26"  snapshot with your own message
 #   tapp-save -n                  preview only; changes nothing
+#   tapp-save --allow-warn        save even though the validator reports WARNs
 #
 # Only the paths allowlisted in .gitignore are touched. The per-technique
 # paper folders are never staged.
@@ -20,10 +21,14 @@ if [ ! -d .git ]; then
 fi
 
 DRY=0
-if [ "${1:-}" = "-n" ] || [ "${1:-}" = "--dry-run" ]; then
-    DRY=1
-    shift
-fi
+ALLOW_WARN=0
+while :; do
+    case "${1:-}" in
+        -n|--dry-run)  DRY=1; shift ;;
+        --allow-warn)  ALLOW_WARN=1; shift ;;
+        *)             break ;;
+    esac
+done
 
 # Unstage everything, working whether or not HEAD exists yet.
 unstage() {
@@ -73,6 +78,48 @@ if git diff --cached --name-only | grep -qE '^(Current TAPPs/.*\.csv|README_TAPP
         exit 1
     fi
 fi
+
+# --- the library must lint clean ------------------------------------------------
+#
+# Added 2026-09-10 after a save went out with 28 new WARNs. Committing the Claude memory
+# snapshot handed the doc scan 26 more .md files, every one flagged for naming a field
+# that had been renamed — and nothing noticed for a day, because the schema-spec check
+# above was the only gate and no TAPP had changed. The recurring lesson, written into
+# validate_tapp.py's own comments: a documented invariant is not an enforced one.
+#
+# Runs on every save, not only when a TAPP is staged: that incident was caused by
+# markdown. It costs about half a second. ERROR is fatal and has no override — the
+# validator exits non-zero for it. WARN blocks too, the baseline being zero, but
+# --allow-warn exists for a save you have looked at and want anyway.
+LINT=$(python3 "$REPO/Claude Skills for TAPP/scripts/validate_tapp.py" 2>&1) || {
+    echo "error: validate_tapp.py reports ERROR — refusing to save." >&2
+    printf '%s\n' "$LINT" | grep -E "^  ERROR|^SUMMARY" | sed 's/^/  /' >&2
+    echo "Fix the ERRORs, or run the validator yourself to see them all:" >&2
+    echo "  python3 'Claude Skills for TAPP/scripts/validate_tapp.py'" >&2
+    unstage
+    exit 1
+}
+
+WARNS=$(printf '%s\n' "$LINT" | awk '
+    /^SUMMARY/ { in_summary = 1 }
+    in_summary && /^[[:space:]]+WARN[[:space:]]+[0-9]+[[:space:]]*$/ { print $2; exit }')
+[ -n "$WARNS" ] || WARNS=0
+
+if [ "$WARNS" -gt 0 ] && [ "$ALLOW_WARN" -eq 0 ]; then
+    echo "error: validate_tapp.py reports $WARNS WARN — refusing to save." >&2
+    printf '%s\n' "$LINT" | grep -E "^    WARN " | sed 's/^/  /' >&2
+    echo "Fix them, or re-run with --allow-warn if they are expected:" >&2
+    echo "  tapp-save --allow-warn \"your message\"" >&2
+    unstage
+    exit 1
+fi
+
+if [ "$WARNS" -gt 0 ]; then
+    echo "Validator: 0 ERROR, $WARNS WARN — proceeding on --allow-warn."
+else
+    echo "Validator: clean (0 ERROR, 0 WARN)."
+fi
+echo
 
 if [ "$DRY" -eq 1 ]; then
     echo "(dry run — nothing committed)"
