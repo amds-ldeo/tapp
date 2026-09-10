@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """Generate a procedure-registration webform mockup from a TAPP CSV + one literature column."""
-import csv, json, re, io, sys
+import csv, json, re, io, os, sys
+from pathlib import Path
 
-ROOT = "/Users/ruolin/Documents/Astromat/TAPPs/Current TAPPs/"
+# Resolved from THIS FILE, never the working directory and never hardcoded to one
+# machine: the same lesson as check_field_ownership.py, which exists because a
+# relative glob silently matched nothing and printed a confident wrong answer.
+HERE = Path(__file__).resolve().parent
+ROOT = str(HERE.parents[1] / "Current TAPPs") + os.sep
 
 def unit(E):
     m = re.search(r'Numeric(?: pair)?\s*\(([^)]+)\)', E)
@@ -53,10 +58,10 @@ def build(cfg):
     data = {'groups': groups, 'modes': modes, 'excluded': excluded,
             'perMember': cfg.get('perMember', {}), 'meta': cfg['meta']}
     data['meta'].update({'defaultMode': cfg['defaultMode'], 'sourceMode': cfg['sourceMode']})
-    html = (io.open('_head.html', encoding='utf-8').read()
-            + io.open('_body.html', encoding='utf-8').read()
+    html = (io.open(HERE / '_head.html', encoding='utf-8').read()
+            + io.open(HERE / '_body.html', encoding='utf-8').read()
               .replace('/*__DATA__*/', json.dumps(data, ensure_ascii=False)))
-    io.open(cfg['out'], 'w', encoding='utf-8').write(html)
+    io.open(HERE / cfg['out'], 'w', encoding='utf-8').write(html)
     nf = sum(len(g['fields']) for g in groups)
     pf = sum(1 for g in groups for f in g['fields'] if f['val'])
     print(f"{cfg['out']}: {nf} procedure-level fields, {pf} prefilled, {len(excluded)} excluded, modes={modes}")
