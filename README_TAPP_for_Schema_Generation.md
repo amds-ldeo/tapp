@@ -213,9 +213,9 @@ nowhere; that is the class of error this block exists to prevent.
 ```
 TAPPs                        16
 content rows                 1781   (rows with a Keyed By value; group headers excluded)
-scalar, `(none)`             1198   67%
-keyed (arrays in a schema)   583   33%
-Column G provenance stamps   1370   77%
+scalar, `(none)`             1204   68%
+keyed (arrays in a schema)   577   32%
+Column G provenance stamps   1361   76%
 distinct Keyed By strings    19
 definer fields               10
 
@@ -235,7 +235,7 @@ retired, and absent from every TAPP (3):
   model component
 
 the complete set of Keyed By strings present, with row counts:
-  (none)                                          1198
+  (none)                                          1204
   acquisition pass                                  83
   defines: acquisition pass                          9
   defines: monitored property per target species    13
@@ -245,7 +245,7 @@ the complete set of Keyed By strings present, with row counts:
   defines: sampling unit                            16
   defines: standard                                 12
   defines: target species                           13
-  monitored property                               119
+  monitored property                               113
   pair: reported property                            7
   preparation step                                   9
   reported property                                101
@@ -255,10 +255,11 @@ the complete set of Keyed By strings present, with row counts:
   standard x reported property                      33
   target species                                    55
 
-field names whose key is technique-dependent (2) -- do NOT assume one
+field names whose key is technique-dependent (3) -- do NOT assume one
 global mapping of field name to key:
   Beam Current                       (none) | sample > sampling unit
   Dwell Time per Pixel               (none) | monitored property
+  Ion Counter Dead Time              (none) | monitored property
 
 definer fields, and what each enumerates:
   Acquisition Pass                   defines: acquisition pass

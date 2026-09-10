@@ -622,8 +622,17 @@ versions each TAPP was built from, and which TAPPs have been retired.
 - **Manifests have no schema.** `Group1` and `Geochronology` omit `layer`; `Group1` and
   `ReportingCore` omit `consumed_by`; `Group1` and `Geochronology` omit `blocks`. The register
   supplies these values, so nothing has broken, but the JSON is not validated against anything.
-- **Field removal by a module is untested.** Behaviour when a module does not define a field the
-  source has is still blocked by the drop guard rather than handled by design.
+- ~~**Field removal by a module is untested.**~~ **Tested 2026-09-10**, when `Ion Counter Dead Time`
+  was removed from `Module_ICPMS` (39 → 38 fields) so its Column I could differ by technique — Rule 6.5
+  forbids a module expressing two values for one field, so an over-declared key could not be corrected
+  while the field stayed in the module. **The drop guard is on the `replace_group` path only.** That
+  path rebuilds a group from the module and would indeed delete the row. The **blocks** path, which
+  every current module uses, updates fields in place and inserts only what is absent, so a source field
+  the module stops defining is simply no longer the module's business. Verified in a sandbox before the
+  change: the consumer kept the same 125 rows and 124 fields, the row was **byte-identical to the
+  source**, and field order was unchanged. **One thing composition does not do** is clear the row's
+  `Source: <module> module` comment, which becomes false the moment the field leaves; clear it in the
+  same pass or the next reader is sent to edit a module that no longer defines the field.
 - ~~**`SolutionIntroduction` is provisional.**~~ **Resolved 2026-08-10.** All 16 descriptions are
   reconciled and the module is at version `1`. Decisions are recorded field by field in
   `Archive/Worksheets (reconciled)/SolutionIntroduction_Reconciliation_Decisions.csv`, and Column F is complete in all three

@@ -196,6 +196,7 @@ KEY_FORBIDDEN = {"mode"}          # carried by the mode flag columns (Rule 3)
 # it differ. Each entry must carry a recorded rationale in precedents.md. Extend only
 # by explicit decision — and only when the divergence is real, not anticipated.
 KEYED_BY_TECHNIQUE_DEPENDENT = {
+    "Ion Counter Dead Time":             "monitored property in the three MC TAPPs, whose instruments carry a nine-cup Faraday array plus seven ion counters; (none) in the six single-collector Q and SF TAPPs, where there is one detector and therefore one dead time. Registered 2026-09-10, when the field was taken out of Module_ICPMS so its key could differ by technique at all — Rule 6.5 forbids a module expressing both. Zero attestations in the corpus, so this rests on instrument design, not on the literature.",
     # `Detection Limit` left this register 2026-08-12: the literature audit showed 7 of 7 papers
     # reporting one LOD per element aggregated over the session, never per spot, so the LA variant
     # became `reported property` like everywhere else and the field is now uniform across all 12.
