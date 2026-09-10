@@ -86,9 +86,10 @@ three earlier retirement folders were originally created as.
 ## Verification
 
 A contemporaneous lint report survives for this date:
-`../../Project Files/Reports/TAPP_Lint_Report_2026-08-12.csv`. It is the last of four such reports
-(2026-08-07, -08, -11, -12); the practice of saving dated lint output stopped after this one, so no
-later folder in this tree has an equivalent.
+`../../Project Files/Reports/TAPP_Lint_Report_2026-08-12.csv`. It is the last of four consecutive such reports
+(2026-08-07, -08, -11, -12), after which the practice lapsed — so no other folder in this tree has an
+equivalent. It resumed on 2026-09-10 with `TAPP_Lint_Report_2026-09-10.csv`, which describes the
+library as it is now, not as it was when this folder was parked.
 
 Four validator checks were **added** on this date, so the library was not being measured against a
 fixed ruleset across the day. Two of the four found real pre-existing defects, both fixed the same

@@ -1515,14 +1515,24 @@ def check_cross_tapp(tapps, out):
 #
 # A file is treated as a LIVE document (must describe the current library) unless it is a
 # dated record. Dated records are correct to name the state at their date and are skipped:
-#   * a date in the filename (2026-08-12 or 20260812), or
-#   * an explicit entry in HISTORICAL_DOCS.
+#   * a date in the filename (2026-08-12 or 20260812),
+#   * an explicit entry in HISTORICAL_DOCS, or
+#   * membership of a directory listed in HISTORICAL_DIRS (for a whole tree of records,
+#     where listing every file by hand would drift the moment one is added).
 #
 # RETIRED_FIELDS is the one part that needs maintaining by hand: add an entry whenever a
 # field is retired or renamed, and the check will find every live document still naming it.
 HISTORICAL_DOCS = {
     "Project Files/Design Notes/TAPP_Development_Log.md":
         "dated change history — naming retired fields is how a log works",
+}
+# Whole trees of records. Same intent as HISTORICAL_DOCS, by directory prefix.
+HISTORICAL_DIRS = {
+    "Project Files/Claude Memory":
+        "sanitised snapshot of the out-of-repo working notes (2026-09-10). Each note records "
+        "what was believed when it was written, and several exist precisely to explain a "
+        "rename — so naming the retired term is the content, not an oversight. They are not "
+        "library documentation and nothing reads them; the live copies live outside the repo",
 }
 RETIRED_FIELDS = {
     "Analyte":                        "renamed 2026-09-01 -> Target Species, with the Rule 7 key "
@@ -1766,7 +1776,9 @@ def check_library_freshness(root, out):
                 if rel in seen:
                     continue
                 seen.add(rel)
-                if DATED_RE.search(f) or rel in HISTORICAL_DOCS:
+                if (DATED_RE.search(f) or rel in HISTORICAL_DOCS
+                        or any(rel == d or rel.startswith(d + os.sep)
+                               for d in HISTORICAL_DIRS)):
                     continue
                 if any(part in rel for part in SKIP_DIR_PARTS):
                     continue

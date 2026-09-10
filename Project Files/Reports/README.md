@@ -80,5 +80,5 @@ TAPP is unaffected — this is the page's parser, not the data.
 
 | File | What it is |
 |---|---|
-| `TAPP_Lint_Report_*.csv` | dated `validate_tapp.py` output, kept as a record of what the library looked like on that date. Superseded by running the validator; not maintained. |
+| `TAPP_Lint_Report_*.csv` | dated `validate_tapp.py --csv` output, kept as a record of what the library looked like on that date. Four consecutive reports were saved 2026-08-07 to -08-12, then the practice lapsed until 2026-09-10. One row per finding; the console collapses repeated checks but the CSV does not. A report is a snapshot, never a substitute for re-running the validator. |
 | `UPSTREAM_RESPONSE_*.md` | correspondence with the schema developer. Records what was asked and what was answered — see `Claude Skills for TAPP/analysis/` for the reconciliation behind them. |
