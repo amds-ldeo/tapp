@@ -2,7 +2,7 @@
   "module": "MCICPMS",
   "title": "Multi-Collector ICP-MS Analyser",
   "layer": 2,
-  "version": "9",
+  "version": "10",
   "source_of_truth": "modules/Module_MCICPMS.csv",
   "owned_columns": [
     "A",
