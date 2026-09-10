@@ -15,6 +15,9 @@ the old row survives; see bump_samplingunitselection_20260901.py for that case.
 """
 import csv, json, os, re, shutil, subprocess, sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from superseded_readme import write_skeleton
+
 ROOT = "/Users/ruolin/Documents/Astromat/TAPPs"
 COMPOSE = os.path.join(ROOT, "Claude Skills for TAPP", "scripts", "compose_tapp.py")
 XLSX = os.path.join(ROOT, "Claude Skills for TAPP", "scripts", "tapp_to_xlsx.py")
@@ -94,6 +97,11 @@ def main(module, apply=False):
     s = os.path.join(ROOT, "Project Files", "Scripts", "sync_current_tapps.py")
     p = subprocess.run([sys.executable, s, "--apply"], cwd=ROOT, capture_output=True, text=True)
     print("  mirror:", (p.stdout.strip().splitlines() or ["synced"])[-1][:90])
+
+    # Skeleton README for the dated superseded folder. AFTER the mirror sync, not before:
+    # it resolves each superseded version's successor from `Current TAPPs/`, which still
+    # holds the OLD versions until the sync runs. Never overwrites an existing README.
+    write_skeleton(ROOT, DATE)
 
 
 if __name__ == "__main__":

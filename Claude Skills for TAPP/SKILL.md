@@ -26,6 +26,7 @@ See `references/conventions.md` for the precise vocabulary: Technique / Method /
 | `scripts/tapp_to_xlsx.py` | exports a TAPP CSV to a formatted xlsx |
 | `scripts/audit_keys_vs_literature.py` | validates every Column I key against the literature assessment extractions; run during Phase 3 (Rule 7.12) |
 | `Project Files/Scripts/sync_current_tapps.py` | refreshes `Current TAPPs/`, the shareable flat mirror of the latest CSV + xlsx for every TAPP (Rule 12); run after any version bump |
+| `Project Files/Scripts/superseded_readme.py` | writes the skeleton README into a dated `Superseded TAPPs/` folder — the superseded-to-successor table is derived, the *why* and *verification* sections are left as `TODO`. Call `write_skeleton(ROOT, DATE)` at the end of a bump script, **after** the mirror sync; never overwrites an existing README |
 
 **Always read `references/conventions.md` before writing any TAPP content.** It defines the tier vocabulary, group structure, mode flags, naming conventions, and the CSV/xlsx file management workflow that must be consistent across all TAPPs.
 
@@ -83,6 +84,14 @@ TAPPs are maintained as **CSV files** during development and revision, and expor
 - Color coding applied automatically during export per the tier vocabulary in `references/conventions.md`
 - Never edit the xlsx directly — it is a generated artifact, not the source of truth
 - Named `[Technique]_TAPP_v[N].xlsx`
+
+### Parking superseded versions
+A version bump moves the superseded CSV + xlsx into `Superseded TAPPs/<YYYY-MM-DD>/`. That folder
+should carry a README saying what was superseded, by what, why, and what was verified — the
+provenance of a bump is otherwise recoverable only by reading git history and guessing which patch
+script caused which version to move. `superseded_readme.py` generates the derived half at park time
+and marks the rest `TODO`; `bump_for_module_20260901.py` calls it, so scripts copied from that
+template inherit the step. A one-shot patch script that parks files should call it too.
 
 ### `Current TAPPs/` — the shareable mirror (Rule 12)
 A flat folder at the library root holding the **latest CSV + xlsx for every TAPP**, and nothing else.
