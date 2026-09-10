@@ -1,6 +1,11 @@
 # Proposal: `monitored property` — a third layer between determinand and output
 
-**2026-09-10.** Adds one anchor key (`monitored property`), one secondary key (`detector`), and two
+**2026-09-10, revised the same day.** See §10 — **the `detector` half of this proposal is withdrawn.**
+Its evidence base was misread: the per-cup values cited for it come from Column F, which holds
+*examples*, not from any literature attestation. Sections 1–9 are left as written, so the error and
+its correction both stand in the record. The `monitored property` half is unaffected and strengthened.
+
+Adds one anchor key (`monitored property`), one secondary key (`detector`), and two
 fields. Re-keys 95 field-instances. Retires no key and changes no key's definition. Three sandbox
 runs behind it; results in §5. Originated in a question about what `channel` actually addresses,
 after `acquisition pass` (2026-09-08) removed part of the load `channel` had been carrying.
@@ -85,7 +90,7 @@ repeat over:
 | precursor → product transition | the 5 collision/reaction-cell fields | 23 |
 | spectrometer assignment (a set) | 9 electron-beam fields | 20 |
 | element + edge | 2 EELS fields | 1 |
-| **hardware** | Faraday resistor values, Faraday gain calibration, Ion Counter Dead Time, Proportional Counter / Detector | **7** |
+| **hardware** | Faraday resistor values, Faraday gain calibration, Ion Counter Dead Time, Proportional Counter / Detector | **7** — but see §10: none enumerates a cup |
 
 **The asymmetry is the argument.** The measurand side carries **167** attested cells across 21 fields;
 the hardware side carries **7** across 4, six of them in one field. So the split is `channel` → `monitored property` for 21 fields
@@ -239,10 +244,58 @@ re-key.
 ## 9. What would reverse this
 
 - **An EPMA procedure measuring one element on two lines** — §6. Changes one definer's grain, not the model.
-- **`detector` failing 7.4c on evidence.** Its consumer set is 4 fields and only `Faraday Cup Amplifier
-  Resistor Values` is attested per-cup (6 cells). `Ion Counter Dead Time`, `Proportional Counter /
-  Detector` and `WDS PHA Setting` have **zero** attestations in the whole corpus. If a survey of the MC
-  literature finds no second per-cup field, `detector` is carrying one evidenced consumer, and the
-  honest response is to hold it and leave those four on `monitored property` until a falsifier appears.
+- **`detector` failing 7.4c on evidence.** *This condition was met the same day — see §10.*
 - **A schema consumer that cannot join `Collector Configuration` to the cup domain** — §7. That would
   make the foreign-key notation a requirement rather than a speculation.
+
+
+---
+
+## 10. WITHDRAWN 2026-09-10: `detector` has no evidenced consumer
+
+Found while updating the key audit's axis detector, which this proposal called for. Splitting the
+audit's conflated `channel` tag into `monitored property` and `detector` left one finding standing
+against the re-keyed sandbox, and it was not an artifact:
+
+```
+5 ev  Faraday Cup Amplifier Resistor Values   I=detector   AXIS-MISMATCH   obs=monitored property
+```
+
+**All seven attested cells on the hardware axis describe the resistor per MASS, not per cup:**
+
+| Source | Cell |
+|---|---|
+| Hopp et al. 2021 | `10^10 Ω for 56Fe+; 10^11 Ω for 54Fe, 57Fe, 58Fe; 10^12 Ω for the 53Cr and 60Ni interference monitors` |
+| Schönbächler et al. | `10^11 Ω for 90Zr–96Zr and 95Mo; 10^12 Ω for 99Ru and 101Ru` |
+| van Kooten et al. 2026 | `10^11 Ω for 24Mg, 25Mg, 26Mg` |
+| Nie & Dauphas 2019 | `"All three collectors were equipped with the 10^11 Ω amplifiers"` — scalar |
+| Zhang et al. 2022 | `10¹¹ Ω on all nine Faraday cups` — scalar |
+
+Not one names a cup position. Researchers describe an amplifier by the mass it serves.
+
+**The source of the error.** §3 and §9 cited `All cups: 10¹¹ Ω | L1: 10¹³ Ω (234U)` as the per-cup
+evidence. That string is the field's **Column F** — the illustrative example list — not a literature
+attestation. Column F is authored by us; treating it as evidence is circular, and it is the specific
+confusion `mark_example_lists_20260831.py` was written to reduce.
+
+**Consequence.** Of the four proposed `detector` consumers, three (`Ion Counter Dead Time`,
+`Proportional Counter / Detector`, `WDS PHA Setting`) have **zero** attestations anywhere in the
+corpus, and the fourth is attested on the *other* axis. `detector` therefore has **no evidenced
+consumer at all** and fails 7.4c on the same test that retired `conversion` and initially retired
+`acquisition pass`.
+
+**What replaces it.** Those four fields stay on the measurand axis — `monitored property` after the
+re-key — which is where the literature puts them. The single-collector over-declaration named in §1
+is still real and still worth fixing, but the fix is `(none)` in the six single-detector TAPPs on the
+grounds that there is one detector, not a `detector` key.
+
+**What would revive `detector`.** A multi-dynamic MC procedure publishing a per-cup quantity that
+cannot be restated per mass — a gain factor or baseline per collector position, where one cup reads
+several masses across steps so the two axes genuinely diverge in one table. `Faraday Cup Gain
+Calibration Method` is the field where that would appear; its one attestation (Nowell et al. 2008) is
+a scalar method description.
+
+**Unchanged by this withdrawal**: the three-layer model, the `monitored property` key, the definer
+assignments in §4, the two new fields, the EPMA grain question and its falsifier in §6, and the
+`channel` and foreign-key decisions held in §7. The sandbox run in §5 remains valid for the
+`monitored property` half; only the `detector` column of its change set is dropped.
