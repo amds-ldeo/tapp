@@ -173,7 +173,8 @@ Column I is never blank on a content row.
 | `(none)` | Scalar — one value per procedure, or **per session** at analysis level. Two thirds of fields. | Ordinary property on the parent object |
 | `sample` | One value per sample covered by the session | Property of an object in the `samples` array |
 | `target species` | One value per chemical species determined — **the element or species, never the isotope** | Property of an object in the `target species` array |
-| `channel` | One value per instrument selection position (mass, cup, X-ray line, energy-loss edge) | Property of an object in the `channels` array |
+| `monitored property` | One value per thing MEASURED in order to determine a target species — a mass, an element with its X-ray line, an energy-loss edge. Includes interference monitors and internal standards, which are measured and never determined | Property of an object in the `monitoredProperties` array |
+| `channel` *(defined 2026-09-10, no user yet)* | Reserved for a swept or selective instrument axis with no discrete measurand — a Raman spectral bin, a DSC temperature setpoint, a demagnetisation field step. **No field in any current TAPP is keyed by it**; build no array for it until one is | — |
 | `reported property` | One value per reported quantity or nominal property, at any point in the chain — ratios *and* dates alike, plus their uncertainties | Property of an object in the `reportedProperties` array |
 | `sampling unit` | One value per subdivision of the sample carrying its own row — grain, spot, aliquot, phase | Property of an object in the `samplingUnits` array |
 | `standard` | One value per reference material or reference database entry | Property of an object in the `standards` array |
@@ -183,7 +184,7 @@ Column I is never blank on a content row.
 | `A x B` | Cross-product — one value per combination. **Ordered**: read as "for each A, one value per B" | 2-D: array of objects nested one level |
 | `A > B` | Containment — B exists only within A | Nested array. **In use since 2026-08-12**: `sample > sampling unit` |
 | `A > B x C` | Containment then cross-product — "within each A, for each B, one value per C" | One row: `sample > sampling unit x reported property` |
-| `defines: A per B` | **The field enumerates domain A and carries a parent key into B.** This is the channel↔target species binding | Child array for A, with a **nullable** foreign key to B on each member |
+| `defines: A per B` | **The field enumerates domain A and carries a parent key into B.** This is the monitored property↔target species binding | Child array for A, with a **nullable** foreign key to B on each member |
 | `pair: A` | Keyed by an unordered pair of A | Property on a pair object, e.g. `{"between": ["206Pb/238U date", "207Pb/235U date"], "value": …}` |
 
 **The keys in use library-wide, and the three retired ones you may ignore, are listed in the generated
@@ -193,7 +194,7 @@ block below** — that list is the authority, not this prose. (`sample` was adde
 ⚠ **`acquisition pass` was listed here as retired until 2026-09-08 and is now IN USE** — definer
 `Acquisition Pass`, 15 consumers, 92 rows across the nine ICP-MS TAPPs. A schema built from the earlier
 text would drop the array entirely. It is not present in EPMA, SEM or SEM_Composition, where `Sequence`
-holds the pass enumeration but is keyed `channel`; treat those three as having no pass array.
+holds the pass enumeration but is keyed `monitored property`; treat those three as having no pass array. Re-tested 2026-09-10 against all 59 of their procedure columns and upheld.
 
 **Separator is a literal ASCII lowercase `x`, not `×`.** The specification prose in `conventions.md`
 renders the cross-product with a multiplication sign, but the CSV cells contain
@@ -286,14 +287,16 @@ definer fields, and what each enumerates:
   by design** — the generated block lists them with their variants. Do not assume one global mapping of
   field name → key. (`Detection Limit` and `Primary Calibration Standard Name` were on that list until
   2026-09-08; both are now uniform library-wide.)
-- **Where a TAPP declares both an target species domain and a channel domain, the field that defines the
-  channel carries the binding** as `defines: channel per target species`. All 13 such TAPPs do, since
-  2026-08-12. The defining field differs by technique: `Monitored Masses` (single-collector ICP-MS),
-  `Collector Configuration` (multicollector), `WDS Spectrometer Channel` (electron beam),
-  `EELS Edges` (TEM).
+- **Where a TAPP declares both a target species domain and a monitored property domain, the field that
+  defines the monitored property carries the binding** as `defines: monitored property per target
+  species`. All 13 such TAPPs do. The defining field differs by technique: `Monitored Masses` (all nine
+  ICP-MS TAPPs), `Monitored Elements` (electron beam), `EELS Edges` (TEM). **Changed 2026-09-10**:
+  `Collector Configuration` and `WDS Spectrometer Channel` were the multicollector and electron-beam
+  definers until that date and are now ordinary attributes keyed `monitored property` — each records
+  which collector or spectrometer a monitored property was measured on.
 - **That parent key is optional per row — model it nullable, never `NOT NULL`.** `per B` means "where
   a B exists", not "for every row". Interference monitors, internal standards and carriers are
-  channels with no target species: Desem et al. 2022 monitors `202Hg, 203Tl, 204Pb, 205Tl, 206Pb, 207Pb,
+  monitored properties with no target species: Desem et al. 2022 monitors `202Hg, 203Tl, 204Pb, 205Tl, 206Pb, 207Pb,
   208Pb` for a procedure whose target species is **Pb alone**. Keep parentless rows — they are part of the run
   table and are needed to assess interference corrections.
 - **Never infer domain membership from a child table.** The target species list comes from the
@@ -311,8 +314,8 @@ From the LA-SF-ICP-MS U-Pb TAPP (resolve the current version via `composed_tapps
 | `Sample Name` | `defines: sample` |
 | `Sample Persistent Identifier` | `sample` |
 | `Target Species` | `defines: target species` |
-| `Monitored Masses` | `defines: channel per target species` |
-| `Dwell Time per Mass` | `channel` |
+| `Monitored Masses` | `defines: monitored property per target species` |
+| `Dwell Time per Mass` | `monitored property` |
 | `Reported Variables and Units` | `defines: reported property` |
 | `Analytical Accuracy and Assessment Method` | `standard x reported property` |
 | `Discordance Definition and Values` | `pair: reported property` |
@@ -329,7 +332,7 @@ From the LA-SF-ICP-MS U-Pb TAPP (resolve the current version via `composed_tapps
   ],
 
   "target species":  [ { "name": "U" }, { "name": "Pb" } ],    // domain from `Target Species`
-  "channels":  [                                         // `defines: channel per target species`
+  "monitoredProperties":  [                              // `defines: monitored property per target species`
     { "id": "206Pb", "target species": "Pb", "dwellTimePerMass": "10 ms" },
     { "id": "238U",  "target species": "U",  "dwellTimePerMass": "6 ms" },
     { "id": "202Hg", "target species": null, "dwellTimePerMass": "6 ms" }  // monitor: no parent target species

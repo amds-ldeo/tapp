@@ -941,7 +941,7 @@ here instead.
 | `reported property` *(universal)* | anything the procedure reports, **at any point in the chain** — quantities and nominal properties alike, plus their uncertainties | Does it appear in the reported data product? | ²⁰⁶Pb/²⁰⁴Pb ratio *and* ²⁰⁶Pb/²³⁸U date; ⁵⁶Fe/⁵⁴Fe *and* δ⁵⁶Fe; Dᴇ, D_R *and* OSL age; Fe³⁺/ΣFe; mineral species + match score; porosity |
 | `channel` *(where a dispersive, selective or swept axis exists)* | a position on the axis the instrument steps through or selects across — mass, wavelength, energy, angle, temperature, field, pressure, time. **The address, not the signal** | Does the position exist even with zero signal there? | m/z 238; cup L2 at magnet step 1; Fe Kα on LIF spectrometer 2 (one WDS spectrometer assignment); Fe L₂,₃ edge; velocity channel 137/256; 855 cm⁻¹ bin; demagnetisation step 40 mT; DSC temperature setpoint |
 | `monitored property` *(defined 2026-09-10, not yet in use)* | what the procedure **measures** in order to determine a target species — the layer between determinand and output. Includes everything acquired for the determination, not only what is determined | Is it acquired in order to compute something that is reported? (Determined → `target species`. In the data product → `reported property`.) | ⁸⁵Rb, ⁸⁴Sr, ⁸⁶Sr, ⁸⁷Sr; ⁸³Kr and ¹⁶⁷Er²⁺ interference monitors; ¹²⁵Te measured as ¹⁴¹TeO⁺; Si Kα, Cr Kα (EPMA); Fe L₂,₃ (EELS) |
-| `target species` *(chemistry only)* | the chemical species determined, at whatever granularity the procedure determines it | Would substituting a different isotope of the same element leave the target of determination unchanged? Yes → `channel`. No → `target species`. | Si, Mg, Fe, Ca, Ni (EPMA); Fe (MC-ICP-MS); U, Pb, Th (U-Pb); Fe²⁺/Fe³⁺ at valence resolution (Mössbauer) |
+| `target species` *(chemistry only)* | the chemical species determined, at whatever granularity the procedure determines it | Would substituting a different isotope of the same element leave the target of determination unchanged? Yes → `monitored property`. No → `target species`. | Si, Mg, Fe, Ca, Ni (EPMA); Fe (MC-ICP-MS); U, Pb, Th (U-Pb); Fe²⁺/Fe³⁺ at valence resolution (Mössbauer) |
 
 **Two notes on the anchors, both dated 2026-08-12.**
 
@@ -1039,7 +1039,7 @@ key would duplicate existing machinery.
 | `A > B` | **containment** — B exists only within A; one value per B within each A | `sampling unit > model component` (Mössbauer components fitted per phase). **In use since Rule 13**: `sample > sampling unit` (25 rows) and `sample > sampling unit x reported property` (21). Corrected 2026-09-08 — this cell previously read "No field in the current library uses nesting", which was true when written and has not been since. `target species > background position` was retired 2026-08-11 under 7.4c |
 | `A x B` | **cross-product** — A and B are independent domains; one value per combination. Ordered: read as *"for each A, one value per B."* | `standard x reported property` (`Analytical Precision`); `sampling unit x target species` (`Counting Statistics Error`) |
 | `defines: A` | the field **enumerates** the key domain rather than being keyed by it — it is the header of the child table, not a column in it | `Target Species`; `Reported Variables and Units`; `Reported Date Type` |
-| `defines: A per B` | the field enumerates domain A **and** repeats over key B — a definer whose child table carries a parent key. One key only; see 7.3.1 | `Monitored Masses` (`defines: channel per target species`); `EELS Edges`; `Secondary Reference Materials` |
+| `defines: A per B` | the field enumerates domain A **and** repeats over key B — a definer whose child table carries a parent key. One key only; see 7.3.1 | `Monitored Masses` (`defines: monitored property per target species`); `Monitored Elements`; `EELS Edges` |
 | `pair: A` | keyed by an unordered pair of A | `Discordance Definition and Values`; error correlation ρ between ²⁰⁶Pb/²³⁸U and ²⁰⁷Pb/²³⁵U |
 | `A > B x C` | containment then cross-product — *"within each A, for each B, one value per C."* Added 2026-08-12 | `Counting Statistics Error` (`sample > sampling unit x reported property`): within each sample, for each analysis spot, one uncertainty per reported concentration variable |
 
@@ -1123,7 +1123,7 @@ spectrometer assignment used for a standard-only or background-only measurement.
 
 Whether the parent is total or partial **varies by field and the notation does not distinguish
 them**. `EELS Edges` is total: every ionisation edge belongs to an element. `Monitored Masses` is
-partial. Both are written `defines: channel per target species`, so a consumer must assume partial.
+partial. Both are written `defines: monitored property per target species`, so a consumer must assume partial.
 
 **For a schema generator, concretely.** The child table gets a **nullable** foreign key to the parent
 domain, never a required one:
@@ -1287,7 +1287,7 @@ The mechanism is specified because the need is demonstrated, but **no module fie
 The two known technique-dependent fields — `Primary Calibration Standard Name` (`target species` in EPMA,
 `reported property` in MC-ICP-MS) and `Secondary Reference Materials` — are TAPP-owned, not module-owned.
 Every module field audited holds one key across all consumers: Module_Geochronology's six are all
-`reported property`, Module_MCICPMS's `Collector Configuration` is `channel` everywhere,
+`reported property`, Module_MCICPMS's `Collector Configuration` is `monitored property` everywhere (and ceased to be the definer on 2026-09-10),
 Module_ReportingCore's `Goodness-of-Fit or Dispersion Statistic` is `reported property` everywhere.
 Do not populate `keyed_by_overridable` speculatively.
 

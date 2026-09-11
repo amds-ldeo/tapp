@@ -3444,3 +3444,77 @@ means a script and a decision about where its output lives.
 
 **And this log was the second stale document** — it ended at 2026-08-25 while the library moved through
 the passes above. See the backfill note at the head of this section.
+
+## 2026-09-10 | CROSS-TAPP | `monitored property` minted, retrofitted and assessed; `channel` falls to zero users
+
+The longest single-day change in the library. It began as a question about what `channel` actually
+addresses and ended with a third key between determinand and output, executed across every TAPP that
+had one.
+
+**The defect.** `channel` was addressing two domains at once. `Faraday Cup Amplifier Resistor Values`
+attests per cup — `All cups: 10¹¹ Ω; L1: 10¹³ Ω (234U)` — while `Instrument Sensitivity` attests per
+mass — `10 V for 140Ce, 4 V for 142Nd`. Both were keyed `channel`. Static multicollection hides this at
+1:1; multi-dynamic MC and single-collector Q/SF diverge. The same conflation produced the library's only
+set-valued address, EPMA's `Cr=Sp2+Sp3`, where one monitored thing sits on two spectrometers.
+
+**The model.** `target species` (determined) → **`monitored property`** (measured) → `reported property`
+(reported), with interference monitors and internal standards first-class members of the middle layer —
+monitored, never determined. Rule 7.2 gains a sixth anchor and a dated note. 126 cells across 29 fields
+and 13 TAPPs moved; `channel` is retained for swept axes with no discrete measurand and now has **zero
+users**, the state `sample` occupied between 2026-08-12 and Rule 13.
+
+**A `detector` key was proposed and withdrawn the same day, and the withdrawal is the more useful
+record.** Its four candidate consumers were the two Faraday cup fields, `Ion Counter Dead Time` and
+`Proportional Counter / Detector`. Three have zero attestations anywhere; the fourth is attested on the
+*other* axis — all seven of its cells state the resistor per mass, never per cup. **The per-cup reading
+came from that field's Column F, which holds examples we authored, not evidence.** Treating Column F as
+evidence is circular, and it is exactly the confusion `mark_example_lists_20260831.py` exists to reduce.
+The key failed 7.4b/7.4c on the same test that retired `conversion`. Found only because the key audit's
+axis detector was split the same day into `monitored property` and `detector` — before that, a per-cup
+field and a per-mass field could not disagree with each other.
+
+**§4: the definer moved to the measurand list.** `Collector Configuration` and `WDS Spectrometer
+Channel` became attributes keyed `monitored property` — which collector or spectrometer a monitored
+property was measured on — and the enumerating field became the definer everywhere: `Monitored Masses`
+in all nine ICP-MS TAPPs (added to Solution MC, which lacked it), a new `Monitored Elements` in the
+three electron-beam TAPPs, `EELS Edges` in TEM. **This dissolved a registered divergence rather than
+adding one** — `Monitored Masses` had been the definer in single-collector TAPPs and a plain consumer in
+LA-MC, and the register recorded why. Marked dormant, not deleted. Validator INFO fell 39 → 38.
+
+**Phase 3, 73 cells, 25 papers read.** 38 substantive, 9 `N`, 26 `N/A`. Three findings worth keeping:
+*(i)* EPMA states its element list far more often than its X-ray lines — 11 of 15 from the standards
+sentence, against the 2-of-15 line rate. *(ii)* **SEM-EDS essentially never declares an element set** —
+one of nine — because EDS acquires a full spectrum, so a paper can report compositions without ever
+saying what it measured. That is why the field cannot be back-filled from a results table. *(iii)* The
+trap named in the script so it is not walked into: Pascucci et al. 2026 *does* list `Si, Fe, Ca, Al, S`,
+but for its EMPA-WDS on a different instrument from the SEM-EDS columns that cite it.
+
+**`Ion Counter Dead Time` left Module_ICPMS** so its key could differ by technique at all — Rule 6.5
+forbids a module expressing two values, so an over-declared key could not be corrected while the field
+stayed in the module. `monitored property` where a collector array exists, `(none)` in the six
+single-collector TAPPs, which have one detector and therefore one dead time. **This tested a path
+§6.9 listed as untested.** The drop guard that made it look dangerous is on the `replace_group` path;
+the `blocks` path every current module uses leaves the row byte-identical. One thing composition does
+*not* do is clear the row's `Source: <module> module` comment, which becomes false the moment the field
+leaves — now recorded in 6.9 as a standing caveat.
+
+**The EPMA/SEM `acquisition pass` deferral was re-tested and upheld.** Adding `Monitored Elements` put
+the pass-shaped evidence in one place for the first time; it grew from one cell to three across two
+procedures, and all of it is element-set partition, which `Sequence` and `monitored property` already
+carry. Every beam-condition cell in all 59 columns was checked and **not one varies by pass** — the two
+that vary at all do so by technique and by mineral, both already keyed. The falsifier was well chosen.
+
+**The consistency sweep that closed the day found what the validator cannot see.** Column I was clean
+library-wide, but a rename does not touch Column B, and the schema spec's *prose* still specified
+`channel` and a `channels` array while its *generated* block below said `monitored property` — the
+document handed to the developer contradicted itself. Also stale: four live statements in
+`conventions.md`, two in `SKILL.md`, two in `field-review.md`, and three Column B descriptions, two of
+which additionally breached the Column B cardinality rule. `Ion Counter Dead Time` was the sharp one —
+"Dead time of each ion-counting detector channel" asserted a per-channel cardinality that had become
+**false in six of nine TAPPs** hours earlier. Five other Column B/F mentions of "channel" are legitimate
+physical usage — multi-channel PMTs, 2048 spectrum channels, eV per channel — and were deliberately left.
+
+**The generated-counts weakness recorded on 2026-09-08 proved its worth and its limit.** The spec's
+counts were regenerated automatically at every bump and stayed correct all day; its prose, which nothing
+generates, went stale within hours and was caught only by a sweep someone asked for. Generating the
+numbers fixed the numbers.

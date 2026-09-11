@@ -2,7 +2,7 @@
   "module": "ICPMS",
   "title": "Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",
   "layer": 2,
-  "version": "14",
+  "version": "15",
   "source_of_truth": "modules/Module_ICPMS.csv",
   "owned_columns": [
     "A",
