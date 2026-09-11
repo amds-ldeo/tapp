@@ -939,8 +939,8 @@ here instead.
 | `sample` *(universal at analysis level)* | the physical specimen a group of reported rows belongs to — the frame within which `sampling unit` nests. Added 2026-08-12 with the decision that the analysis record is the **session**, which may cover many samples | Would a second sample in the same session produce another set of rows? | the specimen behind IGSN:AU1234567; each of 12 sections on one mount; each of 20 solutions in a digestion batch |
 | `sampling unit` *(universal)* | a subdivision of the physical sample carrying its own row of values | Would a second grain / spot / phase produce another row? | EPMA analysis point; zircon grain; digestion aliquot; Mössbauer phase; fission-track confined track; XCT segmented phase; OSL aliquot |
 | `reported property` *(universal)* | anything the procedure reports, **at any point in the chain** — quantities and nominal properties alike, plus their uncertainties | Does it appear in the reported data product? | ²⁰⁶Pb/²⁰⁴Pb ratio *and* ²⁰⁶Pb/²³⁸U date; ⁵⁶Fe/⁵⁴Fe *and* δ⁵⁶Fe; Dᴇ, D_R *and* OSL age; Fe³⁺/ΣFe; mineral species + match score; porosity |
-| `channel` *(where a dispersive, selective or swept axis exists)* | a position on the axis the instrument steps through or selects across — mass, wavelength, energy, angle, temperature, field, pressure, time. **The address, not the signal** | Does the position exist even with zero signal there? | m/z 238; cup L2 at magnet step 1; Fe Kα on LIF spectrometer 2 (one WDS spectrometer assignment); Fe L₂,₃ edge; velocity channel 137/256; 855 cm⁻¹ bin; demagnetisation step 40 mT; DSC temperature setpoint |
-| `monitored property` *(defined 2026-09-10, not yet in use)* | what the procedure **measures** in order to determine a target species — the layer between determinand and output. Includes everything acquired for the determination, not only what is determined | Is it acquired in order to compute something that is reported? (Determined → `target species`. In the data product → `reported property`.) | ⁸⁵Rb, ⁸⁴Sr, ⁸⁶Sr, ⁸⁷Sr; ⁸³Kr and ¹⁶⁷Er²⁺ interference monitors; ¹²⁵Te measured as ¹⁴¹TeO⁺; Si Kα, Cr Kα (EPMA); Fe L₂,₃ (EELS) |
+| `channel` *(defined; **no user since 2026-09-10**, when the measurand axis moved to `monitored property`)* | a position on the axis the instrument steps through or selects across — mass, wavelength, energy, angle, temperature, field, pressure, time. **The address, not the signal** | Does the position exist even with zero signal there? | m/z 238; cup L2 at magnet step 1; Fe Kα on LIF spectrometer 2 (one WDS spectrometer assignment); Fe L₂,₃ edge; velocity channel 137/256; 855 cm⁻¹ bin; demagnetisation step 40 mT; DSC temperature setpoint |
+| `monitored property` *(in use since 2026-09-10 — 3 definers, 27 consumers, 113 field-instances across 13 TAPPs)* | what the procedure **measures** in order to determine a target species — the layer between determinand and output. Includes everything acquired for the determination, not only what is determined | Is it acquired in order to compute something that is reported? (Determined → `target species`. In the data product → `reported property`.) | ⁸⁵Rb, ⁸⁴Sr, ⁸⁶Sr, ⁸⁷Sr; ⁸³Kr and ¹⁶⁷Er²⁺ interference monitors; ¹²⁵Te measured as ¹⁴¹TeO⁺; Si Kα, Cr Kα (EPMA); Fe L₂,₃ (EELS) |
 | `target species` *(chemistry only)* | the chemical species determined, at whatever granularity the procedure determines it | Would substituting a different isotope of the same element leave the target of determination unchanged? Yes → `monitored property`. No → `target species`. | Si, Mg, Fe, Ca, Ni (EPMA); Fe (MC-ICP-MS); U, Pb, Th (U-Pb); Fe²⁺/Fe³⁺ at valence resolution (Mössbauer) |
 
 **Two notes on the anchors, both dated 2026-08-12.**
@@ -954,7 +954,7 @@ line. Every prior example still validates and no row changed. This closes the qu
 physical-property techniques need a key of their own for what they sweep: they do not — it is
 `channel`.
 
-*`sample` is defined but not yet in use.* It enters the vocabulary with the decision that the
+*`sample` was defined ahead of its retrofit.* **Corrected 2026-09-10: it has been in use since Rule 13 landed** — 16 `defines: sample`, 32 `sample`, 25 `sample > sampling unit` and 21 `sample > sampling unit x reported property`, across 15 fields. The paragraph below describes the state it occupied *before* that retrofit and is kept as the record of why the key was minted early. It enters the vocabulary with the decision that the
 analysis record is the session; the retrofit that populates it (Rule 13, `defines: sample`, the
 `sample > sampling unit` nesting, the Group 2 per-sample audit) is steps 8–9 of
 `analysis/Decision_Record_2026-08-12_Session_Sample_and_Analyte.md`. Until then no field declares it,
@@ -985,14 +985,20 @@ intensity counting monitors one element on **two** spectrometers at once (`Cr=Sp
 spectrometer the two axes are near-isomorphic, which is why one key served so far. They are not the
 same axis.
 
-**DEFINED, NOT YET IN USE.** No field declares it. This is the state `sample` occupied between
-2026-08-12 and Rule 13, and it is not a 7.4c violation — 7.4c constrains definers without consumers,
-not vocabulary without users. The retrofit, its definer assignments per technique family, and the two
-new fields it needs (`Monitored Masses` in Solution MC-ICP-MS; `Monitored Elements` in EPMA/SEM) are
-in `Project Files/Design Notes/Proposal_Monitored_Property_2026-09-10.md`.
+**IN USE since 2026-09-10.** It was minted defined-but-unused and retrofitted the same day. Three
+definers — `Monitored Masses` (all nine ICP-MS TAPPs), `Monitored Elements` (the three electron-beam
+TAPPs, a new field) and `EELS Edges` (TEM) — and 27 consumers, 113 field-instances across 13 TAPPs.
+Every one of those 13 declares **exactly one** definer, and all three carry the `per target species`
+parent, so the measured-to-determined binding holds library-wide. `Collector Configuration` and `WDS
+Spectrometer Channel` were the multicollector and electron-beam definers until that date and are now
+ordinary consumers recording which collector or spectrometer a monitored property was measured on.
+The reasoning, the sandbox results and the withdrawn `detector` half are in
+`Project Files/Design Notes/Proposal_Monitored_Property_2026-09-10.md`.
 
-*`channel` is unchanged and retained.* After the retrofit no field in the current 16 TAPPs would be
-keyed by it, but the twenty-odd planned techniques that sweep an axis with no discrete measurand —
+*`channel` is unchanged and retained, and now has no user.* After the retrofit **no field in any of the
+16 TAPPs is keyed by it** — it holds the place that `sample` held before Rule 13, which is not a 7.4c
+violation because 7.4c constrains definers without consumers, not vocabulary without users. The
+twenty-odd planned techniques that sweep an axis with no discrete measurand —
 Raman spectral bins, XRD 2θ, Mössbauer velocity channels, DSC temperature setpoints, demagnetisation
 field steps — may still need it. Whether they want `channel` or `monitored property` is a question for
 the TAPPs that have the evidence. Held, not decided.
