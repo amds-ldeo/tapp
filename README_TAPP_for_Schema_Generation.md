@@ -213,10 +213,10 @@ nowhere; that is the class of error this block exists to prevent.
 
 ```
 TAPPs                        16
-content rows                 1781   (rows with a Keyed By value; group headers excluded)
-scalar, `(none)`             1204   68%
+content rows                 1783   (rows with a Keyed By value; group headers excluded)
+scalar, `(none)`             1206   68%
 keyed (arrays in a schema)   577   32%
-Column G provenance stamps   1361   76%
+Column G provenance stamps   1379   77%
 distinct Keyed By strings    19
 definer fields               10
 
@@ -236,7 +236,7 @@ retired, and absent from every TAPP (3):
   model component
 
 the complete set of Keyed By strings present, with row counts:
-  (none)                                          1204
+  (none)                                          1206
   acquisition pass                                  83
   defines: acquisition pass                          9
   defines: monitored property per target species    13

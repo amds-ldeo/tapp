@@ -277,7 +277,8 @@ COLB_DIVERGENCE_TRIAGED = {
     'Beam Damage Minimization': ("PRINCIPLED", 3),
     'Beam Diameter': ("PRINCIPLED", 3),
     'Detector Configuration': ("PRINCIPLED", 8),
-    'Doubly-Charged Species Monitor': ("PRINCIPLED", 8),
+    # `Doubly-Charged Species Monitor` REMOVED 2026-09-11: the field moved into Module_ICPMS
+    # (v16) with one description, the fuller LA text, so it no longer diverges.
     'Drift Correction': ("PRINCIPLED", 3),
     # Added 2026-08-12. The description points forward to the quantification step, and that step is
     # a different field per technique: EPMA/SEM/SEM_Composition have `Matrix Correction Method`,

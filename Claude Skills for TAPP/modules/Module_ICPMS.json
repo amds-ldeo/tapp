@@ -2,7 +2,7 @@
   "module": "ICPMS",
   "title": "Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",
   "layer": 2,
-  "version": "15",
+  "version": "16",
   "source_of_truth": "modules/Module_ICPMS.csv",
   "owned_columns": [
     "A",
@@ -49,6 +49,8 @@
         "Coolant (Plasma) Gas Flow Rate",
         "RF Power",
         "Oxide Production Method and Threshold",
+        "Doubly-Charged Species Monitor",
+        "Doubly-Charged Species Production",
         "Plasma Thermal Mode",
         "Analysis Sequence",
         "Acquisition Pass",
@@ -115,7 +117,8 @@
     "2026-08-27: Step 2 (W1-W5) applied to the 1 flag(s) this module carried from the Step 1 backlog routing. Before/after pairs in analysis/Step2_Applied_MODULES_2026-08-27.csv.",
     "2026-08-27: `Isobaric Interference Corrections Applied` renamed to `Spectral Interference Corrections Applied`. The old name was narrower than the field: its own description covers isobaric, polyatomic AND residual interferences, while 'isobaric' in ICP-MS usage specifically excludes polyatomic. 'Spectral interference' is the standard umbrella term. Data Type UNCHANGED at `Controlled list / Text`, which the literature earns — of 51 attested cells none is a bare Yes/No; every one carries the answer with what was corrected. Column F was the mismatch, reading `Yes | No | N/A | None` while describing none of them, and is widened to the attested compound form. Not split into per-kind fields: one procedure routinely corrects several kinds at once, and the species-to-mass detail already lives in `Interfering Species` and `Interference Correction Method`, both channel-keyed.",
     "2026-09-08 v11. `Internal Standard Element` and `Plasma Thermal Mode` re-keyed `(none)` -> `acquisition pass`, executing Proposal_Acquisition_Pass_2026-09-08. Hopp et al. 2021 runs a wet-plasma MR pass and a dry-plasma HR pass with different introduction hardware; Chernonozhkin et al. 2021 uses no internal standard in Run 1 and 53Cr from Run 1 in Run 2.",
-    "2026-09-08 v12. `Acquisition Pass` (defines: acquisition pass) and `Number of Acquisition Passes` ((none), Integer) added, minting the key. Placed in ICPMS because 7.4a requires a definer in every TAPP that uses the key and all nine ICPMS consumers carry 6-11 pass-keyed fields. The definer is domain-named, not count-named, and text-typed: 9 of the library's 10 definers are domain-named, and the sole count-named one (Number of Digestion Steps) is typed Integer and therefore CANNOT enumerate members - one of its cells reads 'Two (These steps were performed twice)'. The count is kept as a separate scalar because an Integer is queryable where free text is not, the same ground on which Mass Resolution Setting was kept."
+    "2026-09-08 v12. `Acquisition Pass` (defines: acquisition pass) and `Number of Acquisition Passes` ((none), Integer) added, minting the key. Placed in ICPMS because 7.4a requires a definer in every TAPP that uses the key and all nine ICPMS consumers carry 6-11 pass-keyed fields. The definer is domain-named, not count-named, and text-typed: 9 of the library's 10 definers are domain-named, and the sole count-named one (Number of Digestion Steps) is typed Integer and therefore CANNOT enumerate members - one of its cells reads 'Two (These steps were performed twice)'. The count is kept as a separate scalar because an Integer is queryable where free text is not, the same ground on which Mass Resolution Setting was kept.",
+    "2026-09-11 v16. `Doubly-Charged Species Monitor` and `Doubly-Charged Species Production` added to the session block, completing the ICP-MS footprint. They were in 8 of the 9 consumers, all but Solution MC, and were held back on 2026-08-14 (Report §4.3) until Solution MC's literature could say whether it genuinely lacks them. It cannot distinguish: 0 of 14 Solution MC procedures report a tuning-time M2+/M+ ratio, and neither do the Q and SF papers (1 of 15). Two MC papers name doubly-charged ions as interferences (Craddock 2008, Pringle & Moynier 2017), which is Interfering Species content. The placement rests on this module's subject: doubly-charged ions form in the plasma, independent of the analyser. Monitor's two descriptions harmonised to the fuller LA text; Production already agreed in all 8. Tiers kept at the carriers' C=Advanced, D=Editable. OPEN: Production asks for both threshold and measured value, the conflation the oxide pair was split to avoid; not split, because the measured half is unattested. amds-ldeo/tapp#6."
   ],
   "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }
