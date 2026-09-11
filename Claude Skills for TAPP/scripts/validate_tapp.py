@@ -276,7 +276,9 @@ COLB_DIVERGENCE_TRIAGED = {
     'Beam Current': ("PRINCIPLED", 5),
     'Beam Damage Minimization': ("PRINCIPLED", 3),
     'Beam Diameter': ("PRINCIPLED", 3),
-    'Detector Configuration': ("PRINCIPLED", 8),
+    # `Detector Configuration` REMOVED 2026-09-11: it moved into Module_SingleCollector (v1) with one
+    # single-collector description in all six consumers, and left the two LA-MC TAPPs, where it
+    # duplicated Module_MCICPMS's Faraday Cup Array Configuration. It no longer diverges.
     # `Doubly-Charged Species Monitor` REMOVED 2026-09-11: the field moved into Module_ICPMS
     # (v16) with one description, the fuller LA text, so it no longer diverges.
     'Drift Correction': ("PRINCIPLED", 3),

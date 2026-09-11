@@ -3518,3 +3518,58 @@ physical usage — multi-channel PMTs, 2048 spectrum channels, eV per channel �
 counts were regenerated automatically at every bump and stayed correct all day; its prose, which nothing
 generates, went stale within hours and was caught only by a sweep someone asked for. Generating the
 numbers fixed the numbers.
+
+## 2026-09-11 | CROSS-TAPP | amds-ldeo/tapp#6 group A resolved; Module_SingleCollector created
+
+Issue #6 (filed from geochemBuildingBlocks) measured the fields still duplicated rather than
+composed. Its largest group was four ICP-MS detector fields in 30 copies: `Detector Configuration`,
+the two `Doubly-Charged` fields and `Pulse/Analog Detector Nonlinearity Correction`. Three had been
+held back on 2026-08-14 (Report_Solution_ICPMS_NewFields §4.3), pending a question the literature
+could not yet answer: does Solution MC genuinely lack them? Solution MC's Phase 3 had existed since
+2026-08-17, but these fields had no rows there, so its 14 papers had never been checked for them.
+All 14 were read for them today. Three passes followed, each predicted before it ran and confirmed
+by a cell-level diff.
+
+**Pass 1: six literature cells were wrong.**
+- **`Faraday Cup Array Configuration`.** Three cells read `N` or recorded the collectors used, when
+  the paper states the array: Craddock, Nowell-NIGL and Nie. Nowell-Durham omitted its SEM.
+- **Barnes-ETH `Monitored Masses`.** It quoted a sentence that does not exist. It spliced ETH's
+  opening to the LLNL procedure printed after it, bringing in ⁴⁵Sc. The cause is the lesson:
+  **`pdftotext -layout` interleaves a journal page's two columns, so a "quote" can join two
+  sentences.** Quote from reading-order text (PyMuPDF). Five more Barnes-ETH cells disagree with
+  the paper and are left for a separate pass.
+
+**Pass 2: the Doubly-Charged pair joined Module_ICPMS (v16), and Solution MC gained it.** The
+literature cannot separate MC from the other analysers here. 0 of 14 MC procedures report a
+tuning-time M²⁺/M⁺ ratio, and neither do the Q and SF papers (1 of 15). So placement rests on the
+module's subject: doubly-charged ions form in the plasma, which every ICP-MS shares. Two MC papers
+name doubly-charged ions as *interferences*, which is `Interfering Species` content, recorded as
+`N (...)`. **A named or corrected interfering ion is not a tuning monitor**, the rule the LA-MC
+Zhang 2022 cell already followed.
+
+**Pass 3: `Detector Configuration` turned out to be two fields.**
+- **In the multi-collector TAPPs** it duplicated Module_MCICPMS's `Faraday Cup Array
+  Configuration`, and for Zhang 2022 the two cells held the same content. It left LA-MC and LA-MC
+  U-Pb, and its "Multi-collector array" option left Column F.
+- **In the six single-collector TAPPs** it is the detector, and with `Pulse/Analog` it forms
+  **Module_SingleCollector** (v1): 2 × 6 = 12 placements. Its six TAPPs are a subset of
+  Module_ICPMS's nine, but it survives Rule 6.15's subject test, as Module_MCICPMS did. The two
+  analyser modules have disjoint footprints and together make up Module_ICPMS's.
+- **`Ion Counter Dead Time` was left out.** Its six single-collector copies fit, but its three MC
+  copies are keyed differently. No field is yet defined by two modules, and nothing checks that
+  case.
+
+**The deferral was answerable for three weeks and nobody asked.** A precondition phrased as "needs
+Solution MC's Phase 3" was met on 2026-08-17. The actual question was whether these fields apply to
+MC, and Phase 3 could not have answered it, because it only assesses rows that exist. A deferral
+should name the question, not the phase that might answer it.
+
+**Found and not fixed**, flagged as separate tasks:
+- the schema spec's two module tables (§2, §9) are weeks stale, and the new module was not added to
+  tables that are already wrong;
+- five further Barnes-ETH cells disagree with the paper.
+
+Also still open: `Doubly-Charged Species Production` still conflates threshold and measured value.
+
+Scripts: `patch_faraday_barnes_solutionmc_20260911.py`, `modularise_doubly_charged_20260911.py`,
+`create_module_singlecollector_20260911.py`. Record: `Superseded TAPPs/2026-09-11/README.md`.

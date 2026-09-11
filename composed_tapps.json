@@ -36,7 +36,7 @@
       ]
     },
     {
-      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v77.csv",
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v78.csv",
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
       "modules": [
         {
@@ -95,7 +95,7 @@
       ]
     },
     {
-      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v76.csv",
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v77.csv",
       "derived_from": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v1.csv",
       "modules": [
         {
@@ -291,7 +291,7 @@
       ]
     },
     {
-      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v81.csv",
+      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v82.csv",
       "modules": [
         {
           "name": "Core",
@@ -328,11 +328,15 @@
         {
           "name": "CollisionCell",
           "version": "5"
+        },
+        {
+          "name": "SingleCollector",
+          "version": "1"
         }
       ]
     },
     {
-      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v77.csv",
+      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v78.csv",
       "modules": [
         {
           "name": "Core",
@@ -365,6 +369,10 @@
         {
           "name": "CompositionQC",
           "version": "5"
+        },
+        {
+          "name": "SingleCollector",
+          "version": "1"
         }
       ]
     },
@@ -411,7 +419,7 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v78.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v79.csv",
       "modules": [
         {
           "name": "Core",
@@ -452,6 +460,10 @@
         {
           "name": "CollisionCell",
           "version": "5"
+        },
+        {
+          "name": "SingleCollector",
+          "version": "1"
         }
       ],
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
@@ -462,7 +474,7 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v78.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v79.csv",
       "derived_from": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v8.csv",
       "modules": [
         {
@@ -512,12 +524,16 @@
         {
           "name": "CollisionCell",
           "version": "5"
+        },
+        {
+          "name": "SingleCollector",
+          "version": "1"
         }
       ],
       "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record."
     },
     {
-      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v75.csv",
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v76.csv",
       "modules": [
         {
           "name": "Core",
@@ -554,6 +570,10 @@
         {
           "name": "CompositionQC",
           "version": "5"
+        },
+        {
+          "name": "SingleCollector",
+          "version": "1"
         }
       ],
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
@@ -564,7 +584,7 @@
       ]
     },
     {
-      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v76.csv",
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v77.csv",
       "derived_from": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v8.csv",
       "modules": [
         {
@@ -610,6 +630,10 @@
         {
           "name": "CompositionQC",
           "version": "5"
+        },
+        {
+          "name": "SingleCollector",
+          "version": "1"
         }
       ],
       "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record."
