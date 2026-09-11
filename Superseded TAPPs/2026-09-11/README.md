@@ -20,19 +20,20 @@ discovery.
 | `LA-SF-ICP-MS_TAPP_v75` | `v76` |
 | `LA-SF-ICP-MS_UPb_TAPP_v75` | `v77` |
 | `LA-SF-ICP-MS_UPb_TAPP_v76` | `v77` |
-| `Solution_MC-ICP-MS_TAPP_v76` | `v78` |
-| `Solution_MC-ICP-MS_TAPP_v77` | `v78` |
+| `Solution_MC-ICP-MS_TAPP_v76` | `v79` |
+| `Solution_MC-ICP-MS_TAPP_v77` | `v79` |
+| `Solution_MC-ICP-MS_TAPP_v78` | `v79` |
 | `Solution_Q-ICP-MS_TAPP_v80` | `v82` |
 | `Solution_Q-ICP-MS_TAPP_v81` | `v82` |
 | `Solution_SF-ICP-MS_TAPP_v76` | `v78` |
 | `Solution_SF-ICP-MS_TAPP_v77` | `v78` |
 
-18 version(s), 36 file(s) (CSV + xlsx). Most TAPPs appear twice because two of the three passes
-touched them.
+19 version(s), 38 file(s) (CSV + xlsx). Most TAPPs appear twice because two of the four passes
+touched them; Solution MC, touched by three, appears three times.
 
 ## Why
 
-Three passes on the same day, all arising from amds-ldeo/tapp#6. Answering it meant reading every
+Four passes on the same day, all arising from amds-ldeo/tapp#6. Answering it meant reading every
 Solution MC paper for how it describes its detectors and whether it monitors doubly-charged ions.
 
 ### Pass 1 — six Solution MC literature cells corrected
@@ -58,7 +59,8 @@ reading-order text only.
 Four further Barnes-ETH cells disagree with the ETH passage, and a fifth cites a value not found
 in it. All five were reported rather than changed, because the correction was scoped to the cells
 above: `Integration Time per Cycle`, `Reported Variables and Units`, `Isotope Ratio Reported`,
-`Mass Bias Correction Strategy` and `Analytical Accuracy and Assessment Method`.
+`Mass Bias Correction Strategy` and `Analytical Accuracy and Assessment Method`. Pass 4 corrects
+them.
 
 ### Pass 2 — the Doubly-Charged fields move into Module_ICPMS (v15 → v16)
 
@@ -113,6 +115,31 @@ Correction` for the six single-collector ICP-MS TAPPs.
   its "Multi-collector array" option left Column F.
 - `Ion Counter Dead Time` is deliberately not included; the manifest records why.
 
+### Pass 4 — the five remaining Barnes ETH cells corrected
+
+`../../Project Files/Scripts/patch_barnes_eth_ti_solutionmc_20260911.py`. Solution MC v78 → v79.
+
+These are the five cells pass 1 reported. Each was re-read against the ETH passage (pp.7–8) in
+reading-order text, and every new value carries its page.
+
+- **Two cells had borrowed from the LLNL procedure**, which the paper describes straight after ETH's.
+  - `Integration Time per Cycle` read "4 s", LLNL's value. ETH used 8.39 s for the first cup
+    configuration and 4.19 s for the second.
+  - `Analytical Accuracy and Assessment Method` quoted "±0.16 and ±0.26 ε50Ti". ±0.16 is ETH's
+    ε50Ti (9 analyses of BHVO-2); ±0.26 is LLNL's (16 analyses of BCR-2 and BHVO-2). Its quoted
+    phrase "under conditions similar to the methods used" is from neither Ti procedure. It comes
+    from the ion-chromatography section lower on p.8. The cell now gives ETH's three values
+    (±0.17 ε46Ti, ±0.09 ε48Ti, ±0.16 ε50Ti) and the two materials ETH ran (BHVO-2, Agua Zarcas).
+- **Three cells were incomplete.**
+  - `Reported Variables and Units` and `Isotope Ratio Reported` gave only ε50Ti and 50Ti. The paper
+    reports εiTi for 46Ti, 48Ti and 50Ti, each on iTi/47Ti.
+  - `Mass Bias Correction Strategy` gave only bracketing. ETH normalised internally to
+    49Ti/47Ti = 0.749766 with the exponential law and reported against a bracketing standard, the
+    shape Budde 2016 and Hopp 2021 already record in that row.
+
+**Noted, not acted on.** ETH's integration time is stated per cup configuration, as Nowell 2008
+(NIGL) states its per sequence. That is per-pass evidence for a field keyed `monitored property`.
+
 ### Consequences of passes 2 and 3
 
 - Both fields' entries left the validator's Column B divergence register, because neither diverges
@@ -143,6 +170,12 @@ matched the prediction.
 - **Rows:** the row count and field order are unchanged in all six. LA-MC and LA-MC U-Pb each lost
   exactly one row.
 
+**Pass 4.** Exactly 5 literature cells changed, all in `Barnes+etal2025 | Neptune Plus | ETH
+Zurich`; rows (143), columns (25) and header unchanged. No field, tier, data type, description or
+`Keyed By` value changed. `audit_keys_vs_literature.py` moved one count: `Integration Time per
+Cycle` now scores scalar=9, unclear=2 (was 10 and 1), because the ETH cell holds one value per cup
+configuration. Its verdict (OVER-DECLARED, KEEP) is unchanged.
+
 **All passes.**
 - `recompose_all_20260812.py --check`: 16 MATCH, 0 DIFFERS. The six single-collector TAPPs compose
   with `SingleCollector` in their recipes. That covers Rule 6.8's second composition and a
@@ -151,7 +184,7 @@ matched the prediction.
   SingleCollector.
 - `build_module_register.py --check` and `build_schema_spec_counts.py`: current.
 - `audit_keys_vs_literature.py` regenerated after each pass. Apart from file names and row
-  positions, no finding was added, removed or changed.
+  positions, no finding was added, removed or changed; pass 4's one moved count is given above.
 - `validate_tapp.py`: 0 ERROR / 0 WARN before each save.
 - **One reference was fixed by hand after pass 3.** `TAPP_Composed_Variants.csv` still named LA-MC
   U-Pb v76. `compose_tapp.py --out` advances that register's path references, and pass 3 removed
