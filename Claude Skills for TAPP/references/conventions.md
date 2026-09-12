@@ -625,6 +625,33 @@ therefore includes overlay rows (ArAr introduces 4 and overlays 12; UPb introduc
   What remains open: a composed TAPP still makes no **self-declaration** — you cannot ask a CSV what
 built it without consulting the register. The discipline in 6.6 no longer rests on someone
 remembering to update a file, but it does still rest on the register being the only witness.
+- **Module versioning has no increment rule.** Manifests carry a `version` and the build record now
+  names it, but nothing defines when to bump it and nothing verifies a recorded version against the
+  module's current content.
+- **Manifests have no schema.** `Group1` and `Geochronology` omit `layer`; `Group1` and
+  `ReportingCore` omit `consumed_by`; `Group1` and `Geochronology` omit `blocks`. The register
+  supplies these values, so nothing has broken, but the JSON is not validated against anything.
+- ~~**Field removal by a module is untested.**~~ **Tested 2026-09-10**, when `Ion Counter Dead Time`
+  was removed from `Module_ICPMS` (39 → 38 fields) so its Column I could differ by technique — Rule 6.5
+  forbids a module expressing two values for one field, so an over-declared key could not be corrected
+  while the field stayed in the module. **The drop guard is on the `replace_group` path only.** That
+  path rebuilds a group from the module and would indeed delete the row. The **blocks** path, which
+  every current module uses, updates fields in place and inserts only what is absent, so a source field
+  the module stops defining is simply no longer the module's business. Verified in a sandbox before the
+  change: the consumer kept the same 125 rows and 124 fields, the row was **byte-identical to the
+  source**, and field order was unchanged. **One thing composition does not do** is clear the row's
+  `Source: <module> module` comment, which becomes false the moment the field leaves; clear it in the
+  same pass or the next reader is sent to edit a module that no longer defines the field.
+- ~~**`SolutionIntroduction` is provisional.**~~ **Resolved 2026-08-10.** All 16 descriptions are
+  reconciled and the module is at version `1`. Decisions are recorded field by field in
+  `Archive/Worksheets (reconciled)/SolutionIntroduction_Reconciliation_Decisions.csv`, and Column F is complete in all three
+  consumers, satisfying the 6.4 condition. The methodological finding stands: the selection criteria
+  are sound but not automatable by keyword matching — only the disqualifiers automate.
+- **`ArAr` has no consumer.** It is built and verified but unconsumed, awaiting a Noble Gas MS TAPP.
+  Per 6.10 its specificity is therefore only as good as its two-system extraction.
+- **Two requested modules were deliberately not built.** Q-ICP-MS and SF-ICP-MS residues are 2 and 4
+  fields, below the five-field threshold in 6.10. There is also no possible "sector-field" layer:
+  **0** fields are shared by SF and MC but not Q.
 
 * **Module versioning has no increment rule.** Manifests carry a `version` and the build record now
 names it, but nothing defines when to bump it and nothing verifies a recorded version against the
@@ -933,15 +960,16 @@ here instead.
 
 #### 7.2 Key vocabulary
 
-**Anchors.** Three are universal; two are conditional and legitimately absent from some techniques.
+**Anchors.** Three are universal; three are conditional and legitimately absent from some techniques.
 
-|Value|Keys on|Test to apply|Examples|
-|-|-|-|-|
-|`sample` *(universal at analysis level)*|the physical specimen a group of reported rows belongs to — the frame within which `sampling unit` nests. Added 2026-08-12 with the decision that the analysis record is the **session**, which may cover many samples|Would a second sample in the same session produce another set of rows?|the specimen behind IGSN:AU1234567; each of 12 sections on one mount; each of 20 solutions in a digestion batch|
-|`sampling unit` *(universal)*|a subdivision of the physical sample carrying its own row of values|Would a second grain / spot / phase produce another row?|EPMA analysis point; zircon grain; digestion aliquot; Mössbauer phase; fission-track confined track; XCT segmented phase; OSL aliquot|
-|`reported property` *(universal)*|anything the procedure reports, **at any point in the chain** — quantities and nominal properties alike, plus their uncertainties|Does it appear in the reported data product?|²⁰⁶Pb/²⁰⁴Pb ratio *and* ²⁰⁶Pb/²³⁸U date; ⁵⁶Fe/⁵⁴Fe *and* δ⁵⁶Fe; Dᴇ, D\_R *and* OSL age; Fe³⁺/ΣFe; mineral species + match score; porosity|
-|`channel` *(where a dispersive, selective or swept axis exists)*|a position on the axis the instrument steps through or selects across — mass, wavelength, energy, angle, temperature, field, pressure, time. **The address, not the signal**|Does the position exist even with zero signal there?|m/z 238; cup L2 at magnet step 1; Fe Kα on LIF spectrometer 2 (one WDS spectrometer assignment); Fe L₂,₃ edge; velocity channel 137/256; 855 cm⁻¹ bin; demagnetisation step 40 mT; DSC temperature setpoint|
-|`target species` *(chemistry only)*|the chemical species determined, at whatever granularity the procedure determines it|Would substituting a different isotope of the same element leave the target of determination unchanged? Yes → `channel`. No → `target species`.|Si, Mg, Fe, Ca, Ni (EPMA); Fe (MC-ICP-MS); U, Pb, Th (U-Pb); Fe²⁺/Fe³⁺ at valence resolution (Mössbauer)|
+| Value | Keys on | Test to apply | Examples |
+|---|---|---|---|
+| `sample` *(universal at analysis level)* | the physical specimen a group of reported rows belongs to — the frame within which `sampling unit` nests. Added 2026-08-12 with the decision that the analysis record is the **session**, which may cover many samples | Would a second sample in the same session produce another set of rows? | the specimen behind IGSN:AU1234567; each of 12 sections on one mount; each of 20 solutions in a digestion batch |
+| `sampling unit` *(universal)* | a subdivision of the physical sample carrying its own row of values | Would a second grain / spot / phase produce another row? | EPMA analysis point; zircon grain; digestion aliquot; Mössbauer phase; fission-track confined track; XCT segmented phase; OSL aliquot |
+| `reported property` *(universal)* | anything the procedure reports, **at any point in the chain** — quantities and nominal properties alike, plus their uncertainties | Does it appear in the reported data product? | ²⁰⁶Pb/²⁰⁴Pb ratio *and* ²⁰⁶Pb/²³⁸U date; ⁵⁶Fe/⁵⁴Fe *and* δ⁵⁶Fe; Dᴇ, D_R *and* OSL age; Fe³⁺/ΣFe; mineral species + match score; porosity |
+| `channel` *(defined; **no user since 2026-09-10**, when the measurand axis moved to `monitored property`)* | a position on the axis the instrument steps through or selects across — mass, wavelength, energy, angle, temperature, field, pressure, time. **The address, not the signal** | Does the position exist even with zero signal there? | m/z 238; cup L2 at magnet step 1; Fe Kα on LIF spectrometer 2 (one WDS spectrometer assignment); Fe L₂,₃ edge; velocity channel 137/256; 855 cm⁻¹ bin; demagnetisation step 40 mT; DSC temperature setpoint |
+| `monitored property` *(in use since 2026-09-10 — 3 definers, 27 consumers, 113 field-instances across 13 TAPPs)* | what the procedure **measures** in order to determine a target species — the layer between determinand and output. Includes everything acquired for the determination, not only what is determined | Is it acquired in order to compute something that is reported? (Determined → `target species`. In the data product → `reported property`.) | ⁸⁵Rb, ⁸⁴Sr, ⁸⁶Sr, ⁸⁷Sr; ⁸³Kr and ¹⁶⁷Er²⁺ interference monitors; ¹²⁵Te measured as ¹⁴¹TeO⁺; Si Kα, Cr Kα (EPMA); Fe L₂,₃ (EELS) |
+| `target species` *(chemistry only)* | the chemical species determined, at whatever granularity the procedure determines it | Would substituting a different isotope of the same element leave the target of determination unchanged? Yes → `monitored property`. No → `target species`. | Si, Mg, Fe, Ca, Ni (EPMA); Fe (MC-ICP-MS); U, Pb, Th (U-Pb); Fe²⁺/Fe³⁺ at valence resolution (Mössbauer) |
 
 **Two notes on the anchors, both dated 2026-08-12.**
 
@@ -954,26 +982,83 @@ line. Every prior example still validates and no row changed. This closes the qu
 physical-property techniques need a key of their own for what they sweep: they do not — it is
 `channel`.
 
-*`sample` is defined but not yet in use.* It enters the vocabulary with the decision that the
+*`sample` was defined ahead of its retrofit.* **Corrected 2026-09-10: it has been in use since Rule 13 landed** — 16 `defines: sample`, 32 `sample`, 25 `sample > sampling unit` and 21 `sample > sampling unit x reported property`, across 15 fields. The paragraph below describes the state it occupied *before* that retrofit and is kept as the record of why the key was minted early. It enters the vocabulary with the decision that the
 analysis record is the session; the retrofit that populates it (Rule 13, `defines: sample`, the
 `sample > sampling unit` nesting, the Group 2 per-sample audit) is steps 8–9 of
 `analysis/Decision\\\_Record\\\_2026-08-12\\\_Session\\\_Sample\\\_and\\\_Analyte.md`. Until then no field declares it,
 which is not a 7.4c violation — 7.4c constrains definers without consumers, not vocabulary without
 users.
 
+**A third note, 2026-09-10.**
+
+*`monitored property` — the layer between determinand and output.* A procedure determines a
+`target species`, reports a `reported property`, and to get from one to the other it **measures**
+something. That middle layer had no key, and `channel` was carrying it:
+
+```
+target species     what is DETERMINED    Rb, Sr
+monitored property what is MEASURED      85Rb, 86Sr, 87Sr, 83Kr, 167Er2+
+reported property  what is REPORTED      87Sr/86Sr, 87Rb/86Sr, isochron age (Ma)
+```
+
+It is not `target species` — interference monitors and internal standards are monitored and never
+determined (⁸³Kr, ¹⁶⁷Er²⁺, ¹⁷³Yb²⁺ in Zhang et al. 2022). It is not `reported property` — ⁸⁷Sr/⁸⁶Sr is
+computed from two monitored properties and is one row of output, not two rows of measurement.
+
+*And it is not `channel`.* `channel` is the **address** — a position on a swept or selective axis, and
+its test is whether the position exists with zero signal there. Three cases separate them: a mass-shift
+reaction monitors Te at m/z 141; a doubly-charged monitor reads Er at m/z 83.5; and EPMA's aggregate
+intensity counting monitors one element on **two** spectrometers at once (`Cr=Sp2+Sp3`), which is why
+`WDS Spectrometer Channel` currently holds a set where every other key holds a position. In a mass
+spectrometer the two axes are near-isomorphic, which is why one key served so far. They are not the
+same axis.
+
+**IN USE since 2026-09-10.** It was minted defined-but-unused and retrofitted the same day. Three
+definers — `Monitored Masses` (all nine ICP-MS TAPPs), `Monitored Elements` (the three electron-beam
+TAPPs, a new field) and `EELS Edges` (TEM) — and 27 consumers, 113 field-instances across 13 TAPPs.
+Every one of those 13 declares **exactly one** definer, and all three carry the `per target species`
+parent, so the measured-to-determined binding holds library-wide. `Collector Configuration` and `WDS
+Spectrometer Channel` were the multicollector and electron-beam definers until that date and are now
+ordinary consumers recording which collector or spectrometer a monitored property was measured on.
+The reasoning, the sandbox results and the withdrawn `detector` half are in
+`Project Files/Design Notes/Proposal_Monitored_Property_2026-09-10.md`.
+
+*`channel` is unchanged and retained, and now has no user.* After the retrofit **no field in any of the
+16 TAPPs is keyed by it** — it holds the place that `sample` held before Rule 13, which is not a 7.4c
+violation because 7.4c constrains definers without consumers, not vocabulary without users. The
+twenty-odd planned techniques that sweep an axis with no discrete measurand —
+Raman spectral bins, XRD 2θ, Mössbauer velocity channels, DSC temperature setpoints, demagnetisation
+field steps — may still need it. Whether they want `channel` or `monitored property` is a question for
+the TAPPs that have the evidence. Held, not decided.
+
+*A `detector` key was proposed the same day and refused.* The four candidate consumers were the
+Faraday cup amplifier and gain fields, `Ion Counter Dead Time` and `Proportional Counter / Detector`.
+Three have **zero** attestations anywhere in the corpus, and the fourth is attested on the *other*
+axis: all seven of its cells state the resistor per mass — *"10¹⁰ Ω for ⁵⁶Fe⁺; 10¹¹ Ω for ⁵⁴Fe, ⁵⁷Fe,
+⁵⁸Fe; 10¹² Ω for the ⁵³Cr and ⁶⁰Ni interference monitors"* — and not one names a cup position.
+Researchers describe an amplifier by the mass it serves. The per-cup reading came from that field's
+Column F, which holds **examples we authored**, not evidence; the key failed 7.4b/7.4c on the same
+test that retired `conversion`. **What would revive it**: a multi-dynamic procedure publishing a
+per-cup quantity that cannot be restated per mass, where one cup reads several masses across steps.
+See §10 of the proposal.
+
+---
+
 **Secondary keys.**
 
-|Value|Keys on|Examples|
-|-|-|-|
-|`standard`|a reference against which something is anchored — physical **or virtual**. Record which axis it anchors; this varies by technique.|albite (anchors target species); IRMM-014 (anchors reported property); α-Fe foil NBS SRM 1541 (anchors *channel*); RRUFF reference spectrum (virtual); dosimeter glass|
-|`conversion` *(defined, not in use)*|a correction or calculation step, **only where it cannot be attributed to a single reported property**|retired 2026-08-11 — `Constants and Reference Values Used` was its only user *and* its only plausible definer, so it failed 7.4b/7.4c|
-|`model component`|a component of a fitted decomposition of the signal|Mössbauer doublets/sextets (IS, QS, B\_hf, Area%); Raman fitted peaks; XRD Rietveld phases; EELS edge components|
-|`acquisition pass` **(IN USE since 2026-09-08)**|a distinct traversal of the measurement with its own configuration, run in sequence on the same material — a **sub-procedure**. Identical repeats are replicates, not passes|**Definer `Acquisition Pass`; 15 consumers across the 9 ICP-MS TAPPs.** Retired 2026-08-11 for want of a consumer, reinstated when a survey found 69 pass-structured cells in 10 procedures across 4 TAPPs. Fields keyed by it: laser spot geometry, repetition rate, ablation mode, transect rate, internal-standard approach and element, elemental fractionation correction, plasma thermal mode, desolvation system, final solution matrix, cycles per block, scans per replicate, pulse/analog nonlinearity correction, mass resolution assignment, inter-pass data dependency. ⚠ **Not yet in EPMA/SEM**: `Sequence` holds the enumeration there but nothing in those TAPPs is keyed by the pass, so declaring it a definer would breach 7.4c. **The falsifier that would reverse this is named and narrow**: a *beam* condition (current or diameter) differing between passes on the same phase, which no existing key can carry. A per-element *counting time* does NOT qualify — `channel` already expresses it, and Barnes et al. 2025 already attests it. See precedents.md, 2026-09-08|
-|`preparation step`|a stage in sample preparation|multi-step digestion (temperature, duration, acid per step); sequential chromatography columns; etch steps|
+| Value | Keys on | Examples |
+|---|---|---|
+| `standard` | a reference against which something is anchored — physical **or virtual**. Record which axis it anchors; this varies by technique. | albite (anchors target species); IRMM-014 (anchors reported property); α-Fe foil NBS SRM 1541 (anchors *channel*); RRUFF reference spectrum (virtual); dosimeter glass |
+| `conversion` *(defined, not in use)* | a correction or calculation step, **only where it cannot be attributed to a single reported property** | retired 2026-08-11 — `Constants and Reference Values Used` was its only user *and* its only plausible definer, so it failed 7.4b/7.4c |
+| `model component` | a component of a fitted decomposition of the signal | Mössbauer doublets/sextets (IS, QS, B_hf, Area%); Raman fitted peaks; XRD Rietveld phases; EELS edge components |
+| `acquisition pass` **(IN USE since 2026-09-08)** | a distinct traversal of the measurement with its own configuration, run in sequence on the same material — a **sub-procedure**. Identical repeats are replicates, not passes | **Definer `Acquisition Pass`; 15 consumers across the 9 ICP-MS TAPPs.** Retired 2026-08-11 for want of a consumer, reinstated when a survey found 69 pass-structured cells in 10 procedures across 4 TAPPs. Fields keyed by it: laser spot geometry, repetition rate, ablation mode, transect rate, internal-standard approach and element, elemental fractionation correction, plasma thermal mode, desolvation system, final solution matrix, cycles per block, scans per replicate, pulse/analog nonlinearity correction, mass resolution assignment, inter-pass data dependency. ⚠ **Not yet in EPMA/SEM**: `Sequence` holds the enumeration there but nothing in those TAPPs is keyed by the pass, so declaring it a definer would breach 7.4c. **The falsifier that would reverse this is named and narrow**: a *beam* condition (current or diameter) differing between passes on the same phase, which no existing key can carry. A per-element *counting time* does NOT qualify — `monitored property` already expresses it (`channel` when this was written; renamed 2026-09-10), and Barnes et al. 2025 already attests it. See precedents.md, 2026-09-08. **RE-TESTED 2026-09-10 and upheld.** `Monitored Elements` was added to the three electron-beam TAPPs and assessed against all 59 procedure columns, which put the pass-shaped evidence in one place for the first time. It grew from one cell to three, across two procedures — Neuman et al. 2025 (`pass 1 = Mg, Al, Fe, Ca, Ti; pass 2 = Na, Si, Mn, K, Cr`) and Barnes et al. 2025 at CRPG (`session 1` / `session 2` element sets) — and **all of it is element-set partition, which `Sequence` and `monitored property` already carry**. Every beam-condition cell in all 59 columns was checked: **not one varies by pass.** The two that vary at all are already keyed correctly — Neuman's 100 nA stage map vs 2 nA BSE mosaic varies by *technique*, and Barnes's 1 µm focused vs 5×5 µm raster varies by *mineral*, which `sample > sampling unit` carries. SEM and SEM_Composition have **zero** pass-shaped cells in 44 columns. The deferral is therefore stronger than when it was written, not weaker: more evidence, still none of the named kind |
+| `preparation step` | a stage in sample preparation | multi-step digestion (temperature, duration, acid per step); sequential chromatography columns; etch steps |
 
 **Technique-specific extensions** are permitted. They are declared in Phase 0 (7.7) and listed in the
 TAPP's Legends sheet. Prefer an existing anchor before minting one: `phase`, `sub-volume`, `replicate`,
-`spot` and `grain` are all `sampling unit`; `cup`, `detector` and `energy-loss edge` are all `channel`.
+`spot` and `grain` are all `sampling unit`; an `energy-loss edge` is a `monitored property`; a `cup`
+or a `detector` is neither — see the 2026-09-10 note below, which refused that key for want of a
+single attested consumer.
 
 **`mode` is not a valid value.** Mode applicability is carried by the mode-flag columns (Rule 3). A mode
 key would duplicate existing machinery.
@@ -982,15 +1067,15 @@ key would duplicate existing machinery.
 
 #### 7.3 Notation
 
-|Form|Meaning|Example|
-|-|-|-|
-|`(none)`|scalar — one value per procedure/analysis. The default and the most common value.|`RF Power`; `Instrument Make and Model`|
-|`A > B`|**containment** — B exists only within A; one value per B within each A|`sampling unit > model component` (Mössbauer components fitted per phase). **In use since Rule 13**: `sample > sampling unit` (25 rows) and `sample > sampling unit x reported property` (21). Corrected 2026-09-08 — this cell previously read "No field in the current library uses nesting", which was true when written and has not been since. `target species > background position` was retired 2026-08-11 under 7.4c|
-|`A x B`|**cross-product** — A and B are independent domains; one value per combination. Ordered: read as *"for each A, one value per B."*|`standard x reported property` (`Analytical Precision`); `sampling unit x target species` (`Counting Statistics Error`)|
-|`defines: A`|the field **enumerates** the key domain rather than being keyed by it — it is the header of the child table, not a column in it|`Target Species`; `Reported Variables and Units`; `Reported Date Type`|
-|`defines: A per B`|the field enumerates domain A **and** repeats over key B — a definer whose child table carries a parent key. One key only; see 7.3.1|`Monitored Masses` (`defines: channel per target species`); `EELS Edges`; `Secondary Reference Materials`|
-|`pair: A`|keyed by an unordered pair of A|`Discordance Definition and Values`; error correlation ρ between ²⁰⁶Pb/²³⁸U and ²⁰⁷Pb/²³⁵U|
-|`A > B x C`|containment then cross-product — *"within each A, for each B, one value per C."* Added 2026-08-12|`Counting Statistics Error` (`sample > sampling unit x reported property`): within each sample, for each analysis spot, one uncertainty per reported concentration variable|
+| Form | Meaning | Example |
+|---|---|---|
+| `(none)` | scalar — one value per procedure/analysis. The default and the most common value. | `RF Power`; `Instrument Make and Model` |
+| `A > B` | **containment** — B exists only within A; one value per B within each A | `sampling unit > model component` (Mössbauer components fitted per phase). **In use since Rule 13**: `sample > sampling unit` (25 rows) and `sample > sampling unit x reported property` (21). Corrected 2026-09-08 — this cell previously read "No field in the current library uses nesting", which was true when written and has not been since. `target species > background position` was retired 2026-08-11 under 7.4c |
+| `A x B` | **cross-product** — A and B are independent domains; one value per combination. Ordered: read as *"for each A, one value per B."* | `standard x reported property` (`Analytical Precision`); `sampling unit x target species` (`Counting Statistics Error`) |
+| `defines: A` | the field **enumerates** the key domain rather than being keyed by it — it is the header of the child table, not a column in it | `Target Species`; `Reported Variables and Units`; `Reported Date Type` |
+| `defines: A per B` | the field enumerates domain A **and** repeats over key B — a definer whose child table carries a parent key. One key only; see 7.3.1 | `Monitored Masses` (`defines: monitored property per target species`); `Monitored Elements`; `EELS Edges` |
+| `pair: A` | keyed by an unordered pair of A | `Discordance Definition and Values`; error correlation ρ between ²⁰⁶Pb/²³⁸U and ²⁰⁷Pb/²³⁵U |
+| `A > B x C` | containment then cross-product — *"within each A, for each B, one value per C."* Added 2026-08-12 | `Counting Statistics Error` (`sample > sampling unit x reported property`): within each sample, for each analysis spot, one uncertainty per reported concentration variable |
 
 **On `A > B x C`.** 7.3.1 declined to specify a compound key on the right of `defines: A per B`,
 because `per` and `x` run in opposite directions and the token order would read two ways at once.
@@ -1072,7 +1157,7 @@ spectrometer assignment used for a standard-only or background-only measurement.
 
 Whether the parent is total or partial **varies by field and the notation does not distinguish
 them**. `EELS Edges` is total: every ionisation edge belongs to an element. `Monitored Masses` is
-partial. Both are written `defines: channel per target species`, so a consumer must assume partial.
+partial. Both are written `defines: monitored property per target species`, so a consumer must assume partial.
 
 **For a schema generator, concretely.** The child table gets a **nullable** foreign key to the parent
 domain, never a required one:
@@ -1234,10 +1319,10 @@ difference on those rows only, and reports `DIFFERS` everywhere else as usual.
 The mechanism is specified because the need is demonstrated, but **no module field currently requires it.**
 The two known technique-dependent fields — `Primary Calibration Standard Name` (`target species` in EPMA,
 `reported property` in MC-ICP-MS) and `Secondary Reference Materials` — are TAPP-owned, not module-owned.
-Every module field audited holds one key across all consumers: Module\_Geochronology's six are all
-`reported property`, Module\_MCICPMS's `Collector Configuration` is `channel` everywhere,
-Module\_ReportingCore's `Goodness-of-Fit or Dispersion Statistic` is `reported property` everywhere.
-Do not populate `keyed\\\_by\\\_overridable` speculatively.
+Every module field audited holds one key across all consumers: Module_Geochronology's six are all
+`reported property`, Module_MCICPMS's `Collector Configuration` is `monitored property` everywhere (and ceased to be the definer on 2026-09-10),
+Module_ReportingCore's `Goodness-of-Fit or Dispersion Statistic` is `reported property` everywhere.
+Do not populate `keyed_by_overridable` speculatively.
 
 \---
 

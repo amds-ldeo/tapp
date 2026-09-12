@@ -181,7 +181,11 @@ DESC_LEAK_RE = re.compile(
 # cover many samples (conventions.md 7.2; Decision Record A1). Defined ahead of its retrofit —
 # no field declares it until steps 8-9, which is not a 7.4c violation: 7.4c constrains definers
 # without consumers, not vocabulary without users.
-KEY_ANCHORS = {"sample", "sampling unit", "reported property", "channel", "target species"}
+KEY_ANCHORS = {"sample", "sampling unit", "reported property", "channel", "target species",
+               # added 2026-09-10 and IN USE the same day — 3 definers, 27 consumers, 113
+               # field-instances across 13 TAPPs. See the third note under Rule 7.2. `channel`
+               # is the one that now has no user; it is kept for the swept-axis techniques.
+               "monitored property"}
 KEY_SECONDARY = {"standard", "conversion", "model component", "acquisition pass",
                  "preparation step", "background position"}
 KEY_VOCAB = KEY_ANCHORS | KEY_SECONDARY
@@ -192,6 +196,7 @@ KEY_FORBIDDEN = {"mode"}          # carried by the mode flag columns (Rule 3)
 # it differ. Each entry must carry a recorded rationale in precedents.md. Extend only
 # by explicit decision — and only when the divergence is real, not anticipated.
 KEYED_BY_TECHNIQUE_DEPENDENT = {
+    "Ion Counter Dead Time":             "monitored property in the three MC TAPPs, whose instruments carry a nine-cup Faraday array plus seven ion counters; (none) in the six single-collector Q and SF TAPPs, where there is one detector and therefore one dead time. Registered 2026-09-10, when the field was taken out of Module_ICPMS so its key could differ by technique at all — Rule 6.5 forbids a module expressing both. Zero attestations in the corpus, so this rests on instrument design, not on the literature.",
     # `Detection Limit` left this register 2026-08-12: the literature audit showed 7 of 7 papers
     # reporting one LOD per element aggregated over the session, never per spot, so the LA variant
     # became `reported property` like everywhere else and the field is now uniform across all 12.
@@ -207,7 +212,7 @@ KEYED_BY_TECHNIQUE_DEPENDENT = {
                                          "this field on 2026-08-27, when `STEM Dwell Time per Pixel` "
                                          "was merged into it as a Rule 1 name variant)",
     "Beam Current":                      "per phase where composition is measured, scalar in imaging-only TAPPs",
-    "Monitored Masses":                  "defines: channel per target species where there is no collector array; target species where the cup array defines the channel",
+    "Monitored Masses":                  "registered 2026-08-12 for `defines: ... per target species` where there was no collector array vs `target species` where the cup array defined the channel. NOTE 2026-09-10: DORMANT — the \u00a74 restructure made the mass list the definer in all nine ICP-MS TAPPs and demoted `Collector Configuration` to a per-monitored-property attribute, so the divergence has no cause and no longer occurs. Kept, not deleted, on the same grounds as `Secondary Reference Materials`: the reading was defensible and could return if a TAPP ever lets the collector array enumerate the measurands again.",
 }
 KEYED_BY_EXCEPTIONS = set(KEYED_BY_TECHNIQUE_DEPENDENT)   # back-compat alias
 
@@ -271,8 +276,11 @@ COLB_DIVERGENCE_TRIAGED = {
     'Beam Current': ("PRINCIPLED", 5),
     'Beam Damage Minimization': ("PRINCIPLED", 3),
     'Beam Diameter': ("PRINCIPLED", 3),
-    'Detector Configuration': ("PRINCIPLED", 8),
-    'Doubly-Charged Species Monitor': ("PRINCIPLED", 8),
+    # `Detector Configuration` REMOVED 2026-09-11: it moved into Module_SingleCollector (v1) with one
+    # single-collector description in all six consumers, and left the two LA-MC TAPPs, where it
+    # duplicated Module_MCICPMS's Faraday Cup Array Configuration. It no longer diverges.
+    # `Doubly-Charged Species Monitor` REMOVED 2026-09-11: the field moved into Module_ICPMS
+    # (v16) with one description, the fuller LA text, so it no longer diverges.
     'Drift Correction': ("PRINCIPLED", 3),
     # Added 2026-08-12. The description points forward to the quantification step, and that step is
     # a different field per technique: EPMA/SEM/SEM_Composition have `Matrix Correction Method`,

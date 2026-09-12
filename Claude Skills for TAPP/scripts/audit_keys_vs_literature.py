@@ -14,6 +14,7 @@ compare the aggregate against the declared key:
   OVER-DECLARED   key names a repeat axis but every extraction is scalar
   UNDER-DECLARED  key is (none) but extractions enumerate
   AXIS-MISMATCH   key names axis A, extractions enumerate axis B
+                  (a coarse key subsumes a finer observation — see KEY_SUBSUMES)
   CONSISTENT      observed shape matches the declaration
   NO-EVIDENCE     fewer than MIN_EVIDENCE extractions with content
 
@@ -282,6 +283,27 @@ ADJUDICATED = {
 }
 
 
+# A coarse declared key is satisfied by a finer observation. `channel` currently covers both
+# of the axes classify() now reports separately, so a field declared `channel` still matches a
+# per-mass OR a per-cup observation and raises nothing. Without this the finer detector would
+# invert the bug it fixes: every one of the 113 `channel` field-instances would read as an
+# AXIS-MISMATCH on the day the detector changed, and none of them has moved yet.
+#
+# It is not merely transitional. After the re-key it is what lets the audit see a REAL
+# mismatch — `monitored property` declared where the cells enumerate cups, or the reverse —
+# which it cannot express today.
+KEY_SUBSUMES = {
+    "channel": {"monitored property", "detector"},
+}
+
+
+def expand_declared(keys):
+    out = set(keys)
+    for k in keys:
+        out |= KEY_SUBSUMES.get(k, set())
+    return out
+
+
 def classify(text):
     """Return a set of shape tags observed in one extracted cell."""
     t = (text or "").strip()
@@ -292,10 +314,16 @@ def classify(text):
     isos = {m.group(1) for m in ISOTOPE_RE.finditer(t) if m.group(1) in ELEMENTS}
     lines = XRAY_LINE_RE.findall(t)
 
-    if len(isos) >= 2 or len(CUP_RE.findall(t)) >= 2:
-        tags.add("channel")
+    # Two axes, not one. Until 2026-09-10 both of these added the single tag `channel`,
+    # so a cell enumerating CUPS and a cell enumerating MASSES were indistinguishable to
+    # the detector — the same conflation Proposal_Monitored_Property_2026-09-10 separates
+    # in Column I. A per-cup field and a per-mass field could not disagree with each other.
+    if len(isos) >= 2:
+        tags.add("monitored property")
     if len(lines) >= 2 or len(set(CRYSTAL_RE.findall(t))) >= 2:
-        tags.add("channel")
+        tags.add("monitored property")
+    if len(CUP_RE.findall(t)) >= 2:
+        tags.add("detector")
     if len(valued) >= 3:
         tags.add("target species")
         tags.add("target species:valued")
@@ -374,9 +402,9 @@ def main():
                 verdict = "OVER-DECLARED"
             elif not judge_keys and kind == "none" and observed_valued:
                 verdict = "UNDER-DECLARED"
-            elif judge_keys and observed and not (observed & judge_keys):
+            elif judge_keys and observed and not (observed & expand_declared(judge_keys)):
                 verdict = "AXIS-MISMATCH"
-            elif judge_keys and len(judge_keys) > 1 and observed and len(observed & judge_keys) == 1:
+            elif judge_keys and len(judge_keys) > 1 and observed and len(observed & expand_declared(judge_keys)) == 1:
                 verdict = "OVER-DECLARED (one axis unsupported)"
             if not verdict:
                 continue

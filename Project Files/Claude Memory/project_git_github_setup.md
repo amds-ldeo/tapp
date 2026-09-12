@@ -28,3 +28,18 @@ bump shows up as deletions of the superseded .xlsx there — that is correct,
 and the old bytes stay recoverable from git history. Never force-push: the
 pre-2026-08-21 commits (2edbaa0, baf33dc) are the only surviving copy of 16
 intermediate TAPP versions.
+
+**`tapp-save.sh` has two gates, and both refuse rather than warn.** (1) The schema
+spec's generated counts must be current, checked when a `Current TAPPs/` CSV or the spec
+itself is staged. (2) Added 2026-09-10: `validate_tapp.py` must report **0 ERROR and 0
+WARN**. It runs on every save regardless of what is staged, because the incident that
+prompted it was caused by markdown — committing the memory snapshot handed the doc scan
+26 more `.md` files and produced 28 WARNs that nothing noticed for a day. ERROR has no
+override. WARN takes `--allow-warn`, placed before the message, for a save you have
+looked at and want anyway. Both gates unstage on refusal, so a refused save leaves the
+index as it was. Cost is about half a second.
+
+The repository is **PUBLIC**. Anything committed is published and indexable — check
+before adding notes, exports or anything carrying local paths or personal data. The
+memory snapshot at `Project Files/Claude Memory/` is sanitised for this reason; see
+[[project_tapp_skill_sync]] for the sync scripts' conventions.

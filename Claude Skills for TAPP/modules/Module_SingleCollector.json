@@ -1,0 +1,56 @@
+{
+  "module": "SingleCollector",
+  "title": "Single-Collector ICP-MS Detector",
+  "layer": 2,
+  "version": "1",
+  "source_of_truth": "modules/Module_SingleCollector.csv",
+  "owned_columns": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "I"
+  ],
+  "overlay_columns": [
+    "F",
+    "J"
+  ],
+  "mode_flag_default": "Y",
+  "source_comment": "Source: single-collector ICP-MS module",
+  "conditional": false,
+  "blocks": [
+    {
+      "name": "sc_hardware",
+      "target_group": "3. Instrument & Software",
+      "placement": "append_to_group",
+      "fields": [
+        "Detector Configuration"
+      ]
+    },
+    {
+      "name": "sc_reduction",
+      "target_group": "5. Data Processing",
+      "placement": "insert_before",
+      "anchor_field": "Constants and Reference Values Used",
+      "fields": [
+        "Pulse/Analog Detector Nonlinearity Correction"
+      ]
+    }
+  ],
+  "consumed_by": [
+    "LA-Q-ICP-MS",
+    "LA-Q-ICP-MS U-Pb",
+    "LA-SF-ICP-MS",
+    "LA-SF-ICP-MS U-Pb",
+    "Solution Q-ICP-MS",
+    "Solution SF-ICP-MS"
+  ],
+  "notes": "The detection system of a single-collector ICP-MS analyser (quadrupole or single-collector sector field): which detector and detection modes are installed, and the cross-calibration between those modes. The counterpart of Module_MCICPMS's Faraday array; the two footprints are disjoint and together make up Module_ICPMS's.",
+  "extraction": "Extracted 2026-09-11 under Rule 6.10 from the six single-collector ICP-MS TAPPs. Six consumers; 2 fields x 6 = 12 placements (floor 10); coherent as the single-collector analyser's detection system. Pulse/Analog Detector Nonlinearity Correction already agreed in all six in A-E and I. Detector Configuration had three descriptions (LA, Solution Q, Solution SF), harmonised to one single-collector text. Raised by amds-ldeo/tapp#6, group A.",
+  "sub_module_test": "Run 2026-09-11 under Rule 6.15. Footprint: the 6 single-collector ICP-MS TAPPs. ICPMS (9): proposed is a subset, so prong 1 nominates absorption; prong 2 refuses it - ICPMS is defined as what every ICP-MS shares 'independent of ... the analyser', and these fields are the analyser's detector. MCICPMS (the 3 multi-collector TAPPs): disjoint - the complement within ICPMS - and it passed the same subject test on the same ground. CollisionCell (6: LA-Q, LA-Q U-Pb, LA-MC, LA-MC U-Pb, Solution Q, Solution MC): overlapping, neither contained. LaserAblation (6 LA) and SolutionIntroduction (3 Solution): overlapping, neither contained, and a different subject (the front end, not the analyser). No IDENTICAL footprint; proceed.",
+  "decisions": [
+    "2026-09-11 v1. Created. Detector Configuration removed from LA-MC and LA-MC U-Pb in the same pass: there it duplicated Module_MCICPMS's Faraday Cup Array Configuration (for Zhang 2022, the one assessed procedure, both cells held the same content), and all 14 Solution MC papers describe their detectors in that field's terms. The 'Multi-collector array' option left Detector Configuration's Column F for the same reason. Ion Counter Dead Time deliberately NOT included although its six (none)-keyed copies are exactly this footprint: its three MC copies are keyed monitored property, and no field in the library is yet defined by two modules; the tooling has no check for that case. It stays TAPP-owned, as decided 2026-09-10 (c5632e0)."
+  ],
+  "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
+}
