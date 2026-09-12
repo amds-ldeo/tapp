@@ -47,22 +47,22 @@ generated artifact (colour-coded, with a Legends sheet) and should not be parsed
 
 | TAPP | Modules composed |
 |---|---|
-| `EPMA/EPMA_TAPP_v*.csv` | Core, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation |
-| `LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v*.csv` | Core, LaserAblation, MCICPMS, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation |
-| `LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v*.csv` | Core, LaserAblation, MCICPMS, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb |
-| `SEM/SEM_Composition_TAPP_v*.csv` | Core, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation |
+| `EPMA/EPMA_TAPP_v*.csv` | Core, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, TargetSpecies, CompositionQC |
+| `LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v*.csv` | Core, LaserAblation, MCICPMS, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, TargetSpecies, ICPMS, CompositionQC, CollisionCell |
+| `LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v*.csv` | Core, LaserAblation, MCICPMS, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb, TargetSpecies, ICPMS, CompositionQC, CollisionCell |
+| `SEM/SEM_Composition_TAPP_v*.csv` | Core, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, TargetSpecies, CompositionQC |
 | `SEM/SEM_FIBSEM_TAPP_v*.csv` | Core, SamplingUnitSelection |
 | `SEM/SEM_Imaging_TAPP_v*.csv` | Core, SamplingUnitSelection |
-| `SEM/SEM_TAPP_v*.csv` | Core, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation |
-| `Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v*.csv` | Core, MCICPMS, CalibrationFactor, Blank, Aggregation, SolutionIntroduction |
-| `Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v*.csv` | Core, CalibrationFactor, Blank, Aggregation, SolutionIntroduction |
-| `Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v*.csv` | Core, CalibrationFactor, Blank, Aggregation, SolutionIntroduction |
-| `TEM/TEM_TAPP_v*.csv` | Core, SamplingUnitSelection, CalibrationFactor, Aggregation |
+| `SEM/SEM_TAPP_v*.csv` | Core, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, TargetSpecies, CompositionQC |
+| `Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v*.csv` | Core, MCICPMS, CalibrationFactor, Blank, Aggregation, SolutionIntroduction, TargetSpecies, ICPMS, CompositionQC, CollisionCell |
+| `Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v*.csv` | Core, CalibrationFactor, Blank, Aggregation, SolutionIntroduction, TargetSpecies, ICPMS, CompositionQC, CollisionCell, SingleCollector |
+| `Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v*.csv` | Core, CalibrationFactor, Blank, Aggregation, SolutionIntroduction, TargetSpecies, ICPMS, CompositionQC, SingleCollector |
+| `TEM/TEM_TAPP_v*.csv` | Core, SamplingUnitSelection, CalibrationFactor, Aggregation, TargetSpecies |
 | `XCT/Lab-XCT_TAPP_v*.csv` | Core, SamplingUnitSelection, CalibrationFactor |
-| `LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v*.csv` | Core, LaserAblation, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation |
-| `LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v*.csv` | Core, LaserAblation, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb |
-| `LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v*.csv` | Core, LaserAblation, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation |
-| `LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v*.csv` | Core, LaserAblation, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb |
+| `LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v*.csv` | Core, LaserAblation, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, TargetSpecies, ICPMS, CompositionQC, CollisionCell, SingleCollector |
+| `LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v*.csv` | Core, LaserAblation, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb, TargetSpecies, ICPMS, CompositionQC, CollisionCell, SingleCollector |
+| `LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v*.csv` | Core, LaserAblation, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, TargetSpecies, ICPMS, CompositionQC, SingleCollector |
+| `LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v*.csv` | Core, LaserAblation, SamplingUnitSelection, CalibrationFactor, Blank, Aggregation, Geochronology, UPb, TargetSpecies, ICPMS, CompositionQC, SingleCollector |
 
 **No module is conditional any more.** Every module listed above is all-or-nothing: a TAPP
 composes it or does not, and if it does, it holds every one of that module's fields. The former
@@ -501,19 +501,31 @@ The TAPPs are **composed, not copied**. Shared field blocks live in `Claude Skil
 as a CSV plus a JSON manifest, and are built into consuming TAPPs by script. A field appearing in
 several TAPPs is not a coincidence — it is one definition, guaranteed identical in Columns A–E and I.
 
-| Module | Fields | Consumers | Layer |
-|---|---|---|---|
-| `ArAr` | 16 | 0 (built, unconsumed) | 3 |
-| `Core` (Universal TAPP Core) | 30 | 16 | 2 |
-| `Geochronology` | 6 | 3 | 2 |
-| `LaserAblation` | 18 | 6 | 2 |
-| `MCICPMS` | 15 | 3 | 2 |
-| `SolutionIntroduction` | 16 | 3 | 2 |
-| `SamplingUnitSelection` | 2 | 13 | 2 |
-| `CalibrationFactor` | 1 | 14 | 2 |
-| `Blank` | 1 | 12 | 2 |
-| `Aggregation` | 2 | 13 | 2 |
-| `UPb` | 15 | 3 | 3 |
+| Module | Title | Fields | Consumers | Layer |
+|---|---|---|---|---|
+| `Core` | Universal TAPP Core | 31 | 16 | 2 |
+| `CalibrationFactor` | Externally Calibrated Conversion Factor | 1 | 14 | 2 |
+| `Aggregation` | Aggregation of Multiple Analyses | 2 | 13 | 2 |
+| `SamplingUnitSelection` | Sampling Unit Selection | 2 | 13 | 2 |
+| `TargetSpecies` | Target Species | 1 | 13 | 2 |
+| `Blank` | Analytical Blank | 1 | 12 | 2 |
+| `CompositionQC` | Composition quality control | 6 | 12 | 2 |
+| `ICPMS` | Inductively Coupled Plasma Mass Spectrometry | 42 | 9 | 2 |
+| `CollisionCell` | Collision/reaction cell | 8 | 6 | 2 |
+| `LaserAblation` | Laser Ablation Front End | 29 | 6 | 2 |
+| `SingleCollector` | Single-Collector ICP-MS Detector | 2 | 6 | 2 |
+| `Geochronology` | Geochronology | 6 | 3 | 2 |
+| `MCICPMS` | Multi-Collector ICP-MS Analyser | 15 | 3 | 2 |
+| `SolutionIntroduction` | Solution Sample Preparation and Introduction for MS | 16 | 3 | 2 |
+| `UPb` | U-Pb Geochronology | 15 | 3 | 3 |
+
+The table lists the live manifests in `modules/`. `Fields` counts the field rows in the module CSV, so
+for the Layer 3 `UPb` it includes the 12 rows it overlays as well as the 3 it inserts. `MCICPMS` and
+`SingleCollector` are complementary: their consumers are disjoint and together are exactly `ICPMS`'s,
+so every ICP-MS TAPP composes one analyser module or the other. Retired modules need no `$def` — no
+live TAPP composes them: `ArAr` (built, never consumed), `Group1` and `ReportingCore` (below), with
+their files in `Archive/Superseded Modules/`. `TargetSelection` and `Analyte` are earlier names of
+`SamplingUnitSelection` and `TargetSpecies` (see the rename notes at the end of this section).
 
 **`Group1` no longer exists.** It was retired on 2026-08-14 into **`Core`**, which holds its 18
 procedure-identification fields plus the 10 fields present in all 16 TAPPs that previously belonged to
@@ -521,14 +533,16 @@ no module — four in Group 2 (`Sample Name`, `Sample Persistent Identifier`, `T
 `Sampling Unit`), two in Group 3 (`Acquisition Software`, `Data Processing Software(s)`), two in
 Group 4 (`Analytical Mode`, `Reported Variables and Units`), one in Group 5 (`Constants and Reference
 Values Used`) and one in Group 6 (`Additional Notes`). If you had a `Group1` `$def`, rename it and add
-those ten. The retired module files are in `Archive/Superseded Modules/`.
+those ten. The retired module files are in `Archive/Superseded Modules/`. `Core` has gained three
+fields since: `Instrument Manufacturer` and `Instrument Model` (2026-08-14) and `Sample Preparation
+Method` (2026-08-27). The table above gives its current size.
 
-`Core` is **unconditional and all-or-nothing**: every one of its 30 fields is present in every one of
+`Core` is **unconditional and all-or-nothing**: every one of its fields is present in every one of
 the 16 TAPPs. Its six blocks exist only because the fields insert into six different groups — they are
 always composed together, so it emits **one** `$def`, not six. The same is true of every other module —
 see the note on `ReportingCore` below.
 
-**Generate one `$def` per module and `$ref` it**, rather than emitting 16 copies of the 28 Core fields.
+**Generate one `$def` per module and `$ref` it**, rather than emitting 16 copies of the Core fields.
 `composed_tapps.json` tells you which modules each TAPP consumes and at which version. The module CSVs
 have the same column layout as a TAPP but only columns A–F and I are meaningful — the module owns field
 name, description, tiers, data type and `Keyed By`; the consuming TAPP owns examples, comments, dates and
@@ -557,8 +571,8 @@ only to `ReportingCore` and is now obsolete; if you keyed `$def` names on its bl
 four carry straight over (`target_selection` → `SamplingUnitSelection`, `calibration_factor` →
 `CalibrationFactor`, `blank` → `Blank`), and `aggregation` + `aggregation_qc` merge into `Aggregation`.
 
-The field-level facts are unchanged: `Procedural Blank Level` is still absent from TEM and Lab-XCT (no
-analytical blank), and `Sampling Unit Selection Criteria` is still absent from the three Solution TAPPs (bulk
+The field-level facts are unchanged: `Procedural Blank Level` is still absent from TEM, Lab-XCT, SEM_Imaging
+and SEM_FIBSEM (no analytical blank), and `Sampling Unit Selection Criteria` is still absent from the three Solution TAPPs (bulk
 techniques). What changed is that this is now expressed by which modules they compose.
 
 > **Renamed 2026-09-01 (second rename, same day) — `Analyte` is now `Target Species`.** The module
