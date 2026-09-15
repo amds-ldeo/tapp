@@ -3669,3 +3669,22 @@ times.
 
 Batches 2–5 (LA, EPMA, the SEM family, TEM and Lab-XCT) follow the same grammar.
 
+## 2026-09-15 | PHASE 3 | `Sampling Unit Name`, batch 2 of 5: the laser-ablation family
+
+28 cells: 11 labelled, 17 sample name only.
+
+**In-situ papers name their units when the analyses are the paper's subject, and count them when
+they are a means to an end.** Nakanishi 2022 (metal grains by host chondrule and LA spot number)
+and Mittlefehldt 2024 (per-pallasite sample IDs and spot labels such as 059-Pa-1) name every unit.
+Method-validation papers (Liu 2024, Wu 2023, Navarro 2024) report spot counts per reference
+material.
+
+**Two practical lessons:**
+- **Flattened tables lose their pairings.** A table flattened by text extraction can keep its labels
+  and lose which row they belong to. Quote the labels; do not reconstruct the pairing.
+- **Every non-composing patch of a U-Pb TAPP must advance `TAPP_Composed_Variants.csv`.** This is
+  the second time it was missed. Batches 3–5 touch no U-Pb TAPP.
+
+**Neighbouring backlog, not touched:** LA `Sample Name` and `Sampling Unit Type` were never assessed
+for this corpus.
+

@@ -11,24 +11,29 @@ discovery.
 | `EPMA_TAPP_v68` | `v71` |
 | `EPMA_TAPP_v69` | `v71` |
 | `EPMA_TAPP_v70` | `v71` |
-| `LA-MC-ICPMS_TAPP_v78` | `v81` |
-| `LA-MC-ICPMS_TAPP_v79` | `v81` |
-| `LA-MC-ICPMS_TAPP_v80` | `v81` |
+| `LA-MC-ICPMS_TAPP_v78` | `v82` |
+| `LA-MC-ICPMS_TAPP_v79` | `v82` |
+| `LA-MC-ICPMS_TAPP_v80` | `v82` |
+| `LA-MC-ICPMS_TAPP_v81` | `v82` |
 | `LA-MC-ICPMS_UPb_TAPP_v77` | `v80` |
 | `LA-MC-ICPMS_UPb_TAPP_v78` | `v80` |
 | `LA-MC-ICPMS_UPb_TAPP_v79` | `v80` |
-| `LA-Q-ICP-MS_TAPP_v79` | `v82` |
-| `LA-Q-ICP-MS_TAPP_v80` | `v82` |
-| `LA-Q-ICP-MS_TAPP_v81` | `v82` |
-| `LA-Q-ICP-MS_UPb_TAPP_v79` | `v82` |
-| `LA-Q-ICP-MS_UPb_TAPP_v80` | `v82` |
-| `LA-Q-ICP-MS_UPb_TAPP_v81` | `v82` |
-| `LA-SF-ICP-MS_TAPP_v76` | `v79` |
-| `LA-SF-ICP-MS_TAPP_v77` | `v79` |
-| `LA-SF-ICP-MS_TAPP_v78` | `v79` |
-| `LA-SF-ICP-MS_UPb_TAPP_v77` | `v80` |
-| `LA-SF-ICP-MS_UPb_TAPP_v78` | `v80` |
-| `LA-SF-ICP-MS_UPb_TAPP_v79` | `v80` |
+| `LA-Q-ICP-MS_TAPP_v79` | `v83` |
+| `LA-Q-ICP-MS_TAPP_v80` | `v83` |
+| `LA-Q-ICP-MS_TAPP_v81` | `v83` |
+| `LA-Q-ICP-MS_TAPP_v82` | `v83` |
+| `LA-Q-ICP-MS_UPb_TAPP_v79` | `v83` |
+| `LA-Q-ICP-MS_UPb_TAPP_v80` | `v83` |
+| `LA-Q-ICP-MS_UPb_TAPP_v81` | `v83` |
+| `LA-Q-ICP-MS_UPb_TAPP_v82` | `v83` |
+| `LA-SF-ICP-MS_TAPP_v76` | `v80` |
+| `LA-SF-ICP-MS_TAPP_v77` | `v80` |
+| `LA-SF-ICP-MS_TAPP_v78` | `v80` |
+| `LA-SF-ICP-MS_TAPP_v79` | `v80` |
+| `LA-SF-ICP-MS_UPb_TAPP_v77` | `v81` |
+| `LA-SF-ICP-MS_UPb_TAPP_v78` | `v81` |
+| `LA-SF-ICP-MS_UPb_TAPP_v79` | `v81` |
+| `LA-SF-ICP-MS_UPb_TAPP_v80` | `v81` |
 | `Lab-XCT_TAPP_v39` | `v41` |
 | `Lab-XCT_TAPP_v40` | `v41` |
 | `SEM_Composition_TAPP_v64` | `v67` |
@@ -57,12 +62,12 @@ discovery.
 | `TEM_TAPP_v52` | `v54` |
 | `TEM_TAPP_v53` | `v54` |
 
-48 version(s), 96 file(s) (CSV + xlsx). Four passes touched the library today; the Solution TAPPs
-were superseded by all four.
+53 version(s), 106 file(s) (CSV + xlsx). Five passes touched the library today; several TAPPs
+were superseded by four or five of them.
 
 ## Why
 
-Four passes on the same day: three answering GitHub issues, the fourth beginning the literature pass the third made necessary.
+Five passes on the same day: three answering GitHub issues, then two batches of the literature pass the third made necessary.
 
 ### Pass 1 — `Sample Persistent Identifier` becomes analysis-only (amds-ldeo/tapp#7)
 
@@ -163,6 +168,24 @@ Two neighbouring cells look wrong and were left for a separate pass:
 - Nie & Dauphas 2019's `Sample Name` omits its six Apollo samples;
 - Barnes 2025 WUSTL's `Sample Name` names the Ti splits, not the WUSTL digest.
 
+### Pass 5 — `Sampling Unit Name` literature, batch 2: the laser-ablation family (28 cells)
+
+`../../Project Files/Scripts/phase3_sampling_unit_name_la_20260915.py`. LA-MC (1), LA-Q (7) and its
+U-Pb variant (6), LA-SF (7) and its U-Pb variant (7). Same source rule and cell grammar as pass 4.
+
+- **Tally:** 11 labelled, 17 sample name only, 0 N.
+- **U-Pb variants:** they share their literature columns with the base TAPPs and received
+  byte-identical cells.
+- **Two limits are stated in the cells:**
+  - where a flattened table hides which label belongs to which meteorite, the labels are quoted
+    without asserting a pairing;
+  - where the unit list is in a supplement not in the archived PDF, the cell says so.
+
+**Fixed by hand after the pass:** `TAPP_Composed_Variants.csv` still named the pre-pass LA-Q and
+LA-SF U-Pb versions, for the same reason as on 2026-09-11: a patch that bumps a TAPP without
+composing it does not advance that register. Both paths were set, and the LA-MC mockup was rebuilt
+from v82.
+
 **Mockups.** All three were rebuilt after each pass (EPMA v69, then v70; LA-MC v79, then v80). Pass 1
 removed one procedure-level field, so `cfg.json`'s hand-written footer counts were updated to match
 (LA-MC 124 → 123). Pass 2 changed no counts; pass 3 added only an analysis-level field, so the procedure forms kept their counts, and the pages were rebuilt against EPMA v71 and LA-MC v81.
@@ -187,6 +210,11 @@ removed one procedure-level field, so `cfg.json`'s hand-written footer counts we
 **Pass 4.**
 - **Cell-level diff:** exactly 29 cells changed, all in `Sampling Unit Name` literature columns.
 - **Rows:** no row added or removed.
+
+**Pass 5.**
+- **Cell-level diff:** exactly 28 cells changed, all in `Sampling Unit Name` literature columns.
+- **Rows:** no row added or removed.
+- **U-Pb variants:** their shared columns are identical to the base TAPPs'.
 
 **All passes.**
 - **Structure:** row counts, headers and field sets unchanged in every TAPP.

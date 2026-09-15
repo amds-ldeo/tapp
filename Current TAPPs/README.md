@@ -38,12 +38,12 @@ in that particular TAPP.
 ## Contents
 
 - `EPMA_TAPP_v71.csv`
-- `LA-MC-ICPMS_TAPP_v81.csv`
+- `LA-MC-ICPMS_TAPP_v82.csv`
 - `LA-MC-ICPMS_UPb_TAPP_v80.csv`
-- `LA-Q-ICP-MS_TAPP_v82.csv`
-- `LA-Q-ICP-MS_UPb_TAPP_v82.csv`
-- `LA-SF-ICP-MS_TAPP_v79.csv`
-- `LA-SF-ICP-MS_UPb_TAPP_v80.csv`
+- `LA-Q-ICP-MS_TAPP_v83.csv`
+- `LA-Q-ICP-MS_UPb_TAPP_v83.csv`
+- `LA-SF-ICP-MS_TAPP_v80.csv`
+- `LA-SF-ICP-MS_UPb_TAPP_v81.csv`
 - `Lab-XCT_TAPP_v41.csv`
 - `SEM_Composition_TAPP_v67.csv`
 - `SEM_FIBSEM_TAPP_v34.csv`
