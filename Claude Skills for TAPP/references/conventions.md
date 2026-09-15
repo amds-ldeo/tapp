@@ -1074,6 +1074,7 @@ key would duplicate existing machinery.
 | `A x B` | **cross-product** — A and B are independent domains; one value per combination. Ordered: read as *"for each A, one value per B."* | `standard x reported property` (`Analytical Precision`); `sampling unit x target species` (`Counting Statistics Error`) |
 | `defines: A` | the field **enumerates** the key domain rather than being keyed by it — it is the header of the child table, not a column in it | `Target Species`; `Reported Variables and Units`; `Reported Date Type` |
 | `defines: A per B` | the field enumerates domain A **and** repeats over key B — a definer whose child table carries a parent key. One key only; see 7.3.1 | `Monitored Masses` (`defines: monitored property per target species`); `Monitored Elements`; `EELS Edges` |
+| `defines: A > B` | the field enumerates domain B, **each member within a member of A** — a definer for a contained domain. The parent is **required**, where the `per` form's is nullable (7.3.1); one key on each side. Added 2026-09-15 | `Sampling Unit Name` (`defines: sample > sampling unit`) |
 | `pair: A` | keyed by an unordered pair of A | `Discordance Definition and Values`; error correlation ρ between ²⁰⁶Pb/²³⁸U and ²⁰⁷Pb/²³⁵U |
 | `A > B x C` | containment then cross-product — *"within each A, for each B, one value per C."* Added 2026-08-12 | `Counting Statistics Error` (`sample > sampling unit x reported property`): within each sample, for each analysis spot, one uncertainty per reported concentration variable |
 
@@ -1287,7 +1288,7 @@ fields legitimately hold lists — `Interfering Elements`, `EDS Detector Configu
 field repeating over their contents.
 
 *Exempt:* the Rule 8 and Rule 9 mandatory fields. `Reported Variables and Units` exists to declare the
-procedure's scope boundary and `Sampling Unit` to declare the unit a reported row corresponds to; both
+procedure's scope boundary and `Sampling Unit Name` to list the units a reported row can correspond to (with `Sampling Unit Type` declaring their kind); both
 are informative in their own right, so a TAPP with nothing keyed off them is not in error.
 
 **Together, 7.4a–c force unused abstractions out of the vocabulary.** Applying them on 2026-08-11 retired
@@ -1386,7 +1387,7 @@ that TAPP, or a valid 7.3 notation form.
 field declares `defines: K` (7.4a, 7.4b), and no field declares `defines: K` where nothing is keyed by
 K (7.4c; the Rule 8 and Rule 9 fields are exempt).
 5. In `A > B` and `A x B`, both A and B are valid keys. In `pair: A`, A is a valid key.
-6. `Reported Variables and Units` and `Sampling Unit` are present in every TAPP (Rules 8, 9).
+6. `Reported Variables and Units`, `Sampling Unit Type` and `Sampling Unit Name` are present in every TAPP (Rules 8, 9).
 `Error Correlation Between Reported Quantities` is present in every TAPP whose Phase 0 record declares
 jointly interpreted quantities, and absent elsewhere (Rule 10).
 7. **Cross-TAPP**: a field name shared across TAPPs carries the same `Keyed By` in all of them, unless
@@ -1706,7 +1707,9 @@ applies at all — a different question from conditional cardinality.
 **G2, nested sampling units — deferred.** Rule 9's `Sampling Unit` says *"Where units nest (e.g. confined
 tracks within grains), state both levels"*, and no notation expresses a definer whose domain nests within
 itself. Deferred because no TAPP in the library populates a nested sampling unit: fission track, the live
-case, has no TAPP yet. Settle it when that TAPP is built, which is when the shape will be concrete.
+case, has no TAPP yet. Settle it when that TAPP is built, which is when the shape will be concrete. **Trigger met, noted 2026-09-15:** Lab-XCT's literature cells now record two-level units six times
+(`Sub-volume > Grain`; `Region of interest > Phase` four times; `Whole sample > Phase`). The Rule 9 split
+keeps "state both levels" as free text in `Sampling Unit Type` and does not settle this; reopen it as its own decision.
 
 **`Collector Configuration` — cycling left as free text.** Its multi-dynamic configuration list repeats
 over a pass/magnet-step axis, which would be the retired `acquisition pass` key. Not reinstated: 7.4b/c
@@ -1877,34 +1880,58 @@ analysis that reports a different variable set is running a different procedure.
 
 \---
 
-### Rule 9 — "Sampling Unit" is mandatory in Group 2 of every TAPP
+### Rule 9 — `Sampling Unit Type` and `Sampling Unit Name` are mandatory in Group 2 of every TAPP
 
-Every TAPP must include a **`Sampling Unit`** field in Group 2 (Samples). No TAPP currently declares the
-physical subdivision to which one row of reported values corresponds. `Sample Name` names the sample, not
-the unit.
+Every TAPP must include both fields in Group 2 (Samples): the **kind** of unit one row of reported values
+corresponds to, declared by the procedure, and the **units themselves**, listed per sample at analysis
+time. `Sample Name` names the sample, not the unit.
 
-**Canonical definition:**
+**Canonical definitions:**
 
-* Field name: `Sampling Unit`
-* Procedure-Level Tier: Basic · Analysis-Level Tier: Basic · Data Type: Controlled list + Text
-* `Keyed By`: `defines: sampling unit`
-* Placement: Group 2, immediately after `Sample Name`
-* Mode flags: Y for all modes
-* Description: "The physical subdivision of the sample to which one row of reported values corresponds —
-the unit that is analysed and reported, as distinct from the sample as a whole. State the unit type at
-procedure level and the units actually analysed at analysis level. Where units nest (e.g. confined
-tracks within grains), state both levels."
-* Example / Allowed Content: `Whole sample | Aliquot | Grain | Spot | Analysis point | Phase | Sub-volume | Track | Region of interest` + free text for the instances analysed
+* Field name: `Sampling Unit Type`
+  * Procedure-Level Tier: Basic · Analysis-Level Tier: Read-Only · Data Type: Controlled list / Text
+  * `Keyed By`: `(none)`
+  * Placement: Group 2, where the unit field has always stood
+  * Description: "The kind of physical subdivision of the sample to which one row of reported values
+    corresponds — the unit that is analysed and reported, as distinct from the sample as a whole. Where
+    units nest (e.g. confined tracks within grains), state both levels. The units themselves are listed
+    in Sampling Unit Name."
+  * Example / Allowed Content: `Whole sample | Aliquot | Grain | Spot | Analysis point | Phase | Sub-volume | Region of interest | N/A | None`
+* Field name: `Sampling Unit Name`
+  * Procedure-Level Tier: N/A · Analysis-Level Tier: Basic · Data Type: Text (free)
+  * `Keyed By`: `defines: sample > sampling unit`
+  * Placement: Group 2, immediately after `Sampling Unit Type`
+  * Description: "The name or label of each sampling unit analysed in this session, as the laboratory
+    records it, together with the sample it belongs to — e.g. a spot number, a grain label, a map or
+    region-of-interest name, or an aliquot identifier. Where units are too numerous to name individually,
+    such as map pixels or reconstructed voxels, name the acquisition area they belong to instead."
+* Mode flags: Y for all modes, both fields
 
-**Purpose:** without it, a consumer cannot tell whether a reported value is per grain, per spot, per
-aliquot or per phase. McCammon et al. (2004) report four Fe³⁺/ΣFe values from a single run product because
-four phases coexist in it; nothing in the present structure expresses that, and a curator merging such a
-dataset would have no basis for deciding whether four rows represent four samples or one.
+**Purpose:** without the type, a consumer cannot tell whether a reported value is per grain, per spot,
+per aliquot or per phase. McCammon et al. (2004) report four Fe³⁺/ΣFe values from a single run product
+because four phases coexist in it. Without the names, every field keyed `sample > sampling unit`
+(46 field-instances across 12 fields in 2026-09) has a child table with no rows and no link to its sample.
 
-**Why C=Basic:** the procedure declares the kind of unit it is designed to analyse.
+**Why the type is C=Basic, D=Read-Only:** the procedure declares the kind of unit it is designed to
+analyse. Analysing grains instead of spots is a different procedure, the same shape as `Analytical Mode`.
 
-**Why D=Basic:** the units actually analysed — which grains, which spots, which phases — cannot be known
-until the session runs.
+**Why the names are C=N/A, D=Basic:** which grains, spots or phases were analysed cannot be known until
+the session runs, and a definer that may be left empty leaves its domain unenumerable (7.4a). Both fields
+are exempt from 7.4c: they are mandatory for their own sake, whether or not a TAPP keys anything by the
+domain.
+
+**Why `defines: sample > sampling unit` and not `defines: sampling unit per sample`:** 7.3.1 documents
+the `per` parent as nullable, and a schema following it would make a unit's sample optional. A sampling
+unit with no sample does not exist. The containment definer matches the consumers' own key and makes the
+parent required.
+
+**History — one field until 2026-09-15.** This rule originally made a single field, `Sampling Unit`,
+carry both: "State the unit type at procedure level and the units actually analysed at analysis level",
+keyed `defines: sampling unit`. One D=Basic cell cannot hold an inherited type and a fresh member list, and
+the values actually recorded were types, which cannot enumerate a domain. On 2026-08-25 the Description/
+Purpose split deleted that sentence as redundant with the tiers, which hid the problem rather than solving
+it. amds-ldeo/tapp#8 exposed it; the split into two fields, the evidence and the five decisions are in
+`Project Files/Design Notes/Proposal_Sampling_Unit_Identity_2026-09-15.md`.
 
 \---
 

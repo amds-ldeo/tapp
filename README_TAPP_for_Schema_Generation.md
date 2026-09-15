@@ -185,6 +185,7 @@ Column I is never blank on a content row.
 | `A > B` | Containment — B exists only within A | Nested array. **In use since 2026-08-12**: `sample > sampling unit` |
 | `A > B x C` | Containment then cross-product — "within each A, for each B, one value per C" | One row: `sample > sampling unit x reported property` |
 | `defines: A per B` | **The field enumerates domain A and carries a parent key into B.** This is the monitored property↔target species binding | Child array for A, with a **nullable** foreign key to B on each member |
+| `defines: A > B` | **The field enumerates domain B, each member within a member of A** — note the order follows the containment key `A > B`, the reverse of `per`. Added 2026-09-15: `Sampling Unit Name` (`defines: sample > sampling unit`) | Child array for B nested under A, with a **required** parent |
 | `pair: A` | Keyed by an unordered pair of A | Property on a pair object, e.g. `{"between": ["206Pb/238U date", "207Pb/235U date"], "value": …}` |
 
 **The keys in use library-wide, and the three retired ones you may ignore, are listed in the generated
@@ -213,10 +214,10 @@ nowhere; that is the class of error this block exists to prevent.
 
 ```
 TAPPs                        16
-content rows                 1781   (rows with a Keyed By value; group headers excluded)
-scalar, `(none)`             1204   68%
+content rows                 1797   (rows with a Keyed By value; group headers excluded)
+scalar, `(none)`             1220   68%
 keyed (arrays in a schema)   577   32%
-Column G provenance stamps   1391   78%
+Column G provenance stamps   1407   78%
 distinct Keyed By strings    19
 definer fields               10
 
@@ -236,14 +237,14 @@ retired, and absent from every TAPP (3):
   model component
 
 the complete set of Keyed By strings present, with row counts:
-  (none)                                          1204
+  (none)                                          1220
   acquisition pass                                  83
   defines: acquisition pass                          9
   defines: monitored property per target species    13
   defines: preparation step                          3
   defines: reported property                        16
   defines: sample                                   16
-  defines: sampling unit                            16
+  defines: sample > sampling unit                   16
   defines: standard                                 12
   defines: target species                           13
   monitored property                               113
@@ -270,7 +271,7 @@ definer fields, and what each enumerates:
   Monitored Masses                   defines: monitored property per target species
   Reported Variables and Units       defines: reported property
   Sample Name                        defines: sample
-  Sampling Unit                      defines: sampling unit
+  Sampling Unit Name                 defines: sample > sampling unit
   Secondary Reference Materials      defines: standard
   Target Species                     defines: target species
 ```
@@ -281,7 +282,7 @@ definer fields, and what each enumerates:
 
 - Every key used in a TAPP has **exactly one** field declaring `defines:` it.
 - A `defines: X` field exists only where some other field is keyed by X — with two exceptions,
-  `Reported Variables and Units` and `Sampling Unit`, which are mandatory in every TAPP for their own
+  `Reported Variables and Units` and `Sampling Unit Name`, which are mandatory in every TAPP for their own
   declarative purpose and may have no consumers.
 - A field name normally carries the same `Keyed By` in every TAPP, but **a few are technique-dependent
   by design** — the generated block lists them with their variants. Do not assume one global mapping of
@@ -530,12 +531,12 @@ their files in `Archive/Superseded Modules/`. `TargetSelection` and `Analyte` ar
 **`Group1` no longer exists.** It was retired on 2026-08-14 into **`Core`**, which holds its 18
 procedure-identification fields plus the 10 fields present in all 16 TAPPs that previously belonged to
 no module — four in Group 2 (`Sample Name`, `Sample Persistent Identifier`, `Target Material`,
-`Sampling Unit`), two in Group 3 (`Acquisition Software`, `Data Processing Software(s)`), two in
+and the field now split into `Sampling Unit Type` and `Sampling Unit Name` — see §10), two in Group 3 (`Acquisition Software`, `Data Processing Software(s)`), two in
 Group 4 (`Analytical Mode`, `Reported Variables and Units`), one in Group 5 (`Constants and Reference
 Values Used`) and one in Group 6 (`Additional Notes`). If you had a `Group1` `$def`, rename it and add
-those ten. The retired module files are in `Archive/Superseded Modules/`. `Core` has gained three
-fields since: `Instrument Manufacturer` and `Instrument Model` (2026-08-14) and `Sample Preparation
-Method` (2026-08-27). The table above gives its current size.
+those ten. The retired module files are in `Archive/Superseded Modules/`. `Core` has gained four
+fields since: `Instrument Manufacturer` and `Instrument Model` (2026-08-14), `Sample Preparation
+Method` (2026-08-27) and `Sampling Unit Name` (2026-09-15). The table above gives its current size.
 
 `Core` is **unconditional and all-or-nothing**: every one of its fields is present in every one of
 the 16 TAPPs. Its six blocks exist only because the fields insert into six different groups — they are
@@ -596,11 +597,12 @@ techniques). What changed is that this is now expressed by which modules they co
 > senses — the type-level *what the procedure is designed for* of `Target Material` and
 > `Target Feature(s)`, which are unchanged, and this field's instance-level *which portion of a
 > given sample is analysed*. The new head noun names the `sampling unit` domain the field selects
-> from. `Sampling Unit` itself, and every `sampling unit` key, are untouched.
+> from. The unit field itself (today `Sampling Unit Type` and `Sampling Unit Name`, split on 2026-09-15) and
+> every `sampling unit` key were untouched by that rename.
 
 ---
 
-## 10. Seven universal fields worth special handling
+## 10. Eight universal fields worth special handling
 
 | Field | Group | Why it matters |
 |---|---|---|
@@ -608,7 +610,8 @@ techniques). What changed is that this is now expressed by which modules they co
 | `Sample Name` | 2 | `defines: sample` — enumerates the samples covered by the session, and is the definer for the `sample` key. C=N/A, D=Basic in every TAPP. Present in all 16. |
 | `Sample Persistent Identifier` | 2 | One IGSN (or equivalent) **per sample**, keyed `sample`. C=N/A, D=Advanced in every TAPP: analysis-only, like `Sample Name` (C was Advanced until 2026-09-15). Note that `sample` and `standard` overlap: a secondary reference material is run through the same calibration as an unknown, so it legitimately appears in both domains. **Do not model them as disjoint.** Present in all 16. |
 | `Reported Variables and Units` | 4 | Enumerates the reported-property domain **and declares the procedure's scope boundary** — what this procedure reports, and therefore where it stops. A derived quantity inside that list is in scope; anything beyond it belongs to a separate, coupled procedure. Present in all 16. |
-| `Sampling Unit` | 2 | Declares the physical subdivision one row of reported values corresponds to (grain, spot, aliquot, phase). Without it a consumer cannot tell whether a reported value is per grain or per sample. Present in all 16. |
+| `Sampling Unit Type` | 2 | Declares the **kind** of physical subdivision one row of reported values corresponds to (grain, spot, aliquot, phase). Without it a consumer cannot tell whether a reported value is per grain or per sample. C=Basic, D=Read-Only, keyed `(none)`: the procedure declares it. Renamed and re-keyed 2026-09-15 (amds-ldeo/tapp#8). Present in all 16. |
+| `Sampling Unit Name` | 2 | `defines: sample > sampling unit` — **lists the units analysed in the session, each within its sample**, and is the definer for the `sampling unit` key: every field keyed `sample > sampling unit` takes its rows from here. **The parent sample is required** — unlike the nullable parent of `defines: A per B`. C=N/A, D=Basic. Where units are too numerous to name individually (map pixels, voxels), the acquisition area is named. Added 2026-09-15. Present in all 16. |
 | `Constants and Reference Values Used` | 5, always last in the group | Physical constants and reference values used in data reduction, with sources — decay constants, reference isotope ratios. Needed to reinterpret a reported value against a later revision of a constant. Present in all 16. |
 | `Additional Notes` | 6, **always the last field of the whole TAPP** | Free-text catch-all whose scope is the entire document, not Group 6 — its position is what says so (Rule 11). Present in all 16. In a schema it is one optional string on the root object, not a Group 6 property. |
 

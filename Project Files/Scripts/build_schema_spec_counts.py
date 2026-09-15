@@ -18,7 +18,9 @@ stay true across drift -- say "a third of fields", not "33%", and let the block 
 import csv, glob, os, re, sys
 from collections import Counter, defaultdict
 
-ROOT = "/Users/ruolin/Documents/Astromat/TAPPs"
+# Resolved from this file, never hardcoded: a hardcoded root made a sandbox copy check (and could
+# have written) the real library — found 2026-09-15. Same fix as build_form.py and check_field_ownership.py.
+ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 SPEC = os.path.join(ROOT, "README_TAPP_for_Schema_Generation.md")
 BEGIN = "<!-- BEGIN GENERATED library-counts -->"
 END = "<!-- END GENERATED library-counts -->"

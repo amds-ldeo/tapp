@@ -67,7 +67,7 @@ const DEFINER_OF = {
   "reported property":"defines: reported property",
   "channel":"defines: channel per target species",
   "standard":"defines: standard",
-  "sampling unit":"defines: sampling unit",
+  "sampling unit":"defines: sample > sampling unit",
   "acquisition pass":"defines: acquisition pass"
 };
 const allFields = TAPP.groups.flatMap(g=>g.fields);
@@ -161,7 +161,7 @@ function renderField(f){
   const R=document.createElement("div"); R.className="f-r";
 
   if (isDefiner){
-    const k=f.key.replace(/^defines:\s*/,"").split(" per ")[0];
+    const k=f.key.replace(/^defines:\s*/,"").split(" per ")[0].split(" > ").pop().trim();
     const dom=DOMAINS[k]||{members:parseMembers(f.val),tainted:false};
     R.append(ctrl(f));
     const box=document.createElement("div"); box.className="kw";

@@ -8,42 +8,58 @@ discovery.
 
 | Superseded | Successor |
 |---|---|
-| `EPMA_TAPP_v68` | `v70` |
-| `EPMA_TAPP_v69` | `v70` |
-| `LA-MC-ICPMS_TAPP_v78` | `v80` |
-| `LA-MC-ICPMS_TAPP_v79` | `v80` |
-| `LA-MC-ICPMS_UPb_TAPP_v77` | `v79` |
-| `LA-MC-ICPMS_UPb_TAPP_v78` | `v79` |
-| `LA-Q-ICP-MS_TAPP_v79` | `v81` |
-| `LA-Q-ICP-MS_TAPP_v80` | `v81` |
-| `LA-Q-ICP-MS_UPb_TAPP_v79` | `v81` |
-| `LA-Q-ICP-MS_UPb_TAPP_v80` | `v81` |
-| `LA-SF-ICP-MS_TAPP_v76` | `v78` |
-| `LA-SF-ICP-MS_TAPP_v77` | `v78` |
-| `LA-SF-ICP-MS_UPb_TAPP_v77` | `v79` |
-| `LA-SF-ICP-MS_UPb_TAPP_v78` | `v79` |
-| `Lab-XCT_TAPP_v39` | `v40` |
-| `SEM_Composition_TAPP_v64` | `v66` |
-| `SEM_Composition_TAPP_v65` | `v66` |
-| `SEM_FIBSEM_TAPP_v32` | `v33` |
-| `SEM_Imaging_TAPP_v31` | `v32` |
-| `SEM_TAPP_v65` | `v67` |
-| `SEM_TAPP_v66` | `v67` |
-| `Solution_MC-ICP-MS_TAPP_v79` | `v81` |
-| `Solution_MC-ICP-MS_TAPP_v80` | `v81` |
-| `Solution_Q-ICP-MS_TAPP_v82` | `v84` |
-| `Solution_Q-ICP-MS_TAPP_v83` | `v84` |
-| `Solution_SF-ICP-MS_TAPP_v78` | `v80` |
-| `Solution_SF-ICP-MS_TAPP_v79` | `v80` |
-| `TEM_TAPP_v51` | `v53` |
-| `TEM_TAPP_v52` | `v53` |
+| `EPMA_TAPP_v68` | `v71` |
+| `EPMA_TAPP_v69` | `v71` |
+| `EPMA_TAPP_v70` | `v71` |
+| `LA-MC-ICPMS_TAPP_v78` | `v81` |
+| `LA-MC-ICPMS_TAPP_v79` | `v81` |
+| `LA-MC-ICPMS_TAPP_v80` | `v81` |
+| `LA-MC-ICPMS_UPb_TAPP_v77` | `v80` |
+| `LA-MC-ICPMS_UPb_TAPP_v78` | `v80` |
+| `LA-MC-ICPMS_UPb_TAPP_v79` | `v80` |
+| `LA-Q-ICP-MS_TAPP_v79` | `v82` |
+| `LA-Q-ICP-MS_TAPP_v80` | `v82` |
+| `LA-Q-ICP-MS_TAPP_v81` | `v82` |
+| `LA-Q-ICP-MS_UPb_TAPP_v79` | `v82` |
+| `LA-Q-ICP-MS_UPb_TAPP_v80` | `v82` |
+| `LA-Q-ICP-MS_UPb_TAPP_v81` | `v82` |
+| `LA-SF-ICP-MS_TAPP_v76` | `v79` |
+| `LA-SF-ICP-MS_TAPP_v77` | `v79` |
+| `LA-SF-ICP-MS_TAPP_v78` | `v79` |
+| `LA-SF-ICP-MS_UPb_TAPP_v77` | `v80` |
+| `LA-SF-ICP-MS_UPb_TAPP_v78` | `v80` |
+| `LA-SF-ICP-MS_UPb_TAPP_v79` | `v80` |
+| `Lab-XCT_TAPP_v39` | `v41` |
+| `Lab-XCT_TAPP_v40` | `v41` |
+| `SEM_Composition_TAPP_v64` | `v67` |
+| `SEM_Composition_TAPP_v65` | `v67` |
+| `SEM_Composition_TAPP_v66` | `v67` |
+| `SEM_FIBSEM_TAPP_v32` | `v34` |
+| `SEM_FIBSEM_TAPP_v33` | `v34` |
+| `SEM_Imaging_TAPP_v31` | `v33` |
+| `SEM_Imaging_TAPP_v32` | `v33` |
+| `SEM_TAPP_v65` | `v68` |
+| `SEM_TAPP_v66` | `v68` |
+| `SEM_TAPP_v67` | `v68` |
+| `Solution_MC-ICP-MS_TAPP_v79` | `v82` |
+| `Solution_MC-ICP-MS_TAPP_v80` | `v82` |
+| `Solution_MC-ICP-MS_TAPP_v81` | `v82` |
+| `Solution_Q-ICP-MS_TAPP_v82` | `v85` |
+| `Solution_Q-ICP-MS_TAPP_v83` | `v85` |
+| `Solution_Q-ICP-MS_TAPP_v84` | `v85` |
+| `Solution_SF-ICP-MS_TAPP_v78` | `v81` |
+| `Solution_SF-ICP-MS_TAPP_v79` | `v81` |
+| `Solution_SF-ICP-MS_TAPP_v80` | `v81` |
+| `TEM_TAPP_v51` | `v54` |
+| `TEM_TAPP_v52` | `v54` |
+| `TEM_TAPP_v53` | `v54` |
 
-29 version(s), 58 file(s) (CSV + xlsx). Thirteen TAPPs appear twice because both passes touched
-them; Lab-XCT, SEM_FIBSEM and SEM_Imaging carry no Module_Aggregation fields and appear once.
+45 version(s), 90 file(s) (CSV + xlsx). Three passes touched the library today: every TAPP was superseded
+by passes 1 and 3, and the 13 Module_Aggregation consumers by pass 2 as well.
 
 ## Why
 
-Two passes on the same day, each answering one GitHub issue.
+Three passes on the same day, each answering one GitHub issue.
 
 ### Pass 1 — `Sample Persistent Identifier` becomes analysis-only (amds-ldeo/tapp#7)
 
@@ -95,9 +111,41 @@ one level, and "analysis" names three things in this library.
   filtering. López-García 2026 and Makishima 2011 describe excluding a whole species or channel.
   They are recorded here for a follow-up pass, not moved.
 
+### Pass 3 — `Sampling Unit` split into a type and a named list of units (amds-ldeo/tapp#8)
+
+`../../Project Files/Scripts/split_sampling_unit_20260915.py`. Module_Core v7 → v8; all 16 TAPPs.
+
+**The defect.** `Sampling Unit` was keyed `defines: sampling unit`, but its values are types (Grain |
+Spot | Phase …), and a type cannot list a domain's members (7.4a). The 46 field-instances keyed
+`sample > sampling unit` therefore had child tables with no rows to attach to, and nothing tied a unit
+to its sample.
+
+**The change**, per the proposal's five decisions (all taken as recommended):
+- **`Sampling Unit Type`** (renamed): C=Basic, **D=Read-Only**, keyed **`(none)`**. Its type list and
+  literature cells are unchanged.
+- **`Sampling Unit Name`** (new, directly after): C=N/A, D=Basic, Text (free), keyed
+  **`defines: sample > sampling unit`**. That is a new containment-definer form whose parent is
+  required, unlike `per`'s nullable one. Its literature cells start blank.
+
+**Tooling changed in the same pass:**
+- **`validate_tapp.py`**
+  - parses `defines: A > B`;
+  - requires both Rule 9 fields;
+  - registers the old name as retired, with a guard for the live names it heads.
+- **`build_schema_spec_counts.py`** now resolves its root from its own location. A hardcoded root made
+  the sandbox check the real library; nothing was written.
+- **`_body.html`** (mockup page script) resolves the new definer key.
+
+**Documents:** Rule 9 rewritten; the key-notation tables in `conventions.md` and the schema README
+gained the new form; schema README §4, §9 and §10 reworded (§10 is now eight universal fields); the
+deferred nested-units note (G2) records that its trigger has been met.
+
+Design, evidence, decisions and the sandbox result:
+`../../Project Files/Design Notes/Proposal_Sampling_Unit_Identity_2026-09-15.md`.
+
 **Mockups.** All three were rebuilt after each pass (EPMA v69, then v70; LA-MC v79, then v80). Pass 1
 removed one procedure-level field, so `cfg.json`'s hand-written footer counts were updated to match
-(LA-MC 124 → 123). Pass 2 changed no counts.
+(LA-MC 124 → 123). Pass 2 changed no counts; pass 3 added only an analysis-level field, so the procedure forms kept their counts, and the pages were rebuilt against EPMA v71 and LA-MC v81.
 
 ## Verification
 
@@ -109,7 +157,14 @@ removed one procedure-level field, so `cfg.json`'s hand-written footer counts we
 - **Cell-level diff:** 52 cells, Column B and Last Update of the two Aggregation fields, once per
   consumer.
 
-**Both passes.**
+**Pass 3.**
+- **Cell-level diff:** in every TAPP, exactly +1 row (`Sampling Unit Name`, directly after the type,
+  literature cells blank). The renamed row changed in A, B, D, H and I only. Every other row is
+  byte-identical, including all 46 consumers.
+- **Rule 7.4a/b/c** pass with the new definer.
+- **The same change was first run on a sandbox copy,** with identical results.
+
+**All passes.**
 - **Structure:** row counts, headers and field sets unchanged in every TAPP.
 - **Composition:** `recompose_all_20260812.py --check` reports 16 MATCH, 0 DIFFERS.
 - **Key audit:** `audit_keys_vs_literature.py` regenerated; lines changed only in file version and

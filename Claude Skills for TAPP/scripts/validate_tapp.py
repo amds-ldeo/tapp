@@ -523,7 +523,10 @@ COLE_NAME_VARIANT_TRIAGED = {
 # declared per TAPP in Phase 0, so its presence is not machine-enforced; when it is
 # present its Keyed By is checked like any other field.
 RULE8_FIELD = "Reported Variables and Units"
-RULE9_FIELD = "Sampling Unit"
+RULE9_FIELD = "Sampling Unit Type"
+# Rule 9 pair since 2026-09-15 (amds-ldeo/tapp#8): the TYPE is declared by the procedure, the
+# units themselves are listed per sample at analysis time.
+RULE9_NAME_FIELD = "Sampling Unit Name"
 RULE11_FIELD = "Additional Notes"   # last field of the whole TAPP (Rule 11)
 
 # Rule 12 — the shareable mirror of the current TAPPs. Flat folder at the library root holding the
@@ -552,6 +555,13 @@ CURRENT_DIR = "Current TAPPs"
 # declining to populate `keyed_by_overridable` speculatively.
 DEFINES_PER_RE = re.compile(r"^defines:\s*(.+?)\s+per\s+(.+)$")
 
+# Rule 7.3 `defines: <parent> > <domain>` — a definer whose domain exists only within a parent
+# domain (added 2026-09-15 for `Sampling Unit Name`, amds-ldeo/tapp#8). Unlike `per`, whose parent
+# is NULLABLE (7.3.1), containment makes the parent REQUIRED: a sampling unit with no sample does
+# not exist. The domain on the right is defined; the parent on the left is used, so 7.4a still
+# requires it a definer of its own. Single key on each side, as for `per`.
+DEFINES_IN_RE = re.compile(r"^defines:\s*(.+?)\s+>\s+(.+)$")
+
 # Rule 7.4a — a definer names its members, so it is text-typed. Any scalar numeric type
 # (`Integer`, `Numeric (nA)`, `Numeric + unit`) is an error. Matched on the type's head
 # word so a new unit spelling does not slip past.
@@ -561,7 +571,7 @@ DEFINER_SCALAR_TYPE_RE = re.compile(r"^(Integer|Numeric|Decimal|Float|Date|Boole
 def parse_keyed_by(v):
     """Return (kind, [defined domains], [keys the field repeats over]).
 
-    kind in {none, defines, defines_per, pair, plain}. The two lists are kept apart
+    kind in {none, defines, defines_per, defines_in, pair, plain}. The two lists are kept apart
     because 7.4a asks different questions of each: a defined domain must have exactly
     one definer, a used key must have one.
     """
@@ -573,6 +583,11 @@ def parse_keyed_by(v):
         domain = [x.strip() for x in KEY_SPLIT_RE.split(m.group(1)) if x.strip()]
         key = [x.strip() for x in KEY_SPLIT_RE.split(m.group(2)) if x.strip()]
         return "defines_per", domain, key
+    m = DEFINES_IN_RE.match(v)
+    if m:
+        parent = [x.strip() for x in KEY_SPLIT_RE.split(m.group(1)) if x.strip()]
+        domain = [x.strip() for x in KEY_SPLIT_RE.split(m.group(2)) if x.strip()]
+        return "defines_in", domain, parent
     m = re.match(r"^(defines|pair):\s*(.+)$", v)
     if m:
         parts = [x.strip() for x in KEY_SPLIT_RE.split(m.group(2)) if x.strip()]
@@ -1153,7 +1168,7 @@ def check_keyed_by(t: Tapp, out):
         # 7.3 restricts the definer-with-a-key form to one domain and one key. A
         # compound on either side is refused rather than guessed at, because the token
         # order of the compound form is the open question the rule declines to settle.
-        if kind == "defines_per" and (len(domains) > 1 or len(keys) > 1):
+        if kind in ("defines_per", "defines_in") and (len(domains) > 1 or len(keys) > 1):
             add("ERROR", n, item, "rule7-compound-definer-key",
                 f"'{raw}' uses a compound key in the 'defines: <domain> per <key>' form. "
                 f"Rule 7.3 restricts both sides to a single key; the compound form is "
@@ -1199,17 +1214,18 @@ def check_keyed_by(t: Tapp, out):
     # by X declares a domain no field repeats over, which is a list, not a key.
     for k, fields in sorted(defined.items()):
         # Rules 8 and 9 make these mandatory for their own sake — Reported Variables and
-        # Units declares the procedure's scope boundary, Sampling Unit declares the unit a
-        # reported row corresponds to. Their definer role is secondary, so a TAPP with no
+        # Units declares the procedure's scope boundary, Sampling Unit Name lists the units a
+        # reported row can correspond to (Sampling Unit Type, its pair, is not a definer). Their definer role is secondary, so a TAPP with no
         # field keyed off them is not in error.
-        if k not in used and not set(fields) & {RULE8_FIELD, RULE9_FIELD}:
+        if k not in used and not set(fields) & {RULE8_FIELD, RULE9_FIELD, RULE9_NAME_FIELD}:
             add("WARN", 1, fields[0], "rule7-unused-definer",
                 f"'{fields[0]}' declares 'defines: {k}' but no field in this TAPP is "
                 f"keyed by '{k}'. A field that merely holds a list is not a definer — "
                 f"use '(none)'.")
 
     # Rules 8, 9 and 11 — mandatory fields.
-    for fld, rule in ((RULE8_FIELD, "rule8"), (RULE9_FIELD, "rule9"), (RULE11_FIELD, "rule11")):
+    for fld, rule in ((RULE8_FIELD, "rule8"), (RULE9_FIELD, "rule9"), (RULE9_NAME_FIELD, "rule9"),
+                      (RULE11_FIELD, "rule11")):
         if fld not in names:
             add("ERROR", 1, fld, rule, f"'{fld}' is mandatory in every TAPP.")
 
@@ -1542,7 +1558,17 @@ HISTORICAL_DIRS = {
         "rename — so naming the retired term is the content, not an oversight. They are not "
         "library documentation and nothing reads them; the live copies live outside the repo",
 }
+# A retired name that is the head of LIVE field names needs those excluded, or the substring test
+# flags every document naming them: `Sampling Unit` heads three live fields and a module title.
+RETIRED_FIELD_LONGER_NAMES = {
+    "Sampling Unit": ("Type", "Name", "Selection"),
+}
+
 RETIRED_FIELDS = {
+    "Sampling Unit":                  "split 2026-09-15 into Sampling Unit Type (the kind of unit, keyed "
+                                       "(none)) and Sampling Unit Name (defines: sample > sampling unit), "
+                                       "amds-ldeo/tapp#8: the old field was keyed as the definer of a "
+                                       "domain its values (types) could not list",
     "Analyte":                        "renamed 2026-09-01 -> Target Species, with the Rule 7 key "
                                        "`analyte` -> `target species` in the same pass; 'analyte' reads "
                                        "as the physical thing put into the instrument, not the chemical "
@@ -1805,7 +1831,9 @@ def check_library_freshness(root, out):
                 for fld, why in RETIRED_FIELDS.items():
                     if exempt is not None and (isinstance(exempt, str) or fld in exempt):
                         continue
-                    if re.search(r"(?<![A-Za-z])" + re.escape(fld) + r"(?![A-Za-z])", text):
+                    guard = RETIRED_FIELD_LONGER_NAMES.get(fld, ())
+                    tail = "".join(r"(?! " + re.escape(g) + ")" for g in guard)
+                    if re.search(r"(?<![A-Za-z])" + re.escape(fld) + r"(?![A-Za-z])" + tail, text):
                         add("WARN", rel, "doc-retired-field",
                             f"names the field '{fld}' — {why}. Update the text, or add the file "
                             f"to HISTORICAL_DOCS if it is a dated record.")

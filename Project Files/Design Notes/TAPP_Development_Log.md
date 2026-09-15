@@ -3628,3 +3628,29 @@ result-based selection here.
 - **Four literature cells** now read as misfiled under the sharper definition. They are listed in
   `Superseded TAPPs/2026-09-15/README.md`.
 
+## 2026-09-15 | MODULE | `Sampling Unit` split into `Sampling Unit Type` and `Sampling Unit Name` (amds-ldeo/tapp#8)
+
+Module_Core v7 → v8; all 16 TAPPs; Rule 9 rewritten. Proposal, evidence, five decisions and sandbox
+result: `Proposal_Sampling_Unit_Identity_2026-09-15.md`.
+
+**The defect had stood since `Sampling Unit` became a definer.** It was keyed `defines: sampling unit`
+while holding types, so the 46 field-instances keyed `sample > sampling unit` had child tables with no
+rows. Rule 9 had meant one field to carry the type (procedure) and the units (analysis). One D=Basic
+cell cannot hold both. The 2026-08-25 Description/Purpose split deleted the sentence that said so, as
+"redundant with the tiers", which hid the problem instead of solving it.
+
+**Worth keeping:**
+- **A deletion justified by "the tiers already say it" needs the tiers checked.** C=Basic + D=Basic
+  describes one value inherited-then-replaced, not two values.
+- **The containment definer.** `defines: A > B` is the library's first definer whose parent is
+  *required*. `per` stays nullable. They are different contracts, and a schema generator must not
+  conflate them.
+- **Build the sandbox before the change, and grep its scripts for hardcoded roots.**
+  `build_schema_spec_counts.py` silently checked the real library from the copy and reported "up to
+  date". Every other script resolved its root from its own path.
+- **A retired name that heads live names needs a guard.** Without one, the retired-field lint flags
+  every document mentioning `Sampling Unit Selection Criteria`.
+
+**Trigger met, not acted on:** G2 (nested sampling units). Lab-XCT's cells show two-level units six
+times.
+
