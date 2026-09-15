@@ -377,7 +377,7 @@
       ]
     },
     {
-      "tapp": "TEM/TEM_TAPP_v54.csv",
+      "tapp": "TEM/TEM_TAPP_v55.csv",
       "modules": [
         {
           "name": "Core",
@@ -402,7 +402,7 @@
       ]
     },
     {
-      "tapp": "XCT/Lab-XCT_TAPP_v41.csv",
+      "tapp": "XCT/Lab-XCT_TAPP_v42.csv",
       "modules": [
         {
           "name": "Core",

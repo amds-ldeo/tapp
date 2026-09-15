@@ -44,7 +44,7 @@ in that particular TAPP.
 - `LA-Q-ICP-MS_UPb_TAPP_v83.csv`
 - `LA-SF-ICP-MS_TAPP_v80.csv`
 - `LA-SF-ICP-MS_UPb_TAPP_v81.csv`
-- `Lab-XCT_TAPP_v41.csv`
+- `Lab-XCT_TAPP_v42.csv`
 - `SEM_Composition_TAPP_v68.csv`
 - `SEM_FIBSEM_TAPP_v35.csv`
 - `SEM_Imaging_TAPP_v34.csv`
@@ -52,4 +52,4 @@ in that particular TAPP.
 - `Solution_MC-ICP-MS_TAPP_v83.csv`
 - `Solution_Q-ICP-MS_TAPP_v86.csv`
 - `Solution_SF-ICP-MS_TAPP_v82.csv`
-- `TEM_TAPP_v54.csv`
+- `TEM_TAPP_v55.csv`

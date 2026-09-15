@@ -35,8 +35,9 @@ discovery.
 | `LA-SF-ICP-MS_UPb_TAPP_v78` | `v81` |
 | `LA-SF-ICP-MS_UPb_TAPP_v79` | `v81` |
 | `LA-SF-ICP-MS_UPb_TAPP_v80` | `v81` |
-| `Lab-XCT_TAPP_v39` | `v41` |
-| `Lab-XCT_TAPP_v40` | `v41` |
+| `Lab-XCT_TAPP_v39` | `v42` |
+| `Lab-XCT_TAPP_v40` | `v42` |
+| `Lab-XCT_TAPP_v41` | `v42` |
 | `SEM_Composition_TAPP_v64` | `v68` |
 | `SEM_Composition_TAPP_v65` | `v68` |
 | `SEM_Composition_TAPP_v66` | `v68` |
@@ -63,16 +64,17 @@ discovery.
 | `Solution_SF-ICP-MS_TAPP_v79` | `v82` |
 | `Solution_SF-ICP-MS_TAPP_v80` | `v82` |
 | `Solution_SF-ICP-MS_TAPP_v81` | `v82` |
-| `TEM_TAPP_v51` | `v54` |
-| `TEM_TAPP_v52` | `v54` |
-| `TEM_TAPP_v53` | `v54` |
+| `TEM_TAPP_v51` | `v55` |
+| `TEM_TAPP_v52` | `v55` |
+| `TEM_TAPP_v53` | `v55` |
+| `TEM_TAPP_v54` | `v55` |
 
-58 version(s), 116 file(s) (CSV + xlsx). Seven passes touched the library today; several TAPPs
+60 version(s), 120 file(s) (CSV + xlsx). Eight passes touched the library today; several TAPPs
 were superseded by four or five of them.
 
 ## Why
 
-Seven passes on the same day: three answering GitHub issues, then four batches of the literature pass the third made necessary.
+Eight passes on the same day: three answering GitHub issues, then five batches of the literature pass the third made necessary.
 
 ### Pass 1 — `Sample Persistent Identifier` becomes analysis-only (amds-ldeo/tapp#7)
 
@@ -220,6 +222,22 @@ identical headers, so one value per procedure fills all four TAPPs.
   - **Absent procedures are N.** Barnes 2025's Quanta/Helios BSE and two FIB columns describe
     procedures the paper does not contain, as each column's `Additional Notes` already recorded.
 
+### Pass 8 — `Sampling Unit Name` literature, batch 5: TEM and Lab-XCT (35 cells)
+
+`../../Project Files/Scripts/phase3_sampling_unit_name_tem_xct_20260915.py`. TEM v54 → v55 (21 cells),
+Lab-XCT v41 → v42 (14 cells). This completes the pass: all 177 blank cells across the 16 TAPPs are filled.
+
+- **Tally:** TEM 14 labelled, 1 sample name only, 6 N; Lab-XCT 7 labelled, 7 sample name only, 0 N.
+- **TEM.** The unit is the electron-transparent specimen. Where a paper labels grains or regions inside
+  a section (Seifert 2026 "Ap. #1"/"Ap. #2"; Cymes 2023 "1pyx"/"2pyx"; Singerling 2025 grains 4, 11,
+  22, 27), the cell names both levels.
+- **The N cells.** Zega 2025's four laboratory passages name no specimen, and its figure captions
+  carry FIB-section OREX numbers without saying which laboratory analysed them — the same reading as
+  the SEM batch. Chaves 2023 identifies its FIB sections only by irradiation condition. Xing 2023 is a
+  review with no original analyses.
+- **Lab-XCT.** The unit is the scanned volume. Stitched cores (73001, 73002) and the ANGSA particles
+  are counted, not labelled, so those cells are sample name only.
+
 **Mockups.** All three were rebuilt after each pass (EPMA v69, then v70; LA-MC v79, then v80). Pass 1
 removed one procedure-level field, so `cfg.json`'s hand-written footer counts were updated to match
 (LA-MC 124 → 123). Pass 2 changed no counts; pass 3 added only an analysis-level field, so the procedure forms kept their counts, and the pages were rebuilt against EPMA v71 and LA-MC v81.
@@ -261,6 +279,11 @@ removed one procedure-level field, so `cfg.json`'s hand-written footer counts we
 - **Rows:** no row added or removed.
 - **Shared columns:** every SEM_Composition, SEM_FIBSEM and SEM_Imaging column holds the identical
   SEM cell.
+
+**Pass 8.**
+- **Cell-level diff:** exactly 35 cells changed across two TAPPs (TEM 21, Lab-XCT 14), all in
+  `Sampling Unit Name` literature columns; no blank literature cell remains in that row library-wide.
+- **Rows:** no row added or removed. Neither TAPP is in the mockups or the composed-variants register.
 
 **All passes.**
 - **Structure:** row counts, headers and field sets unchanged in every TAPP.

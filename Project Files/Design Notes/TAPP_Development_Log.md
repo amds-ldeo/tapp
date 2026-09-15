@@ -3713,3 +3713,24 @@ figures, but are never attributed. A Name cell can only record what a procedure'
 **A key-matching trap, caught before it bit:** "BSE Imaging" contains "SE Imaging". Column keys that
 select by substring must anchor on the separator ("| SE Imaging").
 
+
+## 2026-09-15 | PHASE 3 | `Sampling Unit Name`, batch 5 of 5: TEM and Lab-XCT
+
+35 cells: TEM 14 labelled, 1 sample name only, 6 N; Lab-XCT 7 labelled, 7 sample name only.
+**The pass is complete: 177 of 177 cells, 74 labelled, 69 sample name only, 34 N.**
+
+**TEM names its specimens more often than any other family.** A FIB section is a made object with
+a single purpose, so papers label it (Matsumoto 2021 "11_5A_1"; Dobrica 2022 UH-001 to UH-006;
+Seifert 2026 OREX-803173-100) and often the grains inside it too ("1pyx"/"2pyx", "Ap. #1"/"Ap. #2").
+The N cells follow the SEM batch's structural reason: Zega 2025's four TEM laboratories name no
+specimen in their own passages. Chaves 2023 identifies sections only by irradiation condition, and
+Xing 2023 is a review.
+
+**XCT counts, rather than names, when a scan is a survey.** The ANGSA work scans cores as six or
+nine stitched volumes and 352 particles, all counted rather than labelled. Studies built on a
+handful of scans (Genge 2025 "A0180-A"/"A0180-B"; Richard 2019 Samples A–I and "fluid inclusion #3")
+label every one.
+
+**Across the whole pass, N tracks multi-laboratory reporting, not technique.** 30 of the 34 N cells
+come from Zega 2025, Barnes 2025 or McCoy 2025: consortium papers that report each lab's settings
+without saying which particle each lab handled.
