@@ -3599,3 +3599,32 @@ note, and a root-level copy of `UPSTREAM_RESPONSE_2026-08-17.md` identical to th
 `Project Files/Reports/`. **Compare a reformatting commit against its own parent, not against HEAD**,
 or a stale base reads as a regression.
 
+## 2026-09-15 | MODULE | Module_Aggregation names the level it aggregates (amds-ldeo/tapp#4)
+
+Module_Aggregation v3 → v4; 13 consumers. Two descriptions changed; nothing else did (52 cells:
+Column B and Last Update).
+
+**The proposal changed on contact with the evidence.** The plan was to say "replicate", tying the
+field to `Number of Replicates`. Reading every literature cell of the field put the contributing units
+at three levels: replicates, spots or grains within a sample, and independent aliquots or digestions.
+Stephen's own supporting example, the U-Pb overlay's "30 grains analysed", is the grain case, not the
+replicate case. The description now says "individual result", one acquisition's own value of the
+reported quantity.
+
+**The old boundary was drawn on the wrong axis.** "Points inside a single analysis" against "whole
+analyses" is a split by unit. `Spike / Outlier Filtering Approach` already records whole spots dropped
+for inclusion signals, so the real split is by basis: signal-based discards during reduction there,
+result-based selection here.
+
+**Worth keeping:**
+- **A supporting example can prove the other reading.** Before adopting a term an issue proposes,
+  check its evidence against the term.
+- **Pointer text needs a field in every consumer.** A module description that points at a field must
+  point at one present in every consumer. Four of these 13 have no cycle or scan fields, so the text
+  names the things, not the fields.
+
+**Flagged, not decided:**
+- **The field's key.** It stays `(none)`, although its outcome counts vary per aggregate.
+- **Four literature cells** now read as misfiled under the sharper definition. They are listed in
+  `Superseded TAPPs/2026-09-15/README.md`.
+
