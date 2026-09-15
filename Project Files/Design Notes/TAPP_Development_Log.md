@@ -3688,3 +3688,16 @@ material.
 **Neighbouring backlog, not touched:** LA `Sample Name` and `Sampling Unit Type` were never assessed
 for this corpus.
 
+## 2026-09-15 | PHASE 3 | `Sampling Unit Name`, batch 3 of 5: EPMA
+
+15 cells: 11 labelled (3 at section level only), 2 sample name only, 2 N.
+
+**EPMA papers label containers, not points.** Sections (Tissint UT1–UT3, Tata-1-C1 …), splits
+(OREX-800045-103), particles (P1, P2) and fragments (OC002 LAB24-2 fragment 1) are named. Points are
+counted per phase or left to a supplement. The one paper that numbers grains within particles,
+Seifert 2026 ("Ap. #1 … #5"), is also the one whose analysis *is* the grains.
+
+**Do not borrow identifiers across methods in the same paper.** McCoy 2025 gives OREX numbers for
+its figure images, but its microprobe passages name no specimen, so both cells are N. Filling them
+from the figure captions would attach the SEM images' identities to the microprobe analyses.
+

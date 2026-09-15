@@ -8,9 +8,10 @@ discovery.
 
 | Superseded | Successor |
 |---|---|
-| `EPMA_TAPP_v68` | `v71` |
-| `EPMA_TAPP_v69` | `v71` |
-| `EPMA_TAPP_v70` | `v71` |
+| `EPMA_TAPP_v68` | `v72` |
+| `EPMA_TAPP_v69` | `v72` |
+| `EPMA_TAPP_v70` | `v72` |
+| `EPMA_TAPP_v71` | `v72` |
 | `LA-MC-ICPMS_TAPP_v78` | `v82` |
 | `LA-MC-ICPMS_TAPP_v79` | `v82` |
 | `LA-MC-ICPMS_TAPP_v80` | `v82` |
@@ -62,12 +63,12 @@ discovery.
 | `TEM_TAPP_v52` | `v54` |
 | `TEM_TAPP_v53` | `v54` |
 
-53 version(s), 106 file(s) (CSV + xlsx). Five passes touched the library today; several TAPPs
+54 version(s), 108 file(s) (CSV + xlsx). Six passes touched the library today; several TAPPs
 were superseded by four or five of them.
 
 ## Why
 
-Five passes on the same day: three answering GitHub issues, then two batches of the literature pass the third made necessary.
+Six passes on the same day: three answering GitHub issues, then three batches of the literature pass the third made necessary.
 
 ### Pass 1 — `Sample Persistent Identifier` becomes analysis-only (amds-ldeo/tapp#7)
 
@@ -186,6 +187,20 @@ LA-SF U-Pb versions, for the same reason as on 2026-09-11: a patch that bumps a 
 composing it does not advance that register. Both paths were set, and the LA-MC mockup was rebuilt
 from v82.
 
+### Pass 6 — `Sampling Unit Name` literature, batch 3: EPMA (15 cells)
+
+`../../Project Files/Scripts/phase3_sampling_unit_name_epma_20260915.py`. Same source rule and cell
+grammar as passes 4–5.
+
+**One EPMA-specific convention.** A reported row is usually a point inside a grain inside a section,
+and papers label different levels. Each cell states the **finest level the paper labels** (section,
+split, particle or grain) and says when the points themselves are unlabelled or only in a supplement.
+This is D4 applied: where points are not named, the named containing area stands for them.
+
+- **Tally:** 11 labelled, 3 of them at section level only; 2 sample name only; 2 N.
+- **The two N cells** are McCoy 2025 (both labs), whose microprobe passages name no specimen. The
+  curation numbers the paper does give identify figure images, not analyses, and were not borrowed.
+
 **Mockups.** All three were rebuilt after each pass (EPMA v69, then v70; LA-MC v79, then v80). Pass 1
 removed one procedure-level field, so `cfg.json`'s hand-written footer counts were updated to match
 (LA-MC 124 → 123). Pass 2 changed no counts; pass 3 added only an analysis-level field, so the procedure forms kept their counts, and the pages were rebuilt against EPMA v71 and LA-MC v81.
@@ -215,6 +230,11 @@ removed one procedure-level field, so `cfg.json`'s hand-written footer counts we
 - **Cell-level diff:** exactly 28 cells changed, all in `Sampling Unit Name` literature columns.
 - **Rows:** no row added or removed.
 - **U-Pb variants:** their shared columns are identical to the base TAPPs'.
+
+**Pass 6.**
+- **Cell-level diff:** exactly 15 cells changed, all in `Sampling Unit Name` literature columns.
+- **Rows:** no row added or removed.
+- **Mockups:** both EPMA mockups rebuilt from v72, with counts unchanged.
 
 **All passes.**
 - **Structure:** row counts, headers and field sets unchanged in every TAPP.
