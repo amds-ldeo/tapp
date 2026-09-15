@@ -37,16 +37,20 @@ discovery.
 | `LA-SF-ICP-MS_UPb_TAPP_v80` | `v81` |
 | `Lab-XCT_TAPP_v39` | `v41` |
 | `Lab-XCT_TAPP_v40` | `v41` |
-| `SEM_Composition_TAPP_v64` | `v67` |
-| `SEM_Composition_TAPP_v65` | `v67` |
-| `SEM_Composition_TAPP_v66` | `v67` |
-| `SEM_FIBSEM_TAPP_v32` | `v34` |
-| `SEM_FIBSEM_TAPP_v33` | `v34` |
-| `SEM_Imaging_TAPP_v31` | `v33` |
-| `SEM_Imaging_TAPP_v32` | `v33` |
-| `SEM_TAPP_v65` | `v68` |
-| `SEM_TAPP_v66` | `v68` |
-| `SEM_TAPP_v67` | `v68` |
+| `SEM_Composition_TAPP_v64` | `v68` |
+| `SEM_Composition_TAPP_v65` | `v68` |
+| `SEM_Composition_TAPP_v66` | `v68` |
+| `SEM_Composition_TAPP_v67` | `v68` |
+| `SEM_FIBSEM_TAPP_v32` | `v35` |
+| `SEM_FIBSEM_TAPP_v33` | `v35` |
+| `SEM_FIBSEM_TAPP_v34` | `v35` |
+| `SEM_Imaging_TAPP_v31` | `v34` |
+| `SEM_Imaging_TAPP_v32` | `v34` |
+| `SEM_Imaging_TAPP_v33` | `v34` |
+| `SEM_TAPP_v65` | `v69` |
+| `SEM_TAPP_v66` | `v69` |
+| `SEM_TAPP_v67` | `v69` |
+| `SEM_TAPP_v68` | `v69` |
 | `Solution_MC-ICP-MS_TAPP_v79` | `v83` |
 | `Solution_MC-ICP-MS_TAPP_v80` | `v83` |
 | `Solution_MC-ICP-MS_TAPP_v81` | `v83` |
@@ -63,12 +67,12 @@ discovery.
 | `TEM_TAPP_v52` | `v54` |
 | `TEM_TAPP_v53` | `v54` |
 
-54 version(s), 108 file(s) (CSV + xlsx). Six passes touched the library today; several TAPPs
+58 version(s), 116 file(s) (CSV + xlsx). Seven passes touched the library today; several TAPPs
 were superseded by four or five of them.
 
 ## Why
 
-Six passes on the same day: three answering GitHub issues, then three batches of the literature pass the third made necessary.
+Seven passes on the same day: three answering GitHub issues, then four batches of the literature pass the third made necessary.
 
 ### Pass 1 — `Sample Persistent Identifier` becomes analysis-only (amds-ldeo/tapp#7)
 
@@ -201,6 +205,21 @@ This is D4 applied: where points are not named, the named containing area stands
 - **The two N cells** are McCoy 2025 (both labs), whose microprobe passages name no specimen. The
   curation numbers the paper does give identify figure images, not analyses, and were not borrowed.
 
+### Pass 7 — `Sampling Unit Name` literature, batch 4: the SEM family (70 cells)
+
+`../../Project Files/Scripts/phase3_sampling_unit_name_sem_20260915.py`. SEM carries 35 procedure
+columns; SEM_Composition (9), SEM_FIBSEM (8) and SEM_Imaging (18) carry subsets of them under
+identical headers, so one value per procedure fills all four TAPPs.
+
+- **Tally:** of the 35 procedures, 8 labelled, 15 sample name only and 12 N. Across all 70 cells:
+  16 labelled, 30 sample name only, 24 N.
+- **Two rules decide most of the N cells:**
+  - **No borrowing across methods.** Izawa 2010's numbered points are μXRD spots, not SEM analyses.
+    Zega 2025's figure captions label FIB sections, but no laboratory's FIB passage names the sections
+    it cut.
+  - **Absent procedures are N.** Barnes 2025's Quanta/Helios BSE and two FIB columns describe
+    procedures the paper does not contain, as each column's `Additional Notes` already recorded.
+
 **Mockups.** All three were rebuilt after each pass (EPMA v69, then v70; LA-MC v79, then v80). Pass 1
 removed one procedure-level field, so `cfg.json`'s hand-written footer counts were updated to match
 (LA-MC 124 → 123). Pass 2 changed no counts; pass 3 added only an analysis-level field, so the procedure forms kept their counts, and the pages were rebuilt against EPMA v71 and LA-MC v81.
@@ -235,6 +254,13 @@ removed one procedure-level field, so `cfg.json`'s hand-written footer counts we
 - **Cell-level diff:** exactly 15 cells changed, all in `Sampling Unit Name` literature columns.
 - **Rows:** no row added or removed.
 - **Mockups:** both EPMA mockups rebuilt from v72, with counts unchanged.
+
+**Pass 7.**
+- **Cell-level diff:** exactly 70 cells changed across four TAPPs, all in `Sampling Unit Name`
+  literature columns.
+- **Rows:** no row added or removed.
+- **Shared columns:** every SEM_Composition, SEM_FIBSEM and SEM_Imaging column holds the identical
+  SEM cell.
 
 **All passes.**
 - **Structure:** row counts, headers and field sets unchanged in every TAPP.

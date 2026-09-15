@@ -3701,3 +3701,15 @@ Seifert 2026 ("Ap. #1 … #5"), is also the one whose analysis *is* the grains.
 its figure images, but its microprobe passages name no specimen, so both cells are N. Filling them
 from the figure captions would attach the SEM images' identities to the microprobe analyses.
 
+## 2026-09-15 | PHASE 3 | `Sampling Unit Name`, batch 4 of 5: the SEM family
+
+70 cells from 35 procedures: 16 labelled, 30 sample name only, 24 N.
+
+**SEM is the most N-heavy family so far, and the reason is structural.** Multi-laboratory papers
+(Zega 2025: nine SEM, FIB and CL procedures across four labs) describe each lab's instrument settings
+but not which particle each lab handled. The identities exist, as OREX-numbered FIB sections in the
+figures, but are never attributed. A Name cell can only record what a procedure's own passage names.
+
+**A key-matching trap, caught before it bit:** "BSE Imaging" contains "SE Imaging". Column keys that
+select by substring must anchor on the separator ("| SE Imaging").
+
