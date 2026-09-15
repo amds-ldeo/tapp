@@ -2297,15 +2297,17 @@ fields are therefore mandatory in every TAPP, in the style of Rules 8 and 9:
 |Field|Group|C|D|Keyed By|Role|
 |-|-|-|-|-|-|
 |`Sample Name`|2|N/A|Basic|`defines: sample`|enumerates the sample domain — the definer for the `sample` key|
-|`Sample Persistent Identifier`|2|Advanced|Advanced|`sample`|one IGSN (or equivalent) per sample|
+|`Sample Persistent Identifier`|2|N/A|Advanced|`sample`|one IGSN (or equivalent) per sample|
 |`Session Identifier`|1|N/A|Basic|`(none)`|the laboratory's own run / sequence / batch identifier for the session|
 
 **Why `Sample Name` is the definer and not `Sample Persistent Identifier`.** 7.4a requires exactly
 one `defines: sample` per TAPP, and an optional definer would leave the domain unenumerable in the
 common case. `Sample Name` is already D=Basic — mandatory at analysis time — in every TAPP; IGSN
-registration is not universal, so the identifier field stays Advanced and is keyed *by* the domain
-the name defines. C=N/A is correct and deliberate on both: the procedure is sample-neutral and
-specifies nothing about which samples it will be applied to.
+registration is not universal, so the identifier field is D=Advanced and is keyed *by* the domain
+the name defines. C=N/A is correct and deliberate on all three: the procedure is sample-neutral and
+specifies nothing about which samples it will be applied to, what they will be called or how they
+are registered. (`Sample Persistent Identifier` was C=Advanced until 2026-09-15, when amds-ldeo/tapp#7
+moved it to N/A; see precedents.md.)
 
 **Why the session needs its own identifier.** Group 1 was already session-shaped before this rule —
 it carries `Analyst`, `Analysis Start Date` and `Analysis End Date`, and a start *and* end date

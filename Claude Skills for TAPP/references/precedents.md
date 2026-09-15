@@ -415,6 +415,13 @@ by majority.
 > Sequence` above is still genuinely split (6 D=Editable / 3 D=Read-Only across 9 TAPPs) and is
 > still reported.
 
+> **CHANGED — 2026-09-15, amds-ldeo/tapp#7.** C moved **Advanced → N/A** in all 16 TAPPs (Module_Core
+> v7); D stays Advanced. The standing-commitment reason above does not survive the field's data type:
+> a `URI / IGSN` field identifies samples, and a registered procedure has none — a policy that samples
+> *should* carry IGSNs is a different statement, and no procedure column in the library ever held one
+> here. If a procedure-level IGSN policy is wanted, it is a separate field. The change also makes
+> Rule 13's own ground — the procedure is sample-neutral — apply to all three of its fields.
+
 **Why these are recorded rather than fixed.** Both became visible only because the fields were
 renamed to their canonical forms; before that they were the same field under two names, which no
 check could detect. Renaming converts a hidden inconsistency into one `validate_tapp.py` reports as

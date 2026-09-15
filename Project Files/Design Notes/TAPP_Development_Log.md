@@ -3573,3 +3573,29 @@ Also still open: `Doubly-Charged Species Production` still conflates threshold a
 
 Scripts: `patch_faraday_barnes_solutionmc_20260911.py`, `modularise_doubly_charged_20260911.py`,
 `create_module_singlecollector_20260911.py`. Record: `Superseded TAPPs/2026-09-11/README.md`.
+
+## 2026-09-15 | MODULE | `Sample Persistent Identifier` becomes analysis-only (amds-ldeo/tapp#7)
+
+Module_Core v6 → v7; all 16 TAPPs recomposed. C moved **Advanced → N/A**; D stays Advanced; key,
+type and description are unchanged. The cell-level diff is exactly 32 cells: Column C and Last
+Update, once per TAPP.
+
+**Why.** The field identifies the samples `Sample Name` lists, and Rule 13 already made `Sample Name`
+C=N/A because a procedure is sample-neutral. The identifier inherits that. The 2026-08-08 reason for
+C=Advanced, letting a procedure declare it expects IGSNs, was sound as a policy aim. But it was
+filed in a `URI / IGSN` field that can only ever hold an identifier, and no procedure column held one
+there.
+
+**Worth keeping.** A tier can be right about intent and wrong about the field. When a policy
+("samples should carry IGSNs") has no field of its own, it attaches to the nearest field that
+mentions the subject. The data type is the check: ask what value a procedure author could actually
+type into the cell.
+
+**Found on the way.** Stephen's 2026-09-11 `documentation` commit reformatted `conventions.md` on a
+base from 2026-09-10, so on its own it read as deleting that day's `monitored property` rules. The
+merge (`6f29b4c`) kept both sides. Checked with formatting normalised away: no text lost, no
+duplicates, no conflict markers. The merge left two small artifacts: `<b>` tags around one struck
+note, and a root-level copy of `UPSTREAM_RESPONSE_2026-08-17.md` identical to the one in
+`Project Files/Reports/`. **Compare a reformatting commit against its own parent, not against HEAD**,
+or a stale base reads as a regression.
+
