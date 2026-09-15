@@ -3654,3 +3654,18 @@ cell cannot hold both. The 2026-08-25 Description/Purpose split deleted the sent
 **Trigger met, not acted on:** G2 (nested sampling units). Lab-XCT's cells show two-level units six
 times.
 
+## 2026-09-15 | PHASE 3 | `Sampling Unit Name`, batch 1 of 5: the Solution family
+
+29 cells filled from the PDFs across Solution MC, Q and SF: 15 labelled, 12 sample name only, 2 N.
+
+**Two findings:**
+- **Solution work does name its units, when a sample yields more than one.** Papers label a second
+  aliquot or digestion ("Allende I/II", "Orgueil #1/#2", "Ivuna PB" / "Ivuna high PT", "LOsST (Aliq 1)"),
+  and otherwise let the sample name stand for its one unit. That is the case D4 anticipated at the other
+  extreme: a unit needs its own name exactly when it is not the only one.
+- **Curation identifiers already encode containment.** Apollo sample.split numbers ("12002.613") and
+  OSIRIS-REx split suffixes ("OREX-803015-100") are sample > unit identifiers by construction. Barnes
+  2025 states the OREX scheme outright.
+
+Batches 2–5 (LA, EPMA, the SEM family, TEM and Lab-XCT) follow the same grammar.
+

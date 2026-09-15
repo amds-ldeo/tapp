@@ -41,25 +41,28 @@ discovery.
 | `SEM_TAPP_v65` | `v68` |
 | `SEM_TAPP_v66` | `v68` |
 | `SEM_TAPP_v67` | `v68` |
-| `Solution_MC-ICP-MS_TAPP_v79` | `v82` |
-| `Solution_MC-ICP-MS_TAPP_v80` | `v82` |
-| `Solution_MC-ICP-MS_TAPP_v81` | `v82` |
-| `Solution_Q-ICP-MS_TAPP_v82` | `v85` |
-| `Solution_Q-ICP-MS_TAPP_v83` | `v85` |
-| `Solution_Q-ICP-MS_TAPP_v84` | `v85` |
-| `Solution_SF-ICP-MS_TAPP_v78` | `v81` |
-| `Solution_SF-ICP-MS_TAPP_v79` | `v81` |
-| `Solution_SF-ICP-MS_TAPP_v80` | `v81` |
+| `Solution_MC-ICP-MS_TAPP_v79` | `v83` |
+| `Solution_MC-ICP-MS_TAPP_v80` | `v83` |
+| `Solution_MC-ICP-MS_TAPP_v81` | `v83` |
+| `Solution_MC-ICP-MS_TAPP_v82` | `v83` |
+| `Solution_Q-ICP-MS_TAPP_v82` | `v86` |
+| `Solution_Q-ICP-MS_TAPP_v83` | `v86` |
+| `Solution_Q-ICP-MS_TAPP_v84` | `v86` |
+| `Solution_Q-ICP-MS_TAPP_v85` | `v86` |
+| `Solution_SF-ICP-MS_TAPP_v78` | `v82` |
+| `Solution_SF-ICP-MS_TAPP_v79` | `v82` |
+| `Solution_SF-ICP-MS_TAPP_v80` | `v82` |
+| `Solution_SF-ICP-MS_TAPP_v81` | `v82` |
 | `TEM_TAPP_v51` | `v54` |
 | `TEM_TAPP_v52` | `v54` |
 | `TEM_TAPP_v53` | `v54` |
 
-45 version(s), 90 file(s) (CSV + xlsx). Three passes touched the library today: every TAPP was superseded
-by passes 1 and 3, and the 13 Module_Aggregation consumers by pass 2 as well.
+48 version(s), 96 file(s) (CSV + xlsx). Four passes touched the library today; the Solution TAPPs
+were superseded by all four.
 
 ## Why
 
-Three passes on the same day, each answering one GitHub issue.
+Four passes on the same day: three answering GitHub issues, the fourth beginning the literature pass the third made necessary.
 
 ### Pass 1 — `Sample Persistent Identifier` becomes analysis-only (amds-ldeo/tapp#7)
 
@@ -143,6 +146,23 @@ deferred nested-units note (G2) records that its trigger has been met.
 Design, evidence, decisions and the sandbox result:
 `../../Project Files/Design Notes/Proposal_Sampling_Unit_Identity_2026-09-15.md`.
 
+### Pass 4 — `Sampling Unit Name` literature, batch 1: the Solution family (29 cells)
+
+`../../Project Files/Scripts/phase3_sampling_unit_name_solution_20260915.py`. Solution MC (14),
+Solution Q (9) and Solution SF (6) columns.
+
+Every value was read from the PDF, quoted and paged. The cell grammar:
+- **labelled units**, quoted with their sample;
+- **"Sample name only"** where the paper identifies units only by the sample's name, as one unit per
+  sample or with replicates counted but not labelled;
+- **N** where no identifier is stated.
+
+Of the 29: 15 labelled, 12 sample name only, 2 N.
+
+Two neighbouring cells look wrong and were left for a separate pass:
+- Nie & Dauphas 2019's `Sample Name` omits its six Apollo samples;
+- Barnes 2025 WUSTL's `Sample Name` names the Ti splits, not the WUSTL digest.
+
 **Mockups.** All three were rebuilt after each pass (EPMA v69, then v70; LA-MC v79, then v80). Pass 1
 removed one procedure-level field, so `cfg.json`'s hand-written footer counts were updated to match
 (LA-MC 124 → 123). Pass 2 changed no counts; pass 3 added only an analysis-level field, so the procedure forms kept their counts, and the pages were rebuilt against EPMA v71 and LA-MC v81.
@@ -163,6 +183,10 @@ removed one procedure-level field, so `cfg.json`'s hand-written footer counts we
   byte-identical, including all 46 consumers.
 - **Rule 7.4a/b/c** pass with the new definer.
 - **The same change was first run on a sandbox copy,** with identical results.
+
+**Pass 4.**
+- **Cell-level diff:** exactly 29 cells changed, all in `Sampling Unit Name` literature columns.
+- **Rows:** no row added or removed.
 
 **All passes.**
 - **Structure:** row counts, headers and field sets unchanged in every TAPP.
