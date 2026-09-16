@@ -3122,6 +3122,18 @@ date. That is an ordinary thing for a paper to publish, so the axis is testable 
 unattested. **Re-run this check at the end of the field's Phase 3 pass:** 105 cells are still blank,
 and they are the evidence that could overturn it.
 
+**A second candidate axis, raised by the detector during the pass itself and also rejected — this time
+on a falsifier, not on silence.** Filling the first 40 cells made the audit score the field
+UNDER-DECLARED with `sampling unit` proposed, on good evidence: the contributing counts really do vary
+per unit (Nakanishi 2022 averages 1–3 spots per grain; Liu 2024 nine spots per fused disc; Liu 2016
+n = 7 and n = 13 per phase). What kills it is the case the field exists for. Wu et al. 2023 reports
+*"246 spot analyses ... 236 of which yielded a weighted-mean age"* — one aggregate spanning 246
+sampling units, whose 246/236 outcome has no per-unit value to hold. **Aggregates sit at different
+levels in different procedures** — per unit, per aliquot, per sample across many units — so the axis
+the field actually needs is *the aggregate*, and the 8-key vocabulary has no such term. `(none)` is
+the least-wrong declaration until it gains one, and that is a different argument from "unattested":
+this axis is attested and still wrong.
+
 **Why the decision had to come first.** Key placement decides module ownership under Rule 6, so
 filling 105 cells against `(none)` and then re-keying would move the field and strand the work. The
 general form: **settle a definer-adjacent field's key before its literature pass, or accept that the

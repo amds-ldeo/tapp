@@ -154,7 +154,7 @@
       "note": "Derived from LA-MC-ICPMS_TAPP_v1.csv, i.e. before the Zhang et al. 2022 literature assessment column was added at v2. Recompose from v2 to inherit it."
     },
     {
-      "tapp": "SEM/SEM_Composition_TAPP_v72.csv",
+      "tapp": "SEM/SEM_Composition_TAPP_v73.csv",
       "modules": [
         {
           "name": "Core",
@@ -213,7 +213,7 @@
       ]
     },
     {
-      "tapp": "SEM/SEM_TAPP_v73.csv",
+      "tapp": "SEM/SEM_TAPP_v74.csv",
       "modules": [
         {
           "name": "Core",
@@ -377,7 +377,7 @@
       ]
     },
     {
-      "tapp": "TEM/TEM_TAPP_v59.csv",
+      "tapp": "TEM/TEM_TAPP_v60.csv",
       "modules": [
         {
           "name": "Core",

@@ -3922,3 +3922,37 @@ different acquired/included counts for two properties of one aggregate, e.g. 24 
 it. And the general rule this establishes: **settle a definer-adjacent field's key before its
 literature pass**, because key placement decides module ownership under Rule 6, so re-keying
 afterwards would move the field and strand the work.
+
+## 2026-09-16 | PHASE 3 | `Analysis Inclusion and Rejection Criteria` — the field #4 was about
+
+105 cells (EPMA 14, LA 26, SEM 44, TEM 21); the field is complete. SEM_FIBSEM and SEM_Imaging do not
+carry it, so this corpus is 105 rather than 131. Run after the definition and the key were settled,
+not before — a key decided afterwards would have moved the field between modules under Rule 6.
+
+**The corpus splits by whether a procedure aggregates at all.** LA and EPMA report means over
+populations and state their counts. SEM and TEM report an image, a structure or a per-grain
+composition, so there is no population for a rule to admit to: **84 of the 105 cells are N for that
+structural reason**, not because the papers are silent about something they do.
+
+**Three traps, each an existing rule doing work.**
+- **No borrowing across methods.** Mittlefehldt 2024 states the fullest inclusion/rejection rule in
+  the library — Grubb's test at p<0.01 to reject, p<0.05 to tag, stoichiometry filters, an FeO ceiling
+  for one weathered meteorite — and states it for its EMPA data. The LA cell records what the paper
+  says about the LA data instead. Ma 2017 (EPMA counts), Genge 2025 (SIMS n = 6) and Singerling 2025
+  (EPMA of other samples) are kept out of SEM and TEM cells the same way.
+- **A whole result dropped on signal grounds is still signal filtering.** Chernonozhkin 2021 excludes
+  results from its table where transient spikes appeared. Basis, not size, decides: that is
+  `Spike / Outlier Filtering Approach`.
+- **Interpretive exclusions sit downstream of the field.** Zhang 2022 drops two meteorites from its
+  fractional-crystallization modelling, which says nothing about which results made the values.
+
+**The key question, now closed on both axes.** The re-check promised in this morning's precedent has
+been run against all 105 filled cells: the named falsifier — different acquired/included counts for
+two reported properties of one aggregate — does not appear. Mid-pass the audit proposed a *different*
+axis, `sampling unit`, which is attested (Nakanishi averages 1–3 spots per grain) and still wrong:
+Wu 2023's single aggregate spans 246 sampling units and has no per-unit value. The axis this field
+needs is *the aggregate*, and the 8-key vocabulary has no such term, so `(none)` stands as the
+least-wrong declaration.
+
+**Process note.** Twice today I ran the key audit and the commit in one command, so a commit briefly
+carried unadjudicated findings. The audit is now its own step before any save.

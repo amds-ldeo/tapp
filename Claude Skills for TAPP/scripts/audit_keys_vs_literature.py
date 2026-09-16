@@ -131,6 +131,18 @@ ADJUDICATED = {
     ("Transect Rate, Mapping Rate or Step Size", "OVER-DECLARED"):
         "KEEP acquisition pass — minted 2026-09-08. THE SINGLE-PASS UNFALSIFIABILITY RULE, the single-target-species rule one axis over: a SINGLE-PASS procedure cannot falsify a per-pass key. The field has one value because there is one pass, and the detector scores that as scalar. Only MULTI-pass procedures test the axis, and every one of them attests it — Chernonozhkin et al. 2021 (spot 30 vs 130 um, 20 vs 40 Hz, transect vs spot, MR vs LR, oxide-sum vs Cr-IS), Hopp et al. 2021 (wet-plasma MR vs dry-plasma HR with different introduction hardware), Hu et al. 2022 (main configuration vs subconfiguration), Willbold 2005 (dilution ~21000 for LR vs ~1000 for HR), Misra et al. 2014 (LR vs MR). Weight only the multi-pass procedures. Every field carrying this key was verified against its raw cell before the re-key; the eight stated per pass with IDENTICAL values (Laser Fluence, RF Power, Make-up Gas, Coolant Gas, Background Count Time, Analysis Sequence, Signal Integration Time, Number of Replicates) were deliberately left `(none)` under 7.3.2.",
     # ---- adjudicated 2026-09-16, on the `Sampling Unit Type` literature pass (batches 1-2).
+    ("Analysis Inclusion and Rejection Criteria", "UNDER-DECLARED"):
+        "KEEP (none) — THE AXIS THIS FIELD WOULD NEED IS THE AGGREGATE, AND THE KEY VOCABULARY HAS NO SUCH "
+        "TERM. The detector is right that the outcome counts vary: Nakanishi 2022 averages 1-3 spots per "
+        "grain, Liu 2024 nine spots per fused disc, Liu 2016 n = 7 and n = 13 per phase. It proposes "
+        "`sampling unit`, and that is the better of the two candidates — but it is falsified by the case "
+        "the field exists for. Wu et al. 2023 reports '246 spot analyses ... 236 of which yielded a "
+        "weighted-mean age': ONE aggregate spanning 246 sampling units, whose 246/236 outcome has no "
+        "per-unit value at all. Aggregates sit at different levels in different procedures - per unit "
+        "(Nakanishi), per aliquot (Liu 2024), per sample across many units (Wu, Mittlefehldt) - so no "
+        "single existing axis holds the value. `reported property`, the candidate amds-ldeo/tapp#4 raised, "
+        "was tested separately on 2026-09-16 and is unattested once Lopez Garcia 2026's per-element case is "
+        "refiled out. Keyed `(none)` until the vocabulary gains an aggregate axis; see precedents.md.",
     ("Pre-Analysis Imaging and Screening", "AXIS-MISMATCH"):
         "KEEP sample — ELEMENT NAMES INSIDE A DESCRIPTION OF AN IMAGING STEP ARE CONTEXT, NOT PER-ELEMENT "
         "VALUES. The detector proposes `monitored property + target species` because the 2026-09-16 "

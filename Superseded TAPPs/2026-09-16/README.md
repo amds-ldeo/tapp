@@ -8,30 +8,37 @@ discovery.
 
 | Superseded | Successor |
 |---|---|
-| `EPMA_TAPP_v72` | `v76` |
-| `EPMA_TAPP_v73` | `v76` |
-| `EPMA_TAPP_v74` | `v76` |
-| `EPMA_TAPP_v75` | `v76` |
-| `LA-Q-ICP-MS_TAPP_v83` | `v87` |
-| `LA-Q-ICP-MS_TAPP_v84` | `v87` |
-| `LA-Q-ICP-MS_TAPP_v85` | `v87` |
-| `LA-Q-ICP-MS_TAPP_v86` | `v87` |
-| `LA-Q-ICP-MS_UPb_TAPP_v83` | `v87` |
-| `LA-Q-ICP-MS_UPb_TAPP_v84` | `v87` |
-| `LA-Q-ICP-MS_UPb_TAPP_v85` | `v87` |
-| `LA-Q-ICP-MS_UPb_TAPP_v86` | `v87` |
-| `LA-SF-ICP-MS_TAPP_v80` | `v84` |
-| `LA-SF-ICP-MS_TAPP_v81` | `v84` |
-| `LA-SF-ICP-MS_TAPP_v82` | `v84` |
-| `LA-SF-ICP-MS_TAPP_v83` | `v84` |
-| `LA-SF-ICP-MS_UPb_TAPP_v81` | `v85` |
-| `LA-SF-ICP-MS_UPb_TAPP_v82` | `v85` |
-| `LA-SF-ICP-MS_UPb_TAPP_v83` | `v85` |
-| `LA-SF-ICP-MS_UPb_TAPP_v84` | `v85` |
-| `SEM_Composition_TAPP_v68` | `v72` |
-| `SEM_Composition_TAPP_v69` | `v72` |
-| `SEM_Composition_TAPP_v70` | `v72` |
-| `SEM_Composition_TAPP_v71` | `v72` |
+| `EPMA_TAPP_v72` | `v77` |
+| `EPMA_TAPP_v73` | `v77` |
+| `EPMA_TAPP_v74` | `v77` |
+| `EPMA_TAPP_v75` | `v77` |
+| `EPMA_TAPP_v76` | `v77` |
+| `LA-MC-ICPMS_TAPP_v82` | `v83` |
+| `LA-Q-ICP-MS_TAPP_v83` | `v88` |
+| `LA-Q-ICP-MS_TAPP_v84` | `v88` |
+| `LA-Q-ICP-MS_TAPP_v85` | `v88` |
+| `LA-Q-ICP-MS_TAPP_v86` | `v88` |
+| `LA-Q-ICP-MS_TAPP_v87` | `v88` |
+| `LA-Q-ICP-MS_UPb_TAPP_v83` | `v88` |
+| `LA-Q-ICP-MS_UPb_TAPP_v84` | `v88` |
+| `LA-Q-ICP-MS_UPb_TAPP_v85` | `v88` |
+| `LA-Q-ICP-MS_UPb_TAPP_v86` | `v88` |
+| `LA-Q-ICP-MS_UPb_TAPP_v87` | `v88` |
+| `LA-SF-ICP-MS_TAPP_v80` | `v85` |
+| `LA-SF-ICP-MS_TAPP_v81` | `v85` |
+| `LA-SF-ICP-MS_TAPP_v82` | `v85` |
+| `LA-SF-ICP-MS_TAPP_v83` | `v85` |
+| `LA-SF-ICP-MS_TAPP_v84` | `v85` |
+| `LA-SF-ICP-MS_UPb_TAPP_v81` | `v86` |
+| `LA-SF-ICP-MS_UPb_TAPP_v82` | `v86` |
+| `LA-SF-ICP-MS_UPb_TAPP_v83` | `v86` |
+| `LA-SF-ICP-MS_UPb_TAPP_v84` | `v86` |
+| `LA-SF-ICP-MS_UPb_TAPP_v85` | `v86` |
+| `SEM_Composition_TAPP_v68` | `v73` |
+| `SEM_Composition_TAPP_v69` | `v73` |
+| `SEM_Composition_TAPP_v70` | `v73` |
+| `SEM_Composition_TAPP_v71` | `v73` |
+| `SEM_Composition_TAPP_v72` | `v73` |
 | `SEM_FIBSEM_TAPP_v35` | `v39` |
 | `SEM_FIBSEM_TAPP_v36` | `v39` |
 | `SEM_FIBSEM_TAPP_v37` | `v39` |
@@ -40,16 +47,20 @@ discovery.
 | `SEM_Imaging_TAPP_v35` | `v38` |
 | `SEM_Imaging_TAPP_v36` | `v38` |
 | `SEM_Imaging_TAPP_v37` | `v38` |
-| `SEM_TAPP_v69` | `v73` |
-| `SEM_TAPP_v70` | `v73` |
-| `SEM_TAPP_v71` | `v73` |
-| `SEM_TAPP_v72` | `v73` |
-| `TEM_TAPP_v55` | `v59` |
-| `TEM_TAPP_v56` | `v59` |
-| `TEM_TAPP_v57` | `v59` |
-| `TEM_TAPP_v58` | `v59` |
+| `SEM_TAPP_v69` | `v74` |
+| `SEM_TAPP_v70` | `v74` |
+| `SEM_TAPP_v71` | `v74` |
+| `SEM_TAPP_v72` | `v74` |
+| `SEM_TAPP_v73` | `v74` |
+| `Solution_MC-ICP-MS_TAPP_v83` | `v84` |
+| `Solution_Q-ICP-MS_TAPP_v86` | `v87` |
+| `TEM_TAPP_v55` | `v60` |
+| `TEM_TAPP_v56` | `v60` |
+| `TEM_TAPP_v57` | `v60` |
+| `TEM_TAPP_v58` | `v60` |
+| `TEM_TAPP_v59` | `v60` |
 
-40 version(s), 80 file(s) (CSV + xlsx). Sixteen passes: four literature fields, four corpora each.
+51 version(s), 102 file(s) (CSV + xlsx). Twenty-one passes, five literature fields, plus one refiling.
 
 ## Why
 
@@ -213,6 +224,44 @@ nominal property only (imaging, phase identification, textural state), and 7 are
 2025 procedures the paper does not contain, counted across the SEM TAPPs that share them, plus Xing
 2023's review. The 54 are the reason the nominal clause exists.
 
+### Passes 17–20 — `Analysis Inclusion and Rejection Criteria` literature (105 cells)
+
+`../../Project Files/Scripts/phase3_inclusion_rejection_{epma,la,sem,tem}_20260916.py`. EPMA v77,
+LA-Q v88 + U-Pb v88, LA-SF v85 + U-Pb v86, SEM v74 + SEM_Composition v73, TEM v60. **The field is
+complete.** SEM_FIBSEM and SEM_Imaging do not carry it, so the corpus is 105 cells, not 131.
+
+Run against the definition settled in `3818c79` and the key decision recorded earlier the same day —
+deliberately in that order, since a key decided afterwards would have moved the field between modules.
+
+**Two rules decided every cell.** The unit is an *individual result*, so a stated n is part of the
+outcome even without a rejection rule (those cells read "Partially — …", the Solution corpus's
+grammar). And the split with signal filtering is by *basis*, not by size of the thing discarded.
+
+**The corpus splits by whether a procedure aggregates at all.** LA and EPMA report means over
+populations and state their counts; SEM and TEM mostly report an image, a structure or a per-grain
+composition, so there is no population to admit to — 84 of the 105 cells are N for that structural
+reason, not from a gap in the papers.
+
+**Three cells would have been easy errors, and each is a rule in use:**
+- **No borrowing across methods.** Mittlefehldt 2024 states the fullest inclusion/rejection rule in
+  the library — Grubb's test at p<0.01, stoichiometry filters, an FeO ceiling — for its *EMPA* data.
+  This is the LA column, so the cell records what the paper says about the LA data instead. Ma 2017's
+  n-counts (EPMA), Genge 2025's n = 6 (SIMS) and Singerling 2025's n = 7/86 (EPMA of other samples)
+  are kept out of SEM and TEM cells for the same reason.
+- **Whole results dropped on signal grounds are still signal filtering.** Chernonozhkin 2021 excludes
+  results from Table 1 where transient spikes appeared; by basis that is `Spike / Outlier Filtering
+  Approach`, and the cell says so.
+- **Interpretive exclusions are downstream.** Zhang 2022 drops two meteorites "from the
+  fractional-crystallization modeling", which is not a rule about which results make the values.
+
+**Tally of the 105 new cells:** 21 partially (a contributing count stated, a rejection rule only rarely), 84 N.
+
+**The key re-check promised in the precedent has been run,** now that all 105 cells exist. The named
+falsifier — a procedure reporting different acquired/included counts for two reported properties of
+one aggregate — did not appear anywhere in the new evidence. The audit did raise a *different* axis
+mid-pass, `sampling unit`, which is attested and still wrong: Wu 2023's one aggregate spans 246
+sampling units. Both are recorded in `ADJUDICATED` and in the precedent; the field keeps `(none)`.
+
 ## Verification
 
 **Pass 1.**
@@ -277,3 +326,13 @@ nominal property only (imaging, phase identification, textural state), and 7 are
   0 findings left unadjudicated — notably none on this field, though it is a definer.
 - **Mockups:** EPMA retargeted to v76 and rebuilt; prefilled count 35 → 36. **Variants register**
   advanced for the U-Pb bumps.
+
+**Passes 17–20.**
+- **Cell-level diff:** 14 + 26 + 44 + 21 = 105 cells, all in the `Analysis Inclusion and Rejection
+  Criteria` literature columns; U-Pb variants match their bases and SEM_Composition holds the
+  identical SEM cell, both checked programmatically.
+- **Rows:** no row added or removed; no field, tier, data type or `Keyed By` value changed.
+- **Completeness:** 0 blank cells in this field library-wide.
+- **Composition:** 16 MATCH, 0 DIFFERS. **Validator:** 0 ERROR, 0 WARN. **Key audit:** re-run after
+  completion, 0 findings left unadjudicated, and the field's named falsifier was not triggered.
+- **Mockups:** EPMA retargeted to v77 and rebuilt; prefilled 36 → 37. **Variants register** advanced.
