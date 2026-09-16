@@ -3784,3 +3784,30 @@ Aliquot 2, Analysis point 1, Laser spot 1.
 the other corpora now share. Accurate, but inconsistent — normalising them is its own decision.
 
 **Next:** `Sampling Unit Selection Criteria`, blank on the same 131 columns.
+
+## 2026-09-16 | PHASE 3 | `Sampling Unit Selection Criteria` — the sampling-unit trio is complete
+
+131 cells across EPMA, the LA family, the SEM family and TEM. With `Sampling Unit Name` (2026-09-15)
+and `Sampling Unit Type` (earlier today), all three sibling fields now read zero blanks.
+
+**Destructive techniques document their choices; non-destructive ones do not.** 72 of the 133 cells
+state a criterion, and they cluster hard by technique. A laser spot and a FIB cut cannot be taken
+back, so LA and TEM method sections defend where they were placed — spots picked off prior electron
+images, maps sited on a μXRF survey, sections cut where the sulfides reach the surface, regions chosen
+because earlier ion-probe work damaged them least. An electron image is free and repeatable, so SEM
+papers mostly image what they image: 20 of its 35 procedures are N.
+
+**The one boundary that had to be defended.** This field and `Sampling Unit Type` would collapse into
+each other if a list of measured phases counted as a selection rule. It does not: a table caption
+naming phases is the Type's evidence, while an act of picking ("Olivine and pyroxene grains were
+identified and characterized", "Apatite grains ... were identified via EDS mapping") is this field's.
+That line is what keeps N honest here rather than lazy.
+
+**Stated absence is a value.** Singerling 2025: "We did not use any specific parameters in selecting
+which particles to investigate (i.e., they were selected arbitrarily)." The paper answers the
+question, so the cell is not N.
+
+**Second adjudication of the day.** The audit flagged this field UNDER-DECLARED for the same reason it
+flagged Type: it reads the criterion's vocabulary as per-unit values. Kept `(none)` — the rule is
+stated once and applied to every unit, and the units are the output of applying it, so they cannot
+index it.

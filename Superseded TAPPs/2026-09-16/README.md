@@ -8,18 +8,28 @@ discovery.
 
 | Superseded | Successor |
 |---|---|
-| `EPMA_TAPP_v72` | `v73` |
-| `LA-Q-ICP-MS_TAPP_v83` | `v84` |
-| `LA-Q-ICP-MS_UPb_TAPP_v83` | `v84` |
-| `LA-SF-ICP-MS_TAPP_v80` | `v81` |
-| `LA-SF-ICP-MS_UPb_TAPP_v81` | `v82` |
-| `SEM_Composition_TAPP_v68` | `v69` |
-| `SEM_FIBSEM_TAPP_v35` | `v36` |
-| `SEM_Imaging_TAPP_v34` | `v35` |
-| `SEM_TAPP_v69` | `v70` |
-| `TEM_TAPP_v55` | `v56` |
+| `EPMA_TAPP_v72` | `v74` |
+| `EPMA_TAPP_v73` | `v74` |
+| `LA-Q-ICP-MS_TAPP_v83` | `v85` |
+| `LA-Q-ICP-MS_TAPP_v84` | `v85` |
+| `LA-Q-ICP-MS_UPb_TAPP_v83` | `v85` |
+| `LA-Q-ICP-MS_UPb_TAPP_v84` | `v85` |
+| `LA-SF-ICP-MS_TAPP_v80` | `v82` |
+| `LA-SF-ICP-MS_TAPP_v81` | `v82` |
+| `LA-SF-ICP-MS_UPb_TAPP_v81` | `v83` |
+| `LA-SF-ICP-MS_UPb_TAPP_v82` | `v83` |
+| `SEM_Composition_TAPP_v68` | `v70` |
+| `SEM_Composition_TAPP_v69` | `v70` |
+| `SEM_FIBSEM_TAPP_v35` | `v37` |
+| `SEM_FIBSEM_TAPP_v36` | `v37` |
+| `SEM_Imaging_TAPP_v34` | `v36` |
+| `SEM_Imaging_TAPP_v35` | `v36` |
+| `SEM_TAPP_v69` | `v71` |
+| `SEM_TAPP_v70` | `v71` |
+| `TEM_TAPP_v55` | `v57` |
+| `TEM_TAPP_v56` | `v57` |
 
-10 version(s), 20 file(s) (CSV + xlsx). Four passes, one per corpus.
+20 version(s), 40 file(s) (CSV + xlsx). Eight passes: two literature fields, four corpora each.
 
 ## Why
 
@@ -95,6 +105,37 @@ Region of interest 9, N 7, Aliquot 2, Analysis point 1, Laser spot 1.
 vocabulary the other five corpora now use. They are accurate and evidence-backed; normalising them is
 a separate decision, not a silent edit.
 
+### Passes 5–8 — `Sampling Unit Selection Criteria` literature, all four corpora (131 cells)
+
+`../../Project Files/Scripts/phase3_sampling_unit_selection_{epma,la,sem,tem}_20260916.py`. EPMA
+v74, LA-Q v85 + U-Pb v85, LA-SF v82 + U-Pb v83, the four SEM TAPPs (v71/v70/v37/v36) and TEM v57.
+The field is in-situ only — the three Solution TAPPs do not carry it — so this covers the same 131
+columns as the Type pass. **All three sibling fields now read zero blanks.**
+
+**The line this pass had to hold.** The field asks how the analysed unit is picked out. A stated rule
+or reason is recorded; a bare list of the phases a table reports is not, because that is the Type's
+evidence and copying it would make two fields say one thing. An act of picking by phase ("Olivine and
+pyroxene grains were identified and characterized") is a rule; a table caption naming phases is not.
+
+**Where a technique destroys its target, the paper defends the choice.** LA and TEM state a criterion
+far more often than EPMA and SEM do — a laser spot and a FIB cut cannot be taken back, so method
+sections justify where they were placed: spots picked off prior electron images, maps sited on a μXRF
+survey, sections cut where sulfides reach the surface, regions chosen because earlier ion-probe work
+damaged them least. An electron image is free and repeatable, so SEM papers mostly image what they
+image and say nothing — 20 of its 35 procedures are N.
+
+**One paper answers the question by denying it,** and that is a value, not an N: Singerling 2025
+states "We did not use any specific parameters in selecting which particles to investigate (i.e., they
+were selected arbitrarily)".
+
+**Tally across the 133 cells:** 72 state a criterion, 61 are N.
+
+**A second key finding, adjudicated rather than applied.** The audit scored this field UNDER-DECLARED
+in EPMA and LA-SF, reading the criterion's own vocabulary — grains, spots, rims — as per-unit values.
+Kept `(none)`: the rule is stated once and applied to every unit, and the units are the OUTPUT of
+applying it, so they cannot index it. Recorded in `ADJUDICATED` and appended to the precedent the
+Type pass established.
+
 ## Verification
 
 **Pass 1.**
@@ -124,3 +165,15 @@ a separate decision, not a silent edit.
   cells in the library.
 - **Composition:** 16 MATCH, 0 DIFFERS. **Validator:** 0 ERROR, 0 WARN. **Key audit:** regenerated,
   no new finding beyond the one adjudicated in pass 2.
+
+**Passes 5–8.**
+- **Cell-level diff:** 14 + 26 + 70 + 21 = 131 cells, all in the `Sampling Unit Selection Criteria`
+  literature columns; the U-Pb variants match their base TAPPs and the three SEM subsets hold the
+  identical SEM cell, both checked programmatically.
+- **Rows:** no row added or removed; no field, tier, data type or `Keyed By` value changed.
+- **Completeness:** a sweep of the Rule 12 mirror reports 0 blank cells in all three sampling-unit
+  fields — Name, Type and Selection Criteria.
+- **Composition:** 16 MATCH, 0 DIFFERS. **Validator:** 0 ERROR, 0 WARN. **Key audit:** regenerated,
+  0 findings left unadjudicated.
+- **Mockups:** both EPMA mockups retargeted to v74 and rebuilt; the point-analysis form's prefilled
+  count rose 33 → 34 as Ma 2017 gained a criterion. **Variants register** advanced for the U-Pb bumps.

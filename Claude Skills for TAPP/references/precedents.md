@@ -759,7 +759,7 @@ levels, which is exactly what the `>` has meant in the Lab-XCT cells since 2026-
 field by `sampling unit` would also be circular: under Rule 9 the units are enumerated by
 `Sampling Unit Name`, whose Column I is the containment definer `defines: sample > sampling unit`,
 so a unit must already have a type before it can serve as a key. The general form: **a field that
-declares what the axis IS cannot be keyed by that axis.** Kept `(none)`.
+declares what the axis IS cannot be keyed by that axis.** Kept `(none)`. Its sibling `Sampling Unit Selection Criteria` was flagged the same way two batches later and kept for the same reason one step earlier in the chain: the criterion is stated once and applied to every unit, and the units are the OUTPUT of applying it, so they cannot index it.
 
 **Coverage limit, so absence of evidence is not read as evidence.** `SEM_Composition` and `SEM` carry
 35 literature columns in which `Primary Calibration Standard Name` is `N/A` on all of them, because

@@ -131,6 +131,16 @@ ADJUDICATED = {
     ("Transect Rate, Mapping Rate or Step Size", "OVER-DECLARED"):
         "KEEP acquisition pass — minted 2026-09-08. THE SINGLE-PASS UNFALSIFIABILITY RULE, the single-target-species rule one axis over: a SINGLE-PASS procedure cannot falsify a per-pass key. The field has one value because there is one pass, and the detector scores that as scalar. Only MULTI-pass procedures test the axis, and every one of them attests it — Chernonozhkin et al. 2021 (spot 30 vs 130 um, 20 vs 40 Hz, transect vs spot, MR vs LR, oxide-sum vs Cr-IS), Hopp et al. 2021 (wet-plasma MR vs dry-plasma HR with different introduction hardware), Hu et al. 2022 (main configuration vs subconfiguration), Willbold 2005 (dilution ~21000 for LR vs ~1000 for HR), Misra et al. 2014 (LR vs MR). Weight only the multi-pass procedures. Every field carrying this key was verified against its raw cell before the re-key; the eight stated per pass with IDENTICAL values (Laser Fluence, RF Power, Make-up Gas, Coolant Gas, Background Count Time, Analysis Sequence, Signal Integration Time, Number of Replicates) were deliberately left `(none)` under 7.3.2.",
     # ---- adjudicated 2026-09-16, on the `Sampling Unit Type` literature pass (batches 1-2).
+    ("Sampling Unit Selection Criteria", "UNDER-DECLARED"):
+        "KEEP (none) — THE RULE PRECEDES THE UNITS IT PICKS. Same shape as the Sampling Unit Type finding "
+        "below, one step earlier in the causal chain: this field holds the criterion a procedure applied "
+        "when choosing what to analyse, and there is one criterion per procedure. The detector scores the "
+        "criterion's own vocabulary — grains, spots, rims, phases — as evidence of per-unit values, but a "
+        "rule that says 'regions containing surface inclusions were avoided' or 'spots selected from the "
+        "secondary electron images' is stated once and applied to every unit. Keying it by `sampling unit` "
+        "would be circular: the units are the OUTPUT of applying this field, so they cannot index it. "
+        "Where two procedures in one paper genuinely differ (Chernonozhkin 2021's map, line and phosphate "
+        "columns), they are separate procedures in separate columns, not units within one.",
     ("Sampling Unit Type", "UNDER-DECLARED"):
         "KEEP (none) — THE DEFINER CANNOT BE KEYED BY WHAT IT DEFINES. This field states the KIND of "
         "unit one reported row corresponds to, and it holds one value per procedure. What the detector "
