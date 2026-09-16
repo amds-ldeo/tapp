@@ -8,28 +8,38 @@ discovery.
 
 | Superseded | Successor |
 |---|---|
-| `EPMA_TAPP_v72` | `v74` |
-| `EPMA_TAPP_v73` | `v74` |
-| `LA-Q-ICP-MS_TAPP_v83` | `v85` |
-| `LA-Q-ICP-MS_TAPP_v84` | `v85` |
-| `LA-Q-ICP-MS_UPb_TAPP_v83` | `v85` |
-| `LA-Q-ICP-MS_UPb_TAPP_v84` | `v85` |
-| `LA-SF-ICP-MS_TAPP_v80` | `v82` |
-| `LA-SF-ICP-MS_TAPP_v81` | `v82` |
-| `LA-SF-ICP-MS_UPb_TAPP_v81` | `v83` |
-| `LA-SF-ICP-MS_UPb_TAPP_v82` | `v83` |
-| `SEM_Composition_TAPP_v68` | `v70` |
-| `SEM_Composition_TAPP_v69` | `v70` |
-| `SEM_FIBSEM_TAPP_v35` | `v37` |
-| `SEM_FIBSEM_TAPP_v36` | `v37` |
-| `SEM_Imaging_TAPP_v34` | `v36` |
-| `SEM_Imaging_TAPP_v35` | `v36` |
-| `SEM_TAPP_v69` | `v71` |
-| `SEM_TAPP_v70` | `v71` |
-| `TEM_TAPP_v55` | `v57` |
-| `TEM_TAPP_v56` | `v57` |
+| `EPMA_TAPP_v72` | `v75` |
+| `EPMA_TAPP_v73` | `v75` |
+| `EPMA_TAPP_v74` | `v75` |
+| `LA-Q-ICP-MS_TAPP_v83` | `v86` |
+| `LA-Q-ICP-MS_TAPP_v84` | `v86` |
+| `LA-Q-ICP-MS_TAPP_v85` | `v86` |
+| `LA-Q-ICP-MS_UPb_TAPP_v83` | `v86` |
+| `LA-Q-ICP-MS_UPb_TAPP_v84` | `v86` |
+| `LA-Q-ICP-MS_UPb_TAPP_v85` | `v86` |
+| `LA-SF-ICP-MS_TAPP_v80` | `v83` |
+| `LA-SF-ICP-MS_TAPP_v81` | `v83` |
+| `LA-SF-ICP-MS_TAPP_v82` | `v83` |
+| `LA-SF-ICP-MS_UPb_TAPP_v81` | `v84` |
+| `LA-SF-ICP-MS_UPb_TAPP_v82` | `v84` |
+| `LA-SF-ICP-MS_UPb_TAPP_v83` | `v84` |
+| `SEM_Composition_TAPP_v68` | `v71` |
+| `SEM_Composition_TAPP_v69` | `v71` |
+| `SEM_Composition_TAPP_v70` | `v71` |
+| `SEM_FIBSEM_TAPP_v35` | `v38` |
+| `SEM_FIBSEM_TAPP_v36` | `v38` |
+| `SEM_FIBSEM_TAPP_v37` | `v38` |
+| `SEM_Imaging_TAPP_v34` | `v37` |
+| `SEM_Imaging_TAPP_v35` | `v37` |
+| `SEM_Imaging_TAPP_v36` | `v37` |
+| `SEM_TAPP_v69` | `v72` |
+| `SEM_TAPP_v70` | `v72` |
+| `SEM_TAPP_v71` | `v72` |
+| `TEM_TAPP_v55` | `v58` |
+| `TEM_TAPP_v56` | `v58` |
+| `TEM_TAPP_v57` | `v58` |
 
-20 version(s), 40 file(s) (CSV + xlsx). Eight passes: two literature fields, four corpora each.
+30 version(s), 60 file(s) (CSV + xlsx). Twelve passes: three literature fields, four corpora each.
 
 ## Why
 
@@ -136,6 +146,37 @@ Kept `(none)`: the rule is stated once and applied to every unit, and the units 
 applying it, so they cannot index it. Recorded in `ADJUDICATED` and appended to the precedent the
 Type pass established.
 
+### Passes 9–12 — `Pre-Analysis Imaging and Screening` literature, all four corpora (131 cells)
+
+`../../Project Files/Scripts/phase3_pre_analysis_imaging_{epma,la,sem,tem}_20260916.py`. EPMA v75,
+LA-Q v86 + U-Pb v86, LA-SF v83 + U-Pb v84, the four SEM TAPPs (v72/v71/v38/v37), TEM v58. **The field
+is complete, and with it the last of the four fields that were blank on all 131 in-situ columns.**
+
+**The boundary that decides the N cells:** imaging the procedure performs as its own measurement is
+not screening. An EPMA BSE image taken on the microprobe is part of the procedure; a BSE image taken
+on a separate SEM to find the grain the probe will analyse is this field. That line is why SEM is
+N-heavy again (20 of 35) while EPMA has no N at all — in an SEM paper the imaging usually IS the
+procedure, whereas an EPMA paper almost always images somewhere else first.
+
+**TEM always has a prior step, because the specimen has to be made.** Something must be imaged to
+decide where to cut, and most of these papers say so: SEM imaging of the target grain, an optical
+search across 25 glass beads for the one with an impact crater, CL imaging of apatite zoning before
+the FIB transect is placed.
+
+**The screening step and the selection criterion are one act described twice.** The four SEM papers
+that state a criterion are exactly the four that describe a prior survey — μXRD reconnaissance,
+optical-CL, VIS-IR spectral imaging, NanoSIMS isotope imaging. The two fields are not redundant (one
+holds the rule, the other the instrument and settings) but they are attested by the same sentences,
+which is a useful check on both.
+
+**Tally across the 148 columns:** 83 state a screening step, 65 are N.
+
+**A third key finding, adjudicated rather than applied.** The audit scored the field AXIS-MISMATCH in
+LA-SF, proposing `monitored property + target species` over the declared `sample`, because the cells
+quote what the screening maps show ("Si, Al, Cr, Fe, Mg, Ca, Na, P, and Ni maps"). Those lists say
+what one map contains; they are not a value per element. Kept `sample` — screening happens once per
+sample, before the procedure runs.
+
 ## Verification
 
 **Pass 1.**
@@ -177,3 +218,15 @@ Type pass established.
   0 findings left unadjudicated.
 - **Mockups:** both EPMA mockups retargeted to v74 and rebuilt; the point-analysis form's prefilled
   count rose 33 → 34 as Ma 2017 gained a criterion. **Variants register** advanced for the U-Pb bumps.
+
+**Passes 9–12.**
+- **Cell-level diff:** 14 + 26 + 70 + 21 = 131 cells, all in the `Pre-Analysis Imaging and Screening`
+  literature columns; U-Pb variants match their bases and the three SEM subsets hold the identical
+  SEM cell, both checked programmatically.
+- **Rows:** no row added or removed; no field, tier, data type or `Keyed By` value changed.
+- **Completeness:** 0 blank cells in this field, and none in any of the four fields that were blank
+  on all 131 in-situ columns as of this morning.
+- **Composition:** 16 MATCH, 0 DIFFERS. **Validator:** 0 ERROR, 0 WARN. **Key audit:** regenerated,
+  0 findings left unadjudicated.
+- **Mockups:** EPMA retargeted to v75 and rebuilt; the point-analysis form's prefilled count rose
+  34 → 35. **Variants register** advanced for the U-Pb bumps.

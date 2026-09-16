@@ -3811,3 +3811,26 @@ question, so the cell is not N.
 flagged Type: it reads the criterion's vocabulary as per-unit values. Kept `(none)` — the rule is
 stated once and applied to every unit, and the units are the output of applying it, so they cannot
 index it.
+
+## 2026-09-16 | PHASE 3 | `Pre-Analysis Imaging and Screening` — the in-situ backfill is finished
+
+131 cells across EPMA, the LA family, the SEM family and TEM. This was the last of the four fields
+blank on all 131 in-situ columns; that particular backlog is now gone.
+
+**One boundary decides every N cell: imaging the procedure performs as its own measurement is not
+screening.** An EPMA BSE image taken on the microprobe belongs to the procedure; a BSE image taken on
+a separate SEM to find the grain the probe will analyse belongs here. Hence the split — EPMA has no N
+at all (those papers always image somewhere else first), while SEM is N-heavy (20 of 35), because in
+an SEM paper the imaging usually IS the procedure.
+
+**The screening step and the selection criterion turn out to be one act described twice.** The four
+SEM papers that state a selection criterion are exactly the four that describe a prior survey. The
+fields are not redundant — one holds the rule, the other the instrument and settings — but they rest
+on the same sentences, which makes each a check on the other.
+
+**Third adjudication in two days,** and a different shape from the first two: AXIS-MISMATCH rather
+than UNDER-DECLARED. The detector read the element lists inside the imaging descriptions ("Si, Al, Cr,
+Fe, Mg, Ca, Na, P, and Ni maps") as per-element values and proposed re-keying to
+`monitored property + target species`. Kept `sample`: those lists say what one map contains.
+
+**Tally across the 148 columns:** 83 state a screening step, 65 are N.
