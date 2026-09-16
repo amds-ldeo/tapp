@@ -28,6 +28,24 @@ Examples of prohibited inferences:
 
 Never leave a cell blank. Blank is ambiguous.
 
+### The one exception: fields the literature cannot attest (2026-09-16)
+
+**Within a pass this rule is absolute — if you assess a column, you fill it.** The exception is at the
+level of the FIELD, decided before a pass starts: a handful of analysis-level fields record data that
+is internal to the laboratory or the repository, and no paper has a reason to print it. Those fields
+are deliberately left unassessed, and their blank rows mean *"not assessed, by decision"*, not
+*"assessed and unknown"*.
+
+`Session Identifier` is the type case, checked exhaustively on 2026-09-16: 46 of 46 assessed columns
+`N`, and across 49 in-situ papers not one states a run, sequence or batch identifier. The same shape
+holds for `Procedure DOI`, `Coupled Procedure DOI`, `Analysis Start Date`, `Analysis End Date` and
+`Analyst`. See precedents.md, *"Literature attestation cannot validate lab-internal fields"*.
+
+**Before opening a pass on an analysis-level field, ask whether a paper would ever print the value.**
+If the honest answer is no, sample five or six papers to confirm and record the finding instead of
+filling hundreds of identical `N` cells — the cells would assert something the corpus cannot attest
+either way, and their uniformity would later read as evidence.
+
 ---
 
 ## PDF Reading Procedure

@@ -3834,3 +3834,34 @@ Fe, Mg, Ca, Na, P, and Ni maps") as per-element values and proposed re-keying to
 `monitored property + target species`. Kept `sample`: those lists say what one map contains.
 
 **Tally across the 148 columns:** 83 state a screening step, 65 are N.
+
+## 2026-09-16 | FINDING | `Session Identifier` is never stated — no pass, cells left blank
+
+Checked before opening a pass, and the pass was called off on the result.
+
+**The evidence.** 46 of 46 already-assessed columns are `N` — Solution (29), Lab-XCT (14), and the
+single filled EPMA, LA-MC and LA-Q columns — which is disjoint-branch agreement, not one corpus's
+habit. Across the 49 in-situ papers, 14 mention a session and every one is scheduling or QC context
+("measured at the start and end of each analytical session"). None states a run, sequence or batch
+identifier; none dates its analyses in the ordinary way.
+
+**Two near-misses, recorded so nobody re-derives them.** Barnes 2025's "(session 1)" / "(session 2)"
+name two element-suite configurations, not runs. Singerling 2025 does distinguish "the four TEM
+sessions (December 2023, January 2024, May 2024, and December 2024)" — by date, and only because the
+paper's subject is how the carbonates changed between them.
+
+**Why it is structural, and what it does not prove.** Every literature column is a procedure
+extraction; an analysis-level field survives that only if papers print the value. Ranking the
+analysis-level-only fields by how often the literature states them splits them in two — `Sampling Unit
+Name` (142 stated) and `Sample Name` (92) at one end, `Analysis Start Date` (2), `Procedure DOI` (0)
+and `Session Identifier` (0) at the other. The second group is lab- and repository-internal. Literature
+silence there says nothing about whether the field is needed at submission time.
+
+**Decision:** no pass; the 131 cells stay blank, and the blank now has a documented meaning. Recorded
+as a precedent ("Literature attestation cannot validate lab-internal fields") and as the single
+stated exception to the never-leave-a-cell-blank rule in `lit_assessment.md`, which otherwise
+contradicts the library's state.
+
+**The cheap check this establishes:** before opening a pass on an analysis-level field, ask whether a
+paper would ever print the value; if not, sample a handful and record the finding instead of filling
+hundreds of identical `N` cells whose uniformity would later read as evidence.
