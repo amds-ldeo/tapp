@@ -3759,3 +3759,28 @@ the third trap in precedents.md's attested-axis section.
 
 **Still ahead:** SEM (70 cells), TEM (21), then the sibling field `Sampling Unit Selection Criteria`,
 blank on the same 131 columns.
+
+## 2026-09-16 | PHASE 3 | `Sampling Unit Type`, batches 3–5 of 5: SEM and TEM — field complete
+
+91 cells (SEM 70 from 35 procedures, TEM 21). With batches 1–2 the pass filled 131 cells; the field
+now has no blank literature cell anywhere in the library.
+
+**The electron-beam families answer the question by product, not by instrument.** In SEM, imaging
+reports the imaged field, EDS point analysis a point inside a phase, mapping the mapped area read for
+its phases, FIB preparation the section it cuts from a particle, tomography the serial-sectioned
+volume — five products, five types, from one microscope. In TEM the answer is nearly constant: the
+FIB section is the unit and the paper reports phases, grains or regions inside it. The two departures
+announce themselves (ultramicrotomy of whole particles; crushing onto a grid).
+
+**The finding worth carrying forward: a blank `Name` does not imply a blank `Type`.** Zega 2025's
+laboratory passages name no specimen, so every Name cell in that paper is N — but each passage still
+states what kind of unit it handled. Type and Name fail independently, and reading one off the other
+would have produced 13 wrong N cells here.
+
+**Tally (133 cells):** Grain 38, Whole sample 33, Phase 24, Sub-volume 18, Region of interest 9, N 7,
+Aliquot 2, Analysis point 1, Laser spot 1.
+
+**Noticed, not changed:** the Solution cells use free-text heads rather than the Column F vocabulary
+the other corpora now share. Accurate, but inconsistent — normalising them is its own decision.
+
+**Next:** `Sampling Unit Selection Criteria`, blank on the same 131 columns.

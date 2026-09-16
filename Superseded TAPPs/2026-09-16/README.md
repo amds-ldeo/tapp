@@ -13,8 +13,13 @@ discovery.
 | `LA-Q-ICP-MS_UPb_TAPP_v83` | `v84` |
 | `LA-SF-ICP-MS_TAPP_v80` | `v81` |
 | `LA-SF-ICP-MS_UPb_TAPP_v81` | `v82` |
+| `SEM_Composition_TAPP_v68` | `v69` |
+| `SEM_FIBSEM_TAPP_v35` | `v36` |
+| `SEM_Imaging_TAPP_v34` | `v35` |
+| `SEM_TAPP_v69` | `v70` |
+| `TEM_TAPP_v55` | `v56` |
 
-5 version(s), 10 file(s) (CSV + xlsx). Two passes so far today.
+10 version(s), 20 file(s) (CSV + xlsx). Four passes, one per corpus.
 
 ## Why
 
@@ -62,6 +67,34 @@ procedure reporting at two levels. Keyed `(none)` deliberately — recorded in `
 third trap in `precedents.md`: **a field that declares what the axis IS cannot be keyed by that
 axis**, and under Rule 9 the units are enumerated by `Sampling Unit Name`, the containment definer.
 
+### Passes 3–4 — `Sampling Unit Type` literature, batches 3–4: SEM (70 cells) and TEM (21 cells)
+
+`../../Project Files/Scripts/phase3_sampling_unit_type_sem_20260916.py` and
+`..._tem_20260916.py`. SEM v69 → v70, SEM_Composition v68 → v69, SEM_FIBSEM v35 → v36, SEM_Imaging
+v34 → v35, TEM v55 → v56. **With these, the field is complete: 0 blank literature cells library-wide.**
+
+**In SEM the procedure's own product decides the type,** and the five products differ: imaging
+reports the imaged field, EDS point analysis a point inside a phase, mapping the mapped area read for
+its phases, FIB preparation the section it cuts out of a particle, and tomography the serial-sectioned
+volume. **In TEM it is almost always the electron-transparent specimen** — the FIB section is the
+unit, and phases, grains or regions are reported inside it. Two papers depart from that and say so:
+Keller & Berger 2014 ultramicrotomes whole particles and reports spectrum images of individual grains,
+Singerling 2025 crushes a particle onto a grid and reports grains.
+
+**Where `Sampling Unit Name` was N, the type usually is not.** Zega 2025's laboratory passages name no
+specimen, which made every Name cell N — but each passage still says what KIND of unit it worked on
+("Characterization of regions of interest ...", "All sections were extracted from varied regions of
+matrix within the particles"). Only 7 of the 133 cells are N: three Barnes 2025 procedures the paper
+does not contain, Xing 2023's review, and three older cells.
+
+**Tally across all four batches (133 cells):** Grain 38, Whole sample 33, Phase 24, Sub-volume 18,
+Region of interest 9, N 7, Aliquot 2, Analysis point 1, Laser spot 1.
+
+**Noticed, not changed.** The Solution cells written when that TAPP was built use free-text heads
+("Digestion aliquot", "Weighed powder aliquot", "Split of a single digest") rather than the Column F
+vocabulary the other five corpora now use. They are accurate and evidence-backed; normalising them is
+a separate decision, not a silent edit.
+
 ## Verification
 
 **Pass 1.**
@@ -80,3 +113,14 @@ axis**, and under Rule 9 the units are enumerated by `Sampling Unit Name`, the c
 - **Composition:** 16 MATCH, 0 DIFFERS. **Validator:** 0 ERROR, 0 WARN after the variants register
   and the two mockup document references were advanced.
 - **Key audit:** regenerated; the one new finding is adjudicated above, and no other finding changed.
+
+**Passes 3–4.**
+- **Cell-level diff:** 70 cells across the four SEM TAPPs (35 + 9 + 8 + 18) and 21 in TEM, all in the
+  `Sampling Unit Type` literature columns.
+- **Shared columns:** every SEM_Composition, SEM_FIBSEM and SEM_Imaging column holds the identical
+  SEM cell — checked programmatically, not by eye.
+- **Rows:** no row added or removed; no field, tier, data type or `Keyed By` value changed.
+- **Completeness:** a sweep of the Rule 12 mirror reports 0 blank `Sampling Unit Type` literature
+  cells in the library.
+- **Composition:** 16 MATCH, 0 DIFFERS. **Validator:** 0 ERROR, 0 WARN. **Key audit:** regenerated,
+  no new finding beyond the one adjudicated in pass 2.
