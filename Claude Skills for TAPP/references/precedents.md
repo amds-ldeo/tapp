@@ -751,6 +751,16 @@ wrong findings:
    would have removed the last consumer of `standard` in Solution Q/SF and orphaned
    `Secondary Reference Materials` as a definer under 7.4c.
 
+**A third trap, found 2026-09-16 on the `Sampling Unit Type` literature pass: the definer cannot be
+keyed by what it defines.** Filling that field's 131 blank cells made the detector score it
+UNDER-DECLARED — it reads the nested notation inside a single cell (`Grain > Spot`,
+`Phase > Analysis point`) as several units per procedure. It is one procedure reporting at two
+levels, which is exactly what the `>` has meant in the Lab-XCT cells since 2026-09-01. Keying the
+field by `sampling unit` would also be circular: under Rule 9 the units are enumerated by
+`Sampling Unit Name`, whose Column I is the containment definer `defines: sample > sampling unit`,
+so a unit must already have a type before it can serve as a key. The general form: **a field that
+declares what the axis IS cannot be keyed by that axis.** Kept `(none)`.
+
 **Coverage limit, so absence of evidence is not read as evidence.** `SEM_Composition` and `SEM` carry
 35 literature columns in which `Primary Calibration Standard Name` is `N/A` on all of them, because
 SEM-EDS is normally standardless; their `analyte` key is inherited from EPMA and is untested rather

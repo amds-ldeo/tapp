@@ -130,6 +130,17 @@ ADJUDICATED = {
         "KEEP acquisition pass — minted 2026-09-08. THE SINGLE-PASS UNFALSIFIABILITY RULE, the single-target-species rule one axis over: a SINGLE-PASS procedure cannot falsify a per-pass key. The field has one value because there is one pass, and the detector scores that as scalar. Only MULTI-pass procedures test the axis, and every one of them attests it — Chernonozhkin et al. 2021 (spot 30 vs 130 um, 20 vs 40 Hz, transect vs spot, MR vs LR, oxide-sum vs Cr-IS), Hopp et al. 2021 (wet-plasma MR vs dry-plasma HR with different introduction hardware), Hu et al. 2022 (main configuration vs subconfiguration), Willbold 2005 (dilution ~21000 for LR vs ~1000 for HR), Misra et al. 2014 (LR vs MR). Weight only the multi-pass procedures. Every field carrying this key was verified against its raw cell before the re-key; the eight stated per pass with IDENTICAL values (Laser Fluence, RF Power, Make-up Gas, Coolant Gas, Background Count Time, Analysis Sequence, Signal Integration Time, Number of Replicates) were deliberately left `(none)` under 7.3.2.",
     ("Transect Rate, Mapping Rate or Step Size", "OVER-DECLARED"):
         "KEEP acquisition pass — minted 2026-09-08. THE SINGLE-PASS UNFALSIFIABILITY RULE, the single-target-species rule one axis over: a SINGLE-PASS procedure cannot falsify a per-pass key. The field has one value because there is one pass, and the detector scores that as scalar. Only MULTI-pass procedures test the axis, and every one of them attests it — Chernonozhkin et al. 2021 (spot 30 vs 130 um, 20 vs 40 Hz, transect vs spot, MR vs LR, oxide-sum vs Cr-IS), Hopp et al. 2021 (wet-plasma MR vs dry-plasma HR with different introduction hardware), Hu et al. 2022 (main configuration vs subconfiguration), Willbold 2005 (dilution ~21000 for LR vs ~1000 for HR), Misra et al. 2014 (LR vs MR). Weight only the multi-pass procedures. Every field carrying this key was verified against its raw cell before the re-key; the eight stated per pass with IDENTICAL values (Laser Fluence, RF Power, Make-up Gas, Coolant Gas, Background Count Time, Analysis Sequence, Signal Integration Time, Number of Replicates) were deliberately left `(none)` under 7.3.2.",
+    # ---- adjudicated 2026-09-16, on the `Sampling Unit Type` literature pass (batches 1-2).
+    ("Sampling Unit Type", "UNDER-DECLARED"):
+        "KEEP (none) — THE DEFINER CANNOT BE KEYED BY WHAT IT DEFINES. This field states the KIND of "
+        "unit one reported row corresponds to, and it holds one value per procedure. What the detector "
+        "reads as several units is the nested notation inside a single cell ('Grain > Spot', 'Phase > "
+        "Analysis point'), which describes ONE procedure reporting at two levels — the same '>' the "
+        "Lab-XCT cells have carried since 2026-09-01 without a finding. A per-sampling-unit key would "
+        "be circular: under Rule 9 the units themselves are enumerated by `Sampling Unit Name`, whose "
+        "Column I is the containment definer `defines: sample > sampling unit`; a unit must have a type "
+        "before it can be a key. Procedure-Level Basic / Analysis-Level Read-Only is the shape of a "
+        "declaration about the procedure, not a per-unit value.",
     # ---- adjudicated 2026-09-01. Seven of eight NEW findings were detector artefacts; the
     # ---- eighth was real. The generalisable result is the single-target-species unfalsifiability rule
     # ---- recorded under Primary Calibration Standard Name below.

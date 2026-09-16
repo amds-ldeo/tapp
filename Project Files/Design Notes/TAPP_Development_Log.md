@@ -3734,3 +3734,28 @@ label every one.
 **Across the whole pass, N tracks multi-laboratory reporting, not technique.** 30 of the 34 N cells
 come from Zega 2025, Barnes 2025 or McCoy 2025: consortium papers that report each lab's settings
 without saying which particle each lab handled.
+
+## 2026-09-16 | PHASE 3 | `Sampling Unit Type`, batches 1–2 of 5: EPMA and the laser-ablation family
+
+40 cells (EPMA 14, LA 26) of the 131 that were never assessed. `Sampling Unit Name` finished
+yesterday; `Sampling Unit Type` and `Sampling Unit Selection Criteria` had been done for Solution and
+Lab-XCT only.
+
+**The type is what one reported ROW corresponds to, not what the beam touched.** That is the whole
+discipline of this field, and it decides every cell. EPMA papers that publish per-phase or
+per-occurrence means (Ma 2015, Ma 2017, Pang 2016) report the phase or the grain, with the points as
+its replicates; papers that publish representative or per-grain analyses (Frank 2023, Seifert 2026,
+Barnes 2025) report the point. In LA, the laser's motion decides: a spot sits inside a grain, a glass
+disc or a run product; a raster or map reports the area it covered, and the paper says what that area
+is — a whole polished surface read as "raster averages", one olivine crystal, or a region chosen for
+its phases.
+
+**A new precedent, and the reason to write the pass down.** Filling the field made the key audit
+score it UNDER-DECLARED: the detector reads `Grain > Spot` inside one cell as several units per
+procedure. Kept `(none)`, because **a field that declares what the axis IS cannot be keyed by that
+axis** — and under Rule 9 the units are enumerated by `Sampling Unit Name`, the containment definer,
+so a unit would have to have a type before it could serve as a key. Recorded in `ADJUDICATED` and as
+the third trap in precedents.md's attested-axis section.
+
+**Still ahead:** SEM (70 cells), TEM (21), then the sibling field `Sampling Unit Selection Criteria`,
+blank on the same 131 columns.
