@@ -131,6 +131,16 @@ ADJUDICATED = {
     ("Transect Rate, Mapping Rate or Step Size", "OVER-DECLARED"):
         "KEEP acquisition pass — minted 2026-09-08. THE SINGLE-PASS UNFALSIFIABILITY RULE, the single-target-species rule one axis over: a SINGLE-PASS procedure cannot falsify a per-pass key. The field has one value because there is one pass, and the detector scores that as scalar. Only MULTI-pass procedures test the axis, and every one of them attests it — Chernonozhkin et al. 2021 (spot 30 vs 130 um, 20 vs 40 Hz, transect vs spot, MR vs LR, oxide-sum vs Cr-IS), Hopp et al. 2021 (wet-plasma MR vs dry-plasma HR with different introduction hardware), Hu et al. 2022 (main configuration vs subconfiguration), Willbold 2005 (dilution ~21000 for LR vs ~1000 for HR), Misra et al. 2014 (LR vs MR). Weight only the multi-pass procedures. Every field carrying this key was verified against its raw cell before the re-key; the eight stated per pass with IDENTICAL values (Laser Fluence, RF Power, Make-up Gas, Coolant Gas, Background Count Time, Analysis Sequence, Signal Integration Time, Number of Replicates) were deliberately left `(none)` under 7.3.2.",
     # ---- adjudicated 2026-09-16, on the `Sampling Unit Type` literature pass (batches 1-2).
+    ("Pre-Analysis Imaging and Screening", "AXIS-MISMATCH"):
+        "KEEP sample — ELEMENT NAMES INSIDE A DESCRIPTION OF AN IMAGING STEP ARE CONTEXT, NOT PER-ELEMENT "
+        "VALUES. The detector proposes `monitored property + target species` because the 2026-09-16 "
+        "literature pass quotes what the screening maps show — Zhang 2022's 'Si, Al, Cr, Fe, Mg, Ca, Na, P, "
+        "and Ni maps ... along with backscattered electron (BSE) maps', Chernonozhkin 2021's identification "
+        "'based on the intensities of the Ka lines of the constituent major elements (Fe, Mg, Ni, Cr, S, Ca "
+        "and P)'. Those lists say what one map contains; they are not a value of this field per element. "
+        "The same shape as the Analytical Accuracy withdrawal recorded below: a field that names elements "
+        "always looks element-keyed. Screening happens once per sample, before the procedure runs, which is "
+        "exactly what `sample` declares.",
     ("Sampling Unit Selection Criteria", "UNDER-DECLARED"):
         "KEEP (none) — THE RULE PRECEDES THE UNITS IT PICKS. Same shape as the Sampling Unit Type finding "
         "below, one step earlier in the causal chain: this field holds the criterion a procedure applied "
