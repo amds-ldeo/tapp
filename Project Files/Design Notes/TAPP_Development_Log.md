@@ -3891,3 +3891,34 @@ small number of derived quantities; without this field a data consumer cannot te
 
 **No key finding this time,** which is itself worth noting: the field is a definer
 (`defines: reported property`), and enumerating its axis in 131 cells produced no audit disagreement.
+
+## 2026-09-16 | amds-ldeo/tapp#4 settled: four cells refiled, and the key kept with a falsifier
+
+The definitional half was answered on 2026-09-15 (Module_Aggregation v4, `3818c79`). This closes the
+two things that reply left open, both before the field's 105-cell pass rather than after.
+
+**1. The four misfiled cells are refiled** (`fix_misfiled_inclusion_cells_20260916.py`; LA-MC v83,
+Solution MC v84, Solution Q v87). Two shapes, and the distinction is worth keeping:
+
+- **Wrong level, right family.** Zhang 2022 and Pringle & Moynier 2017 recorded discards made *inside*
+  an acquisition — cycles, individual ratios. Both were already recorded verbatim in `Spike / Outlier
+  Filtering Approach`, so nothing was lost by trimming them here; each cell keeps only what is
+  genuinely result-level. Zhang's run-level grouping into Normal and SUIA groups is exactly that, and
+  stays.
+- **Not aggregation at all.** Makishima 2011 excludes a *mass* from serving a target species; Lopez
+  Garcia 2026 excludes two *elements* from the reported results. Neither selects among individual
+  results. They moved to `Monitored Masses` and `Reported Variables and Units`, and the vacated cells
+  say where they went. No sentence was deleted without being written into its destination in the same
+  run, and the script refuses if a destination has drifted.
+
+**2. The key stays `(none)`, and the falsifier is named.** The candidate was `reported property`,
+since outcome counts vary between aggregates. But Wu 2023 is a single-property aggregate (does not
+test the axis), Zhang 2022 varies by data treatment rather than property, and Lopez Garcia — the one
+per-element case — just left the field. Nothing attests it. The falsifier: a procedure reporting
+different acquired/included counts for two properties of one aggregate, e.g. 24 of 30 grains for a
+206Pb/238U date but 27 for the 207Pb/206Pb date. Ordinary enough to publish, so the axis is testable.
+
+**Re-run the check when the pass finishes** — the 105 blank cells are the evidence that could overturn
+it. And the general rule this establishes: **settle a definer-adjacent field's key before its
+literature pass**, because key placement decides module ownership under Rule 6, so re-keying
+afterwards would move the field and strand the work.

@@ -3091,3 +3091,39 @@ fields. The rule: **absence of literature attestation falsifies a field only whe
 kind of thing a paper would print.** Where it is not, the correct output of a pass is this finding,
 not several hundred identical `N` cells whose uniformity would later be mistaken for evidence.
 
+---
+
+## `Analysis Inclusion and Rejection Criteria` keeps `(none)`, and the falsifier is named (2026-09-16)
+
+Settled before opening the field's 105-cell Phase 3 pass, because a key decided afterwards would move
+the field between modules and invalidate the pass's placement. This closes the second half of
+amds-ldeo/tapp#4; the first half — what an "analysis" is — was settled in `3818c79`
+(Module_Aggregation v4), which defined the contributing unit as an **individual result**.
+
+**The candidate key was `reported property`,** on the argument that the outcome counts ("how many
+obtained, how many included") plainly vary between aggregates. Reading every filled cell in the
+library, the axis that actually varies is not the reported property:
+
+- **Wu 2023** — 246 spot analyses, 236 in one weighted mean. One aggregate, one property: the axis is
+  not tested.
+- **Zhang 2022** — runs split into a Normal group and a SUIA group per meteorite, each yielding its
+  own isochron. Two aggregates of the *same* property, differing by data treatment, not by property.
+- **Lopez Garcia 2026** — the one genuinely per-element case, Ta and W dropped for >30% blank
+  contribution. It was **refiled out of this field** on the same day: dropping an element decides
+  which properties are reported, not which results enter an aggregate.
+
+So after refiling, no procedure in the library attests a per-property inclusion rule or outcome.
+Under the attested-axis rule the field stays `(none)`.
+
+**The named falsifier, so this is not unfalsifiable:** a procedure that reports *different* acquired
+and included counts for two reported properties of the same aggregate — a geochronology procedure
+stating, say, 30 grains analysed with 24 included for the 206Pb/238U date but 27 for the 207Pb/206Pb
+date. That is an ordinary thing for a paper to publish, so the axis is testable and simply
+unattested. **Re-run this check at the end of the field's Phase 3 pass:** 105 cells are still blank,
+and they are the evidence that could overturn it.
+
+**Why the decision had to come first.** Key placement decides module ownership under Rule 6, so
+filling 105 cells against `(none)` and then re-keying would move the field and strand the work. The
+general form: **settle a definer-adjacent field's key before its literature pass, or accept that the
+pass may have to be redone.**
+
