@@ -8,38 +8,48 @@ discovery.
 
 | Superseded | Successor |
 |---|---|
-| `EPMA_TAPP_v72` | `v75` |
-| `EPMA_TAPP_v73` | `v75` |
-| `EPMA_TAPP_v74` | `v75` |
-| `LA-Q-ICP-MS_TAPP_v83` | `v86` |
-| `LA-Q-ICP-MS_TAPP_v84` | `v86` |
-| `LA-Q-ICP-MS_TAPP_v85` | `v86` |
-| `LA-Q-ICP-MS_UPb_TAPP_v83` | `v86` |
-| `LA-Q-ICP-MS_UPb_TAPP_v84` | `v86` |
-| `LA-Q-ICP-MS_UPb_TAPP_v85` | `v86` |
-| `LA-SF-ICP-MS_TAPP_v80` | `v83` |
-| `LA-SF-ICP-MS_TAPP_v81` | `v83` |
-| `LA-SF-ICP-MS_TAPP_v82` | `v83` |
-| `LA-SF-ICP-MS_UPb_TAPP_v81` | `v84` |
-| `LA-SF-ICP-MS_UPb_TAPP_v82` | `v84` |
-| `LA-SF-ICP-MS_UPb_TAPP_v83` | `v84` |
-| `SEM_Composition_TAPP_v68` | `v71` |
-| `SEM_Composition_TAPP_v69` | `v71` |
-| `SEM_Composition_TAPP_v70` | `v71` |
-| `SEM_FIBSEM_TAPP_v35` | `v38` |
-| `SEM_FIBSEM_TAPP_v36` | `v38` |
-| `SEM_FIBSEM_TAPP_v37` | `v38` |
-| `SEM_Imaging_TAPP_v34` | `v37` |
-| `SEM_Imaging_TAPP_v35` | `v37` |
-| `SEM_Imaging_TAPP_v36` | `v37` |
-| `SEM_TAPP_v69` | `v72` |
-| `SEM_TAPP_v70` | `v72` |
-| `SEM_TAPP_v71` | `v72` |
-| `TEM_TAPP_v55` | `v58` |
-| `TEM_TAPP_v56` | `v58` |
-| `TEM_TAPP_v57` | `v58` |
+| `EPMA_TAPP_v72` | `v76` |
+| `EPMA_TAPP_v73` | `v76` |
+| `EPMA_TAPP_v74` | `v76` |
+| `EPMA_TAPP_v75` | `v76` |
+| `LA-Q-ICP-MS_TAPP_v83` | `v87` |
+| `LA-Q-ICP-MS_TAPP_v84` | `v87` |
+| `LA-Q-ICP-MS_TAPP_v85` | `v87` |
+| `LA-Q-ICP-MS_TAPP_v86` | `v87` |
+| `LA-Q-ICP-MS_UPb_TAPP_v83` | `v87` |
+| `LA-Q-ICP-MS_UPb_TAPP_v84` | `v87` |
+| `LA-Q-ICP-MS_UPb_TAPP_v85` | `v87` |
+| `LA-Q-ICP-MS_UPb_TAPP_v86` | `v87` |
+| `LA-SF-ICP-MS_TAPP_v80` | `v84` |
+| `LA-SF-ICP-MS_TAPP_v81` | `v84` |
+| `LA-SF-ICP-MS_TAPP_v82` | `v84` |
+| `LA-SF-ICP-MS_TAPP_v83` | `v84` |
+| `LA-SF-ICP-MS_UPb_TAPP_v81` | `v85` |
+| `LA-SF-ICP-MS_UPb_TAPP_v82` | `v85` |
+| `LA-SF-ICP-MS_UPb_TAPP_v83` | `v85` |
+| `LA-SF-ICP-MS_UPb_TAPP_v84` | `v85` |
+| `SEM_Composition_TAPP_v68` | `v72` |
+| `SEM_Composition_TAPP_v69` | `v72` |
+| `SEM_Composition_TAPP_v70` | `v72` |
+| `SEM_Composition_TAPP_v71` | `v72` |
+| `SEM_FIBSEM_TAPP_v35` | `v39` |
+| `SEM_FIBSEM_TAPP_v36` | `v39` |
+| `SEM_FIBSEM_TAPP_v37` | `v39` |
+| `SEM_FIBSEM_TAPP_v38` | `v39` |
+| `SEM_Imaging_TAPP_v34` | `v38` |
+| `SEM_Imaging_TAPP_v35` | `v38` |
+| `SEM_Imaging_TAPP_v36` | `v38` |
+| `SEM_Imaging_TAPP_v37` | `v38` |
+| `SEM_TAPP_v69` | `v73` |
+| `SEM_TAPP_v70` | `v73` |
+| `SEM_TAPP_v71` | `v73` |
+| `SEM_TAPP_v72` | `v73` |
+| `TEM_TAPP_v55` | `v59` |
+| `TEM_TAPP_v56` | `v59` |
+| `TEM_TAPP_v57` | `v59` |
+| `TEM_TAPP_v58` | `v59` |
 
-30 version(s), 60 file(s) (CSV + xlsx). Twelve passes: three literature fields, four corpora each.
+40 version(s), 80 file(s) (CSV + xlsx). Sixteen passes: four literature fields, four corpora each.
 
 ## Why
 
@@ -177,6 +187,32 @@ quote what the screening maps show ("Si, Al, Cr, Fe, Mg, Ca, Na, P, and Ni maps"
 what one map contains; they are not a value per element. Kept `sample` — screening happens once per
 sample, before the procedure runs.
 
+### Passes 13–16 — `Reported Variables and Units` literature, all four corpora (131 cells)
+
+`../../Project Files/Scripts/phase3_reported_variables_{epma,la,sem,tem}_20260916.py`. EPMA v76,
+LA-Q v87 + U-Pb v87, LA-SF v84 + U-Pb v85, the four SEM TAPPs (v73/v72/v39/v38), TEM v59. **The field
+is complete.**
+
+**This field is a definer** (`defines: reported property`), so each cell enumerates the axis: every
+variable the procedure reports, with its unit, derived quantities included. Three things it forced.
+
+- **Units are not interchangeable, so none were normalised.** The LA corpus alone uses µg/g, mg/g,
+  g/100 g, ppm, ppb and atomic % side by side — Navarro 2024 reports As in µg g-1 and Fe in g/100 g
+  in one table, Zhang 2022 splits P, Fe, Co and Ni into mg/g from the other nineteen elements in µg/g.
+  Each cell takes the unit from the paper's own table header.
+- **The "nominal property" clause earns its place in SEM.** Many procedures report no magnitude at
+  all — a morphology, a texture, a phase identification. Those are recorded as the variable plus
+  `(nominal)`, which is a value, not an `N`: the procedure reports something, it just has no unit.
+- **The derived quantity is usually the point.** An EPMA paper publishes oxide wt% and then the
+  cations per formula unit, end-members or modal fractions computed from them; a TEM column typically
+  carries a composition, a structure (d-spacings in Å or nm) and an unquantified microstructural
+  state at once. Recording only the measured quantity would misdescribe what these procedures are for.
+
+**Tally across the 133 cells:** 72 carry at least one quantitative variable with a unit, 54 report a
+nominal property only (imaging, phase identification, textural state), and 7 are N — the three Barnes
+2025 procedures the paper does not contain, counted across the SEM TAPPs that share them, plus Xing
+2023's review. The 54 are the reason the nominal clause exists.
+
 ## Verification
 
 **Pass 1.**
@@ -230,3 +266,14 @@ sample, before the procedure runs.
   0 findings left unadjudicated.
 - **Mockups:** EPMA retargeted to v75 and rebuilt; the point-analysis form's prefilled count rose
   34 → 35. **Variants register** advanced for the U-Pb bumps.
+
+**Passes 13–16.**
+- **Cell-level diff:** 14 + 26 + 70 + 21 = 131 cells, all in the `Reported Variables and Units`
+  literature columns; U-Pb variants match their bases and the three SEM subsets hold the identical
+  SEM cell, both checked programmatically.
+- **Rows:** no row added or removed; no field, tier, data type or `Keyed By` value changed.
+- **Completeness:** 0 blank cells in this field library-wide.
+- **Composition:** 16 MATCH, 0 DIFFERS. **Validator:** 0 ERROR, 0 WARN. **Key audit:** regenerated,
+  0 findings left unadjudicated — notably none on this field, though it is a definer.
+- **Mockups:** EPMA retargeted to v76 and rebuilt; prefilled count 35 → 36. **Variants register**
+  advanced for the U-Pb bumps.

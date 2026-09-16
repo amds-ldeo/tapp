@@ -3865,3 +3865,29 @@ contradicts the library's state.
 **The cheap check this establishes:** before opening a pass on an analysis-level field, ask whether a
 paper would ever print the value; if not, sample a handful and record the finding instead of filling
 hundreds of identical `N` cells whose uniformity would later read as evidence.
+
+## 2026-09-16 | PHASE 3 | `Reported Variables and Units` — the field a data consumer needs most
+
+131 cells across EPMA, the LA family, the SEM family and TEM; the field is complete. This is the one
+whose purpose is stated outright in Column J: "A procedure may acquire many channels and report a
+small number of derived quantities; without this field a data consumer cannot tell which."
+
+**Three things the pass forced, in order of how much they cost.**
+
+1. **Units are not interchangeable and were not normalised.** LA alone uses µg/g, mg/g, g/100 g, ppm,
+   ppb and atomic % side by side — Navarro 2024 reports As in µg g-1 and Fe in g/100 g in the same
+   table; Zhang 2022 splits P, Fe, Co and Ni into mg/g from the other nineteen elements in µg/g. Each
+   cell takes the unit from the paper's own table header, because the unit is part of the value.
+2. **54 of 133 cells report a nominal property only.** Imaging procedures report a morphology, a
+   texture, a phase identification. The field's description anticipates this, and those cells record
+   the variable plus `(nominal)` — a value, not an N. Reading them as empty would be the same mistake
+   as reading blank for N.
+3. **The derived quantity is usually the point.** EPMA papers publish oxide wt% and then cations per
+   formula unit, end-members or modal fractions; a TEM column typically carries a composition (at%), a
+   structure (d-spacings in Å or nm) and an unquantified microstructural state at once. Recording only
+   the measured quantity would misdescribe what the procedure is for.
+
+**Tally:** 72 quantitative, 54 nominal-only, 7 N.
+
+**No key finding this time,** which is itself worth noting: the field is a definer
+(`defines: reported property`), and enumerating its axis in 131 cells produced no audit disagreement.
