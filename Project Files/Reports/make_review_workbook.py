@@ -27,6 +27,7 @@ Regenerate after any version bump; this is a snapshot of one version, like the m
 """
 
 import csv, os, re, collections
+from review_examples import example, EXAMPLES, MODES
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.worksheet.datavalidation import DataValidation
@@ -44,6 +45,12 @@ SRC  = os.path.join(ROOT, 'Current TAPPs', 'EPMA_TAPP_%s.csv' % VERSION)
 if not os.path.exists(SRC):                      # mirror stale or mid-bump
     SRC = os.path.join(ROOT, 'EPMA', 'EPMA_TAPP_%s.csv' % VERSION)
 OUT  = os.path.join(HERE, 'EPMA_TAPP_%s_Review_Workbook.xlsx' % VERSION)
+
+
+def out_path(mode):
+    if mode is None:
+        return OUT
+    return os.path.join(HERE, 'EPMA_TAPP_%s_Review_Workbook_%s.xlsx' % (VERSION, mode.replace(' ', '_')))
 
 # Domains that do not exist until a session runs.
 SESSION_ONLY = {'sample', 'sampling unit'}
@@ -306,6 +313,7 @@ COLSPEC = [
     ('num',      '#',                            7,  None,        'content', None),
     ('name',     'Metadata item',                31, 'item',      'content', None),
     ('needed',   'Needed?',                      17, 'item',      'review',  OPT_NEEDED),
+    ('example',  'Example',                      44, None,        'content', None),
     ('prose',    'What to report',               56, None,        'content', None),
     ('pstruct',  'Structure — procedure record', 28, 'procedure', 'content', None),
     ('pstructr', 'Structure right?',             16, 'procedure', 'review',  OPT_STRUCT),
@@ -349,11 +357,17 @@ def load():
     return out, modes
 
 
-def build():
+def build(mode=None):
     fields, modes = load()
     missing = [f['name'] for f in fields if f['name'] not in PROSE]
+    missing += [f['name'] for f in fields if f['name'] not in EXAMPLES]
     if missing:
-        raise SystemExit('no sentence written for: %s' % missing)
+        raise SystemExit('no sentence or example written for: %s' % missing)
+    all_modes = list(modes)
+    if mode is not None:
+        k = all_modes.index(mode)
+        fields = [f for f in fields if f['modes'][k] == 'Y']
+        modes = []                       # one mode per workbook: no mode columns
 
     wb = Workbook()
 
@@ -380,7 +394,10 @@ def build():
             b.alignment = Alignment(wrap_text=True, vertical='top'); r += 1
         r += 1
 
-    head('EPMA metadata — reviewer workbook (EPMA TAPP v77)')
+    head('EPMA metadata — reviewer workbook (EPMA TAPP v77)' + (' — %s' % mode if mode else ''))
+    if mode:
+        para('This workbook shows only the %d of %d items that apply to %s. Item numbers are the TAPP\'s own, so gaps in the numbering are items that belong to other modes.' % (len(fields), 88, mode))
+    para('The Example column shows what each item looks like when filled in, taken from a worked example: a fictional EPMA session written up as a methods section (EPMA_Reference_Methods_Section_v77.md). The laboratory, samples, identifiers and results are invented. Where an item repeats, the example says what for: "20 nA for olivine; 8 nA for phosphates".')
     para('Every item is documented twice: once in the procedure record, the standing recipe that is '
          'registered and cited by DOI, and once in the session record, which describes one analytical '
          'session run under it. One session may cover several samples. Read this sheet first, then '
@@ -429,12 +446,13 @@ def build():
          'should ask for these per phase or material type, and if so, who supplies that list.')
     r += 1
 
-    head('Modes', 12)
-    para('The four columns on the right are the analytical modes this technique covers. ✓ means the '
-         'item applies to that mode; – means it does not. Within each group, rows that repeat over the '
-         'same thing in the same modes are kept together and separated by a rule. Every row carries '
-         'its own values, so sorting or filtering the sheet loses nothing.')
-    r += 1
+    if not mode:
+        head('Modes', 12)
+        para('The four columns on the right are the analytical modes this technique covers. ✓ means the '
+             'item applies to that mode; – means it does not. Within each group, rows that repeat over the '
+             'same thing in the same modes are kept together and separated by a rule. Every row carries '
+             'its own values, so sorting or filtering the sheet loses nothing.')
+        r += 1
 
     head('What we are asking you', 12)
     para('Six columns are for your review, and each one sits immediately to the right of the column '
@@ -512,6 +530,7 @@ def build():
                 if flag:
                     flagged.append(f['name'])
                 values = {'num': f['num'], 'name': f['name'], 'prose': PROSE[f['name']],
+                          'example': example(f['name'], mode),
                           'pstruct': proc, 'ptier': f['C'],
                           'sstruct': sess_f, 'stier': f['D']}
                 for k, ch in zip(modes, f['modes']):
@@ -536,7 +555,7 @@ def build():
                         cell.font = Font(bold=True, size=11)
                         cell.alignment = Alignment(vertical='top', wrap_text=True)
                     else:
-                        cell.alignment = Alignment(wrap_text=(key == 'prose'), vertical='top')
+                        cell.alignment = Alignment(wrap_text=(key in ('prose', 'example')), vertical='top')
                 if flag:
                     c = ws.cell(row=row, column=idx['pstruct'])
                     c.fill = FLAG_FILL
@@ -585,14 +604,13 @@ def build():
     tr.freeze_panes = 'A2'
     tr.auto_filter.ref = 'A1:E%d' % (len(fields) + 1)
 
-    wb.save(OUT)
-    return OUT, len(fields), sorted(set(flagged))
+    out = out_path(mode)
+    wb.save(out)
+    return out, len(fields), sorted(set(flagged))
 
 
 if __name__ == '__main__':
-    out, n, flagged = build()
     print('read   %s' % SRC)
-    print('wrote %s — %d fields' % (out, n))
-    print('procedure-level cells flagged (session-only domain stripped): %d' % len(flagged))
-    for f in flagged:
-        print('   -', f)
+    for m in (None,) + MODES:
+        out, n, flagged = build(m)
+        print('wrote %s — %d fields, %d flagged' % (os.path.basename(out), n, len(flagged)))
