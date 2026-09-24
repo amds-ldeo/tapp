@@ -1,0 +1,26 @@
+section  88/88  100.0%
+C        88/88  100.0%
+D        87/88  98.9%
+I        87/88  98.9%
+modes    88/88  100.0%
+all      86/88  97.7%
+mode cells 352 / 352
+confidence Counter({'medium': 60, 'high': 43, 'low': 5})
+
+splits / errors:
+  ('Coupling Description', 2, {}, ['low', 'low'])
+  ('Beam Raster Dimensions', 2, {}, ['medium', 'medium'])
+  ('Beam Damage Minimization', 1, {'I': ('(none)', 'sample > sampling unit')}, ['medium'])
+  ('Sequence', 2, {}, ['medium', 'medium'])
+  ('Calibration Factor and Determination Method', 3, {}, ['medium', 'medium', 'medium'])
+  ('Procedural Blank Level', 2, {}, ['medium', 'low'])
+  ('Analysis Inclusion and Rejection Criteria', 4, {'D': ('Editable', 'Basic')}, ['low', 'medium', 'medium', 'medium'])
+  ('Primary Calibration Standard Name', 3, {}, ['medium', 'medium', 'medium'])
+  ('Secondary Reference Materials', 3, {}, ['high', 'medium', 'medium'])
+  ('X-ray Line Overlap Corrections Applied', 3, {}, ['high', 'medium', 'medium'])
+  ('Detection Limit', 2, {}, ['medium', 'medium'])
+  ('Analytical Precision', 3, {}, ['medium', 'medium', 'medium'])
+  ('Analytical Accuracy', 2, {}, ['high', 'medium'])
+  ('Goodness-of-Fit or Dispersion Statistic', 2, {}, ['medium', 'medium'])
+
+primary-row confidence vs all-correct: {'high': [43, 43], 'medium': [41, 42], 'low': [2, 3]}
