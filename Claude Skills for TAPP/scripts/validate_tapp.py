@@ -49,6 +49,27 @@ COL_PURPOSE = 9    # Column J — consumer-owned (Phase 1, 2026-08-25)
 FIRST_MODE_COL = 10
 SENTINEL_HEADER = "Literature Assessment"
 
+# The keyed-value notation (conventions 7.3.4) lives in keyed_cells.py, shared with the form generator.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import keyed_cells  # noqa: E402
+
+# TAPPs whose literature cells have been converted to the keyed-value notation. Their `keyed-cell`
+# findings are WARN (a regression); every other TAPP reports its unconverted backlog at INFO.
+# Add a TAPP (by file-name stem) only once its conversion pass is finished.
+KEYED_NOTATION_ENFORCED = {"EPMA"}          # converted 2026-09-29 (epma_keyed_pilot_20260929.py)
+# Cells whose stated value cannot be written against the field's key without inference (7.3.4: "the
+# notation tests the key"). Keyed (TAPP stem, field, column key) -> reason; reported at INFO as
+# `keyed-cell-registered`, never WARN. Each entry is an open question about the key, not a format fix.
+KEYED_CELL_EXCEPTIONS = {
+    ("EPMA", "Detection Limit", "Ma+2017"):
+        "Detection limits are stated per element ('0.05 Si, 0.04 Ti, ...') while Table 1 reports oxides, and the "
+        "field is keyed reported property. Attaching Si to SiO2 would be inference. DECIDED 2026-09-29: keep "
+        "reported property; this cell stays a registered exception rather than driving a re-key.",
+    ("EPMA", "Analytical Accuracy", "Ma+2017"):
+        "Accuracy stated per element ('1-2% for Si, Al, Ca, Na, and K') against oxide reported properties; same "
+        "decision as Detection Limit: key kept, exception registered (2026-09-29).",
+}
+
 VALID_C = {"Basic", "Advanced", "N/A"}
 VALID_D = {"Read-Only", "Editable", "Basic", "Advanced"}
 VALID_MODE_FLAG = {"Y", "N"}
@@ -220,11 +241,9 @@ KEYED_BY_TECHNIQUE_DEPENDENT = {
                                          "and TEM, whose STEM per-pixel dwell is scalar (TEM joined "
                                          "this field on 2026-08-27, when `STEM Dwell Time per Pixel` "
                                          "was merged into it as a Rule 1 name variant)",
-    "Beam Current":                      "target material in EPMA (point analysis only, since 2026-09-28: the literature states beam conditions per material, never per analysis point); sample > sampling unit in SEM and SEM_Composition, pending their literature check (gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md); (none) in the imaging-only SEM variants",
-    "Beam Mode":                         "target material in EPMA (point analysis only, since 2026-09-28); sample > sampling unit in SEM and SEM_Composition, pending their literature check (gap 1)",
-    "Beam Diameter":                     "target material in EPMA (point analysis only, since 2026-09-28); sample > sampling unit in SEM and SEM_Composition, pending their literature check (gap 1)",
-    "Beam Raster Dimensions":            "target material in EPMA (since 2026-09-28); sample > sampling unit in SEM and SEM_Composition, pending their literature check (gap 1)",
-    "Beam Damage Minimization":          "target material in EPMA (point analysis only, since 2026-09-28); sample > sampling unit in SEM and SEM_Composition, pending their literature check (gap 1)",
+    # The five electron-beam point fields LEFT this register 2026-09-28: EPMA, SEM, SEM_Composition
+    # and SEM_Imaging now key them `target material` (gap 1; gap1_sem_target_material_20260928.py),
+    # and SEM_FIBSEM's scanning current became `Mapping Beam Current`, keyed per map as everywhere.
     "Monitored Masses":                  "registered 2026-08-12 for `defines: ... per target species` where there was no collector array vs `target species` where the cup array defined the channel. NOTE 2026-09-10: DORMANT — the \u00a74 restructure made the mass list the definer in all nine ICP-MS TAPPs and demoted `Collector Configuration` to a per-monitored-property attribute, so the divergence has no cause and no longer occurs. Kept, not deleted, on the same grounds as `Secondary Reference Materials`: the reading was defensible and could return if a TAPP ever lets the collector array enumerate the measurands again.",
 }
 KEYED_BY_EXCEPTIONS = set(KEYED_BY_TECHNIQUE_DEPENDENT)   # back-compat alias
@@ -289,6 +308,10 @@ COLB_DIVERGENCE_TRIAGED = {
     'Beam Current': ("PRINCIPLED", 5),
     'Beam Damage Minimization': ("PRINCIPLED", 3),
     'Beam Diameter': ("PRINCIPLED", 3),
+    # Added 2026-09-28 (gap 1, SEM). EPMA and SEM_Composition map X-rays only, and keep EPMA's
+    # "used during X-ray mapping". SEM, SEM_Imaging and SEM_FIBSEM also scan for SE/BSE images,
+    # CL and EBSD maps and FIB-SEM work, and name those; the field is the same current.
+    'Mapping Beam Current': ("PRINCIPLED", 2),
     # `Detector Configuration` REMOVED 2026-09-11: it moved into Module_SingleCollector (v1) with one
     # single-collector description in all six consumers, and left the two LA-MC TAPPs, where it
     # duplicated Module_MCICPMS's Faraday Cup Array Configuration. It no longer diverges.
@@ -1277,6 +1300,43 @@ def check_keyed_by(t: Tapp, out):
                 break
 
 
+def check_keyed_cells(t: Tapp, out):
+    """7.3.4 — every literature cell of a keyed field or definer parses, and names only definer members."""
+    if t.sentinel_idx is None:
+        return
+    stem = t.name.rsplit("_TAPP_v", 1)[0]
+    sev = "WARN" if stem in KEYED_NOTATION_ENFORCED else "INFO"
+    lit = [j for j in range(t.sentinel_idx + 1, len(t.header)) if t.header[j].strip()]
+    rows = [(n, row) for n, row, _ in t.content_rows()]
+    definers = {}
+    for n, row in rows:
+        kind, doms = keyed_cells.procedure_domains(t.cell(row, COL_KEYEDBY))
+        if kind in ("definer", "definer_per"):
+            definers[doms[0]] = row
+    for j in lit:
+        col = t.header[j].replace("\n", " ").split("|")[0].strip()[:28]
+        members = {}
+        for dom, drow in definers.items():
+            cell = t.cell(drow, j)
+            if keyed_cells.is_marker(cell):
+                members[dom] = None
+                continue
+            ms, errs = keyed_cells.parse_definer(cell)
+            members[dom] = None if errs else {keyed_cells.norm(m) for m, _ in ms}
+        for n, row in rows:
+            status, msgs = keyed_cells.check_cell(t.cell(row, j), t.cell(row, COL_KEYEDBY), members)
+            if status in ("unparsed", "unknown-member") and \
+                    (stem, t.cell(row, COL_ITEM), col) in KEYED_CELL_EXCEPTIONS:
+                out.append(Finding("INFO", t.name, n, t.cell(row, COL_ITEM), "keyed-cell-registered",
+                                   f"[{col}] {msgs[0]} — registered exception (KEYED_CELL_EXCEPTIONS)"))
+            elif status == "unparsed":
+                out.append(Finding(sev, t.name, n, t.cell(row, COL_ITEM), "keyed-cell",
+                                   f"[{col}] not in the keyed-value notation (7.3.4): {msgs[0]}"))
+            elif status == "unknown-member":
+                out.append(Finding(sev, t.name, n, t.cell(row, COL_ITEM), "keyed-cell-member",
+                                   f"[{col}] {msgs[0]} — fill the definer in this column first (7.3.4)"))
+
+
 def check_dates(t: Tapp, out):
     add = lambda s, r, f, c, m: out.append(Finding(s, t.name, r, f, c, m))
     for n, row, _ in t.content_rows():
@@ -2219,7 +2279,7 @@ def main():
         tapps.append(t)
         for check in (check_structure, check_tiers, check_modes, check_data_types,
                       check_analytical_mode_vocabulary,
-                      check_naming, check_rules, check_keyed_by, check_dates):
+                      check_naming, check_rules, check_keyed_by, check_keyed_cells, check_dates):
             check(t, findings)
 
     if not args.no_cross and len(tapps) > 1:

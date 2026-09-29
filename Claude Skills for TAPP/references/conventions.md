@@ -1053,7 +1053,7 @@ See §10 of the proposal.
 | `model component` | a component of a fitted decomposition of the signal | Mössbauer doublets/sextets (IS, QS, B_hf, Area%); Raman fitted peaks; XRD Rietveld phases; EELS edge components |
 | `acquisition pass` **(IN USE since 2026-09-08)** | a distinct traversal of the measurement with its own configuration, run in sequence on the same material — a **sub-procedure**. Identical repeats are replicates, not passes | **Definer `Acquisition Pass`; 15 consumers across the 9 ICP-MS TAPPs.** Retired 2026-08-11 for want of a consumer, reinstated when a survey found 69 pass-structured cells in 10 procedures across 4 TAPPs. Fields keyed by it: laser spot geometry, repetition rate, ablation mode, transect rate, internal-standard approach and element, elemental fractionation correction, plasma thermal mode, desolvation system, final solution matrix, cycles per block, scans per replicate, pulse/analog nonlinearity correction, mass resolution assignment, inter-pass data dependency. ⚠ **Not yet in EPMA/SEM**: `Sequence` holds the enumeration there but nothing in those TAPPs is keyed by the pass, so declaring it a definer would breach 7.4c. **The falsifier that would reverse this is named and narrow**: a *beam* condition (current or diameter) differing between passes on the same phase, which no existing key can carry. A per-element *counting time* does NOT qualify — `monitored property` already expresses it (`channel` when this was written; renamed 2026-09-10), and Barnes et al. 2025 already attests it. See precedents.md, 2026-09-08. **RE-TESTED 2026-09-10 and upheld.** `Monitored Elements` was added to the three electron-beam TAPPs and assessed against all 59 procedure columns, which put the pass-shaped evidence in one place for the first time. It grew from one cell to three, across two procedures — Neuman et al. 2025 (`pass 1 = Mg, Al, Fe, Ca, Ti; pass 2 = Na, Si, Mn, K, Cr`) and Barnes et al. 2025 at CRPG (`session 1` / `session 2` element sets) — and **all of it is element-set partition, which `Sequence` and `monitored property` already carry**. Every beam-condition cell in all 59 columns was checked: **not one varies by pass.** The two that vary at all are already keyed correctly — Neuman's 100 nA stage map vs 2 nA BSE mosaic varies by *technique*, and Barnes's 1 µm focused vs 5×5 µm raster varies by *mineral*, which `sample > sampling unit` carries. SEM and SEM_Composition have **zero** pass-shaped cells in 44 columns. The deferral is therefore stronger than when it was written, not weaker: more evidence, still none of the named kind |
 | `preparation step` | a stage in sample preparation | multi-step digestion (temperature, duration, acid per step); sequential chromatography columns; etch steps |
-| `target material` **(IN USE since 2026-09-28)** | a material type the procedure is designed to analyse, as listed in `Target Material` | **Definer `Target Material`** (Module_Core v10, all 16 TAPPs; exempt from 7.4c). **Consumers:** the EPMA point-analysis beam fields — Beam Mode, Beam Current, Beam Diameter, Beam Raster Dimensions, Beam Damage Minimization. Minted because every beam condition in the 15 EPMA literature columns is stated per phase or material, never per analysis point (Zega 2025: 20 nA silicates, sulfides, oxides; 8 nA phosphates; 4 nA carbonates). Point analyses link to their material through `Target Material of Sampling Unit`. Maps scan every material at once, so their conditions sit in mapping twins keyed per map (Liu+2016: olivine 20 nA points, 200 nA maps). SEM and SEM_Composition keep `sample > sampling unit` pending their literature check. See precedents.md, 2026-09-28 |
+| `target material` **(IN USE since 2026-09-28)** | a material type the procedure is designed to analyse, as listed in `Target Material` | **Definer `Target Material`** (Module_Core v10, all 16 TAPPs; exempt from 7.4c). **Consumers:** the point-analysis beam fields — Beam Mode, Beam Current, Beam Diameter, Beam Raster Dimensions, Beam Damage Minimization — in EPMA, SEM and SEM_Composition, and Beam Current (CL point analysis) in SEM_Imaging. Minted because every beam condition in the 15 EPMA literature columns is stated per phase or material, never per analysis point (Zega 2025: 20 nA silicates, sulfides, oxides; 8 nA phosphates; 4 nA carbonates). Point analyses link to their material through `Target Material of Sampling Unit`. Maps scan every material at once, so their conditions sit in mapping twins keyed per map (Liu+2016: olivine 20 nA points, 200 nA maps). The SEM TAPPs followed the same day on their own evidence: no SEM procedure states a beam condition per point, Ferus+2020 states one per material, and three procedures run points and maps differently. See precedents.md, 2026-09-28 (two entries) |
 | `combined result` **(IN USE since 2026-09-28)** | one reported value obtained by averaging or otherwise combining several individual results — a phase mean, a weighted-mean date, an isochron | **Definer `Combined Results`** (Module_Aggregation v5; session only, C=N/A, so it drops out at procedure level under 7.3.3). **Consumers:** `Analysis Inclusion and Rejection Criteria` (`combined result`), `Goodness-of-Fit or Dispersion Statistic` and `Other Statistics` (`combined result x reported property`). Minted because combined values sit at different levels even within one TAPP — EPMA per phase (Liu 2016, Pang 2016, Broussard 2026) and per grain (Ma 2017); LA-Q per grain (Nakanishi 2022), per aliquot (Liu 2024), per phase (Liu 2016) and per sample (Wu 2023) — so no fixed key fits, as the 2026-09-16 precedent had concluded. *How* a reported variable is combined is `Combination Method`, keyed `reported property`. See precedents.md, 2026-09-28 |
 
 **Technique-specific extensions** are permitted. They are declared in Phase 0 (7.7) and listed in the
@@ -1281,10 +1281,113 @@ from it within the procedure's bounds (D=Editable). `Sample Preparation Method` 
 each level. EPMA procedures state beam conditions per phase, and the fields were keyed per analysis
 point. The key the literature actually attests, though, is per *target material* at both levels: no
 procedure states beam conditions per point. The design agreed on 2026-09-28 (gap 1 of
-`analysis/Pending_Gaps_2026-09-24_Reference_Example.md`, not yet implemented) therefore keys those
+`analysis/Pending_Gaps_2026-09-24_Reference_Example.md`, implemented the same day in EPMA and the SEM TAPPs) therefore keys those
 fields `target material`, and projection remains the only level mechanism. A field that genuinely
 needs a different key at each level would be a new case, and must be argued from attested data
 before any notation is added for it.
+
+#### 7.3.4 Writing keyed values — Column F and the keyed-value notation (rule, 2026-09-29)
+
+**The problem.** Column I says what a field's value repeats over, but not how a written value is tied
+to its member. An EPMA procedure monitors Fe, Si and Mg, and each has its own X-ray line. A cell
+reading `Ka, Ka, La` cannot say which line belongs to which element, so a schema consumer cannot build
+a procedure record from it. A survey on 2026-09-28 found 917 literature cells in keyed fields:
+- 9% used `member: value`;
+- 28% grouped members in parentheses, in either order;
+- 19% stated the scope in prose ("for SiO2, TiO2");
+- 44% gave one value and named no member.
+
+Only the first form can be parsed. The form mockup had to supply per-element values by hand
+(`perMember` in `Project Files/Reports/cfg.json`) because the cells could not.
+
+**Two places, two jobs.**
+
+| Column | Holds | Where the structure comes from |
+|---|---|---|
+| F | Allowed values or examples for **one member's** value — what a person types into one box | nothing; it is a single value |
+| I | What the value repeats over | the key |
+| Literature cells | **Every** member's value for one procedure, flattened into one cell | the notation below; members named as in the definer cell of the same column |
+
+**Column F carries no member labels.** Write `e.g., 0.02 wt% | 0.03 wt%`, not
+`'SiO2: 0.02 wt%' | 'Na2O: 0.03 wt%'`. Write `Smithsonian anorthite`, not `Smithsonian anorthite (Si
+Ka, Al Ka, Ca Ka)`. The schema builds a field's allowed values or examples from Column F (schema spec
+§6), and the form builds one input per member from Column I. A label in Column F breaks the
+enumeration of a controlled list and misleads on a text field. Pipes still separate alternatives,
+never members. **A definer's Column F** shows example member lists in definer-cell form (below):
+`'Pass 1 (LR, M/dm 300); Pass 2 (MR, M/dm 4000)'`, not `'Pass 1: LR; Pass 2: MR'`. Cleaned on
+2026-09-29: 139 rows in 13 TAPPs, plus 8 default or overlay rows in Module_ICPMS and Module_UPb
+(`Project Files/Scripts/colf_value_only_20260929.py`).
+
+**Literature cells use the keyed-value notation.**
+
+| Case | Notation | Example |
+|---|---|---|
+| Value per member | `member: value; member: value` | `Fe: LIFL; Mg: TAPL; Ca: PETL` |
+| Members sharing a value | `m, m, m: value` | `Si, Al, Ca: anorthite; Na: albite` |
+| The paper states a value without restricting it to some members | `all: value` | `all: 20 s` |
+| Only some members stated | `…; other: N` | `Fe, Mn: LIFL; other: N` |
+| Two procedure-level domains (`A x B`) | `a [b: value; b: value]` | `Kakanui kaersutite [SiO2: +0.5%; all: N]` |
+| A `pair:` key | `a & b: value` | `206Pb/238U date & 207Pb/235U date: 0.83` |
+| Nothing stated | the whole cell is `N`, or `N/A` if the field does not apply | `N` |
+
+- **Separators work at top level only.** `;` separates entries, `,` separates members, and `: `
+  (colon *followed by a space*) separates members from the value. Inside `()`, `[]` or double quotes
+  nothing splits, so `He:H2 92% : 8%` needs no quoting after its member (`He: He:H2 92% : 8%` splits
+  only at the first `: `). Quote a value or member name that would otherwise split: `"Mg,Na phosphate"`.
+- **Commentary follows ` — `** (space, em dash, space). Everything after the first top-level ` — ` is
+  evidence or explanation, typically the quoted sentence, and is never parsed:
+  `Si, Al, Ca: anorthite; Na: albite — "Standards were anorthite (SiKα, AlKα, CaKα); albite (NaKα)"`.
+- **`all` and `other` are reserved.** `all` must be the only member in the cell. `other` must stand alone,
+  in the last entry.
+- **`all:` is transcription, not inference.** Use it when the paper states the value without
+  restricting it to particular members: "analyses were run at 15 kV and 20 nA". Where the paper names
+  the members a value applies to, name them. Where it gives values for some members, list those and
+  end with `other: N`.
+- **Units stay inside the value**, as in Column F: `Fe: 20 s`.
+- **A controlled-list field uses Column F's spelling** in the value: `Si, Al: Ka`, even where the paper
+  prints `Kα`. The paper's spelling stays in the commentary quote. The pilot's first write used `Kα`,
+  and the form showed every element as outside the list.
+- **A `;` inside a value splits it into a new entry.** Reword the value, put the clause in
+  parentheses, or quote the whole value.
+
+**Definer cells** (`defines: X`) list the members, separated by `,` or `;`. A parenthetical after a
+member is a gloss and not part of its name: `Silicate mineral (olivine, pyroxene); Oxide (chromite)`
+defines `Silicate mineral` and `Oxide`. Name members as the paper names them. Where the field's Column F
+has a category vocabulary (Target Material), the category may be the name or the gloss. **The definer
+lists every member the paper names anywhere in the procedure.** A keyed cell may not name a member that
+its column's definer lacks, so the definer is filled first.
+
+For `defines: A per B` (7.3.1) each entry may carry its parent: `206Pb, 207Pb, 208Pb → Pb; 202Hg → none`.
+A member with no arrow binds to the member of B with the same name, which is the usual EPMA case (the
+monitored element Fe serves the target species Fe). Write `→ none` for a monitor that serves no target
+species (Zn in the reference example).
+
+**Projection decides which domains appear (7.3.3).** Session-only domains — `sample`, `sampling unit`,
+`combined result` — drop out at procedure level. So `sample > sampling unit x reported property` is
+written as a one-level cell by reported property, and a field keyed only by session domains is
+written as one value. A literature column describes a procedure, and the procedure names no samples.
+
+**The notation tests the key.** A value that cannot be written against the declared key is evidence
+about the key, not a formatting problem. Zega+2025's `Peak Counting Time` ("20 s (silicates, sulfides,
+oxides; phosphates); 10 s (carbonates)") is stated per material. It cannot be written under
+`monitored property`, which is the held counting-time case of gap 1. Record it in commentary and
+raise it; do not force it into the wrong key.
+
+**Enforcement.** `scripts/keyed_cells.py` is the grammar; `validate_tapp.py` and
+`Project Files/Reports/build_form.py` both import it. The check `keyed-cell` parses every literature
+cell of a keyed field or definer, and matches its members against that column's definer. It reports
+at INFO while a TAPP's backlog is being worked down. A TAPP listed in `KEYED_NOTATION_ENFORCED` in the
+validator reports at WARN: EPMA from the 2026-09-29 pilot on. Baseline on 2026-09-29: 1,505
+structured cells; 403 parsed, 1,070 did not, 32 named a member missing from the definer. After the
+EPMA pilot the backlog is 952 unparsed and 27 unknown-member cells, in the other 15 TAPPs.
+
+**A value that cannot be keyed without inference is registered, not forced.** `KEYED_CELL_EXCEPTIONS`
+in the validator holds (TAPP, field, column) with the reason, and reports it at INFO. Each entry is an
+question about the key, answered when the entry is made. The first two are Ma+2017's detection limit
+and accuracy, stated per element while the paper reports oxides; attaching Si to SiO2 would be
+inference. Decided 2026-09-29: the key stays `reported property`, and the cells stay registered. Where the stated
+value is not per member at all, the cell is `N` with the text as commentary. Zega+2025's per-material
+counting times and McCoy+2025_UA's per-phase standards are the cases.
 
 #### 7.4 The declaration invariants
 
@@ -2304,7 +2407,7 @@ Every TAPP CSV uses this fixed column order before the mode flag columns:
 |C|Procedure-Level Tier|Basic / Advanced / N/A||
 |D|Analysis-Level Tier|Read-Only / Editable / Basic / Advanced|D=N/A is not valid|
 |E|Data Type|Controlled vocabulary — see Data Type Vocabulary||
-|F|Example / Allowed Content|Examples or controlled list values|Controlled lists must offer N/A and None; see Rule 7 A.4|
+|F|Example / Allowed Content|Examples or controlled list values for **one member's** value — never member labels (7.3.4)|Controlled lists must offer N/A and None; see Rule 7 A.4|
 |G|Comments|Short field-level qualifiers that are neither mode nor cardinality — instrument variant, signal/detector, conditional notes|Cardinality goes in Column I (Rule 7); mode applicability goes in the mode flag columns (Rule 3)|
 |H|Last Update|YYYY-MM-DD date of most recent substantive edit||
 |I|Keyed By|What the field's value repeats over — see Rule 7|Never blank on a content row; `(none)` for a scalar|

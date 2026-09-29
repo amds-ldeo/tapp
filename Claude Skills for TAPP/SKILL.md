@@ -25,6 +25,7 @@ See `references/conventions.md` for the precise vocabulary: Technique / Method /
 | `scripts/compose_tapp.py` | builds a TAPP from a source file plus one or more modules |
 | `scripts/tapp_to_xlsx.py` | exports a TAPP CSV to a formatted xlsx |
 | `scripts/audit_keys_vs_literature.py` | validates every Column I key against the literature assessment extractions; run during Phase 3 (Rule 7.12) |
+| `scripts/keyed_cells.py` | the keyed-value notation (conventions 7.3.4): parses a literature cell into members and values; imported by the validator and the form generator |
 | `Project Files/Scripts/sync_current_tapps.py` | refreshes `Current TAPPs/`, the shareable flat mirror of the latest CSV + xlsx for every TAPP (Rule 12); run after any version bump |
 | `Project Files/Scripts/superseded_readme.py` | writes the skeleton README into a dated `Superseded TAPPs/` folder — the superseded-to-successor table is derived, the *why* and *verification* sections are left as `TODO`. Call `write_skeleton(ROOT, DATE)` at the end of a bump script, **after** the mirror sync; never overwrites an existing README |
 
@@ -166,6 +167,12 @@ These errors are most likely to appear in a preliminary TAPP:
    **Nor in the description.** Cardinality stated in Column B is the same mistake one column over, and harder to spot because it reads as ordinary prose. A field that *enumerates* a domain can also *repeat over* one — `Monitored Masses` is `defines: monitored property per target species` (Rule 7.3.1) — so when a field declares `defines: X`, ask whether it also repeats over something before moving on. Where a description names a key, either Column I should carry it or the sentence should go.
 
 6. **Using "Method" when referring to the registered procedure object.** Use "Procedure" for the registerable object. "Method" is reserved for assessment methods, calculation methods, and sub-procedures. See `references/conventions.md` for the full vocabulary.
+
+7. **Writing member labels into Column F, or a bare value into a keyed literature cell.** Column F is
+   what one member's input box accepts: `e.g., 0.02 wt% | 0.03 wt%`, never `'SiO2: 0.02 wt%'`. A
+   literature cell is the whole keyed table for one procedure and must say which value belongs to
+   which member: `Si, Al, Ca: anorthite; Na: albite`, or `all: 20 s`. See conventions 7.3.4 and
+   `references/lit_assessment.md`.
 
 ---
 

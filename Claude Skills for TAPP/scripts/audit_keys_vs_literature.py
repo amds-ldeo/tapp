@@ -109,6 +109,19 @@ EXCLUDE_FIELDS = {
 # sees only genuinely new disagreements. Rationale for each is in precedents.md under
 # "Validating keys against the literature assessment".
 ADJUDICATED = {
+    # ---- adjudicated 2026-09-29, on the EPMA keyed-value notation pilot (epma_keyed_pilot_20260929.py).
+    ("X-ray Line", "AXIS-MISMATCH"):
+        "CONSISTENT — keep monitored property. The pilot wrote the cells as 'Si, Al, Ca, ...: Ka', and the "
+        "detector reads element symbols as target species. In EPMA a monitored element carries the same name "
+        "as the target species it serves (the same-name binding of conventions 7.3.4), so the members are "
+        "monitored elements; `Monitored Elements` defines them in every column that has this cell.",
+    # ---- adjudicated 2026-09-28, on gap 1 for SEM (gap1_sem_target_material_20260928.py).
+    ("Mapping Beam Current", "OVER-DECLARED"):
+        "KEEP sample > sampling unit — the map/image twin of Beam Current, on the Peak Counting Time / "
+        "Dwell Time per Pixel pattern, keyed per map or image in EPMA and all four SEM TAPPs. Most "
+        "columns hold one current because they describe one acquisition; under 7.3.3 the procedure reads "
+        "one value anyway. Garvie+2008 states a different current per image ('70 fA (500 V); 1.4 pA "
+        "(1 kV); 98 pA (5 kV)'), which one value per procedure cannot hold.",
     # ---- adjudicated 2026-09-08 on minting `acquisition pass` (Proposal_Acquisition_Pass).
     ("Desolvation System", "OVER-DECLARED"):
         "KEEP acquisition pass — minted 2026-09-08. THE SINGLE-PASS UNFALSIFIABILITY RULE, the single-target-species rule one axis over: a SINGLE-PASS procedure cannot falsify a per-pass key. The field has one value because there is one pass, and the detector scores that as scalar. Only MULTI-pass procedures test the axis, and every one of them attests it — Chernonozhkin et al. 2021 (spot 30 vs 130 um, 20 vs 40 Hz, transect vs spot, MR vs LR, oxide-sum vs Cr-IS), Hopp et al. 2021 (wet-plasma MR vs dry-plasma HR with different introduction hardware), Hu et al. 2022 (main configuration vs subconfiguration), Willbold 2005 (dilution ~21000 for LR vs ~1000 for HR), Misra et al. 2014 (LR vs MR). Weight only the multi-pass procedures. Every field carrying this key was verified against its raw cell before the re-key; the eight stated per pass with IDENTICAL values (Laser Fluence, RF Power, Make-up Gas, Coolant Gas, Background Count Time, Analysis Sequence, Signal Integration Time, Number of Replicates) were deliberately left `(none)` under 7.3.2.",
@@ -180,13 +193,13 @@ ADJUDICATED = {
     # ---- eighth was real. The generalisable result is the single-target-species unfalsifiability rule
     # ---- recorded under Primary Calibration Standard Name below.
     ("Beam Diameter", "OVER-DECLARED"):
-        "RE-KEYED IN EPMA 2026-09-28 -> target material (point analysis only; gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). The per-phase evidence recorded here is exactly what that key carries: every attested value is per phase or material, none per analysis point. SEM and SEM_Composition keep sample > sampling unit until their literature is checked. Earlier ruling: KEEP sample > sampling unit — the detector tallied sampling unit=2 of 13; READING THE RAW "
+        "RE-KEYED IN EPMA 2026-09-28 -> target material (point analysis only; gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). The per-phase evidence recorded here is exactly what that key carries: every attested value is per phase or material, none per analysis point. SEM and SEM_Composition followed later the same day (gap1_sem_target_material_20260928.py): no SEM procedure states a beam condition per point, Ferus+2020 states one per material. Earlier ruling: KEEP sample > sampling unit — the detector tallied sampling unit=2 of 13; READING THE RAW "
         "CELLS GIVES 6 of 14. Liu+2016 (both), Pang+2016, McCoy+2025_SI, Zega+2025 and Barnes+2025 "
         "(JEOL) each give a per-phase diameter, e.g. '1-2 um (olivine, pyroxene, Fe-Ti-Cr oxides); "
         "5-10 um defocused (maskelynite, phosphate, sulfide, glass)'. Far stronger than the 2-of-13 "
         "that kept Beam Current. The detector recognises only a narrow phrasing.",
     ("Beam Mode", "OVER-DECLARED"):
-        "RE-KEYED IN EPMA 2026-09-28 -> target material (point analysis only; gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). The per-phase evidence recorded here is exactly what that key carries: every attested value is per phase or material, none per analysis point. SEM and SEM_Composition keep sample > sampling unit until their literature is checked. Earlier ruling: KEEP sample > sampling unit — same evidence and same undercount as Beam Diameter: 6 of 14 "
+        "RE-KEYED IN EPMA 2026-09-28 -> target material (point analysis only; gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). The per-phase evidence recorded here is exactly what that key carries: every attested value is per phase or material, none per analysis point. SEM and SEM_Composition followed later the same day (gap1_sem_target_material_20260928.py): no SEM procedure states a beam condition per point, Ferus+2020 states one per material. Earlier ruling: KEEP sample > sampling unit — same evidence and same undercount as Beam Diameter: 6 of 14 "
         "give a per-phase mode ('Focused (olivine, pyroxene, Fe-Ti-Cr oxides); Defocused 5-10 um "
         "(maskelynite, phosphate, sulfide, glass)'). Keyed deliberately in the electron-beam setup "
         "cluster pass and confirmed here on evidence.",
@@ -266,7 +279,7 @@ ADJUDICATED = {
         "KEEP sample — attested per sample in Lopez Garcia 2026, which lists eight individual "
         "particle masses (4.325, 1.868, 2.311 mg ...). Scalar elsewhere.",
     ("Beam Damage Minimization", "OVER-DECLARED"):
-        "RE-KEYED IN EPMA 2026-09-28 -> target material (point analysis only; gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). The per-phase evidence recorded here is exactly what that key carries: every attested value is per phase or material, none per analysis point. SEM and SEM_Composition keep sample > sampling unit until their literature is checked. Earlier ruling: PRE-EXISTING, not introduced 2026-08-17 — EPMA only, and this session did not touch EPMA's "
+        "RE-KEYED IN EPMA 2026-09-28 -> target material (point analysis only; gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). The per-phase evidence recorded here is exactly what that key carries: every attested value is per phase or material, none per analysis point. SEM and SEM_Composition followed later the same day (gap1_sem_target_material_20260928.py): no SEM procedure states a beam condition per point, Ferus+2020 states one per material. Earlier ruling: PRE-EXISTING, not introduced 2026-08-17 — EPMA only, and this session did not touch EPMA's "
         "literature columns. Key became sample > sampling unit in the Rule 13 retrofit. Left as is; "
         "revisit with the electron-beam TAPPs, not with ICP-MS work.",
     ("Primary Calibration Standard Name", "AXIS-MISMATCH"):
@@ -279,7 +292,7 @@ ADJUDICATED = {
         "Y/N; the per-mass detail belongs to Interfering Species and Interference Correction "
         "Method, which keep channel.",
     ("Beam Current", "OVER-DECLARED"):
-        "RE-KEYED IN EPMA 2026-09-28 -> target material (point analysis only; gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). The per-phase evidence recorded here is exactly what that key carries: every attested value is per phase or material, none per analysis point. SEM and SEM_Composition keep sample > sampling unit until their literature is checked. Earlier ruling: KEEP sampling unit — 2 of 13 procedures publish per-phase currents, so the axis is "
+        "RE-KEYED IN EPMA 2026-09-28 -> target material (point analysis only; gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). The per-phase evidence recorded here is exactly what that key carries: every attested value is per phase or material, none per analysis point. SEM and SEM_Composition followed later the same day (gap1_sem_target_material_20260928.py): no SEM procedure states a beam condition per point, Ferus+2020 states one per material. Earlier ruling: KEEP sampling unit — 2 of 13 procedures publish per-phase currents, so the axis is "
         "attested in reported data even though 10 are scalar.",
     ("Blank / Background Correction Method", "UNDER-DECLARED"):
         "KEEP (none) — 'measured before each ablation' is a schedule, not a cardinality. The "

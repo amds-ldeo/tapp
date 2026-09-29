@@ -40,9 +40,9 @@ in a spreadsheet and immediate on a form.
 
 | Mockup | Built from | Column | Mode shown |
 |---|---|---|---|
-| `EPMA_Procedure_Registration_Mockup.html` | `EPMA_TAPP_v81.csv` | 30 — Neuman et al. 2025 | WDS Mapping |
-| `EPMA_Point_Analysis_Mockup.html` | `EPMA_TAPP_v81.csv` | 19 — Ma et al. 2017 | WDS Point Analysis |
-| `LA-MC-ICP-MS_Spot_Mockup.html` | `LA-MC-ICPMS_TAPP_v86.csv` | 14 — Zhang et al. 2022 | Spot |
+| `EPMA_Procedure_Registration_Mockup.html` | `EPMA_TAPP_v83.csv` | 30 — Neuman et al. 2025 | WDS Mapping |
+| `EPMA_Point_Analysis_Mockup.html` | `EPMA_TAPP_v83.csv` | 19 — Ma et al. 2017 | WDS Point Analysis |
+| `LA-MC-ICP-MS_Spot_Mockup.html` | `LA-MC-ICPMS_TAPP_v87.csv` | 14 — Zhang et al. 2022 | Spot |
 
 A mockup is a snapshot of the TAPP it was built from. Bump that TAPP and the page is out of date
 until it is rebuilt — the version it was built from is printed in its own masthead, so check there
@@ -66,23 +66,28 @@ library root was hardcoded to one machine's home directory and the templates wer
 to the cwd, so it worked only when run from this folder. Fixed for the same reason
 `check_field_ownership.py` exists.
 
-`build_form.py` reads `cfg.json` — which TAPP, which literature column, which mode, plus any
-per-member value overrides — and renders each page from `_head.html` (styles) and `_body.html`
+`build_form.py` reads `cfg.json` — which TAPP, which literature column and which mode — and renders each page from `_head.html` (styles) and `_body.html`
 (markup and the render logic). Adding a fourth mockup for another TAPP is a `cfg.json` entry, not new
 code. `build_form.py` resolves TAPPs through `Current TAPPs/`, so it always sees the latest version.
 
-Known limitation: domain members are parsed out of free-text Column F and literature cells by
-splitting on `;` and `,`, which is approximate. `Natural clinopyroxenes NHB-9 and YY12-01` reads as
-one standard rather than two, and a long `Acquisition Pass` value can split across two chips. The
-TAPP is unaffected — this is the page's parser, not the data.
+**Members and per-member values come from the cells (2026-09-29).** `build_form.py` parses the
+literature column with `Claude Skills for TAPP/scripts/keyed_cells.py`, the keyed-value notation of
+conventions 7.3.4. Definer cells give each domain's members. A keyed cell written `member: value` opens
+on the per-member view with those values, and `all: value` opens on "Same for all". The domain map
+(`DEFINER_OF` in `_body.html`) is read from Column I, not hardcoded. The hardcoded copy still named
+`channel` and had no `monitored property` or `target material`, so monitored-property fields had
+always fallen back to "Same for all". The hand-typed `perMember` overrides were removed from `cfg.json`.
+The old heuristic splitter, `parseMembers` in `_body.html`, is now only a fallback for a TAPP whose
+cells are not yet converted. That means every TAPP but EPMA, whose mockups keep the old limitation:
+`Natural clinopyroxenes NHB-9 and YY12-01` reads as one standard rather than two.
 
 ## The other files
 
 | File | What it is |
 |---|---|
 | `TAPP_Lint_Report_*.csv` | dated `validate_tapp.py --csv` output, kept as a record of what the library looked like on that date. Four consecutive reports were saved 2026-08-07 to -08-12, then the practice lapsed until 2026-09-10. One row per finding; the console collapses repeated checks but the CSV does not. A report is a snapshot, never a substitute for re-running the validator. |
-| `EPMA_TAPP_v81_Review_Workbook.xlsx` | the reviewer-facing rendering of the EPMA TAPP, for domain experts to comment on: a preamble sheet carrying the tier logic, one row per field with `Keyed By` rewritten as plain "per" chains split across the two records, and four comment columns (three of them drop-downs). Built by `make_review_workbook.py`. A v81 snapshot; regenerate after a bump by changing `VERSION`. |
-| `EPMA_TAPP_v81_Review_Workbook_<Mode>.xlsx` (4 files) | one workbook per analytical mode: EDS Point Analysis (77 items), EDS Mapping (78), WDS Point Analysis (82) and WDS Mapping (80). Each shows only the items flagged Y for its mode, with no mode columns and TAPP item numbers kept. All five workbooks carry an Example column taken from the worked example, filtered per mode to the elements and conditions that mode uses. |
+| `EPMA_TAPP_v83_Review_Workbook.xlsx` | the reviewer-facing rendering of the EPMA TAPP, for domain experts to comment on: a preamble sheet carrying the tier logic, one row per field with `Keyed By` rewritten as plain "per" chains split across the two records, and four comment columns (three of them drop-downs). Built by `make_review_workbook.py`. A v83 snapshot; regenerate after a bump by changing `VERSION`. |
+| `EPMA_TAPP_v83_Review_Workbook_<Mode>.xlsx` (4 files) | one workbook per analytical mode: EDS Point Analysis (77 items), EDS Mapping (78), WDS Point Analysis (82) and WDS Mapping (80). Each shows only the items flagged Y for its mode, with no mode columns and TAPP item numbers kept. All five workbooks carry an Example column taken from the worked example, filtered per mode to the elements and conditions that mode uses. |
 | `review_examples.py` | the example value for each field, rewritten from the highlighted spans of the worked methods section (table content as "X for Y" phrases). Per-mode overrides only filter it. All values are fictional. |
 | `make_review_workbook.py` | builds the workbook above. Reads the TAPP through `Current TAPPs/`, resolves every path from its own location, and pins the version in `VERSION`. The per-field sentences, and the eight fields written as "one or more values", are authored in the script, not derived from the CSV. |
 | `EPMA_Reference_Procedure_Example_v77.md` | a worked example of complete procedure documentation that fills all 88 EPMA TAPP fields, written as a publication methods section (Part 1: procedure; Part 2: one session). Repeating information is in tables whose captions name the list they repeat over. **Composite and illustrative:** the lab, people, samples, identifiers and every result are fictional; the design is adapted from the assessed literature. Appendix A (coverage) is generated by `make_reference_example_appendix.py`, which is pinned to the parked v77 CSV. **A record of v77:** the gaps its Appendix B lists are tracked in `Claude Skills for TAPP/analysis/Pending_Gaps_2026-09-24_Reference_Example.md`, and gaps 5 and 6 are fixed in v78. |

@@ -178,7 +178,7 @@ Column I is never blank on a content row.
 | `reported property` | One value per reported quantity or nominal property, at any point in the chain — ratios *and* dates alike, plus their uncertainties | Property of an object in the `reportedProperties` array |
 | `sampling unit` | One value per subdivision of the sample carrying its own row — grain, spot, aliquot, phase | Property of an object in the `samplingUnits` array |
 | `standard` | One value per reference material or reference database entry | Property of an object in the `standards` array |
-| `target material` *(added 2026-09-28)* | One value per material type the procedure is designed to analyse, as listed in `Target Material`. Used by the EPMA point-analysis beam conditions; each analysis point names its material in `Target Material of Sampling Unit` | Property of an object in the `targetMaterials` array; each point analysis carries a reference to one member |
+| `target material` *(added 2026-09-28)* | One value per material type the procedure is designed to analyse, as listed in `Target Material`. Used by the point-analysis beam conditions in EPMA and the SEM TAPPs; each analysis point names its material in `Target Material of Sampling Unit` | Property of an object in the `targetMaterials` array; each point analysis carries a reference to one member |
 | `combined result` *(added 2026-09-28)* | One value per reported value obtained by averaging or otherwise combining several individual results — a phase mean, a weighted-mean date, an isochron — as listed in `Combined Results`. Session only: its definer is C=N/A, so it does not exist on the procedure object | Property of an object in the `combinedResults` array, on the session object only |
 | `preparation step` | One value per sample-preparation stage | Property of an object in the `preparationSteps` array |
 | `acquisition pass` | One value per traversal of the measurement with its own configuration, run in sequence on the same material — a sub-procedure. Identical repeats are replicates, not passes | Property of an object in the `acquisitionPasses` array |
@@ -226,10 +226,10 @@ nowhere; that is the class of error this block exists to prevent.
 
 ```
 TAPPs                        16
-content rows                 1837   (rows with a Keyed By value; group headers excluded)
-scalar, `(none)`             1175   64%
-keyed (arrays in a schema)   662   36%
-Column G provenance stamps   1443   79%
+content rows                 1847   (rows with a Keyed By value; group headers excluded)
+scalar, `(none)`             1173   64%
+keyed (arrays in a schema)   674   36%
+Column G provenance stamps   1443   78%
 distinct Keyed By strings    24
 definer fields               12
 
@@ -251,7 +251,7 @@ retired, and absent from every TAPP (3):
   model component
 
 the complete set of Keyed By strings present, with row counts:
-  (none)                                          1175
+  (none)                                          1173
   acquisition pass                                  83
   combined result                                   13
   combined result x reported property               26
@@ -270,19 +270,14 @@ the complete set of Keyed By strings present, with row counts:
   preparation step                                   9
   reported property                                 98
   sample                                            48
-  sample > sampling unit                            24
+  sample > sampling unit                            25
   sample > sampling unit x reported property        21
   standard x reported property                      33
-  target material                                    5
+  target material                                   16
   target species                                    52
 
-field names whose key is technique-dependent (7) -- do NOT assume one
+field names whose key is technique-dependent (2) -- do NOT assume one
 global mapping of field name to key:
-  Beam Current                       (none) | sample > sampling unit | target material
-  Beam Damage Minimization           sample > sampling unit | target material
-  Beam Diameter                      sample > sampling unit | target material
-  Beam Mode                          sample > sampling unit | target material
-  Beam Raster Dimensions             sample > sampling unit | target material
   Dwell Time per Pixel               (none) | monitored property
   Ion Counter Dead Time              (none) | monitored property
 
@@ -400,6 +395,34 @@ target species domain, but *which* target species exist is content supplied when
 the array structure and, if you want referential integrity, a validation rule that keyed entries must
 reference an id present in the defining field's value.
 
+### Reading literature-assessment cells — the keyed-value notation (added 2026-09-29)
+
+The literature-assessment columns are worked examples of whole procedures. A keyed field's cell
+holds **every member's value**, in one grammar (conventions 7.3.4), so it can be turned into the
+array above:
+
+| Cell | Parsed as |
+|---|---|
+| `Si, Al, Ca: anorthite; Na: albite` | `[{"Si": "anorthite"}, {"Al": "anorthite"}, {"Ca": "anorthite"}, {"Na": "albite"}]` |
+| `all: 20 s` | one value applying to every member of the domain |
+| `Fe, Mn: LIFL; other: N` | two members stated; the rest not stated in the source |
+| `Kakanui kaersutite [SiO2: +0.5%; all: N]` | `A x B`: outer member, then inner entries |
+| `206Pb/238U date & 207Pb/235U date: 0.83` | a `pair:` key |
+| `N`, `N/A` | not stated / not applicable; no structure |
+
+- **Top-level separators:** `;` between entries, `,` between members, and `: ` (colon plus space)
+  before the value. Nothing splits inside `()`, `[]` or double quotes.
+- **Commentary:** everything after the first top-level ` — ` is evidence text; discard it.
+- **Member names** are those in the same column's definer cell, where a trailing parenthetical is a
+  gloss (`Silicate mineral (olivine)` defines `Silicate mineral`). For `defines: A per B`,
+  `206Pb, 207Pb → Pb; 202Hg → none` binds each member to its parent.
+- **Session-only domains are already projected out** (7.3.3). A literature column describes a
+  procedure, so `sample`, `sampling unit` and `combined result` never appear as members.
+
+Use `Claude Skills for TAPP/scripts/keyed_cells.py` rather than re-implementing the grammar. The
+validator's `keyed-cell` check reports cells not yet converted. EPMA is converted (WARN if it
+regresses); the other TAPPs are a backlog reported at INFO, so their cells may still be prose.
+
 ---
 
 ## 5. Tiers — Columns C and D
@@ -447,6 +470,11 @@ with `D=Basic` or `D=Advanced`.
 
 Column E is a controlled vocabulary. Column F's meaning **depends on Column E**, which is the single
 most important thing to get right in this section.
+
+**For a keyed field, Column F describes one member's value** (conventions 7.3.4, 2026-09-29). It never
+carries member labels, so `X-ray Line`'s `Ka | Kb | La | …` is the enum for each element's line.
+Build the enum or example set on the property inside the array item, not on the array. Column I says
+how many there are.
 
 | Column E | Column F contains | Suggested JSON |
 |---|---|---|
@@ -600,6 +628,29 @@ four carry straight over (`target_selection` → `SamplingUnitSelection`, `calib
 The field-level facts are unchanged: `Procedural Blank Level` is still absent from TEM, Lab-XCT, SEM_Imaging
 and SEM_FIBSEM (no analytical blank), and `Sampling Unit Selection Criteria` is still absent from the three Solution TAPPs (bulk
 techniques). What changed is that this is now expressed by which modules they compose.
+
+> **Column F cleaned 2026-09-29 — one member's value, no member labels (conventions 7.3.4).**
+> - **Examples changed in 139 rows of 13 TAPPs.** Regenerate any `examples` you took from Column F of
+>   a keyed field. They used to carry member labels ('SiO2: 0.02 wt%'), and now hold the value alone.
+> - **One enum member removed.** `Plasma Thermal Mode` no longer lists `Mixed: specify mode per
+>   analytical sub-run` in any of the 9 ICP-MS TAPPs. The field is keyed by acquisition pass, so a
+>   mixed procedure gives each pass its own mode.
+> - **No field, tier, data type or key changed.**
+
+> **Re-keyed and split 2026-09-28 — electron-beam conditions (EPMA v79; SEM v79, SEM_Composition v78,
+> SEM_Imaging v41, SEM_FIBSEM v42).**
+> - **Re-keyed `sample > sampling unit` → `target material`** in EPMA, SEM and SEM_Composition:
+>   `Beam Mode`, `Beam Current`, `Beam Diameter`, `Beam Raster Dimensions`, `Beam Damage Minimization`.
+>   In SEM_Imaging, `Beam Current` moved from `(none)` to `target material`. These are now
+>   point-analysis fields only; move the properties onto the `targetMaterials` array.
+> - **New mapping twins, keyed per map or image (`sample > sampling unit`):** `Mapping Beam Mode`,
+>   `Mapping Beam Current`, `Mapping Beam Diameter` (EPMA, SEM, SEM_Composition); `Mapping Beam
+>   Current` alone in SEM_Imaging. In SEM and SEM_Imaging, `Mapping Beam Current` also holds the
+>   current used for SE/BSE images, CL and EBSD maps and FIB-SEM work, which used to be `Beam Current`.
+> - **Renamed in SEM_FIBSEM:** `Beam Current` → `Mapping Beam Current`, `(none)` → `sample > sampling
+>   unit`. Both of its modes scan an area, so it has no point-analysis current.
+> - **New link field:** `Target Material of Sampling Unit` (C=N/A, `sample > sampling unit`) names the
+>   `targetMaterials` member each analysis point belongs to (EPMA, SEM, SEM_Composition, SEM_Imaging).
 
 > **Moved and re-keyed 2026-09-28 — combined values (Module_Aggregation v5).**
 > - **Moved and generalised.** `Age Model` has left Module_Geochronology. It is now

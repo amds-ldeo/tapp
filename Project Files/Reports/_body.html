@@ -62,7 +62,8 @@ document.getElementById("src").innerHTML = META.cite.map(c=>c).join("<br>");
 document.getElementById("foot").innerHTML = META.foot;
 
 /* ---------- domains ---------- */
-const DEFINER_OF = {
+/* read from Column I by build_form.py; the literal below is only a fallback for old data */
+const DEFINER_OF = TAPP.definerOf || {
   "target species":"defines: target species",
   "reported property":"defines: reported property",
   "channel":"defines: channel per target species",
@@ -86,7 +87,7 @@ for (const k of Object.keys(DEFINER_OF)){
   const d = byKey(k);
   /* a field flagged as mis-extracted cannot be trusted to define its domain */
   const usable = d && !d.warn;
-  DOMAINS[k] = { definer: d ? d.name : "(none)", members: usable ? parseMembers(d.val) : [],
+  DOMAINS[k] = { definer: d ? d.name : "(none)", members: usable ? (d.members || parseMembers(d.val)) : [],
                  tainted: !!(d && d.warn) };
 }
 function domainFor(key){
@@ -200,7 +201,7 @@ function renderField(f){
         body.append(b); return;
       }
       const rows=document.createElement("div"); rows.className="rows";
-      const pm=(TAPP.perMember||{})[f.name]||null;
+      const pm=f.per||(TAPP.perMember||{})[f.name]||null;
       dom.members.forEach(m=>{
         const r=document.createElement("div"); r.className="row";
         const lab=document.createElement("div"); lab.className="m"; lab.textContent=m; lab.title=m;
@@ -212,7 +213,7 @@ function renderField(f){
     const set=per=>{bAll.setAttribute("aria-pressed",String(!per));bPer.setAttribute("aria-pressed",String(per));per?drawPer():drawAll();};
     bAll.onclick=()=>set(false); bPer.onclick=()=>set(true);
     /* open on the per-member view when the source actually gives per-member values */
-    set(!!((TAPP.perMember||{})[f.name]) && dom.members.length>0);
+    set(!!(f.per||(TAPP.perMember||{})[f.name]) && dom.members.length>0);
     R.append(box);
   }
   else R.append(ctrl(f));

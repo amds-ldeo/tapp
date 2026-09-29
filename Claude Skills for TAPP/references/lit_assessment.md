@@ -28,6 +28,32 @@ Examples of prohibited inferences:
 
 Never leave a cell blank. Blank is ambiguous.
 
+### Keyed fields: write the keyed-value notation (2026-09-29)
+
+A field whose Column I names a key (anything but `(none)`) holds one value **per member**, and the cell
+must say which value belongs to which member. The full rule is conventions.md 7.3.4. In short:
+
+- **Fill the definer first.** Before `X-ray Line`, `Target Species` and `Monitored Elements` list
+  every element the paper names. Before `Beam Current`, `Target Material` lists every phase the paper
+  names. A keyed cell may only name members that its column's definer lists. The validator checks this.
+- **Write `member: value`, separating entries with `;` and grouping members that share a value with
+  `,`.** Example: `Si, Al, Ca: anorthite; Na: albite; Fe: fayalite`.
+- **Write `all: value`** when the paper states the value without restricting it to some members
+  ("run at 15 kV and 20 nA"). Never leave a bare value in a keyed field.
+- **Write `…; other: N`** when the paper gives values for some members only.
+- **Evidence goes after ` — `** (space, em dash, space). The quoted sentence and any notes follow
+  the structured part and are not parsed.
+- **Spell controlled-list values as Column F does** (`Ka`, not `Kα`), and keep the paper's spelling
+  in the quote. **Never put `;` inside a value**; it starts a new entry.
+- **Read the mode off the paper, not the diameter.** "1–2 µm beam diameter" is not "Focused". The EPMA
+  pilot removed seven such inferences.
+- **If a stated value will not fit the key, stop.** Zega+2025 gives counting times per *phase*, but
+  `Peak Counting Time` is keyed per element. Record the text as commentary and flag the mismatch.
+  Do not force it into the wrong key.
+
+Check a cell with `python3 "Claude Skills for TAPP/scripts/keyed_cells.py"` (the self-test shows the
+forms), or run `validate_tapp.py` and read the `keyed-cell` findings.
+
 ### The one exception: fields the literature cannot attest (2026-09-16)
 
 **Within a pass this rule is absolute — if you assess a column, you fill it.** The exception is at the
@@ -123,7 +149,7 @@ Give each column a header identifying: Author+Year | Instrument Model | Lab.
 
 ### Standards
 - Record the full standard list exactly as stated if given. If the paper says only "natural and synthetic minerals" without naming them, record that phrasing + `(specific names NR)`.
-- For target-species-specific standards (e.g., F-phlogopite for F), note the association: `synthetic F-phlogopite (for F, LDE1 crystal)`.
+- Standards are keyed by target species (7.3.4): `F: synthetic F-phlogopite; Si, Al, Ca: anorthite`. Where the paper names the standards but not their elements, record the names as commentary after ` — ` and write `all: N`, or `N` for the cell.
 
 ### Background methods
 - MAN (mean atomic number) background: off-peak counting time and positions = `N/A` (no off-peak counting is performed).
@@ -137,7 +163,7 @@ Give each column a header identifying: Author+Year | Instrument Model | Lab.
 
 ### Target Species
 - If an explicit target species list appears in methods: record it.
-- If target species can be reconstructed from standards assignments (e.g., "Kakanui kaersutite for Si, Al, Ti..."): record the reconstructed list, noting the source.
+- If target species can be read from the standards assignments (e.g., "Kakanui kaersutite for Si, Al, Ti..."): record the list, with the source sentence after ` — `.
 - If only results tables or individual element mentions exist without a formal methods-section list: record `N`, with a note in Additional Notes about what elements appeared in results.
 
 ### X-ray lines
@@ -146,7 +172,7 @@ Give each column a header identifying: Author+Year | Instrument Model | Lab.
 
 ### Detection limits
 - Record exactly as stated, including the qualifier ("typically," "approximately") and the unit.
-- If given as a range over groups of elements (e.g., "0.03–0.04 wt% for Al₂O₃, K₂O, CaO"), record the range plus the element list.
+- If given as a range over groups of elements (e.g., "0.03–0.04 wt% for Al₂O₃, K₂O, CaO"), write it keyed: `Al2O3, K2O, CaO: 0.03–0.04 wt%`. The members must be the names used in `Reported Variables and Units`.
 - If not stated, record `N`.
 
 ### Mapping conditions
@@ -264,6 +290,7 @@ pretty-printed blocks silently no-ops, which is how the original drift began.
 Before delivering the draft CSV, verify:
 
 - [ ] Every cell contains either a value, `N`, or `N/A` — no blanks
+- [ ] Every keyed field's cell uses the keyed-value notation, and names only members that its column's definer lists (`validate_tapp.py`, check `keyed-cell`)
 - [ ] Every stated value traces to a specific source sentence (documented in script docstring or inline citation)
 - [ ] No values were inferred from instrument type, software name, or common practice
 - [ ] Table content was explicitly checked, not just prose

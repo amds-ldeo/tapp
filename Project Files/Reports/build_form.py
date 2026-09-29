@@ -8,6 +8,9 @@ from pathlib import Path
 # relative glob silently matched nothing and printed a confident wrong answer.
 HERE = Path(__file__).resolve().parent
 ROOT = str(HERE.parents[1] / "Current TAPPs") + os.sep
+# The keyed-value notation (conventions 7.3.4) is parsed by the one shared grammar, not re-implemented.
+sys.path.insert(0, str(HERE.parents[1] / "Claude Skills for TAPP" / "scripts"))
+import keyed_cells as K
 
 def unit(E):
     m = re.search(r'Numeric(?: pair)?\s*\(([^)]+)\)', E)
@@ -48,22 +51,47 @@ def build(cfg):
             cur = {'title': name, 'fields': []}; groups.append(cur); continue
         if x[2].strip() == 'N/A':
             excluded.append(name); continue
-        val, note = prefill(x[ci] if len(x) > ci else '')
+        raw = x[ci] if len(x) > ci else ''
+        struct, comment = K.split_commentary(raw)
+        val, note = prefill(struct)
+        if comment:
+            note = (note + ' — ' if note else '') + 'Source: ' + comment
         cur['fields'].append({
             'name': name, 'desc': x[1].strip(), 'tier': x[2].strip(), 'dtype': x[4].strip(),
             'unit': unit(x[4]), 'opts': opts(x[4], x[5]), 'ex': x[5].strip(), 'key': x[8].strip(),
             'modes': {m: (g.strip().upper() == 'Y') for m, g in zip(modes, x[10:sentinel])},
             'val': val, 'note': note,
             'warn': cfg.get('warn', {}).get(name, '')})
+    # Definer members and per-member values, read from the cells (7.3.4) instead of a hand-typed map.
+    fields = [f for g in groups for f in g['fields']]
+    doms = {}
+    for f in fields:
+        kind, d = K.procedure_domains(f['key'])
+        if kind in ('definer', 'definer_per') and f['val']:
+            ms, errs = K.parse_definer(f['val'])
+            if not errs:
+                f['members'] = [m for m, _ in ms]
+                doms[d[0]] = f['members']
+    definer_of = {K.procedure_domains(f['key'])[1][0]: f['key'] for f in fields
+                  if K.procedure_domains(f['key'])[0] in ('definer', 'definer_per')}
+    for f in fields:
+        kind, d = K.procedure_domains(f['key'])
+        if kind == 'plain' and len(d) == 1 and f['val'] and d[0] in doms:
+            allv, per = K.values_by_member(f['val'], doms[d[0]])
+            if allv is not None:
+                f['val'] = allv
+            elif any(per.values()):          # nothing matched a member: keep the text as written
+                f['per'] = per
+                f['val'] = ''
     data = {'groups': groups, 'modes': modes, 'excluded': excluded,
-            'perMember': cfg.get('perMember', {}), 'meta': cfg['meta']}
+            'perMember': cfg.get('perMember', {}), 'definerOf': definer_of, 'meta': cfg['meta']}
     data['meta'].update({'defaultMode': cfg['defaultMode'], 'sourceMode': cfg['sourceMode']})
     html = (io.open(HERE / '_head.html', encoding='utf-8').read()
             + io.open(HERE / '_body.html', encoding='utf-8').read()
               .replace('/*__DATA__*/', json.dumps(data, ensure_ascii=False)))
     io.open(HERE / cfg['out'], 'w', encoding='utf-8').write(html)
     nf = sum(len(g['fields']) for g in groups)
-    pf = sum(1 for g in groups for f in g['fields'] if f['val'])
+    pf = sum(1 for g in groups for f in g['fields'] if f['val'] or f.get('per'))
     print(f"{cfg['out']}: {nf} procedure-level fields, {pf} prefilled, {len(excluded)} excluded, modes={modes}")
     return data
 

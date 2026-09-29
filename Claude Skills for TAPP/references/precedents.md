@@ -3209,7 +3209,8 @@ exist only at session level. Three reasons:
 
 **Registered, not resolved.**
 - **SEM and SEM_Composition** carry the same beam fields and keep `sample > sampling unit` until
-  their literature columns are checked (`KEYED_BY_TECHNIQUE_DEPENDENT`).
+  their literature columns are checked (`KEYED_BY_TECHNIQUE_DEPENDENT`). *Resolved later the same day: see "The SEM TAPPs
+  follow EPMA" below.*
 - **Point/map name pairs.** The three pairs are registered in `KEY_NAME_VARIANT_EXEMPT`.
 - **Detector blind spot.** The audit's detector has no target-material tag and reads phase names as
   `sampling unit`. `KEY_SUBSUMES["target material"] = {"sampling unit"}` records that.
@@ -3304,4 +3305,142 @@ one value on the procedure. The field is not split into criteria and outcome.
 **Literature.** The three new fields have blank literature cells and still need a pass. The detector
 reads per-grain, per-disc and per-sample counts as varying per `sampling unit`.
 `KEY_SUBSUMES["combined result"]` records that those observations are what the key carries.
+
+## The SEM TAPPs follow EPMA: beam conditions per target material, scanning current per map or image (2026-09-28)
+
+**What changed.** Four TAPPs, all TAPP-owned fields. This is gap 1 of
+`analysis/Pending_Gaps_2026-09-24_Reference_Example.md`, for SEM, done after the EPMA entry above.
+- **SEM v79 and SEM_Composition v78** now match EPMA:
+  - the five point fields are keyed `target material` and flagged for point modes only;
+  - the mapping twins are keyed per map;
+  - `Target Material of Sampling Unit` is added.
+- **SEM_Imaging v41.** `Beam Current` keeps only CL Point Analysis and is keyed `target material`. SE,
+  BSE, CL Mapping and EBSD move to a new `Mapping Beam Current`. It also gains the link field.
+- **SEM_FIBSEM v42.** `Beam Current` is renamed `Mapping Beam Current` and keyed per map, because both
+  of its modes scan.
+- **TEM is unchanged.** It has none of the five fields. Its beam fields (Accelerating Voltage,
+  Convergence Semi-Angle, STEM Probe Diameter and Current, the dwell times) are `(none)`, and none of
+  its 21 columns states a condition per phase. Where values vary, they vary by sub-mode (Dobrica+2022,
+  0.1–0.3 mrad for nanodiffraction) or by acquisition type (Mo+2022, 10 s EELS points, 18 s line scans).
+
+**The SEM literature cells could not decide it.** Four of the five fields — Mode, Diameter, Raster and
+Damage — were added after the SEM v1 literature pass. They are blank in all 35 SEM and 9
+SEM_Composition columns. Beam Current holds one value per column everywhere. The old SEM key had been
+justified on 2026-08-11 by Liu+2016, which is an EPMA paper. So the evidence came from the SEM sections
+of the source papers, including the unassessed seed papers:
+
+| Question | SEM evidence |
+|---|---|
+| Conditions per analysis point | none |
+| Conditions per material | Ferus+2020 (TESCAN SEM with EDS+WDS; seed paper): a 0.090 µm beam, and "for glass and feldspar, the beam diameter was increased to 5 μm" |
+| Different conditions for points and maps | Barnes+2025, Hokkaido JSM-7000F EDS: "~2 nA and ~1 nA … for the X-ray mapping and quantitative analysis, respectively". Ferus+2020: 20 nA for points, 2–10 nA for maps. Pascucci+2026: a 30 µm aperture for spots, 60 µm for maps |
+| Imaging current | varies per image, not per material. Garvie+2008: 70 fA at 500 V, 1.4 pA at 1 kV, 98 pA at 5 kV |
+
+Three procedures run points and maps differently, where one (Liu+2016) had been enough to force the
+split in EPMA. The per-material evidence is thinner, one seed paper for one field. It was accepted on
+Rule 2: an EDS/WDS field should be the same field in EPMA and SEM.
+
+**Why imaging current went to the mapping twin.** In SEM, `Beam Current` was flagged in all eleven
+modes. Keying the imaging modes by `target material` would misfile Garvie, whose current follows the
+voltage. The options were to flag `Beam Current` for point modes only and let `Mapping Beam Current`
+cover every mode that scans (chosen), or to add a third, general imaging-current field. The chosen
+option adds no field but stretches "Mapping" to cover SE and BSE images. The description names them.
+Rule 4 then required the same change in SEM_Imaging and SEM_FIBSEM, whose `Beam Current` meant the
+imaging current. The field's description differs between the X-ray-only TAPPs (EPMA, SEM_Composition)
+and the three that also image. That is registered in `COLB_DIVERGENCE_TRIAGED`.
+
+**One literature cell corrected on the way.** Zega+2025's Helios G3 column held "0.8 to 2.5 nA
+(thinning)" in the electron `Beam Current`. Those are Ga+ ion currents, already under Coarse Milling
+Conditions, so the electron cell is now `N`. The same column's `Accelerating Voltage` ("30 keV (FIB
+milling and thinning)") has the same fault and is left for the literature pass.
+
+**Registers.** The five fields have left `KEYED_BY_TECHNIQUE_DEPENDENT`; their key is now uniform
+wherever they occur. The audit raised `Mapping Beam Current` as over-declared, because most columns
+hold one current. Adjudicated KEEP: projection gives one value per procedure anyway, and Garvie
+states a current per image.
+
+**Found in passing, not acted on.**
+- **Possible EPMA falsifier.** Genge+2025's EPMA section, which is not an EPMA column, runs "12 kV
+  for metals and 10 kV for silicates and oxides". EPMA keys Accelerating Voltage `(none)`.
+- **EPMA point/map cases outside the EPMA columns:**
+  - Gucsik+2013: 40 nA for points, 100 nA for maps;
+  - Pascucci+2026: 20 nA / 3 µm and 10 nA / 10 µm per phase group, and 15 nA for maps.
+- **TEM has no Beam Damage Minimization field,** although Keller+2014, Thompson+2020 and Stroud+2024
+  each state a damage measure.
+- **Gap 2's falsifier was not found.** No procedure reports a different background method or
+  spectrometer for points and maps.
+
+**Literature.** The four never-assessed fields, the mapping twins and the link field are blank in
+all four TAPPs. They are assessed in the pass that follows.
+
+## The keyed-value notation: Column F holds one member's value, literature cells name their members (2026-09-29)
+
+**The problem, raised by the user.** An EPMA procedure monitors Fe, Si and Mg, each with its own
+X-ray line. A cell reading `Ka, Ka, La`, or a Column F of bare numbers for `Peak Counting Time`,
+cannot say which value belongs to which member. So even fully extracted metadata could not be parsed
+into procedure records. The survey of 917 keyed literature cells found:
+- 9% in `member: value` form;
+- 28% grouped with parentheses;
+- 19% in prose;
+- 44% with one value and no member named.
+
+The form mockup had carried a hand-typed `perMember` map because of this.
+
+**What was decided (conventions 7.3.4).**
+- **Column F is what one input box accepts**, never member labels. The schema builds the enum on the
+  property inside the array item, and the form draws one input per member from Column I.
+- **Literature cells use a keyed-value notation:**
+  - `member: value; member: value`, grouping with `,`;
+  - `all:` when the paper states a value without restricting it;
+  - `other: N` for the rest;
+  - `a [b: value]` for `A x B`;
+  - `a & b:` for `pair:`;
+  - commentary after ` — `.
+  Members are named as in the column's definer cell, which is filled first. A new column for keyed
+  examples was rejected, because it would change the column structure every consumer depends on.
+- **One grammar, in `scripts/keyed_cells.py`**, used by the validator (`keyed-cell`) and the form
+  generator.
+
+**Column F pass.** 139 rows in 13 TAPPs, plus Module_UPb v10 and Module_ICPMS v17. Each row was read by
+hand; the rough regex both over- and under-matched (it missed the `X on Y` form). **`Plasma Thermal
+Mode` lost `Mixed`.** This reverses the 2026-08-30 harmonisation that added it to Solution MC. The
+field is keyed by acquisition pass, so a mixed procedure records each pass's mode, and `Mixed`
+enumerated a case the key already carries.
+
+**The EPMA pilot was also a re-verification.** Converting a cell needs the paper, because a bare
+value must become `all:` or a set of named members. Re-reading EPMA's 12 papers found errors of
+three kinds in the existing cells:
+- **Inference.** "Focused" where the paper gives only a diameter or no mode: 7 cells in 5 procedures.
+  Liu+2016's defocused beam recorded as beam-damage minimisation, with no such reason given. Two-point
+  off-peak methods where none is named.
+- **No source in the paper.** Liu+2016_Cal's counting times and background method; they match Ma+2017,
+  the same laboratory, and were probably carried across. Pang+2016's 11 target species; the paper names
+  none. McCoy+2025_SI's silicate/oxide element list and its standard-to-element pairings. Frank+2023's
+  secondary RMs; San Carlos olivine standardised the SIMS work. Seifert+2026's standard assignments.
+- **Stated but missed.** Ma+2017's counting times ("20 s on-peak and 10 s each on high and low
+  background positions"). Hu+2020's full detection-limit list. Liu+2016's section-map conditions (20 nA,
+  focused). Zega+2025's map conditions. Broussard+2026's F as a monitored element. Seifert+2026's OH by
+  difference.
+
+This answers the question the user asked earlier on 2026-09-29: the old cells are not structurally
+wrong, but they were not reliably transcribed either. Converting each TAPP to the notation is a
+paper-by-paper re-verification, and should be scheduled as one.
+
+**The notation tests keys.** Four stated values could not be written against their keys without
+inference. The user decided the same day:
+- **Ma+2017 detection limit and accuracy** are per element while the paper reports oxides. **Kept as
+  is:** `reported property` stays, and the two cells stay in `KEYED_CELL_EXCEPTIONS`. One paper's
+  per-element statement does not re-key a field that every other EPMA column states per oxide.
+- **Zega+2025's counting times are per material.** **Held**, as the counting-time case of gap 1 is.
+- **McCoy+2025_UA's standards are per phase and element.** Mg has Fo92 olivine and rhodonite for the
+  phosphate, and dolomite for the carbonates. **Direction agreed:** a procedure may list several
+  target materials (gap 1 made `Target Material` a definer), so standards are keyed `target material x
+  target species`, not split into two procedures. **Not yet applied.** It re-keys `Primary Calibration
+  Standard Name` in EPMA, SEM and SEM_Composition (Rule 2), and each literature cell becomes
+  two-level: `all [Si, Al: anorthite; …]` where the paper does not vary standards by phase. It needs
+  its own patch, dry run and gates. The `KEYED_BY_TECHNIQUE_DEPENDENT` entry changes with it.
+
+**Found in passing.** `_body.html`'s hardcoded `DEFINER_OF` still named `channel` (retired
+2026-09-10) and lacked `monitored property` and `target material`. So every monitored-property field
+in the mockups had fallen back to "Same for all" without anyone noticing. It is now read from Column I.
 

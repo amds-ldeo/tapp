@@ -57,8 +57,12 @@ discovery.
 | `LA-Q-ICP-MS_UPb_TAPP_v90` | `v91` | gap 3 |
 | `LA-SF-ICP-MS_TAPP_v87` | `v88` | gap 3 |
 | `LA-SF-ICP-MS_UPb_TAPP_v88` | `v89` | gap 3 |
+| `SEM_TAPP_v78` | `v79` | gap 1, SEM |
+| `SEM_Composition_TAPP_v77` | `v78` | gap 1, SEM |
+| `SEM_Imaging_TAPP_v40` | `v41` | gap 1, SEM |
+| `SEM_FIBSEM_TAPP_v41` | `v42` | gap 1, SEM |
 
-48 version(s), 96 file(s) (CSV + xlsx). Every TAPP was bumped twice on this date, once per pass; EPMA, SEM and SEM_Composition a third time, for gap 4.
+52 version(s), 104 file(s) (CSV + xlsx). Every TAPP was bumped twice on this date, in the first two passes. EPMA, SEM and SEM_Composition were bumped again for gap 4. The 13 Aggregation consumers were bumped again for gap 3. The four SEM TAPPs were bumped once more, for gap 1 in SEM.
 
 ## Why
 
@@ -99,6 +103,17 @@ key moved from `target species` to `monitored property` and one shared descripti
 
 Applied by `Project Files/Scripts/gap3_combined_results_20260928.py`, plus a second composition to
 deliver the module defaults to the new rows.
+
+**Fifth pass — gap 1, SEM.** SEM, SEM_Composition, SEM_Imaging and SEM_FIBSEM follow EPMA:
+- the point-analysis beam fields are keyed `target material` and flagged for point modes only;
+- the mapping twins are keyed per map or image;
+- `Target Material of Sampling Unit` links each point to its material.
+
+In SEM and SEM_Imaging, `Mapping Beam Current` also carries the current for SE/BSE images, CL and
+EBSD maps and FIB-SEM work. SEM_FIBSEM's `Beam Current` became `Mapping Beam Current`. TEM carries
+none of these fields and is unchanged. The decision rests on the SEM sections of the source papers,
+because four of the five fields had never been assessed. See `precedents.md`, "The SEM TAPPs follow
+EPMA". Applied by `Project Files/Scripts/gap1_sem_target_material_20260928.py`.
 
 ## Verification
 
@@ -152,3 +167,21 @@ What changed:
   - Column B: 3 descriptions.
   - Purpose: 1 value, in 13 TAPPs.
 
+**Fifth pass (gap 1, SEM).**
+- `compose_tapp.py --check`: 0 of 16 drifted, before and after.
+- `validate_tapp.py`: 0 ERROR, 0 WARN. Reaching that took two register changes:
+  - the five beam fields left `KEYED_BY_TECHNIQUE_DEPENDENT`, since their key is now uniform;
+  - `Mapping Beam Current`'s two descriptions (X-ray-only, and imaging) were registered in `COLB_DIVERGENCE_TRIAGED`.
+- `audit_keys_vs_literature.py`: 0 NEW. The one new finding, `Mapping Beam Current` read as scalar,
+  was adjudicated KEEP. The four EPMA beam rulings now record that SEM followed.
+- No form mockup or reviewer workbook covers an SEM TAPP, so none was rebuilt.
+- Changed:
+  - Fields: 4 added in SEM and in SEM_Composition, 2 in SEM_Imaging; 1 renamed in SEM_FIBSEM.
+  - Keyed By: 5 values each in SEM and SEM_Composition; 1 each in SEM_Imaging and SEM_FIBSEM.
+  - Mode flags: the point fields lose their mapping and imaging modes.
+  - Column B: 2 each in SEM and SEM_Composition, 1 in SEM_Imaging, 1 in SEM_FIBSEM.
+  - Purpose: 1 per TAPP.
+  - Literature cells: Beam Current values in scanning-mode columns moved to Mapping Beam Current
+    (SEM: 30 cells; SEM_Composition: 4; SEM_Imaging: 18). One Zega+2025 ion-current value was
+    corrected to `N`.
+  - Tiers and data types of existing fields: none.

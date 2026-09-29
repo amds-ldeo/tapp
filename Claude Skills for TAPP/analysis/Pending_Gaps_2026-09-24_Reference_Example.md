@@ -1,12 +1,12 @@
 # Pending: six structural gaps exposed by the EPMA reference example (2026-09-24)
 
-**Status (2026-09-28): designs agreed, implementation pending.**
+**Status (2026-09-28): gaps 1, 3, 4, 5 and 6 implemented; gap 2 held.**
 
 | Gap | Status |
 |---|---|
 | 5 | **Fixed** 2026-09-28. Module_Core v9 re-keys `Sample Preparation Method` to `sample`; the projection rule is now conventions 7.3.3. Script: `Project Files/Scripts/gaps5and6_sample_prep_key_20260928.py`; see also `precedents.md`, 2026-09-28. |
 | 6 | **Fixed** 2026-09-28, in the same pass: `Monitored Elements` gains one sentence. |
-| 1 | **Implemented in EPMA** 2026-09-28: Module_Core v10, EPMA v79. A point/map split was added after checking the key against the mapping procedures. SEM and TEM are pending. Script: `Project Files/Scripts/gap1_target_material_20260928.py`. |
+| 1 | **Implemented** 2026-09-28. EPMA: Module_Core v10, EPMA v79; a point/map split was added after checking the key against the mapping procedures. SEM: SEM v79, SEM_Composition v78, SEM_Imaging v41, SEM_FIBSEM v42, on their own evidence (below). TEM: no change; it has none of the fields. Scripts: `Project Files/Scripts/gap1_target_material_20260928.py`, `gap1_sem_target_material_20260928.py`. |
 | 3 | **Implemented** 2026-09-28: Module_Aggregation v5, Geochronology v8, UPb v9; 13 TAPPs. The per-TAPP grouping key was withdrawn on the evidence in favour of a session list, `Combined Results`. Script: `Project Files/Scripts/gap3_combined_results_20260928.py`. |
 | 4 | **Implemented** 2026-09-28 in EPMA v80, SEM v77 and SEM_Composition v76, not EPMA alone: the SEM TAPPs carried the same field as `Technique per Target Species`. The conditional-applicability half is deferred. Script: `Project Files/Scripts/gap4_detection_method_20260928.py`. |
 | 2 | **Held** until attested. |
@@ -28,7 +28,7 @@ The substitution case turned out not to exist. Once `target material` is a list 
 
 ## The gaps
 
-### Gap 1 — beam conditions vary by phase — IMPLEMENTED IN EPMA 2026-09-28
+### Gap 1 — beam conditions vary by phase — IMPLEMENTED 2026-09-28 (EPMA, then the SEM TAPPs)
 
 **The problem.** The five beam fields are keyed `sample > sampling unit`:
 
@@ -65,6 +65,29 @@ Under projection, that key gives one value per procedure. Published procedures s
 **Falsifier.** A procedure that reports beam conditions per analysis point.
 
 **Scope.** EPMA first. SEM and TEM follow after their literature columns are checked for per-phase beam conditions.
+
+**SEM and TEM, done 2026-09-28.**
+- **TEM: no change.** It carries none of the five fields. Its own beam fields are `(none)`, and none
+  of its 21 columns states a condition per phase.
+- **SEM: the columns could not decide it.** Mode, Diameter, Raster and Damage were never assessed
+  (blank in all 35 SEM and 9 SEM_Composition columns). Beam Current is one value per column. The
+  source papers settled it:
+  - no procedure states a condition per point;
+  - one states a condition per material (Ferus+2020, a 5 µm beam for glass and feldspar);
+  - three run points and maps differently (Barnes+2025 Hokkaido, ~1 nA points and ~2 nA maps;
+    Ferus+2020; Pascucci+2026, by aperture);
+  - imaging current follows the image, not the material (Garvie+2008).
+- **As built.**
+  - **SEM and SEM_Composition** match EPMA.
+  - **SEM's `Beam Current`** keeps the point modes, including CL Point. `Mapping Beam Current`, keyed
+    per map or image, covers every mode that scans: X-ray and CL maps, EBSD, SE and BSE images, and
+    FIB-SEM work.
+  - **Rule 4 propagation.** SEM_Imaging splits its `Beam Current` the same way and gains the link
+    field. SEM_FIBSEM renames its `Beam Current` to `Mapping Beam Current`.
+- **Literature.** The never-assessed fields, the mapping twins and the link field are blank in all four
+  SEM TAPPs, and are assessed with the `Target Material of Sampling Unit` pass.
+
+See `precedents.md`, "The SEM TAPPs follow EPMA" (2026-09-28).
 
 **Held.** Counting times per phase, `target material x monitored property`, are attested only by Zega+2025 (1 of 15). Revisit when a second procedure attests them.
 
@@ -189,6 +212,12 @@ The field is TAPP-owned. **Correction:** this record first said EPMA only, but S
 
 **Falsifier.** One procedure reporting both points and maps with a different background method or spectrometer assignment for the same element.
 
+**Checked again 2026-09-29, in the EPMA keyed-notation pilot, which re-read all 12 EPMA papers.** Not
+found. Four procedures report both points and maps: Liu+2016, Zega+2025, Broussard+2026 and
+Neuman+2025, where Neuman maps only. None states a background method or a spectrometer assignment for
+its maps that differs from its points. Only Neuman+2025 names a map background (MAN). Broussard+2026
+says only that "a similar calibration was used for quantitative EPMA stage mapping".
+
 ### Gap 5 — preparation can differ by sample — FIXED 2026-09-28
 
 `Sample Preparation Method` is re-keyed `(none)` → `sample` in Module_Core v9, and its tiers are unchanged (C=Basic, D=Editable). Rule 13 already required this. The literature attestation is 1 of 128 cells (Seifert+2026, "one mount ion-polished before carbon coating"). Its procedure-level shape is unchanged under projection.
@@ -207,7 +236,7 @@ The field is TAPP-owned. **Correction:** this record first said EPMA only, but S
 | done | Gap 1, EPMA | Created the `target material` key that gap 3 needs. |
 | done | Gap 4 | EPMA, SEM and SEM_Composition; TAPP-owned. |
 | done | Gap 3 | Three modules, 13 TAPPs. |
-| 4 | Gap 1, SEM and TEM | After their literature columns are checked. |
+| done | Gap 1, SEM and TEM | SEM TAPPs changed on paper evidence; TEM unchanged. |
 | — | Gap 2 | Held until attested. |
 
 Every change follows the usual gates:
