@@ -179,6 +179,7 @@ Column I is never blank on a content row.
 | `sampling unit` | One value per subdivision of the sample carrying its own row — grain, spot, aliquot, phase | Property of an object in the `samplingUnits` array |
 | `standard` | One value per reference material or reference database entry | Property of an object in the `standards` array |
 | `target material` *(added 2026-09-28)* | One value per material type the procedure is designed to analyse, as listed in `Target Material`. Used by the EPMA point-analysis beam conditions; each analysis point names its material in `Target Material of Sampling Unit` | Property of an object in the `targetMaterials` array; each point analysis carries a reference to one member |
+| `combined result` *(added 2026-09-28)* | One value per reported value obtained by averaging or otherwise combining several individual results — a phase mean, a weighted-mean date, an isochron — as listed in `Combined Results`. Session only: its definer is C=N/A, so it does not exist on the procedure object | Property of an object in the `combinedResults` array, on the session object only |
 | `preparation step` | One value per sample-preparation stage | Property of an object in the `preparationSteps` array |
 | `acquisition pass` | One value per traversal of the measurement with its own configuration, run in sequence on the same material — a sub-procedure. Identical repeats are replicates, not passes | Property of an object in the `acquisitionPasses` array |
 | `defines: X` | **This field enumerates the domain X.** It is the header of the child table, not a column in it | Its value populates the key set for the `X` array |
@@ -225,15 +226,16 @@ nowhere; that is the class of error this block exists to prevent.
 
 ```
 TAPPs                        16
-content rows                 1801   (rows with a Keyed By value; group headers excluded)
-scalar, `(none)`             1188   66%
-keyed (arrays in a schema)   613   34%
-Column G provenance stamps   1407   78%
-distinct Keyed By strings    21
-definer fields               11
+content rows                 1837   (rows with a Keyed By value; group headers excluded)
+scalar, `(none)`             1175   64%
+keyed (arrays in a schema)   662   36%
+Column G provenance stamps   1443   79%
+distinct Keyed By strings    24
+definer fields               12
 
-keys in use library-wide (9):
+keys in use library-wide (10):
   acquisition pass
+  combined result
   monitored property
   preparation step
   reported property
@@ -249,9 +251,12 @@ retired, and absent from every TAPP (3):
   model component
 
 the complete set of Keyed By strings present, with row counts:
-  (none)                                          1188
+  (none)                                          1175
   acquisition pass                                  83
+  combined result                                   13
+  combined result x reported property               26
   defines: acquisition pass                          9
+  defines: combined result                          13
   defines: monitored property per target species    13
   defines: preparation step                          3
   defines: reported property                        16
@@ -263,7 +268,7 @@ the complete set of Keyed By strings present, with row counts:
   monitored property                               116
   pair: reported property                            7
   preparation step                                   9
-  reported property                                101
+  reported property                                 98
   sample                                            48
   sample > sampling unit                            24
   sample > sampling unit x reported property        21
@@ -283,6 +288,7 @@ global mapping of field name to key:
 
 definer fields, and what each enumerates:
   Acquisition Pass                   defines: acquisition pass
+  Combined Results                   defines: combined result
   Digestion Step                     defines: preparation step
   EELS Edges                         defines: monitored property per target species
   Monitored Elements                 defines: monitored property per target species
@@ -594,6 +600,17 @@ four carry straight over (`target_selection` → `SamplingUnitSelection`, `calib
 The field-level facts are unchanged: `Procedural Blank Level` is still absent from TEM, Lab-XCT, SEM_Imaging
 and SEM_FIBSEM (no analytical blank), and `Sampling Unit Selection Criteria` is still absent from the three Solution TAPPs (bulk
 techniques). What changed is that this is now expressed by which modules they compose.
+
+> **Moved and re-keyed 2026-09-28 — combined values (Module_Aggregation v5).**
+> - **Moved and generalised.** `Age Model` has left Module_Geochronology. It is now
+>   **`Combination Method`** in Module_Aggregation, keyed `reported property` as before. It now covers
+>   every reported variable, not only ages: whether the value is combined, how, and over what. If you
+>   generated a `$def` for Age Model, rename it; the three U-Pb TAPPs carry the same examples.
+> - **New session list.** `Combined Results` (`defines: combined result`) lists each combined value.
+> - **Re-keyed by `combined result`.** `Analysis Inclusion and Rejection Criteria` was `(none)`; on the
+>   procedure object it is still one value, the rules, under 7.3.3. `Goodness-of-Fit or Dispersion
+>   Statistic` was `reported property` and is now `combined result x reported property`.
+> - **New optional field.** `Other Statistics`, `combined result x reported property`.
 
 > **Renamed and re-keyed 2026-09-28 — one field replaces two.** `EPMA Technique per Target Species`
 > (EPMA) and `Technique per Target Species` (SEM, SEM_Composition) are now one field in all three,

@@ -37,19 +37,19 @@ in that particular TAPP.
 
 ## Contents
 
-- `EPMA_TAPP_v80.csv`
-- `LA-MC-ICPMS_TAPP_v85.csv`
-- `LA-MC-ICPMS_UPb_TAPP_v82.csv`
-- `LA-Q-ICP-MS_TAPP_v90.csv`
-- `LA-Q-ICP-MS_UPb_TAPP_v90.csv`
-- `LA-SF-ICP-MS_TAPP_v87.csv`
-- `LA-SF-ICP-MS_UPb_TAPP_v88.csv`
+- `EPMA_TAPP_v81.csv`
+- `LA-MC-ICPMS_TAPP_v86.csv`
+- `LA-MC-ICPMS_UPb_TAPP_v83.csv`
+- `LA-Q-ICP-MS_TAPP_v91.csv`
+- `LA-Q-ICP-MS_UPb_TAPP_v91.csv`
+- `LA-SF-ICP-MS_TAPP_v88.csv`
+- `LA-SF-ICP-MS_UPb_TAPP_v89.csv`
 - `Lab-XCT_TAPP_v44.csv`
-- `SEM_Composition_TAPP_v76.csv`
+- `SEM_Composition_TAPP_v77.csv`
 - `SEM_FIBSEM_TAPP_v41.csv`
 - `SEM_Imaging_TAPP_v40.csv`
-- `SEM_TAPP_v77.csv`
-- `Solution_MC-ICP-MS_TAPP_v86.csv`
-- `Solution_Q-ICP-MS_TAPP_v89.csv`
-- `Solution_SF-ICP-MS_TAPP_v84.csv`
-- `TEM_TAPP_v62.csv`
+- `SEM_TAPP_v78.csv`
+- `Solution_MC-ICP-MS_TAPP_v87.csv`
+- `Solution_Q-ICP-MS_TAPP_v90.csv`
+- `Solution_SF-ICP-MS_TAPP_v85.csv`
+- `TEM_TAPP_v63.csv`

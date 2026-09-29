@@ -193,7 +193,10 @@ KEY_SECONDARY = {"standard", "conversion", "model component", "acquisition pass"
                  "preparation step", "background position",
                  # added 2026-09-28 (gap 1): defined by Target Material in all 16 TAPPs
                  # (Module_Core v10); consumed by the EPMA point-analysis beam fields.
-                 "target material"}
+                 "target material",
+                 # added 2026-09-28 (gap 3): defined by Combined Results (Module_Aggregation v5,
+                 # session only, so it drops out at procedure level under 7.3.3).
+                 "combined result"}
 KEY_VOCAB = KEY_ANCHORS | KEY_SECONDARY
 KEY_FORBIDDEN = {"mode"}          # carried by the mode flag columns (Rule 3)
 
@@ -1598,6 +1601,9 @@ RETIRED_FIELD_LIVE_PREFIXES = {
 }
 
 RETIRED_FIELDS = {
+    "Age Model":                       "moved 2026-09-28 from Module_Geochronology to Module_Aggregation as "
+                                       "Combination Method (gap 3): whether and how every reported variable is "
+                                       "combined, not ages only",
     "EPMA Technique per Target Species": "renamed 2026-09-28 -> X-ray Detection Method per Monitored Element "
                                        "and re-keyed target species -> monitored property (gap 4): the "
                                        "detector is chosen per measured element, the fields it gates are "
@@ -1708,6 +1714,7 @@ RETIRED_FIELD_MENTION_OK = {
         "Analyte Estimation Method": "named in the same migration note",
         "Technique per Analyte": "named in the same migration note",
         "Technique per Target Species": "named as the 2026-09-01 rename target, and again in the 2026-09-28 migration note",
+        "Age Model": "the 2026-09-28 migration note has to name the field it moved, so a schema developer can map an existing $def onto Combination Method",
         "EPMA Technique per Target Species": "named as the 2026-09-01 rename target, and again in the 2026-09-28 migration note",
         "Target Selection Criteria":
             "the 2026-09-01 migration note has to name the old identifier so a schema developer "

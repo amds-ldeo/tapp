@@ -297,6 +297,7 @@ def build_legends(wb, mode_headers, keys_used=()):
         'target species': 'One value per chemical species determined, at whatever granularity the procedure determines it.',
         'standard': 'One value per reference material or reference database entry.',
         'target material': 'One value per material type the procedure is designed to analyse, as listed in Target Material.',
+        'combined result': 'One value per reported value obtained by averaging or otherwise combining several individual results, as listed in Combined Results.',
         'conversion': 'One value per correction or calculation step, where it cannot be attributed to a single reported property.',
         'model component': 'One value per component of a fitted decomposition of the signal.',
         'acquisition pass': 'One value per pass over the sample with its own instrument settings.',

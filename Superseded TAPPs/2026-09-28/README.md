@@ -44,8 +44,21 @@ discovery.
 | `EPMA_TAPP_v79` | `v80` | gap 4 |
 | `SEM_TAPP_v76` | `v77` | gap 4 |
 | `SEM_Composition_TAPP_v75` | `v76` | gap 4 |
+| `EPMA_TAPP_v80` | `v81` | gap 3 |
+| `LA-MC-ICPMS_TAPP_v85` | `v86` | gap 3 |
+| `LA-MC-ICPMS_UPb_TAPP_v82` | `v83` | gap 3 |
+| `SEM_Composition_TAPP_v76` | `v77` | gap 3 |
+| `SEM_TAPP_v77` | `v78` | gap 3 |
+| `Solution_MC-ICP-MS_TAPP_v86` | `v87` | gap 3 |
+| `Solution_Q-ICP-MS_TAPP_v89` | `v90` | gap 3 |
+| `Solution_SF-ICP-MS_TAPP_v84` | `v85` | gap 3 |
+| `TEM_TAPP_v62` | `v63` | gap 3 |
+| `LA-Q-ICP-MS_TAPP_v90` | `v91` | gap 3 |
+| `LA-Q-ICP-MS_UPb_TAPP_v90` | `v91` | gap 3 |
+| `LA-SF-ICP-MS_TAPP_v87` | `v88` | gap 3 |
+| `LA-SF-ICP-MS_UPb_TAPP_v88` | `v89` | gap 3 |
 
-35 version(s), 70 file(s) (CSV + xlsx). Every TAPP was bumped twice on this date, once per pass; EPMA, SEM and SEM_Composition a third time, for gap 4.
+48 version(s), 96 file(s) (CSV + xlsx). Every TAPP was bumped twice on this date, once per pass; EPMA, SEM and SEM_Composition a third time, for gap 4.
 
 ## Why
 
@@ -76,6 +89,16 @@ Applied by `Project Files/Scripts/gap1_target_material_20260928.py`.
 `Technique per Target Species` merge into `X-ray Detection Method per Monitored Element`, with the
 key moved from `target species` to `monitored property` and one shared description. Applied by
 `Project Files/Scripts/gap4_detection_method_20260928.py`.
+
+**Fourth pass — gap 3.** Covers the 13 TAPPs that use Module_Aggregation.
+- **Module_Aggregation v5.** New `Combined Results`, `Combination Method` and `Other Statistics`.
+  The inclusion field is re-keyed `combined result`, and the dispersion statistic
+  `combined result x reported property`.
+- **Module_Geochronology v8.** `Age Model` removed, now Combination Method.
+- **Module_UPb v9.** Its overlay row is renamed to match.
+
+Applied by `Project Files/Scripts/gap3_combined_results_20260928.py`, plus a second composition to
+deliver the module defaults to the new rows.
 
 ## Verification
 
@@ -115,4 +138,17 @@ What changed:
   - Keyed By: 3 values.
   - Column B: 3 descriptions.
   - Nothing else.
+
+**Fourth pass (gap 3).**
+- `compose_tapp.py --check`: 0 of 16 drifted, after correcting the Module_UPb Purpose overlay, which
+  still said "reported aggregate".
+- `validate_tapp.py`: 0 ERROR, 0 WARN. `combined result` is in the key vocabulary, and `Age Model` is
+  in `RETIRED_FIELDS`.
+- `audit_keys_vs_literature.py`: 0 NEW. `KEY_SUBSUMES["combined result"]` was added, and the
+  2026-09-16 inclusion ruling is marked applied.
+- Changed:
+  - Fields: 3 added in 13 TAPPs; 1 removed (`Age Model`, 3 TAPPs).
+  - Keyed By: 2 values, in 13 TAPPs.
+  - Column B: 3 descriptions.
+  - Purpose: 1 value, in 13 TAPPs.
 

@@ -3251,3 +3251,57 @@ geometry (point or map) does not.
 `X-ray Detection Method = WDS`. 47 fields state a condition in Column B prose, and 7.3.2's warning
 about adding grammar every downstream consumer must implement applies to it too.
 
+## `combined result` minted; `Age Model` generalised into `Combination Method` (2026-09-28)
+
+**What changed.** Three modules and 13 TAPPs. This is gap 3 of
+`analysis/Pending_Gaps_2026-09-24_Reference_Example.md`.
+
+- **Module_Aggregation v4 → v5.**
+  - New `Combined Results` (`defines: combined result`, session only).
+  - New `Combination Method` (`reported property`, C=Basic, D=Editable).
+  - New `Other Statistics` (`combined result x reported property`, C=N/A, D=Advanced).
+  - `Analysis Inclusion and Rejection Criteria` re-keyed `(none)` → `combined result`.
+  - `Goodness-of-Fit or Dispersion Statistic` re-keyed `reported property` → `combined result x reported property`.
+  - "Aggregate" removed from every description.
+- **Module_Geochronology v7 → v8.** `Age Model` removed. It is now Combination Method, for every
+  reported variable. `Age Calculation Method` no longer points at "Age Model and Software", a name
+  retired before this date.
+- **Module_UPb v8 → v9.** Its overlay row follows the rename.
+
+**The first design was withdrawn before implementation.** The design agreed first had each TAPP declare
+one grouping key: EPMA `sample x target material`, U-Pb `sample`. That required a Rule 6.4 exception,
+since the module would no longer own Column I. Reading the inclusion cells before applying it showed
+combined values at different levels *within* one TAPP:
+
+| TAPP | Combined over | Procedures |
+|---|---|---|
+| EPMA | a phase | Liu 2016, Pang 2016, Broussard 2026 |
+| EPMA | a grain | Ma 2017 |
+| LA-Q-ICP-MS | a grain | Nakanishi 2022 |
+| LA-Q-ICP-MS | an aliquot | Liu 2024 |
+| LA-Q-ICP-MS | a phase | Liu 2016 |
+| LA-Q-ICP-MS | a sample | Wu 2023 |
+
+A phase mean pools grains, and a grain mean is finer than any phase, so no single key fits. This
+confirms the 2026-09-16 precedent, which found "the axis the field actually needs is *the
+aggregate*". The key is named `combined result`, not "aggregate", which is not geochemists'
+vocabulary. The field names avoid the word entirely.
+
+**Kind versus instance.** A reported variable is the *kind* of quantity: a weighted-mean date, FeO
+wt%. `Combination Method` says, per kind, whether and how it is combined. A combined result is the
+*instance*, such as "olivine in EX-CC-01, 8 points" or "XN02, 236 of 246 spots". It names a sample,
+so it exists only in the session. That is why its definer is C=N/A and why the inclusion rules stay
+one value on the procedure. The field is not split into criteria and outcome.
+
+**Mechanics worth knowing.**
+- **New rows do not receive the module's defaults on first composition.** The composer fills only a
+  new row's owned columns, so a second composition delivered the defaults for Column F and J.
+- **A consumer's Purpose text is not overwritten.** It had to be updated where it matched the old
+  module text exactly: 13 TAPPs, plus the Module_UPb overlay.
+- **Age Model had to be removed from the TAPPs by the patch.** Geochronology inserts rather than
+  overlays, so the composer never drops a field that has left the module.
+
+**Literature.** The three new fields have blank literature cells and still need a pass. The detector
+reads per-grain, per-disc and per-sample counts as varying per `sampling unit`.
+`KEY_SUBSUMES["combined result"]` records that those observations are what the key carries.
+

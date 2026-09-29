@@ -7,7 +7,7 @@
 | 5 | **Fixed** 2026-09-28. Module_Core v9 re-keys `Sample Preparation Method` to `sample`; the projection rule is now conventions 7.3.3. Script: `Project Files/Scripts/gaps5and6_sample_prep_key_20260928.py`; see also `precedents.md`, 2026-09-28. |
 | 6 | **Fixed** 2026-09-28, in the same pass: `Monitored Elements` gains one sentence. |
 | 1 | **Implemented in EPMA** 2026-09-28: Module_Core v10, EPMA v79. A point/map split was added after checking the key against the mapping procedures. SEM and TEM are pending. Script: `Project Files/Scripts/gap1_target_material_20260928.py`. |
-| 3 | **Design agreed** 2026-09-28; not implemented. |
+| 3 | **Implemented** 2026-09-28: Module_Aggregation v5, Geochronology v8, UPb v9; 13 TAPPs. The per-TAPP grouping key was withdrawn on the evidence in favour of a session list, `Combined Results`. Script: `Project Files/Scripts/gap3_combined_results_20260928.py`. |
 | 4 | **Implemented** 2026-09-28 in EPMA v80, SEM v77 and SEM_Composition v76, not EPMA alone: the SEM TAPPs carried the same field as `Technique per Target Species`. The conditional-applicability half is deferred. Script: `Project Files/Scripts/gap4_detection_method_20260928.py`. |
 | 2 | **Held** until attested. |
 
@@ -76,7 +76,22 @@ Under projection, that key gives one value per procedure. Published procedures s
   - Preparation varies by sample, not by material: Seifert's two mounts are the same material, and only one was ion-polished.
   - Projection already makes `sample` a session-only key.
 
-### Gap 3 — statistics on averaged values — DESIGN AGREED 2026-09-28
+### Gap 3 — statistics on averaged values — IMPLEMENTED 2026-09-28
+
+**Amended before implementation: a session list instead of a key for each TAPP.** Reading the inclusion cells showed combined values at different levels within one TAPP:
+
+- **EPMA:** per phase (Liu 2016, Pang 2016, Broussard 2026) and per grain (Ma 2017).
+- **LA-Q-ICP-MS:** per grain (Nakanishi 2022), per aliquot (Liu 2024), per phase (Liu 2016) and per sample (Wu 2023).
+
+As built:
+
+- **New session list:** `Combined Results` (`defines: combined result`, C=N/A). Each entry names one combined value.
+- **Inclusion rules** keyed `combined result`. The procedure states the rules once, under 7.3.3.
+- **Dispersion statistic and Other Statistics** keyed `combined result x reported property`.
+- **Combination Method** as agreed.
+- **Stays in Module_Aggregation.** No Rule 6.4 exception was needed, and there are no per-TAPP keys.
+
+The table below records the design as first agreed.
 
 **The problem.** Two fields describe averaged or otherwise combined values:
 
@@ -191,7 +206,7 @@ The field is TAPP-owned. **Correction:** this record first said EPMA only, but S
 | done | 5, 6 and projection (7.3.3) | Already decided by Rule 13. |
 | done | Gap 1, EPMA | Created the `target material` key that gap 3 needs. |
 | done | Gap 4 | EPMA, SEM and SEM_Composition; TAPP-owned. |
-| 3 | Gap 3 | Depends on gap 1. Touches two modules and the geochronology TAPPs. |
+| done | Gap 3 | Three modules, 13 TAPPs. |
 | 4 | Gap 1, SEM and TEM | After their literature columns are checked. |
 | — | Gap 2 | Held until attested. |
 

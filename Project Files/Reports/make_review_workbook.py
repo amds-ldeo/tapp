@@ -38,7 +38,7 @@ from openpyxl.utils import get_column_letter
 # Paths resolve from this file's own location, as build_form.py does, so the script runs
 # from any working directory. The TAPP is read from the `Current TAPPs/` mirror (Rule 12);
 # VERSION pins the snapshot — bump it and the output name follows.
-VERSION = 'v80'
+VERSION = 'v81'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 SRC  = os.path.join(ROOT, 'Current TAPPs', 'EPMA_TAPP_%s.csv' % VERSION)
@@ -53,7 +53,7 @@ def out_path(mode):
     return os.path.join(HERE, 'EPMA_TAPP_%s_Review_Workbook_%s.xlsx' % (VERSION, mode.replace(' ', '_')))
 
 # Domains that do not exist until a session runs.
-SESSION_ONLY = {'sample', 'sampling unit'}
+SESSION_ONLY = {'sample', 'sampling unit', 'combined result'}   # definers are C=N/A (7.3.3)
 
 # Singular display names for the domains, pointing at the definer field.
 DISPLAY = {
@@ -62,6 +62,7 @@ DISPLAY = {
     'target species':     'Target Species',
     'monitored property': 'Monitored Element',
     'target material':    'Target Material',
+    'combined result':    'Combined Result',
     'reported property':  'Reported Variable',
     'standard':           'Secondary Reference Material',
 }
@@ -177,7 +178,9 @@ PROSE = {
  'Normalization / Standards-Based Correction': "Any normalisation applied beyond the primary calibration, or 'None'.",
  'Calibration Factor and Determination Method': 'Any externally calibrated factor that converts the measured quantity into the reported quantity, how that factor was determined, and its uncertainty.',
  'Procedural Blank Level': "The blank level measured in the session, together with the blank's composition where the reported quantity is a ratio.",
- 'Analysis Inclusion and Rejection Criteria': 'The rules deciding which individual results contribute to a reported aggregate value, and the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded.',
+ 'Analysis Inclusion and Rejection Criteria': 'The rules deciding which individual results contribute to a combined result, and the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded.',
+ 'Combination Method': 'Whether the reported variable is an individual result or combines several; if combined, the statistical model used and what the results are combined over.',
+ 'Combined Results': 'Each reported value obtained by averaging or otherwise combining several individual results, named with what it combines and the results that contribute to it.',
  'Constants and Reference Values Used': "The physical constants and citable reference values used in data reduction, with their sources, or 'None'.",
  'Primary Calibration Standard Name': "The primary reference material against which the instrument is calibrated, its source, and a citation for the accepted values used; where quantification uses a stored library or response model, that instead. 'None' means no calibration was performed.",
  'Secondary Reference Materials': 'The reference materials measured as unknowns alongside the samples, with the source of each and a citation for its accepted values.',
@@ -190,7 +193,8 @@ PROSE = {
  'Analytical Accuracy': 'The offset between measured and accepted values, as a percent relative bias, with the source of the accepted value.',
  'Counting Statistics Error': 'The uncertainty predicted from counting statistics, including the counts on any background or blank subtracted, with the sigma level stated.',
  'EDS Dead Time': 'The percent dead time recorded by the detector.',
- 'Goodness-of-Fit or Dispersion Statistic': 'The statistic used to assess whether scatter among the contributing individual results exceeds what analytical uncertainty alone predicts, together with its value.',
+ 'Goodness-of-Fit or Dispersion Statistic': 'The statistic used to assess whether scatter among the individual results contributing to a combined result exceeds what analytical uncertainty alone predicts, together with its value.',
+ 'Other Statistics': 'Any further statistic reported for a combined result, with the statistic named and its value.',
  'Additional Notes': 'Any information not captured elsewhere, including anomalies, deviations from the registered procedure and instrument modifications.',
 }
 

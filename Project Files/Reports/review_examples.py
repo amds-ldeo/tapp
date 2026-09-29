@@ -153,8 +153,14 @@ EXAMPLES = {
  'Calibration Factor and Determination Method': 'None, for every reported variable (concentrations from k-ratios against the primary standards)',
  'Procedural Blank Level': '35 ± 9 µg/g for Ni; 22 ± 8 µg/g for Co (n = 5)',
  'Analysis Inclusion and Rejection Criteria': {
-     'all': 'Totals 98.5–101.5 wt% (silicates, oxides, sulfides), 96.0–101.5 (apatite), 98.0–102.0 (carbonates); cation sum within ±0.03 apfu; no overlap with a second phase; beam drift under 1%. 53 points acquired, 45 included: 4 excluded for totals, 3 for overlap, 1 for drift',
-     'map': 'Maps M1 and M2 each count as one result; the acceptance rules apply to point analyses'},
+     'all': 'Rules: totals 98.5–101.5 wt% (silicates, oxides, sulfides), 96.0–101.5 (apatite), 98.0–102.0 (carbonates); cation sum within ±0.03 apfu; no overlap with a second phase; beam drift under 1%. Outcome: 53 points acquired, 45 included; excluded P3-02 and P3-05 from apatite in EX-CC-01 and P1-03, P1-07 from dolomite in EX-CC-02 (totals), P2-07 and P2-09 from pyrrhotite in EX-CC-01 and P1-16 from calcite in EX-CC-02 (overlap), P2-05 from olivine in EX-CC-02 (drift)',
+     'map': 'None: maps are not combined'},
+ 'Combination Method': {
+     'all': 'Arithmetic mean of the included points, per phase within each sample, for every oxide and element concentration; maps and structural formulas not combined',
+     'map': 'Not combined: maps are reported pixel by pixel'},
+ 'Combined Results': {
+     'all': 'Olivine in EX-CC-01 (P1-01–P1-08); pyroxene in EX-CC-01 (P1-09–P1-12); magnetite in EX-CC-01 (P2-01–P2-06); pyrrhotite in EX-CC-01 (P2-07–P2-11); apatite in EX-CC-01 (P3-01–P3-06); dolomite in EX-CC-02 (P1-01–P1-10); calcite in EX-CC-02 (P1-11–P1-16); olivine in EX-CC-02 (P2-01–P2-08)',
+     'map': 'None: maps M1 and M2 are not combined'},
  'Constants and Reference Values Used': 'IUPAC 2021 standard atomic weights (Prohaska et al. 2022)',
  # ---- 6. Quality control & uncertainty
  'Primary Calibration Standard Name': {
@@ -192,7 +198,8 @@ EXAMPLES = {
      'all': '18–26% during point analysis; 24–31% during spectrum imaging',
      'EDS Point Analysis': '18–26%',
      'EDS Mapping': '24–31% during spectrum imaging'},
- 'Goodness-of-Fit or Dispersion Statistic': 'MSWD of the analyses contributing to each phase mean: 0.9 (NiO) to 2.3 (CaO) for olivine in EX-CC-01, FeO 4.6 (Fe–Mg zoning)',
+ 'Goodness-of-Fit or Dispersion Statistic': 'MSWD of the included points about the mean: for olivine in EX-CC-01, 0.9 for NiO to 2.3 for CaO, and 4.6 for FeO (Fe–Mg zoning); likewise for every other combined result',
+ 'Other Statistics': 'None reported',
  'Additional Notes': 'Particle P2 of EX-CC-02 partly plucked during ion polishing; its analyses lie on the remaining fragment. No other anomalies, instrument modifications or departures',
 }
 
