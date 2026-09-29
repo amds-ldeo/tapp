@@ -8,7 +8,7 @@
 | 6 | **Fixed** 2026-09-28, in the same pass: `Monitored Elements` gains one sentence. |
 | 1 | **Implemented in EPMA** 2026-09-28: Module_Core v10, EPMA v79. A point/map split was added after checking the key against the mapping procedures. SEM and TEM are pending. Script: `Project Files/Scripts/gap1_target_material_20260928.py`. |
 | 3 | **Design agreed** 2026-09-28; not implemented. |
-| 4 | **Design agreed** 2026-09-28 (the re-key half); not implemented. |
+| 4 | **Implemented** 2026-09-28 in EPMA v80, SEM v77 and SEM_Composition v76, not EPMA alone: the SEM TAPPs carried the same field as `Technique per Target Species`. The conditional-applicability half is deferred. Script: `Project Files/Scripts/gap4_detection_method_20260928.py`. |
 | 2 | **Held** until attested. |
 
 **Where the gaps came from.** Writing `Project Files/Reports/EPMA_Reference_Procedure_Example_v77.md` required filling all 88 fields of EPMA TAPP v77. That exposed six places where complete documentation needs structure the TAPP does not declare. Appendix B of the example states them briefly.
@@ -124,7 +124,7 @@ It kept `(none)` as "least-wrong" because no single key fits all three. Letting 
 - **A new `aggregate` domain with a "Reported Aggregates" definer (2026-09-24 and 2026-09-28).** Replaced for two reasons. "Aggregate" is not geochemists' vocabulary. And it conflated the kind of reported variable with its instance, which the existing lists (`sample`, `target material`, `sampling unit`) already identify per technique.
 - **Splitting the inclusion field into criteria and outcome (2026-09-24).** Replaced once projection was written down: one field states the rules at procedure level and the outcome per group at session level.
 
-### Gap 4 — WDS or EDS chosen element by element — DESIGN AGREED 2026-09-28 (re-key)
+### Gap 4 — WDS or EDS chosen element by element — IMPLEMENTED 2026-09-28 (re-key)
 
 **The problem.** In a combined WDS+EDS point analysis, the WDS-only per-element fields do not apply to the EDS-measured elements:
 
@@ -156,7 +156,7 @@ The Group 1 `Technique` field (`EPMA-WDS | EPMA-EDS | EPMA-WDS+EDS`) should equa
 - The name no longer collides with the Group 1 `Technique` field.
 - It can record the method for elements monitored only to correct an interference. Zn in the reference example serves no target species, so a per-target-species field has nowhere to record its method.
 
-The field is TAPP-owned and in EPMA only. The rename must be added to `RETIRED_FIELDS` in `validate_tapp.py` and noted for the schema consumer.
+The field is TAPP-owned. **Correction:** this record first said EPMA only, but SEM and SEM_Composition carry the same field as `Technique per Target Species`. All three were changed together, as Rules 2 and 4 require. Both old names are in `RETIRED_FIELDS`, and the schema spec carries a migration note.
 
 **Deferred.** A general conditional-applicability mechanism, such as an "Applies When" column holding `X-ray Detection Method = WDS`. 47 fields state a condition in Column B prose today, among them Coupling Description in all 16 TAPPs and Beam Raster Dimensions ("when Beam Mode = Rastered"). The mechanism is not needed for this re-key. Weigh it against the 7.3.2 reasoning that extra grammar has a cost for every downstream consumer.
 
@@ -190,7 +190,7 @@ The field is TAPP-owned and in EPMA only. The rename must be added to `RETIRED_F
 |---|---|---|
 | done | 5, 6 and projection (7.3.3) | Already decided by Rule 13. |
 | done | Gap 1, EPMA | Created the `target material` key that gap 3 needs. |
-| 2 | Gap 4 | EPMA only, TAPP-owned; independent of the others. |
+| done | Gap 4 | EPMA, SEM and SEM_Composition; TAPP-owned. |
 | 3 | Gap 3 | Depends on gap 1. Touches two modules and the geochronology TAPPs. |
 | 4 | Gap 1, SEM and TEM | After their literature columns are checked. |
 | — | Gap 2 | Held until attested. |

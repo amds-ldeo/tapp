@@ -94,7 +94,11 @@ EXAMPLES = {
      'all': 'SiO₂, TiO₂, Al₂O₃, Cr₂O₃, FeO (total Fe), MnO, MgO, CaO, Na₂O, K₂O, P₂O₅, NiO, CoO in wt%; S, F, Cl in wt%; O equivalent of F and Cl; CO₂ by stoichiometry; totals; structural formulas in apfu; element maps in wt% per pixel; phase map; modal abundance in area %',
      'point': 'SiO₂, TiO₂, Al₂O₃, Cr₂O₃, FeO (total Fe), MnO, MgO, CaO, Na₂O, K₂O, P₂O₅, NiO, CoO in wt%; S, F, Cl in wt%; O equivalent of F and Cl; CO₂ by stoichiometry (carbonates); totals; structural formulas in apfu',
      'map': 'Element concentrations in wt% per pixel; phase map; modal abundances in area %'},
- 'EPMA Technique per Target Species': 'EDS for %s; WDS for %s; not measured for O, C' % (_EDS, _WDS_PT),
+ 'X-ray Detection Method per Monitored Element': {
+     'all': 'EDS for %s; WDS for %s and for Zn (interference monitor)' % (_EDS, _WDS_PT),
+     'eds': 'EDS for %s' % _EDS,
+     'WDS Point Analysis': 'WDS for %s and for Zn (interference monitor)' % _WDS_PT,
+     'WDS Mapping': 'WDS for %s' % _WDS_MAP},
  'X-ray Line': {
      'all': 'Kα for every monitored element',
      'eds': 'Kα for %s' % _EDS,

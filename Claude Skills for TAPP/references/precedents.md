@@ -3217,3 +3217,37 @@ exist only at session level. Three reasons:
   - a procedure stating beam conditions per analysis point;
   - a procedure stating two point-analysis conditions for the same material.
 
+## `X-ray Detection Method per Monitored Element` replaces two per-target-species technique fields (2026-09-28)
+
+**What changed.** Three TAPPs change in one pass: EPMA v80, SEM v77 and SEM_Composition v76. Two
+fields become one:
+- `EPMA Technique per Target Species`, in EPMA;
+- `Technique per Target Species`, in SEM and SEM_Composition.
+
+The merged field is **`X-ray Detection Method per Monitored Element`**. Its key moves from `target
+species` to `monitored property`, and all three share one description that defines WDS and EDS. Each
+TAPP keeps its own tiers, allowed values, mode flags and literature cells. This is gap 4 of
+`analysis/Pending_Gaps_2026-09-24_Reference_Example.md`.
+
+**Why the key moved.** In a combined WDS+EDS analysis the detector is chosen per measured element:
+Ni by WDS and Fe by EDS in the same point. The fields that apply only to WDS-measured elements —
+crystal, spectrometer, detector, PHA and counting times — are keyed by monitored element, and a field
+that says when they apply has to sit at that grain. The target-species key also had no room for
+elements monitored only to correct an interference, since those serve no target species. Zn in the
+EPMA reference example was the case that showed it.
+
+**Why all three TAPPs, when the gap record said EPMA only.** The record was wrong about scope. SEM and
+SEM_Composition carry the same field under the shorter name. Rule 2 requires a WDS/EDS field to be
+identical across EPMA and SEM, and Rule 4 requires the change in the same pass. Merging also retires
+a Rule 1 name variant. The new name drops "Technique", which collided with the Group 1 `Technique`
+field (`EPMA-WDS | EPMA-EDS | EPMA-WDS+EDS`). That procedure-level value should equal the
+combination of the per-element values.
+
+**What did not change.** `Analytical Mode` stays per procedure. It declares which modes the procedure
+covers, and the mode flags switch whole groups of fields. Only the detector axis varies per element;
+geometry (point or map) does not.
+
+**Deferred.** A general conditional-applicability mechanism, such as an "Applies When" column holding
+`X-ray Detection Method = WDS`. 47 fields state a condition in Column B prose, and 7.3.2's warning
+about adding grammar every downstream consumer must implement applies to it too.
+

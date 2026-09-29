@@ -260,7 +260,7 @@ the complete set of Keyed By strings present, with row counts:
   defines: standard                                 12
   defines: target material                          16
   defines: target species                           13
-  monitored property                               113
+  monitored property                               116
   pair: reported property                            7
   preparation step                                   9
   reported property                                101
@@ -269,7 +269,7 @@ the complete set of Keyed By strings present, with row counts:
   sample > sampling unit x reported property        21
   standard x reported property                      33
   target material                                    5
-  target species                                    55
+  target species                                    52
 
 field names whose key is technique-dependent (7) -- do NOT assume one
 global mapping of field name to key:
@@ -594,6 +594,16 @@ four carry straight over (`target_selection` → `SamplingUnitSelection`, `calib
 The field-level facts are unchanged: `Procedural Blank Level` is still absent from TEM, Lab-XCT, SEM_Imaging
 and SEM_FIBSEM (no analytical blank), and `Sampling Unit Selection Criteria` is still absent from the three Solution TAPPs (bulk
 techniques). What changed is that this is now expressed by which modules they compose.
+
+> **Renamed and re-keyed 2026-09-28 — one field replaces two.** `EPMA Technique per Target Species`
+> (EPMA) and `Technique per Target Species` (SEM, SEM_Composition) are now one field in all three,
+> **`X-ray Detection Method per Monitored Element`**. Its key moved from `target species` to
+> `monitored property`. If you generated a `$def` from either old name, map it here and move the
+> property from the `target species` array onto the `monitoredProperties` array.
+>
+> Allowed values are unchanged (`WDS | EDS | N/A | None`). The key moved because the detector is
+> chosen per measured element, and because elements monitored only to correct an interference serve
+> no target species but still need a value.
 
 > **Renamed 2026-09-01 (second rename, same day) — `Analyte` is now `Target Species`.** The module
 > `Analyte` is now `SamplingUnitSelection`'s sibling `TargetSpecies` (v3); the field `Analyte` is

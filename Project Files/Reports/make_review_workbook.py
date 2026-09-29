@@ -38,7 +38,7 @@ from openpyxl.utils import get_column_letter
 # Paths resolve from this file's own location, as build_form.py does, so the script runs
 # from any working directory. The TAPP is read from the `Current TAPPs/` mirror (Rule 12);
 # VERSION pins the snapshot — bump it and the output name follows.
-VERSION = 'v79'
+VERSION = 'v80'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 SRC  = os.path.join(ROOT, 'Current TAPPs', 'EPMA_TAPP_%s.csv' % VERSION)
@@ -148,7 +148,7 @@ PROSE = {
  'Target Species': 'The elements the procedure determines. Isotopes are never separate entries.',
  'Monitored Elements': 'The elements monitored in order to make the determinations, grouped under the determined element each serves; elements monitored only to correct an interference serve none.',
  'Reported Variables and Units': 'The quantities the procedure finally reports, with their units, including intermediate quantities reported alongside final ones.',
- 'EPMA Technique per Target Species': 'Whether the element is measured by WDS or by EDS.',
+ 'X-ray Detection Method per Monitored Element': 'Whether the monitored element is measured by WDS or by EDS.',
  'X-ray Line': 'The X-ray emission line measured.',
  'Diffracting Crystal': 'The diffracting crystal.',
  'WDS Spectrometer Channel': 'The spectrometer position or positions on which the element is measured, one entry per assignment, including an element measured on more than one spectrometer with the intensities aggregated.',

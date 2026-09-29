@@ -1598,6 +1598,14 @@ RETIRED_FIELD_LIVE_PREFIXES = {
 }
 
 RETIRED_FIELDS = {
+    "EPMA Technique per Target Species": "renamed 2026-09-28 -> X-ray Detection Method per Monitored Element "
+                                       "and re-keyed target species -> monitored property (gap 4): the "
+                                       "detector is chosen per measured element, the fields it gates are "
+                                       "keyed by monitored element, and interference-only monitors (no "
+                                       "target species) need a value too",
+    "Technique per Target Species":    "renamed 2026-09-28 in SEM and SEM_Composition -> X-ray Detection "
+                                       "Method per Monitored Element, merging it with the EPMA variant "
+                                       "(Rules 1 and 2); re-keyed to monitored property",
     "Sampling Unit":                  "split 2026-09-15 into Sampling Unit Type (the kind of unit, keyed "
                                        "(none)) and Sampling Unit Name (defines: sample > sampling unit), "
                                        "amds-ldeo/tapp#8: the old field was keyed as the definer of a "
@@ -1699,6 +1707,8 @@ RETIRED_FIELD_MENTION_OK = {
         "Per-Analyte Calibration Strategy": "named in the same migration note",
         "Analyte Estimation Method": "named in the same migration note",
         "Technique per Analyte": "named in the same migration note",
+        "Technique per Target Species": "named as the 2026-09-01 rename target, and again in the 2026-09-28 migration note",
+        "EPMA Technique per Target Species": "named as the 2026-09-01 rename target, and again in the 2026-09-28 migration note",
         "Target Selection Criteria":
             "the 2026-09-01 migration note has to name the old identifier so a schema developer "
             "holding an earlier copy can map an existing $def onto the new name",

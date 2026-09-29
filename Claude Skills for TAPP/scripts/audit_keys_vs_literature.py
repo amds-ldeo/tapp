@@ -299,9 +299,12 @@ ADJUDICATED = {
     ("Analytical Accuracy and Assessment Method", "OVER-DECLARED"):
         "KEEP standard x reported property — same detector failure; accuracy is assessed against "
         "RMs in all 9 extractions.",
-    ("EPMA Technique per Target Species", "OVER-DECLARED"):
-        "KEEP target species — the per-target-species assignment is the field's entire purpose; the surveyed "
-        "procedures happen to use one technique throughout.",
+    ("X-ray Detection Method per Monitored Element", "OVER-DECLARED"):
+        "KEEP monitored property — renamed and re-keyed 2026-09-28 from EPMA Technique per Target Species / "
+        "Technique per Target Species (gap 4). The per-element assignment is the field's entire purpose; "
+        "the surveyed procedures happen to use one method throughout, which is that axis with one value. "
+        "Keyed by monitored element, not target species, because the WDS-only fields it gates are, and "
+        "interference-only monitors serve no target species.",
     ("Calibration Strategy per Target Species", "OVER-DECLARED"):
         "KEEP target species — as above.",
     ("Mass Resolution per Analyte", "AXIS-MISMATCH"):

@@ -119,7 +119,7 @@ Give each column a header identifying: Author+Year | Instrument Model | Lab.
 ### Instrument fields
 - State the instrument exactly as written: `"JEOL JXA-8200 electron microprobe"` → Instrument Model = `JXA-8200 (stated as "JEOL JXA-8200 electron microprobe")`
 - If the paper uses a non-standard model name (e.g., "JEOL 8200" without "JXA" prefix), note that in the value.
-- WDS vs. EDS: Record `N` for EPMA Technique per Target Species unless the paper explicitly uses the term "WDS," "wavelength-dispersive," "EDS," or "energy-dispersive" in the context of which target species were measured.
+- WDS vs. EDS: Record `N` for X-ray Detection Method per Monitored Element unless the paper explicitly uses the term "WDS," "wavelength-dispersive," "EDS," or "energy-dispersive" in the context of which elements were measured.
 
 ### Standards
 - Record the full standard list exactly as stated if given. If the paper says only "natural and synthetic minerals" without naming them, record that phrasing + `(specific names NR)`.

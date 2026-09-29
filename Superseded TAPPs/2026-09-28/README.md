@@ -41,8 +41,11 @@ discovery.
 | `Solution_Q-ICP-MS_TAPP_v88` | `v89` | gap 1 |
 | `Solution_SF-ICP-MS_TAPP_v83` | `v84` | gap 1 |
 | `TEM_TAPP_v61` | `v62` | gap 1 |
+| `EPMA_TAPP_v79` | `v80` | gap 4 |
+| `SEM_TAPP_v76` | `v77` | gap 4 |
+| `SEM_Composition_TAPP_v75` | `v76` | gap 4 |
 
-32 version(s), 64 file(s) (CSV + xlsx): every TAPP was bumped twice on this date, once per pass.
+35 version(s), 70 file(s) (CSV + xlsx). Every TAPP was bumped twice on this date, once per pass; EPMA, SEM and SEM_Composition a third time, for gap 4.
 
 ## Why
 
@@ -68,6 +71,11 @@ all 16 TAPPs, exempt from 7.4c where nothing is keyed by it. EPMA then changes i
 - **Literature cells.** Map conditions in the Liu+2016_UT, Frank+2023, Broussard+2026 and Neuman+2025 columns move to the mapping twins.
 
 Applied by `Project Files/Scripts/gap1_target_material_20260928.py`.
+
+**Third pass — gap 4.** EPMA, SEM and SEM_Composition only. `EPMA Technique per Target Species` and
+`Technique per Target Species` merge into `X-ray Detection Method per Monitored Element`, with the
+key moved from `target species` to `monitored property` and one shared description. Applied by
+`Project Files/Scripts/gap4_detection_method_20260928.py`.
 
 ## Verification
 
@@ -97,4 +105,14 @@ What changed:
   - Fields: 4 added to EPMA.
   - Literature cells: 11 edited or created in the four mapping-reporting columns.
   - Tiers and data types of existing fields: none.
+
+**Third pass (gap 4).**
+- `validate_tapp.py`: 0 ERROR, 0 WARN. Both old names are in `RETIRED_FIELDS`, and the schema spec's migration notes may name them. The literature-assessment guide was updated to the new name.
+- `audit_keys_vs_literature.py`: 0 NEW. The field's ruling moved to the new name.
+- The mockups were rebuilt against EPMA v80, and the reviewer workbooks regenerated as v80.
+- Changed:
+  - Field names: 3 rows renamed.
+  - Keyed By: 3 values.
+  - Column B: 3 descriptions.
+  - Nothing else.
 
