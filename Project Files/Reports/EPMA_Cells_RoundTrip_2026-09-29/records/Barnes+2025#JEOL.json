@@ -1,0 +1,736 @@
+{
+ "procedure_column": "Barnes+2025 | JEOL JXA-8230 | WDS Point Analysis (CRPG Nancy)",
+ "tapp": "EPMA_TAPP_v84",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "EPMA Major Element Silicates/Oxides/Carbonates, Bennu Anhydrous Minerals (CRPG Nancy, JEOL JXA-8230)",
+   "status": "text",
+   "value": "EPMA Major Element Silicates/Oxides/Carbonates, Bennu Anhydrous Minerals (CRPG Nancy, JEOL JXA-8230)"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Centre de Recherches Pétrographiques et Géochimiques (CRPG), Nancy, France",
+   "status": "text",
+   "value": "Centre de Recherches Pétrographiques et Géochimiques (CRPG), Nancy, France"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6",
+   "status": "text",
+   "value": "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "SEM-BSE (JEOL JSM-6510, 15 kV, 3 nA); SEM-EDS (multi-element mapping); SIMS (CAMECA IMS 1270 E7, CRPG); NanoSIMS (K-ALFAA); ICP-MS; MC-ICP-MS; noble gas MS",
+   "status": "text",
+   "value": "SEM-BSE (JEOL JSM-6510, 15 kV, 3 nA); SEM-EDS (multi-element mapping); SIMS (CAMECA IMS 1270 E7, CRPG); NanoSIMS (K-ALFAA); ICP-MS; MC-ICP-MS; noble gas MS"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "carbonates — 'Quantitative chemical analyses ... to determine the chemical compositions of minerals'; carbonates are the only material named with conditions of their own",
+   "status": "structured",
+   "value": [
+    {
+     "member": "carbonates",
+     "parent": null
+    }
+   ]
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)",
+   "status": "text",
+   "value": "Aggregate particles (<1 mm) mounted in epoxy at Université Côte d'Azur; polished; carbon coated (thickness N)"
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Grain > Analysis point — \"Aggregate particles (<1 mm) were mounted in epoxy\" and mapped \"of the different grains\"; \"Quantitative analyses were performed with ... beam diameter of 1 µm\", the beam rastered \"over 5 × 5 µm2\" for carbonates (p.11)",
+   "status": "text",
+   "value": "Grain > Analysis point"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "Size — \"Aggregate particles (<1 mm) were mounted in epoxy, polished and were subsequently carbon coated\" (p.11); the grains analysed within them are not otherwise chosen by a stated rule",
+   "status": "text",
+   "value": "Size"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "SEM imaging and multi-element EDS mapping — \"SEM observations were performed on the samples using a JEOL JSM-6510 with 3-nA primary beam at 15 kV. We also performed multi-element EDS mapping (Mg, Si, Fe, Ni, S, Na, Ca and Al) of the different grains\", after which \"Quantitative chemical analyses were performed using a JEOL JXA-8230 electron microprobe\" (p.11)",
+   "status": "text",
+   "value": "SEM imaging and multi-element EDS mapping"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "JEOL",
+   "status": "text",
+   "value": "JEOL"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "JXA-8230 (stated as \"JEOL JXA-8230 electron microprobe analyser (EPMA)\")",
+   "status": "text",
+   "value": "JXA-8230 (stated as \"JEOL JXA-8230 electron microprobe analyser (EPMA)\")"
+  },
+  "Electron Source": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Configuration": {
+   "key": "(none)",
+   "cell": "5 wavelength-dispersive spectrometers (JEOL)",
+   "status": "text",
+   "value": "5 wavelength-dispersive spectrometers (JEOL)"
+  },
+  "EDS Detector Configuration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Beam Mode": {
+   "key": "target material",
+   "cell": "carbonates: Rastered; other: N — 'For carbonates, we rastered the beam over 5×5 µm2'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "carbonates"
+     ],
+     "value": "Rastered"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Accelerating Voltage": {
+   "key": "(none)",
+   "cell": "20 kV",
+   "status": "text",
+   "value": "20 kV"
+  },
+  "Beam Current": {
+   "key": "target material",
+   "cell": "all: 10 nA — 'an accelerating voltage of 20 kV, a probe current of 10 nA and beam diameter of 1 µm'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "10 nA"
+    }
+   ]
+  },
+  "Beam Diameter": {
+   "key": "target material",
+   "cell": "all: 1 µm — as above",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "1 µm"
+    }
+   ]
+  },
+  "Beam Raster Dimensions": {
+   "key": "target material",
+   "cell": "carbonates: 5 × 5 µm²; other: N/A — as above",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "carbonates"
+     ],
+     "value": "5 × 5 µm²"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N/A"
+    }
+   ]
+  },
+  "Beam Damage Minimization": {
+   "key": "target material",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mapping Beam Mode": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Current": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Diameter": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Drift Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si, Na, K — '(1) Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 1) and (2) Na, K, Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe and Si (session 2)' (p.11)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Elements": {
+   "key": "defines: monitored property per target species",
+   "cell": "Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si, Na, K — as for Target Species",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Al, Ti, Ca, Cr, Mn, Ni, Mg, Fe, Si, Na, K — mineral compositions for the two element suites; values 'compiled in Supplementary Table 14', not in the archived PDF",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Detection Method per Monitored Element": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Diffracting Crystal": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Channel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sequence": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Proportional Counter / Detector": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS PHA Setting": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Counting Time": {
+   "key": "monitored property",
+   "cell": "Al, Ti, Ca, Mn, Cr: 200 ms total (peak + background); Mg, Fe, Si: 20 ms total (peak + background); other: N — 'The total peak + background counting time was 200 ms for Al, Ti, Ca, Mn and Cr, and 20 ms for Mg, Fe and Si'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Al",
+      "Ti",
+      "Ca",
+      "Mn",
+      "Cr"
+     ],
+     "value": "200 ms total (peak + background)"
+    },
+    {
+     "members": [
+      "Mg",
+      "Fe",
+      "Si"
+     ],
+     "value": "20 ms total (peak + background)"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Background Counting Time": {
+   "key": "monitored property",
+   "cell": "N — only the total peak + background time is stated (see Peak Counting Time)",
+   "status": "commentary only"
+  },
+  "Background Position(s)": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Live Time per Point or Pixel": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "EDS Acquisition Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Pixel": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Step Size / Pixel Size": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Stage Scan vs. Beam Scan": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Matrix Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Absorption Coefficients (MACs)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Background Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Time-Dependent Intensity Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species Estimation Method": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Halogen Correction on Oxygen": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "WDS Dead Time Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Spectral Processing Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Blank Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N — the analyses are \"compiled in Supplementary Table 14\" (p.11), not in the archived PDF, and no count or selection rule is stated in the text. The \"Bennu (n = 58)\" population (Fig. 5, p.6) is the SIMS oxygen-isotope dataset, not this procedure's",
+   "status": "commentary only"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [Mg, Si: Springwater olivine; Fe: fayalite; Ca: wollastonite; Na, Al: albite; K: orthoclase; Ti: rutile; Ni: Ni metal; Cr: chromite; Mn: rhodochrosite] — p.11",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "Mg",
+        "Si"
+       ],
+       "value": "Springwater olivine"
+      },
+      {
+       "members": [
+        "Fe"
+       ],
+       "value": "fayalite"
+      },
+      {
+       "members": [
+        "Ca"
+       ],
+       "value": "wollastonite"
+      },
+      {
+       "members": [
+        "Na",
+        "Al"
+       ],
+       "value": "albite"
+      },
+      {
+       "members": [
+        "K"
+       ],
+       "value": "orthoclase"
+      },
+      {
+       "members": [
+        "Ti"
+       ],
+       "value": "rutile"
+      },
+      {
+       "members": [
+        "Ni"
+       ],
+       "value": "Ni metal"
+      },
+      {
+       "members": [
+        "Cr"
+       ],
+       "value": "chromite"
+      },
+      {
+       "members": [
+        "Mn"
+       ],
+       "value": "rhodochrosite"
+      }
+     ]
+    }
+   ]
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line Overlap Corrections Applied": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Elements": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Standard": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "Mg: 0.025 wt%; Fe: 0.025 wt%; Si, K, Na: 0.05 wt%; Ca: 0.005 wt%; Al: 0.02 wt%; Ti: 0.005 wt%; Cr: 0.015 wt%; Mn: 0.008 wt%; other: N — p.11",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Mg"
+     ],
+     "value": "0.025 wt%"
+    },
+    {
+     "members": [
+      "Fe"
+     ],
+     "value": "0.025 wt%"
+    },
+    {
+     "members": [
+      "Si",
+      "K",
+      "Na"
+     ],
+     "value": "0.05 wt%"
+    },
+    {
+     "members": [
+      "Ca"
+     ],
+     "value": "0.005 wt%"
+    },
+    {
+     "members": [
+      "Al"
+     ],
+     "value": "0.02 wt%"
+    },
+    {
+     "members": [
+      "Ti"
+     ],
+     "value": "0.005 wt%"
+    },
+    {
+     "members": [
+      "Cr"
+     ],
+     "value": "0.015 wt%"
+    },
+    {
+     "members": [
+      "Mn"
+     ],
+     "value": "0.008 wt%"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Precision": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 1 of 2: CRPG Nancy, JEOL JXA-8230. Instrument has 5 WDS spectrometers + 1 SDD EDS; per-analyte technique (WDS vs. EDS) not stated. Two analytical sessions: session 1 (no Na, K); session 2 (with Na, K). Counting times are stated as total peak + background combined: 200 ms for minor elements (Al, Ti, Ca, Mn, Cr) and 20 ms for major elements (Mg, Fe, Si) — unusually short, possibly per-pixel for fast mapping mode. Full primary standard suite stated with element assignments. Full per-element detection limits stated. Matrix correction method not stated. Sample preparation done at Université Côte d'Azur (not at CRPG). Beam current not stated for NHM protocol; 3 nA mentioned in text is for SEM-EDS (different instrument).",
+   "status": "text",
+   "value": "Barnes et al. 2025, Nat. Astron."
+  }
+ }
+}

@@ -1,0 +1,695 @@
+{
+ "procedure_column": "Liu+2016_Cal | JEOL JXA-8200 | WDS Point Analysis (Caltech GPS)",
+ "tapp": "EPMA_TAPP_v84",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "EPMA-WDS Major Element Silicates/Oxides, Tissint (Caltech GPS, JEOL JXA-8200)",
+   "status": "text",
+   "value": "EPMA-WDS Major Element Silicates/Oxides, Tissint (Caltech GPS, JEOL JXA-8200)"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Division of Geological and Planetary Sciences, Caltech",
+   "status": "text",
+   "value": "Division of Geological and Planetary Sciences, Caltech"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726",
+   "status": "text",
+   "value": "Liu et al. 2016, Meteorit. Planet. Sci.; doi:10.1111/maps.12726"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)",
+   "status": "text",
+   "value": "SEM (BSE imaging); petrographic microscopy; LA-ICP-MS (Agilent 7500ce, Virginia Tech)"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "olivine; pyroxene; Fe-Ti-Cr oxides; maskelynite; phosphate; sulfide; glass — the analytical conditions are given for these groups (p.3)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "olivine",
+     "parent": null
+    },
+    {
+     "member": "pyroxene",
+     "parent": null
+    },
+    {
+     "member": "Fe-Ti-Cr oxides",
+     "parent": null
+    },
+    {
+     "member": "maskelynite",
+     "parent": null
+    },
+    {
+     "member": "phosphate",
+     "parent": null
+    },
+    {
+     "member": "sulfide",
+     "parent": null
+    },
+    {
+     "member": "glass",
+     "parent": null
+    }
+   ]
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Polished thin sections (coating type N)",
+   "status": "text",
+   "value": "Polished thin sections (coating type N)"
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Phase > Analysis point — \"Major and minor element compositions of selected minerals\" by phase (Table 2, p.6); glass compositions are means, \"EMP avg (n = 73)\" and \"avg (n = 14)\" (Table 3, p.9)",
+   "status": "text",
+   "value": "Phase > Analysis point"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
+   "status": "commentary only"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "Petrographic microscopy and SEM — \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\" (p.3); the same sections then went to both microprobes",
+   "status": "text",
+   "value": "Petrographic microscopy and SEM"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "JEOL",
+   "status": "text",
+   "value": "JEOL"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "JXA-8200 (stated as \"JEOL JXA-8200\")",
+   "status": "text",
+   "value": "JXA-8200 (stated as \"JEOL JXA-8200\")"
+  },
+  "Electron Source": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Detector Configuration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Beam Mode": {
+   "key": "target material",
+   "cell": "maskelynite, phosphate, sulfide, glass: Defocused; other: N — 'Maskelynite, phosphate, sulfide, and glass were analyzed using a defocused beam of 5–10 µm size'; for olivine, pyroxene and Fe-Ti-Cr oxides only a '1–2 µm beam diameter' is given, not a mode",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "maskelynite",
+      "phosphate",
+      "sulfide",
+      "glass"
+     ],
+     "value": "Defocused"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Accelerating Voltage": {
+   "key": "(none)",
+   "cell": "15 kV",
+   "status": "text",
+   "value": "15 kV"
+  },
+  "Beam Current": {
+   "key": "target material",
+   "cell": "olivine, pyroxene, Fe-Ti-Cr oxides: 20 nA; maskelynite, phosphate, sulfide, glass: 10 nA — p.3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "olivine",
+      "pyroxene",
+      "Fe-Ti-Cr oxides"
+     ],
+     "value": "20 nA"
+    },
+    {
+     "members": [
+      "maskelynite",
+      "phosphate",
+      "sulfide",
+      "glass"
+     ],
+     "value": "10 nA"
+    }
+   ]
+  },
+  "Beam Diameter": {
+   "key": "target material",
+   "cell": "olivine, pyroxene, Fe-Ti-Cr oxides: 1–2 µm; maskelynite, phosphate, sulfide, glass: 5–10 µm — p.3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "olivine",
+      "pyroxene",
+      "Fe-Ti-Cr oxides"
+     ],
+     "value": "1–2 µm"
+    },
+    {
+     "members": [
+      "maskelynite",
+      "phosphate",
+      "sulfide",
+      "glass"
+     ],
+     "value": "5–10 µm"
+    }
+   ]
+  },
+  "Beam Raster Dimensions": {
+   "key": "target material",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Beam Damage Minimization": {
+   "key": "target material",
+   "cell": "N — a defocused 5–10 µm beam at 10 nA is used for maskelynite, phosphate, sulfide and glass, but the paper gives no reason for it",
+   "status": "commentary only"
+  },
+  "Mapping Beam Mode": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Current": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Diameter": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Drift Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Si, Ti, Al, Mg, Ca, Fe, Mn, Cr, Ni, Na, K, P — read from the detection-limit sentence, which names their oxides (p.3)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "P",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Elements": {
+   "key": "defines: monitored property per target species",
+   "cell": "Si, Ti, Al, Mg, Ca, Fe, Mn, Cr, Ni, Na, K, P — all determined. \"Detection limits are typically <0.03 wt% for SiO2, TiO2, Al2O3, MgO, and CaO; <0.05–0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, and P2O5\" (p.4)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "P",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, NiO, P2O5, K2O, V2O3, La2O3, Ce2O3; modal-area fraction per mineral (vol%); Mg#; En, Fs, Wo — oxide wt% 'of selected minerals' (Table 2), with V2O3, La2O3 and Ce2O3 for the oxides and merrillite; glass means with 1σ (Table 3); modal abundances from the X-ray maps (Table 1)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "SiO2",
+     "parent": null
+    },
+    {
+     "member": "TiO2",
+     "parent": null
+    },
+    {
+     "member": "Al2O3",
+     "parent": null
+    },
+    {
+     "member": "Cr2O3",
+     "parent": null
+    },
+    {
+     "member": "FeO",
+     "parent": null
+    },
+    {
+     "member": "MnO",
+     "parent": null
+    },
+    {
+     "member": "MgO",
+     "parent": null
+    },
+    {
+     "member": "CaO",
+     "parent": null
+    },
+    {
+     "member": "Na2O",
+     "parent": null
+    },
+    {
+     "member": "NiO",
+     "parent": null
+    },
+    {
+     "member": "P2O5",
+     "parent": null
+    },
+    {
+     "member": "K2O",
+     "parent": null
+    },
+    {
+     "member": "V2O3",
+     "parent": null
+    },
+    {
+     "member": "La2O3",
+     "parent": null
+    },
+    {
+     "member": "Ce2O3",
+     "parent": null
+    },
+    {
+     "member": "modal-area fraction per mineral",
+     "parent": null
+    },
+    {
+     "member": "Mg#",
+     "parent": null
+    },
+    {
+     "member": "En",
+     "parent": null
+    },
+    {
+     "member": "Fs",
+     "parent": null
+    },
+    {
+     "member": "Wo",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Detection Method per Monitored Element": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Diffracting Crystal": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Channel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sequence": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Proportional Counter / Detector": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS PHA Setting": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Counting Time": {
+   "key": "monitored property",
+   "cell": "N — Liu 2016 states no counting times; the earlier values matched Ma+2017 (same laboratory) and had no source in this paper",
+   "status": "commentary only"
+  },
+  "Background Counting Time": {
+   "key": "monitored property",
+   "cell": "N — as for Peak Counting Time",
+   "status": "commentary only"
+  },
+  "Background Position(s)": {
+   "key": "monitored property",
+   "cell": "N — as for Peak Counting Time",
+   "status": "commentary only"
+  },
+  "EDS Live Time per Point or Pixel": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "EDS Acquisition Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Pixel": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Step Size / Pixel Size": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Stage Scan vs. Beam Scan": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Matrix Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Absorption Coefficients (MACs)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Background Correction Method": {
+   "key": "monitored property",
+   "cell": "N — no background method is named",
+   "status": "commentary only"
+  },
+  "Time-Dependent Intensity Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species Estimation Method": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Halogen Correction on Oxygen": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "WDS Dead Time Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Spectral Processing Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Blank Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — contributing counts are stated for the glass aggregates (\"EMP avg (n = 73)\" and \"avg (n = 14)\", Table 3, p.9) and for the mineral means (n = 7, n = 13, table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is a signal-based step recorded under Spike / Outlier Filtering Approach",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line Overlap Corrections Applied": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Elements": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Interference Correction Standard": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "SiO2, TiO2, Al2O3, MgO, CaO: <0.03 wt%; FeO, MnO, Cr2O3, NiO, Na2O, K2O, P2O5: <0.05–0.1 wt%; other: N — 'Detection limits are typically <0.03 wt% for SiO2, TiO2, Al2O3, MgO, and CaO; <0.05–0.1 wt% for FeO, MnO, Cr2O3, NiO, Na2O, K2O, and P2O5' (p.3)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "SiO2",
+      "TiO2",
+      "Al2O3",
+      "MgO",
+      "CaO"
+     ],
+     "value": "<0.03 wt%"
+    },
+    {
+     "members": [
+      "FeO",
+      "MnO",
+      "Cr2O3",
+      "NiO",
+      "Na2O",
+      "K2O",
+      "P2O5"
+     ],
+     "value": "<0.05–0.1 wt%"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Precision": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Liu et al. 2016, Meteorit. Planet. Sci. — Tissint mineral chemistry. Protocol 2 of 2: Caltech GPS Division JEOL JXA-8200. Point analysis only (no mapping attributed to Caltech instrument). Conditions stated jointly for UT and Caltech instruments. Standards, matrix correction, and software not stated for EPMA.",
+   "status": "text",
+   "value": "Liu et al. 2016, Meteorit. Planet. Sci."
+  }
+ }
+}

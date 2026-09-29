@@ -1,0 +1,710 @@
+{
+ "procedure_column": "Frank+2023 | Cameca SX100 | WDS Point Analysis (ARES JSC)",
+ "tapp": "EPMA_TAPP_v84",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "EPMA Major/Minor Element Silicates+Oxides+Sulfides, CI Chondrite (ARES JSC, Cameca SX100)",
+   "status": "text",
+   "value": "EPMA Major/Minor Element Silicates+Oxides+Sulfides, CI Chondrite (ARES JSC, Cameca SX100)"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "ARES, NASA Johnson Space Center",
+   "status": "text",
+   "value": "ARES, NASA Johnson Space Center"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511; doi:10.1111/maps.14083",
+   "status": "text",
+   "value": "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511; doi:10.1111/maps.14083"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "Petrographic microscopy; SEM-BSE (JEOL 5900LV); EPMA X-ray mapping; Cameca ims1280 ion microprobe (O isotopes; 26Al-26Mg); FIB-TEM",
+   "status": "text",
+   "value": "Petrographic microscopy; SEM-BSE (JEOL 5900LV); EPMA X-ray mapping; Cameca ims1280 ion microprobe (O isotopes; 26Al-26Mg); FIB-TEM"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "melilite; spinel; grossmanite — Table 1: 'Chemical compositions for the major minerals in the Ivuna CAI'",
+   "status": "structured",
+   "value": [
+    {
+     "member": "melilite",
+     "parent": null
+    },
+    {
+     "member": "spinel",
+     "parent": null
+    },
+    {
+     "member": "grossmanite",
+     "parent": null
+    }
+   ]
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Phase > Analysis point — \"Representative electron-microprobe measurements of melilite, grossmanite, and spinel are given in Table 1\" (p.5), all within the single Ivuna CAI",
+   "status": "text",
+   "value": "Phase > Analysis point"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "Opportunistic — the object analysed \"was found by David Frank in Ivuna section MZ2 during a study of the minor-element compositions of matrix olivine and pyroxene in types 1, 2, and 3 chondrites\" (p.3); no rule was applied to choose it, and it is the section's only CAI",
+   "status": "text",
+   "value": "Opportunistic"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "Petrographic microscopy and SEM — \"The CAI was characterized by petrographic microscope, scanning electron microscope, electron microprobe, and X-ray mapping before being measured for oxygen isotopes\" (p.3); the object itself had been found during an earlier survey of matrix compositions (p.3)",
+   "status": "text",
+   "value": "Petrographic microscopy and SEM"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Cameca",
+   "status": "text",
+   "value": "Cameca"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "SX100 (stated as \"Cameca SX100\")",
+   "status": "text",
+   "value": "SX100 (stated as \"Cameca SX100\")"
+  },
+  "Electron Source": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Detector Configuration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Beam Mode": {
+   "key": "target material",
+   "cell": "all: Focused — 'Analyses were performed at 20 kV and 20 nA using a focused beam of 1 μm' (p.3)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Focused"
+    }
+   ]
+  },
+  "Accelerating Voltage": {
+   "key": "(none)",
+   "cell": "20 kV",
+   "status": "text",
+   "value": "20 kV"
+  },
+  "Beam Current": {
+   "key": "target material",
+   "cell": "all: 20 nA — p.3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "20 nA"
+    }
+   ]
+  },
+  "Beam Diameter": {
+   "key": "target material",
+   "cell": "all: 1 µm — p.3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "1 µm"
+    }
+   ]
+  },
+  "Beam Raster Dimensions": {
+   "key": "target material",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Beam Damage Minimization": {
+   "key": "target material",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mapping Beam Mode": {
+   "key": "sample > sampling unit",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mapping Beam Current": {
+   "key": "sample > sampling unit",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mapping Beam Diameter": {
+   "key": "sample > sampling unit",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Drift Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Si, Al, Ti, K, Na, Fe, Mg, Ca, S, Mn, Cr, Ni, P, V",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "S",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "P",
+     "parent": null
+    },
+    {
+     "member": "V",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Elements": {
+   "key": "defines: monitored property per target species",
+   "cell": "Si, Al, Ti, K, Na, Fe, Mg, Ca, S, Mn, Cr, Ni, P, V — all determined. \"Standards were Kakanui kaersutite for silicon, aluminum, titanium, potassium, sodium, iron, magnesium, and calcium, Canyon Diablo troilite for sulfur, rhodonite for manganese, chromium metal for chromium, nickel metal for nickel, apatite for phosphorus, and vanadium metal for vanadium\" (pp.3–4)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "S",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "P",
+     "parent": null
+    },
+    {
+     "member": "V",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "SO2, P2O5, Na2O, K2O, MgO, Al2O3, SiO2, CaO, TiO2, V2O3, FeO, Cr2O3, MnO, NiO; åkermanite content — oxide wt% with totals (Table 1); Åk14–31 (p.5)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "SO2",
+     "parent": null
+    },
+    {
+     "member": "P2O5",
+     "parent": null
+    },
+    {
+     "member": "Na2O",
+     "parent": null
+    },
+    {
+     "member": "K2O",
+     "parent": null
+    },
+    {
+     "member": "MgO",
+     "parent": null
+    },
+    {
+     "member": "Al2O3",
+     "parent": null
+    },
+    {
+     "member": "SiO2",
+     "parent": null
+    },
+    {
+     "member": "CaO",
+     "parent": null
+    },
+    {
+     "member": "TiO2",
+     "parent": null
+    },
+    {
+     "member": "V2O3",
+     "parent": null
+    },
+    {
+     "member": "FeO",
+     "parent": null
+    },
+    {
+     "member": "Cr2O3",
+     "parent": null
+    },
+    {
+     "member": "MnO",
+     "parent": null
+    },
+    {
+     "member": "NiO",
+     "parent": null
+    },
+    {
+     "member": "åkermanite content",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Detection Method per Monitored Element": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Diffracting Crystal": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Channel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sequence": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Proportional Counter / Detector": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS PHA Setting": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Counting Time": {
+   "key": "monitored property",
+   "cell": "all: 10–50 s — 'Peak count times were 10–50 s' — a range; per-element times not given",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "10–50 s"
+    }
+   ]
+  },
+  "Background Counting Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Background Position(s)": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Live Time per Point or Pixel": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "EDS Acquisition Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Pixel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Step Size / Pixel Size": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Stage Scan vs. Beam Scan": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Matrix Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Absorption Coefficients (MACs)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Background Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Time-Dependent Intensity Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species Estimation Method": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Halogen Correction on Oxygen": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "WDS Dead Time Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Spectral Processing Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Blank Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N — the microprobe analyses are reported as \"Representative electron-microprobe measurements\" (p.5) with no contributing count and no selection rule. The counts on p.8 (n = 9, n = 7) are SIMS standard populations, not microprobe aggregates",
+   "status": "commentary only"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [Si, Al, Ti, K, Na, Fe, Mg, Ca: Kakanui kaersutite; S: Canyon Diablo troilite; Mn: rhodonite; Cr: chromium metal; Ni: nickel metal; P: apatite; V: vanadium metal] — pp.3–4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "Si",
+        "Al",
+        "Ti",
+        "K",
+        "Na",
+        "Fe",
+        "Mg",
+        "Ca"
+       ],
+       "value": "Kakanui kaersutite"
+      },
+      {
+       "members": [
+        "S"
+       ],
+       "value": "Canyon Diablo troilite"
+      },
+      {
+       "members": [
+        "Mn"
+       ],
+       "value": "rhodonite"
+      },
+      {
+       "members": [
+        "Cr"
+       ],
+       "value": "chromium metal"
+      },
+      {
+       "members": [
+        "Ni"
+       ],
+       "value": "nickel metal"
+      },
+      {
+       "members": [
+        "P"
+       ],
+       "value": "apatite"
+      },
+      {
+       "members": [
+        "V"
+       ],
+       "value": "vanadium metal"
+      }
+     ]
+    }
+   ]
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N — no EPMA secondary standard is named; San Carlos olivine standardised the SIMS oxygen-isotope measurements, and Kakanui kaersutite is a primary standard",
+   "status": "commentary only"
+  },
+  "X-ray Line Overlap Corrections Applied": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Elements": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Interference Correction Standard": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "Al2O3, K2O, CaO: 0.03–0.04 wt%; Na2O, MgO, SiO2, FeO, MnO: 0.05 wt%; P2O5, SO2, TiO2, V2O3, Cr2O3, NiO: 0.06–0.09 wt% — 'typically' (p.4)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Al2O3",
+      "K2O",
+      "CaO"
+     ],
+     "value": "0.03–0.04 wt%"
+    },
+    {
+     "members": [
+      "Na2O",
+      "MgO",
+      "SiO2",
+      "FeO",
+      "MnO"
+     ],
+     "value": "0.05 wt%"
+    },
+    {
+     "members": [
+      "P2O5",
+      "SO2",
+      "TiO2",
+      "V2O3",
+      "Cr2O3",
+      "NiO"
+     ],
+     "value": "0.06–0.09 wt%"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Precision": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511 — CAI in Ivuna CI chondrite. ARES NASA JSC. Instrument stated as \"Cameca SX100 electron microprobe at ARES, Johnson Space Center\" — NOT JEOL JXA-8530F as in v2 header. Accelerating voltage 20 kV (not 15 kV). Both point analysis (20 kV, 20 nA, 1 µm focused) and X-ray mapping performed. X-ray mapping described but conditions (step size, dwell time, mapping beam mode) N. WDS not explicitly stated. Matrix correction and background correction method N. Peak counting time 10-50 s. Primary standard suite fully documented. Secondary standards: USNM San Carlos olivine (Fo90); Kakanui kaersutite. Detection limits stated per element group.",
+   "status": "text",
+   "value": "Frank et al. 2023, Meteorit. Planet. Sci. 58:1495-1511"
+  }
+ }
+}

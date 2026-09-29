@@ -1,0 +1,530 @@
+{
+ "procedure_column": "McCoy+2025_SI | JEOL 8530F+ | WDS Point Analysis (Smithsonian)",
+ "tapp": "EPMA_TAPP_v84",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "EPMA-WDS Carbonate+Silicate/Oxide Composition, Bennu (Smithsonian, JEOL 8530 F+ Hyperprobe)",
+   "status": "text",
+   "value": "EPMA-WDS Carbonate+Silicate/Oxide Composition, Bennu (Smithsonian, JEOL 8530 F+ Hyperprobe)"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "T. J. McCoy",
+   "status": "text",
+   "value": "T. J. McCoy"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Smithsonian Institution, National Museum of Natural History",
+   "status": "text",
+   "value": "Smithsonian Institution, National Museum of Natural History"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6",
+   "status": "text",
+   "value": "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES",
+   "status": "text",
+   "value": "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "carbonate; magnetite; olivine — 'Carbonate analyses were run at 15 kV and 10 nA ...; analyses of magnetite and olivine were run under the same conditions' (p.7)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "carbonate",
+     "parent": null
+    },
+    {
+     "member": "magnetite",
+     "parent": null
+    },
+    {
+     "member": "olivine",
+     "parent": null
+    }
+   ]
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Ir-coated specimens mounted on Ir-coated Parafilm",
+   "status": "text",
+   "value": "Ir-coated specimens mounted on Ir-coated Parafilm"
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Phase > Analysis point — \"Electron microprobe analysis was conducted on Ir-coated specimens\" (p.7); results are reported by phase, e.g. \"the calcite has near-end member composition (4 mol.% or less MgCO3 and FeCO3)\" (p.2)",
+   "status": "text",
+   "value": "Phase > Analysis point"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
+   "status": "commentary only"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "Optical microscopy, then FE-SEM/EDS characterisation — particles \"were characterized using a JEOL 7600 F FE-SEM equipped with a 170-mm2 SSD type Oxford Instruments Ultim Max EDS detector\", and \"Following initial documentation by optical microscopy, samples were sputter coated\" (p.7); the SEM work is reported for the JSC facility, the microprobe work for this laboratory",
+   "status": "text",
+   "value": "Optical microscopy, then FE-SEM/EDS characterisation"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "JEOL",
+   "status": "text",
+   "value": "JEOL"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "JXA-8530F Plus (stated as \"JEOL 8530 F+ Hyperprobe Field Emission Electron Probe Microanalyzer\")",
+   "status": "text",
+   "value": "JXA-8530F Plus (stated as \"JEOL 8530 F+ Hyperprobe Field Emission Electron Probe Microanalyzer\")"
+  },
+  "Electron Source": {
+   "key": "(none)",
+   "cell": "Field Emission (FEG)",
+   "status": "text",
+   "value": "Field Emission (FEG)"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Configuration": {
+   "key": "(none)",
+   "cell": "LIFL (Fe Ka, Mn Ka); TAPL (Mg Ka); PETL (Ca Ka) — partial; full config N",
+   "status": "text",
+   "value": "LIFL (Fe Ka, Mn Ka); TAPL (Mg Ka); PETL (Ca Ka)"
+  },
+  "EDS Detector Configuration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Beam Mode": {
+   "key": "target material",
+   "cell": "N — only spot sizes are given",
+   "status": "commentary only"
+  },
+  "Accelerating Voltage": {
+   "key": "(none)",
+   "cell": "15 kV",
+   "status": "text",
+   "value": "15 kV"
+  },
+  "Beam Current": {
+   "key": "target material",
+   "cell": "all: 10 nA — p.7",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "10 nA"
+    }
+   ]
+  },
+  "Beam Diameter": {
+   "key": "target material",
+   "cell": "carbonate: 5 µm; magnetite, olivine: 1 µm — 'with an analytical spot size of 5 µm' (carbonates); 'Analyses were conducted at 15kV and 10nA, with an analytical spot size of 1µm' (the magnetite and olivine sentence)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "carbonate"
+     ],
+     "value": "5 µm"
+    },
+    {
+     "members": [
+      "magnetite",
+      "olivine"
+     ],
+     "value": "1 µm"
+    }
+   ]
+  },
+  "Beam Raster Dimensions": {
+   "key": "target material",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Beam Damage Minimization": {
+   "key": "target material",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mapping Beam Mode": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Current": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Diameter": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Drift Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Fe, Mn, Mg, Ca — the carbonate analyses, named with their crystals; the elements of the magnetite and olivine analyses are not named",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Elements": {
+   "key": "defines: monitored property per target species",
+   "cell": "Fe, Mn, Mg, Ca — all determined. \"Carbonate analyses were run at 15 kV and 10 nA, with an analytical spot size of 5 µm. Fe and Mn were analysed using a LIFL crystal, Mg using a TAPL crystal and Ca using a PETL crystal\" (p.7)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Carbonate end-member composition (mol%: MgCO3, FeCO3, MnCO3 — calcite is \"near-end member composition (4 mol.% or less MgCO3 and FeCO3; 0.1 mol.% or less MnCO3)\", p.2); phase identifications (nominal)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Carbonate end-member composition",
+     "parent": null
+    },
+    {
+     "member": "phase identifications",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Detection Method per Monitored Element": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Diffracting Crystal": {
+   "key": "monitored property",
+   "cell": "Fe, Mn: LIFL; Mg: TAPL; Ca: PETL — p.7",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Fe",
+      "Mn"
+     ],
+     "value": "LIFL"
+    },
+    {
+     "members": [
+      "Mg"
+     ],
+     "value": "TAPL"
+    },
+    {
+     "members": [
+      "Ca"
+     ],
+     "value": "PETL"
+    }
+   ]
+  },
+  "WDS Spectrometer Channel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sequence": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Proportional Counter / Detector": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS PHA Setting": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Counting Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Background Counting Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Background Position(s)": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Live Time per Point or Pixel": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "EDS Acquisition Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Pixel": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Step Size / Pixel Size": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Stage Scan vs. Beam Scan": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Matrix Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Absorption Coefficients (MACs)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Background Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Time-Dependent Intensity Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species Estimation Method": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Halogen Correction on Oxygen": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "WDS Dead Time Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Spectral Processing Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Blank Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N — compositions are reported by phase with no contributing count and no selection rule stated",
+   "status": "commentary only"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "N — standards are named without their elements: magnetite (USNM 114887), calcite (USNM 13621), dolomite (USNM 10057), siderite (R-2460) and rhodonite (carbonates); chromite (USNM 117075), ilmenite (USNM 96189), magnetite (USNM 114887), manganite (USNM 157872), bytownite (R-2912), forsterite (P140), San Carlos olivine (USNM 111312/444) and Springwater olivine (USNM 2566) (magnetite and olivine)",
+   "status": "commentary only"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "calcite, dolomite, rhodochrosite, magnetite, San Carlos olivine, Springwater olivine — carbonates: calcite, dolomite and rhodochrosite; magnetite and olivine: magnetite, San Carlos olivine and Springwater olivine (p.7)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "calcite",
+     "parent": null
+    },
+    {
+     "member": "dolomite",
+     "parent": null
+    },
+    {
+     "member": "rhodochrosite",
+     "parent": null
+    },
+    {
+     "member": "magnetite",
+     "parent": null
+    },
+    {
+     "member": "San Carlos olivine",
+     "parent": null
+    },
+    {
+     "member": "Springwater olivine",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Line Overlap Corrections Applied": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Elements": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Interference Correction Standard": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Precision": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 1 of 2: Smithsonian Institution JEOL 8530 F+ Hyperprobe (Field Emission). Ir-coated specimens mounted on Ir-coated Parafilm. Carbonate analyses: 15 kV, 10 nA, 5 µm spot; LIFL (Fe,Mn), TAPL (Mg), PETL (Ca). Silicate/oxide analyses: 15 kV, 10 nA, 1 µm spot; broader standard suite. Both primary and secondary standard suites fully documented with USNM catalog numbers. Acquisition software and matrix correction method N. WDS not explicitly stated in text (crystal designations LIFL/TAPL/PETL confirm WDS use).",
+   "status": "text",
+   "value": "McCoy et al. 2025, Nature 637:320-325"
+  }
+ }
+}

@@ -1,0 +1,638 @@
+{
+ "procedure_column": "Seifert+2026 | JEOL 8530 | WDS Point Analysis (ARES JSC)",
+ "tapp": "EPMA_TAPP_v84",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "EPMA Major Element Apatite incl. Halogens, Bennu (ARES JSC, JEOL 8530 EMPA)",
+   "status": "text",
+   "value": "EPMA Major Element Apatite incl. Halogens, Bennu (ARES JSC, JEOL 8530 EMPA)"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "Logan B. Seifert",
+   "status": "text",
+   "value": "Logan B. Seifert"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "ARES, NASA Johnson Space Center",
+   "status": "text",
+   "value": "ARES, NASA Johnson Space Center"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167",
+   "status": "text",
+   "value": "Seifert et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70167"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS",
+   "status": "text",
+   "value": "SEM-EDS; SIMS (Cameca ims 1280); TEM-EDS"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Phosphate (apatite)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Phosphate",
+     "parent": null
+    }
+   ]
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating",
+   "status": "text",
+   "value": "Fragments embedded in epoxy; dry-polished with diamond powder; one mount ion-polished before carbon coating"
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Grain > Analysis point — Table 1 reports one column per apatite grain (\"Ap. #1\" … \"Ap. #5\") within each of the three particles (p.7)",
+   "status": "text",
+   "value": "Grain > Analysis point"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "Identification by EDS, then by CL — \"Apatite grains in OREX-803079-0 and OREX-803080-0 were identified via EDS mapping and point analysis\", after which \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\" (p.2)",
+   "status": "text",
+   "value": "Identification by EDS, then by CL"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "SEM EDS mapping, then CL imaging, on the JEOL 7900F at JSC — \"Apatite grains in OREX-803079-0 and OREX-803080-0 were identified via EDS mapping and point analysis\", after which \"CL images were obtained for each apatite grain to search for zoning or internal structures not resolvable in EDS maps\", collected \"at 5 kV with beam currents ranging from 1 to 1.5 nA\" (p.2); the numbered grains (Ap. #1 …) tie the probe analyses back to those images",
+   "status": "text",
+   "value": "SEM EDS mapping, then CL imaging, on the JEOL 7900F at JSC"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "JEOL",
+   "status": "text",
+   "value": "JEOL"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "JEOL 8530 EMPA (stated as \"JEOL 8530 EMPA at NASA JSC\"; no F suffix or JXA prefix stated)",
+   "status": "text",
+   "value": "JEOL 8530 EMPA (stated as \"JEOL 8530 EMPA at NASA JSC\"; no F suffix or JXA prefix stated)"
+  },
+  "Electron Source": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Detector Configuration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Beam Mode": {
+   "key": "target material",
+   "cell": "N — 'a 2μm probe size' is recorded under Beam Diameter; no mode is named",
+   "status": "commentary only"
+  },
+  "Accelerating Voltage": {
+   "key": "(none)",
+   "cell": "15 kV",
+   "status": "text",
+   "value": "15 kV"
+  },
+  "Beam Current": {
+   "key": "target material",
+   "cell": "all: 20 nA — '14 analyses were performed at 15kV, 20nA, using a 2μm probe size'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "20 nA"
+    }
+   ]
+  },
+  "Beam Diameter": {
+   "key": "target material",
+   "cell": "all: 2 µm — as above",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "2 µm"
+    }
+   ]
+  },
+  "Beam Raster Dimensions": {
+   "key": "target material",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Beam Damage Minimization": {
+   "key": "target material",
+   "cell": "all: Durango apatite compared at 10 μm and 3 μm spot sizes, with no significant volatile loss — 'in order to assess volatilization of halogens using our beam conditions'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Durango apatite compared at 10 μm and 3 μm spot sizes, with no significant volatile loss"
+    }
+   ]
+  },
+  "Mapping Beam Mode": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Current": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Diameter": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Drift Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S, OH — the ten elements analysed (p.3); OH 'calculated by difference based on 1–F–Cl=OH' (p.4)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "P",
+     "parent": null
+    },
+    {
+     "member": "F",
+     "parent": null
+    },
+    {
+     "member": "Cl",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "S",
+     "parent": null
+    },
+    {
+     "member": "OH",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Elements": {
+   "key": "defines: monitored property per target species",
+   "cell": "P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S — all determined. \"A total of 14 analyses were performed at 15 kV, 20 nA, using a 2 μm probe size, and included the elements P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, and S\" (p.3)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "P",
+     "parent": null
+    },
+    {
+     "member": "F",
+     "parent": null
+    },
+    {
+     "member": "Cl",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "S",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "F, Cl, Na2O, MgO, SiO2, SO3, P2O5, CaO, MnO, FeO — wt% with totals, per named grain (Table 1)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "F",
+     "parent": null
+    },
+    {
+     "member": "Cl",
+     "parent": null
+    },
+    {
+     "member": "Na2O",
+     "parent": null
+    },
+    {
+     "member": "MgO",
+     "parent": null
+    },
+    {
+     "member": "SiO2",
+     "parent": null
+    },
+    {
+     "member": "SO3",
+     "parent": null
+    },
+    {
+     "member": "P2O5",
+     "parent": null
+    },
+    {
+     "member": "CaO",
+     "parent": null
+    },
+    {
+     "member": "MnO",
+     "parent": null
+    },
+    {
+     "member": "FeO",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Detection Method per Monitored Element": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Diffracting Crystal": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Channel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sequence": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Proportional Counter / Detector": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS PHA Setting": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Counting Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Background Counting Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Background Position(s)": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Live Time per Point or Pixel": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "EDS Acquisition Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Pixel": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Step Size / Pixel Size": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Stage Scan vs. Beam Scan": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Matrix Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Absorption Coefficients (MACs)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Background Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Time-Dependent Intensity Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species Estimation Method": {
+   "key": "target species",
+   "cell": "OH: By difference; other: Direct (measured) — 'Hydroxyl was not measured directly in this study and therefore was calculated by difference based on 1–F–Cl=OH'; formulae on 13 anions (Ketcham 2015)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "OH"
+     ],
+     "value": "By difference"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "Direct (measured)"
+    }
+   ]
+  },
+  "Halogen Correction on Oxygen": {
+   "key": "(none)",
+   "cell": "Yes (F and Cl substitution in apatite; 1-F-Cl=OH)",
+   "status": "text",
+   "value": "Yes (F and Cl substitution in apatite; 1-F-Cl=OH)"
+  },
+  "WDS Dead Time Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Spectral Processing Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Blank Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N — Table 1 reports one column per named apatite grain rather than an aggregate over results, and no acceptance or rejection rule is stated",
+   "status": "commentary only"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [F: SrF2; Na: albite; Mg: SW olivine; Si: quartz; P, Ca: Wilburforce apatite; S: barite; Cl: tugtupite; Mn: rhodonite; Fe: ilmenite] — p.3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "F"
+       ],
+       "value": "SrF2"
+      },
+      {
+       "members": [
+        "Na"
+       ],
+       "value": "albite"
+      },
+      {
+       "members": [
+        "Mg"
+       ],
+       "value": "SW olivine"
+      },
+      {
+       "members": [
+        "Si"
+       ],
+       "value": "quartz"
+      },
+      {
+       "members": [
+        "P",
+        "Ca"
+       ],
+       "value": "Wilburforce apatite"
+      },
+      {
+       "members": [
+        "S"
+       ],
+       "value": "barite"
+      },
+      {
+       "members": [
+        "Cl"
+       ],
+       "value": "tugtupite"
+      },
+      {
+       "members": [
+        "Mn"
+       ],
+       "value": "rhodonite"
+      },
+      {
+       "members": [
+        "Fe"
+       ],
+       "value": "ilmenite"
+      }
+     ]
+    }
+   ]
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line Overlap Corrections Applied": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Elements": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Interference Correction Standard": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Precision": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Seifert et al. 2026, Meteorit. Planet. Sci. — apatite in Bennu OSIRIS-REx samples. ARES NASA JSC. Instrument stated as \"JEOL 8530 EMPA at NASA JSC\" (no \"JXA\", no \"F\", no \"+\" suffix stated in paper). Analytical conditions: 15 kV, 20 nA, 2 µm probe size. Previous v2 values of 10/40-100 nA and 10 µm beam were WRONG — those were Durango apatite test conditions used to assess beam damage, not the actual protocol. Analytes: P, F, Cl, Ca, Mn, Fe, Na, Mg, Si, S. Apatite stoichiometry by Ketcham (2015) method (13-anion basis; OH by difference). Halogen correction on O: Yes. Primary standards: SrF2, albite, olivine, quartz, apatite, barite, tugtupite, rhodonite, ilmenite. Sample preparation: fragments embedded in epoxy, dry-polished, ion-polished (one mount), carbon coated. 14 total analyses performed.",
+   "status": "text",
+   "value": "Seifert et al. 2026, Meteorit. Planet. Sci."
+  }
+ }
+}

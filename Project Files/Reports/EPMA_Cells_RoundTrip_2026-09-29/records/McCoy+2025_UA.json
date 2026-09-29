@@ -1,0 +1,674 @@
+{
+ "procedure_column": "McCoy+2025_UA | Cameca SX-100 | WDS Point Analysis (K-ALFAA U.Arizona)",
+ "tapp": "EPMA_TAPP_v84",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "EPMA-WDS Phosphate+Carbonate Composition, Bennu (K-ALFAA U.Arizona, Cameca SX-100)",
+   "status": "text",
+   "value": "EPMA-WDS Phosphate+Carbonate Composition, Bennu (K-ALFAA U.Arizona, Cameca SX-100)"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "EPMA-WDS",
+   "status": "text",
+   "value": "EPMA-WDS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "T. J. Zega",
+   "status": "text",
+   "value": "T. J. Zega"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), University of Arizona",
+   "status": "text",
+   "value": "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), University of Arizona"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6",
+   "status": "text",
+   "value": "McCoy et al. 2025, Nature 637:320-325; doi:10.1038/s41586-024-08495-6"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES",
+   "status": "text",
+   "value": "SEM-EDS (NHM London; Smithsonian; JSC); TEM-EDS/EELS; FIB-SEM; ToF-SIMS; XRD; XANES"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "\"Mg,Na phosphate\"; carbonate — p.7",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Mg,Na phosphate",
+     "parent": null
+    },
+    {
+     "member": "carbonate",
+     "parent": null
+    }
+   ]
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Polished section; 20 nm carbon coat",
+   "status": "text",
+   "value": "Polished section; 20 nm carbon coat"
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Phase > Analysis point — \"EMPA analyses were carried out using a Cameca SX-100 electron microprobe located at K-ALFAA\" (p.7); results are reported by phase, not per named point",
+   "status": "text",
+   "value": "Phase > Analysis point"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
+   "status": "commentary only"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "Optical microscopy, then FE-SEM/EDS characterisation — particles \"were characterized using a JEOL 7600 F FE-SEM equipped with a 170-mm2 SSD type Oxford Instruments Ultim Max EDS detector\", and \"Following initial documentation by optical microscopy, samples were sputter coated\" (p.7); the SEM work is reported for the JSC facility, the microprobe work for this laboratory",
+   "status": "text",
+   "value": "Optical microscopy, then FE-SEM/EDS characterisation"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Cameca",
+   "status": "text",
+   "value": "Cameca"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "SX-100 (stated as \"Cameca SX-100 electron microprobe located at K-ALFAA\")",
+   "status": "text",
+   "value": "SX-100 (stated as \"Cameca SX-100 electron microprobe located at K-ALFAA\")"
+  },
+  "Electron Source": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Detector Configuration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Beam Mode": {
+   "key": "target material",
+   "cell": "N — only a '1-µm beam size' is given, for the phosphate analyses",
+   "status": "commentary only"
+  },
+  "Accelerating Voltage": {
+   "key": "(none)",
+   "cell": "15 kV",
+   "status": "text",
+   "value": "15 kV"
+  },
+  "Beam Current": {
+   "key": "target material",
+   "cell": "\"Mg,Na phosphate\": 8 nA; other: N — carbonate conditions are not stated",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Mg,Na phosphate"
+     ],
+     "value": "8 nA"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Beam Diameter": {
+   "key": "target material",
+   "cell": "\"Mg,Na phosphate\": 1 µm; other: N — 'using a 1-µm beam size'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Mg,Na phosphate"
+     ],
+     "value": "1 µm"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Beam Raster Dimensions": {
+   "key": "target material",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Beam Damage Minimization": {
+   "key": "target material",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mapping Beam Mode": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Current": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Diameter": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Drift Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "F, P, Ca, Si, Mg, Fe, Al, S, K, Cl, Na, Mn — phosphate standards name F, P, Ca, Si, Mg, Fe, Al, S, K, Cl; carbonate standards name Na, Si, Mg, Ca, Mn, P, S, Fe",
+   "status": "structured",
+   "value": [
+    {
+     "member": "F",
+     "parent": null
+    },
+    {
+     "member": "P",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "S",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Cl",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Elements": {
+   "key": "defines: monitored property per target species",
+   "cell": "F, P, Ca, Si, Mg, Fe, Al, S, K, Cl, Na, Mn — as for Target Species",
+   "status": "structured",
+   "value": [
+    {
+     "member": "F",
+     "parent": null
+    },
+    {
+     "member": "P",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "S",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Cl",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "N — phosphate and carbonate compositions are reported by phase (p.2); the quantitative analyses are in the supplementary tables, not in the archived PDF",
+   "status": "commentary only"
+  },
+  "X-ray Detection Method per Monitored Element": {
+   "key": "monitored property",
+   "cell": "F, P, Ca, Si, Mg, Fe, Al, S, K, Cl: WDS; other: N — 'Wavelength-dispersive X-ray spectroscopy analyses of Mg,Na phosphate'; stated for the phosphate analyses only",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "F",
+      "P",
+      "Ca",
+      "Si",
+      "Mg",
+      "Fe",
+      "Al",
+      "S",
+      "K",
+      "Cl"
+     ],
+     "value": "WDS"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "X-ray Line": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Diffracting Crystal": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Channel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sequence": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Proportional Counter / Detector": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS PHA Setting": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Counting Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Background Counting Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Background Position(s)": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Live Time per Point or Pixel": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "EDS Acquisition Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Pixel": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Step Size / Pixel Size": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Stage Scan vs. Beam Scan": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Matrix Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Absorption Coefficients (MACs)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Background Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Time-Dependent Intensity Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species Estimation Method": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Halogen Correction on Oxygen": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Dead Time Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Spectral Processing Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Blank Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N — compositions are reported by phase with no contributing count and no selection rule stated",
+   "status": "commentary only"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "\"Mg,Na phosphate\" [F, P, Ca: fluorapatite; Si: Fo92 olivine; Mg: Fo92 olivine, rhodonite; Fe: fayalite; Al: anorthite; S: baryte; K: potassium feldspar; Cl: scapolite]; carbonate [Na: albite; Si: Fo92 olivine; Mg: dolomite; Ca: calcite; Mn: Mn carbonate; P: apatite; S: baryte; Fe: fayalite] — 'The standards used for Mg,Na phosphate were fluorapatite (F, P, Ca), Fo92 olivine (Si, Mg), rhodonite (Mg), fayalite (Fe), anorthite (Al), baryte (S), potassium feldspar (K) and scapolite (Cl). For carbonates, the standards used were albite (Na), Fo92 olivine (Si), dolomite (Mg), calcite (Ca), Mn carbonate (Mn), apatite (P), baryte (S) and fayalite (Fe)' (p.7); rhodonite is printed against Mg",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Mg,Na phosphate"
+     ],
+     "value": [
+      {
+       "members": [
+        "F",
+        "P",
+        "Ca"
+       ],
+       "value": "fluorapatite"
+      },
+      {
+       "members": [
+        "Si"
+       ],
+       "value": "Fo92 olivine"
+      },
+      {
+       "members": [
+        "Mg"
+       ],
+       "value": "Fo92 olivine, rhodonite"
+      },
+      {
+       "members": [
+        "Fe"
+       ],
+       "value": "fayalite"
+      },
+      {
+       "members": [
+        "Al"
+       ],
+       "value": "anorthite"
+      },
+      {
+       "members": [
+        "S"
+       ],
+       "value": "baryte"
+      },
+      {
+       "members": [
+        "K"
+       ],
+       "value": "potassium feldspar"
+      },
+      {
+       "members": [
+        "Cl"
+       ],
+       "value": "scapolite"
+      }
+     ]
+    },
+    {
+     "members": [
+      "carbonate"
+     ],
+     "value": [
+      {
+       "members": [
+        "Na"
+       ],
+       "value": "albite"
+      },
+      {
+       "members": [
+        "Si"
+       ],
+       "value": "Fo92 olivine"
+      },
+      {
+       "members": [
+        "Mg"
+       ],
+       "value": "dolomite"
+      },
+      {
+       "members": [
+        "Ca"
+       ],
+       "value": "calcite"
+      },
+      {
+       "members": [
+        "Mn"
+       ],
+       "value": "Mn carbonate"
+      },
+      {
+       "members": [
+        "P"
+       ],
+       "value": "apatite"
+      },
+      {
+       "members": [
+        "S"
+       ],
+       "value": "baryte"
+      },
+      {
+       "members": [
+        "Fe"
+       ],
+       "value": "fayalite"
+      }
+     ]
+    }
+   ]
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line Overlap Corrections Applied": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Elements": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Interference Correction Standard": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Precision": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "McCoy et al. 2025, Nature 637:320-325 — Bennu evaporites. Protocol 2 of 2: U. Arizona K-ALFAA Cameca SX-100. 20 nm carbon coat. WDS explicitly stated for phosphate analyses. Mg,Na phosphate analyses: 15 kV, 8 nA, 1 µm. Carbonate analyses at K-ALFAA also mentioned; conditions N. Full primary standard suite documented for phosphates and carbonates. Acquisition software and matrix correction method N.",
+   "status": "text",
+   "value": "McCoy et al. 2025, Nature 637:320-325"
+  }
+ }
+}
