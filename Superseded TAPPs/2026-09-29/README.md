@@ -44,8 +44,17 @@ discovery.
 | `SEM_TAPP_v82` | `v83` | phantom Barnes columns removed |
 | `SEM_Imaging_TAPP_v42` | `v43` | phantom Barnes columns removed |
 | `SEM_FIBSEM_TAPP_v43` | `v44` | phantom Barnes columns removed |
+| `LA-MC-ICPMS_TAPP_v88` | `v89` | Aggregation fields |
+| `LA-Q-ICP-MS_TAPP_v93` | `v94` | Aggregation fields |
+| `LA-Q-ICP-MS_UPb_TAPP_v93` | `v94` | Aggregation fields |
+| `LA-SF-ICP-MS_TAPP_v90` | `v91` | Aggregation fields |
+| `LA-SF-ICP-MS_UPb_TAPP_v91` | `v92` | Aggregation fields |
+| `Solution_MC-ICP-MS_TAPP_v89` | `v90` | Aggregation fields |
+| `Solution_Q-ICP-MS_TAPP_v92` | `v93` | Aggregation fields |
+| `Solution_SF-ICP-MS_TAPP_v87` | `v88` | Aggregation fields |
+| `TEM_TAPP_v65` | `v66` | Aggregation fields |
 
-36 version(s), 72 file(s) (CSV + xlsx). EPMA was bumped five times on this date, once per pass.
+45 version(s), 90 file(s) (CSV + xlsx). EPMA was bumped five times on this date, once per pass.
 
 ## Why
 
@@ -108,6 +117,15 @@ its FIB work is in the companion Zega+2025, which has its own columns. On the us
 removed from SEM (35 → 32 columns), SEM_Imaging (18 → 17) and SEM_FIBSEM (8 → 6). Barnes+2025's JSC SEM-EDS
 column stays. Applied by `Project Files/Scripts/sem_remove_phantom_barnes_20260929.py`.
 
+**Eighth pass — the Aggregation fields in the other nine TAPPs.** Task 3 of the gaps plan. The papers behind
+78 procedure columns (LA-MC, LA-Q, LA-Q U-Pb, LA-SF, LA-SF U-Pb, Solution MC, Q and SF, TEM) were read for
+`Combination Method`, `Combined Results`, `Other Statistics` and, where blank, the dispersion statistic: 305
+cells, 24 of them corrections. The corrections follow EPMA's convention that a stated SD or RSD of a mean is
+the dispersion statistic (15 cells that said `N`), and add inclusion rules and counts the old cells missed
+(Hopp, Craddock, Nie, Schönbächler, Navarro, Dobrica). Liu+2016's merrillite column had borrowed the glass
+averages' counts. The old `Age Model` cells were blank before gap 3, so the move lost nothing. Applied by
+`Project Files/Scripts/aggregation_fields_20260929.py`.
+
 ## Verification
 
 - `compose_tapp.py --check`: 0 of 16 drifted, before and after each pass.
@@ -152,3 +170,7 @@ Changed: 840 literature cells, 2 of them corrections; no field, tier, data type 
 `audit_keys_vs_literature.py`: 0 NEW. `generate_paper_registry.py --check`: MATCH; Barnes+2025 stays
 Detailed for SEM, on its CRPG, Hokkaido and JSC SEM work. Changed: 6 literature columns removed; no field,
 tier, data type or key.
+
+**Eighth pass.** `compose_tapp.py --check`: 16 of 16 match. `validate_tapp.py`: 0 ERROR, 0 WARN, after the
+LA-MC form mockup was rebuilt at v89 (`cfg.json`, `build_form.py`). `audit_keys_vs_literature.py`: 0 NEW.
+Changed: 305 literature cells, 24 of them corrections; no field, tier, data type or key.

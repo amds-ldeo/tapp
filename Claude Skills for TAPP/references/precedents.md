@@ -3605,3 +3605,39 @@ Helios instruments) describe procedures the paper does not contain; every cell i
 the same day** on the user's decision (`sem_remove_phantom_barnes_20260929.py`): SEM now has 32 columns,
 SEM_Imaging 17, SEM_FIBSEM 6. A column whose paper does not describe its procedure is removed, not kept
 as a row of `N`: it would count as a procedure that states nothing.
+
+## The Aggregation fields across the other nine TAPPs: what a paper's mean is made of (2026-09-29)
+
+Task 3 of the gaps plan. `Project Files/Scripts/aggregation_fields_20260929.py` read the papers behind 78
+columns in nine TAPPs and filled `Combination Method`, `Combined Results`, `Other Statistics`, and the
+dispersion statistic where blank: 305 cells.
+
+**The dispersion statistic follows EPMA.** A standard deviation or RSD reported with a mean is the
+dispersion statistic. A 95% confidence interval, a standard error or a 2 sdm goes under Other Statistics.
+Fifteen existing cells in the solution TAPPs had read the field as a goodness-of-fit test only and
+written `N` beside a stated SD or RSD. They were corrected. One test decides the field for every
+technique: does the statistic describe the spread of the individual results that went into the mean?
+
+**What counts as combined.**
+- Replicate means of reference materials count, when the paper gives n or says "average". Most solution
+  papers combine only their reference materials, and their sample values are single runs or unstated.
+- A physical composite does not count: Hu+Gao 2008's upper-crust composites are mixed powders.
+- `Not combined` is written only where a paper says so (Chernonozhkin+2021: "All single parallel
+  measurements are presented separately"); otherwise `N`.
+- Isochron regressions and weighted-mean ages are combinations; the regression or weighting is the
+  Combination Method, and the software goes to Data Processing Software.
+
+**The old cells missed rules and counts.** Re-reading for the combining fields found four inclusion
+rules that the Inclusion cells had called unstated:
+- Hopp+2021 left samples with ε196Pt(8/5) > 0.16 out of its group averages.
+- Craddock+2008 discards data with mass-bias drift greater than ~0.5‰.
+- Nie+2019 left the norite out of its bulk-Moon regression.
+- Schönbächler+2025 rejected data outside 2SD.
+
+It also found two stated counts the old cells lacked (Navarro+2024's 20 spots; Dobrica+2022's N = 8 and
+19). Liu+2016's merrillite column had borrowed the glass averages' n = 7 and 13. The lesson repeats the SEM
+one: when a field is re-read with a new question, the neighbouring fields improve too.
+
+**Open.** Zega+2025 reports a pyrrhotite Fe/S "on average 0.85" from EMPA and SEM-EDS together. The
+EPMA and SEM Zega cells leave the Combination Method `N`, because the paper does not say which
+analyses contribute.

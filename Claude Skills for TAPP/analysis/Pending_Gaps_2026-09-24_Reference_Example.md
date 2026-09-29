@@ -1,6 +1,6 @@
 # Pending: six structural gaps exposed by the EPMA reference example (2026-09-24)
 
-**Status (2026-09-29): gaps 1, 3, 4, 5 and 6 implemented; gap 2 held. The follow-on literature passes are complete for EPMA and the four SEM TAPPs.**
+**Status (2026-09-29): gaps 1, 3, 4, 5 and 6 implemented; gap 2 held. The follow-on literature passes (tasks 2 and 3) are complete.**
 
 | Gap | Status |
 |---|---|
@@ -18,7 +18,7 @@ with the keyed-notation conversion (conventions 7.3.4), because converting a cel
 |---|---|
 | EPMA | **Complete** at v86 (2026-09-29). Every field is assessed except `Laboratory ID` and `Procedure Start Date`, which are blank by decision (0 of 12 papers). Scripts: `epma_roundtrip_fixes_20260929.py`, `epma_remaining_fields_20260929.py`; round-trip 95%. |
 | SEM, SEM_Composition, SEM_Imaging, SEM_FIBSEM | **Complete** 2026-09-29 (SEM v83, SEM_Composition v81, SEM_Imaging v43, SEM_FIBSEM v44): 840 cells, every never-assessed field; only `Session Identifier` is blank, by decision. The cells are not yet in the keyed notation beyond the new ones, and SEM is not in `KEYED_NOTATION_ENFORCED`. Scripts: `sem_never_assessed_fields_20260929.py`; three phantom Barnes+2025 columns then removed by `sem_remove_phantom_barnes_20260929.py`. |
-| The other Module_Aggregation TAPPs | Not started: `Combination Method`, `Combined Results`, `Other Statistics`. |
+| The other nine Module_Aggregation TAPPs | **Complete** 2026-09-29: LA-MC v89, LA-Q v94, LA-Q U-Pb v94, LA-SF v91, LA-SF U-Pb v92, Solution MC v90, Q v93, SF v88, TEM v66. 305 cells (24 corrections) across 78 columns. Script: `aggregation_fields_20260929.py`. |
 
 **Where the gaps came from.** Writing `Project Files/Reports/EPMA_Reference_Procedure_Example_v77.md` required filling all 88 fields of EPMA TAPP v77. That exposed six places where complete documentation needs structure the TAPP does not declare. Appendix B of the example states them briefly.
 
