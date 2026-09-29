@@ -3139,3 +3139,30 @@ filling 105 cells against `(none)` and then re-keying would move the field and s
 general form: **settle a definer-adjacent field's key before its literature pass, or accept that the
 pass may have to be redone.**
 
+## `Sample Preparation Method` keyed by `sample`; the projection rule written down (2026-09-28)
+
+**What changed.** Module_Core v8 → v9. `Sample Preparation Method` is re-keyed `(none)` → `sample`
+in all 16 TAPPs. Its tiers stay C=Basic, D=Editable. Every TAPP was bumped once, and composition was
+checked clean against all 16 beforehand. In the same pass, `Monitored Elements` (EPMA, SEM,
+SEM_Composition) gained one sentence: a target species determined by stoichiometry or by difference
+has no monitored element. These are gaps 5 and 6 of
+`analysis/Pending_Gaps_2026-09-24_Reference_Example.md`.
+
+**Why it was a correction rather than a decision.** Rule 13 has said since 2026-08-12 that each
+sample "may carry its own preparation history" and that "`sample` keys identity and preparation".
+The Core module never followed. Writing the EPMA reference example to 100% coverage exposed the gap:
+the example's second mount was ion-polished and its first was not, and no field could say so.
+
+**Evidence.** 1 of 128 literature cells across the library states a sample-specific preparation:
+Seifert+2026, "one mount ion-polished before carbon coating". The count is thin, as expected, since
+most papers prepare every sample alike. Rule 13 is the authority, and 7.3.2 says to declare an
+attested axis unconditionally.
+
+**Not the amds-ldeo/tapp#7 case.** #7 moved `Sample Persistent Identifier` to C=N/A because an IGSN
+identifies samples and a registered procedure has none. A preparation is a method the procedure does
+specify, so C=Basic keyed by `sample` is coherent.
+
+**What made it coherent: 7.3.3, written the same day.** At procedure level a key drops every domain
+whose definer is C=N/A. Seven EPMA fields already relied on this unwritten rule. Without it, the
+re-key would have read as "the procedure must list its samples", which Rule 13 forbids.
+

@@ -38,7 +38,7 @@ from openpyxl.utils import get_column_letter
 # Paths resolve from this file's own location, as build_form.py does, so the script runs
 # from any working directory. The TAPP is read from the `Current TAPPs/` mirror (Rule 12);
 # VERSION pins the snapshot — bump it and the output name follows.
-VERSION = 'v77'
+VERSION = 'v78'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 SRC  = os.path.join(ROOT, 'Current TAPPs', 'EPMA_TAPP_%s.csv' % VERSION)
@@ -394,7 +394,7 @@ def build(mode=None):
             b.alignment = Alignment(wrap_text=True, vertical='top'); r += 1
         r += 1
 
-    head('EPMA metadata — reviewer workbook (EPMA TAPP v77)' + (' — %s' % mode if mode else ''))
+    head('EPMA metadata — reviewer workbook (EPMA TAPP %s)' % VERSION + (' — %s' % mode if mode else ''))
     if mode:
         para('This workbook shows only the %d of %d items that apply to %s. Item numbers are the TAPP\'s own, so gaps in the numbering are items that belong to other modes.' % (len(fields), 88, mode))
     para('The Example column shows what each item looks like when filled in, taken from a worked example: a fictional EPMA session written up as a methods section (EPMA_Reference_Methods_Section_v77.md). The laboratory, samples, identifiers and results are invented. Where an item repeats, the example says what for: "20 nA for olivine; 8 nA for phosphates".')
@@ -468,7 +468,7 @@ def build(mode=None):
     para('A note on wording: this workbook says "session" throughout for what the underlying TAPP '
          'calls the analysis level, because "analysis" is easily read as one analysis point, which is '
          'the one thing the record is not. "Session level" here is the TAPP\'s Analysis-Level Tier.')
-    para('This workbook is generated from EPMA_TAPP_v77.csv and is a snapshot of that version. '
+    para('This workbook is generated from EPMA_TAPP_%s.csv and is a snapshot of that version.' % VERSION + ' '
          'Data types, allowed values and examples are deliberately not shown; they are reviewed '
          'separately against the TAPP itself.')
     lg.column_dimensions['A'].width = 31
@@ -526,6 +526,9 @@ def build(mode=None):
                 proc, flag = phrase(f['name'], f['key'], 'procedure')
                 if f['C'] == 'N/A':
                     proc, flag = '—', False
+                # Projection (conventions 7.3.3) is settled; flag only the cells with an open
+                # question attached, i.e. those that carry a review note.
+                flag = flag and f['name'] in REVIEW_NOTE
                 sess_f, _ = phrase(f['name'], f['key'], 'session')
                 if flag:
                     flagged.append(f['name'])

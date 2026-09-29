@@ -1,148 +1,202 @@
 # Pending: six structural gaps exposed by the EPMA reference example (2026-09-24)
 
-**Status: OPEN — documented, not acted on.** No TAPP, module or rule has been changed. Recorded so that the analysis survives until work resumes.
+**Status (2026-09-28): designs agreed, implementation pending.**
 
-**Where the gaps came from.** Writing `Project Files/Reports/EPMA_Reference_Procedure_Example_v77.md` required filling all 88 fields of EPMA TAPP v77. That exposed six places where complete documentation needs structure the TAPP does not declare. Appendix B of the example states them briefly. This note records:
+| Gap | Status |
+|---|---|
+| 5 | **Fixed** 2026-09-28. Module_Core v9 re-keys `Sample Preparation Method` to `sample`; the projection rule is now conventions 7.3.3. Script: `Project Files/Scripts/gaps5and6_sample_prep_key_20260928.py`; see also `precedents.md`, 2026-09-28. |
+| 6 | **Fixed** 2026-09-28, in the same pass: `Monitored Elements` gains one sentence. |
+| 1 | **Design agreed** 2026-09-28; not implemented. |
+| 3 | **Design agreed** 2026-09-28; not implemented. |
+| 4 | **Design agreed** 2026-09-28 (the re-key half); not implemented. |
+| 2 | **Held** until attested. |
 
-- the fixes proposed on 2026-09-24,
-- the evidence behind each fix,
-- what each fix would touch,
-- the recommended order.
+**Where the gaps came from.** Writing `Project Files/Reports/EPMA_Reference_Procedure_Example_v77.md` required filling all 88 fields of EPMA TAPP v77. That exposed six places where complete documentation needs structure the TAPP does not declare. Appendix B of the example states them briefly.
 
-## Two kinds of level dependence
+This note records what each gap is, the design agreed for it, the evidence behind the design, what the design touches, and the implementation order. Proposals that were considered and replaced are kept in short "Replaced proposal" notes, so the reasoning is not lost.
 
-Gaps 1 and 5 look alike, since in both a field's cardinality seems to differ between the procedure record and the session record. They are different problems.
+## Level dependence: one mechanism, not two
 
-- **Projection (gap 5).** This is one key read at two levels. `sample` and `sampling unit` are enumerated by definers that are C=N/A (`Sample Name`, `Sampling Unit Name`), because "the procedure is sample-neutral" (Rule 13). At procedure level those domains are empty by definition, so a field keyed `sample` holds a single value there. No new declaration is needed.
-- **Substitution (gap 1).** Here the procedure needs a domain of its own that the session realises through a different one. The keys genuinely differ, and neither can be derived from the other without a linking field.
+On 2026-09-24 gaps 1 and 5 looked like two different problems.
 
-**The projection rule is currently unwritten.** When reading at procedure level, drop from the key every domain whose definer is C=N/A. Seven EPMA fields already depend on this implicitly:
+- **Projection (gap 5).** One key, read at two levels.
+- **Substitution (gap 1).** A procedure-level key that differs from the session key.
 
-- the five beam fields, keyed `sample > sampling unit`, all C=Basic or C=Advanced;
-- `Pre-Analysis Imaging and Screening`, keyed `sample`, C=Advanced;
-- `Counting Statistics Error`.
+The substitution case turned out not to exist. Once `target material` is a list (gap 1 below), the key the literature attests for beam conditions is `target material` at **both** levels. So projection, conventions 7.3.3, is the only mechanism needed. No field needs a second key column or an override notation.
 
-The rule appears nowhere in `conventions.md`. The review workbook generator (`Project Files/Reports/make_review_workbook.py`, `phrase()`) invented it. It should be written into Rule 7, so that a schema consumer applies it the same way.
+**Projection (conventions 7.3.3).** Column I states the session-level key. At procedure level, drop every domain whose definer is C=N/A: today, `sample` and `sampling unit`. Seven EPMA fields depended on this before it was written down, and the review-workbook generator (`phrase()` in `Project Files/Reports/make_review_workbook.py`) had already implemented it.
 
 ## The gaps
 
-### Gap 5 — preparation can differ by sample
+### Gap 1 — beam conditions vary by phase — DESIGN AGREED 2026-09-28
 
-**The problem.** `Sample Preparation Method` is keyed `(none)` in all 16 TAPPs. The Core module owns Column I for it. Rule 13 already says each sample "may carry its own preparation history" and that "`sample` keys identity and preparation". The module was never brought into line with the rule.
+**The problem.** The five beam fields are keyed `sample > sampling unit`:
 
-**Fix.** Re-key the field to `sample`, and keep the tiers at C=Basic, D=Editable. The tiers then read: the procedure registers the preparation, and each sample inherits it and may deviate. Under the projection rule, the procedure level is unchanged.
+- Beam Mode
+- Beam Current
+- Beam Diameter
+- Beam Raster Dimensions
+- Beam Damage Minimization
 
-**Evidence.** Rule 13 is the authority. The literature evidence is thin: 1 of 128 literature cells across the library states sample-specific preparation (Seifert+2026: "one mount ion-polished before carbon coating").
+Under projection, that key gives one value per procedure. Published procedures state these values per phase.
 
-**Cost.**
+**What the literature attests.** Across the 15 EPMA procedures, every stated beam condition is either one value for the whole procedure or one value per phase or material. None is stated per analysis point. So the finest attested key (Rule 7.3.2, 7.12) is per material, not `sample > sampling unit`. The 2026-09-08 acquisition-pass precedent chose `sample > sampling unit` for mineral-dependent conditions because no per-material list existed then.
 
-- Edit the Core module.
-- Bump the module's JSON version.
-- Recompose all 16 TAPPs.
-- Pass `compose_tapp.py --check` and the validator.
+**Agreed design.**
 
-**Open question.** Should the same test — can this differ between samples in one session? — be applied to the other `(none)` fields in Group 2? `Sampling Unit Selection Criteria` is the obvious candidate.
+1. **`Target Material` becomes the definer of a new key, `target material`.** It is C=Basic and already required in every TAPP. Its allowed values are open (`Controlled list / Text`), so a procedure may name a finer entry where its conditions need one.
+2. **The five beam fields are re-keyed to `target material`.** The procedure registers the conditions for each target material. The session records the conditions it used for each target material (D=Editable, within the procedure's bounds). One key serves both levels.
+3. **A new session field, *Target Material of Sampling Unit*,** records which listed target material each analysis point belongs to. It is keyed `sample > sampling unit`, C=N/A, D=Basic. It is the link from a point to its conditions, and it fills the "Phase" column that the reference example's Table 10 needed and no field held.
+4. **Rule 7.4c exemption for `Target Material`.** Target Material belongs to Module_Core, so it would become a definer in all 16 TAPPs, but only the electron-beam TAPPs will have consumers. Exempt it from 7.4c on the Rule 8/9 ground: the field is informative in its own right, because it states the procedure's scope for discovery.
+5. **`Counting Statistics Error` is unchanged.** It varies point by point, so `sample > sampling unit x reported property` stays.
 
-### Gap 1 — beam conditions vary by phase at procedure level
+**Grain check against Target Material's categories.** The categories are Silicate mineral, Silicate glass, Oxide, Sulfide, Carbonate, Phosphate, and Metal or alloy. Six of the seven procedures that state per-phase beam conditions fit them:
 
-**The problem.** The five beam fields are keyed `sample > sampling unit`, a domain that does not exist until a session runs. Their procedure-level value therefore projects to one value, or "one or more values", per procedure. Published procedures give these values per phase group.
+- **Liu 2016** fits because glass is its own category: 20 nA for silicate minerals and oxides; 10 nA for maskelynite (glass), phosphate and sulfide.
+- **Zega 2025**, **McCoy 2025**, **Barnes 2025**, **Seifert 2026** and **Neuman 2025** also fit.
+- **Pang 2016 does not fit.** It defocuses the beam for plagioclase and keeps it focused for olivine and pyroxene, which splits "Silicate mineral". The open list covers this: the procedure names a "Plagioclase" entry. The cost is some loss of Target Material's role as discovery vocabulary.
 
-**Fix.**
+**What is given up.** A session that changes the conditions for a single grain cannot record that per point; it goes in Additional Notes.
 
-1. **A new domain, `phase group`**, defined by a procedure-level field ("Phase Groups": the groups of phases the procedure analyses under distinct conditions). A procedure that does not vary conditions declares one group.
-2. **Beam Mode, Beam Current, Beam Diameter, Beam Raster Dimensions and Beam Damage Minimization** take `phase group` as their procedure-level key. The session key stays `sample > sampling unit`. This needs an explicit override on top of the projection rule, for example `sample > sampling unit | procedure: phase group`. These are the only fields that need one.
-3. **A session field giving each sampling unit's phase group**, keyed `sample > sampling unit`. Without it, a consumer cannot tell which procedure value a unit inherited. The reference example's Table 10 needed a "Phase" column that no TAPP field holds.
+**Falsifier.** A procedure that reports beam conditions per analysis point.
 
-**Not Target Material.** Target Material is the wrong grain for this domain. Liu+2016 analyses maskelynite (silicate glass) with phosphate and sulfide at 10 nA, and olivine, pyroxene and oxides at 20 nA. That splits Target Material's silicate class. The grouping is the procedure's own choice.
+**Scope.** EPMA first. SEM and TEM follow after their literature columns are checked for per-phase beam conditions.
 
-**Evidence.** This is the strongest of the six: per-phase values appear in 7 of 15 EPMA procedures for Beam Mode, 6 of 15 for current and diameter, and 4 of 15 for damage minimisation. It completes the 2026-09-08 acquisition-pass precedent (conventions Rule 7.2), which settled the session half: beam conditions vary by mineral, and `sample > sampling unit` carries that.
+**Held.** Counting times per phase, `target material x monitored property`, are attested only by Zega+2025 (1 of 15). Revisit when a second procedure attests them.
 
-**Scope.** EPMA, SEM and TEM, not Core.
+**Replaced proposals.**
 
-**Held.** Counting times per phase (`phase group x monitored property`) are attested only by Zega+2025 (1 of 15). Revisit when a second procedure attests them.
+- **A new `phase group` domain with a "Phase Groups" field, plus a procedure-level key override (2026-09-24).** Replaced once the attested grain was seen to be per material. The override notation it required became unnecessary.
+- **"Key everything sample-keyed to `target material`" (discussed 2026-09-28).** Rejected, for three reasons:
+  - Samples in microbeam work contain several materials (EX-CC-01 has five), so `Sample Name` cannot sit under one target material.
+  - Preparation varies by sample, not by material: Seifert's two mounts are the same material, and only one was ion-polished.
+  - Projection already makes `sample` a session-only key.
 
-### Gap 3 — aggregate statistics belong to a phase mean
+### Gap 3 — statistics on averaged values — DESIGN AGREED 2026-09-28
 
-**The problem.** The inclusion outcome and the dispersion statistic describe one mean per phase per sample. `Goodness-of-Fit or Dispersion Statistic` is keyed by `reported property` alone. `Analysis Inclusion and Rejection Criteria` is keyed `(none)`.
+**The problem.** Two fields describe averaged or otherwise combined values:
 
-**Fix.**
+- `Goodness-of-Fit or Dispersion Statistic`, keyed by `reported property` alone;
+- `Analysis Inclusion and Rejection Criteria`, keyed `(none)`.
 
-1. **A session-level domain, `aggregate`.** Each entry is one reported mean together with its contributing sampling units. In EPMA an aggregate is a phase mean per sample; in geochronology it is roughly one weighted-mean date per sample.
-2. **Re-key the two fields:**
-   - Dispersion statistic: `aggregate x reported property`.
-   - Inclusion outcome: `aggregate`.
+A session that reports two means of the same variable, such as FeO in olivine and FeO in pyroxene, needs two statistics, but the key can hold only one. In addition, **no field outside geochronology records whether a reported variable is a single result or a combination of several.** Geochronology alone has `Age Model`, "the statistical model used to combine individual analyses into a single reported age". In EPMA the worked example could say "mean compositions are reported for each phase in each sample" only in prose.
 
-**Reopens a decision.** `Analysis Inclusion and Rejection Criteria` deliberately combines the criterion and the outcome, and its Purpose cites the precision/accuracy precedent. Under an aggregate key the two halves need different keys:
+**Two different things.** A reported variable is the *kind* of quantity, and the procedure declares it once. A weighted-mean date or an isochron age is a reported variable. The *instance*, such as "the weighted-mean date of sample X" or "the olivine mean in EX-CC-01", names a sample, so it exists only in the session. Reported variables can say *whether* and *how* a value is combined. They cannot say *which instance*, because they are sample-neutral.
 
-- criterion: `(none)` at procedure level;
-- outcome: `aggregate` at session level.
+**Agreed design.**
 
-One field cannot carry both, which is a stronger reason to split than existed when the two were merged. The blind round-trip test (`Project Files/Reports/EPMA_Narrative_RoundTrip_2026-09-17/`) split them without being asked.
+| Field | Keyed by | Tiers | Note |
+|---|---|---|---|
+| **Combination Method** (new; generalises `Age Model`) | `reported property` | C=Basic where any value is combined | For each reported variable: whether it is combined, how (arithmetic mean, weighted mean, isochron regression, …), and over what group (per grain, per phase within a sample, per sample). `Age Model` moves out of Module_Geochronology into Module_Aggregation as this field, so the geochronology TAPPs receive it from there. |
+| **Analysis Inclusion and Rejection Criteria** (existing) | each TAPP's own grouping; EPMA `sample x target material` | unchanged, C=Basic D=Basic | Under projection the procedure states the rules once, and the session gives the outcome per group. The field is not split. |
+| **Goodness-of-Fit or Dispersion Statistic** (existing) | each TAPP's grouping `x reported property`; EPMA `sample x target material x reported property` | unchanged, C=N/A D=Basic | The one required statistic. |
+| **Other Statistics** (new) | same as the dispersion statistic | C=N/A D=Advanced | Anything further the author reports, with the statistic named. Covers the wide range of statistics without trying to classify them. |
 
-**Cost.** The Aggregation module owns both fields, so the change is library-wide. Check the geochronology TAPPs before acting.
+**Keys differ by technique, so each TAPP declares its own.** Module_Aggregation stops owning Column I for its fields and keeps the names, descriptions and tiers. Each consuming TAPP declares its grouping, and the divergence is registered through the existing `keyed-by-divergence-registered` mechanism.
 
-### Gap 4 — WDS or EDS chosen element by element within a mode
+| Technique | A combined value is taken over | Grouping key |
+|---|---|---|
+| EPMA | a phase within a sample | `sample x target material` (needs gap 1) |
+| U-Pb | a sample (Wu 2023: 236 of 246 spots) | `sample` |
+| Grain averages | one grain (Nakanishi 2022: 1–3 spots) | `sample > sampling unit` |
+| Two data treatments of one sample | each treatment is its own reported variable (Zhang 2022: Normal and SUIA isochrons) | `sample` |
+
+**Evidence.** The 2026-09-16 precedent in `precedents.md` ("`Analysis Inclusion and Rejection Criteria` keeps `(none)`") found that combined values sit at three levels:
+
+- per unit (Nakanishi 2022);
+- per phase (Liu 2016: n = 7 and n = 13 per phase);
+- per sample (Wu 2023).
+
+It kept `(none)` as "least-wrong" because no single key fits all three. Letting each TAPP declare its own grouping resolves that without a new, unfamiliar term.
+
+**Wording.** No field name or description uses "aggregate". Descriptions say "averaged or otherwise combined". The existing descriptions of both Aggregation fields say "reported aggregate value" and must be reworded.
+
+**Cost.** Module_Aggregation (13 consumers) and Module_Geochronology. `Age Model` is known to the schema consumer, so its move needs a note to them. Consumer Column I values are set per TAPP. Rule 6.4's column-ownership text must allow a module that does not own Column I.
+
+**Order dependency.** EPMA's grouping key uses `target material`, so gap 1 must be implemented first.
+
+**Replaced proposals.**
+
+- **A new `aggregate` domain with a "Reported Aggregates" definer (2026-09-24 and 2026-09-28).** Replaced for two reasons. "Aggregate" is not geochemists' vocabulary. And it conflated the kind of reported variable with its instance, which the existing lists (`sample`, `target material`, `sampling unit`) already identify per technique.
+- **Splitting the inclusion field into criteria and outcome (2026-09-24).** Replaced once projection was written down: one field states the rules at procedure level and the outcome per group at session level.
+
+### Gap 4 — WDS or EDS chosen element by element — DESIGN AGREED 2026-09-28 (re-key)
 
 **The problem.** In a combined WDS+EDS point analysis, the WDS-only per-element fields do not apply to the EDS-measured elements:
 
-- Diffracting Crystal,
-- WDS Spectrometer Channel,
-- Proportional Counter / Detector,
-- WDS PHA Setting,
-- the counting times.
+- Diffracting Crystal
+- WDS Spectrometer Channel
+- Proportional Counter / Detector
+- WDS PHA Setting
+- the counting times
 
-Mode flags work per mode, not per element.
+Mode flags work per mode. Here the choice of detector is made per element.
 
-**Fix.**
+**Why the problem arises.** EPMA's four modes combine two axes:
 
-1. **Re-key `EPMA Technique per Target Species` to `monitored property`.** A condition must sit at the grain of the fields it gates, and these fields are keyed by monitored element.
-2. **Add field-level conditional applicability**, for example an "Applies When" column holding `EPMA Technique = WDS`, evaluated per row of the shared key.
+- **Detector: WDS or EDS.** In a combined analysis this is chosen per element.
+- **Geometry: point or mapping.** This is chosen for the whole acquisition.
 
-**The mechanism has wide use.** 47 fields across the library already state a condition in Column B prose, including:
+`Analytical Mode` stays per procedure. It declares which modes the procedure covers, and the mode flags switch whole groups of fields.
 
-| Field | TAPPs where the condition is stated |
-|---|---|
-| Coupling Description ("required when Coupled Technique(s) is not None") | 16 |
-| Calibration Factor and Determination Method | 14 |
-| Detection Limit | 12 |
-| Beam Raster Dimensions ("when Beam Mode = Rastered") | 3 |
+**What "EPMA Technique" means.** It is the X-ray detection method used to measure an element.
 
-**Cost.** This is the largest change of the six: a new column, which the module manifests (`owned_columns`, `overlay_columns`) must account for.
+- **WDS (wavelength-dispersive).** A crystal spectrometer separates X-rays by wavelength through Bragg diffraction, and a proportional counter counts them.
+- **EDS (energy-dispersive).** A solid-state detector sorts every photon by energy at the same time.
 
-### Gap 2 — per-element values can differ between modes
+The Group 1 `Technique` field (`EPMA-WDS | EPMA-EDS | EPMA-WDS+EDS`) should equal the combination of the per-element values.
 
-**The problem.** In the example, the same element uses:
+**Agreed design.** Re-key `EPMA Technique per Target Species` from `target species` to `monitored property`, and rename it **X-ray Detection Method per Monitored Element**. There are three reasons:
 
-- two-point off-peak background for points and MAN for maps;
-- a different spectrometer for maps than for points.
+- The field then sits at the grain of the fields it gates.
+- The name no longer collides with the Group 1 `Technique` field.
+- It can record the method for elements monitored only to correct an interference. Zn in the reference example serves no target species, so a per-target-species field has nowhere to record its method.
 
-**Status: hold.** None of the 15 EPMA procedures attests this. Neuman+2025 maps only, with MAN, and Zega+2025 runs points only, with off-peak backgrounds. The example invented the case. It is realistic, but it is invented.
+The field is TAPP-owned and in EPMA only. The rename must be added to `RETIRED_FIELDS` in `validate_tapp.py` and noted for the schema consumer.
 
-**If attested.** Follow the existing `Peak Counting Time` (point) / `Dwell Time per Pixel` (mapping) pattern: mode-flagged twin fields for `X-ray Background Correction Method` and `WDS Spectrometer Channel`. A `mode` key is not an option, because Rule 7.2 forbids it.
+**Deferred.** A general conditional-applicability mechanism, such as an "Applies When" column holding `X-ray Detection Method = WDS`. 47 fields state a condition in Column B prose today, among them Coupling Description in all 16 TAPPs and Beam Raster Dimensions ("when Beam Mode = Rastered"). The mechanism is not needed for this re-key. Weigh it against the 7.3.2 reasoning that extra grammar has a cost for every downstream consumer.
+
+**Replaced proposal.** Keying `Analytical Mode` by monitored element (raised 2026-09-28) was rejected. Mode is a per-procedure declaration; only the detector axis varies per element.
+
+**Larger alternative, not pursued.** Split EPMA's mode columns into geometry × detector. That would revisit the Phase 0 mode decision.
+
+### Gap 2 — per-element values can differ between modes — HELD
+
+**The problem.** In the example, the same element uses a two-point off-peak background for points and a MAN background for maps, and a different spectrometer for maps than for points.
+
+**Status: held (confirmed 2026-09-28).** None of the 15 EPMA procedures attests this. Neuman+2025 maps only, with MAN; Zega+2025 runs points only, with off-peak backgrounds. The example invented the case.
+
+**If attested.** Follow the `Peak Counting Time` / `Dwell Time per Pixel` pattern: mode-flagged twin fields for `X-ray Background Correction Method` and `WDS Spectrometer Channel`. A `mode` key is forbidden by Rule 7.2.
 
 **Falsifier.** One procedure reporting both points and maps with a different background method or spectrometer assignment for the same element.
 
-### Gap 6 — target species with no monitored element
+### Gap 5 — preparation can differ by sample — FIXED 2026-09-28
 
-**The problem.** O and C are determined by stoichiometry and have no entry under `Monitored Elements`. The TAPP allows this, but never states it.
+`Sample Preparation Method` is re-keyed `(none)` → `sample` in Module_Core v9, and its tiers are unchanged (C=Basic, D=Editable). Rule 13 already required this. The literature attestation is 1 of 128 cells (Seifert+2026, "one mount ion-polished before carbon coating"). Its procedure-level shape is unchanged under projection.
 
-**Action.** Low priority. A sentence in the `Monitored Elements` description would do: "a target species determined by stoichiometry has no monitored element". It would protect a consumer that expects at least one per target species.
+**Still open.** Should the same test — can this differ between samples in one session? — be applied to the other `(none)` fields in Group 2? `Sampling Unit Selection Criteria` is the obvious candidate.
 
-## Recommended order
+### Gap 6 — target species with no monitored element — FIXED 2026-09-28
+
+`Monitored Elements` (EPMA, SEM, SEM_Composition) now says: "A target species determined by stoichiometry or by difference, rather than measured, has no monitored element."
+
+## Implementation order
 
 | Order | Gap | Why here |
 |---|---|---|
-| 1 | Gap 5, plus the projection rule | Already decided by Rule 13. No new syntax. The rule is the default that gap 1's override departs from. |
-| 2 | Gap 1 | Strongest evidence. Needs the override notation. |
-| 3 | Gap 3 | Needs a check against the geochronology TAPPs first. |
-| 4 | Gap 4 | Largest design change. |
+| done | 5, 6 and projection (7.3.3) | Already decided by Rule 13. |
+| 1 | Gap 1, EPMA | Strongest evidence. Creates the `target material` key that gap 3 needs. |
+| 2 | Gap 4 | EPMA only, TAPP-owned; independent of the others. |
+| 3 | Gap 3 | Depends on gap 1. Touches two modules and the geochronology TAPPs. |
+| 4 | Gap 1, SEM and TEM | After their literature columns are checked. |
 | — | Gap 2 | Held until attested. |
-| — | Gap 6 | A one-sentence description edit, whenever convenient. |
 
 Every change follows the usual gates:
 
 - run `check_field_ownership.py` before editing;
-- edit the module and recompose, never a TAPP directly;
-- `compose_tapp.py --check`;
-- `validate_tapp.py` at 0 ERROR / 0 WARN;
-- bump the version and sync `Current TAPPs/`.
+- edit modules and recompose, never a TAPP's module-owned columns directly;
+- run `compose_tapp.py --check` before and after;
+- run `validate_tapp.py` at 0 ERROR / 0 WARN;
+- where Column I changes, run `audit_keys_vs_literature.py`;
+- bump the version, park the superseded files and fill the superseded README;
+- sync `Current TAPPs/` and the skill installation copy.

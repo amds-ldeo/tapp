@@ -42,7 +42,7 @@ EXAMPLES = {
  'Coupled Dataset or Publication Reference': 'same submission',
  # ---- 2. Samples
  'Target Material': 'Olivine and pyroxene; Fe–Ti–Cr oxides (magnetite, chromite, ilmenite); sulfides (pyrrhotite, pentlandite); phosphates (apatite, merrillite); carbonates (calcite, dolomite, breunnerite), in carbonaceous-chondrite material',
- 'Sample Preparation Method': 'Epoxy mounts, dry-polished with diamond to 0.25 µm, carbon coated to 20 nm; EX-CC-02 additionally Ar-ion polished',
+ 'Sample Preparation Method': 'Epoxy mount, dry-polished with diamond to 0.25 µm, carbon coated to 20 nm, for EX-CC-01; the same, plus Ar-ion polishing after the final diamond step, for EX-CC-02',
  'Sample Name': 'EX-CC-01; EX-CC-02',
  'Sampling Unit Type': {
      'all': 'Analysis point, labelled by particle and point number; each X-ray map is one result for its mapped area',

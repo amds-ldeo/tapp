@@ -1549,9 +1549,14 @@ def check_cross_tapp(tapps, out):
 HISTORICAL_DOCS = {
     "Project Files/Design Notes/TAPP_Development_Log.md":
         "dated change history — naming retired fields is how a log works",
+    "Project Files/Reports/EPMA_Reference_Procedure_Example_v77.md":
+        "worked example written against EPMA TAPP v77 (2026-09-24); its coverage appendix is pinned "
+        "to the parked v77 CSV and its Appendix B records the gaps as found at that version",
 }
 # Whole trees of records. Same intent as HISTORICAL_DOCS, by directory prefix.
 HISTORICAL_DIRS = {
+    "Project Files/Reports/EPMA_Narrative_RoundTrip_2026-09-17":
+        "dated blind round-trip test scored against EPMA TAPP v77; a record of that version, not a guide",
     "Project Files/Claude Memory":
         "sanitised snapshot of the out-of-repo working notes (2026-09-10). Each note records "
         "what was believed when it was written, and several exist precisely to explain a "

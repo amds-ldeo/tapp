@@ -18,6 +18,9 @@ sys.path.insert(0, HERE)
 import make_review_workbook as mrw
 
 DOC = os.path.join(HERE, 'EPMA_Reference_Procedure_Example_v77.md')
+# The example documents v77. It is pinned to that version's parked copy, so that re-running after a bump
+# does not silently describe a newer TAPP.
+SRC = os.path.join(HERE, '..', '..', 'Superseded TAPPs', '2026-09-28', 'EPMA_TAPP_v77.csv')
 MARK = '\n---\n\n## Appendix A'
 
 LOCATION = {
@@ -94,7 +97,7 @@ def stated(v):
 
 
 def main():
-    rows = list(csv.reader(open(mrw.SRC, encoding='utf-8-sig')))
+    rows = list(csv.reader(open(SRC, encoding='utf-8-sig')))
     h = rows[0]
     sent = h.index('Literature Assessment')
     lit = [i for i in range(sent + 1, len(h)) if h[i].strip()]
@@ -129,7 +132,7 @@ def main():
     out = [MARK.lstrip('\n'), ' — Field coverage\n',
            '\n*Generated from %s by `make_reference_example_appendix.py`. It covers every field in the TAPP, in TAPP order. '
            '"Reported per" uses the same wording as the reviewer workbook. "Stated in" counts how many of the %d assessed procedures report the field. '
-           '0 means this example had to add the content.*\n\n' % (os.path.basename(mrw.SRC), len(lit)),
+           '0 means this example had to add the content.*\n\n' % (os.path.basename(SRC), len(lit)),
            '| # | TAPP field | Procedure tier | Procedure: reported per | Session tier | Session: reported per | Where in this document | Stated in |\n',
            '|---|---|---|---|---|---|---|---|\n']
     for num, name, c, proc, d, sess, loc, n in fields:

@@ -35,4 +35,4 @@ TAPP was modified; lint baseline stayed 0 ERROR / 0 WARN. Built by
 
 | File | What it is |
 |---|---|
-| `Pending_Gaps_2026-09-24_Reference_Example.md` | OPEN. Six structural gaps found while writing a reference example that fills all 88 fields of EPMA TAPP v77. For each: the proposed fix, its evidence, what it would touch, and a recommended order. It also records the unwritten projection rule: at procedure level, drop every key domain whose definer is C=N/A. Nothing has been changed. |
+| `Pending_Gaps_2026-09-24_Reference_Example.md` | Six structural gaps found while writing a reference example that fills all 88 fields of EPMA TAPP v77. Gaps 5 and 6 fixed 2026-09-28 (Module_Core v9; conventions 7.3.3). Designs for gaps 1, 3 and 4 agreed 2026-09-28 but not yet implemented; the note gives each design, its evidence, the proposals it replaced, and the implementation order. Gap 2 held. |

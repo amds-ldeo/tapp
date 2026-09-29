@@ -1245,6 +1245,45 @@ rather than declaring the coarse shape because some procedures do not exercise i
 specific when …"* restates Column I and is stripped under W5.2. The condition is not lost; it is
 expressed by the fact that a simple procedure's keyed table has one row.
 
+#### 7.3.3 Reading a key at procedure level — projection (rule, 2026-09-28)
+
+**Column I states the key at analysis (session) level. At procedure level, drop every domain whose
+definer is C=N/A.** Such a domain is empty in the procedure record by definition: its members do not
+exist until a session runs. Today that means `sample` and `sampling unit`, whose definers — `Sample
+Name` and `Sampling Unit Name` — are C=N/A because the procedure is sample-neutral (Rule 13).
+
+| Column I | Procedure record reads | Session record reads |
+|---|---|---|
+| `sample` | one value | one value per sample |
+| `sample > sampling unit` | one value | one value per sampling unit, within each sample |
+| `sample > sampling unit x reported property` | one value per reported property | one per sampling unit and reported property, within each sample |
+| `defines: sample > sampling unit` | absent (the field is C=N/A) | the list of units, per sample |
+
+**Nothing new is declared; the rule says how an existing declaration reads.** Before it was written
+down, seven EPMA fields already depended on it without saying so:
+- the five beam fields, keyed `sample > sampling unit` and C=Basic or C=Advanced;
+- `Pre-Analysis Imaging and Screening`, keyed `sample`, C=Advanced;
+- `Counting Statistics Error`.
+
+The reviewer workbook's generator (`Project Files/Reports/make_review_workbook.py`, `phrase()`)
+applied it before this section existed. That is how the rule was noticed: a generator that has to
+print a procedure-level structure for every field cannot avoid the question. A schema consumer faces
+the same question, so the answer is stated here rather than left to each consumer.
+
+**It licenses keying a procedure-level field by a session-only domain.** Such a field is still
+registered once by the procedure. Each sample, or each unit, then inherits the value and may deviate
+from it within the procedure's bounds (D=Editable). `Sample Preparation Method` was re-keyed
+`(none)` → `sample` on this basis on 2026-09-28 (Module_Core v9).
+
+**No second key column is needed.** It once looked as though a field might need a different key at
+each level. EPMA procedures state beam conditions per phase, and the fields were keyed per analysis
+point. The key the literature actually attests, though, is per *target material* at both levels: no
+procedure states beam conditions per point. The design agreed on 2026-09-28 (gap 1 of
+`analysis/Pending_Gaps_2026-09-24_Reference_Example.md`, not yet implemented) therefore keys those
+fields `target material`, and projection remains the only level mechanism. A field that genuinely
+needs a different key at each level would be a new case, and must be argued from attested data
+before any notation is added for it.
+
 #### 7.4 The declaration invariants
 
 **7.4a — every key in use must have its domain enumerated.** For every key K used by any field in a
@@ -2356,6 +2395,11 @@ fields — `standard` keys anchoring and QC, `sample` keys identity and preparat
 RM legitimately appears in both domains within one session, and that is not double counting. A
 schema that asserts disjointness will be violated by ordinary sessions. Primary calibration
 standards are the exception: their values are inputs, not results, so they never behave as samples.
+
+**Preparation is keyed by `sample` (since 2026-09-28).** This rule assigned preparation to the
+`sample` key from the start, but `Sample Preparation Method` stayed `(none)` in Module_Core until v9.
+It is now keyed `sample` with C=Basic, D=Editable: the procedure registers the preparation, and each
+sample inherits it and may deviate. Its procedure-level shape is unchanged under 7.3.3.
 
 Recorded in full, with the reasoning and the alternatives considered, in
 `analysis/Decision\\\_Record\\\_2026-08-12\\\_Session\\\_Sample\\\_and\\\_Analyte.md` Part A.
