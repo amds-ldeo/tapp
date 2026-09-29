@@ -53,8 +53,12 @@ discovery.
 | `Solution_Q-ICP-MS_TAPP_v92` | `v93` | Aggregation fields |
 | `Solution_SF-ICP-MS_TAPP_v87` | `v88` | Aggregation fields |
 | `TEM_TAPP_v65` | `v66` | Aggregation fields |
+| `SEM_TAPP_v83` | `v84` | SEM keyed notation |
+| `SEM_Composition_TAPP_v81` | `v82` | SEM keyed notation |
+| `SEM_Imaging_TAPP_v43` | `v44` | SEM keyed notation |
+| `SEM_FIBSEM_TAPP_v44` | `v45` | SEM keyed notation |
 
-45 version(s), 90 file(s) (CSV + xlsx). EPMA was bumped five times on this date, once per pass.
+49 version(s), 98 file(s) (CSV + xlsx). EPMA was bumped five times on this date, once per pass.
 
 ## Why
 
@@ -126,6 +130,14 @@ the dispersion statistic (15 cells that said `N`), and add inclusion rules and c
 averages' counts. The old `Age Model` cells were blank before gap 3, so the move lost nothing. Applied by
 `Project Files/Scripts/aggregation_fields_20260929.py`.
 
+**Ninth pass — the SEM TAPPs converted to the keyed notation.** The remaining structured cells were the 32
+Target Material and 32 Reported Variables definer cells and eight value cells. Definers now open with a
+member list, with the original cell kept as commentary; Target Material names the materials analysed, not
+the sample. Value cells take `all:`. Re-reading corrected three cells: Pascucci+2026's Target Species
+(Barnes+2025's CRPG element list, not in the paper), its EDS-map Reported Variables (the EMPA-WDS maps), and
+Izawa+2010's Leo 440 BSE Reported Variables (the EDX maps). The four SEM TAPPs join
+`KEYED_NOTATION_ENFORCED`. Applied by `Project Files/Scripts/sem_keyed_notation_20260929.py`.
+
 ## Verification
 
 - `compose_tapp.py --check`: 0 of 16 drifted, before and after each pass.
@@ -174,3 +186,9 @@ tier, data type or key.
 **Eighth pass.** `compose_tapp.py --check`: 16 of 16 match. `validate_tapp.py`: 0 ERROR, 0 WARN, after the
 LA-MC form mockup was rebuilt at v89 (`cfg.json`, `build_form.py`). `audit_keys_vs_literature.py`: 0 NEW.
 Changed: 305 literature cells, 24 of them corrections; no field, tier, data type or key.
+
+**Ninth pass.** Before applying, the edited cells were checked in simulation: every structured cell in the
+four SEM TAPPs parses and names only definer members. After it: `compose_tapp.py --check` 16 of 16 match;
+`validate_tapp.py` 0 ERROR, 0 WARN, with SEM now enforced; `audit_keys_vs_literature.py` 0 NEW. Changed: 72
+cells in SEM and their copies in the variants (144 in all), 3 of them corrections; no field, tier, data type
+or key.

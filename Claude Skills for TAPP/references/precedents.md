@@ -3641,3 +3641,26 @@ one: when a field is re-read with a new question, the neighbouring fields improv
 **Open.** Zega+2025 reports a pyrrhotite Fe/S "on average 0.85" from EMPA and SEM-EDS together. The
 EPMA and SEM Zega cells leave the Combination Method `N`, because the paper does not say which
 analyses contribute.
+
+## The SEM TAPPs in the keyed notation: a definer names what was analysed, not the sample (2026-09-29)
+
+`Project Files/Scripts/sem_keyed_notation_20260929.py` converted the SEM TAPPs' remaining structured cells
+and added all four to `KEYED_NOTATION_ENFORCED`. Most SEM keyed cells were already markers or had been
+written in the notation by the task 2–3 passes. What remained was the two definers in every column, plus
+eight value cells.
+
+**A cell that parses can still be wrong.** 60 of SEM's definer cells passed the check before conversion,
+but only because a description such as "Tagish Lake (C2) ungrouped carbonaceous chondrite; polished thin
+sections" happens to split at its punctuation. The checker tests form, and a reader must test meaning.
+- A Target Material definer names what the procedure analyses ("carbonaceous chondrite"; "Al-Cu alloy
+  phases; associated minerals"), as EPMA's do.
+- The sample description goes into the commentary, after ` — `.
+- A Reported Variables definer lists the variables, each with its unit as a gloss.
+
+Keeping the original cell as commentary after the new member list preserves every transcribed quote,
+and makes the conversion reviewable against the old text.
+
+**The borrowing trap, a third time.** Pascucci+2026's Target Species held Barnes+2025's CRPG element
+list. Its EDS-map Reported Variables described the paper's EMPA-WDS maps. Both were corrected, as was
+Izawa+2010's BSE column, which described the EDX maps. All three errors were in cells the checker had
+already passed or could not judge. Only reading the paper found them.

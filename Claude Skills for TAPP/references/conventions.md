@@ -1377,9 +1377,12 @@ raise it; do not force it into the wrong key.
 `Project Files/Reports/build_form.py` both import it. The check `keyed-cell` parses every literature
 cell of a keyed field or definer, and matches its members against that column's definer. It reports
 at INFO while a TAPP's backlog is being worked down. A TAPP listed in `KEYED_NOTATION_ENFORCED` in the
-validator reports at WARN: EPMA from the 2026-09-29 pilot on. Baseline on 2026-09-29: 1,505
+validator reports at WARN: EPMA from the 2026-09-29 pilot on, and the four SEM TAPPs from their
+conversion the same day. Baseline on 2026-09-29: 1,505
 structured cells; 403 parsed, 1,070 did not, 32 named a member missing from the definer. After the
-EPMA pilot the backlog is 952 unparsed and 27 unknown-member cells, in the other 15 TAPPs.
+EPMA pilot the backlog is 952 unparsed and 27 unknown-member cells, in the other 15 TAPPs. After the SEM
+conversion it is 922 unparsed and 32 unknown-member cells, in the other 11 TAPPs; the SEM TAPPs' old cells
+were mostly markers, and the task 2–3 passes had written their new cells in the notation already.
 
 **A value that cannot be keyed without inference is registered, not forced.** `KEYED_CELL_EXCEPTIONS`
 in the validator holds (TAPP, field, column) with the reason, and reports it at INFO. Each entry is an
