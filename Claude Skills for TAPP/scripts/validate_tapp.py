@@ -230,7 +230,9 @@ KEYED_BY_TECHNIQUE_DEPENDENT = {
     # `Detection Limit` left this register 2026-08-12: the literature audit showed 7 of 7 papers
     # reporting one LOD per element aggregated over the session, never per spot, so the LA variant
     # became `reported property` like everywhere else and the field is now uniform across all 12.
-    "Primary Calibration Standard Name": "target species in EPMA/SEM and LA-SF; (none) in LA-Q, LA-MC and the Solution TAPPs, which use a single primary or one joint calibration set",
+    # `Primary Calibration Standard Name` LEFT this register: it has been module-owned (CompositionQC) and
+    # uniform since 2026-08-27, and is `target material x target species` in all 12 consumers since
+    # 2026-09-29. The entry had described a pre-module split for a month.
     "Secondary Reference Materials":     "registered 2026-08-12 for defines: standard per target species in EPMA/SEM vs defines: standard in the isotope TAPPs. NOTE 2026-09-08: the per-target-species form no longer occurs anywhere in the library — the field is a plain defines: standard in all 12 TAPPs that carry it, so this entry is currently dormant. Kept, not deleted, because the EPMA/SEM reading is defensible and may return.",
     # Rewritten 2026-08-12 (Decision Record C1): was "analyte only where compositional mapping
     # exists". The WDS dwell time is per spectrometer per pixel — both descriptions said so — so it
@@ -388,17 +390,9 @@ KEY_NAME_VARIANT_EXEMPT = {
         "registered 2026-09-01 when `Analyte` became `Target Species`. The suffix test needs TWO words, so these pairs were invisible while the base field was the one-word `Analyte` — the rename activated a dormant check rather than creating a defect. As above: definer versus consumer of the same domain.",
     ("Target Species", "EPMA Technique per Target Species"):
         "registered 2026-09-01 when `Analyte` became `Target Species`. The suffix test needs TWO words, so these pairs were invisible while the base field was the one-word `Analyte` — the rename activated a dormant check rather than creating a defect. As above: definer versus consumer of the same domain.",
-    ("Detection Limit", "EELS Detection Limit"):
-        "different fields, and the split that made them so landed 2026-08-26. `EELS Sensitivity "
-        "and Detection Limit` bundled a specification (ZLP energy resolution) with a result "
-        "(detection limit), which is why no single Data Type fitted it. On splitting, the "
-        "specification half turned out to need no new field at all — `EELS Energy Resolution` "
-        "already carries it, `Numeric (eV FWHM)`, and the bundled ZLP half was never once filled "
-        "in the literature assessment. So the field was renamed to `EELS Detection Limit`, the "
-        "duplicated half dropped, and the result half typed `Numeric + unit / Text` like its "
-        "`Detection Limit` sibling. The keys still differ and that is correct: an EELS edge is a "
-        "`channel`, enumerated by `EELS Edges`, while `Detection Limit` is one per reported "
-        "concentration variable.",
+    # ("Detection Limit", "EELS Detection Limit") REMOVED 2026-09-29: `EELS Detection Limit` is keyed
+    # `reported property` like its sibling. A detection limit is a value of the measured quantity (VIM),
+    # stated in concentration units, not a property of the edge that produced the signal.
 }
 
 COLB_DEFINER_STEM_EXEMPT = {

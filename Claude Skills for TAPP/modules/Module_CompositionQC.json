@@ -2,7 +2,7 @@
   "module": "CompositionQC",
   "title": "Composition quality control — detection limits, counting statistics, secondary reference materials and standards-based normalization",
   "layer": 2,
-  "version": "5",
+  "version": "6",
   "source_of_truth": "modules/Module_CompositionQC.csv",
   "owned_columns": [
     "A",
@@ -65,7 +65,8 @@
     "2026-08-27: `Primary Calibration Standard Name` DEFERRED, and it is the one field of the seven left out for a reason that may change. Its Keyed By splits `analyte` (EPMA, SEM, SEM_Composition, LA-SF, LA-SF U-Pb) against `(none)` (7 others), and unlike Secondary Reference Materials the per-analyte axis is genuinely attested — 8 of EPMA's 11 extracted cells assign standards per element. A module owns Column I, so shipping it means declaring one key for all 12: `analyte` over-declares for the seven, `(none)` destroys structure the literature attests. That is the G3 conditional-key policy question recorded in Survey_ColB_ColI_Report_2026-08-12 — 'declare the finest key unconditionally, or add a conditional marker?' — and it should be decided as policy, not settled sideways by one field's extraction.",
     "2026-08-27: extended to 6 fields — `Primary Calibration Standard Name` added, unblocked by the G3 policy decision recorded as conventions.md 7.3.2 (declare the finest ATTESTED key unconditionally). Its Keyed By becomes `analyte` across all 12, changing the seven that declared `(none)`. The axis is attested, not invented: 8 of EPMA's 11 extracted cells assign standards per element, and the 2026-08-12 audit set LA-SF to `analyte` on Navarro et al. 2024. The seven `(none)` declarations were procedures that do not exercise the axis, which is the case 7.3.2 settles — a simple procedure now fills a keyed table with one row, which is correct. Five descriptions merged by reading; C, D and E were already uniform.",
     "2026-08-27: Step 2 applied to `Counting Statistics Error`, the two flags held back from the non-ICP-MS pass because the field was about to become module-owned. S1 is KEPT under W5.1 — conventions.md 7.3 takes a compound key's `x` ordering FROM the field's own description and names this field as its worked example, so stripping it would delete the stated source of the key's order. S3 is split under W1: the scope boundary against observed scatter stays in Description, the interpretation of agreement between the two moves to Purpose. Editing the module rather than 12 TAPPs is the point of having extracted it.",
-    "2026-08-27: Step 2 (W1-W5) applied to the 1 flag(s) this module carried from the Step 1 backlog routing. Before/after pairs in analysis/Step2_Applied_MODULES_2026-08-27.csv."
+    "2026-08-27: Step 2 (W1-W5) applied to the 1 flag(s) this module carried from the Step 1 backlog routing. Before/after pairs in analysis/Step2_Applied_MODULES_2026-08-27.csv.",
+    "2026-09-29 v6. `Primary Calibration Standard Name` Keyed By `target species` -> `target material x target species` in all 12 consumers. McCoy+2025_UA (EPMA) states standards per phase and element, which a target-species key cannot hold; the module owns Column I, so the re-key is module-wide, on the 2026-08-27 reasoning under 7.3.2. A procedure with one standard set writes `all [ ... ]` (conventions 7.3.4)."
   ],
   "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }

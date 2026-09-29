@@ -83,6 +83,16 @@ def build(cfg):
             elif any(per.values()):          # nothing matched a member: keep the text as written
                 f['per'] = per
                 f['val'] = ''
+        elif kind == 'plain' and len(d) == 2 and f['val'] and d[1] in doms:
+            # A x B written `all [b: v; ...]`: the value does not vary over A, so show it per B.
+            ents, errs = K.parse_keyed(f['val'], levels=2)
+            if not errs and len(ents) == 1 and [K.norm(n) for n in ents[0][0]] == ['all']:
+                inner = '; '.join('%s: %s' % (', '.join(ns), v) for ns, v in ents[0][1])
+                allv, per = K.values_by_member(inner, doms[d[1]])
+                if allv is not None:
+                    f['val'] = allv
+                elif any(per.values()):
+                    f['per'], f['perKey'], f['val'] = per, d[1], ''
     data = {'groups': groups, 'modes': modes, 'excluded': excluded,
             'perMember': cfg.get('perMember', {}), 'definerOf': definer_of, 'meta': cfg['meta']}
     data['meta'].update({'defaultMode': cfg['defaultMode'], 'sourceMode': cfg['sourceMode']})

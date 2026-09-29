@@ -210,7 +210,7 @@ ADJUDICATED = {
         "troilite/oxyhydroxide indistinguishable'). Same 2-of-N shape that kept Beam Current. The "
         "Lab-XCT Sampling Unit domain, extracted 2026-09-01, carries '> Phase' in 4 of 14 procedures.",
     ("Primary Calibration Standard Name", "OVER-DECLARED"):
-        "KEEP target species. THE RULE THIS ESTABLISHES: a SINGLE-ANALYTE procedure cannot falsify a "
+        "RE-KEYED 2026-09-29 -> target material x target species (Module_CompositionQC v6; McCoy+2025_UA states standards per phase and element). The target-species axis ruled on below is kept as the inner key. Earlier ruling: KEEP target species. THE RULE THIS ESTABLISHES: a SINGLE-ANALYTE procedure cannot falsify a "
         "per-target-species key — the field has exactly one value because there is exactly one target species, and "
         "the detector scores that as scalar. Only MULTI-target species procedures test the axis. In Solution "
         "MC, 6 of the 8 'scalar' cells are single-target-species (Mo, S, Fe, Zr, Rb, Os); both multi-target-species "
@@ -283,7 +283,7 @@ ADJUDICATED = {
         "literature columns. Key became sample > sampling unit in the Rule 13 retrofit. Left as is; "
         "revisit with the electron-beam TAPPs, not with ICP-MS work.",
     ("Primary Calibration Standard Name", "AXIS-MISMATCH"):
-        "CONSISTENT — a field that NAMES standards always looks standard-shaped to the detector. "
+        "RE-KEYED 2026-09-29 -> target material x target species (Module_CompositionQC v6; McCoy+2025_UA states standards per phase and element). The target-species axis ruled on below is kept as the inner key. Earlier ruling: CONSISTENT — a field that NAMES standards always looks standard-shaped to the detector. "
         "Key set to target species in LA-SF 2026-08-12 because Navarro et al. 2024 assigns standards to "
         "target species groups; 6 of 7 use one joint set, which is that axis with one member.",
     ("Isobaric Interference Corrections Applied", "UNDER-DECLARED"):

@@ -3439,8 +3439,49 @@ inference. The user decided the same day:
   Standard Name` in EPMA, SEM and SEM_Composition (Rule 2), and each literature cell becomes
   two-level: `all [Si, Al: anorthite; …]` where the paper does not vary standards by phase. It needs
   its own patch, dry run and gates. The `KEYED_BY_TECHNIQUE_DEPENDENT` entry changes with it.
+  *Applied the same day, module-wide; see the next entry.*
 
 **Found in passing.** `_body.html`'s hardcoded `DEFINER_OF` still named `channel` (retired
 2026-09-10) and lacked `monitored property` and `target material`. So every monitored-property field
 in the mockups had fallen back to "Same for all" without anyone noticing. It is now read from Column I.
+
+## Calibration standards keyed per target material and target species; EELS detection limit per reported property (2026-09-29)
+
+**What changed.** Module_CompositionQC v5 → v6: `Primary Calibration Standard Name` is keyed
+`target material x target species` in all 12 composition TAPPs. `EELS Detection Limit` (TEM,
+TAPP-owned) moves from `monitored property` to `reported property`. 13 TAPPs were bumped. In EPMA, the
+8 stated standards cells became two-level. Seven papers do not vary standards by phase, so their cells
+read `all [Si, Al, Ca: anorthite; …]`. McCoy+2025_UA gets its two phase blocks, transcribed as printed,
+including "rhodonite (Mg)". Applied by `Project Files/Scripts/rekey_standards_eels_20260929.py`.
+
+**Why module-wide, when the proposal was EPMA, SEM and SEM_Composition.** The proposal missed that the
+module owns Column I (Rule 6.5), so one field cannot carry two keys. Three options were put to the user:
+- re-key the module;
+- take the field back out of the module;
+- hold McCoy+2025_UA as `N`.
+
+The user chose the module re-key. It rests on the same reasoning as the module's own 2026-08-27
+decision under 7.3.2: declare the finest attested key unconditionally. No ICP-MS literature cell states
+per-material standards today, and a single-set procedure fills one `all` row. A procedure may list several
+target materials (gap 1), and standards chosen per material, i.e. matrix matching, is general practice, not an
+EPMA quirk.
+
+**Why not `monitored property` for detection limits.** Raised by the user the same day. A detection
+limit is computed from the monitored signal: background counts divided by sensitivity. But what is stated
+is a value of the measured quantity, as VIM defines it, in concentration units after calibration. In the
+library's cells, 7 papers name detection limits by element and 4 by oxide; none names an isotope or an
+X-ray line. Keying by monitored property would turn "Ni: 60 µg/g" into a guess at 60Ni or 62Ni. The
+signal-level quantities it is built from, `Instrument Sensitivity` and the background times, are already
+keyed by monitored property. `EELS Detection Limit` was the one field keyed the other way, and its only
+value ("~10 ppm for transition metals and lanthanides", Xing+2023) is a concentration.
+
+**Registers.**
+- **Removed from `KEYED_BY_TECHNIQUE_DEPENDENT`:** `Primary Calibration Standard Name`. It had described
+  a pre-module split for a month after the field became uniform.
+- **Removed from `KEY_NAME_VARIANT_EXEMPT`:** the `Detection Limit` / `EELS Detection Limit` pair. Its
+  keys now agree.
+- **Audit rulings:** the two for the standards field are marked re-keyed.
+
+**Form generator.** An `A x B` cell written `all [ … ]` does not vary over A, so the form shows it per
+B (`perKey`). That way the standards still open per target species.
 

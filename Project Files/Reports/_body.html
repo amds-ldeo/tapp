@@ -174,14 +174,16 @@ function renderField(f){
     box.append(m); R.append(box);
   }
   else if (f.key!=="(none)"){
-    const dom=domainFor(f.key);
+    /* perKey: an A x B cell written `all [ ... ]` does not vary over A, so it is shown per B */
+    const dom=domainFor(f.perKey||f.key);
     const box=document.createElement("div"); box.className="kw";
     const head=document.createElement("div"); head.className="kw-head";
     head.innerHTML=`<span class="lbl">one value per <b style="color:var(--acc)">${esc(f.key)}</b></span>`;
     const seg=document.createElement("div"); seg.className="seg";
     const bAll=document.createElement("button"); bAll.type="button"; bAll.textContent="Same for all";
     const bPer=document.createElement("button"); bPer.type="button";
-    bPer.textContent = dom.members.length?`Per ${f.key} (${dom.members.length})`:`Per ${f.key}`;
+    const pk=f.perKey||f.key;
+    bPer.textContent = dom.members.length?`Per ${pk} (${dom.members.length})`:`Per ${pk}`;
     seg.append(bAll,bPer); head.append(seg); box.append(head);
     const body=document.createElement("div"); body.className="kw-body"; box.append(body);
 

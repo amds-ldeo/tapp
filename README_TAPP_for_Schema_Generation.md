@@ -178,7 +178,7 @@ Column I is never blank on a content row.
 | `reported property` | One value per reported quantity or nominal property, at any point in the chain — ratios *and* dates alike, plus their uncertainties | Property of an object in the `reportedProperties` array |
 | `sampling unit` | One value per subdivision of the sample carrying its own row — grain, spot, aliquot, phase | Property of an object in the `samplingUnits` array |
 | `standard` | One value per reference material or reference database entry | Property of an object in the `standards` array |
-| `target material` *(added 2026-09-28)* | One value per material type the procedure is designed to analyse, as listed in `Target Material`. Used by the point-analysis beam conditions in EPMA and the SEM TAPPs; each analysis point names its material in `Target Material of Sampling Unit` | Property of an object in the `targetMaterials` array; each point analysis carries a reference to one member |
+| `target material` *(added 2026-09-28)* | One value per material type the procedure is designed to analyse, as listed in `Target Material`. Used by the point-analysis beam conditions in EPMA and the SEM TAPPs, and with `target species` by the primary calibration standards; each analysis point names its material in `Target Material of Sampling Unit` | Property of an object in the `targetMaterials` array; each point analysis carries a reference to one member |
 | `combined result` *(added 2026-09-28)* | One value per reported value obtained by averaging or otherwise combining several individual results — a phase mean, a weighted-mean date, an isochron — as listed in `Combined Results`. Session only: its definer is C=N/A, so it does not exist on the procedure object | Property of an object in the `combinedResults` array, on the session object only |
 | `preparation step` | One value per sample-preparation stage | Property of an object in the `preparationSteps` array |
 | `acquisition pass` | One value per traversal of the measurement with its own configuration, run in sequence on the same material — a sub-procedure. Identical repeats are replicates, not passes | Property of an object in the `acquisitionPasses` array |
@@ -230,7 +230,7 @@ content rows                 1847   (rows with a Keyed By value; group headers e
 scalar, `(none)`             1173   64%
 keyed (arrays in a schema)   674   36%
 Column G provenance stamps   1443   78%
-distinct Keyed By strings    24
+distinct Keyed By strings    25
 definer fields               12
 
 keys in use library-wide (10):
@@ -265,16 +265,17 @@ the complete set of Keyed By strings present, with row counts:
   defines: standard                                 12
   defines: target material                          16
   defines: target species                           13
-  monitored property                               116
+  monitored property                               115
   pair: reported property                            7
   preparation step                                   9
-  reported property                                 98
+  reported property                                 99
   sample                                            48
   sample > sampling unit                            25
   sample > sampling unit x reported property        21
   standard x reported property                      33
   target material                                   16
-  target species                                    52
+  target material x target species                  12
+  target species                                    40
 
 field names whose key is technique-dependent (2) -- do NOT assume one
 global mapping of field name to key:
@@ -628,6 +629,15 @@ four carry straight over (`target_selection` → `SamplingUnitSelection`, `calib
 The field-level facts are unchanged: `Procedural Blank Level` is still absent from TEM, Lab-XCT, SEM_Imaging
 and SEM_FIBSEM (no analytical blank), and `Sampling Unit Selection Criteria` is still absent from the three Solution TAPPs (bulk
 techniques). What changed is that this is now expressed by which modules they compose.
+
+> **Re-keyed 2026-09-29 — calibration standards and the EELS detection limit.**
+> - **`Primary Calibration Standard Name`:** `target species` → `target material x target species`, in
+>   all 12 composition TAPPs (Module_CompositionQC v6). Nest the property as for any `A x B` key:
+>   for each target material, one value per target species. Most procedures use one standard set, and
+>   their example cells read `all [Si, Al: anorthite; …]`.
+> - **`EELS Detection Limit` (TEM):** `monitored property` → `reported property`, matching `EDS Detection
+>   Limit` and `Detection Limit`. Move the property from the `monitoredProperties` array to
+>   `reportedProperties`.
 
 > **Column F cleaned 2026-09-29 — one member's value, no member labels (conventions 7.3.4).**
 > - **Examples changed in 139 rows of 13 TAPPs.** Regenerate any `examples` you took from Column F of

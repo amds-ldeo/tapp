@@ -22,8 +22,21 @@ discovery.
 | `Solution_SF-ICP-MS_TAPP_v85` | `v86` | Column F |
 | `TEM_TAPP_v63` | `v64` | Column F |
 | `EPMA_TAPP_v82` | `v83` | EPMA pilot |
+| `EPMA_TAPP_v83` | `v84` | standards re-key |
+| `LA-MC-ICPMS_TAPP_v87` | `v88` | standards re-key |
+| `LA-MC-ICPMS_UPb_TAPP_v84` | `v85` | standards re-key |
+| `LA-Q-ICP-MS_TAPP_v92` | `v93` | standards re-key |
+| `LA-Q-ICP-MS_UPb_TAPP_v92` | `v93` | standards re-key |
+| `LA-SF-ICP-MS_TAPP_v89` | `v90` | standards re-key |
+| `LA-SF-ICP-MS_UPb_TAPP_v90` | `v91` | standards re-key |
+| `SEM_Composition_TAPP_v79` | `v80` | standards re-key |
+| `SEM_TAPP_v80` | `v81` | standards re-key |
+| `Solution_MC-ICP-MS_TAPP_v88` | `v89` | standards re-key |
+| `Solution_Q-ICP-MS_TAPP_v91` | `v92` | standards re-key |
+| `Solution_SF-ICP-MS_TAPP_v86` | `v87` | standards re-key |
+| `TEM_TAPP_v64` | `v65` | standards re-key |
 
-14 version(s), 28 file(s) (CSV + xlsx). EPMA was bumped twice, once per pass.
+27 version(s), 54 file(s) (CSV + xlsx). EPMA was bumped three times on this date, once per pass.
 
 ## Why
 
@@ -46,6 +59,12 @@ them. Applied by `Project Files/Scripts/epma_keyed_pilot_20260929.py`. v83 was f
 `Kα` in `X-ray Line`, which the controlled list spells `Ka`. That uncommitted v83 was discarded,
 v82 restored from this folder, and the corrected script re-applied as v83.
 
+**Third pass — standards re-key and EELS detection limit.** Module_CompositionQC v5 → v6 re-keys
+`Primary Calibration Standard Name` to `target material x target species` in all 12 composition TAPPs.
+TEM's `EELS Detection Limit` moves to `reported property`. EPMA's 8 stated standards cells became
+two-level (`all [ … ]`; McCoy+2025_UA per phase). Applied by
+`Project Files/Scripts/rekey_standards_eels_20260929.py`.
+
 ## Verification
 
 - `compose_tapp.py --check`: 0 of 16 drifted, before and after each pass.
@@ -59,3 +78,13 @@ v82 restored from this folder, and the corrected script re-applied as v83.
   regenerated as v83. The v81 and v82 workbooks were removed.
 - Changed: Column F in 139 TAPP rows and 8 module rows; 156 EPMA literature cells. No field, tier,
   data type or `Keyed By` value changed. One controlled-list member was removed (`Plasma Thermal Mode`).
+
+**Third pass.** `compose_tapp.py --check`: 0 of 16 drifted after the pass. `validate_tapp.py`: 0 ERROR,
+0 WARN. EPMA's two-level cells pass the enforced `keyed-cell` check, including McCoy+2025_UA's phase
+members. Two register entries left, since their keys no longer diverge: the standards entry in
+`KEYED_BY_TECHNIQUE_DEPENDENT`, and the EELS pair in `KEY_NAME_VARIANT_EXEMPT`.
+`audit_keys_vs_literature.py`: 0 NEW; the two standards rulings are marked re-keyed. The mockups were
+rebuilt against EPMA v84 and LA-MC v88, and the reviewer workbooks regenerated as v84. Changed: Keyed By,
+1 value in 12 TAPPs and 1 in TEM; Column B, 1 (TEM); 8 EPMA literature cells. No field, tier or data type
+changed.
+
