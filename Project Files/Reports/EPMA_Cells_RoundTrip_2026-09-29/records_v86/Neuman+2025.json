@@ -1,0 +1,580 @@
+{
+ "procedure_column": "Neuman+2025 | WashU St. Louis | WDS Mapping (JEOL JXA-8200)",
+ "tapp": "EPMA_TAPP_v86",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "EPMA-WDS quantitative compositional mapping, Apollo 17 core 73001 continuous thin sections (Washington University in St. Louis)",
+   "status": "text",
+   "value": "EPMA-WDS quantitative compositional mapping, Apollo 17 core 73001 continuous thin sections (Washington University in St. Louis)"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "EPMA-WDS",
+   "status": "text",
+   "value": "EPMA-WDS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N (no individual operator named for the EPMA work)",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Washington University in St. Louis",
+   "status": "text",
+   "value": "Washington University in St. Louis"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Neuman et al. 2025, J. Geophys. Res. Planets 130, e2024JE008556; doi:10.1029/2024JE008556 (section 2.6)",
+   "status": "text",
+   "value": "Neuman et al. 2025, J. Geophys. Res. Planets 130, e2024JE008556; doi:10.1029/2024JE008556 (section 2.6)"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)",
+   "status": "text",
+   "value": "BSE mosaic imaging (same JEOL JXA-8200); QEMSCAN (FEI QUANTA 650 FEG-SEM, Univ. Manchester); optical microscopy (Keyence VHX 7000, NASA JSC); micro-XCT (custom NSI instrument, UTCT)"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "Single-element and RGB composite X-ray maps are compared with BSE and optical image mosaics (reflected light, plane polarized, crossed polars) to discriminate crystalline from glassy phases; an Al-Mg-Fe RGB composite X-ray map is used to discriminate feldspathic (red) from ferromagnesian (green and blue) phases",
+   "status": "text",
+   "value": "Single-element and RGB composite X-ray maps are compared with BSE and optical image mosaics (reflected light, plane polarized, crossed polars) to discriminate crystalline from glassy phases; an Al-Mg-Fe RGB composite X-ray map is used to discriminate feldspathic (red) from ferromagnesian (green and blue) phases"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "lunar regolith (Apollo 17 double drive tube, lower section 73001) — as continuous thin sections",
+   "status": "structured",
+   "value": [
+    {
+     "member": "lunar regolith",
+     "parent": null
+    }
+   ]
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N",
+   "status": "text",
+   "value": "Core extruded and dissected in 0.5 cm depth intervals; the remaining material impregnated with epoxy to create a continuous thin section set of the entire core; sections are 50 x 25 mm. Carbon coating N"
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)",
+   "status": "text",
+   "value": "Analysis point - each map pixel is a fully quantitative analysis (1,024 x 1,024 per stage map; five stage maps per thin section; 20 x 10^6 analyses across all slides)"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "N - continuous thin sections of the whole core; five stage maps per section, no selection rule stated",
+   "status": "text",
+   "value": "N - continuous thin sections of the whole core; five stage maps per section, no selection rule stated"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "BSE mosaic: approximately 325 backscattered-electron images collected with the JEOL guide-net mapping software at 15 kV, 2 nA probe current and 70x magnification, stitched with the ImageJ Fiji grid-collection stitching plug-in (Donovan et al., 2021) into a 20k x 5k pixel mosaic at ~1.5 um pixel resolution",
+   "status": "text",
+   "value": "BSE mosaic: approximately 325 backscattered-electron images collected with the JEOL guide-net mapping software at 15 kV, 2 nA probe current and 70x magnification, stitched with the ImageJ Fiji grid-collection stitching plug-in (Donovan et al., 2021) into a 20k x 5k pixel mosaic at ~1.5 um pixel resolution"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "JEOL",
+   "status": "text",
+   "value": "JEOL"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "JEOL JXA-8200",
+   "status": "text",
+   "value": "JEOL JXA-8200"
+  },
+  "Electron Source": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps",
+   "status": "text",
+   "value": "JEOL guide-net mapping software (BSE mosaic); N for the WDS stage maps"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks",
+   "status": "text",
+   "value": "Probe Software CalcImage and Probe for EPMA (full Phi(rho-z) correction at each pixel); MATLAB routines generating 32-bit floating point .tiff quantitative maps; Fiji and MATLAB for stitching; ENVI input image stacks"
+  },
+  "WDS Spectrometer Configuration": {
+   "key": "(none)",
+   "cell": "Fixed wavelength-dispersive spectrometers; count not stated (five elements collected per pass)",
+   "status": "text",
+   "value": "Fixed wavelength-dispersive spectrometers; count not stated (five elements collected per pass)"
+  },
+  "EDS Detector Configuration": {
+   "key": "(none)",
+   "cell": "N/A — WDS mapping procedure",
+   "status": "not applicable"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "WDS Mapping — 'five EPMA stage maps were acquired using fixed wavelength-dispersive spectrometers (WDS)'",
+   "status": "text",
+   "value": "WDS Mapping"
+  },
+  "Beam Mode": {
+   "key": "target material",
+   "cell": "N/A — mapping-only procedure; map conditions under Mapping Beam Mode",
+   "status": "not applicable"
+  },
+  "Accelerating Voltage": {
+   "key": "(none)",
+   "cell": "15 kV (stage maps and BSE mosaic)",
+   "status": "text",
+   "value": "15 kV (stage maps and BSE mosaic)"
+  },
+  "Beam Current": {
+   "key": "target material",
+   "cell": "N/A — mapping-only procedure; map current under Mapping Beam Current; the 2 nA BSE mosaic is recorded under Pre-Analysis Imaging and Screening",
+   "status": "not applicable"
+  },
+  "Beam Diameter": {
+   "key": "target material",
+   "cell": "N/A — mapping-only procedure; map beam under Mapping Beam Diameter",
+   "status": "not applicable"
+  },
+  "Beam Raster Dimensions": {
+   "key": "target material",
+   "cell": "N/A — stage scan, not beam scan",
+   "status": "not applicable"
+  },
+  "Beam Damage Minimization": {
+   "key": "target material",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Mode": {
+   "key": "sample > sampling unit",
+   "cell": "Fixed 10 µm beam (stated 'a fixed 10 um electron beam')",
+   "status": "text",
+   "value": "Fixed 10 µm beam (stated 'a fixed 10 um electron beam')"
+  },
+  "Mapping Beam Current": {
+   "key": "sample > sampling unit",
+   "cell": "100 nA probe current (stage maps)",
+   "status": "text",
+   "value": "100 nA probe current (stage maps)"
+  },
+  "Mapping Beam Diameter": {
+   "key": "sample > sampling unit",
+   "cell": "10 µm (fixed)",
+   "status": "text",
+   "value": "10 µm (fixed)"
+  },
+  "Drift Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Mg, Al, Fe, Ca, Ti, Na, Si, Mn, K, Cr (ten elements, collected in two passes)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Elements": {
+   "key": "defines: monitored property per target species",
+   "cell": "Mg, Al, Fe, Ca, Ti, Na, Si, Mn, K, Cr — 'Two passes were used to collect X-ray intensities for Mg, Al, Fe, Ca, and Ti in pass 1, and Na, Si, Mn, K, and Cr in pass 2' (p.6)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "element wt% maps; oxide wt% maps; cation stoichiometry; mineral endmember maps — 32-bit floating point .tiff",
+   "status": "structured",
+   "value": [
+    {
+     "member": "element wt% maps",
+     "parent": null
+    },
+    {
+     "member": "oxide wt% maps",
+     "parent": null
+    },
+    {
+     "member": "cation stoichiometry",
+     "parent": null
+    },
+    {
+     "member": "mineral endmember maps",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Detection Method per Monitored Element": {
+   "key": "monitored property",
+   "cell": "all: WDS — p.6",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "WDS"
+    }
+   ]
+  },
+  "X-ray Line": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Diffracting Crystal": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Channel": {
+   "key": "monitored property",
+   "cell": "N — spectrometer-to-element assignments are not stated",
+   "status": "commentary only"
+  },
+  "Sequence": {
+   "key": "monitored property",
+   "cell": "Mg, Al, Fe, Ca, Ti: pass 1; Na, Si, Mn, K, Cr: pass 2 — 'Two passes were used to collect X-ray intensities for Mg, Al, Fe, Ca, and Ti in pass 1, and Na, Si, Mn, K, and Cr in pass 2'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Mg",
+      "Al",
+      "Fe",
+      "Ca",
+      "Ti"
+     ],
+     "value": "pass 1"
+    },
+    {
+     "members": [
+      "Na",
+      "Si",
+      "Mn",
+      "K",
+      "Cr"
+     ],
+     "value": "pass 2"
+    }
+   ]
+  },
+  "Proportional Counter / Detector": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS PHA Setting": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Counting Time": {
+   "key": "monitored property",
+   "cell": "N/A — mapping-only procedure; the 25 msec per-pixel dwell is under Dwell Time per Pixel",
+   "status": "not applicable"
+  },
+  "Background Counting Time": {
+   "key": "monitored property",
+   "cell": "N/A — MAN background calibration; no off-peak counting",
+   "status": "not applicable"
+  },
+  "Background Position(s)": {
+   "key": "monitored property",
+   "cell": "N/A — MAN background calibration; no off-peak positions",
+   "status": "not applicable"
+  },
+  "EDS Live Time per Point or Pixel": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "EDS Acquisition Mode": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Dwell Time per Pixel": {
+   "key": "monitored property",
+   "cell": "all: 25 msec — the MAN background correction 'allows all map collection time to be dedicated to on-peak X-ray measurement'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "25 msec"
+    }
+   ]
+  },
+  "Step Size / Pixel Size": {
+   "key": "(none)",
+   "cell": "9.5 um (stage maps); ~1.5 um per pixel (BSE mosaic)",
+   "status": "text",
+   "value": "9.5 um (stage maps); ~1.5 um per pixel (BSE mosaic)"
+  },
+  "Stage Scan vs. Beam Scan": {
+   "key": "(none)",
+   "cell": "Stage scan (stated 'EPMA stage maps')",
+   "status": "text",
+   "value": "Stage scan (stated 'EPMA stage maps')"
+  },
+  "Matrix Correction Method": {
+   "key": "(none)",
+   "cell": "Full Phi(rho-z) correction applied at each pixel, of the form C = k x ZAF, where ZAF is the compositionally dependent correction for atomic number, X-ray absorption and characteristic fluorescence in both sample and standard",
+   "status": "text",
+   "value": "Full Phi(rho-z) correction applied at each pixel, of the form C = k x ZAF, where ZAF is the compositionally dependent correction for atomic number, X-ray absorption and characteristic fluorescence in both sample and standard"
+  },
+  "Mass Absorption Coefficients (MACs)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Background Correction Method": {
+   "key": "monitored property",
+   "cell": "all: Mean Atomic Number (MAN) — MAN background calibration, using 'EPMA standards having a range of average atomic number Z'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Mean Atomic Number (MAN)"
+    }
+   ]
+  },
+  "Time-Dependent Intensity Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species Estimation Method": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Halogen Correction on Oxygen": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "WDS Dead Time Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Spectral Processing Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Blank Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N — the k-ratio is the calibration, and is under Calibration Factor and Determination Method",
+   "status": "commentary only"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "all: k-ratio against the calibration standard — 'the k-ratio (k = (P-B)smp/(P-B)std) is the background corrected relative peak X-ray intensity (P-B) at each pixel in the map compared to the calibration standard', with 'C = k × ZAF'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "k-ratio against the calibration standard"
+    }
+   ]
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "N — 'EPMA standards having a range of average atomic number Z' are used for the MAN background calibration; individual standards not named",
+   "status": "commentary only"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line Overlap Corrections Applied": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Elements": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Standard": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "all: 0.1–0.2 element wt% — 'for all elements in this map set'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "0.1–0.2 element wt%"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N — attributed to the MAN background correction dedicating all map collection time to on-peak measurement, 'which improves precision and detection limits'",
+   "status": "commentary only"
+  },
+  "Analytical Precision": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes.",
+   "status": "text",
+   "value": "Multi-pass WDS mapping: two passes per stage map, five elements each; 18 hr per map; 20 x 10^6 fully quantitative analyses across all slides. Recorded in the acquisition-pass proposal (2026-09-08) as the evidence that EPMA partitions the target-species domain across passes."
+  }
+ }
+}

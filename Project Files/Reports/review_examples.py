@@ -164,8 +164,8 @@ EXAMPLES = {
  'Constants and Reference Values Used': 'IUPAC 2021 standard atomic weights (Prohaska et al. 2022)',
  # ---- 6. Quality control & uncertainty
  'Primary Calibration Standard Name': {
-     'all': 'Springwater olivine USNM 2566 for Si, Mg; Rockport fayalite USNM 85276 for Fe; diopside USNM 117733 for Ca; synthetic FeS for S; synthetic SrF₂ for F; Amelia albite for Na; microcline USNM 143966 for K; scapolite USNM R6600-1 for Cl; anorthite USNM 137041 for Al; Wilberforce fluorapatite for P; ilmenite USNM 96189 for Ti; synthetic Cr₂O₃ for Cr; rhodonite for Mn; Co metal for Co; Ni metal for Ni; synthetic ZnS for Zn (Smithsonian values: Jarosewich et al. 1980)',
-     'eds': 'Springwater olivine USNM 2566 for Si, Mg; Rockport fayalite USNM 85276 for Fe; diopside USNM 117733 for Ca; synthetic FeS for S (Smithsonian values: Jarosewich et al. 1980)',
+     'all': 'Springwater olivine USNM 2566 for Si, Mg; Rockport fayalite USNM 85276 for Fe; diopside USNM 117733 for Ca; dolomite USNM 10057 for Ca, Mg in carbonates; synthetic FeS for S; synthetic SrF₂ for F; Amelia albite for Na; microcline USNM 143966 for K; scapolite USNM R6600-1 for Cl; anorthite USNM 137041 for Al; Wilberforce fluorapatite for P; ilmenite USNM 96189 for Ti; synthetic Cr₂O₃ for Cr; rhodonite for Mn; Co metal for Co; Ni metal for Ni; synthetic ZnS for Zn (Smithsonian values: Jarosewich et al. 1980)',
+     'eds': 'Springwater olivine USNM 2566 for Si, Mg; Rockport fayalite USNM 85276 for Fe; diopside USNM 117733 for Ca; dolomite USNM 10057 for Ca, Mg in carbonates; synthetic FeS for S (Smithsonian values: Jarosewich et al. 1980)',
      'WDS Point Analysis': 'Synthetic SrF₂ for F; Amelia albite for Na; microcline USNM 143966 for K; scapolite USNM R6600-1 for Cl; anorthite USNM 137041 for Al; Wilberforce fluorapatite for P; ilmenite USNM 96189 for Ti; synthetic Cr₂O₃ for Cr; rhodonite for Mn; Co metal for Co; Ni metal for Ni; synthetic ZnS for Zn (Smithsonian values: Jarosewich et al. 1980)',
      'WDS Mapping': 'Amelia albite for Na; anorthite USNM 137041 for Al; Wilberforce fluorapatite for P; synthetic Cr₂O₃ for Cr; Ni metal for Ni'},
  'Secondary Reference Materials': 'San Carlos olivine USNM 111312/444; Kakanui augite USNM 122142; Durango apatite USNM 104021; chromite USNM 117075; calcite USNM 136321 (accepted values: Jarosewich et al. 1980)',
@@ -199,7 +199,7 @@ EXAMPLES = {
      'EDS Point Analysis': '18–26%',
      'EDS Mapping': '24–31% during spectrum imaging'},
  'Goodness-of-Fit or Dispersion Statistic': 'MSWD of the included points about the mean: for olivine in EX-CC-01, 0.9 for NiO to 2.3 for CaO, and 4.6 for FeO (Fe–Mg zoning); likewise for every other combined result',
- 'Other Statistics': 'None reported',
+ 'Other Statistics': 'Standard error of the mean (1 s.d./√n): for olivine in EX-CC-01, 0.08 wt% for SiO₂, 0.12 for MgO, 0.04 for FeO; likewise for every other combined result',
  'Additional Notes': 'Particle P2 of EX-CC-02 partly plucked during ion polishing; its analyses lie on the remaining fragment. No other anomalies, instrument modifications or departures',
 }
 

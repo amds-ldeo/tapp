@@ -73,6 +73,11 @@ assessed, or in the wrong field. Six procedures recover every fact. The 19 left 
 - **Over-precise:** Zega+2025's "each side" backgrounds.
 - **Names:** "EPMA-WDS" in three procedure names whose papers never say WDS.
 
+**v86, after EPMA's remaining fields were filled** (`score_output_v86.txt`). The facts score is unchanged
+at 350 of 369, because those fields come from tables and acknowledgements, which the fact list does not
+cover. Stage 1 changes: only 24 procedure-level cells are left unassessed, all of them `Laboratory ID`
+and `Procedure Start Date`, blank by decision.
+
 ## What this shows, and what it does not
 
 - **The keyed notation did its job.** Every per-member fact in a converted keyed field came back under

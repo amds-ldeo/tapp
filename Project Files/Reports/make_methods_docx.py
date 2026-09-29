@@ -10,7 +10,7 @@ Handles only the constructs these files use: #/##/### headings, paragraphs, one
 blockquote, one pipe table, "- " list items, --- rules, and inline **bold**, *italic*,
 \\* escapes and <mark>.
 """
-import os, re
+import os, re, sys
 from docx import Document
 from docx.shared import Pt, Inches, RGBColor
 from docx.enum.text import WD_COLOR_INDEX
@@ -19,9 +19,11 @@ from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, 'EPMA_Reference_Methods_Section_v77_highlighted.md')
-OUTS = {True:  os.path.join(HERE, 'EPMA_Reference_Methods_Section_v77_highlighted.docx'),
-        False: os.path.join(HERE, 'EPMA_Reference_Methods_Section_v77.docx')}
+# `python3 make_methods_docx.py` rebuilds the v77 edition; `... v86` builds the v86 one.
+VERSION = sys.argv[1] if len(sys.argv) > 1 else 'v77'
+SRC = os.path.join(HERE, 'EPMA_Reference_Methods_Section_%s_highlighted.md' % VERSION)
+OUTS = {True:  os.path.join(HERE, 'EPMA_Reference_Methods_Section_%s_highlighted.docx' % VERSION),
+        False: os.path.join(HERE, 'EPMA_Reference_Methods_Section_%s.docx' % VERSION)}
 TOKEN = re.compile(r'(\\\*|\*\*|\*|</?mark>)')
 
 
@@ -114,7 +116,9 @@ def build(highlight):
             t = doc.add_table(rows=len(rows), cols=len(rows[0]))
             t.style = 'Table Grid'
             t.autofit = False
-            widths = [0.55, 0.45, 1.15, 0.4, 0.85, 0.85, 1.55, 0.7]   # sums to 6.5 in
+            # each sums to 6.5 in; v86 adds the Method column after Element
+            widths = {8: [0.55, 0.45, 1.15, 0.4, 0.85, 0.85, 1.55, 0.7],
+                      9: [0.55, 0.45, 0.4, 1.05, 0.35, 0.8, 0.8, 1.45, 0.65]}[len(rows[0])]
             # Word and LibreOffice lay out from the grid, not from per-cell widths
             for gc, w in zip(t._tbl.tblGrid.findall(qn('w:gridCol')), widths):
                 gc.set(qn('w:w'), str(int(w * 1440)))

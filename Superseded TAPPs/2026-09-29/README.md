@@ -36,8 +36,9 @@ discovery.
 | `Solution_SF-ICP-MS_TAPP_v86` | `v87` | standards re-key |
 | `TEM_TAPP_v64` | `v65` | standards re-key |
 | `EPMA_TAPP_v84` | `v85` | round-trip fixes |
+| `EPMA_TAPP_v85` | `v86` | remaining fields |
 
-28 version(s), 56 file(s) (CSV + xlsx). EPMA was bumped four times on this date, once per pass.
+29 version(s), 58 file(s) (CSV + xlsx). EPMA was bumped five times on this date, once per pass.
 
 ## Why
 
@@ -76,6 +77,13 @@ cells were changed to close them:
 
 Applied by `Project Files/Scripts/epma_roundtrip_fixes_20260929.py`.
 
+**Fifth pass — EPMA's remaining blank cells.** 205 literature cells were filled from the papers'
+methods, table notes, acknowledgements and data-availability statements, among them the three
+Aggregation fields, `Target Material of Sampling Unit` and the funding and dataset fields. The
+lab-internal fields were sampled first. `Laboratory ID` and `Procedure Start Date` appear in 0 of 12
+papers, so they stay blank by decision. `Funding Source for Procedure Development` appears in 3 of 12,
+so it was assessed. Applied by `Project Files/Scripts/epma_remaining_fields_20260929.py`.
+
 ## Verification
 
 - `compose_tapp.py --check`: 0 of 16 drifted, before and after each pass.
@@ -103,4 +111,11 @@ changed.
 `audit_keys_vs_literature.py`: 0 NEW. The mockups and reviewer workbooks were regenerated at v85. The
 round-trip was re-scored on v85: 350 of 369 facts recovered (95%), up from 338 (92%) on v84. Changed:
 37 EPMA literature cells; no field, tier, data type or key.
+
+**Fifth pass.** `compose_tapp.py --check`: 0 of 16 drifted. `validate_tapp.py`: 0 ERROR, 0 WARN; every
+new keyed cell parses against its definer. `audit_keys_vs_literature.py`: 2 new findings, both
+adjudicated CONSISTENT (`Combination Method`, `Goodness-of-Fit or Dispersion Statistic`), so 0 NEW.
+The mockups and reviewer workbooks were regenerated at v86. The only procedure-level cells left
+unassessed in EPMA are the 24 lab-internal ones, blank by decision. Changed: 205 literature cells; no
+field, tier, data type or key.
 

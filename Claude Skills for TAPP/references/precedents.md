@@ -3519,3 +3519,56 @@ in full against their papers.
 the cells. An independent extraction would be the stronger test, and is worth doing before the claim
 is made for another TAPP.
 
+## EPMA's literature assessment finished; lab-internal fields sampled before being left blank (2026-09-29)
+
+**The sample.** `Laboratory ID` and `Procedure Start Date` were searched for in all 12 EPMA papers: a
+laboratory persistent identifier (ROR or similar), and any date a configuration went into service.
+Neither appears in any paper, so they stay blank by decision, as `Session Identifier` does. The user's
+reading is that this is expected, and is the reason TAPPs exist: registration asks for what
+publications do not carry.
+
+`Funding Source for Procedure Development` came out differently. 3 of 12 papers state facility or
+instrument support:
+- Ma+2015 and Ma+2017: NSF grants for the Caltech GPS facility;
+- Zega+2025: NASA and NSF awards "for supporting the instrumentation in K-ALFAA".
+
+So it is an attestable field, and it was assessed.
+
+**The rest of the pass** (`Project Files/Scripts/epma_remaining_fields_20260929.py`). 205 cells were
+filled from table notes, acknowledgements and data-availability statements:
+- the Aggregation fields: `Combined Results` from table columns and their n, `Combination Method` per
+  reported property, and the dispersion statistic from table notes;
+- `Target Material of Sampling Unit`;
+- study funding;
+- dataset references;
+- sample identifiers;
+- `N` or `N/A` where a field does not apply or is not stated.
+
+Two existing cells were wrong:
+- Neuman+2025's k-ratio was recorded as a normalization; it is the calibration factor.
+- Liu+2016_Cal counted Table 3's LA-ICP-MS averages (n = 7, 13) as microprobe means.
+
+**Rule for multi-laboratory funding.** Where a paper assigns grants person by person across many
+laboratories, as the Bennu papers do, only the study-level award is recorded as analysis funding. The
+person-level grants go to commentary: attributing any of them to the microprobe work would be inference.
+
+
+## The EPMA documents re-issued at v86; the v77 editions kept as records (2026-09-29)
+
+The human-readable EPMA documents were written against v77, and nine fields have changed since. They
+were re-issued as v86 editions **beside** the v77 ones, not over them. The v77 editions are inputs to
+two tests (the 2026-09-17 narrative round-trip, and Appendix B's gap list), so overwriting them would
+break those tests' provenance.
+
+- `Project Files/Reports/EPMA_TAPP_v86_Narrative.md`: the prose rendering of the TAPP. It sits in Reports, not `EPMA/`, because technique folders are outside the git allowlist (the v77 narrative, in `EPMA/`, was never committed).
+- `Project Files/Reports/EPMA_Reference_Procedure_Example_v86.md`: the worked example, covering 95 of
+  95 fields (Appendix A generated). Its Appendix B restates the six v77 gaps at v86: four closed, two held.
+- `Project Files/Reports/EPMA_Reference_Methods_Section_v86.md`, with its highlighted copy and both
+  `.docx`: the journal-style methods section. 302 spans are highlighted, covering 61% of the prose words.
+- The reviewer workbooks' examples gained the carbonate dolomite standard and the standard errors.
+
+**The generators take a version argument; with none, they rebuild v77.** Rebuilding v77 gives
+byte-identical output for the highlighter and the docx builder. The exception is
+`make_reference_example_appendix.py`: its phrasing changed after v77 was written, so a v77 rebuild
+drifts in 4 cells. Do not re-run it for v77. The v86 highlight list is the v77 list with changed
+spans substituted and new ones appended, so both editions stay traceable to one list.

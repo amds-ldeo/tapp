@@ -1,0 +1,565 @@
+{
+ "procedure_column": "Broussard+2026 | JEOL JXA-8200 | WDS Mapping (WashU)",
+ "tapp": "EPMA_TAPP_v86",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "EPMA-WDS Quantitative Mapping+Analysis, CI Chondrite Minerals (WashU, JEOL JXA-8200)",
+   "status": "text",
+   "value": "EPMA-WDS Quantitative Mapping+Analysis, CI Chondrite Minerals (WashU, JEOL JXA-8200)"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "EPMA-WDS",
+   "status": "text",
+   "value": "EPMA-WDS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Washington University in St. Louis",
+   "status": "text",
+   "value": "Washington University in St. Louis"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138",
+   "status": "text",
+   "value": "Broussard et al. 2026, Meteorit. Planet. Sci.; doi:10.1111/maps.70138"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)",
+   "status": "text",
+   "value": "Powder XRD (Rigaku MiniFlex 600); ICP-MS (Thermo Fisher iCAP Qc, WashU); K isotope MC-ICP-MS (Neptune Plus, WashU); CO2 laser-fluorination O isotope MS (U. New Mexico); AMS (PRIME Lab, Purdue)"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "phyllosilicate (matrix); oxide (magnetite, ilmenite); sulfide (pyrrhotite, pentlandite); carbonate (dolomite, magnesite); phosphate (Ca phosphate, Na-Mg hydrous phosphate) — phases analysed and mapped by EPMA (results)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "phyllosilicate",
+     "parent": null
+    },
+    {
+     "member": "oxide",
+     "parent": null
+    },
+    {
+     "member": "sulfide",
+     "parent": null
+    },
+    {
+     "member": "carbonate",
+     "parent": null
+    },
+    {
+     "member": "phosphate",
+     "parent": null
+    }
+   ]
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N",
+   "status": "text",
+   "value": "Fragments mounted and dry-polished in a petrographic thin section; carbon coating N"
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Region of interest > Phase — \"wavelength-dispersive quantitative compositional mapping and analysis\" (p.3) of whole fragments; phases are identified within a map (\"Round Phy1 phyllosilicate clast\", \"Lithic clast (LC1)\", Fig. 3, p.6) and abundances given per section (\"sulfides which make up 2.3 areal% of the section\", p.6)",
+   "status": "text",
+   "value": "Region of interest > Phase"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
+   "status": "commentary only"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "Optical microscopy of the same thin section — \"Eleven OC002 LAB24-2 fragments were mounted and dry-polished in a petrographic thin section used for optical microscopy and electron probe microanalyses\" (p.3)",
+   "status": "text",
+   "value": "Optical microscopy of the same thin section"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "JEOL",
+   "status": "text",
+   "value": "JEOL"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "JXA-8200 (stated as \"JEOL JXA-8200 electron microprobe\")",
+   "status": "text",
+   "value": "JXA-8200 (stated as \"JEOL JXA-8200 electron microprobe\")"
+  },
+  "Electron Source": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "Probe for EPMA microanalysis software",
+   "status": "text",
+   "value": "Probe for EPMA microanalysis software"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)",
+   "status": "text",
+   "value": "Probe for EPMA (CITZAF matrix correction, Armstrong 1995); CalcImage and Quantitative Microanalysis Explorer web-based tool (for stage mapping)"
+  },
+  "WDS Spectrometer Configuration": {
+   "key": "(none)",
+   "cell": "5 wavelength-dispersive spectrometers (JEOL)",
+   "status": "text",
+   "value": "5 wavelength-dispersive spectrometers (JEOL)"
+  },
+  "EDS Detector Configuration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "WDS Point Analysis; WDS Mapping — 'wavelength-dispersive quantitative compositional mapping and analysis'",
+   "status": "text",
+   "value": "WDS Point Analysis; WDS Mapping"
+  },
+  "Beam Mode": {
+   "key": "target material",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Accelerating Voltage": {
+   "key": "(none)",
+   "cell": "15 kV",
+   "status": "text",
+   "value": "15 kV"
+  },
+  "Beam Current": {
+   "key": "target material",
+   "cell": "all: 25 nA — '15 kV accelerating potential and 25 nA probe current for point analysis'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "25 nA"
+    }
+   ]
+  },
+  "Beam Diameter": {
+   "key": "target material",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Beam Raster Dimensions": {
+   "key": "target material",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Beam Damage Minimization": {
+   "key": "target material",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mapping Beam Mode": {
+   "key": "sample > sampling unit",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mapping Beam Current": {
+   "key": "sample > sampling unit",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mapping Beam Diameter": {
+   "key": "sample > sampling unit",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Drift Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "F, O, CO2, H2O — F measured; 'Oxygen was calculated by elemental stoichiometry with water estimated by inspection of the analytical total, and for carbonates, CO2 was calculated by stoichiometry'; the other analysed elements are not named",
+   "status": "structured",
+   "value": [
+    {
+     "member": "F",
+     "parent": null
+    },
+    {
+     "member": "O",
+     "parent": null
+    },
+    {
+     "member": "CO2",
+     "parent": null
+    },
+    {
+     "member": "H2O",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Elements": {
+   "key": "defines: monitored property per target species",
+   "cell": "F — 'Fluorine measurement was made using the LDE1 diffracting crystal'; no other element is named",
+   "status": "structured",
+   "value": [
+    {
+     "member": "F",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Element concentrations in the carbonates (wt%: Fe, Mn — \"Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)\", p.5); phase abundance as areal fraction of the section (areal%, e.g. sulfides \"2.3 areal%\", p.6); phase identifications from the X-ray maps (nominal)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Element concentrations in the carbonates",
+     "parent": null
+    },
+    {
+     "member": "phase abundance as areal fraction of the section",
+     "parent": null
+    },
+    {
+     "member": "phase identifications from the X-ray maps",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Detection Method per Monitored Element": {
+   "key": "monitored property",
+   "cell": "all: WDS — 'wavelength-dispersive quantitative compositional mapping and analysis'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "WDS"
+    }
+   ]
+  },
+  "X-ray Line": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Diffracting Crystal": {
+   "key": "monitored property",
+   "cell": "F: LDE1 — p.3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "F"
+     ],
+     "value": "LDE1"
+    }
+   ]
+  },
+  "WDS Spectrometer Channel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sequence": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Proportional Counter / Detector": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS PHA Setting": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Counting Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Background Counting Time": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Background Position(s)": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "EDS Live Time per Point or Pixel": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "EDS Acquisition Mode": {
+   "key": "(none)",
+   "cell": "N/A — WDS procedure",
+   "status": "not applicable"
+  },
+  "Dwell Time per Pixel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Step Size / Pixel Size": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Stage Scan vs. Beam Scan": {
+   "key": "(none)",
+   "cell": "Stage scan",
+   "status": "text",
+   "value": "Stage scan"
+  },
+  "Matrix Correction Method": {
+   "key": "(none)",
+   "cell": "CITZAF (Armstrong 1995)",
+   "status": "text",
+   "value": "CITZAF (Armstrong 1995)"
+  },
+  "Mass Absorption Coefficients (MACs)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Background Correction Method": {
+   "key": "monitored property",
+   "cell": "F: polynomial fit to the background determined on representative phases; other: Mean Atomic Number (MAN) — 'the mean atomic number (MAN) background calibration was made using these standards'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "F"
+     ],
+     "value": "polynomial fit to the background determined on representative phases"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "Mean Atomic Number (MAN)"
+    }
+   ]
+  },
+  "Time-Dependent Intensity Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species Estimation Method": {
+   "key": "target species",
+   "cell": "O, CO2: Stoichiometry from cations; H2O: estimated by inspection of the analytical total; F: Direct (measured) — p.3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "O",
+      "CO2"
+     ],
+     "value": "Stoichiometry from cations"
+    },
+    {
+     "members": [
+      "H2O"
+     ],
+     "value": "estimated by inspection of the analytical total"
+    },
+    {
+     "members": [
+      "F"
+     ],
+     "value": "Direct (measured)"
+    }
+   ]
+  },
+  "Halogen Correction on Oxygen": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Dead Time Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Spectral Processing Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Blank Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — the carbonate compositions are means of stated counts (\"Dolomite contains 2.0 ± 0.4 wt% Fe and 3.0 ± 0.9 wt% Mn (n = 37)\"; \"Magnesite contains 14.5 ± 2.7 wt% Fe and 4.6 ± 2.5 wt % Mn (n = 23)\", p.5). No acceptance or rejection rule is stated",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "Element concentrations in the carbonates: mean per carbonate phase; other: N — dolomite n = 37, magnesite n = 23 (p.5)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Element concentrations in the carbonates"
+     ],
+     "value": "mean per carbonate phase"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [F: synthetic F-phlogopite; other: N] — 'natural and synthetic minerals routinely used in the analytical facility'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "F"
+       ],
+       "value": "synthetic F-phlogopite"
+      },
+      {
+       "members": [
+        "other"
+       ],
+       "value": "N"
+      }
+     ]
+    }
+   ]
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "Smithsonian Microbeam standards (specific materials and values N)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Smithsonian Microbeam standards",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Line Overlap Corrections Applied": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Elements": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Standard": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Precision": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Broussard et al. 2026, Meteorit. Planet. Sci. — OC002 CI chondrite links Bennu and Ryugu. Washington University in St. Louis. Instrument stated as \"JEOL JXA-8200 electron microprobe\" — NOT JXA-8230 as in v2 header. WDS explicitly stated (\"wavelength-dispersive quantitative compositional mapping and analysis\"). CITZAF matrix correction (Armstrong 1995) — NOT PAP or XPP. MAN background for most analytes; polynomial fit for F via LDE1 crystal. Both point analysis (15 kV, 25 nA) and quantitative stage mapping performed. O by stoichiometry from cations. F is the only explicitly named analyte in methods; full list N. An EDS spectrometer is on the instrument; its use is not stated. Smithsonian Microbeam standards as secondary QC. No peak counting time, beam diameter, detection limits, or interference corrections stated.",
+   "status": "text",
+   "value": "Broussard et al. 2026, Meteorit. Planet. Sci."
+  }
+ }
+}

@@ -109,6 +109,16 @@ EXCLUDE_FIELDS = {
 # sees only genuinely new disagreements. Rationale for each is in precedents.md under
 # "Validating keys against the literature assessment".
 ADJUDICATED = {
+    # ---- adjudicated 2026-09-29, on EPMA's remaining-fields pass (epma_remaining_fields_20260929.py).
+    ("Combination Method", "AXIS-MISMATCH"):
+        "CONSISTENT — keep reported property. The EPMA cells read 'SiO2, ...: mean of n point analyses per phase "
+        "and textural setting'. The detector takes 'per phase' and 'per occurrence' as a second axis, but the field "
+        "is defined to say, per reported variable, how it is combined and over what group. The combined values "
+        "themselves are the members of `Combined Results`.",
+    ("Goodness-of-Fit or Dispersion Statistic", "OVER-DECLARED"):
+        "CONSISTENT — keep combined result x reported property. In a literature column `combined result` drops out "
+        "(7.3.3), so the cells are written per reported property ('SiO2, TiO2, ...: one standard deviation of the "
+        "mean'). The detector reads oxide members as target species.",
     # ---- adjudicated 2026-09-29, on the EPMA keyed-value notation pilot (epma_keyed_pilot_20260929.py).
     ("X-ray Line", "AXIS-MISMATCH"):
         "CONSISTENT — keep monitored property. The pilot wrote the cells as 'Si, Al, Ca, ...: Ka', and the "

@@ -66,6 +66,9 @@ are deliberately left unassessed, and their blank rows mean *"not assessed, by d
 `N`, and across 49 in-situ papers not one states a run, sequence or batch identifier. The same shape
 holds for `Procedure DOI`, `Coupled Procedure DOI`, `Analysis Start Date`, `Analysis End Date` and
 `Analyst`. See precedents.md, *"Literature attestation cannot validate lab-internal fields"*.
+On 2026-09-29 `Laboratory ID` and `Procedure Start Date` joined them: 0 of 12 EPMA papers state
+either. `Funding Source for Procedure Development` did not join them, because 3 of 12 state facility or
+instrument support. That is why a field is sampled before it is excluded.
 
 **Before opening a pass on an analysis-level field, ask whether a paper would ever print the value.**
 If the honest answer is no, sample five or six papers to confirm and record the finding instead of

@@ -1,0 +1,786 @@
+{
+ "procedure_column": "Ma+2017 | JEOL 8200 | WDS Point Analysis (Caltech GPS Analytical Facility)",
+ "tapp": "EPMA_TAPP_v86",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "EPMA-WDS Major Element Silicates/Glasses, Zagami (Caltech GPS Analytical Facility, JEOL 8200)",
+   "status": "text",
+   "value": "EPMA-WDS Major Element Silicates/Glasses, Zagami (Caltech GPS Analytical Facility, JEOL 8200)"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "EPMA-WDS",
+   "status": "text",
+   "value": "EPMA-WDS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "Chi Ma",
+   "status": "text",
+   "value": "Chi Ma"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Division of Geological and Planetary Sciences Analytical Facility, Caltech",
+   "status": "text",
+   "value": "Division of Geological and Planetary Sciences Analytical Facility, Caltech"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "NSF EAR-0318518; NSF EAR-1322082; NSF DMR-0080065 — 'SEM, EBSD, EPMA, and Raman measurements were carried out at the Geological and Planetary Science Division Analytical Facility at Caltech, which is supported in part by NSF grants EAR-0318518, EAR-1322082, and DMR-0080065'",
+   "status": "text",
+   "value": "NSF EAR-0318518; NSF EAR-1322082; NSF DMR-0080065"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61; doi:10.1111/maps.13000 (file dated 2017)",
+   "status": "text",
+   "value": "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61; doi:10.1111/maps.13000 (file dated 2017)"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD; synchrotron XRD; micro-Raman",
+   "status": "text",
+   "value": "SEM (Carl Zeiss 1550VP FE-SEM, BSE imaging); EBSD; synchrotron XRD; micro-Raman"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "liebermannite; lingunite; maskelynite — Table 1: 'Analytical data for liebermannite and associated lingunite and maskelynite'",
+   "status": "structured",
+   "value": [
+    {
+     "member": "liebermannite",
+     "parent": null
+    },
+    {
+     "member": "lingunite",
+     "parent": null
+    },
+    {
+     "member": "maskelynite",
+     "parent": null
+    }
+   ]
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Polished thin section USNM 7619 (coating type N)",
+   "status": "text",
+   "value": "Polished thin section USNM 7619 (coating type N)"
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Grain > Analysis point — Table 1 reports one column per occurrence (\"Type liebermannite\", \"The second liebermannite\", \"The third liebermannite\", \"Lingunite next to type liebermannite\" …), each the mean of n = 2–6 points (p.3)",
+   "status": "text",
+   "value": "Grain > Analysis point"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "Occurrence of the target phase — the units analysed are the observed occurrences of the new mineral: \"A first occurrence of liebermannite was observed with lingunite, silica, ilmenite, and baddeleyite ... (this is the type material). A second occurrence ... A third occurrence is shown in Fig. 1c, close to the type occurrence\" (p.4)",
+   "status": "text",
+   "value": "Occurrence of the target phase"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "SEM BSE imaging on a ZEISS 1550VP field-emission SEM — \"Backscattered electron (BSE) imaging was performed using a Carl Zeiss, LLC 1550VP field emission SEM\" (p.2), locating the three occurrences of the new mineral in the Zagami thin section (Fig. 1, p.2). The paper lists EPMA, SEM, EBSD, synchrotron XRD and micro-Raman as one suite (p.2) without stating the order",
+   "status": "text",
+   "value": "SEM BSE imaging on a ZEISS 1550VP field-emission SEM"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "JEOL",
+   "status": "text",
+   "value": "JEOL"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "JEOL 8200 (stated as \"JEOL 8200 electron microprobe\"; no JXA prefix in paper)",
+   "status": "text",
+   "value": "JEOL 8200 (stated as \"JEOL 8200 electron microprobe\"; no JXA prefix in paper)"
+  },
+  "Electron Source": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "Probe for EPMA (Probe Software, Inc.)",
+   "status": "text",
+   "value": "Probe for EPMA (Probe Software, Inc.)"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N — the 'CITZAF correction procedure' is recorded under Matrix Correction Method; the only software named is Probe for EPMA",
+   "status": "commentary only"
+  },
+  "WDS Spectrometer Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Detector Configuration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "WDS Point Analysis — 'WDS: 15 kV, 5 nA'; the paper also mentions 'K-mapping by EPMA', with no detector or conditions",
+   "status": "text",
+   "value": "WDS Point Analysis"
+  },
+  "Beam Mode": {
+   "key": "target material",
+   "cell": "all: Focused — 'WDS: 15 kV, 5 nA, beam in focused mode' (p.2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Focused"
+    }
+   ]
+  },
+  "Accelerating Voltage": {
+   "key": "(none)",
+   "cell": "15 kV",
+   "status": "text",
+   "value": "15 kV"
+  },
+  "Beam Current": {
+   "key": "target material",
+   "cell": "all: 5 nA — p.2",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "5 nA"
+    }
+   ]
+  },
+  "Beam Diameter": {
+   "key": "target material",
+   "cell": "N — 'beam in focused mode' is recorded under Beam Mode; no diameter is given",
+   "status": "commentary only"
+  },
+  "Beam Raster Dimensions": {
+   "key": "target material",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Beam Damage Minimization": {
+   "key": "target material",
+   "cell": "all: low beam current (5 nA) — 'Although a low beam current of 5 nA was used for the analysis, the low cation sum (0.92) for the K-site is likely due to diffusion of Na away from the electron beam' (p.3)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "low beam current (5 nA)"
+    }
+   ]
+  },
+  "Mapping Beam Mode": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Current": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Diameter": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Drift Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Si, Al, K, Na, Ca, Fe, Mg, Ti, Cr, Mn (stated via standards sentence and detection limit list)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Elements": {
+   "key": "defines: monitored property per target species",
+   "cell": "Si, Al, K, Ca, Na, Fe, Mg, Ti, Cr, Mn — all determined. \"Standards for analysis were Asbestos microcline (SiKa, AlKa, KKa), synthetic anorthite (CaKa), Amelia albite (NaKa), synthetic fayalite (FeKa), synthetic forsterite (MgKa), synthetic TiO2 (TiKa), synthetic Cr2O3 (CrKa), and synthetic Mn-olivine (MnKa)\", with detection limits quoted for the same ten (p.2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O; cations per formula unit; density — oxide wt% with totals and 1 s.d. of the mean, cations on 8 oxygens (Table 1); 'Magnesium, Cr, and Mn were also analyzed but were below the detection limit in all cases'; calculated density 3.98 g cm-3 (p.3)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "SiO2",
+     "parent": null
+    },
+    {
+     "member": "TiO2",
+     "parent": null
+    },
+    {
+     "member": "Al2O3",
+     "parent": null
+    },
+    {
+     "member": "FeO",
+     "parent": null
+    },
+    {
+     "member": "CaO",
+     "parent": null
+    },
+    {
+     "member": "Na2O",
+     "parent": null
+    },
+    {
+     "member": "K2O",
+     "parent": null
+    },
+    {
+     "member": "cations per formula unit",
+     "parent": null
+    },
+    {
+     "member": "density",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Detection Method per Monitored Element": {
+   "key": "monitored property",
+   "cell": "all: WDS — 'WDS: 15 kV, 5 nA'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "WDS"
+    }
+   ]
+  },
+  "X-ray Line": {
+   "key": "monitored property",
+   "cell": "Si, Al, K, Ca, Na, Fe, Mg, Ti, Cr, Mn: Ka — 'Asbestos microcline (SiKa, AlKa, KKa), synthetic anorthite (CaKa), Amelia albite (NaKa), synthetic fayalite (FeKa), synthetic forsterite (MgKa), synthetic TiO2 (TiKa), synthetic Cr2O3 (CrKa), and synthetic Mn-olivine (MnKa)'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Si",
+      "Al",
+      "K",
+      "Ca",
+      "Na",
+      "Fe",
+      "Mg",
+      "Ti",
+      "Cr",
+      "Mn"
+     ],
+     "value": "Ka"
+    }
+   ]
+  },
+  "Diffracting Crystal": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Channel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sequence": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Proportional Counter / Detector": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS PHA Setting": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Counting Time": {
+   "key": "monitored property",
+   "cell": "all: 20 s — 'Counting times were 20 s on-peak and 10 s each on high and low background positions' (p.2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "20 s"
+    }
+   ]
+  },
+  "Background Counting Time": {
+   "key": "monitored property",
+   "cell": "all: 10 s on each of the high and low background positions — as above",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "10 s on each of the high and low background positions"
+    }
+   ]
+  },
+  "Background Position(s)": {
+   "key": "monitored property",
+   "cell": "all: high and low — 'high and low background positions'; offsets not given",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "high and low"
+    }
+   ]
+  },
+  "EDS Live Time per Point or Pixel": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "EDS Acquisition Mode": {
+   "key": "(none)",
+   "cell": "N/A — WDS procedure",
+   "status": "not applicable"
+  },
+  "Dwell Time per Pixel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Step Size / Pixel Size": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Stage Scan vs. Beam Scan": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Matrix Correction Method": {
+   "key": "(none)",
+   "cell": "CITZAF (Armstrong 1995)",
+   "status": "text",
+   "value": "CITZAF (Armstrong 1995)"
+  },
+  "Mass Absorption Coefficients (MACs)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Background Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Time-Dependent Intensity Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species Estimation Method": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Halogen Correction on Oxygen": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "WDS Dead Time Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Spectral Processing Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Blank Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — each Table 1 column is the mean of n point analyses of one occurrence (n = 6, 2, 3, 3, 5 and 4; p.3), with one standard deviation of the mean. No acceptance or rejection rule is stated",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "SiO2, TiO2, Al2O3, FeO, CaO, Na2O, K2O: mean of n point analyses per occurrence; other: N — Table 1 notes b and c",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "SiO2",
+      "TiO2",
+      "Al2O3",
+      "FeO",
+      "CaO",
+      "Na2O",
+      "K2O"
+     ],
+     "value": "mean of n point analyses per occurrence"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [Si, Al, K: Asbestos microcline; Ca: synthetic anorthite; Na: Amelia albite; Fe: synthetic fayalite; Mg: synthetic forsterite; Ti: synthetic TiO2; Cr: synthetic Cr2O3; Mn: synthetic Mn-olivine] — p.2",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "Si",
+        "Al",
+        "K"
+       ],
+       "value": "Asbestos microcline"
+      },
+      {
+       "members": [
+        "Ca"
+       ],
+       "value": "synthetic anorthite"
+      },
+      {
+       "members": [
+        "Na"
+       ],
+       "value": "Amelia albite"
+      },
+      {
+       "members": [
+        "Fe"
+       ],
+       "value": "synthetic fayalite"
+      },
+      {
+       "members": [
+        "Mg"
+       ],
+       "value": "synthetic forsterite"
+      },
+      {
+       "members": [
+        "Ti"
+       ],
+       "value": "synthetic TiO2"
+      },
+      {
+       "members": [
+        "Cr"
+       ],
+       "value": "synthetic Cr2O3"
+      },
+      {
+       "members": [
+        "Mn"
+       ],
+       "value": "synthetic Mn-olivine"
+      }
+     ]
+    }
+   ]
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "feldspar standards — 'based on analysis of feldspar standards as unknowns'; not named individually",
+   "status": "structured",
+   "value": [
+    {
+     "member": "feldspar standards",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Line Overlap Corrections Applied": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Elements": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Standard": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "Si: 0.05 wt%; Ti: 0.04 wt%; Al: 0.06 wt%; Fe: 0.06 wt%; Mg: 0.02 wt%; Ca: 0.02 wt%; Na: 0.03 wt%; K: 0.02 wt%; Cr: 0.05 wt%; Mn: 0.06 wt% — 'The detection limits (wt%) are 0.05 Si, 0.04 Ti, ...' (p.2) — stated per element, while Table 1 reports oxides",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Si"
+     ],
+     "value": "0.05 wt%"
+    },
+    {
+     "members": [
+      "Ti"
+     ],
+     "value": "0.04 wt%"
+    },
+    {
+     "members": [
+      "Al"
+     ],
+     "value": "0.06 wt%"
+    },
+    {
+     "members": [
+      "Fe"
+     ],
+     "value": "0.06 wt%"
+    },
+    {
+     "members": [
+      "Mg"
+     ],
+     "value": "0.02 wt%"
+    },
+    {
+     "members": [
+      "Ca"
+     ],
+     "value": "0.02 wt%"
+    },
+    {
+     "members": [
+      "Na"
+     ],
+     "value": "0.03 wt%"
+    },
+    {
+     "members": [
+      "K"
+     ],
+     "value": "0.02 wt%"
+    },
+    {
+     "members": [
+      "Cr"
+     ],
+     "value": "0.05 wt%"
+    },
+    {
+     "members": [
+      "Mn"
+     ],
+     "value": "0.06 wt%"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Precision": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy": {
+   "key": "standard x reported property",
+   "cell": "feldspar standards [Si, Al, Ca, Na, K: 1–2%; other: N] — 'The accuracy is 1–2% for Si, Al, Ca, Na, and K, based on analysis of feldspar standards as unknowns' — per element, while Table 1 reports oxides",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "feldspar standards"
+     ],
+     "value": [
+      {
+       "members": [
+        "Si",
+        "Al",
+        "Ca",
+        "Na",
+        "K"
+       ],
+       "value": "1–2%"
+      },
+      {
+       "members": [
+        "other"
+       ],
+       "value": "N"
+      }
+     ]
+    }
+   ]
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61 (file dated 2017) — liebermannite (KAlSi3O8) discovery from Zagami. Instrument stated as \"JEOL 8200 electron microprobe\" (no JXA prefix in text). WDS explicitly stated (\"WDS: 15 kV, 5 nA\"). Probe for EPMA; CITZAF correction (Armstrong 1995) — NOT PAP. Full standard suite and X-ray lines stated. K-mapping by EPMA also performed (used for mineral identification) but mapping conditions (step size, dwell time, current) not stated. Na diffusion observed during analysis despite low 5 nA beam current. Detection limits stated (per-element wt% values). Analytical accuracy: 1-2% for Si, Al, Ca, Na, K (feldspar standards as unknowns). Caltech GPS Division Analytical Facility.",
+   "status": "text",
+   "value": "Ma et al. 2018, Meteorit. Planet. Sci. 53:50-61 (file dated 2017)"
+  }
+ }
+}

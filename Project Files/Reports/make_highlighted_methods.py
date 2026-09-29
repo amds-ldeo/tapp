@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Produce a highlighted copy of EPMA_Reference_Methods_Section_v77.md in which every
+Produce a highlighted copy of EPMA_Reference_Methods_Section_<version>.md in which every
 span of text that fills an EPMA TAPP field is wrapped in <mark>...</mark>.
 
 Highlighted = information a TAPP field asks for (values, choices, identifiers, rules
@@ -14,8 +14,10 @@ and are highlighted cell by cell.
 """
 import os, re, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, 'EPMA_Reference_Methods_Section_v77.md')
-OUT = os.path.join(HERE, 'EPMA_Reference_Methods_Section_v77_highlighted.md')
+# `python3 make_highlighted_methods.py` rebuilds the v77 edition; `... v86` builds the v86 one.
+VERSION = sys.argv[1] if len(sys.argv) > 1 else 'v77'
+SRC = os.path.join(HERE, 'EPMA_Reference_Methods_Section_%s.md' % VERSION)
+OUT = os.path.join(HERE, 'EPMA_Reference_Methods_Section_%s_highlighted.md' % VERSION)
 
 # (context, span-within-context or None for the whole context, occurrence of context)
 M = [
@@ -168,12 +170,38 @@ M = [
  ('The coupled NanoSIMS data are included in the same submission', 'included in the same submission', 0),
 ]
 
+# v86: the spans whose text changed, and the spans for the fields v86 added
+# (Target Material as a list, its link from each point, the mapping beam, the detection method
+# per element, the carbonate standards, Combination Method, Combined Results, Other Statistics).
+_V86_REPLACE = {
+ 'olivine and pyroxene, Fe–Ti–Cr oxides (magnetite, chromite, ilmenite), sulfides (pyrrhotite, pentlandite), phosphates (apatite, merrillite) and carbonates (calcite, dolomite, breunnerite)':
+   ('silicate minerals (olivine, pyroxene), oxides (magnetite, chromite, ilmenite), sulfides (pyrrhotite, pentlandite), phosphates (apatite, merrillite) and carbonates (calcite, dolomite, breunnerite)', None, 0),
+ 'focused beam at 50 nA': ('were acquired with a focused 1 µm beam at 50 nA', 'focused 1 µm beam at 50 nA', 0),
+ 'Ti, Al, Cr, Mn, Na, K, P, F, Cl, Ni and Co were measured by WDS':
+   ('Ti, Al, Cr, Mn, Na, K, P, F, Cl, Ni and Co by WDS', None, 0),
+ 'Mean compositions are reported for each phase in each sample':
+   ('arithmetic mean of the included point analyses of each phase in each sample', None, 0),
+}
+_V86_ADD = [
+ ('assigned to one of the five material types', None, 0),
+ ('Beam conditions for point analysis were set by material type', None, 0),
+ ('Ca and Mg in carbonates were calibrated on dolomite USNM 10057', None, 0),
+ ('Both maps were acquired with a focused 1 µm beam at 50 nA', 'focused 1 µm beam at 50 nA', 0),
+ ('structural formulas are calculated from those means, and the maps are not combined', None, 0),
+ ('The session yielded eight phase means', 'eight phase means', 0),
+ ('all points of the olivine (8), pyroxene (4) and magnetite (6) means of EX-CC-01; 3 of 5 pyrrhotite and 4 of 6 apatite points of EX-CC-01; and 8 of 10 dolomite, 5 of 6 calcite and 7 of 8 olivine points of EX-CC-02', None, 0),
+ ('the standard error of each mean (1 s.d./√n)', None, 0),
+ ('0.08 wt% for SiO₂, 0.12 wt% for MgO and 0.04 wt% for FeO', None, 0),
+]
+if VERSION != 'v77':
+    M = [_V86_REPLACE.get(m[0], m) for m in M] + _V86_ADD
+
 LEGEND = ('> **Highlighting.** <mark>Highlighted</mark> text is information that fills a field of '
-          'EPMA TAPP v77: a value, a choice, an identifier, a rule or an outcome. Text that is not '
+          'EPMA TAPP %s: a value, a choice, an identifier, a rule or an outcome. Text that is not '
           'highlighted is what joins that information into readable prose: connecting phrases, '
           'pointers to tables and supplements, rationale the TAPP does not ask for, and citations '
           'of methods literature. Every cell of Table 1 is highlighted. Generated from '
-          '`EPMA_Reference_Methods_Section_v77.md` by `make_highlighted_methods.py`.\n\n')
+          '`EPMA_Reference_Methods_Section_%s.md` by `make_highlighted_methods.py`.\n\n') % (VERSION, VERSION)
 
 
 def find_nth(text, sub, n, start=0):
@@ -199,7 +227,7 @@ def main():
         spans.append((s, e))
 
     # Table 1: every data cell, except placeholders
-    t_start = text.index('| Element | Line |')
+    t_start = text.index('| Element |')
     t_end = text.index('\n\n', t_start)
     lines = text[t_start:t_end].split('\n')
     offset = t_start

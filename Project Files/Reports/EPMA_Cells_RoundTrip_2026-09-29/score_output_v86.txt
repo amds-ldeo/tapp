@@ -1,0 +1,50 @@
+STAGE 1 — procedure-level cells of 15 columns (EPMA_TAPP_v86.csv): 1140
+  not stated           532   47%
+  text                 224   20%
+  not applicable       144   13%
+  structured           143   13%
+  commentary only       73    6%
+  not assessed          24    2%
+
+STAGE 2 — 369 stated facts, recovered as:
+  structured                        286   78%
+  text                               64   17%
+  commentary only                    19    5%
+
+per procedure (structured + text / facts):
+  Ma+2015               31 /  31  100%   
+  Hu+2020               26 /  27   96%   commentary only 1
+  Liu+2016_UT           14 /  16   88%   commentary only 2
+  Liu+2016_Cal          32 /  33   97%   commentary only 1
+  Ma+2017               47 /  48   98%   commentary only 1
+  Frank+2023            34 /  36   94%   commentary only 2
+  Broussard+2026        18 /  18  100%   
+  Seifert+2026          16 /  17   94%   commentary only 1
+  Pang+2016              9 /   9  100%   
+  McCoy+2025_SI         17 /  19   89%   commentary only 2
+  McCoy+2025_UA         24 /  24  100%   
+  Zega+2025             17 /  23   74%   commentary only 6
+  Barnes+2025#JEOL      36 /  37   97%   commentary only 1
+  Barnes+2025#Cameca     4 /   6   67%   commentary only 2
+  Neuman+2025           25 /  25  100%   
+
+facts not recovered as structure or text:
+  [Hu+2020] Analytical Mode -> commentary only  («procedure performs: point»)
+  [Liu+2016_UT] Analytical Mode -> commentary only  («procedure performs: point»)
+  [Liu+2016_UT] Analytical Mode -> commentary only  («procedure performs: map»)
+  [Liu+2016_Cal] Analytical Mode -> commentary only  («procedure performs: point»)
+  [Ma+2017] Analytical Mode -> commentary only  («procedure performs: K-mapping»)
+  [Frank+2023] Analytical Mode -> commentary only  («procedure performs: point»)
+  [Frank+2023] Analytical Mode -> commentary only  («procedure performs: map»)
+  [Seifert+2026] Analytical Mode -> commentary only  («procedure performs: point»)
+  [McCoy+2025_SI] Primary Calibration Standard Name [all/Fe] -> commentary only  («Standard analyses were performed on magnetite, calcite, dolomite, side»)
+  [McCoy+2025_SI] Analytical Mode -> commentary only  («procedure performs: point»)
+  [Zega+2025] Peak Counting Time -> commentary only  («20 s peak time (silicates, sulfides, oxides; phosphates)»)
+  [Zega+2025] Peak Counting Time -> commentary only  («10 s peak (carbonates)»)
+  [Zega+2025] Background Counting Time -> commentary only  («10 s on each background»)
+  [Zega+2025] Background Counting Time -> commentary only  («5 s background (carbonates)»)
+  [Zega+2025] Analytical Mode -> commentary only  («procedure performs: point»)
+  [Zega+2025] Analytical Mode -> commentary only  («procedure performs: map»)
+  [Barnes+2025#JEOL] Analytical Mode -> commentary only  («procedure performs: point»)
+  [Barnes+2025#Cameca] Detection Limit -> commentary only  («Typical detection limits for transition metals were around 250 ppm»)
+  [Barnes+2025#Cameca] Analytical Mode -> commentary only  («procedure performs: point»)
