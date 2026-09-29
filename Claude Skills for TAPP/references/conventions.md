@@ -1933,7 +1933,7 @@ was retired from Lab-XCT v17 as redundant with `Partial Volume Effect Criteria`,
 requested the same criterion and already held both attested values. See `precedents.md`,
 "Lab-XCT resolution fields — three collapsed to two".
 
-**Coverage limits — absence of evidence is not evidence.** The four SEM TAPPs' 35 columns are `N/A` for
+**Coverage limits — absence of evidence is not evidence.** The four SEM TAPPs' 32 columns are `N/A` for
 calibration standards throughout, because SEM-EDS is normally standardless, so their `analyte` key is
 untested rather than confirmed. `LA-MC-ICPMS\\\_UPb` and `Solution MC-ICP-MS` have no literature assessment
 columns, so no key in them has been validated this way. **This validation is now part of Phase 3**: when

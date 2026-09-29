@@ -1,6 +1,6 @@
 # Pending: six structural gaps exposed by the EPMA reference example (2026-09-24)
 
-**Status (2026-09-28): gaps 1, 3, 4, 5 and 6 implemented; gap 2 held.**
+**Status (2026-09-29): gaps 1, 3, 4, 5 and 6 implemented; gap 2 held. The follow-on literature passes are complete for EPMA and the four SEM TAPPs.**
 
 | Gap | Status |
 |---|---|
@@ -10,6 +10,15 @@
 | 3 | **Implemented** 2026-09-28: Module_Aggregation v5, Geochronology v8, UPb v9; 13 TAPPs. The per-TAPP grouping key was withdrawn on the evidence in favour of a session list, `Combined Results`. Script: `Project Files/Scripts/gap3_combined_results_20260928.py`. |
 | 4 | **Implemented** 2026-09-28 in EPMA v80, SEM v77 and SEM_Composition v76, not EPMA alone: the SEM TAPPs carried the same field as `Technique per Target Species`. The conditional-applicability half is deferred. Script: `Project Files/Scripts/gap4_detection_method_20260928.py`. |
 | 2 | **Held** until attested. |
+
+**Follow-on literature passes (tasks 2 and 3 of the 2026-09-28 plan).** Each is done paper by paper, together
+with the keyed-notation conversion (conventions 7.3.4), because converting a cell means re-reading its source.
+
+| TAPP(s) | Status |
+|---|---|
+| EPMA | **Complete** at v86 (2026-09-29). Every field is assessed except `Laboratory ID` and `Procedure Start Date`, which are blank by decision (0 of 12 papers). Scripts: `epma_roundtrip_fixes_20260929.py`, `epma_remaining_fields_20260929.py`; round-trip 95%. |
+| SEM, SEM_Composition, SEM_Imaging, SEM_FIBSEM | **Complete** 2026-09-29 (SEM v83, SEM_Composition v81, SEM_Imaging v43, SEM_FIBSEM v44): 840 cells, every never-assessed field; only `Session Identifier` is blank, by decision. The cells are not yet in the keyed notation beyond the new ones, and SEM is not in `KEYED_NOTATION_ENFORCED`. Scripts: `sem_never_assessed_fields_20260929.py`; three phantom Barnes+2025 columns then removed by `sem_remove_phantom_barnes_20260929.py`. |
+| The other Module_Aggregation TAPPs | Not started: `Combination Method`, `Combined Results`, `Other Statistics`. |
 
 **Where the gaps came from.** Writing `Project Files/Reports/EPMA_Reference_Procedure_Example_v77.md` required filling all 88 fields of EPMA TAPP v77. That exposed six places where complete documentation needs structure the TAPP does not declare. Appendix B of the example states them briefly.
 

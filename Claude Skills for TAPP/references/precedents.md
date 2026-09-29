@@ -3572,3 +3572,36 @@ byte-identical output for the highlighter and the docx builder. The exception is
 `make_reference_example_appendix.py`: its phrasing changed after v77 was written, so a v77 rebuild
 drifts in 4 cells. Do not re-run it for v77. The v86 highlight list is the v77 list with changed
 spans substituted and new ones appended, so both editions stay traceable to one list.
+
+## The SEM TAPPs' never-assessed fields: what SEM papers state, and what they borrow (2026-09-29)
+
+Gap 1 re-keyed the SEM beam fields and added the link field and mapping twins, but left them blank in
+every SEM column (`Pending_Gaps_2026-09-24_Reference_Example.md`, gap 1). This pass read the 11 source
+papers and filled them, together with the Aggregation fields and six other fields that had never been
+assessed. `Project Files/Scripts/sem_never_assessed_fields_20260929.py`: 840 cells in four TAPPs.
+
+**Read each procedure once.** SEM_Composition, SEM_Imaging and SEM_FIBSEM carry SEM's columns under
+the same labels. The script matches columns by label and writes each value to every TAPP that has the
+field. A field flagged N for a column's mode becomes `N/A`.
+
+**SEM papers rarely state what EPMA papers state.** Across 35 SEM procedures:
+- One states a beam mode (Gucsik+2013, "with a focused beam").
+- None states a beam diameter; Pascucci+2026 gives apertures (30 and 60 µm), which are not diameters.
+- None states drift correction, stage or beam scanning, a calibration factor or a constant.
+- One reports combined results: Zhou+2017's per-sample mean pore diameter and throat size.
+So the new cells are overwhelmingly `N`. That is the finding, not a gap in the pass.
+
+**The borrowing trap, again.** SEM papers usually pair the SEM with an EPMA, and every averaged
+composition in Genge+2025, Izawa+2010, Ma+2017 and Pascucci+2026 is from the EPMA. None was entered
+for the SEM. Two existing cells had borrowed across procedures, and were corrected:
+- Barnes+2025's JSC SEM-EDS column quoted an element list from the CRPG JEOL JSM-6510 work on other
+  samples.
+- Pascucci+2026's EDS map was recorded as naming no elements. Its INCA maps name eleven. The
+  five-element list the cell rejected is the EMPA-WDS mapping's, and was rightly rejected.
+
+**Not done here.** The older SEM cells are not converted to the keyed notation, and SEM stays out of
+`KEYED_NOTATION_ENFORCED`. Three Barnes+2025 columns (BSE Imaging, and TEM Sample Preparation on two
+Helios instruments) describe procedures the paper does not contain; every cell in them is `N`. **Removed
+the same day** on the user's decision (`sem_remove_phantom_barnes_20260929.py`): SEM now has 32 columns,
+SEM_Imaging 17, SEM_FIBSEM 6. A column whose paper does not describe its procedure is removed, not kept
+as a row of `N`: it would count as a procedure that states nothing.

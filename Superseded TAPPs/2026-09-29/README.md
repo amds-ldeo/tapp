@@ -37,8 +37,15 @@ discovery.
 | `TEM_TAPP_v64` | `v65` | standards re-key |
 | `EPMA_TAPP_v84` | `v85` | round-trip fixes |
 | `EPMA_TAPP_v85` | `v86` | remaining fields |
+| `SEM_TAPP_v81` | `v82` | SEM never-assessed fields |
+| `SEM_Composition_TAPP_v80` | `v81` | SEM never-assessed fields |
+| `SEM_Imaging_TAPP_v41` | `v42` | SEM never-assessed fields |
+| `SEM_FIBSEM_TAPP_v42` | `v43` | SEM never-assessed fields |
+| `SEM_TAPP_v82` | `v83` | phantom Barnes columns removed |
+| `SEM_Imaging_TAPP_v42` | `v43` | phantom Barnes columns removed |
+| `SEM_FIBSEM_TAPP_v43` | `v44` | phantom Barnes columns removed |
 
-29 version(s), 58 file(s) (CSV + xlsx). EPMA was bumped five times on this date, once per pass.
+36 version(s), 72 file(s) (CSV + xlsx). EPMA was bumped five times on this date, once per pass.
 
 ## Why
 
@@ -84,6 +91,23 @@ lab-internal fields were sampled first. `Laboratory ID` and `Procedure Start Dat
 papers, so they stay blank by decision. `Funding Source for Procedure Development` appears in 3 of 12,
 so it was assessed. Applied by `Project Files/Scripts/epma_remaining_fields_20260929.py`.
 
+**Sixth pass — the SEM TAPPs' never-assessed fields.** Gap 1 left the link field, the point beam fields,
+the mapping twins, the detection method per element and the Aggregation fields blank in every SEM column;
+six other fields had never been assessed either. Each of the 11 source papers was re-read and 840 cells
+were filled across the four SEM TAPPs (632 SEM, 164 SEM_Composition, 36 SEM_Imaging, 8 SEM_FIBSEM). The
+variants' columns are the same procedures as SEM's, so each procedure was read once. Few values are
+stated: Gucsik+2013's focused beam, Pascucci+2026's SEM-EDS map area and its damage measure, and
+Zhou+2017's per-sample means (the only SEM combined results). Every averaged composition in the SEM
+papers is from EPMA. Two `Monitored Elements` cells were corrected on the way: Pascucci+2026's EDS map
+does name its elements, and Barnes+2025's quoted element list was CRPG's JSM-6510 work, not the JSC
+SEM-EDS. Applied by `Project Files/Scripts/sem_never_assessed_fields_20260929.py`.
+
+**Seventh pass — three phantom Barnes+2025 columns removed.** BSE Imaging on the JSC Quanta 3D/Helios
+and TEM Sample Preparation on two JSC Helios instruments describe procedures the paper does not contain;
+its FIB work is in the companion Zega+2025, which has its own columns. On the user's decision they were
+removed from SEM (35 → 32 columns), SEM_Imaging (18 → 17) and SEM_FIBSEM (8 → 6). Barnes+2025's JSC SEM-EDS
+column stays. Applied by `Project Files/Scripts/sem_remove_phantom_barnes_20260929.py`.
+
 ## Verification
 
 - `compose_tapp.py --check`: 0 of 16 drifted, before and after each pass.
@@ -119,3 +143,12 @@ The mockups and reviewer workbooks were regenerated at v86. The only procedure-l
 unassessed in EPMA are the 24 lab-internal ones, blank by decision. Changed: 205 literature cells; no
 field, tier, data type or key.
 
+**Sixth pass.** `compose_tapp.py --check`: 16 of 16 match. `validate_tapp.py`: 0 ERROR, 0 WARN.
+`audit_keys_vs_literature.py`: 0 NEW. No SEM-dependent report is versioned, so nothing was rebuilt.
+The only blank literature cells left in the SEM TAPPs are `Session Identifier`, blank by decision.
+Changed: 840 literature cells, 2 of them corrections; no field, tier, data type or key.
+
+**Seventh pass.** `compose_tapp.py --check`: 16 of 16 match. `validate_tapp.py`: 0 ERROR, 0 WARN.
+`audit_keys_vs_literature.py`: 0 NEW. `generate_paper_registry.py --check`: MATCH; Barnes+2025 stays
+Detailed for SEM, on its CRPG, Hokkaido and JSC SEM work. Changed: 6 literature columns removed; no field,
+tier, data type or key.

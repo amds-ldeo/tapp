@@ -45,10 +45,10 @@ in that particular TAPP.
 - `LA-SF-ICP-MS_TAPP_v90.csv`
 - `LA-SF-ICP-MS_UPb_TAPP_v91.csv`
 - `Lab-XCT_TAPP_v44.csv`
-- `SEM_Composition_TAPP_v80.csv`
-- `SEM_FIBSEM_TAPP_v42.csv`
-- `SEM_Imaging_TAPP_v41.csv`
-- `SEM_TAPP_v81.csv`
+- `SEM_Composition_TAPP_v81.csv`
+- `SEM_FIBSEM_TAPP_v44.csv`
+- `SEM_Imaging_TAPP_v43.csv`
+- `SEM_TAPP_v83.csv`
 - `Solution_MC-ICP-MS_TAPP_v89.csv`
 - `Solution_Q-ICP-MS_TAPP_v92.csv`
 - `Solution_SF-ICP-MS_TAPP_v87.csv`
