@@ -1,0 +1,683 @@
+{
+ "procedure_column": "Hu+2020 | IGGCAS | WDS Point Analysis (JEOL JXA-8100)",
+ "tapp": "EPMA_TAPP_v85",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "EPMA Major Element Silicates/Oxides, NWA 8657 Shergottite (IGGCAS, JEOL JXA-8100)",
+   "status": "text",
+   "value": "EPMA Major Element Silicates/Oxides, NWA 8657 Shergottite (IGGCAS, JEOL JXA-8100)"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "Sen Hu",
+   "status": "text",
+   "value": "Sen Hu"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing",
+   "status": "text",
+   "value": "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Hu et al. 2020, Geochim. Cosmochim. Acta 278:185-198; doi:10.1016/j.gca.2019.06.012",
+   "status": "text",
+   "value": "Hu et al. 2020, Geochim. Cosmochim. Acta 278:185-198; doi:10.1016/j.gca.2019.06.012"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy",
+   "status": "text",
+   "value": "SEM-EDS (FEI Nova NanoSEM 450); Raman spectroscopy"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "maskelynite; melt inclusion glasses; silica glasses; coesite aggregates; mesostasis — 'Quantitative analyses of maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis were conducted by EPMA' (p.2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "maskelynite",
+     "parent": null
+    },
+    {
+     "member": "melt inclusion glasses",
+     "parent": null
+    },
+    {
+     "member": "silica glasses",
+     "parent": null
+    },
+    {
+     "member": "coesite aggregates",
+     "parent": null
+    },
+    {
+     "member": "mesostasis",
+     "parent": null
+    }
+   ]
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Polished thick section (NWA 8657); carbon coating N",
+   "status": "text",
+   "value": "Polished thick section (NWA 8657); carbon coating N"
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Phase > Analysis point — \"Quantitative analyses of maskelynite, melt inclusion glasses, silica glasses, coesite aggregates, and mesostasis were conducted by electron probe microanalysis\" (p.2); points are grouped by phase, not reported individually in the archived PDF",
+   "status": "text",
+   "value": "Phase > Analysis point"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "N — the paper names the phases it analysed (see `Sampling Unit Type`) but states no rule for choosing the individual units",
+   "status": "commentary only"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "SEM imaging and EDS mapping on three instruments before the probe — \"Scanning electron microscopy (SEM) imaging and energy dispersive X-ray spectroscopy (EDS) mapping were conducted\" on a Nova NanoSEM 450 at IGGCAS, a SUPRA55 at NAOC and a JEOL JSM-7100F at NIPR, after which \"Quantitative analyses ... were conducted by electron probe microanalysis (EPMA) with the JEOL JXA-8100 at IGGCAS\" (p.2)",
+   "status": "text",
+   "value": "SEM imaging and EDS mapping on three instruments before the probe"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "JEOL",
+   "status": "text",
+   "value": "JEOL"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "JXA-8100 (stated as \"JEOL JXA-8100\")",
+   "status": "text",
+   "value": "JXA-8100 (stated as \"JEOL JXA-8100\")"
+  },
+  "Electron Source": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N — 'The Bence-Albee method was used' is recorded under Matrix Correction Method; no software is named",
+   "status": "commentary only"
+  },
+  "WDS Spectrometer Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Detector Configuration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "N — quantitative point analyses ('Quantitative analyses of maskelynite ... were conducted by electron probe microanalysis'); WDS or EDS is not stated, and the list has no value without one",
+   "status": "commentary only"
+  },
+  "Beam Mode": {
+   "key": "target material",
+   "cell": "N — only 15 kV and 10 nA are given",
+   "status": "commentary only"
+  },
+  "Accelerating Voltage": {
+   "key": "(none)",
+   "cell": "15 kV",
+   "status": "text",
+   "value": "15 kV"
+  },
+  "Beam Current": {
+   "key": "target material",
+   "cell": "all: 10 nA — 'The accelerating voltage was 15 kV, and the beam current was 10 nA'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "10 nA"
+    }
+   ]
+  },
+  "Beam Diameter": {
+   "key": "target material",
+   "cell": "N — only 15 kV and 10 nA are given",
+   "status": "commentary only"
+  },
+  "Beam Raster Dimensions": {
+   "key": "target material",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Beam Damage Minimization": {
+   "key": "target material",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mapping Beam Mode": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Current": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Diameter": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Drift Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Si, Ti, Al, Cr, Fe, Mn, Mg, Ca, Na, K",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Elements": {
+   "key": "defines: monitored property per target species",
+   "cell": "Si, Mg, Fe, Na, Al, Ca, Mn, K, Ti, Cr — all determined. \"The EPMA standards were natural and synthetic minerals: natural kaersutite for Si, Mg and Fe, jadeite for Na and Al, bustamite for Ca and Mn, and K-feldspar for K, synthetic rutile for Ti and Cr2O3 for Cr\". Cr also carries the interference correction — \"X-ray interference of the Kα line of Mn by the Kβ line of Cr was corrected\" — but is itself determined, so it is not an orphan",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "SiO2, TiO2, Al2O3, Cr2O3, FeO, MnO, MgO, CaO, Na2O, K2O — oxide wt% for maskelynite, melt inclusion glasses, silica glasses, coesite aggregates and mesostasis (p.2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "SiO2",
+     "parent": null
+    },
+    {
+     "member": "TiO2",
+     "parent": null
+    },
+    {
+     "member": "Al2O3",
+     "parent": null
+    },
+    {
+     "member": "Cr2O3",
+     "parent": null
+    },
+    {
+     "member": "FeO",
+     "parent": null
+    },
+    {
+     "member": "MnO",
+     "parent": null
+    },
+    {
+     "member": "MgO",
+     "parent": null
+    },
+    {
+     "member": "CaO",
+     "parent": null
+    },
+    {
+     "member": "Na2O",
+     "parent": null
+    },
+    {
+     "member": "K2O",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Detection Method per Monitored Element": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line": {
+   "key": "monitored property",
+   "cell": "Mn: Ka; other: N — 'X-ray interference of the Ka line of Mn by the Kb line of Cr was corrected'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Mn"
+     ],
+     "value": "Ka"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Diffracting Crystal": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Channel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sequence": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Proportional Counter / Detector": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS PHA Setting": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Counting Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Background Counting Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Background Position(s)": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Live Time per Point or Pixel": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "EDS Acquisition Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Pixel": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Step Size / Pixel Size": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Stage Scan vs. Beam Scan": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Matrix Correction Method": {
+   "key": "(none)",
+   "cell": "Bence-Albee",
+   "status": "text",
+   "value": "Bence-Albee"
+  },
+  "Mass Absorption Coefficients (MACs)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Background Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Time-Dependent Intensity Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species Estimation Method": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Halogen Correction on Oxygen": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "WDS Dead Time Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Spectral Processing Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Blank Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N — analyses are reported by phase with no contributing count and no acceptance or rejection rule stated",
+   "status": "commentary only"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [Si, Mg, Fe: natural kaersutite; Na, Al: jadeite; Ca, Mn: bustamite; K: K-feldspar; Ti: synthetic rutile; Cr: Cr2O3] — p.2",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "Si",
+        "Mg",
+        "Fe"
+       ],
+       "value": "natural kaersutite"
+      },
+      {
+       "members": [
+        "Na",
+        "Al"
+       ],
+       "value": "jadeite"
+      },
+      {
+       "members": [
+        "Ca",
+        "Mn"
+       ],
+       "value": "bustamite"
+      },
+      {
+       "members": [
+        "K"
+       ],
+       "value": "K-feldspar"
+      },
+      {
+       "members": [
+        "Ti"
+       ],
+       "value": "synthetic rutile"
+      },
+      {
+       "members": [
+        "Cr"
+       ],
+       "value": "Cr2O3"
+      }
+     ]
+    }
+   ]
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line Overlap Corrections Applied": {
+   "key": "target species",
+   "cell": "Mn: Yes; other: N — 'X-ray interference of the Ka line of Mn by the Kb line of Cr was corrected'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Mn"
+     ],
+     "value": "Yes"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Interfering Elements": {
+   "key": "target species",
+   "cell": "Mn: Cr Kb; other: N — as above",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Mn"
+     ],
+     "value": "Cr Kb"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Interference Correction Standard": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "K2O: 0.01 wt%; SiO2, Al2O3, MgO, CaO, Na2O: 0.02 wt%; TiO2, Cr2O3: 0.03 wt%; FeO: 0.05 wt%; MnO: 0.06 wt% — p.2",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "K2O"
+     ],
+     "value": "0.01 wt%"
+    },
+    {
+     "members": [
+      "SiO2",
+      "Al2O3",
+      "MgO",
+      "CaO",
+      "Na2O"
+     ],
+     "value": "0.02 wt%"
+    },
+    {
+     "members": [
+      "TiO2",
+      "Cr2O3"
+     ],
+     "value": "0.03 wt%"
+    },
+    {
+     "members": [
+      "FeO"
+     ],
+     "value": "0.05 wt%"
+    },
+    {
+     "members": [
+      "MnO"
+     ],
+     "value": "0.06 wt%"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Precision": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Hu et al. 2020, Geochim. Cosmochim. Acta — coesite in NWA 8657 shergottite. JEOL JXA-8100 at IGGCAS; 15 kV, 10 nA; point analysis only; WDS or EDS not stated. Matrix correction: Bence-Albee (not PAP). Full primary standard suite stated (kaersutite, jadeite, bustamite, K-feldspar, rutile, Cr2O3). Mn Kα / Cr Kβ interference correction applied. Detection limits 0.01-0.06 wt% stated per oxide. Analytical software not stated.",
+   "status": "text",
+   "value": "Hu et al. 2020, Geochim. Cosmochim. Acta"
+  }
+ }
+}

@@ -3485,3 +3485,37 @@ value ("~10 ppm for transition metals and lanthanides", Xing+2023) is a concentr
 **Form generator.** An `A x B` cell written `all [ … ]` does not vary over A, so the form shows it per
 B (`perKey`). That way the standards still open per target species.
 
+## The EPMA cells round-trip: what the literature cells can and cannot regenerate (2026-09-29)
+
+**The question.** The user asked whether the literature cells could now regenerate each paper's
+procedure with nothing else, since the keyed relations are captured. The answer was measured rather
+than asserted. `Project Files/Reports/EPMA_Cells_RoundTrip_2026-09-29/` builds a procedure record
+from each EPMA column, using only the TAPP and `keyed_cells.py`. It scores the record against the 369
+procedure facts that the papers' EPMA methods state, listing keyed facts per member.
+
+**Result.**
+- **On v84:** 338 of 369 facts (92%) recovered. Every per-member fact in a converted keyed field came
+  back under the right member.
+- **After one patch (v85):** 350 of 369 (95%). Nothing is missing or in the wrong field.
+
+**The residue is a field-design finding, not an extraction one.** `Analytical Mode` is a closed list
+that pairs a detector with a geometry. Nine of 15 EPMA papers state point analyses or maps without
+naming WDS or EDS, which leaves 14 facts expressible only as commentary. Gap 4 (2026-09-28) had noted
+the same two axes and deferred splitting EPMA's modes into geometry × detector. This is the first
+measured cost of not splitting. **The user held the split on 2026-09-29.**
+
+**Precision needs its own reading.** The test measures recall. Re-reading EPMA's unkeyed cells, which
+the keyed-notation pilot had not covered, corrected 21 of them:
+- inferences, e.g. "WDS", "EDS not used", "possibly per-pixel";
+- another laboratory's work in the cell;
+- a matrix correction recorded as software;
+- a stale note;
+- "EPMA-WDS" in three procedure names.
+
+Together with the pilot, this makes EPMA the only TAPP whose literature cells have been re-verified
+in full against their papers.
+
+**The same test, run by the same author, is not blind.** The fact list was written by the author of
+the cells. An independent extraction would be the stronger test, and is worth doing before the claim
+is made for another TAPP.
+

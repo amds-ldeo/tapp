@@ -1,0 +1,511 @@
+{
+ "procedure_column": "Zega+2025 | Cameca SX-100 Ultra | WDS Point Analysis (K-ALFAA U.Arizona)",
+ "tapp": "EPMA_TAPP_v85",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "EPMA Major Element Silicates/Sulfides/Oxides/Phosphates/Carbonates, Bennu (K-ALFAA, Cameca SX-100 Ultra)",
+   "status": "text",
+   "value": "EPMA Major Element Silicates/Sulfides/Oxides/Phosphates/Carbonates, Bennu (K-ALFAA, Cameca SX-100 Ultra)"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), University of Arizona",
+   "status": "text",
+   "value": "Kuiper-Arizona Laboratory for Astromaterials Analysis (K-ALFAA), University of Arizona"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Zega et al. 2025, Nat. Geosci.; doi:10.1038/s41561-025-01741-0",
+   "status": "text",
+   "value": "Zega et al. 2025, Nat. Geosci.; doi:10.1038/s41561-025-01741-0"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "SEM-EDS; TEM-EDS/EELS; FIB-SEM; XRD; XANES",
+   "status": "text",
+   "value": "SEM-EDS; TEM-EDS/EELS; FIB-SEM; XRD; XANES"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "silicates; sulfides; oxides; phosphates; carbonates — p.9",
+   "status": "structured",
+   "value": [
+    {
+     "member": "silicates",
+     "parent": null
+    },
+    {
+     "member": "sulfides",
+     "parent": null
+    },
+    {
+     "member": "oxides",
+     "parent": null
+    },
+    {
+     "member": "phosphates",
+     "parent": null
+    },
+    {
+     "member": "carbonates",
+     "parent": null
+    }
+   ]
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Grain > Phase — sulfide compositions are reported per grain within named particles (\"Pyrrhotite compositions measured by EMPA\", p.2), and \"phase mapping via electron microprobe analysis (EMPA)\" gives modal abundances of carbonates, sulfides and magnetite per particle (p.2)",
+   "status": "text",
+   "value": "Grain > Phase"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "N — beam conditions are given per phase (\"Quantitative analyses of silicates, sulfides and oxides were run using a focused beam\"; \"A 2-μm defocused beam size, lower beam currents and shorter count times were used for phosphate and carbonate analyses\", p.9), but that is a setting per phase, not a rule for choosing which grains were analysed",
+   "status": "commentary only"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "SEM imaging and EDS mapping before the probe — particles were characterized by SE and BSE imaging and by EDS mapping of \"The compositional heterogeneity of the particles\" (p.9), and the paper's Fig. 1 pairs those BSE images with the EMPA data (p.2); the Methods list SEM before electron microprobe analysis without stating an explicit order",
+   "status": "text",
+   "value": "SEM imaging and EDS mapping before the probe"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Cameca",
+   "status": "text",
+   "value": "Cameca"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "SX-100 Ultra (stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\")",
+   "status": "text",
+   "value": "SX-100 Ultra (stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\")"
+  },
+  "Electron Source": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "XMapTools (for phase maps)",
+   "status": "text",
+   "value": "XMapTools (for phase maps)"
+  },
+  "WDS Spectrometer Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Detector Configuration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "N — quantitative point analyses and X-ray maps ('BSE images, element maps and quantitative compositional analyses'); WDS or EDS is not stated, and the list has no value without one",
+   "status": "commentary only"
+  },
+  "Beam Mode": {
+   "key": "target material",
+   "cell": "silicates, sulfides, oxides: Focused; phosphates, carbonates: Defocused — 'Quantitative analyses of silicates, sulfides and oxides were run using a focused beam ... A 2-μm defocused beam size ... for phosphate and carbonate analyses'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "silicates",
+      "sulfides",
+      "oxides"
+     ],
+     "value": "Focused"
+    },
+    {
+     "members": [
+      "phosphates",
+      "carbonates"
+     ],
+     "value": "Defocused"
+    }
+   ]
+  },
+  "Accelerating Voltage": {
+   "key": "(none)",
+   "cell": "15 kV",
+   "status": "text",
+   "value": "15 kV"
+  },
+  "Beam Current": {
+   "key": "target material",
+   "cell": "silicates, sulfides, oxides: 20 nA; phosphates: 8 nA; carbonates: 4 nA — p.9",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "silicates",
+      "sulfides",
+      "oxides"
+     ],
+     "value": "20 nA"
+    },
+    {
+     "members": [
+      "phosphates"
+     ],
+     "value": "8 nA"
+    },
+    {
+     "members": [
+      "carbonates"
+     ],
+     "value": "4 nA"
+    }
+   ]
+  },
+  "Beam Diameter": {
+   "key": "target material",
+   "cell": "phosphates, carbonates: 2 µm; other: N — p.9",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "phosphates",
+      "carbonates"
+     ],
+     "value": "2 µm"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Beam Raster Dimensions": {
+   "key": "target material",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Beam Damage Minimization": {
+   "key": "target material",
+   "cell": "phosphates, carbonates: 2 µm defocused beam, lower beam currents and shorter count times; other: N — 'to minimize possible beam damage effects'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "phosphates",
+      "carbonates"
+     ],
+     "value": "2 µm defocused beam, lower beam currents and shorter count times"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Mapping Beam Mode": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Current": {
+   "key": "sample > sampling unit",
+   "cell": "20 nA — 'X-ray maps and BSE images were run at 15kV and 20nA'",
+   "status": "text",
+   "value": "20 nA"
+  },
+  "Mapping Beam Diameter": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Drift Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Monitored Elements": {
+   "key": "defines: monitored property per target species",
+   "cell": "N — \"Well-characterized natural and synthetic materials were used as standards\" (p.9); the paper gives beam conditions and count times for silicates, sulfides, oxides, phosphates and carbonates but names no element",
+   "status": "commentary only"
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Fe + Co, S, Ni; modal abundance of carbonates, sulfides and magnetite — sulfide compositions in at% (Fig. 1); modal abundances '0.4–3.4%, ~3–8% and ~3–5%' from the EMPA phase maps (p.2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Fe + Co",
+     "parent": null
+    },
+    {
+     "member": "S",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "modal abundance of carbonates",
+     "parent": null
+    },
+    {
+     "member": "sulfides and magnetite",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Detection Method per Monitored Element": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Diffracting Crystal": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Channel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sequence": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Proportional Counter / Detector": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS PHA Setting": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Counting Time": {
+   "key": "monitored property",
+   "cell": "N — stated per material, not per element, and no element is named: '20 s peak time' (silicates, sulfides, oxides), '20 s peak' (phosphates), '10 s peak' (carbonates)",
+   "status": "commentary only"
+  },
+  "Background Counting Time": {
+   "key": "monitored property",
+   "cell": "N — stated per material: '10 s on each background' (silicates, sulfides, oxides), '10 s background' (phosphates), '5 s background' (carbonates)",
+   "status": "commentary only"
+  },
+  "Background Position(s)": {
+   "key": "monitored property",
+   "cell": "N — '10 s on each background' implies two positions, which are not given",
+   "status": "commentary only"
+  },
+  "EDS Live Time per Point or Pixel": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "EDS Acquisition Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Pixel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Step Size / Pixel Size": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Stage Scan vs. Beam Scan": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Matrix Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Absorption Coefficients (MACs)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Background Correction Method": {
+   "key": "monitored property",
+   "cell": "N — no background method is named",
+   "status": "commentary only"
+  },
+  "Time-Dependent Intensity Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species Estimation Method": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Halogen Correction on Oxygen": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Dead Time Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Spectral Processing Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Blank Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N — no contributing count and no acceptance or rejection rule is stated for the microprobe analyses; the modal abundances come from classified phase-map pixels rather than from admitting or excluding results (p.9)",
+   "status": "commentary only"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "N — 'Well-characterized natural and synthetic materials were used as standards'",
+   "status": "commentary only"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line Overlap Corrections Applied": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Elements": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Interference Correction Standard": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Precision": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Zega et al. 2025, Nat. Geosci. — mineralogical evidence for hydrothermal alteration of Bennu. K-ALFAA, University of Arizona. Instrument stated as \"SX-100 Ultra electron microprobe in the K-ALFAA\". IMPORTANT: v2 had \"no protocol details reported\" — this was WRONG. The paper provides detailed EPMA conditions: X-ray maps and BSE images: 15 kV, 20 nA. Silicates/sulfides/oxides: 15 kV, 20 nA, focused, 20 s peak, 10 s on each background. Phosphates: 15 kV, 8 nA, 2 µm defocused, 20 s peak and 10 s background. Carbonates: 15 kV, 4 nA, 2 µm defocused, 10 s peak and 5 s background. Standards: \"well-characterized natural and synthetic materials\" (specific names N). Phase maps generated using XMapTools. WDS and matrix correction NOT explicitly stated in paper.",
+   "status": "text",
+   "value": "Zega et al. 2025, Nat. Geosci."
+  }
+ }
+}

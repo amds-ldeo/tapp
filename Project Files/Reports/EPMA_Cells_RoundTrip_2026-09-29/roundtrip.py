@@ -25,7 +25,7 @@ sys.path.insert(0, HERE)
 import keyed_cells as K
 from facts import FACTS
 
-VERSION = "v84"
+VERSION = sys.argv[1] if len(sys.argv) > 1 else "v84"      # e.g. `python3 roundtrip.py v85`
 SRC = os.path.join(ROOT, "Current TAPPs", "EPMA_TAPP_%s.csv" % VERSION)
 if not os.path.exists(SRC):                      # superseded: read the parked copy
     import glob
@@ -127,12 +127,13 @@ def score(rec, field, member, tokens):
 def main():
     rows = list(csv.reader(io.open(SRC, newline="", encoding="utf-8-sig")))
     cols = columns(rows[0])
-    os.makedirs(os.path.join(HERE, "records"), exist_ok=True)
+    recdir = os.path.join(HERE, "records" if VERSION == "v84" else "records_" + VERSION)
+    os.makedirs(recdir, exist_ok=True)
     st1 = Counter(); per_col1 = {}
     st2 = Counter(); per_col2 = {}; misses = []
     for key, j in cols.items():
         rec = record(rows, j)
-        with io.open(os.path.join(HERE, "records", re.sub(r"[^A-Za-z0-9+_#-]", "_", key) + ".json"), "w",
+        with io.open(os.path.join(recdir, re.sub(r"[^A-Za-z0-9+_#-]", "_", key) + ".json"), "w",
                      encoding="utf-8") as fh:
             json.dump({"procedure_column": rows[0][j].replace("\n", " "), "tapp": "EPMA_TAPP_" + VERSION,
                        "fields": rec}, fh, indent=1, ensure_ascii=False)

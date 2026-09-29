@@ -11,13 +11,13 @@ procedure facts that each paper's EPMA methods paragraph states. It is the rever
 | File | What it is |
 |---|---|
 | `roundtrip.py` | Builds the records (stage 1) and scores the facts (stage 2). Runs from any directory. |
-| `facts.py` | The stated facts: 367 in all, with a keyed field's facts listed per member, and each with its source sentence. |
-| `records/*.json` | One regenerated procedure record per column: every procedure-level field with its status and parsed value. |
-| `score_output.txt` | Output of `roundtrip.py` against `EPMA_TAPP_v84.csv`. |
+| `facts.py` | The stated facts: 369 in all, with a keyed field's facts listed per member, and each with its source sentence. |
+| `records/*.json`, `records_v85/*.json` | One regenerated procedure record per column, for v84 and v85: every procedure-level field with its status and parsed value. |
+| `score_output.txt`, `score_output_v85.txt` | Output of `roundtrip.py` (v84) and `roundtrip.py v85`. |
 
 ## Result
 
-**Stage 1 — what the record holds.** EPMA's 15 columns have 1,140 procedure-level cells, i.e. fields
+**Stage 1 — what the record holds (v84).** EPMA's 15 columns have 1,140 procedure-level cells, i.e. fields
 with C = Basic or Advanced:
 
 | Status | Cells | Share |
@@ -29,22 +29,49 @@ with C = Basic or Advanced:
 | not assessed (blank) | 130 | 11% |
 | stated only in commentary | 47 | 4% |
 
-**Stage 2 — does it reproduce the paper?** 338 of 367 stated facts (92%) are recovered: 280 as
-structure (the value under the right member) and 58 as free text. The 29 not recovered:
+**Stage 2 — does it reproduce the paper? (v84)** 338 of 369 stated facts (92%) are recovered: 280 as
+structure (the value under the right member) and 58 as free text. The 31 not recovered:
 
-- **17 are `Analytical Mode`, never assessed in 14 of 15 columns.** A record cannot say which modes a
-  procedure covers, and so which mode-flagged fields apply. That matters most for the three columns
-  that do both points and maps: Liu+2016_UT, Broussard+2026 and Zega+2025.
-- **6 are Liu+2016_UT's X-ray lines.** The paper names them for the maps ("Ca Ka, Al Ka, Fe Ka, and
-  Mg Ka"). The cell is `N`, and the lines survive only as prose in `Mapping Beam Current`.
+- **19 are `Analytical Mode`, never assessed in 14 of 15 columns.** A record cannot say which modes a
+  procedure covers, and so which mode-flagged fields apply.
+- **6 are Liu+2016_UT's X-ray lines.** The paper names them for the maps; the cell is `N`, and the
+  lines survive only as prose in `Mapping Beam Current`.
 - **6 are in commentary only**, where the stated value does not fit the field's key:
   - Zega+2025's counting times, 4 facts, per material (held);
   - McCoy+2025_SI's standards, named without their elements;
   - Barnes+2025 NHM's detection limit for "transition metals".
 
-**Per procedure:** 12 of 15 columns recover 89% or more; Neuman+2025 recovers all 25. The three low
-ones are Liu+2016_UT (50%: the mode and X-ray-line gaps), Barnes+2025 NHM (67%, 4 of 6) and Zega+2025
-(74%: per-material counting times).
+## After the fixes (v85, the same day)
+
+`Project Files/Scripts/epma_roundtrip_fixes_20260929.py` changed 37 cells:
+- It filled `Analytical Mode` (15 cells).
+- It filled Liu+2016_UT's map X-ray lines (1 cell).
+- It re-read EPMA's unkeyed cells against the papers, which the pilot had not done, and corrected
+  21 of them, listed below.
+
+**Result: 350 of 369 facts (95%) recovered, 286 as structure.** No stated fact is now missing, not
+assessed, or in the wrong field. Six procedures recover every fact. The 19 left are all commentary-only:
+
+- **14 are procedures whose paper states the geometry but not the detector.** Nine of the 15 papers
+  say "quantitative point analyses" or "X-ray maps" without naming WDS or EDS, and `Analytical Mode`
+  is a closed list that pairs a detector with a geometry (`WDS Point Analysis`, …). So the cell is
+  `N`, and the geometry sits in commentary. This is a limit of the field, not of the extraction.
+  gap 4 of `Pending_Gaps_2026-09-24_Reference_Example.md` records the same two axes as its "larger
+  alternative": split EPMA's modes into geometry × detector.
+- **4 are Zega+2025's per-material counting times** (held with gap 1).
+- **1 is McCoy+2025_SI's standards, named without their elements.**
+- **1 is Barnes+2025 NHM's "transition metals" detection limit.**
+
+**What the unkeyed re-read found (precision, which stage 2 does not measure):**
+- **Stated as fact but not in the paper:** Hu+2020's "WDS"; Broussard+2026's "EDS not used";
+  Barnes+2025's "possibly per-pixel"; the Barnes NHM analytes "implied from context"; McCoy+2025_SI's
+  X-ray lines in `WDS Spectrometer Configuration`; Seifert+2026's halogen correction on oxygen.
+- **Another laboratory's work in the cell:** McCoy+2025_SI's preparation and screening came from the
+  JSC SEM work; McCoy+2025_UA's screening likewise. Liu+2016_Cal carried an LA-ICP-MS clause.
+- **Misfiled:** a matrix correction (CITZAF, Bence-Albee) recorded as software.
+- **Stale:** Frank+2023's note still named the SIMS standard as the EPMA secondary RM.
+- **Over-precise:** Zega+2025's "each side" backgrounds.
+- **Names:** "EPMA-WDS" in three procedure names whose papers never say WDS.
 
 ## What this shows, and what it does not
 
@@ -63,11 +90,12 @@ ones are Liu+2016_UT (50%: the mode and X-ray-line gaps), Barnes+2025 NHM (67%, 
 - **Only the EPMA methods paragraphs were used**, and only procedure-level fields. A procedure
   regenerated from these records is as complete as those paragraphs; 41% `N` is the paper's silence,
   not a defect.
-- **It is a snapshot of v84**, and a version bump makes the scores stale.
+- **It is a snapshot of v84 and v85**, and a later version bump makes the scores stale. Rerun with
+  `python3 roundtrip.py vNN` to score a later version.
 
-## What would close the gaps
+## What is left
 
-1. Fill `Analytical Mode` in EPMA's 15 columns (17 facts).
-2. Fill Liu+2016_UT's `X-ray Line` from the map sentence (6 facts).
-3. Re-read EPMA's unkeyed cells against the papers; the pilot covered only keyed and definer cells.
-4. Revisit the commentary-only cases when their keys are decided (Zega's counting times are held).
+1. **Decide whether EPMA's modes should split into geometry × detector** (14 facts). Until then, a
+   paper that does not name its detector cannot give `Analytical Mode` a value.
+2. **The commentary-only cases wait on their keys:** Zega's counting times are held.
+3. **Carry the same conversion and re-read to the other 15 TAPPs.** This test applies to EPMA only.

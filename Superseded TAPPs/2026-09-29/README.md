@@ -35,8 +35,9 @@ discovery.
 | `Solution_Q-ICP-MS_TAPP_v91` | `v92` | standards re-key |
 | `Solution_SF-ICP-MS_TAPP_v86` | `v87` | standards re-key |
 | `TEM_TAPP_v64` | `v65` | standards re-key |
+| `EPMA_TAPP_v84` | `v85` | round-trip fixes |
 
-27 version(s), 54 file(s) (CSV + xlsx). EPMA was bumped three times on this date, once per pass.
+28 version(s), 56 file(s) (CSV + xlsx). EPMA was bumped four times on this date, once per pass.
 
 ## Why
 
@@ -65,6 +66,16 @@ TEM's `EELS Detection Limit` moves to `reported property`. EPMA's 8 stated stand
 two-level (`all [ … ]`; McCoy+2025_UA per phase). Applied by
 `Project Files/Scripts/rekey_standards_eels_20260929.py`.
 
+**Fourth pass — fixes from the EPMA cells round-trip.** The round-trip
+(`Project Files/Reports/EPMA_Cells_RoundTrip_2026-09-29/`) found three gaps, and 37 EPMA literature
+cells were changed to close them:
+- `Analytical Mode` filled in all 15 columns: 6 with a value, 9 `N`, because their papers name no
+  detector;
+- Liu+2016_UT's map X-ray lines filled;
+- 21 unkeyed cells corrected after a re-read against the papers.
+
+Applied by `Project Files/Scripts/epma_roundtrip_fixes_20260929.py`.
+
 ## Verification
 
 - `compose_tapp.py --check`: 0 of 16 drifted, before and after each pass.
@@ -87,4 +98,9 @@ members. Two register entries left, since their keys no longer diverge: the stan
 rebuilt against EPMA v84 and LA-MC v88, and the reviewer workbooks regenerated as v84. Changed: Keyed By,
 1 value in 12 TAPPs and 1 in TEM; Column B, 1 (TEM); 8 EPMA literature cells. No field, tier or data type
 changed.
+
+**Fourth pass.** `compose_tapp.py --check`: 0 of 16 drifted. `validate_tapp.py`: 0 ERROR, 0 WARN.
+`audit_keys_vs_literature.py`: 0 NEW. The mockups and reviewer workbooks were regenerated at v85. The
+round-trip was re-scored on v85: 350 of 369 facts recovered (95%), up from 338 (92%) on v84. Changed:
+37 EPMA literature cells; no field, tier, data type or key.
 

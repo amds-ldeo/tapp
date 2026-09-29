@@ -1,0 +1,482 @@
+{
+ "procedure_column": "Pang+2016 | JEOL JXA-8100 | WDS Point Analysis (Nanjing U.)",
+ "tapp": "EPMA_TAPP_v85",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "EPMA-WDS Major Element Silicates/Oxides, NWA 8003 Eucrite (Nanjing U., JEOL JXA-8100)",
+   "status": "text",
+   "value": "EPMA-WDS Major Element Silicates/Oxides, NWA 8003 Eucrite (Nanjing U., JEOL JXA-8100)"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "EPMA-WDS",
+   "status": "text",
+   "value": "EPMA-WDS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "State Key Laboratory for Mineral Deposits Research, Nanjing University",
+   "status": "text",
+   "value": "State Key Laboratory for Mineral Deposits Research, Nanjing University"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Pang et al. 2016, Sci. Rep. 6:26063; doi:10.1038/srep26063",
+   "status": "text",
+   "value": "Pang et al. 2016, Sci. Rep. 6:26063; doi:10.1038/srep26063"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "SEM (BSE imaging); petrographic microscopy",
+   "status": "text",
+   "value": "SEM (BSE imaging); petrographic microscopy"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "plagioclase and its polymorphs — 'Measurements of most minerals were performed with a focused beam ... whereas measurements of plagioclase and its polymorphs were performed with a defocused beam'; the other minerals are not listed (EPMA data in Supplementary Table 4)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "plagioclase and its polymorphs",
+     "parent": null
+    }
+   ]
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Polished thin section; carbon coating N",
+   "status": "text",
+   "value": "Polished thin section; carbon coating N"
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Phase > Analysis point — compositions are reported as per-phase means, \"The average compositions (Supplementary Table 1) of orthopyroxene\" (p.2) and \"41 ± 8 mol% on average; based on 13 analyses\" (p.4); the individual points are in a supplement not in the archived PDF",
+   "status": "text",
+   "value": "Phase > Analysis point"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "Spatial position within the shock assemblage — garnet is analysed \"within the eclogitic mineral assemblage of zoned veins\" and contrasted with grains \"in either thin melt veins or the edge zones of zoned melt veins\" (p.4); the individual grains are not otherwise chosen by a stated rule",
+   "status": "text",
+   "value": "Spatial position within the shock assemblage"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "SEM petrography — \"The petrographic texture of NWA 8003 was observed using a JEOL 7000F field emission gun scanning electron microscope (FEG-SEM) at Hokkaido University\" (p.7); phase identifications also rest on Raman spectra and EBSD patterns (p.4)",
+   "status": "text",
+   "value": "SEM petrography"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "JEOL",
+   "status": "text",
+   "value": "JEOL"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "JXA-8100 (stated as \"JEOL 8100\")",
+   "status": "text",
+   "value": "JXA-8100 (stated as \"JEOL 8100\")"
+  },
+  "Electron Source": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Detector Configuration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "WDS Point Analysis — 'Electron Probe Micro-Analyzer (EPMA) with wavelength dispersive spectrometers (WDS)'",
+   "status": "text",
+   "value": "WDS Point Analysis"
+  },
+  "Beam Mode": {
+   "key": "target material",
+   "cell": "plagioclase and its polymorphs: Defocused; other: Focused — Methods",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "plagioclase and its polymorphs"
+     ],
+     "value": "Defocused"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "Focused"
+    }
+   ]
+  },
+  "Accelerating Voltage": {
+   "key": "(none)",
+   "cell": "15 kV",
+   "status": "text",
+   "value": "15 kV"
+  },
+  "Beam Current": {
+   "key": "target material",
+   "cell": "all: 20 nA — 'a focused beam of 20nA ... at the same beam current'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "20 nA"
+    }
+   ]
+  },
+  "Beam Diameter": {
+   "key": "target material",
+   "cell": "plagioclase and its polymorphs: 2–5 µm; other: N — 'a defocused beam (2–5 μm in diameter)'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "plagioclase and its polymorphs"
+     ],
+     "value": "2–5 µm"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Beam Raster Dimensions": {
+   "key": "target material",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Beam Damage Minimization": {
+   "key": "target material",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mapping Beam Mode": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Current": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Diameter": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Drift Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "N — no element is named in the paper; the analysed elements are in Supplementary Table 4, which is not in the archived PDF",
+   "status": "commentary only"
+  },
+  "Monitored Elements": {
+   "key": "defines: monitored property per target species",
+   "cell": "N — \"Natural and synthetic standards were used\" (p.7) without naming them; the analysed elements are given in Supplementary Table 4, which is not in the archived PDF",
+   "status": "commentary only"
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "En, Fs, Wo; Ca-Eskola component; empirical formulae — mol% (p.2, p.4); the oxide analyses are in Supplementary Tables 1–4, not in the archived PDF",
+   "status": "structured",
+   "value": [
+    {
+     "member": "En",
+     "parent": null
+    },
+    {
+     "member": "Fs",
+     "parent": null
+    },
+    {
+     "member": "Wo",
+     "parent": null
+    },
+    {
+     "member": "Ca-Eskola component",
+     "parent": null
+    },
+    {
+     "member": "empirical formulae",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Detection Method per Monitored Element": {
+   "key": "monitored property",
+   "cell": "all: WDS — 'JEOL8100 ... with wavelength dispersive spectrometers (WDS)'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "WDS"
+    }
+   ]
+  },
+  "X-ray Line": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Diffracting Crystal": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Channel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sequence": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Proportional Counter / Detector": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS PHA Setting": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Counting Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Background Counting Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Background Position(s)": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Live Time per Point or Pixel": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "EDS Acquisition Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Pixel": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Step Size / Pixel Size": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Stage Scan vs. Beam Scan": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Matrix Correction Method": {
+   "key": "(none)",
+   "cell": "ZAF",
+   "status": "text",
+   "value": "ZAF"
+  },
+  "Mass Absorption Coefficients (MACs)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Background Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Time-Dependent Intensity Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species Estimation Method": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Halogen Correction on Oxygen": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "WDS Dead Time Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Spectral Processing Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Blank Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — the reported averages state their contributing counts (\"based on 12 analyses\" for orthopyroxene, and \"14 analyses\" for augite, p.2; \"based on 13 analyses\" and \"34 ± 7 mol% on average; 19 analyses\" for the Ca-Eskola component, p.4). No acceptance or rejection rule is stated",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "N — 'Natural and synthetic standards were used'",
+   "status": "commentary only"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line Overlap Corrections Applied": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Elements": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Interference Correction Standard": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "all: better than 0.02 wt% (typical) — 'Typical detection limits for oxides of most elements were better than 0.02 wt%'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "better than 0.02 wt% (typical)"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Precision": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Pang et al. 2016, Sci. Rep. 6:26063 — NWA 8003 eucrite, Nanjing University. JEOL JXA-8100 (stated as \"JEOL 8100\"). WDS explicitly stated (\"JEOL 8100 WDS\"). ZAF matrix correction (NOT \"ZAF or PAP\" as in v2; paper states ZAF). Focused beam (20 nA) for most phases; defocused 2-5 µm for plagioclase and polymorphs. Natural and synthetic mineral standards (specific names N). Detection limit better than 0.02 wt% (as stated). Analytical software not stated.",
+   "status": "text",
+   "value": "Pang et al. 2016, Sci. Rep. 6:26063"
+  }
+ }
+}

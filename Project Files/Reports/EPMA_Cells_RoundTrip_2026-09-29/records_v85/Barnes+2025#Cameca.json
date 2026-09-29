@@ -1,0 +1,434 @@
+{
+ "procedure_column": "Barnes+2025 | Cameca SX100 | WDS Point Analysis (NHM London)",
+ "tapp": "EPMA_TAPP_v85",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "EPMA Major/Minor Element Anhydrous Silicates, Bennu (NHM London, Cameca SX100)",
+   "status": "text",
+   "value": "EPMA Major/Minor Element Anhydrous Silicates, Bennu (NHM London, Cameca SX100)"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Natural History Museum (NHM), London, UK",
+   "status": "text",
+   "value": "Natural History Museum (NHM), London, UK"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6",
+   "status": "text",
+   "value": "Barnes et al. 2025, Nat. Astron.; doi:10.1038/s41550-025-02631-6"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)",
+   "status": "text",
+   "value": "SEM-EDS (Zeiss EVO 15LS + Oxford X-Max80, 20 kV, 3 nA); NanoSIMS (OU); SIMS (CAMECA ims-1280-HR, Hokkaido); laser fluorination O isotopes (OU)"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "olivine; pyroxene — 'Olivine and pyroxene grains were identified and characterized at the NHM' (p.13)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "olivine",
+     "parent": null
+    },
+    {
+     "member": "pyroxene",
+     "parent": null
+    }
+   ]
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm) [N5,N6]",
+   "status": "text",
+   "value": "Mounted in resin blocks; polished at NHM London; fragmented during polishing (P1, P2); initial carbon coat for SEM/EPMA (thickness N); additional coat added after for SIMS (total ~30 nm) [N5,N6]"
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Grain > Analysis point — \"Olivine and pyroxene grains were identified and characterized at the NHM\" in particles P1 and P2, and \"Analyses were performed at 20 kV, using a focused 1-μm beam\" (p.13)",
+   "status": "text",
+   "value": "Grain > Analysis point"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "Phase identity — \"Olivine and pyroxene grains were identified and characterized at the NHM\" (p.13), the paper's target being the anhydrous silicates in particles P1 and P2",
+   "status": "text",
+   "value": "Phase identity"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "SEM characterisation at the NHM — \"Olivine and pyroxene grains were identified and characterized at the NHM\" and \"Following characterization by SEM/EPMA, an additional carbon coat was added for a total thickness of ~30 nm\" (p.13); additional quantitative data came from a Zeiss EVO 15LS analytical SEM with an Oxford X-Max80 EDS (p.13)",
+   "status": "text",
+   "value": "SEM characterisation at the NHM"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Cameca",
+   "status": "text",
+   "value": "Cameca"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "SX100 (stated as \"CAMECA SX100 electron microprobe\")",
+   "status": "text",
+   "value": "SX100 (stated as \"CAMECA SX100 electron microprobe\")"
+  },
+  "Electron Source": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Detector Configuration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "N — point analyses ('Analyses were performed at 20 kV, using a focused 1-μm beam'); WDS or EDS is not stated, and the list has no value without one",
+   "status": "commentary only"
+  },
+  "Beam Mode": {
+   "key": "target material",
+   "cell": "all: Focused — 'Analyses were performed at 20 kV, using a focused 1-μm beam'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Focused"
+    }
+   ]
+  },
+  "Accelerating Voltage": {
+   "key": "(none)",
+   "cell": "20 kV",
+   "status": "text",
+   "value": "20 kV"
+  },
+  "Beam Current": {
+   "key": "target material",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Beam Diameter": {
+   "key": "target material",
+   "cell": "all: 1 µm — as above",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "1 µm"
+    }
+   ]
+  },
+  "Beam Raster Dimensions": {
+   "key": "target material",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Beam Damage Minimization": {
+   "key": "target material",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mapping Beam Mode": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Current": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Mapping Beam Diameter": {
+   "key": "sample > sampling unit",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Drift Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Monitored Elements": {
+   "key": "defines: monitored property per target species",
+   "cell": "N — the paper gives beam conditions and a detection limit for transition metals of about 250 ppm for the NHM London instrument (p.13) but names no element",
+   "status": "commentary only"
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "major and minor element abundances; Mg# — 'Major and minor element abundances' of olivine and pyroxene; 'the Mg# of olivine grains is >83' (p.13)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "major and minor element abundances",
+     "parent": null
+    },
+    {
+     "member": "Mg#",
+     "parent": null
+    }
+   ]
+  },
+  "X-ray Detection Method per Monitored Element": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Diffracting Crystal": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS Spectrometer Channel": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sequence": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Proportional Counter / Detector": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "WDS PHA Setting": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Counting Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Background Counting Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Background Position(s)": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Live Time per Point or Pixel": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "EDS Acquisition Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Pixel": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Step Size / Pixel Size": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Stage Scan vs. Beam Scan": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Matrix Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Absorption Coefficients (MACs)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Background Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Time-Dependent Intensity Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species Estimation Method": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Halogen Correction on Oxygen": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "WDS Dead Time Correction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "EDS Spectral Processing Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Blank Correction": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N — no contributing count and no acceptance or rejection rule is stated for the olivine and pyroxene analyses",
+   "status": "commentary only"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "X-ray Line Overlap Corrections Applied": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Elements": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Standard": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N — 'Typical detection limits for transition metals were around 250 ppm'; the elements are not named",
+   "status": "commentary only"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Precision": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Barnes et al. 2025, Nat. Astron. — variety and origin of accreted materials in Bennu. Protocol 2 of 2: NHM London, CAMECA SX100. Stated instrument: \"CAMECA SX100 electron microprobe\". Target minerals: olivine and pyroxene (anhydrous silicates). 20 kV, 1 µm focused beam. Beam current not stated for EPMA (3 nA in text refers to SEM-EDS on separate Zeiss EVO instrument). Detection limits ~250 ppm for transition metals. Standards, matrix correction, WDS spectrometer details not stated. Analyte list not given. SEM-EDS at NHM is a separate instrument (Zeiss EVO 15LS + Oxford X-Max80) calibrated at 20 kV, 3 nA. Carbon coat: initial coat for SEM/EPMA (thickness N); additional coat to ~30 nm total was for subsequent SIMS, not EPMA.",
+   "status": "text",
+   "value": "Barnes et al. 2025, Nat. Astron."
+  }
+ }
+}

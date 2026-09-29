@@ -6,10 +6,10 @@ STAGE 1 — procedure-level cells of 15 columns (EPMA_TAPP_v84.csv): 1140
   not assessed         130   11%
   commentary only       47    4%
 
-STAGE 2 — 367 stated facts, recovered as:
+STAGE 2 — 369 stated facts, recovered as:
   structured                        280   76%
   text                               58   16%
-  not assessed                       17    5%
+  not assessed                       19    5%
   in another field                    6    2%
   commentary only                     6    2%
 
@@ -18,8 +18,8 @@ per procedure (structured + text / facts):
   Hu+2020               26 /  27   96%   not assessed 1
   Liu+2016_UT            8 /  16   50%   in another field 6, not assessed 2
   Liu+2016_Cal          32 /  33   97%   not assessed 1
-  Ma+2017               46 /  47   98%   not assessed 1
-  Frank+2023            34 /  35   97%   not assessed 1
+  Ma+2017               46 /  48   96%   not assessed 2
+  Frank+2023            34 /  36   94%   not assessed 2
   Broussard+2026        16 /  18   89%   not assessed 2
   Seifert+2026          16 /  17   94%   not assessed 1
   Pang+2016              8 /   9   89%   not assessed 1
@@ -31,32 +31,34 @@ per procedure (structured + text / facts):
   Neuman+2025           25 /  25  100%   
 
 facts not recovered as structure or text:
-  [Ma+2015] Analytical Mode -> not assessed  («procedure performs WDS Point»)
-  [Hu+2020] Analytical Mode -> not assessed  («procedure performs WDS Point»)
+  [Ma+2015] Analytical Mode -> not assessed  («procedure performs: WDS Point Analysis»)
+  [Hu+2020] Analytical Mode -> not assessed (found in Sampling Unit Type)  («procedure performs: point»)
   [Liu+2016_UT] X-ray Line [Ca] -> in another field: Mapping Beam Current  («Ca Ka, Al Ka, Fe Ka, Mg Ka; Fe, P, Al, Ca, Cr Ka»)
   [Liu+2016_UT] X-ray Line [Al] -> in another field: Mapping Beam Current  («Ca Ka, Al Ka, Fe Ka, Mg Ka; Fe, P, Al, Ca, Cr Ka»)
   [Liu+2016_UT] X-ray Line [Fe] -> in another field: Mapping Beam Current  («Ca Ka, Al Ka, Fe Ka, Mg Ka; Fe, P, Al, Ca, Cr Ka»)
   [Liu+2016_UT] X-ray Line [Mg] -> in another field: Mapping Beam Current  («Ca Ka, Al Ka, Fe Ka, Mg Ka; Fe, P, Al, Ca, Cr Ka»)
   [Liu+2016_UT] X-ray Line [P] -> in another field: Mapping Beam Current  («Ca Ka, Al Ka, Fe Ka, Mg Ka; Fe, P, Al, Ca, Cr Ka»)
   [Liu+2016_UT] X-ray Line [Cr] -> in another field: Mapping Beam Current  («Ca Ka, Al Ka, Fe Ka, Mg Ka; Fe, P, Al, Ca, Cr Ka»)
-  [Liu+2016_UT] Analytical Mode -> not assessed  («procedure performs WDS Point»)
-  [Liu+2016_UT] Analytical Mode -> not assessed  («procedure performs WDS Mapping»)
-  [Liu+2016_Cal] Analytical Mode -> not assessed  («procedure performs WDS Point»)
-  [Ma+2017] Analytical Mode -> not assessed  («procedure performs WDS Point»)
-  [Frank+2023] Analytical Mode -> not assessed  («procedure performs WDS Point»)
-  [Broussard+2026] Analytical Mode -> not assessed  («procedure performs WDS Point»)
-  [Broussard+2026] Analytical Mode -> not assessed  («procedure performs WDS Mapping»)
-  [Seifert+2026] Analytical Mode -> not assessed  («procedure performs WDS Point»)
-  [Pang+2016] Analytical Mode -> not assessed  («procedure performs WDS Point»)
+  [Liu+2016_UT] Analytical Mode -> not assessed  («procedure performs: point»)
+  [Liu+2016_UT] Analytical Mode -> not assessed (found in Procedure Name)  («procedure performs: map»)
+  [Liu+2016_Cal] Analytical Mode -> not assessed (found in Sampling Unit Type)  («procedure performs: point»)
+  [Ma+2017] Analytical Mode -> not assessed  («procedure performs: WDS Point Analysis»)
+  [Ma+2017] Analytical Mode -> not assessed  («procedure performs: K-mapping»)
+  [Frank+2023] Analytical Mode -> not assessed (found in Sampling Unit Type)  («procedure performs: point»)
+  [Frank+2023] Analytical Mode -> not assessed (found in Procedure Reference(s))  («procedure performs: map»)
+  [Broussard+2026] Analytical Mode -> not assessed  («procedure performs: WDS Point Analysis»)
+  [Broussard+2026] Analytical Mode -> not assessed  («procedure performs: WDS Mapping»)
+  [Seifert+2026] Analytical Mode -> not assessed (found in Sampling Unit Type)  («procedure performs: point»)
+  [Pang+2016] Analytical Mode -> not assessed  («procedure performs: WDS Point Analysis»)
   [McCoy+2025_SI] Primary Calibration Standard Name [all/Fe] -> commentary only  («Standard analyses were performed on magnetite, calcite, dolomite, side»)
-  [McCoy+2025_SI] Analytical Mode -> not assessed  («procedure performs WDS Point»)
-  [McCoy+2025_UA] Analytical Mode -> not assessed  («procedure performs WDS Point»)
+  [McCoy+2025_SI] Analytical Mode -> not assessed (found in Sampling Unit Type)  («procedure performs: point»)
+  [McCoy+2025_UA] Analytical Mode -> not assessed  («procedure performs: WDS Point Analysis»)
   [Zega+2025] Peak Counting Time -> commentary only  («20 s peak time (silicates, sulfides, oxides; phosphates)»)
   [Zega+2025] Peak Counting Time -> commentary only  («10 s peak (carbonates)»)
   [Zega+2025] Background Counting Time -> commentary only  («10 s on each background»)
   [Zega+2025] Background Counting Time -> commentary only  («5 s background (carbonates)»)
-  [Zega+2025] Analytical Mode -> not assessed  («procedure performs WDS Point»)
-  [Zega+2025] Analytical Mode -> not assessed  («procedure performs WDS Mapping»)
-  [Barnes+2025#JEOL] Analytical Mode -> not assessed  («procedure performs WDS Point»)
+  [Zega+2025] Analytical Mode -> not assessed  («procedure performs: point»)
+  [Zega+2025] Analytical Mode -> not assessed (found in Pre-Analysis Imaging and Screening)  («procedure performs: map»)
+  [Barnes+2025#JEOL] Analytical Mode -> not assessed (found in Sampling Unit Type)  («procedure performs: point»)
   [Barnes+2025#Cameca] Detection Limit -> commentary only  («Typical detection limits for transition metals were around 250 ppm»)
-  [Barnes+2025#Cameca] Analytical Mode -> not assessed (found in Sampling Unit Type)  («procedure performs Point»)
+  [Barnes+2025#Cameca] Analytical Mode -> not assessed (found in Sampling Unit Type)  («procedure performs: point»)

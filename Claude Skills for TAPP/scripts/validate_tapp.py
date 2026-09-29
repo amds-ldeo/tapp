@@ -1638,7 +1638,7 @@ HISTORICAL_DIRS = {
     "Project Files/Reports/EPMA_Narrative_RoundTrip_2026-09-17":
         "dated blind round-trip test scored against EPMA TAPP v77; a record of that version, not a guide",
     "Project Files/Reports/EPMA_Cells_RoundTrip_2026-09-29":
-        "dated cells-to-procedure round-trip scored against EPMA TAPP v84; a record of that version",
+        "dated cells-to-procedure round-trip scored against EPMA TAPP v84 and v85; a record of those versions",
     "Project Files/Claude Memory":
         "sanitised snapshot of the out-of-repo working notes (2026-09-10). Each note records "
         "what was believed when it was written, and several exist precisely to explain a "

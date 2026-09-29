@@ -236,13 +236,16 @@ FACTS = {
 
 
 # Which analytical modes each procedure covers, as its EPMA paragraph states them. Added because
-# `Analytical Mode` is the field a record needs to know which mode-flagged fields apply.
+# `Analytical Mode` is the field a record needs to know which mode-flagged fields apply. Where the paper
+# names the detector, the fact is the list value; where it states only the geometry (point analyses,
+# maps), the fact is the geometry alone — the closed list cannot hold it, so it can at best be commentary.
 MODES = {
-    "Ma+2015": ["WDS Point"], "Hu+2020": ["WDS Point"], "Liu+2016_Cal": ["WDS Point"],
-    "Liu+2016_UT": ["WDS Point", "WDS Mapping"], "Ma+2017": ["WDS Point"], "Frank+2023": ["WDS Point"],
-    "Broussard+2026": ["WDS Point", "WDS Mapping"], "Seifert+2026": ["WDS Point"], "Pang+2016": ["WDS Point"],
-    "McCoy+2025_SI": ["WDS Point"], "McCoy+2025_UA": ["WDS Point"], "Zega+2025": ["WDS Point", "WDS Mapping"],
-    "Barnes+2025#JEOL": ["WDS Point"], "Barnes+2025#Cameca": ["Point"], "Neuman+2025": ["WDS Mapping"],
+    "Ma+2015": ["WDS Point Analysis"], "Ma+2017": ["WDS Point Analysis", "K-mapping"],
+    "Broussard+2026": ["WDS Point Analysis", "WDS Mapping"], "Pang+2016": ["WDS Point Analysis"],
+    "McCoy+2025_UA": ["WDS Point Analysis"], "Neuman+2025": ["WDS Mapping"],
+    "Hu+2020": ["point"], "Liu+2016_Cal": ["point"], "Liu+2016_UT": ["point", "map"],
+    "Frank+2023": ["point", "map"], "Seifert+2026": ["point"], "McCoy+2025_SI": ["point"],
+    "Zega+2025": ["point", "map"], "Barnes+2025#JEOL": ["point"], "Barnes+2025#Cameca": ["point"],
 }
 for _k, _ms in MODES.items():
-    FACTS[_k] += [("Analytical Mode", None, [_m], "procedure performs %s" % _m) for _m in _ms]
+    FACTS[_k] += [("Analytical Mode", None, [_m], "procedure performs: %s" % _m) for _m in _ms]

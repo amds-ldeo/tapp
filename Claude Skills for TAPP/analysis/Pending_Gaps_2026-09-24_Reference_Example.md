@@ -202,6 +202,13 @@ The field is TAPP-owned. **Correction:** this record first said EPMA only, but S
 
 **Larger alternative, not pursued.** Split EPMA's mode columns into geometry × detector. That would revisit the Phase 0 mode decision.
 
+**Evidence for it, 2026-09-29.** The EPMA cells round-trip (`Project Files/Reports/EPMA_Cells_RoundTrip_2026-09-29/`)
+found that 9 of 15 EPMA papers state their geometry (point analyses, maps) without naming WDS or EDS.
+`Analytical Mode`'s closed list pairs the two, so those procedures get `N`, and 14 stated facts
+survive only as commentary. This is the largest single residue of the round-trip. **Held by the
+user on 2026-09-29.** The split stays the deferred alternative; revisit it with the other electron-beam
+TAPPs, or if another round-trip shows the same residue.
+
 ### Gap 2 — per-element values can differ between modes — HELD
 
 **The problem.** In the example, the same element uses a two-point off-peak background for points and a MAN background for maps, and a different spectrometer for maps than for points.
