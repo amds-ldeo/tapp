@@ -41,7 +41,7 @@ EXAMPLES = {
  'Coupled Procedure DOI': 'pending',
  'Coupled Dataset or Publication Reference': 'same submission',
  # ---- 2. Samples
- 'Target Material': 'Olivine and pyroxene; Fe–Ti–Cr oxides (magnetite, chromite, ilmenite); sulfides (pyrrhotite, pentlandite); phosphates (apatite, merrillite); carbonates (calcite, dolomite, breunnerite), in carbonaceous-chondrite material',
+ 'Target Material': 'Silicate mineral (olivine, pyroxene); oxide (magnetite, chromite, ilmenite); sulfide (pyrrhotite, pentlandite); phosphate (apatite, merrillite); carbonate (calcite, dolomite, breunnerite), in carbonaceous-chondrite material',
  'Sample Preparation Method': 'Epoxy mount, dry-polished with diamond to 0.25 µm, carbon coated to 20 nm, for EX-CC-01; the same, plus Ar-ion polishing after the final diamond step, for EX-CC-02',
  'Sample Name': 'EX-CC-01; EX-CC-02',
  'Sampling Unit Type': {
@@ -52,6 +52,7 @@ EXAMPLES = {
      'all': 'P1-01–P1-12, P2-01–P2-11, P3-01–P3-06 and map M1 for EX-CC-01; P1-01–P1-16, P2-01–P2-08 and map M2 for EX-CC-02',
      'point': 'P1-01–P1-12, P2-01–P2-11, P3-01–P3-06 for EX-CC-01 (29 points); P1-01–P1-16, P2-01–P2-08 for EX-CC-02 (24 points)',
      'map': 'M1 (particle P1) for EX-CC-01; M2 (particle P1) for EX-CC-02'},
+ 'Target Material of Sampling Unit': 'Silicate mineral for P1-01–P1-12, oxide for P2-01–P2-06, sulfide for P2-07–P2-11, phosphate for P3-01–P3-06 (EX-CC-01); carbonate for P1-01–P1-16, silicate mineral for P2-01–P2-08 (EX-CC-02)',
  'Sample Persistent Identifier': 'IGSN:EXAMPLE0001 for EX-CC-01; IGSN:EXAMPLE0002 for EX-CC-02',
  'Sampling Unit Selection Criteria': {
      'all': 'Grains at least 5 µm across (10 µm for phosphates and carbonates); at least 3 µm from boundaries, cracks and inclusions in BSE (5 µm for defocused or rastered beams); phase confirmed from its EDS spectrum first; map areas include every target phase in a particle',
@@ -71,25 +72,17 @@ EXAMPLES = {
  'EDS Detector Configuration': 'Integrated silicon drift detector: 30 mm² active area, ultra-thin polymer window, 40° take-off angle',
  # ---- 4. Measurement information
  'Analytical Mode': 'EDS point analysis; EDS mapping; WDS point analysis; WDS mapping',
- 'Beam Mode': {
-     'all': 'Focused for olivine, pyroxene, oxides, sulfides and maps; defocused for phosphates; rastered for carbonates',
-     'point': 'Focused for olivine, pyroxene, oxides and sulfides; defocused for phosphates; rastered for carbonates',
-     'map': 'Focused'},
- 'Accelerating Voltage': '15 kV (the laboratory\'s standard operating voltage)',
- 'Beam Current': {
-     'all': '20 nA for olivine, pyroxene, oxides, sulfides; 8 nA for phosphates; 4 nA for carbonates; 50 nA for maps',
-     'point': '20 nA for olivine, pyroxene, oxides, sulfides; 8 nA for phosphates; 4 nA for carbonates',
-     'map': '50 nA'},
- 'Beam Diameter': {
-     'all': '1 µm (focused) for olivine, pyroxene, oxides, sulfides and maps; 5 µm (defocused) for phosphates',
-     'point': '1 µm (focused) for olivine, pyroxene, oxides, sulfides; 5 µm (defocused) for phosphates',
-     'map': '1 µm (focused)'},
+ 'Beam Mode': 'Focused for silicate minerals, oxides and sulfides; defocused for phosphates; rastered for carbonates',
+ 'Beam Current': '20 nA for silicate minerals, oxides and sulfides; 8 nA for phosphates; 4 nA for carbonates',
+ 'Beam Diameter': '1 µm (focused) for silicate minerals, oxides and sulfides; 5 µm (defocused) for phosphates; focused within the raster for carbonates',
  'Beam Raster Dimensions': '5 × 5 µm for carbonates',
  'Beam Damage Minimization': {
-     'all': 'Na, K, F and Cl measured in the first acquisition pass on every point; defocused beam for phosphates, rastered beam for carbonates',
-     'EDS Point Analysis': 'Defocused beam for phosphates; rastered beam for carbonates',
-     'WDS Point Analysis': 'Na, K, F and Cl measured in the first acquisition pass on every point; defocused beam for phosphates, rastered beam for carbonates',
-     'map': 'None required'},
+     'all': 'Defocused beam for phosphates; rastered beam for carbonates; Na, K, F and Cl measured in the first acquisition pass on every point',
+     'EDS Point Analysis': 'Defocused beam for phosphates; rastered beam for carbonates'},
+ 'Mapping Beam Mode': 'Focused, for maps M1 and M2',
+ 'Mapping Beam Current': '50 nA, for maps M1 and M2',
+ 'Mapping Beam Diameter': '1 µm (focused), for maps M1 and M2',
+ 'Accelerating Voltage': '15 kV (the laboratory\'s standard operating voltage)',
  'Drift Correction': 'Beam current measured with the Faraday cup before each point and at the start of each map line, intensities normalised to it; primary standards re-measured at the start and end of the session, drift interpolated linearly with time',
  'Target Species': 'Si, Ti, Al, Cr, Fe, Mn, Mg, Ca, Na, K, P, S, F, Cl, Ni, Co, O, C (18 elements)',
  'Monitored Elements': {

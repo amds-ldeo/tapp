@@ -134,7 +134,10 @@ REQUIRED_TIERS = {
 LEVEL_WORDS = ["Default", "Achieved", "Typical", "Actual"]
 TARGET_EXEMPT = {"Target Material", "Target Feature(s)", "Target Species",
                  "Calibration Strategy per Target Species", "Target Species Estimation Method",
-                 "Technique per Target Species", "EPMA Technique per Target Species"}
+                 "Technique per Target Species", "EPMA Technique per Target Species",
+                 # 2026-09-28 (gap 1): names the Target Material entry a unit belongs to — the
+                 # material-type sense exempted above, not a target value.
+                 "Target Material of Sampling Unit"}
 # `Target Selection Criteria` left this set on 2026-09-01 when it became `Sampling Unit Selection
 # Criteria`. It was the only member using "Target" in the instance-level sense — the portion of a
 # sample actually picked out — rather than the type-level "what the procedure is designed for" that
@@ -187,7 +190,10 @@ KEY_ANCHORS = {"sample", "sampling unit", "reported property", "channel", "targe
                # is the one that now has no user; it is kept for the swept-axis techniques.
                "monitored property"}
 KEY_SECONDARY = {"standard", "conversion", "model component", "acquisition pass",
-                 "preparation step", "background position"}
+                 "preparation step", "background position",
+                 # added 2026-09-28 (gap 1): defined by Target Material in all 16 TAPPs
+                 # (Module_Core v10); consumed by the EPMA point-analysis beam fields.
+                 "target material"}
 KEY_VOCAB = KEY_ANCHORS | KEY_SECONDARY
 KEY_FORBIDDEN = {"mode"}          # carried by the mode flag columns (Rule 3)
 
@@ -211,7 +217,11 @@ KEYED_BY_TECHNIQUE_DEPENDENT = {
                                          "and TEM, whose STEM per-pixel dwell is scalar (TEM joined "
                                          "this field on 2026-08-27, when `STEM Dwell Time per Pixel` "
                                          "was merged into it as a Rule 1 name variant)",
-    "Beam Current":                      "per phase where composition is measured, scalar in imaging-only TAPPs",
+    "Beam Current":                      "target material in EPMA (point analysis only, since 2026-09-28: the literature states beam conditions per material, never per analysis point); sample > sampling unit in SEM and SEM_Composition, pending their literature check (gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md); (none) in the imaging-only SEM variants",
+    "Beam Mode":                         "target material in EPMA (point analysis only, since 2026-09-28); sample > sampling unit in SEM and SEM_Composition, pending their literature check (gap 1)",
+    "Beam Diameter":                     "target material in EPMA (point analysis only, since 2026-09-28); sample > sampling unit in SEM and SEM_Composition, pending their literature check (gap 1)",
+    "Beam Raster Dimensions":            "target material in EPMA (since 2026-09-28); sample > sampling unit in SEM and SEM_Composition, pending their literature check (gap 1)",
+    "Beam Damage Minimization":          "target material in EPMA (point analysis only, since 2026-09-28); sample > sampling unit in SEM and SEM_Composition, pending their literature check (gap 1)",
     "Monitored Masses":                  "registered 2026-08-12 for `defines: ... per target species` where there was no collector array vs `target species` where the cup array defined the channel. NOTE 2026-09-10: DORMANT — the \u00a74 restructure made the mass list the definer in all nine ICP-MS TAPPs and demoted `Collector Configuration` to a per-monitored-property attribute, so the divergence has no cause and no longer occurs. Kept, not deleted, on the same grounds as `Secondary Reference Materials`: the reading was defensible and could return if a TAPP ever lets the collector array enumerate the measurands again.",
 }
 KEYED_BY_EXCEPTIONS = set(KEYED_BY_TECHNIQUE_DEPENDENT)   # back-compat alias
@@ -335,6 +345,15 @@ KEY_SPLIT_RE = re.compile(r"\s*>\s*|\s+x\s+")
 # ends with 'Sequence' while naming something unrelated. At two words the trial fired on exactly
 # three pairs, all three genuine and all three legitimate — registered below.
 KEY_NAME_VARIANT_EXEMPT = {
+    ("Beam Current", "Mapping Beam Current"):
+        "registered 2026-09-28 (gap 1). Point and map twins, on the Peak Counting Time / Dwell Time per "
+        "Pixel pattern: point-analysis conditions are stated per target material, whereas a map scans "
+        "every material at one set of conditions (Liu+2016: olivine 20 nA points, 200 nA maps; "
+        "Neuman+2025: 100 nA stage maps). The mapping twin is keyed per map (sample > sampling unit).",
+    ("Beam Diameter", "Mapping Beam Diameter"):
+        "registered 2026-09-28 (gap 1); point and map twins, as for Beam Current / Mapping Beam Current.",
+    ("Beam Mode", "Mapping Beam Mode"):
+        "registered 2026-09-28 (gap 1); point and map twins, as for Beam Current / Mapping Beam Current.",
     ("Target Species", "Calibration Strategy per Target Species"):
         "registered 2026-09-01 when `Analyte` became `Target Species`. The suffix test needs TWO words, so these pairs were invisible while the base field was the one-word `Analyte` — the rename activated a dormant check rather than creating a defect. The base field is the DEFINER (`defines: target species`); this one is a "
         "CONSUMER (`target species`), one calibration strategy per species. Definer and consumer of "
@@ -1217,7 +1236,11 @@ def check_keyed_by(t: Tapp, out):
         # Units declares the procedure's scope boundary, Sampling Unit Name lists the units a
         # reported row can correspond to (Sampling Unit Type, its pair, is not a definer). Their definer role is secondary, so a TAPP with no
         # field keyed off them is not in error.
-        if k not in used and not set(fields) & {RULE8_FIELD, RULE9_FIELD, RULE9_NAME_FIELD}:
+        # Target Material (2026-09-28) is exempt on the same ground: it states the procedure's
+        # scope for discovery, and defines `target material` in every TAPP through Module_Core
+        # although only the electron-beam TAPPs key fields by it.
+        if k not in used and not set(fields) & {RULE8_FIELD, RULE9_FIELD, RULE9_NAME_FIELD,
+                                                 "Target Material"}:
             add("WARN", 1, fields[0], "rule7-unused-definer",
                 f"'{fields[0]}' declares 'defines: {k}' but no field in this TAPP is "
                 f"keyed by '{k}'. A field that merely holds a list is not a definer — "
@@ -1568,6 +1591,11 @@ HISTORICAL_DIRS = {
 RETIRED_FIELD_LONGER_NAMES = {
     "Sampling Unit": ("Type", "Name", "Selection"),
 }
+# Same problem from the other side: a live field that ENDS with a retired name. Each entry is a
+# fixed-width prefix, tested as a lookbehind. `Target Material of Sampling Unit` added 2026-09-28.
+RETIRED_FIELD_LIVE_PREFIXES = {
+    "Sampling Unit": ("Target Material of ",),
+}
 
 RETIRED_FIELDS = {
     "Sampling Unit":                  "split 2026-09-15 into Sampling Unit Type (the kind of unit, keyed "
@@ -1838,7 +1866,9 @@ def check_library_freshness(root, out):
                         continue
                     guard = RETIRED_FIELD_LONGER_NAMES.get(fld, ())
                     tail = "".join(r"(?! " + re.escape(g) + ")" for g in guard)
-                    if re.search(r"(?<![A-Za-z])" + re.escape(fld) + r"(?![A-Za-z])" + tail, text):
+                    head = "".join(r"(?<!" + re.escape(g) + ")"
+                                   for g in RETIRED_FIELD_LIVE_PREFIXES.get(fld, ()))
+                    if re.search(head + r"(?<![A-Za-z])" + re.escape(fld) + r"(?![A-Za-z])" + tail, text):
                         add("WARN", rel, "doc-retired-field",
                             f"names the field '{fld}' — {why}. Update the text, or add the file "
                             f"to HISTORICAL_DOCS if it is a dated record.")

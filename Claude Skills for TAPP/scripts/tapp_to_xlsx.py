@@ -296,6 +296,7 @@ def build_legends(wb, mode_headers, keys_used=()):
         'channel': "One value per position on the instrument's selection axis — the address, not the signal. Mass, cup, line + crystal, energy-loss edge, wavenumber.",
         'target species': 'One value per chemical species determined, at whatever granularity the procedure determines it.',
         'standard': 'One value per reference material or reference database entry.',
+        'target material': 'One value per material type the procedure is designed to analyse, as listed in Target Material.',
         'conversion': 'One value per correction or calculation step, where it cannot be attributed to a single reported property.',
         'model component': 'One value per component of a fitted decomposition of the signal.',
         'acquisition pass': 'One value per pass over the sample with its own instrument settings.',

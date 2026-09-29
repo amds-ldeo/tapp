@@ -177,13 +177,13 @@ ADJUDICATED = {
     # ---- eighth was real. The generalisable result is the single-target-species unfalsifiability rule
     # ---- recorded under Primary Calibration Standard Name below.
     ("Beam Diameter", "OVER-DECLARED"):
-        "KEEP sample > sampling unit — the detector tallied sampling unit=2 of 13; READING THE RAW "
+        "RE-KEYED IN EPMA 2026-09-28 -> target material (point analysis only; gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). The per-phase evidence recorded here is exactly what that key carries: every attested value is per phase or material, none per analysis point. SEM and SEM_Composition keep sample > sampling unit until their literature is checked. Earlier ruling: KEEP sample > sampling unit — the detector tallied sampling unit=2 of 13; READING THE RAW "
         "CELLS GIVES 6 of 14. Liu+2016 (both), Pang+2016, McCoy+2025_SI, Zega+2025 and Barnes+2025 "
         "(JEOL) each give a per-phase diameter, e.g. '1-2 um (olivine, pyroxene, Fe-Ti-Cr oxides); "
         "5-10 um defocused (maskelynite, phosphate, sulfide, glass)'. Far stronger than the 2-of-13 "
         "that kept Beam Current. The detector recognises only a narrow phrasing.",
     ("Beam Mode", "OVER-DECLARED"):
-        "KEEP sample > sampling unit — same evidence and same undercount as Beam Diameter: 6 of 14 "
+        "RE-KEYED IN EPMA 2026-09-28 -> target material (point analysis only; gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). The per-phase evidence recorded here is exactly what that key carries: every attested value is per phase or material, none per analysis point. SEM and SEM_Composition keep sample > sampling unit until their literature is checked. Earlier ruling: KEEP sample > sampling unit — same evidence and same undercount as Beam Diameter: 6 of 14 "
         "give a per-phase mode ('Focused (olivine, pyroxene, Fe-Ti-Cr oxides); Defocused 5-10 um "
         "(maskelynite, phosphate, sulfide, glass)'). Keyed deliberately in the electron-beam setup "
         "cluster pass and confirmed here on evidence.",
@@ -263,7 +263,7 @@ ADJUDICATED = {
         "KEEP sample — attested per sample in Lopez Garcia 2026, which lists eight individual "
         "particle masses (4.325, 1.868, 2.311 mg ...). Scalar elsewhere.",
     ("Beam Damage Minimization", "OVER-DECLARED"):
-        "PRE-EXISTING, not introduced 2026-08-17 — EPMA only, and this session did not touch EPMA's "
+        "RE-KEYED IN EPMA 2026-09-28 -> target material (point analysis only; gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). The per-phase evidence recorded here is exactly what that key carries: every attested value is per phase or material, none per analysis point. SEM and SEM_Composition keep sample > sampling unit until their literature is checked. Earlier ruling: PRE-EXISTING, not introduced 2026-08-17 — EPMA only, and this session did not touch EPMA's "
         "literature columns. Key became sample > sampling unit in the Rule 13 retrofit. Left as is; "
         "revisit with the electron-beam TAPPs, not with ICP-MS work.",
     ("Primary Calibration Standard Name", "AXIS-MISMATCH"):
@@ -276,7 +276,7 @@ ADJUDICATED = {
         "Y/N; the per-mass detail belongs to Interfering Species and Interference Correction "
         "Method, which keep channel.",
     ("Beam Current", "OVER-DECLARED"):
-        "KEEP sampling unit — 2 of 13 procedures publish per-phase currents, so the axis is "
+        "RE-KEYED IN EPMA 2026-09-28 -> target material (point analysis only; gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). The per-phase evidence recorded here is exactly what that key carries: every attested value is per phase or material, none per analysis point. SEM and SEM_Composition keep sample > sampling unit until their literature is checked. Earlier ruling: KEEP sampling unit — 2 of 13 procedures publish per-phase currents, so the axis is "
         "attested in reported data even though 10 are scalar.",
     ("Blank / Background Correction Method", "UNDER-DECLARED"):
         "KEEP (none) — 'measured before each ablation' is a schedule, not a cardinality. The "
@@ -337,6 +337,11 @@ ADJUDICATED = {
 # which it cannot express today.
 KEY_SUBSUMES = {
     "channel": {"monitored property", "detector"},
+    # 2026-09-28 (gap 1): the detector has no `target material` tag. It reads phase and mineral names
+    # ("... for maskelynite, phosphate, sulfide and glass") as per-`sampling unit` variation, because
+    # until this date sampling unit was the only key phases could hang on. A field keyed by target
+    # material accounts for those observations.
+    "target material": {"sampling unit"},
 }
 
 

@@ -38,7 +38,7 @@ from openpyxl.utils import get_column_letter
 # Paths resolve from this file's own location, as build_form.py does, so the script runs
 # from any working directory. The TAPP is read from the `Current TAPPs/` mirror (Rule 12);
 # VERSION pins the snapshot — bump it and the output name follows.
-VERSION = 'v78'
+VERSION = 'v79'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 SRC  = os.path.join(ROOT, 'Current TAPPs', 'EPMA_TAPP_%s.csv' % VERSION)
@@ -61,6 +61,7 @@ DISPLAY = {
     'sampling unit':      'Sampling Unit Name',
     'target species':     'Target Species',
     'monitored property': 'Monitored Element',
+    'target material':    'Target Material',
     'reported property':  'Reported Variable',
     'standard':           'Secondary Reference Material',
 }
@@ -87,15 +88,10 @@ MULTI = {
 # Beam Current 6/15 procedures, Beam Mode 7/15, Beam Diameter 6/15, Beam Damage 4/15.
 # A single procedure-level value would misrepresent them. The domain they vary over
 # (phase / material type) has no key at procedure level — a question for reviewers.
-PROC_MULTI = {
-    'Beam Mode', 'Beam Current', 'Beam Diameter', 'Beam Damage Minimization',
-}
+# Emptied 2026-09-28 (gap 1): the beam fields are keyed `target material` from v79, so the
+# per-phase values have a list of their own and no longer project to "one or more".
+PROC_MULTI = set()
 REVIEW_NOTE = {
-    'Beam Mode': 'Stated per phase in 7 of 15 procedures assessed.',
-    'Beam Current': 'Stated per phase in 6 of 15 procedures assessed (e.g. 20 nA olivine, pyroxene, oxides; 10 nA maskelynite, phosphate, sulfide, glass).',
-    'Beam Diameter': 'Stated per phase in 6 of 15 procedures assessed, sometimes as a range (1–2 µm; 5–10 µm defocused).',
-    'Beam Damage Minimization': 'Stated per phase in 4 of 15 procedures assessed.',
-    'Beam Raster Dimensions': 'Attested in 2 of 15 procedures, one value each.',
     'Pre-Analysis Imaging and Screening': 'Attested in 15 of 15 procedures as a single description.',
     'Counting Statistics Error': 'Not stated in any of the 15 procedures assessed.',
 }
@@ -138,10 +134,14 @@ PROSE = {
  'WDS Spectrometer Configuration': 'The number, type and crystal range of the WDS spectrometers, with manufacturer and model.',
  'EDS Detector Configuration': 'The detector type, manufacturer, number of detector elements, active area and solid angle, window type and geometry, with multiple detectors listed separately.',
  'Analytical Mode': 'The analytical modes the procedure covers.',
- 'Beam Mode': 'The beam mode. Must be consistent with beam diameter and raster dimensions.',
+ 'Beam Mode': 'The beam mode for point analysis. Must be consistent with beam diameter and raster dimensions.',
+ 'Target Material of Sampling Unit': 'The Target Material entry each analysis point belongs to, which links it to the beam conditions registered for that material.',
+ 'Mapping Beam Mode': 'Whether the beam was focused or defocused during X-ray mapping.',
+ 'Mapping Beam Current': 'The probe current in nA used during X-ray mapping.',
+ 'Mapping Beam Diameter': 'The beam diameter in µm during X-ray mapping.',
  'Accelerating Voltage': 'The accelerating voltage in kV, with justification for any departure from the standard operating voltage.',
- 'Beam Current': 'The probe current in nA.',
- 'Beam Diameter': 'The beam diameter in µm.',
+ 'Beam Current': 'The probe current in nA for point analysis.',
+ 'Beam Diameter': 'The beam diameter in µm for point analysis.',
  'Beam Raster Dimensions': 'The width and height in µm of the area over which the beam is rastered.',
  'Beam Damage Minimization': 'The measures taken to minimise beam damage, with the beam conditions used and the phases to which they are applied.',
  'Drift Correction': 'How drift in beam current and spectrometer position is monitored and corrected during a session.',
@@ -436,14 +436,17 @@ def build(mode=None):
            ('Monitored Element', 'the list in "Monitored Elements" — what is measured to determine those elements', None),
            ('Reported Variable', 'the list in "Reported Variables and Units"', None),
            ('Secondary Reference Material', 'the list in "Secondary Reference Materials"', None)])
+    para('Beam conditions for point analysis are given per Target Material: the procedure lists '
+         'the materials it analyses, and states the beam mode, current, diameter and any raster for '
+         'each. That matches how published procedures state them — 20 nA for silicates, 8 nA for '
+         'phosphates, and so on — and each analysis point in a session is linked to its material '
+         'by Target Material of Sampling Unit. X-ray maps scan every material at once, so they have '
+         'their own Mapping Beam fields, one set per map.')
     para('Cells shaded pale yellow in the procedure column are the ones we are least sure of. The '
          'item repeats over samples or analysis points, which the procedure record cannot name, so '
-         'the per-unit detail appears only in the session column. Four of them — beam mode, current, '
-         'diameter and damage minimisation — are written "one or more values per procedure" because '
-         'published procedures state them per phase or material (20 nA for olivine and pyroxene, '
-         '10 nA for maskelynite and phosphate, and so on), which no list in this table names. Hover '
-         'over a shaded cell for what the literature shows. Tell us whether the procedure record '
-         'should ask for these per phase or material type, and if so, who supplies that list.')
+         'the per-unit detail appears only in the session column. Hover over a shaded cell for what '
+         'the literature shows, and tell us whether that is what a registering laboratory would '
+         'expect to enter.')
     r += 1
 
     if not mode:

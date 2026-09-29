@@ -3166,3 +3166,54 @@ specify, so C=Basic keyed by `sample` is coherent.
 whose definer is C=N/A. Seven EPMA fields already relied on this unwritten rule. Without it, the
 re-key would have read as "the procedure must list its samples", which Rule 13 forbids.
 
+## `target material` minted; EPMA beam conditions split into point and map fields (2026-09-28)
+
+**What changed.** Module_Core v9 → v10: `Target Material` now declares `defines: target material` in
+all 16 TAPPs. In EPMA (v79):
+- **Point fields.** Beam Mode, Beam Current, Beam Diameter, Beam Raster Dimensions and Beam Damage
+  Minimization are keyed `target material` and flagged for the point modes only.
+- **Mapping twins.** New `Mapping Beam Mode`, `Mapping Beam Current` and `Mapping Beam Diameter`,
+  flagged for the mapping modes and keyed per map (`sample > sampling unit`).
+- **Link field.** New `Target Material of Sampling Unit` (C=N/A, D=Basic, keyed `sample > sampling
+  unit`) says which material each analysis point belongs to.
+
+This is gap 1 of `analysis/Pending_Gaps_2026-09-24_Reference_Example.md`.
+
+**The evidence that moved the key.** The beam fields were keyed `sample > sampling unit` in the Rule
+13 retrofit, and the 2026-09-08 acquisition-pass precedent kept that key because mineral-dependent
+conditions "vary by *mineral*, which `sample > sampling unit` carries". But none of the 15 EPMA
+literature columns states a beam condition per analysis point. Every value is either one per
+procedure or one per phase or material, and 7 of 15 are per phase (Beam Mode). The per-point key was
+finer than anything attested, and the per-phase axis had no key of its own until `Target Material`
+became a definer.
+
+**Why Target Material and not a new "Phase Groups" field.** Target Material is already C=Basic
+everywhere, and its categories fit 6 of the 7 procedures that state per-phase conditions. Silicate
+glass is its own category, so Liu+2016's 10 nA group (maskelynite, phosphate, sulfide, glass) is
+expressible. Pang+2016 treats plagioclase apart from olivine and pyroxene, which splits "Silicate
+mineral". The field is an open list, so such a procedure names a finer entry. The cost is some loss
+of Target Material's role as discovery vocabulary.
+
+**Why maps got their own fields.** Checking the agreed key against the mapping procedures before
+applying it found Liu+2016 running olivine at 20 nA for points and at 200 nA for the olivine
+megacryst maps. One value per material cannot hold both. Neuman+2025 maps every phase at a single
+100 nA. The fix follows the `Peak Counting Time` / `Dwell Time per Pixel` pattern: separate
+mode-flagged fields, because a `mode` key is forbidden (7.2).
+
+**Rejected in discussion.** Keying everything sample-keyed to `target material`, so that `sample` would
+exist only at session level. Three reasons:
+- Microbeam samples contain several materials, so `Sample Name` cannot sit under one.
+- Preparation varies by sample, not by material. Seifert+2026's two mounts are the same material, and
+  only one was ion-polished.
+- Projection (7.3.3) already makes `sample` a session-only key.
+
+**Registered, not resolved.**
+- **SEM and SEM_Composition** carry the same beam fields and keep `sample > sampling unit` until
+  their literature columns are checked (`KEYED_BY_TECHNIQUE_DEPENDENT`).
+- **Point/map name pairs.** The three pairs are registered in `KEY_NAME_VARIANT_EXEMPT`.
+- **Detector blind spot.** The audit's detector has no target-material tag and reads phase names as
+  `sampling unit`. `KEY_SUBSUMES["target material"] = {"sampling unit"}` records that.
+- **Falsifiers, both unattested today:**
+  - a procedure stating beam conditions per analysis point;
+  - a procedure stating two point-analysis conditions for the same material.
+

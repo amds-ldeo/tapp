@@ -6,7 +6,7 @@
 |---|---|
 | 5 | **Fixed** 2026-09-28. Module_Core v9 re-keys `Sample Preparation Method` to `sample`; the projection rule is now conventions 7.3.3. Script: `Project Files/Scripts/gaps5and6_sample_prep_key_20260928.py`; see also `precedents.md`, 2026-09-28. |
 | 6 | **Fixed** 2026-09-28, in the same pass: `Monitored Elements` gains one sentence. |
-| 1 | **Design agreed** 2026-09-28; not implemented. |
+| 1 | **Implemented in EPMA** 2026-09-28: Module_Core v10, EPMA v79. A point/map split was added after checking the key against the mapping procedures. SEM and TEM are pending. Script: `Project Files/Scripts/gap1_target_material_20260928.py`. |
 | 3 | **Design agreed** 2026-09-28; not implemented. |
 | 4 | **Design agreed** 2026-09-28 (the re-key half); not implemented. |
 | 2 | **Held** until attested. |
@@ -28,7 +28,7 @@ The substitution case turned out not to exist. Once `target material` is a list 
 
 ## The gaps
 
-### Gap 1 — beam conditions vary by phase — DESIGN AGREED 2026-09-28
+### Gap 1 — beam conditions vary by phase — IMPLEMENTED IN EPMA 2026-09-28
 
 **The problem.** The five beam fields are keyed `sample > sampling unit`:
 
@@ -55,6 +55,10 @@ Under projection, that key gives one value per procedure. Published procedures s
 - **Liu 2016** fits because glass is its own category: 20 nA for silicate minerals and oxides; 10 nA for maskelynite (glass), phosphate and sulfide.
 - **Zega 2025**, **McCoy 2025**, **Barnes 2025**, **Seifert 2026** and **Neuman 2025** also fit.
 - **Pang 2016 does not fit.** It defocuses the beam for plagioclase and keeps it focused for olivine and pyroxene, which splits "Silicate mineral". The open list covers this: the procedure names a "Plagioclase" entry. The cost is some loss of Target Material's role as discovery vocabulary.
+
+**Amended before implementation: point and map fields are split (2026-09-28).** Checking the key against the three mapping procedures found Liu+2016 running olivine at 20 nA for points and at 200 nA for the olivine megacryst maps. One value per material cannot hold both. Neuman+2025 maps all phases at a single 100 nA. So:
+- the five beam fields are point-analysis fields (mode flags YNYN), keyed `target material`;
+- new mapping twins — `Mapping Beam Mode`, `Mapping Beam Current` and `Mapping Beam Diameter` — are flagged NYNY and keyed per map (`sample > sampling unit`), following the `Peak Counting Time` / `Dwell Time per Pixel` pattern.
 
 **What is given up.** A session that changes the conditions for a single grain cannot record that per point; it goes in Additional Notes.
 
@@ -185,7 +189,7 @@ The field is TAPP-owned and in EPMA only. The rename must be added to `RETIRED_F
 | Order | Gap | Why here |
 |---|---|---|
 | done | 5, 6 and projection (7.3.3) | Already decided by Rule 13. |
-| 1 | Gap 1, EPMA | Strongest evidence. Creates the `target material` key that gap 3 needs. |
+| done | Gap 1, EPMA | Created the `target material` key that gap 3 needs. |
 | 2 | Gap 4 | EPMA only, TAPP-owned; independent of the others. |
 | 3 | Gap 3 | Depends on gap 1. Touches two modules and the geochronology TAPPs. |
 | 4 | Gap 1, SEM and TEM | After their literature columns are checked. |

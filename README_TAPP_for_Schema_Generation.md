@@ -178,6 +178,7 @@ Column I is never blank on a content row.
 | `reported property` | One value per reported quantity or nominal property, at any point in the chain — ratios *and* dates alike, plus their uncertainties | Property of an object in the `reportedProperties` array |
 | `sampling unit` | One value per subdivision of the sample carrying its own row — grain, spot, aliquot, phase | Property of an object in the `samplingUnits` array |
 | `standard` | One value per reference material or reference database entry | Property of an object in the `standards` array |
+| `target material` *(added 2026-09-28)* | One value per material type the procedure is designed to analyse, as listed in `Target Material`. Used by the EPMA point-analysis beam conditions; each analysis point names its material in `Target Material of Sampling Unit` | Property of an object in the `targetMaterials` array; each point analysis carries a reference to one member |
 | `preparation step` | One value per sample-preparation stage | Property of an object in the `preparationSteps` array |
 | `acquisition pass` | One value per traversal of the measurement with its own configuration, run in sequence on the same material — a sub-procedure. Identical repeats are replicates, not passes | Property of an object in the `acquisitionPasses` array |
 | `defines: X` | **This field enumerates the domain X.** It is the header of the child table, not a column in it | Its value populates the key set for the `X` array |
@@ -187,6 +188,16 @@ Column I is never blank on a content row.
 | `defines: A per B` | **The field enumerates domain A and carries a parent key into B.** This is the monitored property↔target species binding | Child array for A, with a **nullable** foreign key to B on each member |
 | `defines: A > B` | **The field enumerates domain B, each member within a member of A** — note the order follows the containment key `A > B`, the reverse of `per`. Added 2026-09-15: `Sampling Unit Name` (`defines: sample > sampling unit`) | Child array for B nested under A, with a **required** parent |
 | `pair: A` | Keyed by an unordered pair of A | Property on a pair object, e.g. `{"between": ["206Pb/238U date", "207Pb/235U date"], "value": …}` |
+
+**Reading a key at procedure level (conventions 7.3.3, 2026-09-28).** Column I gives the key at
+analysis (session) level. For the procedure record, drop every domain whose definer is C=N/A. Today
+those are `sample` and `sampling unit`, because a procedure names no samples. So a field keyed `sample`
+is one value on the procedure object and one value per sample on the session object, and `sample >
+sampling unit x reported property` is one value per reported property on the procedure object. Do not
+build `samples` or `samplingUnits` arrays on the procedure object. Before 2026-09-28 this rule was
+unwritten, although seven EPMA fields already depended on it. `Sample Preparation Method` is keyed
+`sample` on this basis: the procedure states one preparation, and each sample inherits it and may
+differ.
 
 **The keys in use library-wide, and the three retired ones you may ignore, are listed in the generated
 block below** — that list is the authority, not this prose. (`sample` was added 2026-08-12 with Rule 13;
@@ -214,14 +225,14 @@ nowhere; that is the class of error this block exists to prevent.
 
 ```
 TAPPs                        16
-content rows                 1797   (rows with a Keyed By value; group headers excluded)
-scalar, `(none)`             1204   67%
-keyed (arrays in a schema)   593   33%
+content rows                 1801   (rows with a Keyed By value; group headers excluded)
+scalar, `(none)`             1188   66%
+keyed (arrays in a schema)   613   34%
 Column G provenance stamps   1407   78%
-distinct Keyed By strings    19
-definer fields               10
+distinct Keyed By strings    21
+definer fields               11
 
-keys in use library-wide (8):
+keys in use library-wide (9):
   acquisition pass
   monitored property
   preparation step
@@ -229,6 +240,7 @@ keys in use library-wide (8):
   sample
   sampling unit
   standard
+  target material
   target species
 
 retired, and absent from every TAPP (3):
@@ -237,7 +249,7 @@ retired, and absent from every TAPP (3):
   model component
 
 the complete set of Keyed By strings present, with row counts:
-  (none)                                          1204
+  (none)                                          1188
   acquisition pass                                  83
   defines: acquisition pass                          9
   defines: monitored property per target species    13
@@ -246,20 +258,26 @@ the complete set of Keyed By strings present, with row counts:
   defines: sample                                   16
   defines: sample > sampling unit                   16
   defines: standard                                 12
+  defines: target material                          16
   defines: target species                           13
   monitored property                               113
   pair: reported property                            7
   preparation step                                   9
   reported property                                101
   sample                                            48
-  sample > sampling unit                            25
+  sample > sampling unit                            24
   sample > sampling unit x reported property        21
   standard x reported property                      33
+  target material                                    5
   target species                                    55
 
-field names whose key is technique-dependent (3) -- do NOT assume one
+field names whose key is technique-dependent (7) -- do NOT assume one
 global mapping of field name to key:
-  Beam Current                       (none) | sample > sampling unit
+  Beam Current                       (none) | sample > sampling unit | target material
+  Beam Damage Minimization           sample > sampling unit | target material
+  Beam Diameter                      sample > sampling unit | target material
+  Beam Mode                          sample > sampling unit | target material
+  Beam Raster Dimensions             sample > sampling unit | target material
   Dwell Time per Pixel               (none) | monitored property
   Ion Counter Dead Time              (none) | monitored property
 
@@ -273,6 +291,7 @@ definer fields, and what each enumerates:
   Sample Name                        defines: sample
   Sampling Unit Name                 defines: sample > sampling unit
   Secondary Reference Materials      defines: standard
+  Target Material                    defines: target material
   Target Species                     defines: target species
 ```
 
