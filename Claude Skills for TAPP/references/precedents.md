@@ -3843,3 +3843,26 @@ The re-read also removed claims the papers do not make, which a recall test cann
 
 Keep the mechanical clean-ups: page tags are dropped, and "N (reason)" becomes "N — reason". Check git for
 concurrent sessions before applying: one bumped LA-Q from v94 to v95 while this pass was being read.
+
+## LA-SF re-read: neighbouring columns are the commonest source of a wrong cell (2026-09-30)
+
+`Project Files/Scripts/lasf_keyed_reverify_20260930.py` repeated the LA-Q pass for LA-SF and its twin. The
+round-trip went from 122 to 315 of 315 stated facts (`Project Files/Reports/LASF_Cells_RoundTrip_2026-09-30/`).
+
+**The borrowing pattern, now in three TAPPs.** The wrong cells were most often right for some *other*
+column:
+- Zhang+2022's "⁹⁹Ru instead of ¹⁰¹Ru" was Navarro+2024's, in the next rows of the same TAPP; Zhang
+  measured ¹⁰²Ru.
+- Mittlefehldt's LA column carried its EPMA section.
+- Chernonozhkin's mapping column described "cosmic spherule" unknowns.
+
+Before accepting a specific-sounding cell, find its sentence in *this* paper. A cell that reads like a
+neighbour's is a warning sign.
+
+**Tables must be read with their layout.** Navarro's LOD column is readable only with `pdftotext -layout`,
+and even then only by lining up each row's last value against the element. The old LOD cell had values
+that match no column of the table. When a number can't be placed in its row, leave it out and say so.
+
+**The audit detector's blind spots grow with the new commentary.** It read Longerich's "Na" and "Nb"
+(numbers of spectra) as sodium and niobium, and "before each spot" as a per-spot key. Both were
+adjudicated KEEP. Expect such findings after any re-read that adds quoted methods text.

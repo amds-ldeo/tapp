@@ -1,0 +1,704 @@
+{
+ "procedure_column": "Mittlefehldt 2024 Appendix A Pallasite olivine Spot analysis ns-LA-SF-ICP-MS Johnson Space Center",
+ "tapp": "LA-SF-ICP-MS_TAPP_v92",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "Mittlefehldt (2024) Pallasite Olivine Spot v1",
+   "status": "text",
+   "value": "Mittlefehldt (2024) Pallasite Olivine Spot v1"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "LA-SF-ICP-MS",
+   "status": "text",
+   "value": "LA-SF-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "Mittlefehldt",
+   "status": "text",
+   "value": "Mittlefehldt"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "ICP-MS Laboratory, NASA Johnson Space Center, Houston TX, USA",
+   "status": "text",
+   "value": "ICP-MS Laboratory, NASA Johnson Space Center, Houston TX, USA"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Mittlefehldt (2024) GCA; Lee (Rice University) Excel data reduction spreadsheet",
+   "status": "text",
+   "value": "Mittlefehldt (2024) GCA; Lee (Rice University) Excel data reduction spreadsheet"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Pallasite olivine ([Mg,Fe]₂SiO₄)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Pallasite olivine",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Grain (olivine grain fragment) > Spot — \"The laser was run in spot mode with a 75 µm spot size\" (p.5); results are reported as average analyses per sample, and individual spots carry labels such as \"laser spot 059-Pa-1\" (p.8). Line scans across grain fragments were also run (p.3)",
+   "status": "text",
+   "value": "Grain (olivine grain fragment) > Spot"
+  },
+  "Fusion Flux and Dilution Ratio": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts",
+   "status": "text",
+   "value": "Olivine grain fragments repeatedly washed in dilute HCl and triply distilled H₂O, hand-picked, polished grain mounts"
+  },
+  "Pre-Ablation Surface Treatment": {
+   "key": "(none)",
+   "cell": "N (grains imaged by SEM to locate inclusion-free regions)",
+   "status": "not stated"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "Freedom from inclusions, checked by SEM beforehand — the grains were \"low in inclusions, [but] were not devoid of them\", so \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5)",
+   "status": "text",
+   "value": "Freedom from inclusions, checked by SEM beforehand"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "SEM imaging of the grain mounts, used to place the spots — \"The grains were first imaged using a scanning electron microscope (SEM) to locate regions for analysis. Regions containing surface inclusions were avoided for analysis\" (p.5); the grains are the same mounts already used for EMPA (p.5)",
+   "status": "text",
+   "value": "SEM imaging of the grain mounts, used to place the spots"
+  },
+  "Laser Manufacturer & Model": {
+   "key": "(none)",
+   "cell": "New Wave UP-193 (solid state, 193 nm)",
+   "status": "text",
+   "value": "New Wave UP-193 (solid state, 193 nm)"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
+   "status": "text",
+   "value": "Thermo Fisher Scientific Element XR (SF-ICP-MS)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Single-collector sector-field (SF-ICP-MS)",
+   "status": "text",
+   "value": "Single-collector sector-field (SF-ICP-MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "Medium resolution (m/Δm ≈ 4000)",
+   "status": "text",
+   "value": "Medium resolution (m/Δm ≈ 4000)"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "Laser Wavelength and Type": {
+   "key": "(none)",
+   "cell": "193 nm solid-state (New Wave UP-193)",
+   "status": "text",
+   "value": "193 nm solid-state (New Wave UP-193)"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "Excel spreadsheets developed by C.-T. A. Lee (Rice University)",
+   "status": "text",
+   "value": "Excel spreadsheets developed by C.-T. A. Lee (Rice University)"
+  },
+  "Ablation Cell Type": {
+   "key": "(none)",
+   "cell": "N (standard cell; parameters lost)",
+   "status": "not stated"
+  },
+  "Sample Introduction": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Laser Spot Geometry": {
+   "key": "acquisition pass",
+   "cell": "75 µm circular",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Spot Path / Ablation Mode": {
+   "key": "acquisition pass",
+   "cell": "Spot (stationary)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Energy": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Fluence (Energy Density)": {
+   "key": "(none)",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "Laser Beam Energy Profile": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Repetition Rate": {
+   "key": "acquisition pass",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "Laser Pulse Duration": {
+   "key": "(none)",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "Ablation Duration per Spot": {
+   "key": "(none)",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "Ablation Pit Depth and Ablation Rate": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Transect Rate, Mapping Rate or Step Size": {
+   "key": "acquisition pass",
+   "cell": "N/A (spot mode)",
+   "status": "not applicable"
+  },
+  "Raster Line Spacing (Mapping Only)": {
+   "key": "(none)",
+   "cell": "N/A (spot mode)",
+   "status": "not applicable"
+  },
+  "Carrier Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Smoothing": {
+   "key": "(none)",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "BCR-2g, BHVO-2g, BIR-1g measured as calibration standards; Marjalahti as in-session control",
+   "status": "text",
+   "value": "BCR-2g, BHVO-2g, BIR-1g measured as calibration standards; Marjalahti as in-session control"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "²⁵Mg, ²⁷Al, ³¹P, ⁴³Ca, ⁴⁴Ca, ⁴⁵Sc, ⁴⁷Ti, ⁴⁹Ti, ⁵¹V, ⁵²Cr, ⁵³Cr, ⁵⁹Co, ⁶⁰Ni, ⁶¹Ni, ⁶²Ni, ⁶⁴Zn, ⁶⁶Zn, ⁶⁹Ga, ⁷¹Ga (19 nuclides)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "²⁵Mg",
+     "parent": null
+    },
+    {
+     "member": "²⁷Al",
+     "parent": null
+    },
+    {
+     "member": "³¹P",
+     "parent": null
+    },
+    {
+     "member": "⁴³Ca",
+     "parent": null
+    },
+    {
+     "member": "⁴⁴Ca",
+     "parent": null
+    },
+    {
+     "member": "⁴⁵Sc",
+     "parent": null
+    },
+    {
+     "member": "⁴⁷Ti",
+     "parent": null
+    },
+    {
+     "member": "⁴⁹Ti",
+     "parent": null
+    },
+    {
+     "member": "⁵¹V",
+     "parent": null
+    },
+    {
+     "member": "⁵²Cr",
+     "parent": null
+    },
+    {
+     "member": "⁵³Cr",
+     "parent": null
+    },
+    {
+     "member": "⁵⁹Co",
+     "parent": null
+    },
+    {
+     "member": "⁶⁰Ni",
+     "parent": null
+    },
+    {
+     "member": "⁶¹Ni",
+     "parent": null
+    },
+    {
+     "member": "⁶²Ni",
+     "parent": null
+    },
+    {
+     "member": "⁶⁴Zn",
+     "parent": null
+    },
+    {
+     "member": "⁶⁶Zn",
+     "parent": null
+    },
+    {
+     "member": "⁶⁹Ga",
+     "parent": null
+    },
+    {
+     "member": "⁷¹Ga",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Trace element concentrations in pallasite olivine (µg/g), reported as average analyses per sample with dispersion, the measured nuclides being \"25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V\" and others (p.5); P2O5 content is estimated where P was not in the protocol (\"the P2O5 content was probably ~1.5 wt%\", p.3)",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "Trace element concentrations in pallasite olivine",
+     "parent": null
+    },
+    {
+     "member": "reported as average analyses per sample with dispersion",
+     "parent": null
+    },
+    {
+     "member": "the measured nuclides being \"25Mg, 27Al, 31P, 43Ca, 44Ca, 45Sc, 47Ti, 49Ti, 51V\" and others",
+     "parent": null
+    },
+    {
+     "member": "P2O5 content is estimated where P was not in the protocol",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "E-scan Range": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Triple Scanning Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "N (parameters lost; 10–50 ms varies by isotope per paper text)",
+   "status": "not stated"
+  },
+  "Total Integration Time per Output Data Point": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Background Count Time": {
+   "key": "(none)",
+   "cell": "N (parameters lost; gas blank measured before each analysis per paper text)",
+   "status": "not stated"
+  },
+  "Inter-Pass Data Dependency": {
+   "key": "acquisition pass",
+   "cell": "Single spot per location (75 µm circular)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N (variable number of spots per sample)",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Internal Standard Approach": {
+   "key": "acquisition pass",
+   "cell": "Single element from EPMA: ²⁵Mg; the EMPA data used as the standardizing values",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Single element from EPMA"
+     ],
+     "value": "²⁵Mg"
+    }
+   ]
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "²⁵Mg (indexing element; Mg concentration from EMPA)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Elemental Fractionation Correction": {
+   "key": "acquisition pass",
+   "cell": "External calibration using BCR-2g, BHVO-2g, BIR-1g; ²⁵Mg IS from EPMA corrects for ablation yield variation; no explicit downhole fractionation correction described",
+   "status": "unparsed",
+   "value": []
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Matrix Offset Correction (LIEF)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "Time steps with enhanced P, Ca, Co, Ni, Zn count rates (indicating inclusions or cracks) excluded from integration; manual inspection",
+   "status": "text",
+   "value": "Time steps with enhanced P, Ca, Co, Ni, Zn count rates (indicating inclusions or cracks) excluded from integration; manual inspection"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "Time steps with enhanced P, Ca, Co, Ni, Zn excluded (inclusions and heterogeneities); Grubb's test applied to EPMA data for outlier detection",
+   "status": "text",
+   "value": "Time steps with enhanced P, Ca, Co, Ni, Zn excluded (inclusions and heterogeneities); Grubb's test applied to EPMA data for outlier detection"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "Gas blank measured before each analysis (laser shutter closed); time steps with background-level signals excluded during data reduction",
+   "status": "text",
+   "value": "Gas blank measured before each analysis (laser shutter closed); time steps with background-level signals excluded during data reduction"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N (parameters lost; medium resolution mode implies interference resolution by mass)",
+   "status": "not stated"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "N (parameters lost; medium resolution resolves most polyatomic interferences)",
+   "status": "not stated"
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "Medium mass resolution (M/ΔM ≈ 4000) separates many polyatomic interferences from analyte peaks (e.g., resolves ⁵⁴Fe⁺ from ⁵⁴Cr⁺)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "No post-acquisition normalization; BCR-2g, BHVO-2g, BIR-1g used for calibration; Marjalahti as in-session control",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — the reported values are averages per meteorite (Table E4 of the data file), with the complete set of analyses also released (p.6); trace-element chromatograms were \"scrutinized for unanticipated interferences, improperly chosen backgrounds or other problems\" (p.5). No acceptance or rejection rule is stated for the LA data. The paper's detailed filters — analysis sums 100 ± 2%, stoichiometry limits, Grubb's test rejecting at p<0.01 and tagging at p<0.05, an FeO ceiling of 17.5 wt% for Phillips County, and a zoning profile excluded from that mean — are stated for the EMPA data (p.3) and are not borrowed here",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average per sample split; weighted mean per meteorite — 'data averaged per sample split' (Table L2), 'meteorite averages' (Table L3); 'Because a weighted mean is calculated for the data'",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average per sample split"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "USGS standard glasses BCR-2g, BHVO-2g, and BIR-1g; preferred values from GeoReM website",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N (parameters lost)",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "BCR-2G, BHVO-2G, BIR-1G processed as unknowns alongside samples (same standards as calibration — in-session validation)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "BCR-2G",
+     "parent": null
+    },
+    {
+     "member": "BHVO-2G",
+     "parent": null
+    },
+    {
+     "member": "BIR-1G processed as unknowns alongside samples",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N (LODs not stated; concentrations reported for all nuclides above background)",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "Theoretical 1 sigma analytical precision from counting statistics plus propagation of uncertainties, ~0.6% on the Fe/Mn ratio of pallasite olivine; the observed standard deviations per meteorite range from 0.6 to 4.0%",
+   "status": "unparsed",
+   "value": []
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N (within-session precision not formally assessed)",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "Sc: good agreement with Davis (1977) INAA values within measurement scatter; overall accuracy verified by comparison with literature INAA and SIMS data; Marjalahti used as in-session control (Mn deviation from reference value noted as 4.2% above Ryder 1984)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Many instrument parameters lost during extended lab shutdown; 75 µm spot size in medium resolution mode on sector-field ICP-MS is unusual combination for olivine trace elements; 25 Mg IS from EPMA is standard approach",
+   "status": "text",
+   "value": "Many instrument parameters lost during extended lab shutdown; 75 µm spot size in medium resolution mode on sector-field ICP-MS is unusual combination for olivine trace elements; 25 Mg IS from EPMA is standard approach"
+  }
+ }
+}

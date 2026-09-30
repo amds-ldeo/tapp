@@ -22,8 +22,10 @@ discovery.
 | `Lab-XCT_TAPP_v46` | `v47` | prep Method assessed, Notes retired |
 | `LA-Q-ICP-MS_TAPP_v95` | `v96` | keyed notation, re-read |
 | `LA-Q-ICP-MS_UPb_TAPP_v95` | `v96` | keyed notation, re-read |
+| `LA-SF-ICP-MS_TAPP_v92` | `v93` | keyed notation, re-read |
+| `LA-SF-ICP-MS_UPb_TAPP_v93` | `v94` | keyed notation, re-read |
 
-14 version(s), 28 file(s) (CSV + xlsx).
+16 version(s), 32 file(s) (CSV + xlsx).
 
 ## Why
 
@@ -182,5 +184,32 @@ Applied by `Project Files/Scripts/laq_keyed_reverify_20260930.py`. Both TAPPs jo
 - `audit_keys_vs_literature.py` raised two findings, both caused by the new wording and both adjudicated
   KEEP: `Laser Spot Path` read 'each spot' in a data-reduction quote, and `Normalization` reads `all:` as
   scalar. So 0 NEW.
+- No field, tier, data type or key changed.
+
+## LA-SF-ICP-MS and its U-Pb twin, v92 → v93 / v93 → v94: keyed notation, with every cell re-read
+
+This is the LA-Q pass repeated for LA-SF's seven columns: Zhang+2022, Chernonozhkin+2021 (three columns),
+Mittlefehldt 2024, and Navarro+2024 (two columns). Changed: 352 cells in LA-SF and 415 in the twin.
+Substantive changes, per column, are in the script's dicts:
+- **Cross-paper borrowing.** Zhang's three Ru-interference cells held Navarro's statement. Mittlefehldt's LA
+  column held the EMPA work's Marjalahti control, Grubb's test and 0.6% precision. Chernonozhkin's mapping
+  sequence named cosmic spherules.
+- **Fabricated detail.** Bracketing schedules, daily tuning, "cross-calibration performed", "mathematical
+  corrections", "8 sessions over 1 year", FAPESP funding, and dwell times "per paper text".
+- **Wrong values.** Chernonozhkin's pulse duration (4 ns) and its run 2 (a line scan); Navarro's LODs; a
+  phosphate mineral the paper rules out.
+- **Stated facts missing.** Per-element standards, per-run nuclide lists, spike and veinlet rules, the
+  make-up gas line, and the mapping sequence.
+- **Isotopes as target species** in every column.
+
+Applied by `Project Files/Scripts/lasf_keyed_reverify_20260930.py`. Both TAPPs join `KEYED_NOTATION_ENFORCED`.
+
+**Verification.**
+- Simulated before applying. Every structured cell parses. The round-trip
+  (`Project Files/Reports/LASF_Cells_RoundTrip_2026-09-30/`) recovers **315 of 315 stated facts, 242 as
+  structure**; v92 recovered 122 (39%), 28 as structure.
+- After applying: `compose_tapp.py --check` 16 of 16 match; `validate_tapp.py` 0 ERROR, 0 WARN.
+- `audit_keys_vs_literature.py` raised four findings, all caused by the new wording and all adjudicated KEEP.
+  In one, the detector read Longerich's 'Na' and 'Nb' spectrum counts as sodium and niobium. So 0 NEW.
 - No field, tier, data type or key changed.
 

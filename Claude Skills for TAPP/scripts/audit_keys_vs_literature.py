@@ -110,6 +110,21 @@ EXCLUDE_FIELDS = {
 # "Validating keys against the literature assessment".
 ADJUDICATED = {
     # ---- adjudicated 2026-09-29, on EPMA's remaining-fields pass (epma_remaining_fields_20260929.py).
+    # ---- adjudicated 2026-09-30, on the LA-SF re-read (lasf_keyed_reverify_20260930.py).
+    ("Mass Resolution Assignment", "OVER-DECLARED"):
+        "KEEP acquisition pass — the single-pass unfalsifiability rule: the re-read cells write `all: low resolution` for "
+        "single-pass procedures, which the detector scores as scalar. Chernonozhkin+2021's line scans attest the axis "
+        "directly: run 1 medium resolution (M/ΔM = 4000), run 2 low (M/ΔM = 300).",
+    ("Background Count Time", "UNDER-DECLARED"):
+        "KEEP (none) — 'before each spot', 'before each line' and 'before each string of pixels' are schedules, not a "
+        "value that varies by sampling unit; the count time is one value per procedure. Same ruling as Blank / Background "
+        "Correction Method.",
+    ("Analysis Sequence", "UNDER-DECLARED"):
+        "KEEP (none) — a sequence names its standards (NIST SRM 612, North Chile, the MPI-DING and USGS glasses) because it "
+        "orders them; the standards are context, and the sequence is one description per procedure.",
+    ("Detection Limit Method", "AXIS-MISMATCH"):
+        "KEEP reported property — the detector reads 'Na = 24, Nb = 5' and 'Na = 1 and Nb = 10' (Longerich's numbers of "
+        "spectra during ablation and for the gas blank) as the elements sodium and niobium. No per-species method is stated.",
     # ---- adjudicated 2026-09-30, on the LA-Q re-read (laq_keyed_reverify_20260930.py).
     ("Laser Spot Path / Ablation Mode", "AXIS-MISMATCH"):
         "KEEP acquisition pass — the detector reads 'each spot' in a quoted data-reduction sentence (Liu+2016: 'The time-lapse "

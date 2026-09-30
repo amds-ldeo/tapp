@@ -1,0 +1,1186 @@
+{
+ "procedure_column": "Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite phosphate Spot analysis ns-LA-SF-ICP-MS Ghent University",
+ "tapp": "LA-SF-ICP-MS_TAPP_v93",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "Chernonozhkin et al. (2021) Pallasite Phosphate Spot v1",
+   "status": "text",
+   "value": "Chernonozhkin et al. (2021) Pallasite Phosphate Spot v1"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "LA-SF-ICP-MS",
+   "status": "text",
+   "value": "LA-SF-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "Chernonozhkin, Pittarello, Goderis, Vanhaecke et al.",
+   "status": "text",
+   "value": "Chernonozhkin, Pittarello, Goderis, Vanhaecke et al."
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium",
+   "status": "text",
+   "value": "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N — the BELSPO, FWO, BOF-UGent and Humboldt support is for the study as a whole and is recorded under Funding Source for Analysis",
+   "status": "commentary only"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method",
+   "status": "text",
+   "value": "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "stanfieldite; merrillite — Ca-phosphate grains: stanfieldite in Brahin and CMS 04071, merrillite in Esquel and Seymchan (§2.1, §3.4); farringtonite was ruled out",
+   "status": "structured",
+   "value": [
+    {
+     "member": "stanfieldite",
+     "parent": null
+    },
+    {
+     "member": "merrillite",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Grain (phosphate crystal) > Spot — compositions are reported per named phosphate grain (\"Ph1\" … \"Ph4\", with \"stanf\" or \"merr\"), each an average of numbered \"single parallel measurement\" spots (Table 2, p.10)",
+   "status": "text",
+   "value": "Grain (phosphate crystal) > Spot"
+  },
+  "Fusion Flux and Dilution Ratio": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Flat polished thick sections (§2.1)",
+   "status": "text",
+   "value": "Flat polished thick sections (§2.1)"
+  },
+  "Pre-Ablation Surface Treatment": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "Mineral identity, from the μXRF survey — phosphates are located as \"thin elongate inclusions in the kamacite-taenite metal matrix (e.g., μXRF map of Imilac at Fig. 1)\", the identification resting \"on the intensities of the Kα lines of the constituent major elements (Fe, Mg, Ni, Cr, S, Ca and P)\" (p.4)",
+   "status": "text",
+   "value": "Mineral identity, from the μXRF survey"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "μXRF mapping of larger sections, on which the ablation is sited — Fe Kα intensity maps identify the mineral phases \"based on the intensities of the Kα lines of the constituent major elements (Fe, Mg, Ni, Cr, S, Ca and P)\", and the LA-ICP-MS areas correspond \"to the locations indicated on the larger μXRF maps as black rectangles\" (p.4). The instrument is a Bruker M4 Tornado with a Rh-anode source at 50 kV and 150 μA, focused to \"a 25 μm spot (measured for Mo Kα)\" (p.3)",
+   "status": "text",
+   "value": "μXRF mapping of larger sections, on which the ablation is sited"
+  },
+  "Laser Manufacturer & Model": {
+   "key": "(none)",
+   "cell": "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)",
+   "status": "text",
+   "value": "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
+   "status": "text",
+   "value": "Thermo Fisher Scientific Element XR (SF-ICP-MS)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Double-focusing sector field ICP-MS (explicitly stated)",
+   "status": "text",
+   "value": "Double-focusing sector field ICP-MS (explicitly stated)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "Al standard sample cone (1.1 mm aperture); Al H-type skimmer (0.8 mm aperture)",
+   "status": "text",
+   "value": "Al standard sample cone (1.1 mm aperture); Al H-type skimmer (0.8 mm aperture)"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "Low resolution (M/ΔM = 300)",
+   "status": "text",
+   "value": "Low resolution (M/ΔM = 300)"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "Triple — Table B1 'Detection mode'",
+   "status": "text",
+   "value": "Triple"
+  },
+  "Laser Wavelength and Type": {
+   "key": "(none)",
+   "cell": "193 nm ArF* excimer — §2.2.2",
+   "status": "text",
+   "value": "193 nm ArF* excimer"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "In-house MatLab script (Appendix C3)",
+   "status": "text",
+   "value": "In-house MatLab script (Appendix C3)"
+  },
+  "Ablation Cell Type": {
+   "key": "(none)",
+   "cell": "HELEX II two-volume ablation cell",
+   "status": "text",
+   "value": "HELEX II two-volume ablation cell"
+  },
+  "Sample Introduction": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Laser Spot Geometry": {
+   "key": "acquisition pass",
+   "cell": "all: 110 µm diameter circular-masked — §2.2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "110 µm diameter circular-masked"
+    }
+   ]
+  },
+  "Laser Spot Path / Ablation Mode": {
+   "key": "acquisition pass",
+   "cell": "all: single spot ablation — §2.2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "single spot ablation"
+    }
+   ]
+  },
+  "Laser Energy": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Fluence (Energy Density)": {
+   "key": "(none)",
+   "cell": "3.5 J cm⁻²",
+   "status": "text",
+   "value": "3.5 J cm⁻²"
+  },
+  "Laser Beam Energy Profile": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Repetition Rate": {
+   "key": "acquisition pass",
+   "cell": "all: 20 Hz",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "20 Hz"
+    }
+   ]
+  },
+  "Laser Pulse Duration": {
+   "key": "(none)",
+   "cell": "4 ns — Table B1; §2.2.2 says '<5 ns'",
+   "status": "text",
+   "value": "4 ns"
+  },
+  "Ablation Duration per Spot": {
+   "key": "(none)",
+   "cell": "20 s spot ablation (plus 10 s washout); 25 cycles acquisition",
+   "status": "text",
+   "value": "20 s spot ablation (plus 10 s washout); 25 cycles acquisition"
+  },
+  "Ablation Pit Depth and Ablation Rate": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Transect Rate, Mapping Rate or Step Size": {
+   "key": "acquisition pass",
+   "cell": "N/A — spot mode",
+   "status": "not applicable"
+  },
+  "Raster Line Spacing (Mapping Only)": {
+   "key": "(none)",
+   "cell": "N/A — spot mode",
+   "status": "not applicable"
+  },
+  "Carrier Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "He: MFC-1 0.270 l min⁻¹; MFC-2 0.250 l min⁻¹",
+   "status": "text",
+   "value": "He: MFC-1 0.270 l min⁻¹; MFC-2 0.250 l min⁻¹"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "Ar make-up: 0.96 l min⁻¹; N₂ not added",
+   "status": "text",
+   "value": "Ar make-up: 0.96 l min⁻¹; N₂ not added"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "Ar, 15 L/min — Table B1",
+   "status": "text",
+   "value": "Ar, 15 L/min"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "Ar, 0.85 L/min — Table B1",
+   "status": "text",
+   "value": "Ar, 0.85 L/min"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1000 W",
+   "status": "text",
+   "value": "1000 W"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N — RF power 1000 W (Table B1)",
+   "status": "commentary only"
+  },
+  "Signal Smoothing": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "MPI-DING and USGS glasses at the beginning and repeatedly at the end of each analytical session — App. C3",
+   "status": "text",
+   "value": "MPI-DING and USGS glasses at the beginning and repeatedly at the end of each analytical session"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Na, Mg, Al, Si, P, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U — 'The intensities of 43 nuclides were recorded' (§2.2.4)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "P",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Sc",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "V",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    },
+    {
+     "member": "Rb",
+     "parent": null
+    },
+    {
+     "member": "Sr",
+     "parent": null
+    },
+    {
+     "member": "Y",
+     "parent": null
+    },
+    {
+     "member": "Zr",
+     "parent": null
+    },
+    {
+     "member": "Nb",
+     "parent": null
+    },
+    {
+     "member": "Cs",
+     "parent": null
+    },
+    {
+     "member": "Ba",
+     "parent": null
+    },
+    {
+     "member": "La",
+     "parent": null
+    },
+    {
+     "member": "Ce",
+     "parent": null
+    },
+    {
+     "member": "Pr",
+     "parent": null
+    },
+    {
+     "member": "Nd",
+     "parent": null
+    },
+    {
+     "member": "Sm",
+     "parent": null
+    },
+    {
+     "member": "Eu",
+     "parent": null
+    },
+    {
+     "member": "Gd",
+     "parent": null
+    },
+    {
+     "member": "Tb",
+     "parent": null
+    },
+    {
+     "member": "Dy",
+     "parent": null
+    },
+    {
+     "member": "Ho",
+     "parent": null
+    },
+    {
+     "member": "Er",
+     "parent": null
+    },
+    {
+     "member": "Tm",
+     "parent": null
+    },
+    {
+     "member": "Yb",
+     "parent": null
+    },
+    {
+     "member": "Lu",
+     "parent": null
+    },
+    {
+     "member": "Hf",
+     "parent": null
+    },
+    {
+     "member": "Ta",
+     "parent": null
+    },
+    {
+     "member": "Pb",
+     "parent": null
+    },
+    {
+     "member": "Th",
+     "parent": null
+    },
+    {
+     "member": "U",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "²³Na → Na; ²⁵Mg → Mg; ²⁷Al → Al; ²⁹Si → Si; ³¹P → P; ³⁹K → K; ⁴⁴Ca → Ca; ⁴⁵Sc → Sc; ⁴⁷Ti → Ti; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁶⁶Zn → Zn; ⁸⁵Rb → Rb; ⁸⁸Sr → Sr; ⁸⁹Y → Y; ⁹⁰Zr → Zr; ⁹³Nb → Nb; ¹³³Cs → Cs; ¹³⁷Ba → Ba; ¹³⁹La → La; ¹⁴⁰Ce → Ce; ¹⁴¹Pr → Pr; ¹⁴⁵Nd → Nd; ¹⁴⁷Sm → Sm; ¹⁵³Eu → Eu; ¹⁵⁸Gd → Gd; ¹⁵⁹Tb → Tb; ¹⁶⁴Dy → Dy; ¹⁶⁵Ho → Ho; ¹⁶⁰Er → Er; ¹⁶⁹Tm → Tm; ¹⁷⁴Yb → Yb; ¹⁷⁵Lu → Lu; ¹⁸⁰Hf → Hf; ¹⁸¹Ta → Ta; ²⁰⁸Pb → Pb; ²³²Th → Th; ²³⁸U → U — §2.2.4",
+   "status": "structured",
+   "value": [
+    {
+     "member": "²³Na",
+     "parent": "Na"
+    },
+    {
+     "member": "²⁵Mg",
+     "parent": "Mg"
+    },
+    {
+     "member": "²⁷Al",
+     "parent": "Al"
+    },
+    {
+     "member": "²⁹Si",
+     "parent": "Si"
+    },
+    {
+     "member": "³¹P",
+     "parent": "P"
+    },
+    {
+     "member": "³⁹K",
+     "parent": "K"
+    },
+    {
+     "member": "⁴⁴Ca",
+     "parent": "Ca"
+    },
+    {
+     "member": "⁴⁵Sc",
+     "parent": "Sc"
+    },
+    {
+     "member": "⁴⁷Ti",
+     "parent": "Ti"
+    },
+    {
+     "member": "⁵¹V",
+     "parent": "V"
+    },
+    {
+     "member": "⁵³Cr",
+     "parent": "Cr"
+    },
+    {
+     "member": "⁵⁵Mn",
+     "parent": "Mn"
+    },
+    {
+     "member": "⁵⁷Fe",
+     "parent": "Fe"
+    },
+    {
+     "member": "⁵⁹Co",
+     "parent": "Co"
+    },
+    {
+     "member": "⁶⁰Ni",
+     "parent": "Ni"
+    },
+    {
+     "member": "⁶³Cu",
+     "parent": "Cu"
+    },
+    {
+     "member": "⁶⁶Zn",
+     "parent": "Zn"
+    },
+    {
+     "member": "⁸⁵Rb",
+     "parent": "Rb"
+    },
+    {
+     "member": "⁸⁸Sr",
+     "parent": "Sr"
+    },
+    {
+     "member": "⁸⁹Y",
+     "parent": "Y"
+    },
+    {
+     "member": "⁹⁰Zr",
+     "parent": "Zr"
+    },
+    {
+     "member": "⁹³Nb",
+     "parent": "Nb"
+    },
+    {
+     "member": "¹³³Cs",
+     "parent": "Cs"
+    },
+    {
+     "member": "¹³⁷Ba",
+     "parent": "Ba"
+    },
+    {
+     "member": "¹³⁹La",
+     "parent": "La"
+    },
+    {
+     "member": "¹⁴⁰Ce",
+     "parent": "Ce"
+    },
+    {
+     "member": "¹⁴¹Pr",
+     "parent": "Pr"
+    },
+    {
+     "member": "¹⁴⁵Nd",
+     "parent": "Nd"
+    },
+    {
+     "member": "¹⁴⁷Sm",
+     "parent": "Sm"
+    },
+    {
+     "member": "¹⁵³Eu",
+     "parent": "Eu"
+    },
+    {
+     "member": "¹⁵⁸Gd",
+     "parent": "Gd"
+    },
+    {
+     "member": "¹⁵⁹Tb",
+     "parent": "Tb"
+    },
+    {
+     "member": "¹⁶⁴Dy",
+     "parent": "Dy"
+    },
+    {
+     "member": "¹⁶⁵Ho",
+     "parent": "Ho"
+    },
+    {
+     "member": "¹⁶⁰Er",
+     "parent": "Er"
+    },
+    {
+     "member": "¹⁶⁹Tm",
+     "parent": "Tm"
+    },
+    {
+     "member": "¹⁷⁴Yb",
+     "parent": "Yb"
+    },
+    {
+     "member": "¹⁷⁵Lu",
+     "parent": "Lu"
+    },
+    {
+     "member": "¹⁸⁰Hf",
+     "parent": "Hf"
+    },
+    {
+     "member": "¹⁸¹Ta",
+     "parent": "Ta"
+    },
+    {
+     "member": "²⁰⁸Pb",
+     "parent": "Pb"
+    },
+    {
+     "member": "²³²Th",
+     "parent": "Th"
+    },
+    {
+     "member": "²³⁸U",
+     "parent": "U"
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Na, Mg, Al, Si, P, K, Ca, Sc, Ti, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (µg/g); phosphate mineral (nominal) — Table 2, each 'single parallel measurement' listed per grain",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Si",
+     "parent": null
+    },
+    {
+     "member": "P",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Sc",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "V",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    },
+    {
+     "member": "Rb",
+     "parent": null
+    },
+    {
+     "member": "Sr",
+     "parent": null
+    },
+    {
+     "member": "Y",
+     "parent": null
+    },
+    {
+     "member": "Zr",
+     "parent": null
+    },
+    {
+     "member": "Nb",
+     "parent": null
+    },
+    {
+     "member": "Cs",
+     "parent": null
+    },
+    {
+     "member": "Ba",
+     "parent": null
+    },
+    {
+     "member": "La",
+     "parent": null
+    },
+    {
+     "member": "Ce",
+     "parent": null
+    },
+    {
+     "member": "Pr",
+     "parent": null
+    },
+    {
+     "member": "Nd",
+     "parent": null
+    },
+    {
+     "member": "Sm",
+     "parent": null
+    },
+    {
+     "member": "Eu",
+     "parent": null
+    },
+    {
+     "member": "Gd",
+     "parent": null
+    },
+    {
+     "member": "Tb",
+     "parent": null
+    },
+    {
+     "member": "Dy",
+     "parent": null
+    },
+    {
+     "member": "Ho",
+     "parent": null
+    },
+    {
+     "member": "Er",
+     "parent": null
+    },
+    {
+     "member": "Tm",
+     "parent": null
+    },
+    {
+     "member": "Yb",
+     "parent": null
+    },
+    {
+     "member": "Lu",
+     "parent": null
+    },
+    {
+     "member": "Hf",
+     "parent": null
+    },
+    {
+     "member": "Ta",
+     "parent": null
+    },
+    {
+     "member": "Pb",
+     "parent": null
+    },
+    {
+     "member": "Th",
+     "parent": null
+    },
+    {
+     "member": "U",
+     "parent": null
+    },
+    {
+     "member": "phosphate mineral",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "E-scan Range": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Triple Scanning Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "all: 0.01 s sample time — 5 samples per peak, duty cycle 1.813 s, mass window 150% for ²³Na–⁴⁷Ti and 100% for the others (Table B1)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "0.01 s sample time"
+    }
+   ]
+  },
+  "Total Integration Time per Output Data Point": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Background Count Time": {
+   "key": "(none)",
+   "cell": "8 gas blank scans; 11 ablation scans (25 cycles measurement: 15 s blank + 20 s ablation + 10 s washout)",
+   "status": "text",
+   "value": "8 gas blank scans; 11 ablation scans (25 cycles measurement: 15 s blank + 20 s ablation + 10 s washout)"
+  },
+  "Inter-Pass Data Dependency": {
+   "key": "acquisition pass",
+   "cell": "N/A — a single pass",
+   "status": "not applicable"
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N — Table 2 lists each 'single parallel measurement' per grain; 'Parallel analyses of single phosphate grains are highly reproducible' (§3.4)",
+   "status": "commentary only"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "spot — a single pass: 'All elements were measured during single spot ablation' (§2.2.4)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "spot",
+     "parent": null
+    }
+   ]
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Internal Standard Approach": {
+   "key": "acquisition pass",
+   "cell": "all: sum normalization of the element oxides to 100 wt% (Liu et al., 2008) — App. C3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "sum normalization of the element oxides to 100 wt% (Liu et al., 2008)"
+    }
+   ]
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "all: none — oxide-sum normalisation (App. C3)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "none"
+    }
+   ]
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Elemental Fractionation Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Matrix Offset Correction (LIEF)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "Gas blank before each spot; the average background preceding each analysis subtracted — App. C5",
+   "status": "text",
+   "value": "Gas blank before each spot; the average background preceding each analysis subtracted"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N — 'Triple' detection (Table B1)",
+   "status": "commentary only"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "10 s washout time after 20 s spot ablation (specified in acquisition protocol)",
+   "status": "text",
+   "value": "10 s washout time after 20 s spot ablation (specified in acquisition protocol)"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N — the normalisation is the internal standardisation (Internal Standard Approach)",
+   "status": "commentary only"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N — whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated",
+   "status": "commentary only"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: Not combined — Table 2: 'All single parallel measurements are presented separately'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Not combined"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [all: MPI-DING and USGS glass reference materials] — 'In the absence of suited phosphate reference material' (App. C3)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "MPI-DING and USGS glass reference materials"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "Beginning and repeatedly at the end of each analytical session — App. C3",
+   "status": "text",
+   "value": "Beginning and repeatedly at the end of each analytical session"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "No phosphate reference material exists, so glasses calibrate (App. C3); grains identified as stanfieldite or merrillite from a Ca/(Ca + Mg) plot (§3.4)",
+   "status": "text",
+   "value": "No phosphate reference material exists, so glasses calibrate (App. C3); grains identified as stanfieldite or merrillite from a Ca/(Ca + Mg) plot (§3.4)"
+  }
+ }
+}

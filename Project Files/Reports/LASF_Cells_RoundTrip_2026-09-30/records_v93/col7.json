@@ -1,0 +1,924 @@
+{
+ "procedure_column": "Navarro et al. 2024 (ACS ESC 8) Iron meteorites Raster mapping (2D) ns-LA-SF-ICP-MS University of Campinas",
+ "tapp": "LA-SF-ICP-MS_TAPP_v93",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "Navarro et al. (2024) Iron Meteorite Raster Mapping v1",
+   "status": "text",
+   "value": "Navarro et al. (2024) Iron Meteorite Raster Mapping v1"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "LA-SF-ICP-MS",
+   "status": "text",
+   "value": "LA-SF-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "Navarro, Enzweiler, Crósta et al.",
+   "status": "text",
+   "value": "Navarro, Enzweiler, Crósta et al."
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil",
+   "status": "text",
+   "value": "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N — the acknowledgements name CNPq grant 316191/2021-3 (J.E.) and support for a conference presentation; neither is for procedure development",
+   "status": "commentary only"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)",
+   "status": "text",
+   "value": "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Iron meteorite metal (kamacite + plessite)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Iron meteorite metal",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Region of interest > Phase — \"elemental mapping, conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1); the map is read for the phases it resolves, \"even without prior knowledge regarding natural structural variations\" (p.1)",
+   "status": "text",
+   "value": "Region of interest > Phase"
+  },
+  "Fusion Flux and Dilution Ratio": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite",
+   "status": "text",
+   "value": "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite"
+  },
+  "Pre-Ablation Surface Treatment": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "Representativeness, and phase diversity — \"the approach of rastering large areas may improve representative sampling compared with spot analysis\" (p.2), and the mapping is \"conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1)",
+   "status": "text",
+   "value": "Representativeness, and phase diversity"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "Chemical etching to reveal the phases before mapping — \"For the mapping experiment, the polished surface of the Augusto Pestana sample was etched with freshly prepared Nital solution (2% v/v HNO3 ... in 99.5% absolute ethanol) to reveal the presence of different phases (in this case, kamacite and plessite)\" (p.3). Not imaging, but the screening step that sites the map",
+   "status": "text",
+   "value": "Chemical etching to reveal the phases before mapping"
+  },
+  "Laser Manufacturer & Model": {
+   "key": "(none)",
+   "cell": "Excite 193 (Teledyne) — Table 2",
+   "status": "text",
+   "value": "Excite 193 (Teledyne)"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
+   "status": "text",
+   "value": "Thermo Fisher Scientific Element XR (SF-ICP-MS)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Sector field (SF-ICP-MS) (explicitly stated)",
+   "status": "text",
+   "value": "Sector field (SF-ICP-MS) (explicitly stated)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "Ni sampler cone; Ni skimmer cone",
+   "status": "text",
+   "value": "Ni sampler cone; Ni skimmer cone"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "On (active)",
+   "status": "text",
+   "value": "On (active)"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "Low resolution (M/ΔM = 300)",
+   "status": "text",
+   "value": "Low resolution (M/ΔM = 300)"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "Triple mode — Table 2 'detector range'; 'performed in low-resolution and triple mode detection'",
+   "status": "text",
+   "value": "Triple mode"
+  },
+  "Laser Wavelength and Type": {
+   "key": "(none)",
+   "cell": "193 nm ArF excimer; pulse duration 4 ns",
+   "status": "text",
+   "value": "193 nm ArF excimer; pulse duration 4 ns"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "iolite 4.5.7 with 3D Trace Elements DRS",
+   "status": "text",
+   "value": "iolite 4.5.7 with 3D Trace Elements DRS"
+  },
+  "Ablation Cell Type": {
+   "key": "(none)",
+   "cell": "HelEx II two-volume sample cell",
+   "status": "text",
+   "value": "HelEx II two-volume sample cell"
+  },
+  "Sample Introduction": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Laser Spot Geometry": {
+   "key": "acquisition pass",
+   "cell": "all: 150 µm² square spot — as written: 'targeting a 150 μm2 square spot'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "150 µm² square spot"
+    }
+   ]
+  },
+  "Laser Spot Path / Ablation Mode": {
+   "key": "acquisition pass",
+   "cell": "all: scanning (elemental mapping) — Experimental section",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "scanning (elemental mapping)"
+    }
+   ]
+  },
+  "Laser Energy": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Fluence (Energy Density)": {
+   "key": "(none)",
+   "cell": "7 J cm⁻²",
+   "status": "text",
+   "value": "7 J cm⁻²"
+  },
+  "Laser Beam Energy Profile": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Repetition Rate": {
+   "key": "acquisition pass",
+   "cell": "all: 10 Hz",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "10 Hz"
+    }
+   ]
+  },
+  "Laser Pulse Duration": {
+   "key": "(none)",
+   "cell": "4 ns — Table 2",
+   "status": "text",
+   "value": "4 ns"
+  },
+  "Ablation Duration per Spot": {
+   "key": "(none)",
+   "cell": "N/A — mapping mode",
+   "status": "not applicable"
+  },
+  "Ablation Pit Depth and Ablation Rate": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Transect Rate, Mapping Rate or Step Size": {
+   "key": "acquisition pass",
+   "cell": "all: 10 µm/s — 'scanning at a speed of 10 μm s−1'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "10 µm/s"
+    }
+   ]
+  },
+  "Raster Line Spacing (Mapping Only)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Carrier Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell",
+   "status": "text",
+   "value": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "Ar makeup gas, combined via a T-piece near the torch; Table 2 lists a nebulizer gas flow rate of 1.1 L/min — Table 2",
+   "status": "text",
+   "value": "Ar makeup gas, combined via a T-piece near the torch; Table 2 lists a nebulizer gas flow rate of 1.1 L/min"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "16 L/min — Table 2 'plasma gas flow rate'",
+   "status": "text",
+   "value": "16 L/min"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "0.9 L/min — Table 2",
+   "status": "text",
+   "value": "0.9 L/min"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1200 W",
+   "status": "text",
+   "value": "1200 W"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Smoothing": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "ICP-MS and laser settings optimised daily 'to achieve the compromise between optimum signal intensity and low oxide formation, as specified by the factory'; mass calibration and detector cross-calibration 'systematically checked and redone if required' — Experimental section",
+   "status": "text",
+   "value": "ICP-MS and laser settings optimised daily 'to achieve the compromise between optimum signal intensity and low oxide formation, as specified by the factory'; mass calibration and detector cross-calibration 'systematically checked and redone if required'"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "1 min background, 3 × NIST SRM 612, 3 × North Chile, a 30 min measurement over the unknown area, then 3 × North Chile, 3 × NIST SRM 612 and background — Experimental section",
+   "status": "text",
+   "value": "1 min background, 3 × NIST SRM 612, 3 × North Chile, a 30 min measurement over the unknown area, then 3 × North Chile, 3 × NIST SRM 612 and background"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Cr, Fe, Co, Ni, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au — Table 2",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Ga",
+     "parent": null
+    },
+    {
+     "member": "Ge",
+     "parent": null
+    },
+    {
+     "member": "As",
+     "parent": null
+    },
+    {
+     "member": "Ru",
+     "parent": null
+    },
+    {
+     "member": "Rh",
+     "parent": null
+    },
+    {
+     "member": "Pd",
+     "parent": null
+    },
+    {
+     "member": "W",
+     "parent": null
+    },
+    {
+     "member": "Re",
+     "parent": null
+    },
+    {
+     "member": "Os",
+     "parent": null
+    },
+    {
+     "member": "Ir",
+     "parent": null
+    },
+    {
+     "member": "Pt",
+     "parent": null
+    },
+    {
+     "member": "Au",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "⁵²Cr → Cr; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶¹Ni → Ni; ⁶⁵Cu → Cu; ⁶⁹Ga → Ga; ⁷²Ge → Ge; ⁷⁵As → As; ⁹⁹Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁵Pd → Pd; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁸⁹Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — Table 2, with relative abundances; for Fe and Ni the lower-abundance isotopes 'allow their measurement in the analog mode'",
+   "status": "structured",
+   "value": [
+    {
+     "member": "⁵²Cr",
+     "parent": "Cr"
+    },
+    {
+     "member": "⁵⁷Fe",
+     "parent": "Fe"
+    },
+    {
+     "member": "⁵⁹Co",
+     "parent": "Co"
+    },
+    {
+     "member": "⁶¹Ni",
+     "parent": "Ni"
+    },
+    {
+     "member": "⁶⁵Cu",
+     "parent": "Cu"
+    },
+    {
+     "member": "⁶⁹Ga",
+     "parent": "Ga"
+    },
+    {
+     "member": "⁷²Ge",
+     "parent": "Ge"
+    },
+    {
+     "member": "⁷⁵As",
+     "parent": "As"
+    },
+    {
+     "member": "⁹⁹Ru",
+     "parent": "Ru"
+    },
+    {
+     "member": "¹⁰³Rh",
+     "parent": "Rh"
+    },
+    {
+     "member": "¹⁰⁵Pd",
+     "parent": "Pd"
+    },
+    {
+     "member": "¹⁸²W",
+     "parent": "W"
+    },
+    {
+     "member": "¹⁸⁵Re",
+     "parent": "Re"
+    },
+    {
+     "member": "¹⁸⁹Os",
+     "parent": "Os"
+    },
+    {
+     "member": "¹⁹³Ir",
+     "parent": "Ir"
+    },
+    {
+     "member": "¹⁹⁵Pt",
+     "parent": "Pt"
+    },
+    {
+     "member": "¹⁹⁷Au",
+     "parent": "Au"
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Fe, Ni (g/100 g); Cr, Co, Cu, Ga, Ge, As, Ru, Rh, Pd, W, Re, Os, Ir, Pt, Au (µg/g); chemical classification (nominal) — Table 3 and Table 5",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Ga",
+     "parent": null
+    },
+    {
+     "member": "Ge",
+     "parent": null
+    },
+    {
+     "member": "As",
+     "parent": null
+    },
+    {
+     "member": "Ru",
+     "parent": null
+    },
+    {
+     "member": "Rh",
+     "parent": null
+    },
+    {
+     "member": "Pd",
+     "parent": null
+    },
+    {
+     "member": "W",
+     "parent": null
+    },
+    {
+     "member": "Re",
+     "parent": null
+    },
+    {
+     "member": "Os",
+     "parent": null
+    },
+    {
+     "member": "Ir",
+     "parent": null
+    },
+    {
+     "member": "Pt",
+     "parent": null
+    },
+    {
+     "member": "Au",
+     "parent": null
+    },
+    {
+     "member": "chemical classification",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "all: low resolution (300) — Table 2",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "low resolution (300)"
+    }
+   ]
+  },
+  "E-scan Range": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Triple Scanning Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "all: 0.02 s sample time — E-scan, 100 samples per peak (Table 2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "0.02 s sample time"
+    }
+   ]
+  },
+  "Total Integration Time per Output Data Point": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Background Count Time": {
+   "key": "(none)",
+   "cell": "1 min at the start and at the end of the mapping sequence — Experimental section",
+   "status": "text",
+   "value": "1 min at the start and at the end of the mapping sequence"
+  },
+  "Inter-Pass Data Dependency": {
+   "key": "acquisition pass",
+   "cell": "N/A — a single pass",
+   "status": "not applicable"
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Internal Standard Approach": {
+   "key": "acquisition pass",
+   "cell": "all: sum normalization, Fe + Ni + Co = 100% — 'In the final step, sum normalization was applied to the major constituents of iron meteorites, specifically Fe + Ni + Co = 100%. This ... eliminated the conventional practice of needing an internal standard'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "sum normalization, Fe + Ni + Co = 100%"
+    }
+   ]
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "all: none — Fe + Ni + Co sum normalisation",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "none"
+    }
+   ]
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Elemental Fractionation Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Matrix Offset Correction (LIEF)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "1 min background at the start and end of the mapping sequence — Experimental section",
+   "status": "text",
+   "value": "1 min background at the start and end of the mapping sequence"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N — 'detector cross-calibration were systematically checked and redone if required'; Fe and Ni measured on low-abundance isotopes in analog mode",
+   "status": "commentary only"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "No mathematical correction; isotopes chosen to avoid interferences — 'the molecular species 40Ar61Ni interferes severely at mass 101 ... so a better choice is 99Ru, although it is interfered with by the species 40Ar59Co but much less intensely. All used isotopes (Table 2) were chosen based on the above criteria'",
+   "status": "text",
+   "value": "No mathematical correction; isotopes chosen to avoid interferences"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "⁹⁹Ru: ⁴⁰Ar⁵⁹Co, much less intensely than ⁴⁰Ar⁶¹Ni on ¹⁰¹Ru; other: N — polyatomic ions from Fe and Ni with plasma species are the main concern",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "⁹⁹Ru"
+     ],
+     "value": "⁴⁰Ar⁵⁹Co, much less intensely than ⁴⁰Ar⁶¹Ni on ¹⁰¹Ru"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "⁹⁹Ru: isotope selection, avoiding ¹⁰¹Ru; other: N — isotopes were chosen to be free of elemental isobaric interference",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "⁹⁹Ru"
+     ],
+     "value": "isotope selection, avoiding ¹⁰¹Ru"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "all: Fe + Ni + Co = 100% sum normalisation after calibration — the final step of the 3D Trace Elements DRS",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Fe + Ni + Co = 100% sum normalisation after calibration"
+    }
+   ]
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — the reported values integrate a stated number of points per phase, \"176 kamacite points (211,060 µm2) and 1,173 plessite points (1,712,297 µm2)\" (Table 5, p.12). The points are assigned to a phase rather than admitted or rejected, and no rejection rule is stated",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: integrated over the map points assigned to each phase — Table 5: '176 kamacite points (211,060 µm2) and 1,173 plessite points (1,712,297 µm2)'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "integrated over the map points assigned to each phase"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [all: NIST SRM 612 and North Chile (Filomena, IIAB)] — median yield correction factors for NIST SRM 612 relative to North Chile, then least-squares calibration per 15 min block, interpolated in time (3D Trace Elements DRS)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "NIST SRM 612 and North Chile (Filomena, IIAB)"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "Before and after the 30 min map — Experimental section",
+   "status": "text",
+   "value": "Before and after the 30 min map"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "North Chile — 'also measured as an unknown sample several times, on different days, over four months', for intermediate precision; eight other known iron meteorites validate against published INAA values",
+   "status": "structured",
+   "value": [
+    {
+     "member": "North Chile",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Mapping over regions with diverse phases of Augusto Pestana; Fe + Ni + Co = 100% normalisation 'is mandatory when acquiring elemental maps of multiphasic samples'",
+   "status": "text",
+   "value": "Mapping over regions with diverse phases of Augusto Pestana; Fe + Ni + Co = 100% normalisation 'is mandatory when acquiring elemental maps of multiphasic samples'"
+  }
+ }
+}

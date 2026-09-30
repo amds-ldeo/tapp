@@ -1,0 +1,707 @@
+{
+ "procedure_column": "Navarro et al. 2024 (ACS ESC 8) Iron meteorites Raster mapping (2D) ns-LA-SF-ICP-MS University of Campinas",
+ "tapp": "LA-SF-ICP-MS_TAPP_v92",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "Navarro et al. (2024) Iron Meteorite Raster Mapping v1",
+   "status": "text",
+   "value": "Navarro et al. (2024) Iron Meteorite Raster Mapping v1"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "LA-SF-ICP-MS",
+   "status": "text",
+   "value": "LA-SF-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "Navarro, Enzweiler, Crósta et al.",
+   "status": "text",
+   "value": "Navarro, Enzweiler, Crósta et al."
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil",
+   "status": "text",
+   "value": "Isotope Geology Laboratory, University of Campinas (UNICAMP), Brazil"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "FAPESP; CNPq",
+   "status": "text",
+   "value": "FAPESP; CNPq"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)",
+   "status": "text",
+   "value": "Navarro et al. (2024) ACS Earth Space Chem. 8, 281; Longerich et al. (1996)"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Iron meteorite metal (kamacite + plessite)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Iron meteorite metal",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Region of interest > Phase — \"elemental mapping, conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1); the map is read for the phases it resolves, \"even without prior knowledge regarding natural structural variations\" (p.1)",
+   "status": "text",
+   "value": "Region of interest > Phase"
+  },
+  "Fusion Flux and Dilution Ratio": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite",
+   "status": "text",
+   "value": "Same Augusto Pestana fragment etched with Nital solution (2% v/v HNO₃ in ethanol) to reveal kamacite and plessite"
+  },
+  "Pre-Ablation Surface Treatment": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "Representativeness, and phase diversity — \"the approach of rastering large areas may improve representative sampling compared with spot analysis\" (p.2), and the mapping is \"conducted within regions featuring diverse phases of the Augusto Pestana meteorite\" (p.1)",
+   "status": "text",
+   "value": "Representativeness, and phase diversity"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "Chemical etching to reveal the phases before mapping — \"For the mapping experiment, the polished surface of the Augusto Pestana sample was etched with freshly prepared Nital solution (2% v/v HNO3 ... in 99.5% absolute ethanol) to reveal the presence of different phases (in this case, kamacite and plessite)\" (p.3). Not imaging, but the screening step that sites the map",
+   "status": "text",
+   "value": "Chemical etching to reveal the phases before mapping"
+  },
+  "Laser Manufacturer & Model": {
+   "key": "(none)",
+   "cell": "Teledyne Excite 193 (193 nm ArF excimer)",
+   "status": "text",
+   "value": "Teledyne Excite 193 (193 nm ArF excimer)"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
+   "status": "text",
+   "value": "Thermo Fisher Scientific Element XR (SF-ICP-MS)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Sector field (SF-ICP-MS) (explicitly stated)",
+   "status": "text",
+   "value": "Sector field (SF-ICP-MS) (explicitly stated)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "Ni sampler cone; Ni skimmer cone",
+   "status": "text",
+   "value": "Ni sampler cone; Ni skimmer cone"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "On (active)",
+   "status": "text",
+   "value": "On (active)"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "Low resolution (M/ΔM = 300)",
+   "status": "text",
+   "value": "Low resolution (M/ΔM = 300)"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "Triple mode detector (pulse counting, analog, Faraday)",
+   "status": "text",
+   "value": "Triple mode detector (pulse counting, analog, Faraday)"
+  },
+  "Laser Wavelength and Type": {
+   "key": "(none)",
+   "cell": "193 nm ArF excimer; pulse duration 4 ns",
+   "status": "text",
+   "value": "193 nm ArF excimer; pulse duration 4 ns"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "iolite 4.5.7 with 3D Trace Elements DRS",
+   "status": "text",
+   "value": "iolite 4.5.7 with 3D Trace Elements DRS"
+  },
+  "Ablation Cell Type": {
+   "key": "(none)",
+   "cell": "HelEx II two-volume sample cell",
+   "status": "text",
+   "value": "HelEx II two-volume sample cell"
+  },
+  "Sample Introduction": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Laser Spot Geometry": {
+   "key": "acquisition pass",
+   "cell": "150 µm square (mapping mode)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Spot Path / Ablation Mode": {
+   "key": "acquisition pass",
+   "cell": "Raster area (2D elemental mapping)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Energy": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Fluence (Energy Density)": {
+   "key": "(none)",
+   "cell": "7 J cm⁻²",
+   "status": "text",
+   "value": "7 J cm⁻²"
+  },
+  "Laser Beam Energy Profile": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Repetition Rate": {
+   "key": "acquisition pass",
+   "cell": "10 Hz",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Pulse Duration": {
+   "key": "(none)",
+   "cell": "4 ns (ArF excimer Excite 193)",
+   "status": "text",
+   "value": "4 ns (ArF excimer Excite 193)"
+  },
+  "Ablation Duration per Spot": {
+   "key": "(none)",
+   "cell": "N/A (mapping mode)",
+   "status": "not applicable"
+  },
+  "Ablation Pit Depth and Ablation Rate": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Transect Rate, Mapping Rate or Step Size": {
+   "key": "acquisition pass",
+   "cell": "10 µm s⁻¹ (continuous raster scan)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Raster Line Spacing (Mapping Only)": {
+   "key": "(none)",
+   "cell": "N (line spacing not stated; 150 µm spot at 10 µm s⁻¹)",
+   "status": "not stated"
+  },
+  "Carrier Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell",
+   "status": "text",
+   "value": "He: 0.6 l min⁻¹ (MFC 1) + 0.7 l min⁻¹ (MFC 2) in HelEx II cell"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "Ar make-up gas (same as spot protocol)",
+   "status": "text",
+   "value": "Ar make-up gas (same as spot protocol)"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "Plasma gas: 16 l min⁻¹; Auxiliary: 0.9 l min⁻¹",
+   "status": "text",
+   "value": "Plasma gas: 16 l min⁻¹; Auxiliary: 0.9 l min⁻¹"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1200 W",
+   "status": "text",
+   "value": "1200 W"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Smoothing": {
+   "key": "(none)",
+   "cell": "None",
+   "status": "text",
+   "value": "None"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "Same as spot protocol",
+   "status": "text",
+   "value": "Same as spot protocol"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N (same as spot protocol)",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "Background (1 min) → NIST SRM 612(×3) → North Chile(×3) → unknown map (30 min) → North Chile(×3) → NIST SRM 612(×3) → background",
+   "status": "text",
+   "value": "Background (1 min) → NIST SRM 612(×3) → North Chile(×3) → unknown map (30 min) → North Chile(×3) → NIST SRM 612(×3) → background"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "⁵²Cr, ⁵⁷Fe, ⁵⁹Co, ⁶¹Ni, ⁶⁵Cu, ⁶⁹Ga, ⁷²Ge, ⁷⁵As, ⁹⁹Ru, ¹⁰³Rh, ¹⁰⁵Pd, ¹⁸²W, ¹⁸⁵Re, ¹⁸⁹Os, ¹⁹³Ir, ¹⁹⁵Pt, ¹⁹⁷Au (same 17 isotopes as spot protocol)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "⁵²Cr",
+     "parent": null
+    },
+    {
+     "member": "⁵⁷Fe",
+     "parent": null
+    },
+    {
+     "member": "⁵⁹Co",
+     "parent": null
+    },
+    {
+     "member": "⁶¹Ni",
+     "parent": null
+    },
+    {
+     "member": "⁶⁵Cu",
+     "parent": null
+    },
+    {
+     "member": "⁶⁹Ga",
+     "parent": null
+    },
+    {
+     "member": "⁷²Ge",
+     "parent": null
+    },
+    {
+     "member": "⁷⁵As",
+     "parent": null
+    },
+    {
+     "member": "⁹⁹Ru",
+     "parent": null
+    },
+    {
+     "member": "¹⁰³Rh",
+     "parent": null
+    },
+    {
+     "member": "¹⁰⁵Pd",
+     "parent": null
+    },
+    {
+     "member": "¹⁸²W",
+     "parent": null
+    },
+    {
+     "member": "¹⁸⁵Re",
+     "parent": null
+    },
+    {
+     "member": "¹⁸⁹Os",
+     "parent": null
+    },
+    {
+     "member": "¹⁹³Ir",
+     "parent": null
+    },
+    {
+     "member": "¹⁹⁵Pt",
+     "parent": null
+    },
+    {
+     "member": "¹⁹⁷Au",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Elemental mass fractions per phase, obtained by integrating 176 kamacite points over 211,060 µm2 and 1,173 plessite points over 1,712,297 µm2 — As, Au, Co, Cu, Ga, Ge, Ir, Pd, Ru in µg g-1 and Fe, Ni in g/100 g, each with 2 sdm and the integrated area and point count (Table 5, p.12); phase identification from the maps (nominal)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Elemental mass fractions per phase",
+     "parent": null
+    },
+    {
+     "member": "obtained by integrating 176 kamacite points over 211",
+     "parent": null
+    },
+    {
+     "member": "060 µm2 and 1",
+     "parent": null
+    },
+    {
+     "member": "173 plessite points over 1",
+     "parent": null
+    },
+    {
+     "member": "712",
+     "parent": null
+    },
+    {
+     "member": "297 µm2",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "E-scan Range": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Triple Scanning Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "0.02 s per isotope; 100 samples per peak (same as spot protocol)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Total Integration Time per Output Data Point": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Background Count Time": {
+   "key": "(none)",
+   "cell": "60 s background measurement before mapping session start; 3 measurements each for NIST and North Chile after background",
+   "status": "text",
+   "value": "60 s background measurement before mapping session start; 3 measurements each for NIST and North Chile after background"
+  },
+  "Inter-Pass Data Dependency": {
+   "key": "acquisition pass",
+   "cell": "N/A (mapping)",
+   "status": "not applicable"
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "1 map per meteorite (single 30-min mapping acquisition)",
+   "status": "text",
+   "value": "1 map per meteorite (single 30-min mapping acquisition)"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Internal Standard Approach": {
+   "key": "acquisition pass",
+   "cell": "Fe+Ni+Co sum normalization to 100% (same DRS as spot protocol; mandatory for multi-phase mapping without prior IS knowledge)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "No single IS; Fe+Ni+Co=100% normalization (same as spot protocol)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Elemental Fractionation Correction": {
+   "key": "acquisition pass",
+   "cell": "Same calibration approach as spot protocol (iolite 3D DRS; same yield correction)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N (same as spot protocol)",
+   "status": "not stated"
+  },
+  "Matrix Offset Correction (LIEF)": {
+   "key": "(none)",
+   "cell": "N (same as spot protocol)",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "Same procedure as spot protocol; signal integration for mapping not separately described",
+   "status": "text",
+   "value": "Same procedure as spot protocol; signal integration for mapping not separately described"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N (mapping; iolite 3D DRS handles background; no per-pixel spike filtering described)",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "Background (1 min) measured at session start; additional 3 measurements of NIST and North Chile used for calibration (background included in regression line for gas blank)",
+   "status": "text",
+   "value": "Background (1 min) measured at session start; additional 3 measurements of NIST and North Chile used for calibration (background included in regression line for gas blank)"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "Applied (same as spot)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes (same as spot protocol)",
+   "status": "text",
+   "value": "Yes (same as spot protocol)"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "Same as spot protocol",
+   "status": "unparsed",
+   "value": []
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "Same isotope selection as spot protocol",
+   "status": "unparsed",
+   "value": []
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N (mapping; ARIS-equivalent not described; single mapping session)",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "Fe+Ni+Co=100% normalization (mandatory for multi-phase mapping); same iolite DRS as spot",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — the reported values integrate a stated number of points per phase, \"176 kamacite points (211,060 µm2) and 1,173 plessite points (1,712,297 µm2)\" (Table 5, p.12). The points are assigned to a phase rather than admitted or rejected, and no rejection rule is stated",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: integrated over the map points assigned to each phase — Table 5: '176 kamacite points (211,060 µm2) and 1,173 plessite points (1,712,297 µm2)'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "integrated over the map points assigned to each phase"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "NIST SRM 612 (Jochum et al. 2011) + North Chile Filomena — same as spot protocol",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "NIST SRM 612 and North Chile at start and end of mapping session (30 min map; 3 measurements each before and after)",
+   "status": "text",
+   "value": "NIST SRM 612 and North Chile at start and end of mapping session (30 min map; 3 measurements each before and after)"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "North Chile and NIST SRM 612 measured before and after mapping session as QC materials",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "North Chile and NIST SRM 612 measured before and after mapping session as QC materials",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N (LODs not separately reported for mapping)",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N (LODs not separately reported for mapping)",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N (within-session precision for mapping not separately assessed)",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N (mapping accuracy not separately assessed from spot protocol)",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Elemental mapping used as classification tool even without prior knowledge of structural variations (kamacite vs. plessite); demonstrates LA-ICP-MS mapping applicability for iron meteorite classification",
+   "status": "text",
+   "value": "Elemental mapping used as classification tool even without prior knowledge of structural variations (kamacite vs. plessite); demonstrates LA-ICP-MS mapping applicability for iron meteorite classification"
+  }
+ }
+}

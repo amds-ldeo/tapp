@@ -1,0 +1,1003 @@
+{
+ "procedure_column": "Zhang et al. 2022 (GCA 323) Iron meteorites Raster mapping + Spot (Ge) ns-LA-SF-ICP-MS Florida State University",
+ "tapp": "LA-SF-ICP-MS_TAPP_v93",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "Zhang et al. (2022) Iron Meteorite LA-ICP-MS v1",
+   "status": "text",
+   "value": "Zhang et al. (2022) Iron Meteorite LA-ICP-MS v1"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "LA-SF-ICP-MS",
+   "status": "text",
+   "value": "LA-SF-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "Zhang, Chabot, Rubin, Humayun et al.",
+   "status": "text",
+   "value": "Zhang, Chabot, Rubin, Humayun et al."
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Plasma Analytical Facility, Florida State University, Tallahassee FL, USA",
+   "status": "text",
+   "value": "Plasma Analytical Facility, Florida State University, Tallahassee FL, USA"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization",
+   "status": "text",
+   "value": "Zhang et al. (2022) GCA 323, 202–219; Humayun (2012) for standardization"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "EPMA (Brown University CAMECA SX-100)",
+   "status": "text",
+   "value": "EPMA (Brown University CAMECA SX-100)"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]",
+   "status": "text",
+   "value": "Quantitative analysis, mixed WDS/EDS element mapping, and characterization of mineral phases from NWA 1911 and Zinder [Section 2.5]"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Iron meteorite metal (kamacite + taenite); pyroxene-bearing pallasite metal",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Iron meteorite metal",
+     "parent": null
+    },
+    {
+     "member": "pyroxene-bearing pallasite metal",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Whole sample (polished specimen surface) > Region of interest (raster) — irons \"were analyzed using a raster scan over a few millimeters\" with a 50 μm beam, and compositions are reported as \"raster averages\" per specimen (Table 3, pp.4–5); Ge comes from a set of five 150 μm spots on five of the irons (p.4)",
+   "status": "text",
+   "value": "Whole sample (polished specimen surface) > Region of interest (raster)"
+  },
+  "Fusion Flux and Dilution Ratio": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Polished slabs of the irons; a mount of Zinder and a section of NWA 1911 for the pallasites (§2.1); no acid treatment is described for the LA-ICP-MS specimens",
+   "status": "text",
+   "value": "Polished slabs of the irons; a mount of Zinder and a section of NWA 1911 for the pallasites (§2.1); no acid treatment is described for the LA-ICP-MS specimens"
+  },
+  "Pre-Ablation Surface Treatment": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "Representativeness of the exsolution banding — the raster \"yielded more representative sampling of the kamacite-taenite banding\", and where it \"failed to yield useful Ge abundances for Klamath Falls ... To obtain more precise Ge, a set of five 150 μm spots were analyzed ... on five of the irons\" (p.4)",
+   "status": "text",
+   "value": "Representativeness of the exsolution banding"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "Electron-microprobe mapping, for the pallasites only — \"Quantitative analysis, mixed WDS/EDS element mapping, and characterization of the mineral phases from NWA 1911 and Zinder were performed\" on the Bruker instrument, producing Si, Al, Cr, Fe, Mg, Ca, Na, P and Ni maps \"along with backscattered electron (BSE) maps\" at 6 μm per pixel (pp.5–6); for the irons the paper states only that the rasters were \"taken on polished surfaces\" (p.5)",
+   "status": "text",
+   "value": "Electron-microprobe mapping, for the pallasites only"
+  },
+  "Laser Manufacturer & Model": {
+   "key": "(none)",
+   "cell": "ElectroScientific Instruments New Wave UP193FX — §2.2",
+   "status": "text",
+   "value": "ElectroScientific Instruments New Wave UP193FX"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
+   "status": "text",
+   "value": "Thermo Fisher Scientific Element XR (SF-ICP-MS)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "Low resolution (M/ΔM ≈ 400)",
+   "status": "text",
+   "value": "Low resolution (M/ΔM ≈ 400)"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "Triple mode detection at 65% duty cycle — 'triple mode detection at 65% duty cycle' (§2.2)",
+   "status": "text",
+   "value": "Triple mode detection at 65% duty cycle"
+  },
+  "Laser Wavelength and Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N — paper only states \"standardization techniques followed those of Humayun (2012)\"; no software named",
+   "status": "commentary only"
+  },
+  "Ablation Cell Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Introduction": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Laser Spot Geometry": {
+   "key": "acquisition pass",
+   "cell": "raster: 50 µm beam spot; Ge spots: 150 µm — §2.2",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "raster"
+     ],
+     "value": "50 µm beam spot"
+    },
+    {
+     "members": [
+      "Ge spots"
+     ],
+     "value": "150 µm"
+    }
+   ]
+  },
+  "Laser Spot Path / Ablation Mode": {
+   "key": "acquisition pass",
+   "cell": "raster: raster scan over a few millimeters; Ge spots: spot — §2.2",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "raster"
+     ],
+     "value": "raster scan over a few millimeters"
+    },
+    {
+     "members": [
+      "Ge spots"
+     ],
+     "value": "spot"
+    }
+   ]
+  },
+  "Laser Energy": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Fluence (Energy Density)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Beam Energy Profile": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Repetition Rate": {
+   "key": "acquisition pass",
+   "cell": "raster: 50 Hz; Ge spots: 50 Hz — §2.2",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "raster"
+     ],
+     "value": "50 Hz"
+    },
+    {
+     "members": [
+      "Ge spots"
+     ],
+     "value": "50 Hz"
+    }
+   ]
+  },
+  "Laser Pulse Duration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ablation Duration per Spot": {
+   "key": "(none)",
+   "cell": "20 s for the Ge spots — 'analyzed at 50 Hz for 20 s' (§2.2); the raster duration is not stated",
+   "status": "text",
+   "value": "20 s for the Ge spots"
+  },
+  "Ablation Pit Depth and Ablation Rate": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Transect Rate, Mapping Rate or Step Size": {
+   "key": "acquisition pass",
+   "cell": "raster: 10 µm/s; Ge spots: N/A — 'scanned at 10 µm/s' (§2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "raster"
+     ],
+     "value": "10 µm/s"
+    },
+    {
+     "members": [
+      "Ge spots"
+     ],
+     "value": "N/A"
+    }
+   ]
+  },
+  "Raster Line Spacing (Mapping Only)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Carrier Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Smoothing": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "P, V, Cr, Mn, Fe, Co, Ni, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au — the 23 elements whose peaks were acquired (§2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "P",
+     "parent": null
+    },
+    {
+     "member": "V",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Ga",
+     "parent": null
+    },
+    {
+     "member": "Ge",
+     "parent": null
+    },
+    {
+     "member": "As",
+     "parent": null
+    },
+    {
+     "member": "Mo",
+     "parent": null
+    },
+    {
+     "member": "Ru",
+     "parent": null
+    },
+    {
+     "member": "Rh",
+     "parent": null
+    },
+    {
+     "member": "Pd",
+     "parent": null
+    },
+    {
+     "member": "Sn",
+     "parent": null
+    },
+    {
+     "member": "Sb",
+     "parent": null
+    },
+    {
+     "member": "W",
+     "parent": null
+    },
+    {
+     "member": "Re",
+     "parent": null
+    },
+    {
+     "member": "Os",
+     "parent": null
+    },
+    {
+     "member": "Ir",
+     "parent": null
+    },
+    {
+     "member": "Pt",
+     "parent": null
+    },
+    {
+     "member": "Au",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "³¹P → P; ⁵¹V → V; ⁵³Cr → Cr; ⁵⁵Mn → Mn; ⁵⁷Fe → Fe; ⁵⁹Co → Co; ⁶⁰Ni → Ni; ⁶³Cu → Cu; ⁷¹Ga → Ga; ⁷⁴Ge → Ge; ⁷⁵As → As; ⁹⁵Mo → Mo; ¹⁰²Ru → Ru; ¹⁰³Rh → Rh; ¹⁰⁶Pd → Pd; ¹²⁰Sn → Sn; ¹²¹Sb → Sb; ¹⁸²W → W; ¹⁸⁵Re → Re; ¹⁹⁰Os → Os; ¹⁹³Ir → Ir; ¹⁹⁵Pt → Pt; ¹⁹⁷Au → Au — 'were used to acquire the peaks 31P, 51V, ... and 197Au' (§2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "³¹P",
+     "parent": "P"
+    },
+    {
+     "member": "⁵¹V",
+     "parent": "V"
+    },
+    {
+     "member": "⁵³Cr",
+     "parent": "Cr"
+    },
+    {
+     "member": "⁵⁵Mn",
+     "parent": "Mn"
+    },
+    {
+     "member": "⁵⁷Fe",
+     "parent": "Fe"
+    },
+    {
+     "member": "⁵⁹Co",
+     "parent": "Co"
+    },
+    {
+     "member": "⁶⁰Ni",
+     "parent": "Ni"
+    },
+    {
+     "member": "⁶³Cu",
+     "parent": "Cu"
+    },
+    {
+     "member": "⁷¹Ga",
+     "parent": "Ga"
+    },
+    {
+     "member": "⁷⁴Ge",
+     "parent": "Ge"
+    },
+    {
+     "member": "⁷⁵As",
+     "parent": "As"
+    },
+    {
+     "member": "⁹⁵Mo",
+     "parent": "Mo"
+    },
+    {
+     "member": "¹⁰²Ru",
+     "parent": "Ru"
+    },
+    {
+     "member": "¹⁰³Rh",
+     "parent": "Rh"
+    },
+    {
+     "member": "¹⁰⁶Pd",
+     "parent": "Pd"
+    },
+    {
+     "member": "¹²⁰Sn",
+     "parent": "Sn"
+    },
+    {
+     "member": "¹²¹Sb",
+     "parent": "Sb"
+    },
+    {
+     "member": "¹⁸²W",
+     "parent": "W"
+    },
+    {
+     "member": "¹⁸⁵Re",
+     "parent": "Re"
+    },
+    {
+     "member": "¹⁹⁰Os",
+     "parent": "Os"
+    },
+    {
+     "member": "¹⁹³Ir",
+     "parent": "Ir"
+    },
+    {
+     "member": "¹⁹⁵Pt",
+     "parent": "Pt"
+    },
+    {
+     "member": "¹⁹⁷Au",
+     "parent": "Au"
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "P, Fe, Co, Ni (mg/g); V, Cr, Mn, Cu, Ga, Ge, As, Mo, Ru, Rh, Pd, Sn, Sb, W, Re, Os, Ir, Pt, Au (µg/g) — abundances in metal, Table 3 (raster averages) with spot averages in Appendix 2; 'Concentrations below detection limits are not shown'",
+   "status": "structured",
+   "value": [
+    {
+     "member": "P",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "V",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Ga",
+     "parent": null
+    },
+    {
+     "member": "Ge",
+     "parent": null
+    },
+    {
+     "member": "As",
+     "parent": null
+    },
+    {
+     "member": "Mo",
+     "parent": null
+    },
+    {
+     "member": "Ru",
+     "parent": null
+    },
+    {
+     "member": "Rh",
+     "parent": null
+    },
+    {
+     "member": "Pd",
+     "parent": null
+    },
+    {
+     "member": "Sn",
+     "parent": null
+    },
+    {
+     "member": "Sb",
+     "parent": null
+    },
+    {
+     "member": "W",
+     "parent": null
+    },
+    {
+     "member": "Re",
+     "parent": null
+    },
+    {
+     "member": "Os",
+     "parent": null
+    },
+    {
+     "member": "Ir",
+     "parent": null
+    },
+    {
+     "member": "Pt",
+     "parent": null
+    },
+    {
+     "member": "Au",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "E-scan Range": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Triple Scanning Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Total Integration Time per Output Data Point": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Background Count Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Inter-Pass Data Dependency": {
+   "key": "acquisition pass",
+   "cell": "N — the Ge value combines both passes (Combination Method), but no pass uses another's data",
+   "status": "commentary only"
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N — 'a set of five 150 µm spots were analyzed ... on five of the irons, including both slabs of Klamath Falls' (§2.2)",
+   "status": "commentary only"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "raster; Ge spots — 'Irons were analyzed using a raster scan over a few millimeters'; 'To obtain more precise Ge, a set of five 150 µm spots were analyzed at 50 Hz for 20 s on five of the irons' (§2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "raster",
+     "parent": null
+    },
+    {
+     "member": "Ge spots",
+     "parent": null
+    }
+   ]
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Internal Standard Approach": {
+   "key": "acquisition pass",
+   "cell": "N — 'Standardization techniques followed those of Humayun (2012)' (§2.2)",
+   "status": "commentary only"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N — not stated; standardization follows Humayun (2012)",
+   "status": "commentary only"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Elemental Fractionation Correction": {
+   "key": "acquisition pass",
+   "cell": "N — 'Standardization techniques followed those of Humayun (2012)' (§2.2); the standards are under Primary Calibration Standard Name",
+   "status": "commentary only"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Matrix Offset Correction (LIEF)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N — 'triple mode detection at 65% duty cycle' (§2.2); a cross-calibration is not described",
+   "status": "commentary only"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N — the 150 µm Ge spots produced 'a sufficiently bright beam to resolve Ge from background argide interferences' (§2.2); no correction is described",
+   "status": "commentary only"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "⁷⁴Ge: background argides; other: N — overcome by the brighter 150 µm Ge spots, not corrected (§2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "⁷⁴Ge"
+     ],
+     "value": "background argides"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N — the argide interference on Ge was avoided with a brighter beam, not corrected",
+   "status": "commentary only"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — the rule stated is one of combination rather than rejection: for Ge, Sb, Re, Os and Ir the reported value is \"calculated from the mean of the spot average (Appendix 2) and the raster average in this table\" (Table 3 note, p.4). No acceptance or rejection rule for individual results is stated. The exclusion of \"Binya and Fitzwater Pass ... from the fractional-crystallization modeling of group IIIF\" (p.5) is an interpretive exclusion downstream of the reported values, not a rule about which results make them",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "Ge, Sb, Re, Os, Ir: mean of the spot average and the raster average; other: raster average — Table 3 title 'Compositions (raster averages)'; note: 'calculated from the mean of the spot average (Appendix 2) and the raster average in this table'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Ge",
+      "Sb",
+      "Re",
+      "Os",
+      "Ir"
+     ],
+     "value": "mean of the spot average and the raster average"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "raster average"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [Fe, Co, Ni, Cu, As, W, Au: North Chile (Filomena, IIAB) and NIST SRM 1263a V-Cr steel; Ga, Ge: North Chile (Filomena, IIAB); Ru, Rh, Pd, Re, Os, Ir, Pt: Hoba (IVB); V, Cr, Mo: NIST SRM 1263a V-Cr steel; other: N] — 'The standard used for Fe, Co, Ni, Cu, Ga, Ge, As, W, and Au is North Chile (Filomena; IIAB) (Wasson et al., 1989), and the standard for Ru, Rh, Pd, Re, Os, Ir, and Pt is Hoba (IVB) (Walker et al., 2008). NIST SRM 1263a V-Cr steel was also used for V, Cr, Fe, Co, Ni, Cu, As, Mo, W, and Au' (§2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "Fe",
+        "Co",
+        "Ni",
+        "Cu",
+        "As",
+        "W",
+        "Au"
+       ],
+       "value": "North Chile (Filomena, IIAB) and NIST SRM 1263a V-Cr steel"
+      },
+      {
+       "members": [
+        "Ga",
+        "Ge"
+       ],
+       "value": "North Chile (Filomena, IIAB)"
+      },
+      {
+       "members": [
+        "Ru",
+        "Rh",
+        "Pd",
+        "Re",
+        "Os",
+        "Ir",
+        "Pt"
+       ],
+       "value": "Hoba (IVB)"
+      },
+      {
+       "members": [
+        "V",
+        "Cr",
+        "Mo"
+       ],
+       "value": "NIST SRM 1263a V-Cr steel"
+      },
+      {
+       "members": [
+        "other"
+       ],
+       "value": "N"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N — 'Concentrations below detection limits are not shown' (Table 3); the limits are not given",
+   "status": "commentary only"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N — compared with NAA on the same irons rather than a standard: differences 'mostly ... within the range of ±40%', within ±10% for Ni, Co and Ga, up to 30% for Au and As, and W in Cerro del Inca 4.39 ng/g by LA-ICP-MS against 1.06 ng/g by INAA (§2.3)",
+   "status": "commentary only"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "The raster pass gives the 23-element dataset; a separate set of 150 µm spots on five irons gives more precise Ge, since the raster 'failed to yield useful Ge abundances for Klamath Falls' (§2.2)",
+   "status": "text",
+   "value": "The raster pass gives the 23-element dataset; a separate set of 150 µm spots on five irons gives more precise Ge, since the raster 'failed to yield useful Ge abundances for Klamath Falls' (§2.2)"
+  }
+ }
+}

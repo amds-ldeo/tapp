@@ -1,0 +1,885 @@
+{
+ "procedure_column": "Chernonozhkin et al. 2021 (Chem Geol 562) Pallasite olivine Line scan (Run 1: major) + Spot (Run 2: trace) [Multi-run] ns-LA-SF-ICP-MS Ghent University",
+ "tapp": "LA-SF-ICP-MS_TAPP_v92",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "Chernonozhkin et al. (2021) Pallasite Olivine Multi-run Spot/Transect v1",
+   "status": "text",
+   "value": "Chernonozhkin et al. (2021) Pallasite Olivine Multi-run Spot/Transect v1"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "LA-SF-ICP-MS",
+   "status": "text",
+   "value": "LA-SF-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "Chernonozhkin, Pittarello, Goderis, Vanhaecke et al.",
+   "status": "text",
+   "value": "Chernonozhkin, Pittarello, Goderis, Vanhaecke et al."
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium",
+   "status": "text",
+   "value": "Dept. of Chemistry, Atomic & Mass Spectrometry, Ghent University, Belgium"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent",
+   "status": "text",
+   "value": "Planet Topers (BELSPO); FWO; Alexander von Humboldt Foundation; FWO/BOF-UGent"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method",
+   "status": "text",
+   "value": "Chernonozhkin et al. (2021) Chem. Geol. 562; Liu et al. (2008) for IS method"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Pallasite olivine ([Mg,Fe]₂SiO₄)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Pallasite olivine",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Grain (individual olivine crystal) > Region of interest (line scan) — \"a second line-scan was completed on top of the first one, using a laser spot of 130 μm diameter ... and a translation speed of 10 μm s−1\" (p.3)",
+   "status": "text",
+   "value": "Grain (individual olivine crystal) > Region of interest (line scan)"
+  },
+  "Fusion Flux and Dilution Ratio": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "PMG thick sections polished; pre-ablation pass (2 J cm⁻², 20 Hz, 150 µm square, 300 µm s⁻¹) before trace element run",
+   "status": "text",
+   "value": "PMG thick sections polished; pre-ablation pass (2 J cm⁻², 20 Hz, 150 µm square, 300 µm s⁻¹) before trace element run"
+  },
+  "Pre-Ablation Surface Treatment": {
+   "key": "(none)",
+   "cell": "Pre-ablation pass: 150 µm square, 2 J cm⁻², 20 Hz, 300 µm s⁻¹ scan before trace element spot run; removes surface contamination and re-deposited material",
+   "status": "text",
+   "value": "Pre-ablation pass: 150 µm square, 2 J cm⁻², 20 Hz, 300 µm s⁻¹ scan before trace element spot run; removes surface contamination and re-deposited material"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "Position relative to the metal-olivine rim — the line scans run \"from the olivine rim in the direction of the olivine core\" on large olivine crystals sited from the μXRF maps (p.4); the surface is pre-ablated before each analysis (p.3)",
+   "status": "text",
+   "value": "Position relative to the metal-olivine rim"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "μXRF mapping of larger sections, on which the ablation is sited — Fe Kα intensity maps identify the mineral phases \"based on the intensities of the Kα lines of the constituent major elements (Fe, Mg, Ni, Cr, S, Ca and P)\", and the LA-ICP-MS areas correspond \"to the locations indicated on the larger μXRF maps as black rectangles\" (p.4). The instrument is a Bruker M4 Tornado with a Rh-anode source at 50 kV and 150 μA, focused to \"a 25 μm spot (measured for Mo Kα)\" (p.3)",
+   "status": "text",
+   "value": "μXRF mapping of larger sections, on which the ablation is sited"
+  },
+  "Laser Manufacturer & Model": {
+   "key": "(none)",
+   "cell": "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)",
+   "status": "text",
+   "value": "Teledyne CETAC Technologies Analyte G2 (193 nm ArF excimer)"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific Element XR (SF-ICP-MS)",
+   "status": "text",
+   "value": "Thermo Fisher Scientific Element XR (SF-ICP-MS)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Double-focusing sector field ICP-MS (explicitly stated)",
+   "status": "text",
+   "value": "Double-focusing sector field ICP-MS (explicitly stated)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "Al standard sample cone (1.1 mm aperture); Al H-type skimmer (0.8 mm aperture)",
+   "status": "text",
+   "value": "Al standard sample cone (1.1 mm aperture); Al H-type skimmer (0.8 mm aperture)"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "Run 1: Medium resolution (M/ΔM = 4000) for major elements; Run 2: Low resolution (M/ΔM = 300) for trace elements",
+   "status": "text",
+   "value": "Run 1: Medium resolution (M/ΔM = 4000) for major elements; Run 2: Low resolution (M/ΔM = 300) for trace elements"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "Triple mode detection; Faraday used for major elements in run 1",
+   "status": "text",
+   "value": "Triple mode detection; Faraday used for major elements in run 1"
+  },
+  "Laser Wavelength and Type": {
+   "key": "(none)",
+   "cell": "193 nm ArF excimer; pulse duration ~5 ns",
+   "status": "text",
+   "value": "193 nm ArF excimer; pulse duration ~5 ns"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "In-house MatLab script (Appendix C2)",
+   "status": "text",
+   "value": "In-house MatLab script (Appendix C2)"
+  },
+  "Ablation Cell Type": {
+   "key": "(none)",
+   "cell": "HELEX II two-volume ablation cell",
+   "status": "text",
+   "value": "HELEX II two-volume ablation cell"
+  },
+  "Sample Introduction": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Laser Spot Geometry": {
+   "key": "acquisition pass",
+   "cell": "Run 1 (major): 30 µm circular; Run 2 (trace): 130 µm circular",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Run 1 (major)"
+     ],
+     "value": "30 µm circular"
+    },
+    {
+     "members": [
+      "Run 2 (trace)"
+     ],
+     "value": "130 µm circular"
+    }
+   ]
+  },
+  "Laser Spot Path / Ablation Mode": {
+   "key": "acquisition pass",
+   "cell": "Transect (line scan, run 1) + Spot (run 2 on same location after pre-ablation)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Energy": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Fluence (Energy Density)": {
+   "key": "(none)",
+   "cell": "Run 1 (major): 4.72 J cm⁻²; Run 2 (trace): 4.72 J cm⁻²",
+   "status": "text",
+   "value": "Run 1 (major): 4.72 J cm⁻²; Run 2 (trace): 4.72 J cm⁻²"
+  },
+  "Laser Beam Energy Profile": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Repetition Rate": {
+   "key": "acquisition pass",
+   "cell": "Run 1 (major): 20 Hz; Run 2 (trace): 40 Hz",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Run 1 (major)"
+     ],
+     "value": "20 Hz"
+    },
+    {
+     "members": [
+      "Run 2 (trace)"
+     ],
+     "value": "40 Hz"
+    }
+   ]
+  },
+  "Laser Pulse Duration": {
+   "key": "(none)",
+   "cell": "~5 ns (ArF excimer)",
+   "status": "text",
+   "value": "~5 ns (ArF excimer)"
+  },
+  "Ablation Duration per Spot": {
+   "key": "(none)",
+   "cell": "N/A (line scan run 1) / N/A (spot run 2 — duration set by 34 runs covering 400 µm + washout, not a fixed spot duration)",
+   "status": "not applicable"
+  },
+  "Ablation Pit Depth and Ablation Rate": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Transect Rate, Mapping Rate or Step Size": {
+   "key": "acquisition pass",
+   "cell": "10 µm s⁻¹ (line scan run 1); spot mode (run 2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Raster Line Spacing (Mapping Only)": {
+   "key": "(none)",
+   "cell": "N/A (line scan + spot; not 2D mapping)",
+   "status": "not applicable"
+  },
+  "Carrier Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "He: MFC-1 0.19 l min⁻¹; MFC-2 0.22 l min⁻¹",
+   "status": "text",
+   "value": "He: MFC-1 0.19 l min⁻¹; MFC-2 0.22 l min⁻¹"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "Ar make-up: 0.947 l min⁻¹ (run 1 and run 2); N₂ not added",
+   "status": "text",
+   "value": "Ar make-up: 0.947 l min⁻¹ (run 1 and run 2); N₂ not added"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.90 l min⁻¹ (run 1 and run 2)",
+   "status": "text",
+   "value": "Cool: 15 l min⁻¹ Ar; Auxiliary: 0.90 l min⁻¹ (run 1 and run 2)"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1000 W (run 1 major elements + run 2 trace elements)",
+   "status": "text",
+   "value": "1000 W (run 1 major elements + run 2 trace elements)"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "Normal plasma (1000 W RF)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Signal Smoothing": {
+   "key": "(none)",
+   "cell": "None",
+   "status": "text",
+   "value": "None"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "Same instrument as mapping; tuning optimized per run (different RF power and resolution settings per run)",
+   "status": "text",
+   "value": "Same instrument as mapping; tuning optimized per run (different RF power and resolution settings per run)"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N (normal plasma; no threshold stated for runs 1 and 2)",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "GRM block (3–5×) → unknowns → GRM block (3–5×); same structure for run 1 and run 2",
+   "status": "text",
+   "value": "GRM block (3–5×) → unknowns → GRM block (3–5×); same structure for run 1 and run 2"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Run 1 (major): ²⁵Mg, ²⁹Si, ³¹P, ⁴⁴Ca, ⁵³Cr, ⁵⁵Mn, ⁵⁷Fe (7 nuclides; medium resolution); Run 2 (trace): ⁷Li, ⁴⁵Sc, ⁵¹V, ⁵³Cr, ⁵⁹Co, ⁶⁰Ni, ⁶³Cu, ⁶⁶Zn, ⁸⁹Y, ⁹⁰Zr, ⁹³Nb, ¹³³Cs, ¹³⁷Ba, ¹³⁹La–¹⁷⁵Lu (all REE), ¹⁸⁰Hf, ¹⁸¹Ta, ¹⁸²W, ¹⁸⁵Re, ¹⁹³Ir, ¹⁹⁵Pt, ¹⁹⁷Au, ²³²Th, ²³⁸U (36 nuclides)",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "Run 1 (major): ²⁵Mg",
+     "parent": null
+    },
+    {
+     "member": "²⁹Si",
+     "parent": null
+    },
+    {
+     "member": "³¹P",
+     "parent": null
+    },
+    {
+     "member": "⁴⁴Ca",
+     "parent": null
+    },
+    {
+     "member": "⁵³Cr",
+     "parent": null
+    },
+    {
+     "member": "⁵⁵Mn",
+     "parent": null
+    },
+    {
+     "member": "⁵⁷Fe",
+     "parent": null
+    },
+    {
+     "member": "Run 2 (trace): ⁷Li",
+     "parent": null
+    },
+    {
+     "member": "⁴⁵Sc",
+     "parent": null
+    },
+    {
+     "member": "⁵¹V",
+     "parent": null
+    },
+    {
+     "member": "⁵³Cr",
+     "parent": null
+    },
+    {
+     "member": "⁵⁹Co",
+     "parent": null
+    },
+    {
+     "member": "⁶⁰Ni",
+     "parent": null
+    },
+    {
+     "member": "⁶³Cu",
+     "parent": null
+    },
+    {
+     "member": "⁶⁶Zn",
+     "parent": null
+    },
+    {
+     "member": "⁸⁹Y",
+     "parent": null
+    },
+    {
+     "member": "⁹⁰Zr",
+     "parent": null
+    },
+    {
+     "member": "⁹³Nb",
+     "parent": null
+    },
+    {
+     "member": "¹³³Cs",
+     "parent": null
+    },
+    {
+     "member": "¹³⁷Ba",
+     "parent": null
+    },
+    {
+     "member": "¹³⁹La–¹⁷⁵Lu",
+     "parent": null
+    },
+    {
+     "member": "¹⁸⁰Hf",
+     "parent": null
+    },
+    {
+     "member": "¹⁸¹Ta",
+     "parent": null
+    },
+    {
+     "member": "¹⁸²W",
+     "parent": null
+    },
+    {
+     "member": "¹⁸⁵Re",
+     "parent": null
+    },
+    {
+     "member": "¹⁹³Ir",
+     "parent": null
+    },
+    {
+     "member": "¹⁹⁵Pt",
+     "parent": null
+    },
+    {
+     "member": "¹⁹⁷Au",
+     "parent": null
+    },
+    {
+     "member": "²³²Th",
+     "parent": null
+    },
+    {
+     "member": "²³⁸U",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Major and trace element concentrations along the scan (µg/g), reported as profiles from olivine rim to core and as tabulated compositions (Table 1, p.5); Fa# \"(fayalite, Fa # = FeO/(FeO + MgO) ∙ 100, atomic %)\" is reported with them (p.5)",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "Major and trace element concentrations along the scan",
+     "parent": null
+    },
+    {
+     "member": "reported as profiles from olivine rim to core and as tabulated compositions",
+     "parent": null
+    },
+    {
+     "member": "Fa# \"(fayalite, Fa # = FeO/(FeO + MgO) ∙ 100, atomic %)\" is reported with them",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "E-scan Range": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Triple Scanning Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "Run 1 (major): 0.01 s per nuclide; samples per peak: 18; duty cycle: 2.069 s; Run 2 (trace): 0.01 s per nuclide; samples per peak: 7; duty cycle: 2.062 s",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Run 1 (major)"
+     ],
+     "value": "0.01 s per nuclide"
+    },
+    {
+     "members": [
+      "samples per peak"
+     ],
+     "value": "18"
+    },
+    {
+     "members": [
+      "duty cycle"
+     ],
+     "value": "2.069 s"
+    },
+    {
+     "members": [
+      "Run 2 (trace)"
+     ],
+     "value": "0.01 s per nuclide"
+    },
+    {
+     "members": [
+      "samples per peak"
+     ],
+     "value": "7"
+    },
+    {
+     "members": [
+      "duty cycle"
+     ],
+     "value": "2.062 s"
+    }
+   ]
+  },
+  "Total Integration Time per Output Data Point": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Background Count Time": {
+   "key": "(none)",
+   "cell": "Run 1: 5 gas blank scans; 24 ablation scans; Run 2: 5 gas blank scans; 24 ablation scans",
+   "status": "text",
+   "value": "Run 1: 5 gas blank scans; 24 ablation scans; Run 2: 5 gas blank scans; 24 ablation scans"
+  },
+  "Inter-Pass Data Dependency": {
+   "key": "acquisition pass",
+   "cell": "Three-stage sequential design on same olivine location:\n(1) Pre-ablation pass (2 J cm⁻², 150 µm square, 300 µm s⁻¹) to remove surface contamination;\n(2) Run 1 — major elements (30 µm circular, MR M/ΔM=4000, 20 Hz, 7 nuclides);\n(3) Run 2 — trace elements (130 µm circular, LR M/ΔM=300, 40 Hz, 36 nuclides; Cr from run 1 as IS)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "3 replicate analyses per grain (3× run 1 + 3× run 2 on same location)",
+   "status": "text",
+   "value": "3 replicate analyses per grain (3× run 1 + 3× run 2 on same location)"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Internal Standard Approach": {
+   "key": "acquisition pass",
+   "cell": "Run 1 (major elements): sum-of-oxide normalization (MgO+FeO+SiO₂+P₂O₅=100 wt%; Liu et al. 2008); Run 2 (trace elements): single element IS from Run 1 (⁵³Cr concentration from major element run used as IS for trace element run)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Run 1 (major elements)"
+     ],
+     "value": "sum-of-oxide normalization (MgO+FeO+SiO₂+P₂O₅=100 wt%; Liu et al. 2008)"
+    },
+    {
+     "members": [
+      "Run 2 (trace elements)"
+     ],
+     "value": "single element IS from Run 1 (⁵³Cr concentration from major element run used as IS for trace element run)"
+    }
+   ]
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "Run 1: No single IS; oxide sum normalization; Run 2: ⁵³Cr (concentration from Run 1 major-element analysis on 30 µm spot used as IS for 130 µm spot trace element run)",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Run 1"
+     ],
+     "value": "No single IS"
+    },
+    {
+     "members": [
+      "Run 2"
+     ],
+     "value": "⁵³Cr (concentration from Run 1 major-element analysis on 30 µm spot used as IS for 130 µm spot trace element run)"
+    }
+   ]
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Elemental Fractionation Correction": {
+   "key": "acquisition pass",
+   "cell": "Run 1: Oxide sum normalization corrects for ablation yield variation; external calibration using glass GRMs (NIST + USGS + MPI-DING); Run 2: Cr from run 1 as IS corrects for ablation yield; external calibration with expanded glass GRM set",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Run 1"
+     ],
+     "value": "Oxide sum normalization corrects for ablation yield variation"
+    },
+    {
+     "members": [
+      "Run 2"
+     ],
+     "value": "Cr from run 1 as IS corrects for ablation yield"
+    }
+   ]
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "Longerich et al. (1996) for LOD; uncertainty for concentrations not formally described",
+   "status": "unparsed",
+   "value": []
+  },
+  "Matrix Offset Correction (LIEF)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "Time-resolved signals inspected manually; unstable intervals at start and end discarded; Cr heterogeneities and inclusion signals (elevated P, Ca, Co, Ni) identified and excluded from integration",
+   "status": "text",
+   "value": "Time-resolved signals inspected manually; unstable intervals at start and end discarded; Cr heterogeneities and inclusion signals (elevated P, Ca, Co, Ni) identified and excluded from integration"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "Manual inspection; analyses with elevated P, Ca, Co, Ni (phosphate or metal inclusions) excluded; Cr heterogeneities also flagged",
+   "status": "text",
+   "value": "Manual inspection; analyses with elevated P, Ca, Co, Ni (phosphate or metal inclusions) excluded; Cr heterogeneities also flagged"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "Gas blank measured before each analysis (5 scans); average background value preceding each analysis subtracted from corresponding data",
+   "status": "text",
+   "value": "Gas blank measured before each analysis (5 scans); average background value preceding each analysis subtracted from corresponding data"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "Applied: Run 1 medium resolution with Faraday for major elements; Run 2 low resolution; cross-calibration performed",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Applied"
+     ],
+     "value": "Run 1 medium resolution with Faraday for major elements"
+    }
+   ]
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes — cool plasma not applicable (normal plasma); argide corrections less critical; oxide interferences monitored; spectral interference list in Table C1",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "Same interference list as mapping (Table C1); argide-based interferences less critical without cool plasma",
+   "status": "unparsed",
+   "value": []
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "Argide corrections less critical (normal plasma); oxide-based interferences minimized by tuning; same interference list but without cool plasma mitigation",
+   "status": "unparsed",
+   "value": []
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "Washout time: 11 s between runs (runs include 400 µm line + blank + washout)",
+   "status": "text",
+   "value": "Washout time: 11 s between runs (runs include 400 µm line + blank + washout)"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "Run 1: 100% oxide sum normalization; Run 2: Cr IS from Run 1 applied; no further post-acquisition normalization",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Run 1"
+     ],
+     "value": "100% oxide sum normalization"
+    },
+    {
+     "members": [
+      "Run 2"
+     ],
+     "value": "Cr IS from Run 1 applied"
+    }
+   ]
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N — whole results are dropped, but on signal grounds: \"where significant spikes in individual transient LA-ICP-MS signals were observed (e.g. Ca in CMS 04071 and Seymchan and Ni in Brahin and Seymchan), results were not included in Table 1\" (p.6). By basis that belongs to Spike / Outlier Filtering Approach; no result-based selection rule is stated",
+   "status": "commentary only"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average of 3 replicate measurements — Table 1: 'The results shown are the average from 3 replicate measurements'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average of 3 replicate measurements"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "Same glass GRM set as mapping for Run 1; expanded set additionally includes MPI-DING KL2-G, ML3B-G, StHs6/80-G, T1-G, ATHO-G, BM90/21-G, GOR128-G, GOR132-G for Run 2 trace elements",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "Same as mapping protocol; GRMs at start and end",
+   "status": "text",
+   "value": "Same as mapping protocol; GRMs at start and end"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "Same GRM set measured as unknowns for accuracy assessment",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Same GRM set measured as unknowns for accuracy assessment",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "LODs reported in Table 1 for line scan + spot trace elements: Na=24, Nb=5 per Longerich et al. 1996; LOQ = 10SD criterion",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "LODs reported in Table 1 for line scan + spot trace elements"
+     ],
+     "value": "Na=24, Nb=5 per Longerich et al. 1996"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "Longerich et al. (1996); LOQ = 10SD criterion (same equation)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "LOQ = 10SD of background counts (10σ criterion; Chernonozhkin et al. 2021)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "LOD calculated per analysis (Na=24, Nb=5); precision not formally reported as separate metric",
+   "status": "unparsed",
+   "value": []
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "Trace element accuracy verified against literature INAA and EPMA data; major elements verified by comparison with EMPA results from same section",
+   "status": "unparsed",
+   "value": []
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Multi-run sequential design is the key methodological innovation: Run 1 (major elements, 30 µm, MR) provides Cr IS for Run 2 (trace elements, 130 µm, LR); pre-ablation pass removes surface contamination before Run 1",
+   "status": "text",
+   "value": "Multi-run sequential design is the key methodological innovation: Run 1 (major elements, 30 µm, MR) provides Cr IS for Run 2 (trace elements, 130 µm, LR); pre-ablation pass removes surface contamination before Run 1"
+  }
+ }
+}
