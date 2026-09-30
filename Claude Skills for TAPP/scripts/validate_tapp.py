@@ -871,6 +871,25 @@ def check_structure(t: Tapp, out):
                 f"Harmless to the current export script, but it makes the column "
                 f"indistinguishable from a mode flag.")
 
+        # Literature columns: every one must name its procedure. Added 2026-09-30, when EPMA v86 and
+        # Lab-XCT v45 were each found carrying an unheaded spacer column (Lab-XCT's since v21) that no
+        # check saw: check_keyed_cells skips unheaded columns, so their cells were never parsed.
+        # ERROR because anything after the spacer is read one column off by whoever indexes it.
+        width = max(len(r) for r in t.rows)
+        for j in range(t.sentinel_idx + 1, width):
+            head = t.header[j].strip() if j < len(t.header) else ""
+            filled = [n for n, row in enumerate(t.rows[1:], start=2)
+                      if j < len(row) and row[j].strip()]
+            if not head:
+                add("ERROR", 1, "", "lit-column-unheaded",
+                    f"Literature column {j} has no header"
+                    + (f" but {len(filled)} filled cell(s) (rows {_span(filled)})." if filled
+                       else " and no content.")
+                    + " Every literature column must name the procedure it records; remove a spacer.")
+            elif not filled:
+                add("WARN", 1, "", "lit-column-empty",
+                    f"Literature column {j} ('{head.splitlines()[0]}') has no content in any row.")
+
     # Group presence and order
     found = [t.cell(r, COL_ITEM) for r in t.rows[1:] if t.is_group_header(r)]
     if found != EXPECTED_GROUPS:

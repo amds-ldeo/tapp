@@ -12,8 +12,9 @@ discovery.
 | `TEM_TAPP_v66` | `v67` | keyed notation |
 | `LA-MC-ICPMS_TAPP_v89` | `v90` | keyed notation |
 | `EPMA_TAPP_v86` | `v87` | empty column removed |
+| `Lab-XCT_TAPP_v45` | `v46` | empty column removed |
 
-4 version(s), 8 file(s) (CSV + xlsx).
+5 version(s), 10 file(s) (CSV + xlsx).
 
 ## Why
 
@@ -65,3 +66,26 @@ still holds; the v86 example joins `HISTORICAL_DOCS`.
 - `validate_tapp.py`: 0 ERROR, 0 WARN.
 - `audit_keys_vs_literature.py`: 0 NEW.
 - Both EPMA mockups are byte-identical to their v86 builds apart from the version string.
+
+## Lab-XCT v45 → v46: the same defect, and a validator check for it
+
+A scan of all 16 TAPPs for EPMA's defect found one more: Lab-XCT's last literature column, after Tait
+2014, had no header. v21–v28 carried an unheaded spacer before Charles et al. and Treiman et al.; when
+those two off-scope papers were removed on 2026-08-30 (v32), the spacer stayed and ended up last. Its
+only content was a surplus `N` in Sample Preparation Method, whose other 14 cells are also `N`, so no
+row was shifted. v46 removes it. Lab-XCT's multi-line headers are its own style and were left alone.
+Applied by `Project Files/Scripts/labxct_remove_empty_column_20260930.py`.
+
+`validate_tapp.py` gains `lit-column-unheaded` (ERROR) and `lit-column-empty` (WARN). Neither spacer
+had been seen by any check: `check_keyed_cells` skips unheaded columns, so their cells were never
+parsed. The new check fires on the parked EPMA v86 and Lab-XCT v45 and on no live TAPP.
+
+Found in passing and **not** addressed here: Lab-XCT's Core-module `Sample Preparation Method` reads `N`
+for all 14 papers, while its own `Sample Preparation Notes` holds preparation details for 12 of them.
+
+### Verification
+
+- All 101 data rows are identical to v45 once the removed column is set aside.
+- `compose_tapp.py --check`: 16 of 16 match.
+- `validate_tapp.py`: 0 ERROR, 0 WARN.
+- `audit_keys_vs_literature.py`: 0 NEW.
