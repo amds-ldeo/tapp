@@ -3684,3 +3684,59 @@ the eight ICP-MS TAPPs left:
 A cell that states a statistic and its values, such as an MSWD per isochron, puts the statistic's name in
 the value (`Rb–Sr isochron age, initial ⁸⁷Sr/⁸⁶Sr: MSWD from IsoplotR`) and the values in commentary.
 Combined results are session-level and project away, so there is no member to key the values to.
+
+## `Sample Form / Analytical Substrate` retired: a module field that a Core redefinition absorbed (2026-09-30)
+
+**What changed.** Module_LaserAblation v11 → v12, 29 → 28 fields. The field is gone from the module
+and from all six LA TAPPs (LA-Q v95, LA-Q U-Pb v95, LA-SF v92, LA-SF U-Pb v93, LA-MC v91, LA-MC U-Pb
+v86). `Sample Preparation Method`'s LA Column F gained `Pressed powder pellet` and
+`Nano-particulate pressed pellet` from the retired list; `Liquid` was dropped, having never been
+attested. Applied by `Project Files/Scripts/retire_sample_form_20260930.py`.
+
+**Why.** It failed Rule 6.1's specificity test. Core asks for "the form in which the sample is
+presented to the instrument"; this field asked for the form "as it enters the ablation cell". In a
+laser ablation TAPP those are one question, and per-technique wording belongs in Column F (6.4
+point 3).
+
+**How the duplicate arose.** In LA-ICP-MS v13 the two fields were complementary. `Sample Form` was
+the controlled-list form; `Sample Preparation Method` was free-text steps at C=Advanced. On 2026-08-27
+Core redefined `Sample Preparation Method` as "the form … and the preparation that brought it to that
+form", a controlled list at C=Basic. That absorbed this field's job. The same day, the LaserAblation
+extension took this field over as a zero-content transfer, so no one ran 6.1 against the new Core
+text. **A field's own columns agreeing across consumers says nothing about whether another field now
+asks the same question.** The "which unowned fields already agree?" query (2026-08-27, above) finds
+cheap transfers; it does not screen them for duplication.
+
+**Evidence: 15 distinct literature columns.** The U-Pb variants repeat their parents' columns, so the
+count is LA-Q 7, LA-SF 7, LA-MC 1. No cell in this field held attested content that was missing from
+`Sample Preparation Method` or from the field that owns it (`Ablation Cell Type`, `Pre-Ablation
+Surface Treatment`, `Fusion Flux and Dilution Ratio`).
+- 8 restated `Sample Preparation Method`.
+- 2 lost content. Zhang+2022 (SF) dropped "and thin sections"; Navarro+2024 mapping dropped the
+  Nital etch.
+- 4 contradicted it. In Liu+2016 ×2 the prep extraction reads "not described", while this field
+  asserted "polished" and listed section names that belong in `Sample Name`. Navarro+2024 spot
+  borrowed the mapping column's etch. Wu+2023 was `N` against a filled cell.
+
+Two fields asking one question do not merely duplicate each other: an extractor fills each from a
+slightly different reading, and they drift apart.
+
+**The key disagreed too.** This field was `(none)`; Core's is `sample` (2026-09-28). Zhang+2022 (SF)
+prepares slabs *and* thin sections in one procedure. That is the second attested mixed-route
+procedure after Seifert+2026, and this field had flattened it to one form.
+
+**Narrowing was rejected.** The one thing it might have kept is the fusion-vs-in-situ distinction.
+That is carried twice already: by `Sample Preparation Method`'s values (`Fused bead` against the
+sections and mounts) and by `Fusion Flux and Dilution Ratio`, whose Column F offers
+`Not applicable (in situ)` and whose cells record the flux or N/A in 14 of 15 columns. A narrowed
+field would be a function of those two. Only 1 of the 15 procedures (Liu+2024) is not in situ.
+
+**Fixed in the same pass.** LA-Q's Wu+2023 `Sample Preparation Method` cell held the samples'
+provenance, not a preparation. §2.1 of the paper gives each sample's origin, and the acknowledgements
+credit sample preparation without describing it, so the cell is now `N`. The Liu+2016 and Navarro+2024
+cells were not re-read; the retired field's disagreements with them were the retired field's.
+
+**Mechanics worth knowing.** Composition's blocks path does not delete a row the module stops
+defining (6.9), so the script composes and then drops the row itself. `RETIRED_FIELDS` in
+`validate_tapp.py` gained the name. The LA-MC Spot mockup was rebuilt at v91: 123 procedure-level
+fields, 91 prefilled, one fewer of each.

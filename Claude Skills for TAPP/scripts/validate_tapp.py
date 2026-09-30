@@ -1681,6 +1681,10 @@ RETIRED_FIELD_LIVE_PREFIXES = {
 }
 
 RETIRED_FIELDS = {
+    "Sample Form / Analytical Substrate":
+                                       "retired 2026-09-30 from Module_LaserAblation (v12) and the six LA "
+                                       "TAPPs: it restated Module_Core's Sample Preparation Method for one "
+                                       "technique (Rule 6.1). Its pellet values moved to that field's Column F",
     "Age Model":                       "moved 2026-09-28 from Module_Geochronology to Module_Aggregation as "
                                        "Combination Method (gap 3): whether and how every reported variable is "
                                        "combined, not ages only",

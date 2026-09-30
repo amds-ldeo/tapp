@@ -13,8 +13,14 @@ discovery.
 | `LA-MC-ICPMS_TAPP_v89` | `v90` | keyed notation |
 | `EPMA_TAPP_v86` | `v87` | empty column removed |
 | `Lab-XCT_TAPP_v45` | `v46` | empty column removed |
+| `LA-MC-ICPMS_TAPP_v90` | `v91` | Sample Form retired |
+| `LA-MC-ICPMS_UPb_TAPP_v85` | `v86` | Sample Form retired |
+| `LA-Q-ICP-MS_TAPP_v94` | `v95` | Sample Form retired |
+| `LA-Q-ICP-MS_UPb_TAPP_v94` | `v95` | Sample Form retired |
+| `LA-SF-ICP-MS_TAPP_v91` | `v92` | Sample Form retired |
+| `LA-SF-ICP-MS_UPb_TAPP_v92` | `v93` | Sample Form retired |
 
-5 version(s), 10 file(s) (CSV + xlsx).
+11 version(s), 22 file(s) (CSV + xlsx).
 
 ## Why
 
@@ -89,3 +95,28 @@ for all 14 papers, while its own `Sample Preparation Notes` holds preparation de
 - `compose_tapp.py --check`: 16 of 16 match.
 - `validate_tapp.py`: 0 ERROR, 0 WARN.
 - `audit_keys_vs_literature.py`: 0 NEW.
+
+## The six LA TAPPs: `Sample Form / Analytical Substrate` retired
+
+The field restated Module_Core's `Sample Preparation Method` for one technique ("the form as it enters
+the ablation cell"), so it failed Rule 6.1. Across the 15 distinct literature columns it held nothing
+that `Sample Preparation Method` or a neighbouring field did not already hold. 4 of its cells
+contradicted `Sample Preparation Method`, and 2 had lost content. Its key, `(none)`, also disagreed
+with Core's `sample`. Module_LaserAblation went from v11 to v12 (29 → 28 fields). In the six TAPPs:
+- the row was dropped;
+- `Sample Preparation Method`'s Column F gained the two pellet values, and `Liquid` was dropped;
+- in LA-Q, the Wu+2023 `Sample Preparation Method` cell was corrected from sample provenance to `N`.
+
+Applied by `Project Files/Scripts/retire_sample_form_20260930.py`. The reasoning is in precedents.md,
+2026-09-30. The LA-MC Spot mockup was rebuilt at v91.
+
+### Verification
+
+- Each new version differs from its predecessor in exactly: one row removed, `Sample Preparation
+  Method` Column F and Last Update, and (LA-Q only) the Wu+2023 cell. Row order is otherwise identical.
+- `compose_tapp.py --check`: 16 of 16 match.
+- `validate_tapp.py`: 0 ERROR, 0 WARN, 944 INFO, unchanged from before the pass. `RETIRED_FIELDS`
+  gained the field name.
+- `audit_keys_vs_literature.py`: 0 NEW.
+- The LA-MC Spot mockup differs from its v90 build only in the removed field, the two new values and the
+  version string (123 procedure-level fields, 91 prefilled).
