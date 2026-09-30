@@ -13,7 +13,7 @@ superseded versions, so there is nothing to sift.
 |---|---|
 | TAPPs | 16 |
 | Files | 32 (16 CSV + 16 xlsx) |
-| As of | 2026-09-29 |
+| As of | 2026-09-30 |
 
 ## Where to look for more
 
@@ -38,13 +38,13 @@ in that particular TAPP.
 ## Contents
 
 - `EPMA_TAPP_v86.csv`
-- `LA-MC-ICPMS_TAPP_v89.csv`
+- `LA-MC-ICPMS_TAPP_v90.csv`
 - `LA-MC-ICPMS_UPb_TAPP_v85.csv`
 - `LA-Q-ICP-MS_TAPP_v94.csv`
 - `LA-Q-ICP-MS_UPb_TAPP_v94.csv`
 - `LA-SF-ICP-MS_TAPP_v91.csv`
 - `LA-SF-ICP-MS_UPb_TAPP_v92.csv`
-- `Lab-XCT_TAPP_v44.csv`
+- `Lab-XCT_TAPP_v45.csv`
 - `SEM_Composition_TAPP_v82.csv`
 - `SEM_FIBSEM_TAPP_v45.csv`
 - `SEM_Imaging_TAPP_v44.csv`
@@ -52,4 +52,4 @@ in that particular TAPP.
 - `Solution_MC-ICP-MS_TAPP_v90.csv`
 - `Solution_Q-ICP-MS_TAPP_v93.csv`
 - `Solution_SF-ICP-MS_TAPP_v88.csv`
-- `TEM_TAPP_v66.csv`
+- `TEM_TAPP_v67.csv`

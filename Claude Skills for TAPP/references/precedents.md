@@ -3664,3 +3664,23 @@ and makes the conversion reviewable against the old text.
 list. Its EDS-map Reported Variables described the paper's EMPA-WDS maps. Both were corrected, as was
 Izawa+2010's BSE column, which described the EDX maps. All three errors were in cells the checker had
 already passed or could not judge. Only reading the paper found them.
+
+## The keyed notation for ICP-MS-style cells, set by LA-MC (2026-09-30)
+
+`Project Files/Scripts/keyed_notation_tem_xct_lamc_20260930.py` converted TEM, Lab-XCT and LA-MC-ICP-MS and
+added them to `KEYED_NOTATION_ENFORCED`. TEM and Lab-XCT followed the SEM pattern. LA-MC is the first TAPP
+whose cells are keyed by acquisition pass, monitored mass and standard, and its forms are the pattern for
+the eight ICP-MS TAPPs left:
+
+| Key | Form | Example |
+|---|---|---|
+| `acquisition pass` (one pass) | `all: value` | `all: 50–60 µm circular` |
+| `defines: monitored property per target species` | masses bound with `→` | `⁸⁴Sr, ⁸⁶Sr, ⁸⁷Sr, ⁸⁸Sr → Sr; ⁸³Kr, ¹⁶⁷Er²⁺ → none` |
+| `monitored property` | the masses as members | `⁸³Kr: L4; ⁸⁴Sr: L2; …` |
+| `standard x reported property` | one set for every standard | `all [⁸⁷Sr/⁸⁶Sr: …; ⁸⁷Rb/⁸⁶Sr: …]` |
+| `target material x target species` | `all [ … ]`, `N` for a species with none | `all [Rb: reference glasses; Sr: N]` |
+| the pass dependency, with one pass | `N/A` with the reason | `N/A — a single acquisition pass` |
+
+A cell that states a statistic and its values, such as an MSWD per isochron, puts the statistic's name in
+the value (`Rb–Sr isochron age, initial ⁸⁷Sr/⁸⁶Sr: MSWD from IsoplotR`) and the values in commentary.
+Combined results are session-level and project away, so there is no member to key the values to.

@@ -57,7 +57,8 @@ import keyed_cells  # noqa: E402
 # findings are WARN (a regression); every other TAPP reports its unconverted backlog at INFO.
 # Add a TAPP (by file-name stem) only once its conversion pass is finished.
 KEYED_NOTATION_ENFORCED = {"EPMA",         # converted 2026-09-29 (epma_keyed_pilot_20260929.py)
-                           "SEM", "SEM_Composition", "SEM_Imaging", "SEM_FIBSEM"}  # 2026-09-29 (sem_keyed_notation_20260929.py)
+                           "SEM", "SEM_Composition", "SEM_Imaging", "SEM_FIBSEM",  # 2026-09-29 (sem_keyed_notation_20260929.py)
+                           "TEM", "Lab-XCT", "LA-MC-ICPMS"}  # 2026-09-30 (keyed_notation_tem_xct_lamc_20260930.py)
 # Cells whose stated value cannot be written against the field's key without inference (7.3.4: "the
 # notation tests the key"). Keyed (TAPP stem, field, column key) -> reason; reported at INFO as
 # `keyed-cell-registered`, never WARN. Each entry is an open question about the key, not a format fix.
