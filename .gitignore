@@ -20,6 +20,7 @@
 !/Current TAPPs/
 !/Project Files/
 !/Superseded TAPPs/
+!/TAPPs for review/
 
 # 3. Re-include the tracked root-level files.
 !/.gitattributes

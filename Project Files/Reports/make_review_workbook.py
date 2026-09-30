@@ -24,6 +24,8 @@ Design decisions, 2026-09-17:
     the stable reference.
 
 Regenerate after any version bump; this is a snapshot of one version, like the mockups.
+Output goes to `TAPPs for review/` at the library root (2026-09-30), which holds only the
+latest version: writing a new version deletes the EPMA workbooks of any other version there.
 """
 
 import csv, os, re, collections
@@ -44,13 +46,25 @@ ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 SRC  = os.path.join(ROOT, 'Current TAPPs', 'EPMA_TAPP_%s.csv' % VERSION)
 if not os.path.exists(SRC):                      # mirror stale or mid-bump
     SRC = os.path.join(ROOT, 'EPMA', 'EPMA_TAPP_%s.csv' % VERSION)
-OUT  = os.path.join(HERE, 'EPMA_TAPP_%s_Review_Workbook.xlsx' % VERSION)
+OUT_DIR = os.path.join(ROOT, 'TAPPs for review')
+OUT  = os.path.join(OUT_DIR, 'EPMA_TAPP_%s_Review_Workbook.xlsx' % VERSION)
 
 
 def out_path(mode):
     if mode is None:
         return OUT
-    return os.path.join(HERE, 'EPMA_TAPP_%s_Review_Workbook_%s.xlsx' % (VERSION, mode.replace(' ', '_')))
+    return os.path.join(OUT_DIR, 'EPMA_TAPP_%s_Review_Workbook_%s.xlsx' % (VERSION, mode.replace(' ', '_')))
+
+
+def prune_other_versions():
+    """Delete EPMA workbooks of any version but VERSION; git history keeps the old ones."""
+    pat = re.compile(r'^EPMA_TAPP_(v\d+)_Review_Workbook(_[A-Za-z_]+)?\.xlsx$')
+    gone = []
+    for fn in sorted(os.listdir(OUT_DIR)):
+        m = pat.match(fn)
+        if m and m.group(1) != VERSION:
+            os.remove(os.path.join(OUT_DIR, fn)); gone.append(fn)
+    return gone
 
 # Domains that do not exist until a session runs.
 SESSION_ONLY = {'sample', 'sampling unit', 'combined result'}   # definers are C=N/A (7.3.3)
@@ -629,6 +643,9 @@ def build(mode=None):
 
 if __name__ == '__main__':
     print('read   %s' % SRC)
+    os.makedirs(OUT_DIR, exist_ok=True)
     for m in (None,) + MODES:
         out, n, flagged = build(m)
-        print('wrote %s — %d fields, %d flagged' % (os.path.basename(out), n, len(flagged)))
+        print('wrote %s — %d fields, %d flagged' % (os.path.relpath(out, ROOT), n, len(flagged)))
+    for fn in prune_other_versions():
+        print('removed superseded %s' % fn)
