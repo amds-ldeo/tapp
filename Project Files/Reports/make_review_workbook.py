@@ -92,10 +92,14 @@ MULTI = {
 # Emptied 2026-09-28 (gap 1): the beam fields are keyed `target material` from v79, so the
 # per-phase values have a list of their own and no longer project to "one or more".
 PROC_MULTI = set()
-REVIEW_NOTE = {
-    'Pre-Analysis Imaging and Screening': 'Attested in 15 of 15 procedures as a single description.',
-    'Counting Statistics Error': 'Not stated in any of the 15 procedures assessed.',
-}
+# Emptied 2026-09-30: both open cells settled on their projected structure, since reviewers
+# judge every structure cell through "Structure right?" anyway.
+#   Pre-Analysis Imaging and Screening -> "One value per procedure". 14 of 15 v86 procedures
+#     state one screening approach, never varied by phase or material (McCoy+2025_UA is N).
+#   Counting Statistics Error -> "One value per Reported Variable". 0 of 15 state it, so the
+#     call rests on the parallel with Detection Limit (C=Advanced, keyed reported property):
+#     a procedure can give a typical figure per variable, never a per-point one.
+REVIEW_NOTE = {}
 NOTE_TAIL = (' The procedure record cannot name samples or analysis points, so the per-unit '
              'detail appears only in the session column. Is this what a registering '
              'laboratory would expect to enter?')
@@ -446,11 +450,14 @@ def build(mode=None):
          'phosphates, and so on — and each analysis point in a session is linked to its material '
          'by Target Material of Sampling Unit. X-ray maps scan every material at once, so they have '
          'their own Mapping Beam fields, one set per map.')
-    para('Cells shaded pale yellow in the procedure column are the ones we are least sure of. The '
-         'item repeats over samples or analysis points, which the procedure record cannot name, so '
-         'the per-unit detail appears only in the session column. Hover over a shaded cell for what '
-         'the literature shows, and tell us whether that is what a registering laboratory would '
-         'expect to enter.')
+    para('Where an item repeats over samples or analysis points, the procedure column leaves them '
+         'out: the procedure record cannot name samples, so the per-unit detail appears only in the '
+         'session column. Pre-Analysis Imaging and Screening, for example, is one description in '
+         'the procedure and one per Sample Name in the session.')
+    if REVIEW_NOTE:
+        para('Cells shaded pale yellow in the procedure column are the ones we are least sure of. '
+             'Hover over a shaded cell for what the literature shows, and tell us whether that is '
+             'what a registering laboratory would expect to enter.')
     r += 1
 
     if not mode:
@@ -602,7 +609,8 @@ def build(mode=None):
     for i, f in enumerate(fields, start=2):
         proc, flag = phrase(f['name'], f['key'], 'procedure')
         if f['C'] == 'N/A':
-            proc = '—'
+            proc, flag = '—', False
+        flag = flag and f['name'] in REVIEW_NOTE      # same rule as the main sheet
         sess, _ = phrase(f['name'], f['key'], 'session')
         for j, v in enumerate([f['num'], f['name'], f['key'], proc, sess], start=1):
             cell = tr.cell(row=i, column=j, value=v)
