@@ -1,0 +1,858 @@
+{
+ "procedure_column": "Liu et al. 2024 (JAAS 39) Extraterrestrial samples (Li-borate flux glass) Spot analysis fs-LA-Q-ICP-MS Chinese Academy of Sciences",
+ "tapp": "LA-Q-ICP-MS_TAPP_v95",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "Liu et al. (2024) Extraterrestrial Flux Glass fs-LA-ICP-MS Spot v1",
+   "status": "text",
+   "value": "Liu et al. (2024) Extraterrestrial Flux Glass fs-LA-ICP-MS Spot v1"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "fs-LA-Q-ICP-MS",
+   "status": "text",
+   "value": "fs-LA-Q-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "Liu, Xue, Li, Wang et al.",
+   "status": "text",
+   "value": "Liu, Xue, Li, Wang et al."
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "State Key Laboratory of Lithospheric Evolution and Environmental Coevolution, IGGCAS, Beijing, China",
+   "status": "text",
+   "value": "State Key Laboratory of Lithospheric Evolution and Environmental Coevolution, IGGCAS, Beijing, China"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "NSFC; Chinese Academy of Sciences",
+   "status": "text",
+   "value": "NSFC; Chinese Academy of Sciences"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Liu et al. (2024) JAAS 39, 2728; Pettke et al. (2012) for LOD",
+   "status": "text",
+   "value": "Liu et al. (2024) JAAS 39, 2728; Pettke et al. (2012) for LOD"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Li-borate flux fusion glass (extraterrestrial sample preparation)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Li-borate flux fusion glass",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Aliquot (fused Li-borate glass disc) > Spot — \"Nine spot analyses ... were arranged in a grid pattern to cover the entire glass\" (p.5), and compositions are reported as the mean of those spots, \"fs-LA-ICP-MS (n = 9 spots)\" (Table 2, p.8)",
+   "status": "text",
+   "value": "Aliquot (fused Li-borate glass disc) > Spot"
+  },
+  "Fusion Flux and Dilution Ratio": {
+   "key": "(none)",
+   "cell": "Li₂B₄O₇ flux; sample:flux = 1:35 (10 mg sample + 350 mg flux)",
+   "status": "text",
+   "value": "Li₂B₄O₇ flux; sample:flux = 1:35 (10 mg sample + 350 mg flux)"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Li-borate fusion: 350 mg Li₂B₄O₇ + 10 mg powdered sample fused in Pt-Au crucible (M4 automatic fluxer); glass surface cleaned with ethanol before LA",
+   "status": "text",
+   "value": "Li-borate fusion: 350 mg Li₂B₄O₇ + 10 mg powdered sample fused in Pt-Au crucible (M4 automatic fluxer); glass surface cleaned with ethanol before LA"
+  },
+  "Pre-Ablation Surface Treatment": {
+   "key": "(none)",
+   "cell": "Surface cleaning with ethanol before analysis",
+   "status": "text",
+   "value": "Surface cleaning with ethanol before analysis"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "Coverage — \"Nine spot analyses ... were arranged in a grid pattern to cover the entire glass\" (p.5), the grid being the test of whether the fused disc is homogeneous",
+   "status": "text",
+   "value": "Coverage"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "N — the fused glass discs are prepared for XRF and then ablated directly; no imaging or screening step is described before the LA-ICP-MS spots, whose grid is laid out to cover the whole disc (p.5)",
+   "status": "commentary only"
+  },
+  "Laser Manufacturer & Model": {
+   "key": "(none)",
+   "cell": "Shanghai Chemlab GenesisGEO (high-repetition-rate fs laser, 343 nm)",
+   "status": "text",
+   "value": "Shanghai Chemlab GenesisGEO (high-repetition-rate fs laser, 343 nm)"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Agilent 8900 (Q-ICP-MS; ICP-MS/MS capable)",
+   "status": "text",
+   "value": "Agilent 8900 (Q-ICP-MS; ICP-MS/MS capable)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "N (ICP-MS type not stated; Agilent 8900 model named but \"quadrupole\" or \"ICP-MS/MS\" not used in paper)",
+   "status": "not stated"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "Unit resolution (quadrupole; ICP-MS/MS mode not specified)",
+   "status": "text",
+   "value": "Unit resolution (quadrupole; ICP-MS/MS mode not specified)"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "Dual mode detector (30 ms / 10 ms dwell alternation)",
+   "status": "text",
+   "value": "Dual mode detector (30 ms / 10 ms dwell alternation)"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Wavelength and Type": {
+   "key": "(none)",
+   "cell": "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)",
+   "status": "text",
+   "value": "343 nm fs (GenesisGEO high-repetition-rate femtosecond laser)"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "Iolite 4 (Paton et al. 2011)",
+   "status": "text",
+   "value": "Iolite 4 (Paton et al. 2011)"
+  },
+  "Ablation Cell Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Introduction": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Laser Spot Geometry": {
+   "key": "acquisition pass",
+   "cell": "100×100 µm square (stated as 100 µm diameter spot at 1 Hz)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Spot Path / Ablation Mode": {
+   "key": "acquisition pass",
+   "cell": "Spot (stationary; single spot at 1 Hz)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Energy": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Fluence (Energy Density)": {
+   "key": "(none)",
+   "cell": "6.79 J cm⁻²",
+   "status": "text",
+   "value": "6.79 J cm⁻²"
+  },
+  "Laser Beam Energy Profile": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Repetition Rate": {
+   "key": "acquisition pass",
+   "cell": "1 Hz",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Pulse Duration": {
+   "key": "(none)",
+   "cell": "Femtosecond (exact value not stated; GenesisGEO fs laser)",
+   "status": "text",
+   "value": "Femtosecond (exact value not stated; GenesisGEO fs laser)"
+  },
+  "Ablation Duration per Spot": {
+   "key": "(none)",
+   "cell": "45 s ablation (after 25 s gas blank; 25 s washout between analyses)",
+   "status": "text",
+   "value": "45 s ablation (after 25 s gas blank; 25 s washout between analyses)"
+  },
+  "Ablation Pit Depth and Ablation Rate": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Transect Rate, Mapping Rate or Step Size": {
+   "key": "acquisition pass",
+   "cell": "N/A (spot mode)",
+   "status": "not applicable"
+  },
+  "Raster Line Spacing (Mapping Only)": {
+   "key": "(none)",
+   "cell": "N/A (spot mode)",
+   "status": "not applicable"
+  },
+  "Carrier Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "He: 0.7 l min⁻¹ (chamber) + 0.1 l min⁻¹ (cup gas)",
+   "status": "text",
+   "value": "He: 0.7 l min⁻¹ (chamber) + 0.1 l min⁻¹ (cup gas)"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N (gas not separately specified beyond total plasma flow)",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "Plasma gas flow: 15 l min⁻¹; Auxiliary gas: 0.85 l min⁻¹",
+   "status": "text",
+   "value": "Plasma gas flow: 15 l min⁻¹; Auxiliary gas: 0.85 l min⁻¹"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1550 W",
+   "status": "text",
+   "value": "1550 W"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Smoothing": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "Gas flows optimized via spot ablation of NIST SRM 612 to obtain maximum signal intensities while maintaining ThO/Th <0.3% and U/Th at 0.95–1.05",
+   "status": "text",
+   "value": "Gas flows optimized via spot ablation of NIST SRM 612 to obtain maximum signal intensities while maintaining ThO/Th <0.3% and U/Th at 0.95–1.05"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "ThO⁺/Th⁺ (mass 248/232) <0.3%; U/Th monitored at 0.95–1.05",
+   "status": "text",
+   "value": "ThO⁺/Th⁺ (mass 248/232) <0.3%; U/Th monitored at 0.95–1.05"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "Gas blank (25 s) → ablation (45 s) → washout (25 s); NIST 612 and 614 as external standards; BHVO-2 and 6 GRMs measured as unknowns",
+   "status": "text",
+   "value": "Gas blank (25 s) → ablation (45 s) → washout (25 s); NIST 612 and 614 as external standards; BHVO-2 and 6 GRMs measured as unknowns"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "²¹Sc, ⁵¹V, ⁵²Cr, ⁵⁹Co, ⁶⁰Ni, ⁶³Cu, ⁶⁶Zn, ⁶⁹Ga, ⁸⁵Rb, ⁸⁸Sr, ⁸⁹Y, ⁹⁰Zr, ⁹³Nb, ¹³³Cs, ¹³⁷Ba, ¹³⁹La, ¹⁴⁰Ce, ¹⁴¹Pr, ¹⁴⁶Nd, ¹⁴⁷Sm, ¹⁵³Eu, ¹⁵⁷Gd, ¹⁵⁹Tb, ¹⁶³Dy, ¹⁶⁵Ho, ¹⁶⁶Er, ¹⁶⁹Tm, ¹⁷²Yb, ¹⁷⁵Lu, ¹⁷⁸Hf, ¹⁸¹Ta, ²³²Th, ²³⁸U (32 trace elements)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "²¹Sc",
+     "parent": null
+    },
+    {
+     "member": "⁵¹V",
+     "parent": null
+    },
+    {
+     "member": "⁵²Cr",
+     "parent": null
+    },
+    {
+     "member": "⁵⁹Co",
+     "parent": null
+    },
+    {
+     "member": "⁶⁰Ni",
+     "parent": null
+    },
+    {
+     "member": "⁶³Cu",
+     "parent": null
+    },
+    {
+     "member": "⁶⁶Zn",
+     "parent": null
+    },
+    {
+     "member": "⁶⁹Ga",
+     "parent": null
+    },
+    {
+     "member": "⁸⁵Rb",
+     "parent": null
+    },
+    {
+     "member": "⁸⁸Sr",
+     "parent": null
+    },
+    {
+     "member": "⁸⁹Y",
+     "parent": null
+    },
+    {
+     "member": "⁹⁰Zr",
+     "parent": null
+    },
+    {
+     "member": "⁹³Nb",
+     "parent": null
+    },
+    {
+     "member": "¹³³Cs",
+     "parent": null
+    },
+    {
+     "member": "¹³⁷Ba",
+     "parent": null
+    },
+    {
+     "member": "¹³⁹La",
+     "parent": null
+    },
+    {
+     "member": "¹⁴⁰Ce",
+     "parent": null
+    },
+    {
+     "member": "¹⁴¹Pr",
+     "parent": null
+    },
+    {
+     "member": "¹⁴⁶Nd",
+     "parent": null
+    },
+    {
+     "member": "¹⁴⁷Sm",
+     "parent": null
+    },
+    {
+     "member": "¹⁵³Eu",
+     "parent": null
+    },
+    {
+     "member": "¹⁵⁷Gd",
+     "parent": null
+    },
+    {
+     "member": "¹⁵⁹Tb",
+     "parent": null
+    },
+    {
+     "member": "¹⁶³Dy",
+     "parent": null
+    },
+    {
+     "member": "¹⁶⁵Ho",
+     "parent": null
+    },
+    {
+     "member": "¹⁶⁶Er",
+     "parent": null
+    },
+    {
+     "member": "¹⁶⁹Tm",
+     "parent": null
+    },
+    {
+     "member": "¹⁷²Yb",
+     "parent": null
+    },
+    {
+     "member": "¹⁷⁵Lu",
+     "parent": null
+    },
+    {
+     "member": "¹⁷⁸Hf",
+     "parent": null
+    },
+    {
+     "member": "¹⁸¹Ta",
+     "parent": null
+    },
+    {
+     "member": "²³²Th",
+     "parent": null
+    },
+    {
+     "member": "²³⁸U",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Trace element concentrations per element, reported as \"Mean\" with a \"95% CI\" for each sample (Table 2, p.8: Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Rb, Sr, Y, Zr, Nb, Ba, the REE La-Lu, Hf, Ta, Th, U), against SN-ICP-MS for the same materials; relative standard deviations are reported as the precision measure (p.9)",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "Trace element concentrations per element",
+     "parent": null
+    },
+    {
+     "member": "reported as \"Mean\" with a \"95% CI\" for each sample",
+     "parent": null
+    },
+    {
+     "member": "against SN-ICP-MS for the same materials",
+     "parent": null
+    },
+    {
+     "member": "relative standard deviations are reported as the precision measure",
+     "parent": null
+    }
+   ]
+  },
+  "Signal Collection Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "30 ms (most isotopes) / 10 ms (alternate; dual detector mode)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Total Integration Time per Output Data Point": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Background Count Time": {
+   "key": "(none)",
+   "cell": "25 s gas blank before each ablation",
+   "status": "text",
+   "value": "25 s gas blank before each ablation"
+  },
+  "Inter-Pass Data Dependency": {
+   "key": "acquisition pass",
+   "cell": "Single spot per location (45 s ablation at 1 Hz)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "9 spot analyses in grid pattern for homogeneity testing; multiple analyses per fusion glass disk",
+   "status": "text",
+   "value": "9 spot analyses in grid pattern for homogeneity testing; multiple analyses per fusion glass disk"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Internal Standard Approach": {
+   "key": "acquisition pass",
+   "cell": "Two internal standards: Si from XRF SiO₂ (for Co, Ni, Cu, Zn); Al from XRF Al₂O₃ (for all other trace elements); non-matrix-matched external standards (NIST 612 + 614) used; fs laser minimizes matrix effects",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Two internal standards"
+     ],
+     "value": "Si from XRF SiO₂ (for Co, Ni, Cu, Zn)"
+    }
+   ]
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "Si (SiO₂ from XRF) for Co, Ni, Cu, Zn; Al (Al₂O₃ from XRF) for all other 28 trace elements",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Elemental Fractionation Correction": {
+   "key": "acquisition pass",
+   "cell": "Femtosecond laser substantially reduces elemental fractionation and matrix effects (stated); non-matrix-matched external standards (NIST 612 + 614) used successfully with fs laser (verified by GRM accuracy assessment)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N (Iolite 4 internal uncertainty propagation implied)",
+   "status": "not stated"
+  },
+  "Matrix Offset Correction (LIEF)": {
+   "key": "(none)",
+   "cell": "N (fs laser minimizes matrix effects)",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "Time-resolved signals inspected visually; flux blank contributions to pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) identified and subtracted; 9-spot grid homogeneity tested before analysis",
+   "status": "text",
+   "value": "Time-resolved signals inspected visually; flux blank contributions to pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) identified and subtracted; 9-spot grid homogeneity tested before analysis"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "Homogeneity index (H) applied to test element distribution; Co, Ni, Cu in high-Si glass (GSR-1) identified as near-LOD and flagged; flux blank contributions to pollution elements subtracted",
+   "status": "text",
+   "value": "Homogeneity index (H) applied to test element distribution; Co, Ni, Cu in high-Si glass (GSR-1) identified as near-LOD and flagged; flux blank contributions to pollution elements subtracted"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "Gas blank measured for 25 s before each ablation; background subtracted per isotope",
+   "status": "text",
+   "value": "Gas blank measured for 25 s before each ablation; background subtracted per isotope"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "Applied: dual detector mode (30 ms / 10 ms dwell alternation)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Applied"
+     ],
+     "value": "dual detector mode (30 ms / 10 ms dwell alternation)"
+    }
+   ]
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes — fs laser substantially reduces oxide and matrix interferences; flux blank contributions to V, Co, Zn, Ba, La, Ce, Ta, U identified and subtracted",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "Li₂B₄O₇ flux blank contains V, Co, Zn, Ba, La, Ce, Ta, U at detectable levels; subtracted as blank contribution",
+   "status": "unparsed",
+   "value": []
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "Flux blank subtraction: blank contribution to each pollution element (V, Co, Zn, Ba, La, Ce, Ta, U) measured in procedure blanks and subtracted; LOQ for pollution elements = blank value + 10SD",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Flux blank subtraction"
+     ],
+     "value": "blank contribution to each pollution element (V, Co, Zn, Ba, La, Ce, Ta, U) measured in procedure blanks and subtracted"
+    }
+   ]
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "25 s washout between analyses (25 s gas blank → 45 s ablation → 25 s washout)",
+   "status": "text",
+   "value": "25 s washout between analyses (25 s gas blank → 45 s ablation → 25 s washout)"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "No post-acquisition normalization beyond IS approach (two IS elements applied element-specifically)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — each reported value is the mean of a stated count, \"fs-LA-ICP-MS (n = 9 spots)\" against \"SN-ICP-MS (n = 5)\" (Table 2, p.8), with a 95% confidence interval. No acceptance or rejection rule, and no acquired-versus-included count, is stated",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: mean of n = 9 spots per sample — Table 2: 'Mean' with '95% CI', 'fs-LA-ICP-MS (n = 9 spots)'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "mean of n = 9 spots per sample"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "NIST SRM 612 + NIST SRM 614 (non-matrix-matched external standards); self-made BHVO-2 lithium borate glass (matrix-matched) tested as alternative but NIST 612+614 found sufficient with fs laser",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "NIST SRM 612 and 614 measured as external standards within session; BHVO-2 and other GRMs as unknowns",
+   "status": "text",
+   "value": "NIST SRM 612 and 614 measured as external standards within session; BHVO-2 and other GRMs as unknowns"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "AC-E (granite, CRPG), GSR-1 (granite, NRCG), JB-1b (basalt, GSJ), GSR-3 (basalt, NRCG), AGV-2 (andesite, USGS), W-2A (diabase, USGS) — 6 GRMs covering mafic to felsic rock types analyzed as unknowns; also NWA14526 (lunar basalt) and NWA13190 (shergottite) compared with SN-ICP-MS",
+   "status": "structured",
+   "value": [
+    {
+     "member": "AC-E",
+     "parent": null
+    },
+    {
+     "member": "GSR-1",
+     "parent": null
+    },
+    {
+     "member": "JB-1b",
+     "parent": null
+    },
+    {
+     "member": "GSR-3",
+     "parent": null
+    },
+    {
+     "member": "AGV-2",
+     "parent": null
+    },
+    {
+     "member": "W-2A",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "LODs for 32 elements in Li-borate glass BHVO-2: 0.005–23.5 µg g⁻¹ (dilution-limited; much higher than undiluted glass LODs); LODs for NIST 610: 0.007–0.45 µg g⁻¹; LOQ = 3.3 × LOD (Pettke 2012) for most elements; LOQ for pollution elements = blank + 10SD (Gold Book IUPAC)",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "LODs for 32 elements in Li-borate glass BHVO-2"
+     ],
+     "value": "0.005–23.5 µg g⁻¹ (dilution-limited; much higher than undiluted glass LODs)"
+    },
+    {
+     "members": [
+      "LODs for NIST 610"
+     ],
+     "value": "0.007–0.45 µg g⁻¹"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "Pettke (2012) for most elements: LOD = (3.29 × √(Rbkg × DT × ...) + 2.71) / (Nan × DT × S); LOQ for pollution elements = blank value + 10SD (IUPAC Gold Book)",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Pettke (2012) for most elements"
+     ],
+     "value": "LOD = (3.29 × √(Rbkg × DT × ...) + 2.71) / (Nan × DT × S)"
+    }
+   ]
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "LOQ = 3.3 × LOD per Pettke (2012) for most elements; LOQ = blank value + 10SD per IUPAC Gold Book for pollution elements (V, Co, Zn, Ba, La, Ce, Ta, U) where blank contribution is significant",
+   "status": "unparsed",
+   "value": []
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "Analytical precision (RSD) within 10% for most of 32 trace elements in 6 silicate GRMs (verified by homogeneity index assessment across 9 spots per disk)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "Analytical results within 10% of reference values for most of 32 trace elements in 6 GRMs (mafic to felsic); precision (RSD) within 10% for most elements; lunar basalt (NWA14526) and shergottite (NWA13190) results compared with SN-ICP-MS and found reliable",
+   "status": "unparsed",
+   "value": []
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Target: bulk trace element analysis of extraterrestrial samples using only 10 mg; Li-borate flux fusion (35:1 dilution) with fs laser — first reported use of fs laser for flux fusion glass analysis; non-matrix-matched external standards demonstrated accurate with fs laser",
+   "status": "text",
+   "value": "Target: bulk trace element analysis of extraterrestrial samples using only 10 mg; Li-borate flux fusion (35:1 dilution) with fs laser"
+  }
+ }
+}

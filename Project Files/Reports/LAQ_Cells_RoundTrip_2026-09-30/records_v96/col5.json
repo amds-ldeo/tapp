@@ -1,0 +1,1172 @@
+{
+ "procedure_column": "Liu et al. 2016 (M&PS 51) Tissint martian meteorite Silicates, oxides & glass Spot analysis LA-Q-ICP-MS Virginia Tech",
+ "tapp": "LA-Q-ICP-MS_TAPP_v96",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "LA-ICP-MS — 'an Agilent 7500ce inductively coupled plasma–mass spectrometer (ICP-MS), coupled with a GeoLasPro 193 nm Excimer laser-ablation (LA) system' (Methods, p.4)",
+   "status": "text",
+   "value": "LA-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Department of Geosciences, Virginia Tech",
+   "status": "text",
+   "value": "Department of Geosciences, Virginia Tech"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Udry et al. (2012); Pernet-Fisher et al. (2014) — 'The analytical procedure is broadly similar to that of Udry et al. (2012) and Pernet-Fisher et al. (2014)' (Methods, p.4)",
+   "status": "text",
+   "value": "Udry et al. (2012); Pernet-Fisher et al. (2014)"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "EPMA (EMP)",
+   "status": "text",
+   "value": "EPMA (EMP)"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "EMP gives major element compositions; for spots with EMP data, oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' — Methods, p.4",
+   "status": "text",
+   "value": "EMP gives major element compositions; for spots with EMP data, oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards'"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "silicates; oxides; glass — 'For silicates and oxides ...'; '24 and 32 µm diameter were commonly used for silicates and glass' (Methods, p.4); Tissint martian meteorite",
+   "status": "structured",
+   "value": [
+    {
+     "member": "silicates",
+     "parent": null
+    },
+    {
+     "member": "oxides",
+     "parent": null
+    },
+    {
+     "member": "glass",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Phase > Spot — \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4); abundances are reported as per-phase means (\"n = 7\", \"n = 13\", table p.9), the individual spots being in a supplement not in the archived PDF",
+   "status": "text",
+   "value": "Phase > Spot"
+  },
+  "Fusion Flux and Dilution Ratio": {
+   "key": "(none)",
+   "cell": "N/A — in situ",
+   "status": "not applicable"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "N — sections UT1 to UT3 (p.3); their preparation is not described",
+   "status": "commentary only"
+  },
+  "Pre-Ablation Surface Treatment": {
+   "key": "(none)",
+   "cell": "N — not stated",
+   "status": "commentary only"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "N — spots are screened after the fact, not before: \"The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances\" (p.4). That is a rejection rule (see `Analysis Inclusion and Rejection Criteria`), not a rule for choosing units",
+   "status": "commentary only"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "Petrographic microscopy, SEM and EMP — \"The petrography of these sections was examined using a petrographic microscope and a scanning electron microscope\", followed by BSE images and element maps (p.3); the EMP results then serve as internal standards for the ablation data, which are normalised using \"EMP CaO or MgO values\" for silicates and \"40Ca counts to CaO concentrations from the EMP analysis\" for phosphate (p.4)",
+   "status": "text",
+   "value": "Petrographic microscopy, SEM and EMP"
+  },
+  "Laser Manufacturer & Model": {
+   "key": "(none)",
+   "cell": "GeoLasPro 193 nm Excimer laser-ablation system — Methods, p.4",
+   "status": "text",
+   "value": "GeoLasPro 193 nm Excimer laser-ablation system"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Agilent 7500ce ICP-MS",
+   "status": "text",
+   "value": "Agilent 7500ce ICP-MS"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Wavelength and Type": {
+   "key": "(none)",
+   "cell": "193 nm Excimer (ArF excimer)",
+   "status": "text",
+   "value": "193 nm Excimer (ArF excimer)"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)",
+   "status": "text",
+   "value": "AMS ver. 1.0 (Mutchler et al. 2008; Analysis Management System, stand-alone software)"
+  },
+  "Ablation Cell Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Introduction": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Laser Spot Geometry": {
+   "key": "acquisition pass",
+   "cell": "all: 24 and 32 µm diameter, and 90 µm for a few olivine analyses — '24 and 32 µm diameter were commonly used for silicates and glass, and a few analyses were conducted on olivines using a 90 µm beam to evaluate whether the low signals of REEs are a result of insufficient sampling' (Methods, p.4)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "24 and 32 µm diameter, and 90 µm for a few olivine analyses"
+    }
+   ]
+  },
+  "Laser Spot Path / Ablation Mode": {
+   "key": "acquisition pass",
+   "cell": "all: Spot — 'The time-lapse plots of each spot were examined' (Methods, p.4)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Spot"
+    }
+   ]
+  },
+  "Laser Energy": {
+   "key": "(none)",
+   "cell": "150 mJ output energy — Methods, p.4",
+   "status": "text",
+   "value": "150 mJ output energy"
+  },
+  "Laser Fluence (Energy Density)": {
+   "key": "(none)",
+   "cell": "7–10 J/m² — as written: 'a fluence rate of 7–10 J/m2 on the sample' (Methods, p.4)",
+   "status": "text",
+   "value": "7–10 J/m²"
+  },
+  "Laser Beam Energy Profile": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Repetition Rate": {
+   "key": "acquisition pass",
+   "cell": "all: 5 Hz",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "5 Hz"
+    }
+   ]
+  },
+  "Laser Pulse Duration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ablation Duration per Spot": {
+   "key": "(none)",
+   "cell": "N — not stated",
+   "status": "commentary only"
+  },
+  "Ablation Pit Depth and Ablation Rate": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Transect Rate, Mapping Rate or Step Size": {
+   "key": "acquisition pass",
+   "cell": "N/A — spot analysis",
+   "status": "not applicable"
+  },
+  "Raster Line Spacing (Mapping Only)": {
+   "key": "(none)",
+   "cell": "N/A — spot analysis",
+   "status": "not applicable"
+  },
+  "Carrier Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N — not stated",
+   "status": "commentary only"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N — not stated",
+   "status": "commentary only"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N — not stated",
+   "status": "commentary only"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N — not stated",
+   "status": "commentary only"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Smoothing": {
+   "key": "(none)",
+   "cell": "N — not stated",
+   "status": "commentary only"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N — not stated",
+   "status": "commentary only"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N — not stated",
+   "status": "commentary only"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N — not stated",
+   "status": "commentary only"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N — 'A NIST 610 glass standard was analyzed before and after every session' (Methods, p.4); the order within a session is not described",
+   "status": "commentary only"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Li, Be, K, Sc, Ti, V, Cr, Mn, Co, Ni, Cu, Zn, Ga, Ge, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Au, Pb, Th, U — the LA-ICP-MS elements of Table 3 (glasses); the methods do not list them",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Li",
+     "parent": null
+    },
+    {
+     "member": "Be",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Sc",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "V",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    },
+    {
+     "member": "Ga",
+     "parent": null
+    },
+    {
+     "member": "Ge",
+     "parent": null
+    },
+    {
+     "member": "Rb",
+     "parent": null
+    },
+    {
+     "member": "Sr",
+     "parent": null
+    },
+    {
+     "member": "Y",
+     "parent": null
+    },
+    {
+     "member": "Zr",
+     "parent": null
+    },
+    {
+     "member": "Nb",
+     "parent": null
+    },
+    {
+     "member": "Ba",
+     "parent": null
+    },
+    {
+     "member": "La",
+     "parent": null
+    },
+    {
+     "member": "Ce",
+     "parent": null
+    },
+    {
+     "member": "Pr",
+     "parent": null
+    },
+    {
+     "member": "Nd",
+     "parent": null
+    },
+    {
+     "member": "Sm",
+     "parent": null
+    },
+    {
+     "member": "Eu",
+     "parent": null
+    },
+    {
+     "member": "Gd",
+     "parent": null
+    },
+    {
+     "member": "Tb",
+     "parent": null
+    },
+    {
+     "member": "Dy",
+     "parent": null
+    },
+    {
+     "member": "Ho",
+     "parent": null
+    },
+    {
+     "member": "Er",
+     "parent": null
+    },
+    {
+     "member": "Tm",
+     "parent": null
+    },
+    {
+     "member": "Yb",
+     "parent": null
+    },
+    {
+     "member": "Lu",
+     "parent": null
+    },
+    {
+     "member": "Hf",
+     "parent": null
+    },
+    {
+     "member": "Ta",
+     "parent": null
+    },
+    {
+     "member": "W",
+     "parent": null
+    },
+    {
+     "member": "Au",
+     "parent": null
+    },
+    {
+     "member": "Pb",
+     "parent": null
+    },
+    {
+     "member": "Th",
+     "parent": null
+    },
+    {
+     "member": "U",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "N — only ⁴⁰Ca is named, as the phosphate internal standard",
+   "status": "commentary only"
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Li, Be, K, Sc, Ti, V, Cr, Mn, Co, Ni, Cu, Zn, Ga, Ge, Rb, Sr, Y, Zr, Nb, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Au, Pb, Th, U (ppm) — trace element abundances in ppm, glass averages with 1σ and n in Table 3; mineral data in Table S1, not in the archived PDF",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Li",
+     "parent": null
+    },
+    {
+     "member": "Be",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Sc",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "V",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    },
+    {
+     "member": "Ga",
+     "parent": null
+    },
+    {
+     "member": "Ge",
+     "parent": null
+    },
+    {
+     "member": "Rb",
+     "parent": null
+    },
+    {
+     "member": "Sr",
+     "parent": null
+    },
+    {
+     "member": "Y",
+     "parent": null
+    },
+    {
+     "member": "Zr",
+     "parent": null
+    },
+    {
+     "member": "Nb",
+     "parent": null
+    },
+    {
+     "member": "Ba",
+     "parent": null
+    },
+    {
+     "member": "La",
+     "parent": null
+    },
+    {
+     "member": "Ce",
+     "parent": null
+    },
+    {
+     "member": "Pr",
+     "parent": null
+    },
+    {
+     "member": "Nd",
+     "parent": null
+    },
+    {
+     "member": "Sm",
+     "parent": null
+    },
+    {
+     "member": "Eu",
+     "parent": null
+    },
+    {
+     "member": "Gd",
+     "parent": null
+    },
+    {
+     "member": "Tb",
+     "parent": null
+    },
+    {
+     "member": "Dy",
+     "parent": null
+    },
+    {
+     "member": "Ho",
+     "parent": null
+    },
+    {
+     "member": "Er",
+     "parent": null
+    },
+    {
+     "member": "Tm",
+     "parent": null
+    },
+    {
+     "member": "Yb",
+     "parent": null
+    },
+    {
+     "member": "Lu",
+     "parent": null
+    },
+    {
+     "member": "Hf",
+     "parent": null
+    },
+    {
+     "member": "Ta",
+     "parent": null
+    },
+    {
+     "member": "W",
+     "parent": null
+    },
+    {
+     "member": "Au",
+     "parent": null
+    },
+    {
+     "member": "Pb",
+     "parent": null
+    },
+    {
+     "member": "Th",
+     "parent": null
+    },
+    {
+     "member": "U",
+     "parent": null
+    }
+   ]
+  },
+  "Signal Collection Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Total Integration Time per Output Data Point": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Background Count Time": {
+   "key": "(none)",
+   "cell": "50 s — 'The background was counted for 50 sec before each LA-ICP-MS analysis' (Methods, p.4)",
+   "status": "text",
+   "value": "50 s"
+  },
+  "Inter-Pass Data Dependency": {
+   "key": "acquisition pass",
+   "cell": "N/A — a single acquisition pass",
+   "status": "not applicable"
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N — not stated",
+   "status": "commentary only"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Internal Standard Approach": {
+   "key": "acquisition pass",
+   "cell": "all: normalization to 100 wt% oxide total — 'For silicates and oxides, trace element abundances were calculated by normalization to 100 wt% oxide total' (Methods, p.4)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "normalization to 100 wt% oxide total"
+    }
+   ]
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "all: none — oxide-total normalization (Methods, p.4)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "none"
+    }
+   ]
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Elemental Fractionation Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Matrix Offset Correction (LIEF)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "Plateau region of each spot's time-lapse plot — 'The time-lapse plots of each spot were examined, and only the plateau region was used to quantify the trace element abundances' (Methods, p.4)",
+   "status": "text",
+   "value": "Plateau region of each spot's time-lapse plot"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N — the background 'was counted for 50 sec before each LA-ICP-MS analysis' (Methods, p.4); how it was subtracted is not described",
+   "status": "commentary only"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N — not stated",
+   "status": "commentary only"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N — not stated",
+   "status": "commentary only"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "all: normalization to 100 wt% oxide total — Methods, p.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "normalization to 100 wt% oxide total"
+    }
+   ]
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — the reported values are means of stated counts (\"n = 7\", \"n = 13\", table p.9). No acceptance or rejection rule is stated; the plateau-region screening of each spot is signal-based and is recorded under Spike / Outlier Filtering Approach",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average of n LA-ICP-MS analyses per glass type — Table 3 note d: 'Average of a number of LA-ICP-MS analysis'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average of n LA-ICP-MS analyses per glass type"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [all: NIST 610] — 'A NIST 610 glass standard was analyzed before and after every session' (Methods, p.4)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "NIST 610"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "Before and after every session — 'A NIST 610 glass standard was analyzed before and after every session' (Methods, p.4)",
+   "status": "text",
+   "value": "Before and after every session"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N — not stated",
+   "status": "commentary only"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "K: 16.7; Ti: 1.12; V: 3; Mn: 4.54; Zn: 0.69; Sr: 0.147; Nb: 0.103; Ba: 0.049; La: 0.113; Ce: 1.102; Pr: 0.580; Nd: 0.129; Sm: 0.457; Eu: 0.228; Gd: 0.453; Tb: 0.079; Dy: 0.222; Ho: 0.135; Er: 0.353; Tm: 0.630; Yb: 0.364; Lu: 0.117; Hf: 0.365; Ta: 0.333; W: 0.254; other: N — ppm; Table 3 'LOD' column, beside a single glass-inclusion analysis (n = 1)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "K"
+     ],
+     "value": "16.7"
+    },
+    {
+     "members": [
+      "Ti"
+     ],
+     "value": "1.12"
+    },
+    {
+     "members": [
+      "V"
+     ],
+     "value": "3"
+    },
+    {
+     "members": [
+      "Mn"
+     ],
+     "value": "4.54"
+    },
+    {
+     "members": [
+      "Zn"
+     ],
+     "value": "0.69"
+    },
+    {
+     "members": [
+      "Sr"
+     ],
+     "value": "0.147"
+    },
+    {
+     "members": [
+      "Nb"
+     ],
+     "value": "0.103"
+    },
+    {
+     "members": [
+      "Ba"
+     ],
+     "value": "0.049"
+    },
+    {
+     "members": [
+      "La"
+     ],
+     "value": "0.113"
+    },
+    {
+     "members": [
+      "Ce"
+     ],
+     "value": "1.102"
+    },
+    {
+     "members": [
+      "Pr"
+     ],
+     "value": "0.580"
+    },
+    {
+     "members": [
+      "Nd"
+     ],
+     "value": "0.129"
+    },
+    {
+     "members": [
+      "Sm"
+     ],
+     "value": "0.457"
+    },
+    {
+     "members": [
+      "Eu"
+     ],
+     "value": "0.228"
+    },
+    {
+     "members": [
+      "Gd"
+     ],
+     "value": "0.453"
+    },
+    {
+     "members": [
+      "Tb"
+     ],
+     "value": "0.079"
+    },
+    {
+     "members": [
+      "Dy"
+     ],
+     "value": "0.222"
+    },
+    {
+     "members": [
+      "Ho"
+     ],
+     "value": "0.135"
+    },
+    {
+     "members": [
+      "Er"
+     ],
+     "value": "0.353"
+    },
+    {
+     "members": [
+      "Tm"
+     ],
+     "value": "0.630"
+    },
+    {
+     "members": [
+      "Yb"
+     ],
+     "value": "0.364"
+    },
+    {
+     "members": [
+      "Lu"
+     ],
+     "value": "0.117"
+    },
+    {
+     "members": [
+      "Hf"
+     ],
+     "value": "0.365"
+    },
+    {
+     "members": [
+      "Ta"
+     ],
+     "value": "0.333"
+    },
+    {
+     "members": [
+      "W"
+     ],
+     "value": "0.254"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "all: 3σ of the background counts — Table 3 note d: 'LOD is the limit of detection estimated based on background counts to 3σ confidence interval'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "3σ of the background counts"
+    }
+   ]
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N — oxide-total normalization 'generally agrees within <10% with the method using EMP CaO or MgO values as internal standards' (Methods, p.4)",
+   "status": "commentary only"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "The procedure broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014). Two internal-standard approaches: oxide-total normalization for silicates and oxides, EMP CaO for phosphate. A 90 µm beam on some olivines tested whether low REE signals reflect insufficient sampling (Methods, p.4)",
+   "status": "text",
+   "value": "The procedure broadly follows Udry et al. (2012) and Pernet-Fisher et al. (2014). Two internal-standard approaches: oxide-total normalization for silicates and oxides, EMP CaO for phosphate. A 90 µm beam on some olivines tested whether low REE signals reflect insufficient sampling (Methods, p.4)"
+  }
+ }
+}

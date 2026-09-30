@@ -1,0 +1,685 @@
+{
+ "procedure_column": "Liu et al. 2025 (GCA 393) Experimental silicate glass Spot analysis ns-LA-Q-ICP-MS Guangzhou Inst. Geochemistry",
+ "tapp": "LA-Q-ICP-MS_TAPP_v96",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "Liu et al. (2025) Experimental Silicate Glass LA-ICP-MS Spot v1",
+   "status": "text",
+   "value": "Liu et al. (2025) Experimental Silicate Glass LA-ICP-MS Spot v1"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "LA-Q-ICP-MS",
+   "status": "text",
+   "value": "LA-Q-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "Liu, Li, Xu, Xiong et al.",
+   "status": "text",
+   "value": "Liu, Li, Xu, Xiong et al."
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Guangzhou Institute of Geochemistry, CAS; Hefei University of Technology — LA-ICP-MS 'was employed at both the Guangzhou Institute of Geochemistry and Hefei University of Technology' (§2.2.2)",
+   "status": "text",
+   "value": "Guangzhou Institute of Geochemistry, CAS; Hefei University of Technology"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N — the CAS Strategic Priority Research Program and NSFC grants support the study as a whole and are recorded under Funding Source for Analysis",
+   "status": "commentary only"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022) for experimental protocol",
+   "status": "text",
+   "value": "Liu et al. (2025) GCA 393, 170; Xu et al. (2022) for experimental protocol"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "experimental dacitic silicate glass — quench product",
+   "status": "structured",
+   "value": [
+    {
+     "member": "experimental dacitic silicate glass",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Phase (quenched silicate glass of one experimental run) > Spot — \"A Resonetic 193 nm ArF excimer laser with a 40 μm beam diameter for glasses\" (p.4); Au and Cu contents are reported per run (Table 1, p.3)",
+   "status": "text",
+   "value": "Phase (quenched silicate glass of one experimental run) > Spot"
+  },
+  "Fusion Flux and Dilution Ratio": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)",
+   "status": "text",
+   "value": "Recovered capsules longitudinally sectioned with a wire saw, and one half mounted in epoxy resin (§2.1)"
+  },
+  "Pre-Ablation Surface Treatment": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "N — the paper states the beam diameter used for glasses (\"40 μm beam diameter for glasses\", p.4) but no rule for choosing where in a run product to ablate",
+   "status": "commentary only"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "Optical microscopy, then EMP — \"Following examination by optical microscopy to ascertain the integrity of the experiments and the state of the oxygen buffers, the solid components of the run products were analysed for major elements, S and Cu, using a JEOL JXA-8230 electron microprobe (EMP)\" (p.2); those EMP values are then the internal standards for the LA data, \"with Si and Fe obtained from EMP analyses as the internal standards\" (p.4)",
+   "status": "text",
+   "value": "Optical microscopy, then EMP"
+  },
+  "Laser Manufacturer & Model": {
+   "key": "(none)",
+   "cell": "Resonetic 193 nm ArF excimer laser; CetacAnalyte HE system — §2.2.2",
+   "status": "text",
+   "value": "Resonetic 193 nm ArF excimer laser; CetacAnalyte HE system"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Agilent 7900 (Q-ICP-MS)",
+   "status": "text",
+   "value": "Agilent 7900 (Q-ICP-MS)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "N — ICP-MS type not stated; Agilent 7900 model named but \"quadrupole\" not explicitly stated",
+   "status": "commentary only"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Wavelength and Type": {
+   "key": "(none)",
+   "cell": "193 nm ArF excimer — §2.2.2",
+   "status": "text",
+   "value": "193 nm ArF excimer"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ablation Cell Type": {
+   "key": "(none)",
+   "cell": "N — the paper names the 'CetacAnalyte HE system', not its cell",
+   "status": "commentary only"
+  },
+  "Sample Introduction": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Laser Spot Geometry": {
+   "key": "acquisition pass",
+   "cell": "all: 40 µm beam diameter — 'a 40 μm beam diameter for glasses' (§2.2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "40 µm beam diameter"
+    }
+   ]
+  },
+  "Laser Spot Path / Ablation Mode": {
+   "key": "acquisition pass",
+   "cell": "N — ablation mode not explicitly stated; \"beam diameter\" terminology used but \"spot\" or \"spot mode\" not written",
+   "status": "commentary only"
+  },
+  "Laser Energy": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Fluence (Energy Density)": {
+   "key": "(none)",
+   "cell": "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")",
+   "status": "text",
+   "value": "~2.5 J cm⁻² (stated as \"energy of ~2.5 J/cm²\")"
+  },
+  "Laser Beam Energy Profile": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Repetition Rate": {
+   "key": "acquisition pass",
+   "cell": "all: 7 Hz — 'operated at 7 Hz ablation frequency' (§2.2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "7 Hz"
+    }
+   ]
+  },
+  "Laser Pulse Duration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ablation Duration per Spot": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ablation Pit Depth and Ablation Rate": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Transect Rate, Mapping Rate or Step Size": {
+   "key": "acquisition pass",
+   "cell": "N/A — spot mode",
+   "status": "not applicable"
+  },
+  "Raster Line Spacing (Mapping Only)": {
+   "key": "(none)",
+   "cell": "N/A — spot mode",
+   "status": "not applicable"
+  },
+  "Carrier Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "He; flow not stated — 'Helium served as the carrier gas, to which nitrogen or argon gas was mixed for sensitivity optimization' (§2.2.2)",
+   "status": "text",
+   "value": "He; flow not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N2 or Ar mixed into the He carrier; amounts not stated — §2.2.2",
+   "status": "text",
+   "value": "N2 or Ar mixed into the He carrier; amounts not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Smoothing": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N — NIST 610 is the external standard and NIST 612 and BCR-2G the monitoring standards (§2.2.2); the sequence is not described",
+   "status": "commentary only"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Au, Cu — 'to determine the Au and Cu contents of the quenched run products' (§2.2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Au",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "N — the isotopes measured are not stated",
+   "status": "commentary only"
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Au (ppm); Cu (ppm) — Au and Cu contents of the quenched silicate melt, per run (Table 1, p.3); S and H2O come from other methods, and the derived quantity reported is the sulfide/melt partition coefficient DAu (dimensionless, p.2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Au",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    }
+   ]
+  },
+  "Signal Collection Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Total Integration Time per Output Data Point": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Background Count Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Inter-Pass Data Dependency": {
+   "key": "acquisition pass",
+   "cell": "N/A — a single acquisition pass",
+   "status": "not applicable"
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Internal Standard Approach": {
+   "key": "acquisition pass",
+   "cell": "all: an element measured by EMP — 'with Si and Fe obtained from EMP analyses as the internal standards' (§2.2.2); which element serves the glass and which the sulfide is not stated",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "an element measured by EMP"
+    }
+   ]
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "all: Si, Fe — 'Si and Fe obtained from EMP analyses as the internal standards' (§2.2.2); the assignment to glass or sulfide is not stated",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Si, Fe"
+    }
+   ]
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Elemental Fractionation Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Matrix Offset Correction (LIEF)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "Au micronugget spikes identified in the time-resolved signal and removed, or the analysis not considered — 'only analyses free from micronuggets or where the spikes from the micronuggets could be easily removed were considered (Fig. 1)' (§2.2.2)",
+   "status": "text",
+   "value": "Au micronugget spikes identified in the time-resolved signal and removed, or the analysis not considered"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N — no rule for admitting or rejecting individual results is stated. The one documented exclusion is at sample level and before analysis: \"Capsules that had lost significant weight were discarded\" after the leak check (p.2)",
+   "status": "commentary only"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "N — Table 1 gives 'one standard deviation' in parentheses, but not what it is taken over",
+   "status": "commentary only"
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [Au, Cu: NIST 610] — 'Calibration employed NIST 610 as an external standard' (§2.2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "Au",
+        "Cu"
+       ],
+       "value": "NIST 610"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "NIST 612; BCR-2G — 'NIST 612 and BCR-2G as monitoring standards' (§2.2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "NIST 612",
+     "parent": null
+    },
+    {
+     "member": "BCR-2G",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "Au: ~0.01 ppm; Cu: ~0.1 ppm — 'Detection limits for Au and Cu in silicate melts were ~ 0.01 ppm and ~ 0.1 ppm, respectively' (§2.2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Au"
+     ],
+     "value": "~0.01 ppm"
+    },
+    {
+     "members": [
+      "Cu"
+     ],
+     "value": "~0.1 ppm"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N — stated as \"detection limits\" without specific formula",
+   "status": "commentary only"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N — data from the two laboratories 'exhibited good agreement, any differences being below 10 %' (§2.2.2)",
+   "status": "commentary only"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Run products of 1.0 GPa piston-cylinder experiments, analysed at two laboratories whose data 'exhibited good agreement, any differences being below 10 %' (§2.2.2)",
+   "status": "text",
+   "value": "Run products of 1.0 GPa piston-cylinder experiments, analysed at two laboratories whose data 'exhibited good agreement, any differences being below 10 %' (§2.2.2)"
+  }
+ }
+}

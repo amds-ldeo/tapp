@@ -1,0 +1,73 @@
+STAGE 1 — procedure-level cells of 7 columns (LA-Q-ICP-MS_TAPP_v95.csv): 791
+  not stated           296   37%
+  text                 221   28%
+  unparsed             114   14%
+  not assessed         104   13%
+  structured            26    3%
+  not applicable        18    2%
+  commentary only       12    2%
+
+STAGE 2 — 204 stated facts, recovered as:
+  text                              117   57%
+  structured                         41   20%
+  in another field                   22   11%
+  absent                             21   10%
+  wrong member or missing member      2    1%
+  commentary only                     1    0%
+
+per procedure (structured + text / facts):
+  col1                  27 /  46   59%   in another field 16, absent 2, wrong member or missing member 1
+  col2                  35 /  40   88%   in another field 2, absent 3
+  col3                  16 /  20   80%   absent 3, in another field 1
+  col4                  13 /  19   68%   absent 4, in another field 1, commentary only 1
+  col5                  16 /  19   84%   absent 3
+  col6                  15 /  17   88%   absent 2
+  col7                  36 /  43   84%   absent 4, in another field 2, wrong member or missing member 1
+
+facts not recovered as structure or text:
+  [1] Auxiliary Gas Flow Rate -> in another field: Make-up Gas and Flow Rate  («nakanishi»)
+  [1] Coolant (Plasma) Gas Flow Rate -> absent  («nakanishi»)
+  [1] Torch Type -> absent  («nakanishi»)
+  [1] Internal Standard Approach [all] -> wrong member or missing member  («nakanishi»)
+  [1] Internal (Within-Measurement) Analytical Precision and Assessment Method [all] -> in another field: Uncertainty Propagation Method  («nakanishi»)
+  [1] Monitored Masses [⁵⁹Co] -> in another field: Target Species  («nakanishi»)
+  [1] Monitored Masses [¹⁰¹Ru] -> in another field: Target Species  («nakanishi»)
+  [1] Monitored Masses [¹⁰³Rh] -> in another field: Target Species  («nakanishi»)
+  [1] Monitored Masses [¹⁰⁵Pd] -> in another field: Target Species  («nakanishi»)
+  [1] Monitored Masses [¹⁸⁵Re] -> in another field: Target Species  («nakanishi»)
+  [1] Monitored Masses [¹⁸⁹Os] -> in another field: Target Species  («nakanishi»)
+  [1] Monitored Masses [¹⁹³Ir] -> in another field: Target Species  («nakanishi»)
+  [1] Monitored Masses [¹⁹⁵Pt] -> in another field: Target Species  («nakanishi»)
+  [1] Monitored Masses [¹⁹⁷Au] -> in another field: Target Species  («nakanishi»)
+  [1] Monitored Masses [⁶¹Ni] -> in another field: Target Species  («nakanishi»)
+  [1] Monitored Masses [²⁴Mg] -> in another field: Target Species  («nakanishi»)
+  [1] Monitored Masses [²⁹Si] -> in another field: Target Species  («nakanishi»)
+  [1] Monitored Masses [³¹P] -> in another field: Target Species  («nakanishi»)
+  [1] Monitored Masses [³³S] -> in another field: Target Species  («nakanishi»)
+  [2] Auxiliary Gas Flow Rate -> in another field: Coolant (Plasma) Gas Flow Rate  («liu2024»)
+  [2] Dwell Time per Mass [all] -> in another field: Detector Configuration  («liu2024»)
+  [2] Internal Standard Element [all] -> absent  («liu2024»)
+  [2] Internal Standard Element [all] -> absent  («liu2024»)
+  [2] Primary Calibration Standard Name [all/all] -> absent  («liu2024»)
+  [3] Make-up Gas and Flow Rate -> absent  («liu2025»)
+  [3] Laboratory -> absent  («liu2025»)
+  [3] Internal Standard Element [all] -> absent  («liu2025»)
+  [3] Secondary Reference Materials [NIST 612] -> in another field: Analysis Sequence  («liu2025»)
+  [4] Make-up Gas and Flow Rate -> absent  («liu2025»)
+  [4] Laboratory -> absent  («liu2025»)
+  [4] Internal Standard Element [all] -> absent  («liu2025»)
+  [4] Secondary Reference Materials [NIST 612] -> absent  («liu2025»)
+  [4] Spike / Outlier Filtering Approach -> in another field: Elemental Fractionation Correction  («liu2025»)
+  [4] Sampling Unit Selection Criteria -> commentary only  («liu2025»)
+  [5] Detection Limit Method [all] -> absent  («liu2016»)
+  [5] Detection Limit [La] -> absent  («liu2016»)
+  [5] Detection Limit [Ba] -> absent  («liu2016»)
+  [6] Detection Limit Method [all] -> absent  («liu2016»)
+  [6] Procedure Reference(s) -> absent  («liu2016»)
+  [7] Laser Spot Geometry [all] -> absent  («wu2023»)
+  [7] Carrier Gas and Flow Rate -> in another field: Total Integration Time per Output Data Point  («wu2023»)
+  [7] Uncertainty Propagation Method [all] -> absent  («wu2023»)
+  [7] Primary Calibration Standard Name [all/Hf] -> in another field: Normalization / Standards-Based Correction  («wu2023»)
+  [7] Secondary Reference Materials [ARM-1] -> absent  («wu2023»)
+  [7] Secondary Reference Materials [MG-1] -> absent  («wu2023»)
+  [7] Combination Method [Lu-Hf weighted-mean age] -> wrong member or missing member  («wu2023»)

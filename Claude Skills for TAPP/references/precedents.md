@@ -3807,3 +3807,39 @@ re-checked the neighbour.
 **Generalise: a field added for a reason needs its assessment pass in the same change.** An
 unassessed column of `N` does not look like a gap. It looks like evidence that nobody reports the
 value, and it made a working field look redundant.
+
+## Converting to the keyed notation means regenerating the procedure: LA-Q, scored before it was applied (2026-09-30)
+
+For LA-Q-ICP-MS and its U-Pb twin, the user set the bar for the conversion: the literature cells alone must
+regenerate each paper's procedure. `Project Files/Scripts/laq_keyed_reverify_20260930.py` therefore re-read
+every procedure-level cell against its paper, not only the keyed ones. The round-trip
+`Project Files/Reports/LAQ_Cells_RoundTrip_2026-09-30/` scored the edited CSVs **before** the bump, so misses
+could be fixed without extra versions.
+
+| | v95 | v96 |
+|---|---|---|
+| stated facts recovered | 158 / 204 (77%) | 204 / 204 (100%) |
+| under the right member | 41 | 123 |
+
+**What a format-only conversion would have kept.** 27 LA-Q cells already parsed, and the 46 misses were in
+fields that looked fine:
+- isotopes in `Target Species`, with `Monitored Masses` left `N`;
+- auxiliary gas under make-up gas;
+- a torch, a second laboratory and per-element LODs, all stated in the paper but absent from the cells.
+
+The re-read also removed claims the papers do not make, which a recall test cannot catch:
+- "fs laser reduces LIEF" for a nanosecond excimer;
+- times "inferred from typical protocol";
+- exclusions nobody described;
+- another paper's accuracy comparison.
+
+**How to run the rest (Solution SF, Q, MC; LA-SF and its twin).**
+1. Dump each column in full.
+2. Read the paper's methods and instrument table. A table needs `pdftotext -layout`, because the default
+   mode scrambles table rows.
+3. Write the column's cells and its facts together.
+4. Simulate the edit, then parse-check and score it.
+5. Apply only at 100%, or with each miss explained.
+
+Keep the mechanical clean-ups: page tags are dropped, and "N (reason)" becomes "N — reason". Check git for
+concurrent sessions before applying: one bumped LA-Q from v94 to v95 while this pass was being read.

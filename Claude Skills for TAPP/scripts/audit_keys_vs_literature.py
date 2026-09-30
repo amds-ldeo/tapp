@@ -110,6 +110,16 @@ EXCLUDE_FIELDS = {
 # "Validating keys against the literature assessment".
 ADJUDICATED = {
     # ---- adjudicated 2026-09-29, on EPMA's remaining-fields pass (epma_remaining_fields_20260929.py).
+    # ---- adjudicated 2026-09-30, on the LA-Q re-read (laq_keyed_reverify_20260930.py).
+    ("Laser Spot Path / Ablation Mode", "AXIS-MISMATCH"):
+        "KEEP acquisition pass — the detector reads 'each spot' in a quoted data-reduction sentence (Liu+2016: 'The time-lapse "
+        "plots of each spot were examined') and reports the sampling-unit axis. Every LA-Q procedure states one ablation path "
+        "for the whole procedure; the quote is about how each spot's signal was reduced, not about the path varying by spot.",
+    ("Normalization / Standards-Based Correction", "OVER-DECLARED"):
+        "KEEP reported property — the re-read cells write `all: …` where one normalisation serves every reported property "
+        "(oxide-total, EMP CaO), which the detector scores as scalar. Wu+2023's cell names its two ratios separately, and the "
+        "field's key is module-level; a procedure that normalises one variable differently is the case the key exists for. "
+        "Same shape as the Goodness-of-Fit OVER-DECLARED ruling above.",
     ("Combination Method", "AXIS-MISMATCH"):
         "CONSISTENT — keep reported property. The EPMA cells read 'SiO2, ...: mean of n point analyses per phase "
         "and textural setting'. The detector takes 'per phase' and 'per occurrence' as a second axis, but the field "

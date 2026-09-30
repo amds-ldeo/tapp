@@ -58,7 +58,8 @@ import keyed_cells  # noqa: E402
 # Add a TAPP (by file-name stem) only once its conversion pass is finished.
 KEYED_NOTATION_ENFORCED = {"EPMA",         # converted 2026-09-29 (epma_keyed_pilot_20260929.py)
                            "SEM", "SEM_Composition", "SEM_Imaging", "SEM_FIBSEM",  # 2026-09-29 (sem_keyed_notation_20260929.py)
-                           "TEM", "Lab-XCT", "LA-MC-ICPMS"}  # 2026-09-30 (keyed_notation_tem_xct_lamc_20260930.py)
+                           "TEM", "Lab-XCT", "LA-MC-ICPMS",  # 2026-09-30 (keyed_notation_tem_xct_lamc_20260930.py)
+                           "LA-Q-ICP-MS", "LA-Q-ICP-MS_UPb"}  # 2026-09-30 (laq_keyed_reverify_20260930.py; round-trip 204/204)
 # Cells whose stated value cannot be written against the field's key without inference (7.3.4: "the
 # notation tests the key"). Keyed (TAPP stem, field, column key) -> reason; reported at INFO as
 # `keyed-cell-registered`, never WARN. Each entry is an open question about the key, not a format fix.
@@ -1663,6 +1664,8 @@ HISTORICAL_DIRS = {
         "dated blind round-trip test scored against EPMA TAPP v77; a record of that version, not a guide",
     "Project Files/Reports/EPMA_Cells_RoundTrip_2026-09-29":
         "dated cells-to-procedure round-trip scored against EPMA TAPP v84 and v85; a record of those versions",
+    "Project Files/Reports/LAQ_Cells_RoundTrip_2026-09-30":
+        "dated cells-to-procedure round-trip scored against LA-Q-ICP-MS TAPP v95 and v96; a record of those versions",
     "Project Files/Claude Memory":
         "sanitised snapshot of the out-of-repo working notes (2026-09-10). Each note records "
         "what was believed when it was written, and several exist precisely to explain a "

@@ -1,0 +1,735 @@
+{
+ "procedure_column": "Nakanishi et al. 2022 (GCA 319) CR chondrite metal (HSE) Spot analysis fs-LA-Q-ICP-MS Tokyo Institute of Technology",
+ "tapp": "LA-Q-ICP-MS_TAPP_v95",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "Nakanishi et al. (2022) CR Chondrite Metal HSE fs-LA-ICP-MS Spot v1",
+   "status": "text",
+   "value": "Nakanishi et al. (2022) CR Chondrite Metal HSE fs-LA-ICP-MS Spot v1"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "fs-LA-Q-ICP-MS",
+   "status": "text",
+   "value": "fs-LA-Q-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "Nakanishi, Yokoyama, Okabayashi, Iwamori, Hirata",
+   "status": "text",
+   "value": "Nakanishi, Yokoyama, Okabayashi, Iwamori, Hirata"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan",
+   "status": "text",
+   "value": "Dept. of Earth and Planetary Sciences, Tokyo Institute of Technology, Japan"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "JSPS KAKENHI; Tokyo Institute of Technology",
+   "status": "text",
+   "value": "JSPS KAKENHI; Tokyo Institute of Technology"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards",
+   "status": "text",
+   "value": "Nakanishi et al. (2022) GCA 319, 254; Walker et al. (2008) for IVB standards"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "EPMA (electron probe microanalysis)",
+   "status": "text",
+   "value": "EPMA (electron probe microanalysis)"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]",
+   "status": "text",
+   "value": "EPMA used to measure Ni concentration at the exact LA-ICP-MS analysis spot location, required for internal standardization of HSE data [Section 2.3]"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "CR chondrite metal grains (interior, margin, and isolated types)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "CR chondrite metal grains",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Grain > Spot — HSE abundances are reported per metal grain, each with its LA \"spot No.\" (table p.6); the grains are typed by where they sit — interior grains in a chondrule, margin grains in its surficial shell, isolated grains in the matrix (p.1)",
+   "status": "text",
+   "value": "Grain > Spot"
+  },
+  "Fusion Flux and Dilution Ratio": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA",
+   "status": "text",
+   "value": "Thick sections in petropoxy 154 resin, polished to 0.5 µm diamond paste, C-coated for EPMA then surface polished before LA"
+  },
+  "Pre-Ablation Surface Treatment": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "Picked off prior electron images — \"Based on the secondary electron images taken by EPMA, we selected analytical spots for LA-ICP-MS and sampling spots for micro-milling\" (p.4); the grains themselves are sorted by setting into interior, margin and isolated metal (p.1)",
+   "status": "text",
+   "value": "Picked off prior electron images"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "Secondary-electron imaging on the EPMA, used to place every spot — \"Based on the secondary electron images taken by EPMA, we selected analytical spots for LA-ICP-MS and sampling spots for micro-milling\" (p.4); the spots carry numbers (\"spot No.\" 201, 202 …) that tie the analyses back to those images (table p.6)",
+   "status": "text",
+   "value": "Secondary-electron imaging on the EPMA, used to place every spot"
+  },
+  "Laser Manufacturer & Model": {
+   "key": "(none)",
+   "cell": "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)",
+   "status": "text",
+   "value": "Cyber Laser IFRIT (Ti:sapphire fs UV laser, 260 nm)"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Thermo Scientific X-series 2 (Q-ICP-MS)",
+   "status": "text",
+   "value": "Thermo Scientific X-series 2 (Q-ICP-MS)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Single-collector quadrupole (Q-ICP-MS)",
+   "status": "text",
+   "value": "Single-collector quadrupole (Q-ICP-MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "Ni micro-skimmer cone Xs; Ni sampler cone",
+   "status": "text",
+   "value": "Ni micro-skimmer cone Xs; Ni sampler cone"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "Unit resolution (quadrupole fixed)",
+   "status": "text",
+   "value": "Unit resolution (quadrupole fixed)"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Wavelength and Type": {
+   "key": "(none)",
+   "cell": "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)",
+   "status": "text",
+   "value": "260 nm Ti:sapphire femtosecond UV; pulse duration ~220 fs (IFRIT system)"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N (in-house reduction implied)",
+   "status": "not stated"
+  },
+  "Ablation Cell Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Introduction": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Laser Spot Geometry": {
+   "key": "acquisition pass",
+   "cell": "30 µm circular",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Spot Path / Ablation Mode": {
+   "key": "acquisition pass",
+   "cell": "Spot (stationary)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Energy": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Fluence (Energy Density)": {
+   "key": "(none)",
+   "cell": "12 J cm⁻²",
+   "status": "text",
+   "value": "12 J cm⁻²"
+  },
+  "Laser Beam Energy Profile": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Repetition Rate": {
+   "key": "acquisition pass",
+   "cell": "20 Hz",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Pulse Duration": {
+   "key": "(none)",
+   "cell": "~220 fs (Ti:sapphire IFRIT system)",
+   "status": "text",
+   "value": "~220 fs (Ti:sapphire IFRIT system)"
+  },
+  "Ablation Duration per Spot": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ablation Pit Depth and Ablation Rate": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Transect Rate, Mapping Rate or Step Size": {
+   "key": "acquisition pass",
+   "cell": "N/A (spot mode)",
+   "status": "not applicable"
+  },
+  "Raster Line Spacing (Mapping Only)": {
+   "key": "(none)",
+   "cell": "N/A (spot mode)",
+   "status": "not applicable"
+  },
+  "Carrier Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "Carrier gas flow: 0.6 L/min; species not named (carrier gas identity not stated in Table 1 or text)",
+   "status": "text",
+   "value": "Carrier gas flow: 0.6 L/min; species not named (carrier gas identity not stated in Table 1 or text)"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "Ar make-up: 0.9–1.2 l min⁻¹; Ar auxiliary: 0.6–1.2 l min⁻¹",
+   "status": "text",
+   "value": "Ar make-up: 0.9–1.2 l min⁻¹; Ar auxiliary: 0.6–1.2 l min⁻¹"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "Cool gas: 12–13 l min⁻¹ Ar; Auxiliary: 0.6–1.2 l min⁻¹",
+   "status": "text",
+   "value": "Cool gas: 12–13 l min⁻¹ Ar; Auxiliary: 0.6–1.2 l min⁻¹"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1400 W",
+   "status": "text",
+   "value": "1400 W"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Smoothing": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "IVB meteorite standards (Warburton Range external + Tawallah Valley secondary) measured alongside unknowns; exact bracketing not described",
+   "status": "text",
+   "value": "IVB meteorite standards (Warburton Range external + Tawallah Valley secondary) measured alongside unknowns; exact bracketing not described"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "⁵⁹Co, ¹⁰¹Ru, ¹⁰³Rh, ¹⁰⁵Pd, ¹⁸⁵Re, ¹⁸⁹Os, ¹⁹³Ir, ¹⁹⁵Pt, ¹⁹⁷Au (9 HSE isotopes); ²⁴Mg, ²⁹Si, ³¹P, ³³S monitored for inclusion detection; ⁶¹Ni as internal standard",
+   "status": "structured",
+   "value": [
+    {
+     "member": "⁵⁹Co",
+     "parent": null
+    },
+    {
+     "member": "¹⁰¹Ru",
+     "parent": null
+    },
+    {
+     "member": "¹⁰³Rh",
+     "parent": null
+    },
+    {
+     "member": "¹⁰⁵Pd",
+     "parent": null
+    },
+    {
+     "member": "¹⁸⁵Re",
+     "parent": null
+    },
+    {
+     "member": "¹⁸⁹Os",
+     "parent": null
+    },
+    {
+     "member": "¹⁹³Ir",
+     "parent": null
+    },
+    {
+     "member": "¹⁹⁵Pt",
+     "parent": null
+    },
+    {
+     "member": "¹⁹⁷Au",
+     "parent": null
+    },
+    {
+     "member": "²⁴Mg",
+     "parent": null
+    },
+    {
+     "member": "²⁹Si",
+     "parent": null
+    },
+    {
+     "member": "³¹P",
+     "parent": null
+    },
+    {
+     "member": "³³S monitored for inclusion detection",
+     "parent": null
+    },
+    {
+     "member": "⁶¹Ni as internal standard",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Highly siderophile element abundances in metal (ppm: Ru, Rh, Pd, Re, Os, Ir, Pt, Au — e.g. \"Ir abundance ranging from 1.08 to 2.53 ppm\", p.5), with major element abundances from EPMA alongside; HSE/Ir ratios; and the Re/Os abundance ratio that feeds the reported 187Re/188Os, \"determined by the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS\" (Table 3, p.8)",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "Highly siderophile element abundances in metal",
+     "parent": null
+    },
+    {
+     "member": "with major element abundances from EPMA alongside",
+     "parent": null
+    },
+    {
+     "member": "HSE/Ir ratios",
+     "parent": null
+    },
+    {
+     "member": "and the Re/Os abundance ratio that feeds the reported 187Re/188Os",
+     "parent": null
+    },
+    {
+     "member": "\"determined by the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS\" (Table 3, p.8)",
+     "parent": null
+    }
+   ]
+  },
+  "Signal Collection Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Total Integration Time per Output Data Point": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Background Count Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Inter-Pass Data Dependency": {
+   "key": "acquisition pass",
+   "cell": "Single spot per location (30 µm circular)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N (variable number of spots per grain; Mg, Si, P, S monitored to check for inclusions)",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Internal Standard Approach": {
+   "key": "acquisition pass",
+   "cell": "Single element externally measured by EPMA: ⁶¹Ni concentration from EPMA at exact analysis location used as IS",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Single element externally measured by EPMA"
+     ],
+     "value": "⁶¹Ni concentration from EPMA at exact analysis location used as IS"
+    }
+   ]
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "⁶¹Ni; concentration from EPMA measured at exact analysis spot location",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Elemental Fractionation Correction": {
+   "key": "acquisition pass",
+   "cell": "External calibration using calibration curve method with IVB iron meteorite standards; ⁶¹Ni as IS from EPMA corrects for ablation yield differences between sample and standard",
+   "status": "unparsed",
+   "value": []
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "2SE of individual spot measurements reported",
+   "status": "unparsed",
+   "value": []
+  },
+  "Matrix Offset Correction (LIEF)": {
+   "key": "(none)",
+   "cell": "N (fs laser minimizes LIEF; IVB iron meteorite standards used as matrix-matched reference)",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "Time-resolved signals monitored; analyses with elevated Mg, Si, P, S (inclusion indicators) excluded; stable signal intervals used for integration",
+   "status": "text",
+   "value": "Time-resolved signals monitored; analyses with elevated Mg, Si, P, S (inclusion indicators) excluded; stable signal intervals used for integration"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "Monitoring of Mg, Si, P, S to check for micro-inclusions (sulfides); analyses with elevated inclusion signals excluded entirely",
+   "status": "text",
+   "value": "Monitoring of Mg, Si, P, S to check for micro-inclusions (sulfides); analyses with elevated inclusion signals excluded entirely"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "Gas blank measured before each spot; background period during single spot transient (rapid intensity rise and decay) used for background correction",
+   "status": "text",
+   "value": "Gas blank measured before each spot; background period during single spot transient (rapid intensity rise and decay) used for background correction"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N (quadrupole X-series 2; single detector mode)",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "No explicit corrections applied; monitoring of Mg, Si, P, S used to detect and exclude inclusion-contaminated analyses rather than correct for spectral interferences",
+   "status": "text",
+   "value": "No explicit corrections applied; monitoring of Mg, Si, P, S used to detect and exclude inclusion-contaminated analyses rather than correct for spectral interferences"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "Sulfide inclusions detectable via ³³S signal; phosphide inclusions via ³¹P; silicate inclusions via ²⁴Mg, ²⁹Si (used to exclude contaminated analyses)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "Exclusion-based approach: analyses with elevated Mg, Si, P, S (from silicate, phosphate, or sulfide inclusions) excluded entirely rather than applying mathematical corrections",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Exclusion-based approach"
+     ],
+     "value": "analyses with elevated Mg, Si, P, S (from silicate, phosphate, or sulfide inclusions) excluded entirely rather than applying mathematical corrections"
+    }
+   ]
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N (single spot analyses; no sequential memory effect described)",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "No post-acquisition normalization; calibration curve method using IVB standards provides direct quantification",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — the contributing counts are stated per grain, the reported ratios being \"the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS\" (p.8). No acceptance or rejection rule is stated for the LA data; the 233/235 > 0.2 rejection (p.4) is a rule for the N-TIMS Os measurements, not for these spot analyses, and is not borrowed",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "Re/Os abundance ratio: mean of the 1–3 spots on each metal grain; other: N — 'determined by the mean Re/Os abundance ratios for each of the 1–3 analytical spots measured by LA-ICP-MS' (Table 3)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Re/Os abundance ratio"
+     ],
+     "value": "mean of the 1–3 spots on each metal grain"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "Warburton Range (IVB iron meteorite; Walker et al. 2008) — used as primary external standard and for calibration curve method",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "Tawallah Valley (IVB iron meteorite; Walker et al. 2008) — measured as secondary/check standard alongside unknowns",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Tawallah Valley",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N (LODs not formally stated)",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "Analytical uncertainties: 2SE of individual spot measurements reported alongside data",
+   "status": "unparsed",
+   "value": []
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N (accuracy formally assessed by comparison with internal standard; absolute accuracy not separately reported)",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "fs laser (260 nm Ti:sapphire) essential for HSE measurement in metal (reduces elemental fractionation and matrix effects); IVB iron meteorite standards (Warburton Range + Tawallah Valley) as matrix-matched standards for iron meteorite metal",
+   "status": "text",
+   "value": "fs laser (260 nm Ti:sapphire) essential for HSE measurement in metal (reduces elemental fractionation and matrix effects); IVB iron meteorite standards (Warburton Range + Tawallah Valley) as matrix-matched standards for iron meteorite metal"
+  }
+ }
+}

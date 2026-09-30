@@ -20,8 +20,10 @@ discovery.
 | `LA-SF-ICP-MS_TAPP_v91` | `v92` | Sample Form retired |
 | `LA-SF-ICP-MS_UPb_TAPP_v92` | `v93` | Sample Form retired |
 | `Lab-XCT_TAPP_v46` | `v47` | prep Method assessed, Notes retired |
+| `LA-Q-ICP-MS_TAPP_v95` | `v96` | keyed notation, re-read |
+| `LA-Q-ICP-MS_UPb_TAPP_v95` | `v96` | keyed notation, re-read |
 
-12 version(s), 24 file(s) (CSV + xlsx).
+14 version(s), 28 file(s) (CSV + xlsx).
 
 ## Why
 
@@ -149,3 +151,36 @@ Applied by `Project Files/Scripts/labxct_retire_prep_notes_20260930.py`.
 - `compose_tapp.py --check`: 16 of 16 match.
 - `validate_tapp.py`: 0 ERROR, 0 WARN. The INFO summary is identical to v46's.
 - `audit_keys_vs_literature.py`: 0 NEW.
+
+## LA-Q-ICP-MS and its U-Pb twin, v95 → v96: keyed notation, with every cell re-read
+
+The requirement for this conversion was that the literature cells alone must regenerate each paper's
+procedure. Each of LA-Q's seven columns was re-read against its paper: methods, instrument tables, table
+notes and acknowledgements. Every procedure-level cell was checked, keyed or not. The U-Pb twin carries
+columns 1–6 with identical cells, so the same edits apply to it. Its nine geochronology fields, never
+assessed, became `N — the procedure reports no date`.
+
+Changed: 347 cells in LA-Q and 376 in the twin. Most are the mechanical clean-ups: page tags dropped, and
+"N (reason)" rewritten as "N — reason". The substantive changes, per column, are in the script's dicts:
+- **isotopes as target species**, with `Monitored Masses` left `N` (Nakanishi+2022, Liu+2024, which even
+  had a nonexistent ²¹Sc);
+- **inferences stated as fact**, such as exclusion of inclusion-bearing analyses, "fs laser reduces LIEF"
+  for a nanosecond excimer, and ablation times "inferred from typical protocol";
+- **another paper's result**: Liu+2025's accuracy cell cited Liu+2024's comparison;
+- **stated facts missing**: gas flows, a torch, a second laboratory, internal standards, per-element LODs,
+  ARM-1, and the Rösel and Zack uncertainty workflow;
+- **study-level grants** recorded as procedure-development funding.
+
+Applied by `Project Files/Scripts/laq_keyed_reverify_20260930.py`. Both TAPPs join `KEYED_NOTATION_ENFORCED`.
+
+**Verification.**
+- Before applying, the edited CSVs were simulated. Every structured cell parses and names only definer
+  members, and the round-trip (`Project Files/Reports/LAQ_Cells_RoundTrip_2026-09-30/`) recovers **204 of
+  204 stated facts (100%), 123 as structure**. The same test on v95 recovers 158 (77%), 41 as structure.
+- After applying: `compose_tapp.py --check` 16 of 16 match; `validate_tapp.py` 0 ERROR, 0 WARN, with LA-Q
+  enforced.
+- `audit_keys_vs_literature.py` raised two findings, both caused by the new wording and both adjudicated
+  KEEP: `Laser Spot Path` read 'each spot' in a data-reduction quote, and `Normalization` reads `all:` as
+  scalar. So 0 NEW.
+- No field, tier, data type or key changed.
+

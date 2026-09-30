@@ -419,7 +419,7 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v95.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v96.csv",
       "modules": [
         {
           "name": "Core",
@@ -474,7 +474,7 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v95.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v96.csv",
       "derived_from": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v8.csv",
       "modules": [
         {

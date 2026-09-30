@@ -40,8 +40,8 @@ in that particular TAPP.
 - `EPMA_TAPP_v87.csv`
 - `LA-MC-ICPMS_TAPP_v91.csv`
 - `LA-MC-ICPMS_UPb_TAPP_v86.csv`
-- `LA-Q-ICP-MS_TAPP_v95.csv`
-- `LA-Q-ICP-MS_UPb_TAPP_v95.csv`
+- `LA-Q-ICP-MS_TAPP_v96.csv`
+- `LA-Q-ICP-MS_UPb_TAPP_v96.csv`
 - `LA-SF-ICP-MS_TAPP_v92.csv`
 - `LA-SF-ICP-MS_UPb_TAPP_v93.csv`
 - `Lab-XCT_TAPP_v47.csv`

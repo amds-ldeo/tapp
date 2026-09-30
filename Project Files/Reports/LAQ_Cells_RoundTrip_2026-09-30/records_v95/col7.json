@@ -1,0 +1,744 @@
+{
+ "procedure_column": "Wu+etal2023 | Analyte G2 + iCAP TQ ICP-MS/MS | IGGCAS",
+ "tapp": "LA-Q-ICP-MS_TAPP_v95",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)",
+   "status": "text",
+   "value": "LA-ICP-MS/MS (LA-Q-ICP-MS, triple-quadrupole platform)"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS)",
+   "status": "text",
+   "value": "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS)"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Xenotime, apatite and garnet — accessory and metamorphic minerals for in situ Lu-Hf geochronology",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Xenotime",
+     "parent": null
+    },
+    {
+     "member": "apatite and garnet",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Laser spot — 246 spot analyses on XN02 alone; spot diameters 50-150 um depending on Lu and Hf contents",
+   "status": "text",
+   "value": "Laser spot"
+  },
+  "Fusion Flux and Dilution Ratio": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "N (not described; §2.1 gives only the origin of the megacrysts and single crystals, and the acknowledgements credit sample preparation without stating a method)",
+   "status": "not stated"
+  },
+  "Pre-Ablation Surface Treatment": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampling Unit Selection Criteria": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pre-Analysis Imaging and Screening": {
+   "key": "sample",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Manufacturer & Model": {
+   "key": "(none)",
+   "cell": "Photon Machines Analyte G2 (Teledyne CETAC, Omaha, USA)",
+   "status": "text",
+   "value": "Photon Machines Analyte G2 (Teledyne CETAC, Omaha, USA)"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "iCap TQ ICP-MS/MS (Thermo Fisher Scientific, Bremen, Germany)",
+   "status": "text",
+   "value": "iCap TQ ICP-MS/MS (Thermo Fisher Scientific, Bremen, Germany)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Triple quadrupole (ICP-MS/MS) — operated in both single-quadrupole (SQ) and triple-quadrupole (TQ) modes",
+   "status": "text",
+   "value": "Triple quadrupole (ICP-MS/MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "High sensitivity sample and skimmer cones",
+   "status": "text",
+   "value": "High sensitivity sample and skimmer cones"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N — 'high sensitivity' cones specified, material not stated",
+   "status": "commentary only"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "~300",
+   "status": "text",
+   "value": "~300"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "Single SEM in double mode, counting and analog",
+   "status": "text",
+   "value": "Single SEM in double mode, counting and analog"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "ICP-MS/MS (triple-quadrupole mode) with NH3 reaction gas for analysis; tuning first performed in single-quadrupole (SQ) no-gas mode",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Wavelength and Type": {
+   "key": "(none)",
+   "cell": "193 nm",
+   "status": "text",
+   "value": "193 nm"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "Iolite v.3.7 for gas-blank-corrected intensities, raw ratios and uncertainties; an in-house Microsoft Excel spreadsheet for drift, elemental fractionation and matrix-induced bias; IsoplotR for isochron and weighted-mean ages",
+   "status": "text",
+   "value": "Iolite v.3.7 for gas-blank-corrected intensities, raw ratios and uncertainties; an in-house Microsoft Excel spreadsheet for drift, elemental fractionation and matrix-induced bias; IsoplotR for isochron and weighted-mean ages"
+  },
+  "Ablation Cell Type": {
+   "key": "(none)",
+   "cell": "HelEx ablation cell",
+   "status": "text",
+   "value": "HelEx ablation cell"
+  },
+  "Sample Introduction": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Spot Geometry": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Spot Path / Ablation Mode": {
+   "key": "acquisition pass",
+   "cell": "Single hole drilling, two cleaning pulses",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Energy": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Fluence (Energy Density)": {
+   "key": "(none)",
+   "cell": "4 J cm-2",
+   "status": "text",
+   "value": "4 J cm-2"
+  },
+  "Laser Beam Energy Profile": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laser Repetition Rate": {
+   "key": "acquisition pass",
+   "cell": "10 Hz",
+   "status": "unparsed",
+   "value": []
+  },
+  "Laser Pulse Duration": {
+   "key": "(none)",
+   "cell": "4-5 ns",
+   "status": "text",
+   "value": "4-5 ns"
+  },
+  "Ablation Duration per Spot": {
+   "key": "(none)",
+   "cell": "25 s",
+   "status": "text",
+   "value": "25 s"
+  },
+  "Ablation Pit Depth and Ablation Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Transect Rate, Mapping Rate or Step Size": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Raster Line Spacing (Mapping Only)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Carrier Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "He, 900 mL min-1 ablation gas flow",
+   "status": "text",
+   "value": "He, 900 mL min-1 ablation gas flow"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N2 enhancement gas, 4.0 mL min-1, added to the carrier gas after the sample chamber to enhance sensitivity; an 80% sensitivity improvement is reported",
+   "status": "text",
+   "value": "N2 enhancement gas, 4.0 mL min-1, added to the carrier gas after the sample chamber to enhance sensitivity; an 80% sensitivity improvement is reported"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "15.00 L min-1 Ar",
+   "status": "text",
+   "value": "15.00 L min-1 Ar"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "0.80 L min-1 Ar",
+   "status": "text",
+   "value": "0.80 L min-1 Ar"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1350 W",
+   "status": "text",
+   "value": "1350 W"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Smoothing": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "Two-stage: first optimised in solution single-quadrupole and no-gas modes to tune for a robust plasma (U/Th = 1.00-1.05) and minimise oxides (ThO/Th < 0.5%); then switched to TQ and NH3 mode, with lenses tuned to maximise sensitivity for Hf reaction products while keeping Lu and Yb reaction rates low",
+   "status": "text",
+   "value": "Two-stage: first optimised in solution single-quadrupole and no-gas modes to tune for a robust plasma (U/Th = 1.00-1.05) and minimise oxides (ThO/Th < 0.5%); then switched to TQ and NH3 mode, with lenses tuned to maximise sensitivity for Hf reaction products while keeping Lu and Yb reaction rates low"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "ThO/Th < 0.5%, checked during SQ no-gas tuning",
+   "status": "text",
+   "value": "ThO/Th < 0.5%, checked during SQ no-gas tuning"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Lu and Hf (with Yb monitored for interference); Al, Ca, Y and Zr monitored for inclusions",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Lu and Hf",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "Y and Zr monitored for inclusions",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "27Al, 43Ca, 89Y, 90Zr, 172Yb, (172+82)Yb, 175Lu, (175+82)Lu, (176+82)Hf, (177+82)Hf, (178+82)Hf",
+   "status": "structured",
+   "value": [
+    {
+     "member": "27Al",
+     "parent": null
+    },
+    {
+     "member": "43Ca",
+     "parent": null
+    },
+    {
+     "member": "89Y",
+     "parent": null
+    },
+    {
+     "member": "90Zr",
+     "parent": null
+    },
+    {
+     "member": "172Yb",
+     "parent": null
+    },
+    {
+     "member": "(172+82)Yb",
+     "parent": null
+    },
+    {
+     "member": "175Lu",
+     "parent": null
+    },
+    {
+     "member": "(175+82)Lu",
+     "parent": null
+    },
+    {
+     "member": "(176+82)Hf",
+     "parent": null
+    },
+    {
+     "member": "(177+82)Hf",
+     "parent": null
+    },
+    {
+     "member": "(178+82)Hf",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "176Lu/177Hf and 176Hf/177Hf ratios; Lu-Hf isochron and weighted-mean ages (Ma)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "176Lu/177Hf and 176Hf/177Hf ratios",
+     "parent": null
+    },
+    {
+     "member": "Lu-Hf isochron and weighted-mean ages",
+     "parent": null
+    }
+   ]
+  },
+  "Signal Collection Mode": {
+   "key": "(none)",
+   "cell": "Peak jump",
+   "status": "text",
+   "value": "Peak jump"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "CR exit lens -40.00 V (cell bias -4.200 V, CR amplitude 189.3 V, CR entry lens -144.0 V also tabulated)",
+   "status": "text",
+   "value": "CR exit lens -40.00 V (cell bias -4.200 V, CR amplitude 189.3 V, CR entry lens -144.0 V also tabulated)"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "NH3, high purity (>99.999%), supplied in T4; He (>99.999%, T1) pre-mixed with NH3 before the cell in a test of mixture composition. High-purity NH3 found more effective than the commonly used 1:9 NH3-He mixture",
+   "status": "unparsed",
+   "value": []
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "Both forms stated: '1:9 NH3-He mixture' identified as common practice and found less effective than high-purity NH3; high-purity He (>99.999%) pre-mixed with NH3 before the reaction cell to test the effect of mixture composition on reaction efficiency",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Both forms stated"
+     ],
+     "value": "'1:9 NH3-He mixture' identified as common practice and found less effective than high-purity NH3"
+    }
+   ]
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "Ammonia cluster adducts, mass shift +82: (176+82)Hf = 176Hf(14N1H)(14N1H2)3(14N1H3)3; likewise (177+82)Hf, (178+82)Hf, (175+82)Lu, (172+82)Yb. Lu, Yb and Hf reaction products identified over 175-300 amu",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Ammonia cluster adducts",
+      "mass shift +82"
+     ],
+     "value": "(176+82)Hf = 176Hf(14N1H)(14N1H2)3(14N1H3)3"
+    }
+   ]
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "27Al 2 ms, 43Ca 2 ms, 89Y 1 ms, 90Zr 2 ms, 172Yb 1 ms, (172+82)Yb 100 ms, 175Lu 1 ms, (175+82)Lu 50 ms, (176+82)Hf 300 ms, (177+82)Hf 100 ms, (178+82)Hf 100 ms",
+   "status": "unparsed",
+   "value": []
+  },
+  "Total Integration Time per Output Data Point": {
+   "key": "(none)",
+   "cell": "0.659 s",
+   "status": "text",
+   "value": "0.659 s"
+  },
+  "Background Count Time": {
+   "key": "(none)",
+   "cell": "N — gas-blank correction applied in Iolite, duration not stated",
+   "status": "commentary only"
+  },
+  "Inter-Pass Data Dependency": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Internal Standard Approach": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Elemental Fractionation Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "2SE for single-spot ages; uncertainties on weighted-mean ages quoted at 2s",
+   "status": "text",
+   "value": "2SE for single-spot ages; uncertainties on weighted-mean ages quoted at 2s"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "Uncertainty propagation workflow implemented in IsoplotR",
+   "status": "unparsed",
+   "value": []
+  },
+  "Matrix Offset Correction (LIEF)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "Gas-blank-corrected intensities calculated in Iolite v.3.7 from time-resolved intensities",
+   "status": "text",
+   "value": "Gas-blank-corrected intensities calculated in Iolite v.3.7 from time-resolved intensities"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes — 176Lu and 176Yb on (176+82)Hf",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "176Lu and 176Yb on the (176+82)Hf product mass, monitored via 175Lu and 172Yb",
+   "status": "unparsed",
+   "value": []
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "Reaction-rate correction: (176+82)Hf = (176+82)total - (176Lu/175Lu)true x (175+82)Lu_measured - (176Yb/172Yb)true x (172+82)Yb_measured, using 176Lu/175Lu = 0.02655 and 176Yb/172Yb = 0.5887; contributions expressed as pLu(%) and pYb(%)",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Reaction-rate correction"
+     ],
+     "value": "(176+82)Hf = (176+82)total - (176Lu/175Lu)true x (175+82)Lu_measured - (176Yb/172Yb)true x (172+82)Yb_measured, using 176Lu/175Lu = 0.02655 and 176Yb/172Yb = 0.5887"
+    }
+   ]
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "Two-step calibration: external correction of mass bias and fractionation against NIST SRM 610, then a matrix-induced correction against matrix-matched XN02 xenotime",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Two-step calibration"
+     ],
+     "value": "external correction of mass bias and fractionation against NIST SRM 610, then a matrix-induced correction against matrix-matched XN02 xenotime"
+    }
+   ]
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Acquired and included counts both stated: 'A total of 246 spot analyses were undertaken in 20 analytical sessions over 3 months, 236 of which yielded a weighted-mean age of 515.4 +/- 1.2 Ma'. The rejection rule itself is not stated",
+   "status": "text",
+   "value": "Acquired and included counts both stated: 'A total of 246 spot analyses were undertaken in 20 analytical sessions over 3 months, 236 of which yielded a weighted-mean age of 515.4 +/- 1.2 Ma'. The rejection rule itself is not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "Lu-Hf isochron and weighted-mean ages: isochron regression, and weighted mean of the common-Hf-corrected single-spot ages, per sample — 'Isoplot R software was used to calculate isochron and weighted-mean ages'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Lu-Hf isochron and weighted-mean ages"
+     ],
+     "value": "isochron regression, and weighted mean of the common-Hf-corrected single-spot ages, per sample"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga",
+   "status": "text",
+   "value": "NIST SRM 610 recommended values 176Lu/177Hf = 0.1379 +/- 0.0050 and 176Hf/177Hf = 0.282111 +/- 0.000009, as determined by ID-MC-ICP-MS; 176Lu/175Lu = 0.02655; 176Yb/172Yb = 0.5887; 177Hf/178Hf = 0.682; 176Lu half-life ~37.12 Ga"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "NIST SRM 610",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "XN02 xenotime as a matrix-matched reference material to correct matrix-induced elemental fractionation of Lu/Hf between SRM 610 and the samples",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "XN02 xenotime as a matrix-matched reference material to correct matrix-induced elemental fractionation of Lu/Hf between SRM 610 and the samples",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "Uncertainties (2SE) of single-spot ages were ~2.6%",
+   "status": "unparsed",
+   "value": []
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "Precision of common-Hf corrected single-spot ages 1.5-8.1% (xenotime) and 9.2-36.0% (apatite); isochron age uncertainties 3.5-10% for garnet",
+   "status": "unparsed",
+   "value": []
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "Accuracy of common-Hf corrected single-spot xenotime ages generally better than 1.5%, assessed against ID-TIMS U-Pb ages of the same reference materials",
+   "status": "unparsed",
+   "value": []
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}
