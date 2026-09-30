@@ -1,0 +1,682 @@
+{
+ "procedure_column": "Desem+etal2022 | Nu Attom SC-SF-ICP-MS | Univ Melbourne",
+ "tapp": "Solution_SF-ICP-MS_TAPP_v88",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution SF-ICP-MS",
+   "status": "text",
+   "value": "Solution SF-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "University of Melbourne, Australia (affiliation)",
+   "status": "text",
+   "value": "University of Melbourne, Australia (affiliation)"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "Agilent 7700x Q-ICP-MS (used for Pb isotope comparison; stated section 2.4)",
+   "status": "text",
+   "value": "Agilent 7700x Q-ICP-MS (used for Pb isotope comparison; stated section 2.4)"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "Q-ICP-MS Pb isotope ratios compared with SF-ICP-MS values for validation; Q-ICP-MS showed higher uncertainties (stated section 2.4)",
+   "status": "text",
+   "value": "Q-ICP-MS Pb isotope ratios compared with SF-ICP-MS values for validation; Q-ICP-MS showed higher uncertainties (stated section 2.4)"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Soil samples (sequential acid leach fractions; stated abstract)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Soil samples",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Weighed split of a digest or leachate -- rock chips 0.05-0.24 g, soils 1-2.3 g; \"weighed splits taken for trace element and high-precision Pb isotope analysis by MC-ICPMS. At least 50% of each solution was retained for Pb isotope analysis by SC-SF-ICP-MS and Q-ICP-MS\"; \"Small splits of the soil samples (TD, AR) were used for Pb isotope analysis on a Nu Instruments Attom\"",
+   "status": "text",
+   "value": "Weighed split of a digest or leachate -- rock chips 0.05-0.24 g, soils 1-2.3 g; \"weighed splits taken for trace element and high-precision Pb isotope analysis by MC-ICPMS. At least 50% of each solution was retained for Pb isotope analysis by SC-SF-ICP-MS and Q-ICP-MS\"; \"Small splits of the soil samples (TD, AR) were used for Pb isotope analysis on a Nu Instruments Attom\""
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Sequential acid leaching of bulk soil (TD and AR fractions; stated section 2.2)",
+   "status": "text",
+   "value": "Sequential acid leaching of bulk soil (TD and AR fractions; stated section 2.2)"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "Rock chips: concentrated HF, then concentrated HNO3, then 5 M HNO3. Soil total dissolution: concentrated HNO3 organic-destruction leach (discarded), then concentrated HF, then concentrated HNO3, then 6 M HCl. Soil aqua-regia fraction: 3 ml aqua regia (3:1 HCl:HNO3).",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Rock chips"
+     ],
+     "value": "concentrated HF, then concentrated HNO3, then 5 M HNO3. Soil total dissolution: concentrated HNO3 organic-destruction leach (discarded), then concentrated HF, then concentrated HNO3, then 6 M HCl. Soil aqua-regia fraction: 3 ml aqua regia (3:1 HCl:HNO3)."
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "Rock chips, 1: concentrated HF (3 ml, 100 deg C, 48 h, then evaporation) | 2: concentrated HNO3 (2 x 1 ml, 100 deg C, 12 h) | 3: 5 M HNO3 (5 ml, 100 deg C, 15 h). Soil total-dissolution fraction, 1: concentrated HNO3 (3 ml, 80 deg C, 48 h) to destroy organics, this leachate discarded | 2: concentrated HF (4 ml, 100 deg C, 48 h, then evaporation) | 3: concentrated HNO3 (2 x 1 ml, 100 deg C) | 4: 6 M HCl (5 ml, 80 deg C, 15 h). Soil aqua-regia fraction, 1: 3 ml aqua regia (3:1 HCl:HNO3), shaken.",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "Rock chips",
+     "parent": null
+    },
+    {
+     "member": "1: concentrated HF (3 ml, 100 deg C, 48 h, then evaporation) | 2: concentrated HNO3 (2 x 1 ml, 100 deg C, 12 h) | 3: 5 M HNO3 (5 ml, 100 deg C, 15 h). Soil total-dissolution fraction",
+     "parent": null
+    },
+    {
+     "member": "1: concentrated HNO3 (3 ml, 80 deg C, 48 h) to destroy organics",
+     "parent": null
+    },
+    {
+     "member": "this leachate discarded | 2: concentrated HF (4 ml, 100 deg C, 48 h, then evaporation) | 3: concentrated HNO3 (2 x 1 ml, 100 deg C) | 4: 6 M HCl (5 ml, 80 deg C, 15 h). Soil aqua-regia fraction",
+     "parent": null
+    },
+    {
+     "member": "1: 3 ml aqua regia",
+     "parent": null
+    },
+    {
+     "member": "shaken.",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "2% HNO3 + 1 ppb Tl (stated section 2.3)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "None (Pb separation performed for MC-ICP-MS only; SF-ICP-MS uses unseparated leachate with Tl addition; stated section 2.3)",
+   "status": "text",
+   "value": "None (Pb separation performed for MC-ICP-MS only; SF-ICP-MS uses unseparated leachate with Tl addition; stated section 2.3)"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "None (Tl added for mass fractionation correction only, not ID)",
+   "status": "text",
+   "value": "None (Tl added for mass fractionation correction only, not ID)"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Nu Instruments -- \"a Nu Instruments Attom SC-SF-ICP-MS\"",
+   "status": "text",
+   "value": "Nu Instruments -- \"a Nu Instruments Attom SC-SF-ICP-MS\""
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Nu Instruments Attom SC-SF-ICP-MS (stated section 2.3)",
+   "status": "text",
+   "value": "Nu Instruments Attom SC-SF-ICP-MS (stated section 2.3)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Single-collector sector-field (SF-ICP-MS)",
+   "status": "text",
+   "value": "Single-collector sector-field (SF-ICP-MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N (Nu Attom uses deflector peak jump; no LR/MR/HR designation stated; stated section 2.3)",
+   "status": "not stated"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "Single SEM; deflector peak jump mode for Pb isotopes (stated section 2.3)",
+   "status": "text",
+   "value": "Single SEM; deflector peak jump mode for Pb isotopes (stated section 2.3)"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "Glass Expansion glass nebulizer (stated section 2.3)",
+   "status": "text",
+   "value": "Glass Expansion glass nebulizer (stated section 2.3)"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "Glass Expansion cyclonic spray chamber (stated section 2.3)",
+   "status": "text",
+   "value": "Glass Expansion cyclonic spray chamber (stated section 2.3)"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "0.33 ml/min (stated section 2.3)",
+   "status": "text",
+   "value": "0.33 ml/min (stated section 2.3)"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous) -- \"The Attom was operated with a Glass Expansion cyclonic spray chamber and glass nebulizer (uptake rate 0.33 ml/min)\"; \"both operated in wet plasma mode\"; ESI SC-2 DX autosampler",
+   "status": "text",
+   "value": "Solution nebulisation (continuous) -- \"The Attom was operated with a Glass Expansion cyclonic spray chamber and glass nebulizer (uptake rate 0.33 ml/min)\"; \"both operated in wet plasma mode\"; ESI SC-2 DX autosampler"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "\"The instrument was tuned to provide ~1000 kcps/ppb Pbtotal while maintaining flat-topped peaks\"",
+   "status": "text",
+   "value": "\"The instrument was tuned to provide ~1000 kcps/ppb Pbtotal while maintaining flat-topped peaks\""
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Pb isotopes (204Pb, 206Pb, 207Pb, 208Pb) with mass fractionation monitors 202Hg, 203Tl, 205Tl (stated section 2.3)",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "Pb isotopes (204Pb, 206Pb, 207Pb, 208Pb) with mass fractionation monitors 202Hg",
+     "parent": null
+    },
+    {
+     "member": "203Tl",
+     "parent": null
+    },
+    {
+     "member": "205Tl",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "206Pb/204Pb, 207Pb/204Pb, 208Pb/204Pb, 207Pb/206Pb, 208Pb/206Pb -- dimensionless isotope ratios",
+   "status": "structured",
+   "value": [
+    {
+     "member": "206Pb/204Pb",
+     "parent": null
+    },
+    {
+     "member": "207Pb/204Pb",
+     "parent": null
+    },
+    {
+     "member": "208Pb/204Pb",
+     "parent": null
+    },
+    {
+     "member": "207Pb/206Pb",
+     "parent": null
+    },
+    {
+     "member": "208Pb/206Pb -- dimensionless isotope ratios",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "202Hg, 203Tl, 204Pb, 205Tl, 206Pb, 207Pb, 208Pb (stated section 2.3)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "202Hg",
+     "parent": null
+    },
+    {
+     "member": "203Tl",
+     "parent": null
+    },
+    {
+     "member": "204Pb",
+     "parent": null
+    },
+    {
+     "member": "205Tl",
+     "parent": null
+    },
+    {
+     "member": "206Pb",
+     "parent": null
+    },
+    {
+     "member": "207Pb",
+     "parent": null
+    },
+    {
+     "member": "208Pb",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "N (Nu Attom uses deflector peak jump; resolution mode not stated in LR/MR/HR terms)",
+   "status": "not stated"
+  },
+  "E-scan Range": {
+   "key": "(none)",
+   "cell": "N/A (Nu Attom uses deflector peak jump, not E-scan)",
+   "status": "not applicable"
+  },
+  "Triple Scanning Mode": {
+   "key": "(none)",
+   "cell": "N/A (Nu Attom instrument; not applicable)",
+   "status": "not applicable"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "500 us (0.5 ms) per mass (stated section 2.3)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Number of Scans per Replicate": {
+   "key": "acquisition pass",
+   "cell": "2000 sweeps per set x 30 sets (stated section 2.3)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "1 (30 sets of 2000 sweeps = single 4.5 min continuous analysis; stated section 2.3)",
+   "status": "text",
+   "value": "1 (30 sets of 2000 sweeps = single 4.5 min continuous analysis; stated section 2.3)"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "10 s in two 2% HNO3 reservoirs (stated section 2.3)",
+   "status": "text",
+   "value": "10 s in two 2% HNO3 reservoirs (stated section 2.3)"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "Tl (203Tl and 205Tl for mass fractionation correction; stated section 2.3)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "1 ppb Tl in sample matrix (stated section 2.3)",
+   "status": "text",
+   "value": "1 ppb Tl in sample matrix (stated section 2.3)"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Drift Correction Method": {
+   "key": "(none)",
+   "cell": "Tl mass bias correction + master Pb-Tl correlation lines from NIST SRM981 bracketing (stated section 2.3)",
+   "status": "text",
+   "value": "Tl mass bias correction + master Pb-Tl correlation lines from NIST SRM981 bracketing (stated section 2.3)"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "Tl-normalized mass bias correction + NIST SRM981 master correlation lines (stated section 2.3)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "On-peak zero (10 s wash blank before each measurement; stated section 2.3)",
+   "status": "text",
+   "value": "On-peak zero (10 s wash blank before each measurement; stated section 2.3)"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Y (204Hg on 204Pb corrected using 202Hg monitor; stated section 2.3)",
+   "status": "text",
+   "value": "Y (204Hg on 204Pb corrected using 202Hg monitor; stated section 2.3)"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "204Hg+ on 204Pb (corrected using 202Hg signal; stated section 2.3)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "Mass-balance correction: measured 202Hg signal used to subtract 204Hg contribution from 204Pb (stated section 2.3)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Mass-balance correction"
+     ],
+     "value": "measured 202Hg signal used to subtract 204Hg contribution from 204Pb (stated section 2.3)"
+    }
+   ]
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "None",
+   "status": "text",
+   "value": "None"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "10 s wash in two 2% HNO3 reservoirs between samples (stated section 2.3)",
+   "status": "text",
+   "value": "10 s wash in two 2% HNO3 reservoirs between samples (stated section 2.3)"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "Both conventions stated: 2SD for external reproducibility (\"(2sd, n = 22)\", \"%2sd\", \"n = 9 for JB-2 and n = 11 for JB-3, +/-2sd%\") and 2SE for internal precision (\"typical internal precision (2se)\", \"Typical within-run precision (2 standard errors)\")",
+   "status": "text",
+   "value": "Both conventions stated: 2SD for external reproducibility (\"(2sd, n = 22)\", \"%2sd\", \"n = 9 for JB-2 and n = 11 for JB-3, +/-2sd%\") and 2SE for internal precision (\"typical internal precision (2se)\", \"Typical within-run precision (2 standard errors)\")"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "Instrumental mass-fractionation factor: \"Raw Pb isotope ratios were corrected for instrumental mass fractionation using the measured 205Tl/203Tl and Pb mass bias factors derived from Pb vs Tl isotope mass bias plots generated from numerous analyses of SRM981\"; \"Pb mass bias factors were taken from master Pb-Tl mass bias correlation lines\". The magnitude \"ca. 0.7% per mass unit\" is stated for the MC-ICP-MS, not for the SC-SF-ICP-MS",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Instrumental mass-fractionation factor"
+     ],
+     "value": "\"Raw Pb isotope ratios were corrected for instrumental mass fractionation using the measured 205Tl/203Tl and Pb mass bias factors derived from Pb vs Tl isotope mass bias plots generated from numerous analyses of SRM981\""
+    }
+   ]
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially -- n stated per averaged result (BCR-2 n = 39, AGV-2 n = 13, BR n = 11, JB-2 n = 9, JB-3 n = 11, SRM981 n = 22 and n = 16). One documented exclusion, from the quality assessment rather than from a reported aggregate: \"Results for the pure Pb standard NIST SRM981, analysed many times with the soil samples, are not included here, because it contains no matrix and may thus not a be a good indicator of data quality for the soil samples analysed here\" [sec 3.1]. No acceptance or rejection rule, and no acquired-versus-included count, stated",
+   "status": "text",
+   "value": "Partially -- n stated per averaged result (BCR-2 n = 39, AGV-2 n = 13, BR n = 11, JB-2 n = 9, JB-3 n = 11, SRM981 n = 22 and n = 16). One documented exclusion, from the quality assessment rather than from a reported aggregate: \"Results for the pure Pb standard NIST SRM981, analysed many times with the soil samples, are not included here, because it contains no matrix and may thus not a be a good indicator of data quality for the soil samples analysed here\" [sec 3.1]. No acceptance or rejection rule, and no acquired-versus-included count, stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average of repeat analyses of each reference material — 'Results for SRM981 analysed with the NVP samples yield average ...'; averages with '2sd' and n for BCR-2, AGV-2, BR, JB-2 and JB-3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average of repeat analyses of each reference material"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "205Tl/203Tl = 2.3871 (Woodhead 2002), used to correct instrumental mass fractionation by internal normalisation with the exponential law",
+   "status": "text",
+   "value": "205Tl/203Tl = 2.3871 (Woodhead 2002), used to correct instrumental mass fractionation by internal normalisation with the exponential law"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "NIST SRM981 Common Lead Standard (stated section 2.3)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "BCR-2, AGV-2, JB-2, BR, JB-3 (stated Tables 1-2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "BCR-2",
+     "parent": null
+    },
+    {
+     "member": "AGV-2",
+     "parent": null
+    },
+    {
+     "member": "JB-2",
+     "parent": null
+    },
+    {
+     "member": "BR",
+     "parent": null
+    },
+    {
+     "member": "JB-3",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "A single analysis of 30-40 10-s integrations gives typical internal precision (2SE) of +/-0.001-0.002 for 206Pb/204Pb and +/-0.003-0.005 for 208Pb/204Pb",
+   "status": "unparsed",
+   "value": []
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "2 sigma uncertainty of 30-set Pb isotope ratios per sample (stated section 2.3)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "% deviation from published Pb isotope values for geological RMs (BCR-2, AGV-2, JB-2, BR, JB-3; stated section 3)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)",
+   "status": "text",
+   "value": "Nu Attom SC-SF-ICP-MS in single-collector mode; 30 sets x 2000 sweeps = 4.5 min total analysis; Tl-spiked matrix (1 ppb Tl) for mass bias correction; blank ~900 cps on 208Pb (stated section 2.3)"
+  }
+ }
+}

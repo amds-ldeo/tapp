@@ -3833,7 +3833,7 @@ The re-read also removed claims the papers do not make, which a recall test cann
 - exclusions nobody described;
 - another paper's accuracy comparison.
 
-**How to run the rest (Solution SF, Q, MC; LA-SF and its twin).**
+**How to run the rest (Solution Q and MC; LA-SF, its twin and Solution SF are done).**
 1. Dump each column in full.
 2. Read the paper's methods and instrument table. A table needs `pdftotext -layout`, because the default
    mode scrambles table rows.
@@ -3866,3 +3866,26 @@ that match no column of the table. When a number can't be placed in its row, lea
 **The audit detector's blind spots grow with the new commentary.** It read Longerich's "Na" and "Nb"
 (numbers of spectra) as sodium and niobium, and "before each spot" as a per-spot key. Both were
 adjudicated KEEP. Expect such findings after any re-read that adds quoted methods text.
+
+## Solution SF re-read: read a table's column header, not just its numbers (2026-09-30)
+
+`Project Files/Scripts/ssf_keyed_reverify_20260930.py` repeated the pass for Solution SF's six columns. The
+round-trip went from 124 to 245 of 245 stated facts (`Project Files/Reports/SSF_Cells_RoundTrip_2026-09-30/`).
+
+**A number from the right table, in the wrong column.** Misra+2014's dwell time read "50–100 ms". Those are
+Table 3's *samples per peak*; its *sample time* column gives 0.005–0.05 s, per isotope. The same table gives
+5 medium-resolution passes where Table 1 prints 3; both are now recorded, with the disagreement stated. Before
+transcribing from a table, read the header of the column the number sits in. Where two tables disagree,
+record both rather than choosing one.
+
+**What a species does in the procedure decides its field:**
+- Willbold's Ru and Re are added to correct mass fractionation, so they are monitors (`→ none`), not
+  internal standards.
+- Willbold's reference materials are the samples it characterises, and are also its accuracy checks against
+  published values.
+- Lu's Nb is the internal standard for Ti, and Nb's own value comes from the coupled Q-ICP-MS.
+
+**Resolutions are acquisition passes when their settings differ.** Misra's LR and MR, and Willbold's LR and HR
+solutions, each carry their own passes, dwell times and dilution. Recording them as `Acquisition Pass`
+members lets those cells key to them. Earlier the resolution labels had been read as members of other
+fields, so "LR", "MR" and "Applied" appeared as members.

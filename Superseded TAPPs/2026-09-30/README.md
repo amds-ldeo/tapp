@@ -24,8 +24,9 @@ discovery.
 | `LA-Q-ICP-MS_UPb_TAPP_v95` | `v96` | keyed notation, re-read |
 | `LA-SF-ICP-MS_TAPP_v92` | `v93` | keyed notation, re-read |
 | `LA-SF-ICP-MS_UPb_TAPP_v93` | `v94` | keyed notation, re-read |
+| `Solution_SF-ICP-MS_TAPP_v88` | `v89` | keyed notation, re-read |
 
-16 version(s), 32 file(s) (CSV + xlsx).
+17 version(s), 34 file(s) (CSV + xlsx).
 
 ## Why
 
@@ -213,3 +214,35 @@ Applied by `Project Files/Scripts/lasf_keyed_reverify_20260930.py`. Both TAPPs j
   In one, the detector read Longerich's 'Na' and 'Nb' spectrum counts as sodium and niobium. So 0 NEW.
 - No field, tier, data type or key changed.
 
+## Solution SF-ICP-MS v88 → v89: keyed notation, with every cell re-read
+
+The same pass for Solution SF's six columns: Desem+2022, Li+2016, Lu+2007, Milne+2010, Misra+2014 and
+Willbold & Jochum 2005. Changed: 204 cells. There is no U-Pb twin. Substantive changes, per column, are in
+the script's dicts:
+- **Wrong values.** Misra's dwell times: Table 3's samples per peak (50 or 100) had been read as ms, and the
+  sample times are 0.005–0.05 s. Misra's medium-resolution passes: Table 3 gives 5, Table 1 prints 3, and both
+  are now recorded. Milne's Fe detection limit is 0.021 nM, not 0.01; its limits are in Table 5, not
+  Table 4. Desem's internal precision was the MC-ICP-MS's, not the Attom's.
+- **Fabricated or borrowed detail.** Li's BHVO-2 and BCR-2 secondary RMs; the paper uses FER-2 only. Misra's
+  accuracy "against inter-lab consensus values"; the paper compares dilutions of its own consistency
+  standards. Willbold's spike was said to contain Rb, Y, Nb, Cs, the REE and Th; twelve elements are spiked,
+  none of them mono-isotopic. Willbold's Ru and Re were recorded as internal standards; they correct mass
+  fractionation.
+- **Inverted structure.** Misra's `Mass Resolution Assignment` and pulse/analog cells read "LR", "MR" and
+  "Applied" as members. The two resolutions are now `Acquisition Pass` members, as are Willbold's LR and HR
+  solutions.
+- **Stated facts missing.** The isotopes of every column (`Monitored Masses` was `N` or unkeyed). Milne's
+  MoO⁺ regression and blank table. Lu's two-stage Ti-via-Nb calculation. Misra's per-isotope detection modes
+  and its Table 4 long-term precision. Willbold's Dixon test, LOQ, mass-fractionation power law and combined
+  uncertainty.
+
+Applied by `Project Files/Scripts/ssf_keyed_reverify_20260930.py`. Solution SF joins
+`KEYED_NOTATION_ENFORCED`.
+
+**Verification.**
+- Simulated before applying. Every structured cell parses. The round-trip
+  (`Project Files/Reports/SSF_Cells_RoundTrip_2026-09-30/`) recovers **245 of 245 stated facts, 177 as
+  structure**. v88 recovered 124 (51%), 22 of them as structure.
+- After applying: `compose_tapp.py --check` 16 of 16 match; `validate_tapp.py` 0 ERROR, 0 WARN;
+  `audit_keys_vs_literature.py` 0 NEW.
+- No field, tier, data type or key changed.

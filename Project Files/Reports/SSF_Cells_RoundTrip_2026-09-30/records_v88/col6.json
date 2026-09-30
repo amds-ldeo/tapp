@@ -1,0 +1,783 @@
+{
+ "procedure_column": "Willbold2005 | ThermoFinnigan ELEMENT2 | MPI Mainz",
+ "tapp": "Solution_SF-ICP-MS_TAPP_v88",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution SF-ICP-MS",
+   "status": "text",
+   "value": "Solution SF-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Max-Planck-Institut fuer Chemie (MPIC), Mainz, Germany (affiliation)",
+   "status": "text",
+   "value": "Max-Planck-Institut fuer Chemie (MPIC), Mainz, Germany (affiliation)"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Geological reference materials (basalt, andesite, granite, shale, peridotite, NIST glass; stated Table 2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Geological reference materials",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Digestion, with determinations nested inside it -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"Only one digestion was prepared for the USGS reference glasses ... and were measured in triplicate\"",
+   "status": "text",
+   "value": "Digestion, with determinations nested inside it -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"Only one digestion was prepared for the USGS reference glasses ... and were measured in triplicate\""
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Whole-rock powder (~100 mg; stated section on sample preparation)",
+   "status": "text",
+   "value": "Whole-rock powder (~100 mg; stated section on sample preparation)"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "HF (1-2 ml, 24 mol/l) + HNO3 (0.2 ml, 14 mol/l), with 0.5 ml HF added mid-run for the refractory route; then HNO3 (14 mol/l) twice to remove insoluble fluorides; then HCl (6 mol/l) to form chlorides. Final uptake in 5 ml HNO3 (7 mol/l).",
+   "status": "unparsed",
+   "value": []
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "15 ml Savillex PFA beakers (non-refractory, hotplate); Parr bombs (refractory minerals; stated sample prep section)",
+   "status": "text",
+   "value": "15 ml Savillex PFA beakers (non-refractory, hotplate); Parr bombs (refractory minerals; stated sample prep section)"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "1: 1-2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l) -- non-refractory samples on a hotplate, 12 h at 130 deg C in closed Savillex PFA vials; refractory samples (e.g. granites, zircon-bearing) stirred 7 days at 180 deg C in Parr bombs, the bombs opened after 3 days and refilled with 0.5 ml HF | 2: evaporation to incipient dryness at ~80 deg C, re-dissolution in a few drops of HNO3 (14 mol/l) and evaporation again, repeated twice to remove insoluble fluorides | 3: 2 ml HCl (6 mol/l), heated at 80 deg C, then evaporated at 50 deg C to form chlorides. The 5 ml HNO3 (7 mol/l) is the final uptake, not a step.",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "1: 1-2 ml HF (24 mol/l) + 0.2 ml HNO3 (14 mol/l) -- non-refractory samples on a hotplate",
+     "parent": null
+    },
+    {
+     "member": "12 h at 130 deg C in closed Savillex PFA vials",
+     "parent": null
+    },
+    {
+     "member": "refractory samples (e.g. granites, zircon-bearing) stirred 7 days at 180 deg C in Parr bombs",
+     "parent": null
+    },
+    {
+     "member": "the bombs opened after 3 days and refilled with 0.5 ml HF | 2: evaporation to incipient dryness at ~80 deg C",
+     "parent": null
+    },
+    {
+     "member": "re-dissolution in a few drops of HNO3 (14 mol/l) and evaporation again",
+     "parent": null
+    },
+    {
+     "member": "repeated twice to remove insoluble fluorides | 3: 2 ml HCl",
+     "parent": null
+    },
+    {
+     "member": "heated at 80 deg C",
+     "parent": null
+    },
+    {
+     "member": "then evaporated at 50 deg C to form chlorides. The 5 ml HNO3 (7 mol/l) is the final uptake",
+     "parent": null
+    },
+    {
+     "member": "not a step.",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "130 deg C (hotplate, non-refractory); 180 deg C (Parr bomb, refractory; stated sample prep section)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "12 h (non-refractory, hotplate); 7 days (refractory, Parr bomb; stated sample prep section)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "0.4 mol/l HNO3 (dilution factor ~21000 for LR, ~1000 for HR; stated sample prep section)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "~100 mg (stated sample prep section)",
+   "status": "text",
+   "value": "~100 mg (stated sample prep section)"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "None (direct analysis; stated section on instrumentation)",
+   "status": "text",
+   "value": "None (direct analysis; stated section on instrumentation)"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "Multi-element spike (MES; enriched isotopes of Rb, Sr, Y, Zr, Nb, Cs, Ba, REE, Hf, Pb, Th, U; stated section on instrumentation)",
+   "status": "text",
+   "value": "Multi-element spike (MES; enriched isotopes of Rb, Sr, Y, Zr, Nb, Cs, Ba, REE, Hf, Pb, Th, U; stated section on instrumentation)"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific -- \"a ThermoFinnigan ELEMENT2 mass spectrometer\"",
+   "status": "text",
+   "value": "Thermo Fisher Scientific -- \"a ThermoFinnigan ELEMENT2 mass spectrometer\""
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "ThermoFinnigan ELEMENT2 (stated section on instrumentation)",
+   "status": "text",
+   "value": "ThermoFinnigan ELEMENT2 (stated section on instrumentation)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Single-collector sector-field (SF-ICP-MS)",
+   "status": "text",
+   "value": "Single-collector sector-field (SF-ICP-MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "1.0 mm Ni sampler + 0.5 mm Ni skimmer (Table 3)",
+   "status": "text",
+   "value": "1.0 mm Ni sampler + 0.5 mm Ni skimmer (Table 3)"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "Ni sampler and Ni skimmer (Table 3)",
+   "status": "text",
+   "value": "Ni sampler and Ni skimmer (Table 3)"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "LR (M/Delta-m = 300) and HR (M/Delta-m = 11000; stated section on instrumentation)",
+   "status": "text",
+   "value": "LR (M/Delta-m = 300) and HR (M/Delta-m = 11000; stated section on instrumentation)"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "ESI microconcentric Teflon nebulizer (stated section on instrumentation)",
+   "status": "text",
+   "value": "ESI microconcentric Teflon nebulizer (stated section on instrumentation)"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "ESI Teflon spray chamber (stated section on instrumentation)",
+   "status": "text",
+   "value": "ESI Teflon spray chamber (stated section on instrumentation)"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "None",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "~100 uL/min (Table 3)",
+   "status": "text",
+   "value": "~100 uL/min (Table 3)"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous) -- \"The ELEMENT2 was equipped with an ESI microconcentric Teflon nebuliser (flow rate ca. 100 ul min-1) and an ESI Teflon spray chamber\"; \"Sample uptake rate ca. 100 ul min-1\"",
+   "status": "text",
+   "value": "Solution nebulisation (continuous) -- \"The ELEMENT2 was equipped with an ESI microconcentric Teflon nebuliser (flow rate ca. 100 ul min-1) and an ESI Teflon spray chamber\"; \"Sample uptake rate ca. 100 ul min-1\""
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1235 W (Table 3)",
+   "status": "text",
+   "value": "1235 W (Table 3)"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "15 L/min (Table 3)",
+   "status": "text",
+   "value": "15 L/min (Table 3)"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "0.9 L/min (Table 3)",
+   "status": "text",
+   "value": "0.9 L/min (Table 3)"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "1.0 L/min (sample gas; Table 3)",
+   "status": "text",
+   "value": "1.0 L/min (sample gas; Table 3)"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "Normal plasma (1235 W; Table 3)",
+   "status": "unparsed",
+   "value": []
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "26 trace elements: Rb, Sr, Y, Zr, Nb, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, Pb, Th, U (stated Table 2)",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "26 trace elements: Rb",
+     "parent": null
+    },
+    {
+     "member": "Sr",
+     "parent": null
+    },
+    {
+     "member": "Y",
+     "parent": null
+    },
+    {
+     "member": "Zr",
+     "parent": null
+    },
+    {
+     "member": "Nb",
+     "parent": null
+    },
+    {
+     "member": "Cs",
+     "parent": null
+    },
+    {
+     "member": "Ba",
+     "parent": null
+    },
+    {
+     "member": "La",
+     "parent": null
+    },
+    {
+     "member": "Ce",
+     "parent": null
+    },
+    {
+     "member": "Pr",
+     "parent": null
+    },
+    {
+     "member": "Nd",
+     "parent": null
+    },
+    {
+     "member": "Sm",
+     "parent": null
+    },
+    {
+     "member": "Eu",
+     "parent": null
+    },
+    {
+     "member": "Gd",
+     "parent": null
+    },
+    {
+     "member": "Tb",
+     "parent": null
+    },
+    {
+     "member": "Dy",
+     "parent": null
+    },
+    {
+     "member": "Ho",
+     "parent": null
+    },
+    {
+     "member": "Er",
+     "parent": null
+    },
+    {
+     "member": "Tm",
+     "parent": null
+    },
+    {
+     "member": "Yb",
+     "parent": null
+    },
+    {
+     "member": "Lu",
+     "parent": null
+    },
+    {
+     "member": "Hf",
+     "parent": null
+    },
+    {
+     "member": "Ta",
+     "parent": null
+    },
+    {
+     "member": "Pb",
+     "parent": null
+    },
+    {
+     "member": "Th",
+     "parent": null
+    },
+    {
+     "member": "U",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Trace element mass fractions in ug g-1 -- Eqs (1) and (2) both return \"ug g-1\"; limits of detection as rock equivalents in ng g-1",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "Trace element mass fractions in ug g-1 -- Eqs (1) and (2) both return \"ug g-1\"",
+     "parent": null
+    },
+    {
+     "member": "limits of detection as rock equivalents in ng g-1",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "N (Table 2 lists elements without specific mass numbers)",
+   "status": "not stated"
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "LR (M/Delta-m = 300): Rb, Sr, Y, Zr, Nb, Cs, Ba, La-Nd, Hf, Ta, Pb, Th, U; HR (M/Delta-m = 11000): Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (stated section on instrumentation)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "LR (M/Delta-m = 300)"
+     ],
+     "value": "Rb, Sr, Y, Zr, Nb, Cs, Ba, La-Nd, Hf, Ta, Pb, Th, U"
+    },
+    {
+     "members": [
+      "HR (M/Delta-m = 11000)"
+     ],
+     "value": "Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (stated section on instrumentation)"
+    }
+   ]
+  },
+  "E-scan Range": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Triple Scanning Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "100 ms per mass (Table 3)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Number of Scans per Replicate": {
+   "key": "acquisition pass",
+   "cell": "70-120 scans per analysis (stated section on instrumentation)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "Ru and Re (in-run mass fractionation correction; ~6 uL Ru-Re solution per dilution; stated section on instrumentation)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Drift Correction Method": {
+   "key": "(none)",
+   "cell": "N (in-run Ru-Re ratio used for mass fractionation; not standard bracketing)",
+   "status": "not stated"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "ID for 12 elements; RSF calibration for 14 elements (stated section on instrumentation)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "IUPAC isotope dilution equations for 12 elements; RSF ratio calibration for 14 elements (stated section on instrumentation)",
+   "status": "text",
+   "value": "IUPAC isotope dilution equations for 12 elements; RSF ratio calibration for 14 elements (stated section on instrumentation)"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "RSD for repeatability of triplicate determinations; \"confidence intervals (1s)\"; the method result is quoted as a \"combined standard uncertainty\"",
+   "status": "text",
+   "value": "RSD for repeatability of triplicate determinations; \"confidence intervals (1s)\"; the method result is quoted as a \"combined standard uncertainty\""
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "Relative sensitivity factors (RSF) appear explicitly in Eq. (2) for mono-isotopic elements; in-run mass-fractionation factors fitted with a power law MF = a x b^(m-c) + d, \"Typical values are a: 0.08 to 0.23, b: 0.96 to 0.98, c: -10 to 10 and d: -0.005 to 0.005\"; spike concentrations \"calibrated by applying a reverse ID against certified standard solutions (Alfa Aesar, specpure) using TIMS, MC-ICP-MS and SF-ICP-MS\", and \"The uncertainty of spike concentrations has been estimated to 0.5-1% RSD\"",
+   "status": "unparsed",
+   "value": []
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially, and the most complete of the six -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"the results of three to four independent analyses of sixteen other RMs\"; \"Only one digestion was prepared for the USGS reference glasses BCR-2G, BHVO-2G and BIR-1G, and NIST SRM 612 respectively and were measured in triplicate\". No acceptance or rejection rule stated",
+   "status": "text",
+   "value": "Partially, and the most complete of the six -- \"Five independent analyses (different spikings/digestions) of BHVO-1 were carried out over a time period of 4 months. Triplicate determinations were performed for each digestion\"; \"the results of three to four independent analyses of sixteen other RMs\"; \"Only one digestion was prepared for the USGS reference glasses BCR-2G, BHVO-2G and BIR-1G, and NIST SRM 612 respectively and were measured in triplicate\". No acceptance or rejection rule stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: mean of triplicate determinations per digestion; mean over the independent analyses of each reference material — 'the mean values of the triplicate determinations and their RSDs' (Table 4); 'the mean value and RSD' of the other RMs (Table 5)",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "mean of triplicate determinations per digestion"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "Relative atomic masses M_El and M_S \"(Loss 2003)\"; \"the known natural isotopic abundances of the isotopes i and k in the sample (Rosman and Taylor 1998)\", stated to be adequately known (\"uncertainty < 0.2%\"); in-run mass fractionation determined \"by comparing determined 47Ti/49Ti, 99Ru/101Ru (in LR mode), 151Eu/153Eu (in HR mode) and 185Re/187Re ratios with known values (Rosman and Taylor 1998)\". For Pb the paper compares two reference choices -- \"average Pb isotope abundances (Rosman and Taylor 1998)\" versus the BHVO-1 TIMS composition of \"Woodhead and Hergt 2000\" -- and quantifies the consequence: \"The difference between both approaches is 0.4% (concentration of Pb: 2.13 ug g-1 versus 2.14 ug g-1)\"",
+   "status": "text",
+   "value": "Relative atomic masses M_El and M_S \"(Loss 2003)\"; \"the known natural isotopic abundances of the isotopes i and k in the sample (Rosman and Taylor 1998)\", stated to be adequately known (\"uncertainty < 0.2%\"); in-run mass fractionation determined \"by comparing determined 47Ti/49Ti, 99Ru/101Ru (in LR mode), 151Eu/153Eu (in HR mode) and 185Re/187Re ratios with known values (Rosman and Taylor 1998)\". For Pb the paper compares two reference choices -- \"average Pb isotope abundances (Rosman and Taylor 1998)\" versus the BHVO-1 TIMS composition of \"Woodhead and Hergt 2000\" -- and quantifies the consequence: \"The difference between both approaches is 0.4% (concentration of Pb: 2.13 ug g-1 versus 2.14 ug g-1)\""
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "N (multi-element spike solution for ID; RSF standard solutions for non-ID elements; not formally named)",
+   "status": "not stated"
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "AGV-1, AGV-2, BCR-1, BCR-2, BHVO-1, BHVO-2, G-2, JR-1, KL2-G, ML3B-G, NIST SRM 612, BIR-1, OU-6, BCR-2G, BHVO-2G, BIR-1G, PCC-1 (stated Table 5)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "AGV-1",
+     "parent": null
+    },
+    {
+     "member": "AGV-2",
+     "parent": null
+    },
+    {
+     "member": "BCR-1",
+     "parent": null
+    },
+    {
+     "member": "BCR-2",
+     "parent": null
+    },
+    {
+     "member": "BHVO-1",
+     "parent": null
+    },
+    {
+     "member": "BHVO-2",
+     "parent": null
+    },
+    {
+     "member": "G-2",
+     "parent": null
+    },
+    {
+     "member": "JR-1",
+     "parent": null
+    },
+    {
+     "member": "KL2-G",
+     "parent": null
+    },
+    {
+     "member": "ML3B-G",
+     "parent": null
+    },
+    {
+     "member": "NIST SRM 612",
+     "parent": null
+    },
+    {
+     "member": "BIR-1",
+     "parent": null
+    },
+    {
+     "member": "OU-6",
+     "parent": null
+    },
+    {
+     "member": "BCR-2G",
+     "parent": null
+    },
+    {
+     "member": "BHVO-2G",
+     "parent": null
+    },
+    {
+     "member": "BIR-1G",
+     "parent": null
+    },
+    {
+     "member": "PCC-1",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "%RSD of repeated RM analyses within session (stated Table 5)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "% recovery relative to published consensus values for geological RMs (stated Table 5)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Magnetic jump + electric scan mode: each peak monitored by E-scan for 100 ms dwell; 15 samples per peak; in-run Ru-Re for mass fractionation correction; DF ~21000 (LR) or ~1000 (HR) in 0.4 mol/l HNO3; stated section on instrumentation",
+   "status": "text",
+   "value": "Magnetic jump + electric scan mode: each peak monitored by E-scan for 100 ms dwell; 15 samples per peak; in-run Ru-Re for mass fractionation correction; DF ~21000 (LR) or ~1000 (HR) in 0.4 mol/l HNO3; stated section on instrumentation"
+  }
+ }
+}

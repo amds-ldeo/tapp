@@ -1,0 +1,624 @@
+{
+ "procedure_column": "Lu+etal2007 | Finnigan ELEMENT | PML Okayama",
+ "tapp": "Solution_SF-ICP-MS_TAPP_v88",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution SF-ICP-MS",
+   "status": "text",
+   "value": "Solution SF-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Pheasant Memorial Laboratory (PML), Okayama University (section 2.1.2)",
+   "status": "text",
+   "value": "Pheasant Memorial Laboratory (PML), Okayama University (section 2.1.2)"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "Agilent 7500cs Q-ICP-MS at PML (B, Zr, Nb, Mo, Sn, Sb, Hf, Ta on same samples; stated section 2.1.1)",
+   "status": "text",
+   "value": "Agilent 7500cs Q-ICP-MS at PML (B, Zr, Nb, Mo, Sn, Sb, Hf, Ta on same samples; stated section 2.1.1)"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "SF-ICP-MS (ELEMENT) measured Ti (47Ti, 49Ti) by ID; Q-ICP-MS (7500cs) measured all other elements; both on same digested solutions; stated section 2.1",
+   "status": "text",
+   "value": "SF-ICP-MS (ELEMENT) measured Ti (47Ti, 49Ti) by ID; Q-ICP-MS (7500cs) measured all other elements; both on same digested solutions; stated section 2.1"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Geological reference materials and carbonaceous chondrites (basalt, andesite, peridotite, chondrites; stated section 2.5)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Geological reference materials and carbonaceous chondrites",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites\"; 9-18 mg for carbonaceous chondrites",
+   "status": "text",
+   "value": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites\"; 9-18 mg for carbonaceous chondrites"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)",
+   "status": "text",
+   "value": "Whole-rock powder (decomposed in TFM bomb; same as Q-ICP-MS portion; stated section 2.1.1)"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "0.5 mol/l HF (same as Q-ICP-MS portion; stated section 2.1.1)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "TFM bomb (TFM-981; stated section 2.1.1)",
+   "status": "text",
+   "value": "TFM bomb (TFM-981; stated section 2.1.1)"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "1: HF decomposition, by the bomb method or the ultrasonic method depending on the material | 2: evaporation then re-dissolution in 0.5 mol/l HF, fluorides removed by centrifuging.",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "1: HF decomposition",
+     "parent": null
+    },
+    {
+     "member": "by the bomb method or the ultrasonic method depending on the material | 2: evaporation then re-dissolution in 0.5 mol/l HF",
+     "parent": null
+    },
+    {
+     "member": "fluorides removed by centrifuging.",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "N (HF-based; same as Q-ICP-MS; stated section 2.1.1)",
+   "status": "not stated"
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.2)",
+   "status": "text",
+   "value": "None (direct analysis of 0.5 mol/l HF solution; stated section 2.1.2)"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N (Ti measured by ID; spike isotope not stated; stated section 2.1.2)",
+   "status": "not stated"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific -- \"(b) ICP-SFMS, Finnigan ELEMENT\"; stated as \"Finnigan ELEMENT\", the pre-Thermo brand name",
+   "status": "text",
+   "value": "Thermo Fisher Scientific -- \"(b) ICP-SFMS, Finnigan ELEMENT\"; stated as \"Finnigan ELEMENT\", the pre-Thermo brand name"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Finnigan ELEMENT sector-field ICP-MS (stated section 2.1.2)",
+   "status": "text",
+   "value": "Finnigan ELEMENT sector-field ICP-MS (stated section 2.1.2)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Single-collector sector-field (SF-ICP-MS)",
+   "status": "text",
+   "value": "Single-collector sector-field (SF-ICP-MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "Quartz glass torch with sapphire injector (stated Table in section 2.1.2)",
+   "status": "text",
+   "value": "Quartz glass torch with sapphire injector (stated Table in section 2.1.2)"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "1 mm Ni sampler + 0.8 mm Ni skimmer (stated Table in section 2.1.2)",
+   "status": "text",
+   "value": "1 mm Ni sampler + 0.8 mm Ni skimmer (stated Table in section 2.1.2)"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "Ni sampler and Ni skimmer (stated Table in section 2.1.2)",
+   "status": "text",
+   "value": "Ni sampler and Ni skimmer (stated Table in section 2.1.2)"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "MR (M/Delta-m = 3000; stated section 2.1.2)",
+   "status": "text",
+   "value": "MR (M/Delta-m = 3000; stated section 2.1.2)"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "Single SEM, pulse counting (stated section 2.1.2)",
+   "status": "text",
+   "value": "Single SEM, pulse counting (stated section 2.1.2)"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "Micro-flow PFA nebulizer PFA-20 (ESI, USA); self-aspiration (stated Table in section 2.1.2)",
+   "status": "text",
+   "value": "Micro-flow PFA nebulizer PFA-20 (ESI, USA); self-aspiration (stated Table in section 2.1.2)"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "Scott double-pass, uncooled, Teflon (stated Table in section 2.1.2)",
+   "status": "text",
+   "value": "Scott double-pass, uncooled, Teflon (stated Table in section 2.1.2)"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "None",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "Self-aspiration; uptake time 60 s (stated section 2.1.2); volumetric flow rate N",
+   "status": "text",
+   "value": "Self-aspiration; uptake time 60 s (stated section 2.1.2); volumetric flow rate N"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous) -- stated in the acquisition parameters: \"Middle resolution 50 s with 30 scans (continuous nebulization)\"",
+   "status": "text",
+   "value": "Solution nebulisation (continuous) -- stated in the acquisition parameters: \"Middle resolution 50 s with 30 scans (continuous nebulization)\""
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1.1 kW (stated Table in section 2.1.2)",
+   "status": "text",
+   "value": "1.1 kW (stated Table in section 2.1.2)"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "14 L/min (stated Table in section 2.1.2)",
+   "status": "text",
+   "value": "14 L/min (stated Table in section 2.1.2)"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "1.2 L/min (stated Table in section 2.1.2)",
+   "status": "text",
+   "value": "1.2 L/min (stated Table in section 2.1.2)"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "0.90 L/min (stated Table in section 2.1.2)",
+   "status": "text",
+   "value": "0.90 L/min (stated Table in section 2.1.2)"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "Normal plasma (1.1 kW; stated section 2.1.2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "Partially -- an oxide acceptance criterion is registered in the operating conditions, \"Oxide forming rate <1% (CeO+/Ce+)\"; no tuning solution or tuning procedure stated",
+   "status": "text",
+   "value": "Partially -- an oxide acceptance criterion is registered in the operating conditions, \"Oxide forming rate <1% (CeO+/Ce+)\"; no tuning solution or tuning procedure stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Ti (47Ti, 49Ti) with Nb (93Nb) as ID-IS; stated section 2.1.2",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Ti (47Ti, 49Ti) with Nb (93Nb) as ID-IS",
+     "parent": null
+    },
+    {
+     "member": "stated section 2.1.2",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Ti and Nb mass fractions by ICP-SFMS (ug g-1); TiO2 also reported; detection limits in solution (ng g-1) and in rock (ug g-1) [Table 2b]",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "Ti and Nb mass fractions by ICP-SFMS",
+     "parent": null
+    },
+    {
+     "member": "TiO2 also reported",
+     "parent": null
+    },
+    {
+     "member": "detection limits in solution (ng g-1) and in rock (ug g-1) [Table 2b]",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "47Ti, 49Ti, 93Nb (stated section 2.1.2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "47Ti",
+     "parent": null
+    },
+    {
+     "member": "49Ti",
+     "parent": null
+    },
+    {
+     "member": "93Nb",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "MR (M/Delta-m = 3000) for all analytes: 47Ti, 49Ti, 93Nb (stated section 2.1.2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "MR (M/Delta-m = 3000) for all analytes"
+     ],
+     "value": "47Ti, 49Ti, 93Nb (stated section 2.1.2)"
+    }
+   ]
+  },
+  "E-scan Range": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Triple Scanning Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "47Ti/49Ti: 0.18 s per 1 s cycle; 30 scans in 50 s continuous nebulization (Table 2b and section 2.1.2)",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "47Ti/49Ti"
+     ],
+     "value": "0.18 s per 1 s cycle"
+    }
+   ]
+  },
+  "Number of Scans per Replicate": {
+   "key": "acquisition pass",
+   "cell": "30 scans in 50 s (stated section 2.1.2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "Standard solution measured every two samples; background measured before each sample (stated section 2.1.2)",
+   "status": "text",
+   "value": "Standard solution measured every two samples; background measured before each sample (stated section 2.1.2)"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "~200 s (background measured after 200 s wash before each sample; stated section 2.1.2)",
+   "status": "text",
+   "value": "~200 s (background measured after 200 s wash before each sample; stated section 2.1.2)"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "Nb (93Nb as ID internal standard for Ti; stated section 2.1.2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "CeO+/Ce+ < 1% (stated section 2.1.2)",
+   "status": "text",
+   "value": "CeO+/Ce+ < 1% (stated section 2.1.2)"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Drift Correction Method": {
+   "key": "(none)",
+   "cell": "Standard bracketing (standard every two samples; stated section 2.1.2)",
+   "status": "text",
+   "value": "Standard bracketing (standard every two samples; stated section 2.1.2)"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "Isotope dilution with Nb as ID internal standard for Ti (stated section 2.1.2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "On-peak background measured before each sample after 200 s HF wash (stated section 2.1.2)",
+   "status": "text",
+   "value": "On-peak background measured before each sample after 200 s HF wash (stated section 2.1.2)"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "IUPAC isotope dilution equations with Nb as ID internal standard for Ti (stated section 2.1.2)",
+   "status": "text",
+   "value": "IUPAC isotope dilution equations with Nb as ID internal standard for Ti (stated section 2.1.2)"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "200 s wash with 0.5 mol/l HF before each sample (stated section 2.1.2)",
+   "status": "text",
+   "value": "200 s wash with 0.5 mol/l HF before each sample (stated section 2.1.2)"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "RSD% with observed ranges in parentheses",
+   "status": "text",
+   "value": "RSD% with observed ranges in parentheses"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "Recovery-yield factors \"determined by the calibration curve and the ID methods\"; \"The Ti yield was determined from the TTi/Nb ratio by ICP-SFMS\"; \"Errors in the yield determination are estimated to be ~7%\"",
+   "status": "unparsed",
+   "value": []
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively ... analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated",
+   "status": "text",
+   "value": "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively ... analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average of repeat runs per sample — 'Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively ... analytical results for each run are shown in the table' alongside the averages",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average of repeat runs per sample"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "Partially -- the ID equation is built on spike and natural isotope ratios, and the mixed standard solution is referenced to the B isotope ratio standard of Makishima et al. (1997). No constant values or their sources are tabulated",
+   "status": "text",
+   "value": "Partially -- the ID equation is built on spike and natural isotope ratios, and the mixed standard solution is referenced to the B isotope ratio standard of Makishima et al. (1997). No constant values or their sources are tabulated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "N (multi-element standard solution measured every two samples; stated section 2.1.2)",
+   "status": "not stated"
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "Every two samples (stated section 2.1.2)",
+   "status": "text",
+   "value": "Every two samples (stated section 2.1.2)"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "USGS and GSJ geological RMs and carbonaceous chondrites (stated section 2.5)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "USGS and GSJ geological RMs and carbonaceous chondrites",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "% recovery relative to certified/consensus values for USGS/GSJ RMs and chondrites (stated section 3)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Continuous nebulization (not pFI) for SF-ICP-MS; background measured before each sample after HF wash; sapphire injector used (HF-resistant); 60 s uptake stabilization; stated section 2.1.2",
+   "status": "text",
+   "value": "Continuous nebulization (not pFI) for SF-ICP-MS; background measured before each sample after HF wash; sapphire injector used (HF-resistant); 60 s uptake stabilization; stated section 2.1.2"
+  }
+ }
+}

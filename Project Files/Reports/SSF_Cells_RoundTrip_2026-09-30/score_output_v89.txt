@@ -1,0 +1,21 @@
+STAGE 1 — procedure-level cells of 6 columns (Solution_SF-ICP-MS_TAPP_v89.csv): 582
+  not stated           224   38%
+  text                 186   32%
+  structured           127   22%
+  commentary only       20    3%
+  not applicable        17    3%
+  not assessed           8    1%
+
+STAGE 2 — 245 stated facts, recovered as:
+  structured                        177   72%
+  text                               68   28%
+
+per procedure (structured + text / facts):
+  col1                  25 /  25  100%   
+  col2                  52 /  52  100%   
+  col3                  26 /  26  100%   
+  col4                  33 /  33  100%   
+  col5                  36 /  36  100%   
+  col6                  73 /  73  100%   
+
+facts not recovered as structure or text:

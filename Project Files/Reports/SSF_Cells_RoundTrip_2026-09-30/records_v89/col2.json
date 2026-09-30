@@ -1,0 +1,1113 @@
+{
+ "procedure_column": "Li+etal2016 | Thermo Element I | IGGCAS Beijing",
+ "tapp": "Solution_SF-ICP-MS_TAPP_v89",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution SF-ICP-MS",
+   "status": "text",
+   "value": "Solution SF-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing (affiliation)",
+   "status": "text",
+   "value": "Institute of Geology and Geophysics, Chinese Academy of Sciences (IGGCAS), Beijing (affiliation)"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "magnetite; pyrite — mineral separates from alternating magnetite-rich and pyrite-rich mesobands, Wutai greenstone belt; FER-2 is the reference material",
+   "status": "structured",
+   "value": [
+    {
+     "member": "magnetite",
+     "parent": null
+    },
+    {
+     "member": "pyrite",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Aliquot of the digest solution -- 50 mg FER-2 and \"approximately 100 mg of the studied mineral samples\" digested; \"a small aliquot sample solution was taken for column separation\", \"7.2 mg Fe in 10% aliquot of magnetite solution\"; \"A 1.8 g sample solution (in 2 g of 10 M HCl) was weighed and loaded\"",
+   "status": "text",
+   "value": "Aliquot of the digest solution -- 50 mg FER-2 and \"approximately 100 mg of the studied mineral samples\" digested; \"a small aliquot sample solution was taken for column separation\", \"7.2 mg Fe in 10% aliquot of magnetite solution\"; \"A 1.8 g sample solution (in 2 g of 10 M HCl) was weighed and loaded\""
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Mineral separates (~100 mg powder; stated section 2.3)",
+   "status": "text",
+   "value": "Mineral separates (~100 mg powder; stated section 2.3)"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "HCl-HNO3 attack: 6 M HCl + 8 M HNO3; re-dissolution: 10 M HCl — §2.3.1",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "HCl-HNO3 attack"
+     ],
+     "value": "6 M HCl + 8 M HNO3"
+    },
+    {
+     "members": [
+      "re-dissolution"
+     ],
+     "value": "10 M HCl"
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "15 mL Teflon capsule (stated section 2.3)",
+   "status": "text",
+   "value": "15 mL Teflon capsule (stated section 2.3)"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "HCl-HNO3 attack (1.5 ml 6 M HCl + 0.5 ml 8 M HNO3, 130 °C, 48 h); re-dissolution (evaporated at 130 °C close to dryness, then 1.5 ml 10 M HCl) — §2.3.1, for magnetite and pyrite; FER-2 took 1 ml 28 M HF + 1 ml 8 M HNO3 at 130 °C for at least 48 h, then 1.5 ml 10 M HCl for 24 h",
+   "status": "structured",
+   "value": [
+    {
+     "member": "HCl-HNO3 attack",
+     "parent": null
+    },
+    {
+     "member": "re-dissolution",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "HCl-HNO3 attack: 130 °C; re-dissolution: 130 °C (evaporation) — §2.3.1",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "HCl-HNO3 attack"
+     ],
+     "value": "130 °C"
+    },
+    {
+     "members": [
+      "re-dissolution"
+     ],
+     "value": "130 °C (evaporation)"
+    }
+   ]
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "HCl-HNO3 attack: 48 h; re-dissolution: N — §2.3.1",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "HCl-HNO3 attack"
+     ],
+     "value": "48 h"
+    },
+    {
+     "members": [
+      "re-dissolution"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "all: 2% HNO3 containing 5 ng/mL Rh — §2.3.2",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "2% HNO3 containing 5 ng/mL Rh"
+    }
+   ]
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "~100 mg mineral powder (stated section 2.3)",
+   "status": "text",
+   "value": "~100 mg mineral powder (stated section 2.3)"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "AG1-X8 anion exchange resin + TRUspec resin (stated section 2.3.2)",
+   "status": "text",
+   "value": "AG1-X8 anion exchange resin + TRUspec resin (stated section 2.3.2)"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "None (external calibration used; stated section 2.3)",
+   "status": "text",
+   "value": "None (external calibration used; stated section 2.3)"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific -- \"An Inductively Coupled Sector Plasma Mass Spectrometer (Element I, ThermoFisher, USA)\"",
+   "status": "text",
+   "value": "Thermo Fisher Scientific -- \"An Inductively Coupled Sector Plasma Mass Spectrometer (Element I, ThermoFisher, USA)\""
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Element I HR-ICP-MS (stated Table 1)",
+   "status": "text",
+   "value": "Thermo Fisher Element I HR-ICP-MS (stated Table 1)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Single-collector sector-field (SF-ICP-MS)",
+   "status": "text",
+   "value": "Single-collector sector-field (SF-ICP-MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "1.1 mm Ni sampler + 0.8 mm Ni skimmer (Table 1)",
+   "status": "text",
+   "value": "1.1 mm Ni sampler + 0.8 mm Ni skimmer (Table 1)"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "Ni sampler and Ni skimmer (Table 1)",
+   "status": "text",
+   "value": "Ni sampler and Ni skimmer (Table 1)"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "Counting — Table 1 'Detection mode'",
+   "status": "text",
+   "value": "Counting"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "200 uL/min (Table 1)",
+   "status": "text",
+   "value": "200 uL/min (Table 1)"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous) -- \"Sample uptake rate 200 uL min-1\"; \"The components of the sample introduction system: nebulizer, spray chamber, torch, and the cones\" [sec 2.1]",
+   "status": "text",
+   "value": "Solution nebulisation (continuous) -- \"Sample uptake rate 200 uL min-1\"; \"The components of the sample introduction system: nebulizer, spray chamber, torch, and the cones\" [sec 2.1]"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1300 W (Table 1)",
+   "status": "text",
+   "value": "1300 W (Table 1)"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "14.6 L/min (Table 1)",
+   "status": "text",
+   "value": "14.6 L/min (Table 1)"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "0.96 L/min (Table 1)",
+   "status": "text",
+   "value": "0.96 L/min (Table 1)"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "0.90 L/min (sampling gas; Table 1)",
+   "status": "text",
+   "value": "0.90 L/min (sampling gas; Table 1)"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N — RF power 1300 W (Table 1)",
+   "status": "commentary only"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "\"The instrument was tuned using a 5 ng mL-1 solution containing Be, Rh and U in order to maximize the sensitivity covering the low-mid-high mass range. MO+/M+ ratios measured for Ce under the routine experiment conditions maintained at less than 2 permil\"",
+   "status": "text",
+   "value": "\"The instrument was tuned using a 5 ng mL-1 solution containing Be, Rh and U in order to maximize the sensitivity covering the low-mid-high mass range. MO+/M+ ratios measured for Ce under the routine experiment conditions maintained at less than 2 permil\""
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Li, Be, Sc, Cr, Co, Ni, Cu, Zn, Ge, Rb, Sr, Y, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu — the 28 trace elements of Tables 2 and 3",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Li",
+     "parent": null
+    },
+    {
+     "member": "Be",
+     "parent": null
+    },
+    {
+     "member": "Sc",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    },
+    {
+     "member": "Ge",
+     "parent": null
+    },
+    {
+     "member": "Rb",
+     "parent": null
+    },
+    {
+     "member": "Sr",
+     "parent": null
+    },
+    {
+     "member": "Y",
+     "parent": null
+    },
+    {
+     "member": "Cs",
+     "parent": null
+    },
+    {
+     "member": "Ba",
+     "parent": null
+    },
+    {
+     "member": "La",
+     "parent": null
+    },
+    {
+     "member": "Ce",
+     "parent": null
+    },
+    {
+     "member": "Pr",
+     "parent": null
+    },
+    {
+     "member": "Nd",
+     "parent": null
+    },
+    {
+     "member": "Sm",
+     "parent": null
+    },
+    {
+     "member": "Eu",
+     "parent": null
+    },
+    {
+     "member": "Gd",
+     "parent": null
+    },
+    {
+     "member": "Tb",
+     "parent": null
+    },
+    {
+     "member": "Dy",
+     "parent": null
+    },
+    {
+     "member": "Ho",
+     "parent": null
+    },
+    {
+     "member": "Er",
+     "parent": null
+    },
+    {
+     "member": "Tm",
+     "parent": null
+    },
+    {
+     "member": "Yb",
+     "parent": null
+    },
+    {
+     "member": "Lu",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Li, Be, Sc, Cr, Co, Ni, Cu, Zn, Ge, Rb, Sr, Y, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu (µg/g) — Table 3 (FER-2) in µg g⁻¹; the unit of Table 4 (samples) is not stated in its header",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Li",
+     "parent": null
+    },
+    {
+     "member": "Be",
+     "parent": null
+    },
+    {
+     "member": "Sc",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    },
+    {
+     "member": "Ge",
+     "parent": null
+    },
+    {
+     "member": "Rb",
+     "parent": null
+    },
+    {
+     "member": "Sr",
+     "parent": null
+    },
+    {
+     "member": "Y",
+     "parent": null
+    },
+    {
+     "member": "Cs",
+     "parent": null
+    },
+    {
+     "member": "Ba",
+     "parent": null
+    },
+    {
+     "member": "La",
+     "parent": null
+    },
+    {
+     "member": "Ce",
+     "parent": null
+    },
+    {
+     "member": "Pr",
+     "parent": null
+    },
+    {
+     "member": "Nd",
+     "parent": null
+    },
+    {
+     "member": "Sm",
+     "parent": null
+    },
+    {
+     "member": "Eu",
+     "parent": null
+    },
+    {
+     "member": "Gd",
+     "parent": null
+    },
+    {
+     "member": "Tb",
+     "parent": null
+    },
+    {
+     "member": "Dy",
+     "parent": null
+    },
+    {
+     "member": "Ho",
+     "parent": null
+    },
+    {
+     "member": "Er",
+     "parent": null
+    },
+    {
+     "member": "Tm",
+     "parent": null
+    },
+    {
+     "member": "Yb",
+     "parent": null
+    },
+    {
+     "member": "Lu",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "7Li → Li; 9Be → Be; 45Sc → Sc; 52Cr → Cr; 59Co → Co; 60Ni → Ni; 63Cu → Cu; 66Zn → Zn; 72Ge → Ge; 85Rb → Rb; 88Sr → Sr; 89Y → Y; 133Cs → Cs; 138Ba → Ba; 139La → La; 140Ce → Ce; 141Pr → Pr; 143Nd → Nd; 147Sm → Sm; 153Eu → Eu; 157Gd → Gd; 159Tb → Tb; 163Dy → Dy; 165Ho → Ho; 166Er → Er; 169Tm → Tm; 172Yb → Yb; 175Lu → Lu; 103Rh → none — Table 2 'Isotope measured'; Table 3 prints 74Ge where Table 2 has 72; ¹⁰³Rh is the internal standard (Table 1)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "7Li",
+     "parent": "Li"
+    },
+    {
+     "member": "9Be",
+     "parent": "Be"
+    },
+    {
+     "member": "45Sc",
+     "parent": "Sc"
+    },
+    {
+     "member": "52Cr",
+     "parent": "Cr"
+    },
+    {
+     "member": "59Co",
+     "parent": "Co"
+    },
+    {
+     "member": "60Ni",
+     "parent": "Ni"
+    },
+    {
+     "member": "63Cu",
+     "parent": "Cu"
+    },
+    {
+     "member": "66Zn",
+     "parent": "Zn"
+    },
+    {
+     "member": "72Ge",
+     "parent": "Ge"
+    },
+    {
+     "member": "85Rb",
+     "parent": "Rb"
+    },
+    {
+     "member": "88Sr",
+     "parent": "Sr"
+    },
+    {
+     "member": "89Y",
+     "parent": "Y"
+    },
+    {
+     "member": "133Cs",
+     "parent": "Cs"
+    },
+    {
+     "member": "138Ba",
+     "parent": "Ba"
+    },
+    {
+     "member": "139La",
+     "parent": "La"
+    },
+    {
+     "member": "140Ce",
+     "parent": "Ce"
+    },
+    {
+     "member": "141Pr",
+     "parent": "Pr"
+    },
+    {
+     "member": "143Nd",
+     "parent": "Nd"
+    },
+    {
+     "member": "147Sm",
+     "parent": "Sm"
+    },
+    {
+     "member": "153Eu",
+     "parent": "Eu"
+    },
+    {
+     "member": "157Gd",
+     "parent": "Gd"
+    },
+    {
+     "member": "159Tb",
+     "parent": "Tb"
+    },
+    {
+     "member": "163Dy",
+     "parent": "Dy"
+    },
+    {
+     "member": "165Ho",
+     "parent": "Ho"
+    },
+    {
+     "member": "166Er",
+     "parent": "Er"
+    },
+    {
+     "member": "169Tm",
+     "parent": "Tm"
+    },
+    {
+     "member": "172Yb",
+     "parent": "Yb"
+    },
+    {
+     "member": "175Lu",
+     "parent": "Lu"
+    },
+    {
+     "member": "103Rh",
+     "parent": "none"
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "E-scan Range": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Triple Scanning Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "all: 100 ms per isotope — Table 1",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "100 ms per isotope"
+    }
+   ]
+  },
+  "Number of Scans per Replicate": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "60 s — Table 1; '1 min with 3% v/v HNO3' (§2.1)",
+   "status": "text",
+   "value": "60 s"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "all: Rh (103Rh) — Table 1",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Rh (103Rh)"
+    }
+   ]
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "5 ng/ml Rh (stated section 2.3)",
+   "status": "text",
+   "value": "5 ng/ml Rh (stated section 2.3)"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Drift Correction Method": {
+   "key": "(none)",
+   "cell": "Rh internal standard — 'In order to correct the instrumental drift, the internal standard concentration of Rh was kept constant at 5 ng mL−1 in the sample, calibration, and blank solutions' (§2.2)",
+   "status": "text",
+   "value": "Rh internal standard"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "all: external calibration with 103Rh internal standardisation — multi-element certified solutions (VHG Labs) diluted to 0.1, 1, 5 and 10 ng/mL (§2.2); Table 1 'Calibration: External'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "external calibration with 103Rh internal standardisation"
+    }
+   ]
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N — a blank solution in 2% HNO3 is part of the calibration set (§2.2); the blank correction is not described",
+   "status": "commentary only"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "None",
+   "status": "text",
+   "value": "None"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "60 s wash between samples (Table 1)",
+   "status": "text",
+   "value": "60 s wash between samples (Table 1)"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "1 standard deviation -- \"The mean values and respective standard deviations (s) for three analyses\"; \"Mean +/- s (n = 3)\"; \"RSD = standard deviation/mean x 100%\"",
+   "status": "text",
+   "value": "1 standard deviation -- \"The mean values and respective standard deviations (s) for three analyses\"; \"Mean +/- s (n = 3)\"; \"RSD = standard deviation/mean x 100%\""
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N — external calibration against multi-element solutions at 0.1, 1, 5 and 10 ng/mL with ¹⁰³Rh held at 5 ng/mL (§2.2); no factor is stated",
+   "status": "commentary only"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially -- \"The mean values and respective standard deviations (s) for three analyses were listed in Table 3\"; n = 3 throughout. No acceptance or rejection rule stated",
+   "status": "text",
+   "value": "Partially -- \"The mean values and respective standard deviations (s) for three analyses were listed in Table 3\"; n = 3 throughout. No acceptance or rejection rule stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: mean of three analyses — 'The mean values and respective standard deviations (s) for three analyses were listed in Table 3'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "mean of three analyses"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [all: multi-element certified solutions (VHG Labs)] — diluted to 0.1, 1, 5 and 10 ng/mL (§2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "multi-element certified solutions (VHG Labs)"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "FER-2 — iron-formation reference material (CCRMP), 'used to validate of the proposed method' (§2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "FER-2",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "Li: 0.024; Be: 0.006; Sc: 0.028; Cr: 0.043; Co: 0.009; Ni: 0.014; Cu: 0.052; Zn: 0.176; Ge: 0.015; Rb: 0.009; Sr: 0.008; Cs: 0.006; Ba: 0.018; other: N — method detection limits (MDL, 3 s) in ng/g (Table 2); instrumental detection limits are also given, in ng/mL",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Li"
+     ],
+     "value": "0.024"
+    },
+    {
+     "members": [
+      "Be"
+     ],
+     "value": "0.006"
+    },
+    {
+     "members": [
+      "Sc"
+     ],
+     "value": "0.028"
+    },
+    {
+     "members": [
+      "Cr"
+     ],
+     "value": "0.043"
+    },
+    {
+     "members": [
+      "Co"
+     ],
+     "value": "0.009"
+    },
+    {
+     "members": [
+      "Ni"
+     ],
+     "value": "0.014"
+    },
+    {
+     "members": [
+      "Cu"
+     ],
+     "value": "0.052"
+    },
+    {
+     "members": [
+      "Zn"
+     ],
+     "value": "0.176"
+    },
+    {
+     "members": [
+      "Ge"
+     ],
+     "value": "0.015"
+    },
+    {
+     "members": [
+      "Rb"
+     ],
+     "value": "0.009"
+    },
+    {
+     "members": [
+      "Sr"
+     ],
+     "value": "0.008"
+    },
+    {
+     "members": [
+      "Cs"
+     ],
+     "value": "0.006"
+    },
+    {
+     "members": [
+      "Ba"
+     ],
+     "value": "0.018"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "all: 3 × SD of six procedural blanks (MDL) — Table 2 note; the IDL is 3 × SD of six replicate measurements of 2% HNO3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "3 × SD of six procedural blanks (MDL)"
+    }
+   ]
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "FER-2 [all: RSD <5%] — three analyses, Table 3 (§3)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "FER-2"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "RSD <5%"
+      }
+     ]
+    }
+   ]
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "FER-2 [all: most ratios to literature values within 0.9–1.1] — Fig. 7 (§3)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "FER-2"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "most ratios to literature values within 0.9–1.1"
+      }
+     ]
+    }
+   ]
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only",
+   "status": "text",
+   "value": "Chromatographic separation (AG1-X8 + TRUspec) performed before SF-ICP-MS; reflected power <2 W (stated Table 1); pulse counting detection only"
+  }
+ }
+}

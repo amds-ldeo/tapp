@@ -1,0 +1,678 @@
+{
+ "procedure_column": "Milne+etal2010 | Thermo Finnigan Element I | FSU NHMFL",
+ "tapp": "Solution_SF-ICP-MS_TAPP_v88",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution SF-ICP-MS",
+   "status": "text",
+   "value": "Solution SF-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "National High Magnetic Field Laboratory (NHMFL), Florida State University (stated section 2.4)",
+   "status": "text",
+   "value": "National High Magnetic Field Laboratory (NHMFL), Florida State University (stated section 2.4)"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Open-ocean seawater (stated abstract)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Open-ocean seawater",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "12 mL sub-sample (aliquot) of an acidified seawater sample -- \"Acidified seawater samples ... were sub-sampled (12 mL) into clean 30 mL FEP Teflon bottles. The 12 mL aliquots were spiked\"; \"standard additions ... were added to individual 12 mL sub-samples of the same sample\"; \"Standard additions of Co and Mn were performed on a further four aliquots (1 mL) of the elution acid\"",
+   "status": "text",
+   "value": "12 mL sub-sample (aliquot) of an acidified seawater sample -- \"Acidified seawater samples ... were sub-sampled (12 mL) into clean 30 mL FEP Teflon bottles. The 12 mL aliquots were spiked\"; \"standard additions ... were added to individual 12 mL sub-samples of the same sample\"; \"Standard additions of Co and Mn were performed on a further four aliquots (1 mL) of the elution acid\""
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)",
+   "status": "text",
+   "value": "Open-ocean seawater; off-line pre-concentration using Toyopearl AF-Chelate-650M chelating resin (stated section 2.2)"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "N/A (seawater; pre-concentration by chelation; no acid digestion)",
+   "status": "not applicable"
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "N/A (no digestion vessel; seawater pre-concentration)",
+   "status": "not applicable"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "1.0 M HNO3 (trace elements eluted from chelating resin in 1 mL; stated section 2.2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "12 mL seawater (stated section 2.2)",
+   "status": "text",
+   "value": "12 mL seawater (stated section 2.2)"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "Toyopearl AF-Chelate-650M chelating resin (pre-concentration from seawater; stated section 2.2)",
+   "status": "text",
+   "value": "Toyopearl AF-Chelate-650M chelating resin (pre-concentration from seawater; stated section 2.2)"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "57Fe, 62Ni, 65Cu, 68Zn, 111Cd, 207Pb enriched isotope spikes (stated Table 1)",
+   "status": "text",
+   "value": "57Fe, 62Ni, 65Cu, 68Zn, 111Cd, 207Pb enriched isotope spikes (stated Table 1)"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific -- \"a Thermo-Finnigan Element I (E1) HR-ICP-MS\"; \"Instrument ThermoFinnigan Element1\"",
+   "status": "text",
+   "value": "Thermo Fisher Scientific -- \"a Thermo-Finnigan Element I (E1) HR-ICP-MS\"; \"Instrument ThermoFinnigan Element1\""
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Thermo Finnigan Element I (E1) HR-ICP-MS (stated section 2.4)",
+   "status": "text",
+   "value": "Thermo Finnigan Element I (E1) HR-ICP-MS (stated section 2.4)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Single-collector sector-field (SF-ICP-MS)",
+   "status": "text",
+   "value": "Single-collector sector-field (SF-ICP-MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "Ni/Cu sampler (Spectron Inc.) + Ni skimmer (Spectron Inc.; Table 2)",
+   "status": "text",
+   "value": "Ni/Cu sampler (Spectron Inc.) + Ni skimmer (Spectron Inc.; Table 2)"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "Ni/Cu sampler and Ni skimmer (Table 2)",
+   "status": "text",
+   "value": "Ni/Cu sampler and Ni skimmer (Table 2)"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "LR (R ~300) and MR (R ~4000; stated section 2.4)",
+   "status": "text",
+   "value": "LR (R ~300) and MR (R ~4000; stated section 2.4)"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "Single SEM, dual mode (stated section 2.4)",
+   "status": "text",
+   "value": "Single SEM, dual mode (stated section 2.4)"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "PFA microflow PFA-100 (Elemental Scientific; Table 2)",
+   "status": "text",
+   "value": "PFA microflow PFA-100 (Elemental Scientific; Table 2)"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "PFA Teflon Savillex 100 mL with internal baffle (Table 2)",
+   "status": "text",
+   "value": "PFA Teflon Savillex 100 mL with internal baffle (Table 2)"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "None",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "150 uL/min (Table 2)",
+   "status": "text",
+   "value": "150 uL/min (Table 2)"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous) -- \"Nebuliser PFA microflow (PFA-100), Elemental Scientific\"; \"Nebuliser sample uptake rate 150 uL min-1\"; \"Autosampler CETAC ASX-100\". The flow-injection manifold of sec 2.2 is the offline pre-concentration step, not the ICP-MS introduction: \"prevented the online coupling of the flow injection system directly to an ICP-MS\" [sec 2.3]",
+   "status": "text",
+   "value": "Solution nebulisation (continuous) -- \"Nebuliser PFA microflow (PFA-100), Elemental Scientific\"; \"Nebuliser sample uptake rate 150 uL min-1\"; \"Autosampler CETAC ASX-100\". The flow-injection manifold of sec 2.2 is the offline pre-concentration step, not the ICP-MS introduction: \"prevented the online coupling of the flow injection system directly to an ICP-MS\" [sec 2.3]"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1300 W (Table 2)",
+   "status": "text",
+   "value": "1300 W (Table 2)"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "13 L/min (Table 2)",
+   "status": "text",
+   "value": "13 L/min (Table 2)"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "1.05 L/min (varied and optimized daily; Table 2)",
+   "status": "text",
+   "value": "1.05 L/min (varied and optimized daily; Table 2)"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "1.2 L/min (varied and optimized daily; Table 2)",
+   "status": "text",
+   "value": "1.2 L/min (varied and optimized daily; Table 2)"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "Normal plasma (1300 W; Table 2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "\"At the start of each day, prior to any sample analysis, the instrument was first tuned to produce maximum sensitivity and stability while also maintaining low oxide formation ... using a 5ppb solution of In\"; \"Further tuning using a 5ppb solution of Fe in the medium resolution mode ensured maximum separation of the 56Fe peak from the 40Ar16O peak\"; oxide formation \"typically below 5%\", above 10% causing problems",
+   "status": "text",
+   "value": "\"At the start of each day, prior to any sample analysis, the instrument was first tuned to produce maximum sensitivity and stability while also maintaining low oxide formation ... using a 5ppb solution of In\"; \"Further tuning using a 5ppb solution of Fe in the medium resolution mode ensured maximum separation of the 56Fe peak from the 40Ar16O peak\"; oxide formation \"typically below 5%\", above 10% causing problems"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Mn (55Mn), Fe (57Fe), Co (59Co), Ni (62Ni), Cu (65Cu), Zn (68Zn), Cd (111Cd), Pb (207Pb) in seawater (stated Table 1)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    },
+    {
+     "member": "Cd",
+     "parent": null
+    },
+    {
+     "member": "Pb (207Pb) in seawater",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Dissolved Mn, Fe, Co, Ni, Cu, Zn, Cd and Pb concentrations in nM",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Dissolved Mn",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    },
+    {
+     "member": "Cd and Pb concentrations in nM",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "55Mn, 57Fe, 59Co, 62Ni, 65Cu, 68Zn, 111Cd, 207Pb (Table 1)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "55Mn",
+     "parent": null
+    },
+    {
+     "member": "57Fe",
+     "parent": null
+    },
+    {
+     "member": "59Co",
+     "parent": null
+    },
+    {
+     "member": "62Ni",
+     "parent": null
+    },
+    {
+     "member": "65Cu",
+     "parent": null
+    },
+    {
+     "member": "68Zn",
+     "parent": null
+    },
+    {
+     "member": "111Cd",
+     "parent": null
+    },
+    {
+     "member": "207Pb",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "MR (R ~4000): 55Mn, 57Fe, 59Co, 62Ni, 65Cu, 68Zn; LR (R ~300): 111Cd, 207Pb (stated section 2.4)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "MR (R ~4000)"
+     ],
+     "value": "55Mn, 57Fe, 59Co, 62Ni, 65Cu, 68Zn"
+    },
+    {
+     "members": [
+      "LR (R ~300)"
+     ],
+     "value": "111Cd, 207Pb (stated section 2.4)"
+    }
+   ]
+  },
+  "E-scan Range": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Triple Scanning Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Scans per Replicate": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "None (ID method used; no external IS; stated section 2.1)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "In (5 ppb) used for LR tuning; oxide rate typically <5% (stated section 2.4)",
+   "status": "text",
+   "value": "In (5 ppb) used for LR tuning; oxide rate typically <5% (stated section 2.4)"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Drift Correction Method": {
+   "key": "(none)",
+   "cell": "N (ID method; no IS-based drift correction; stated section 2.1)",
+   "status": "not stated"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "ID for Fe, Ni, Cu, Zn, Cd, Pb; standard addition for Mn, Co (stated section 2.1)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "Procedural blank (stated section 2.1)",
+   "status": "text",
+   "value": "Procedural blank (stated section 2.1)"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Y (MoO+ on 111Cd corrected using 95Mo; stated section 2.4)",
+   "status": "text",
+   "value": "Y (MoO+ on 111Cd corrected using 95Mo; stated section 2.4)"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "MoO+ on 111Cd (corrected using 95Mo; stated section 2.4)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "Empirical correction factors from 95Mo monitor (stated section 2.4)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "IUPAC isotope dilution equations (stated section 2.1)",
+   "status": "text",
+   "value": "IUPAC isotope dilution equations (stated section 2.1)"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "Mixed and each stated: \"Mean blank +/- 1 S.D. (pmoles)\"; \"The precision is calculated as the percent relative standard deviation (%RSD) (n = 3)\" [Table 4 footnote]; \"95% confidence limit\" [Table 6 caption]",
+   "status": "text",
+   "value": "Mixed and each stated: \"Mean blank +/- 1 S.D. (pmoles)\"; \"The precision is calculated as the percent relative standard deviation (%RSD) (n = 3)\" [Table 4 footnote]; \"95% confidence limit\" [Table 6 caption]"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "Mass-bias correction factor per element: \"A mass bias correction factor for each of the six elements was calculated from the measured natural isotopic ratio divided by the true natural isotopic ratio. The correction factor for each element was then incorporated into the isotope dilution equation\"; Co and Mn quantified from standard-addition slopes, tabulated with SD and %RSD (Mn 2797 +/- 205, 3055 +/- 125, 3174 +/- 170; Co 6124 +/- 305, 4335 +/- 143, 5352 +/- 159)",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Mass-bias correction factor per element"
+     ],
+     "value": "\"A mass bias correction factor for each of the six elements was calculated from the measured natural isotopic ratio divided by the true natural isotopic ratio. The correction factor for each element was then incorporated into the isotope dilution equation\""
+    }
+   ]
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially -- \"The blank solutions were analysed at least three times on the ICP-MS\"; \"parallel triplicate samples\"; n = 3 for reference materials and n = 5 for the GEOTRACES samples. No acceptance or rejection rule stated",
+   "status": "text",
+   "value": "Partially -- \"The blank solutions were analysed at least three times on the ICP-MS\"; \"parallel triplicate samples\"; n = 3 for reference materials and n = 5 for the GEOTRACES samples. No acceptance or rejection rule stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: mean of replicate analyses; average slope of the standard additions — 'Mean blank ± 1S.D.'; 'Average slopes resulting from the regression analysis of Co and Mn standard additions'",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "mean of replicate analyses"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "Partially -- \"A mass bias correction factor for each of the six elements was calculated from the measured natural isotopic ratio divided by the true natural isotopic ratio\". The true natural isotopic ratios used, and their source, are not stated",
+   "status": "text",
+   "value": "Partially -- \"A mass bias correction factor for each of the six elements was calculated from the measured natural isotopic ratio divided by the true natural isotopic ratio\". The true natural isotopic ratios used, and their source, are not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "Commercial standard of natural isotopic abundance (not formally named; stated section 2.4)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "NASS-5 (certified seawater); SAFe inter-comparison samples S1 and D2 (stated section 2.4)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "NASS-5",
+     "parent": null
+    },
+    {
+     "member": "SAFe inter-comparison samples S1 and D2",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "Analyte-specific (pg/kg to pM level; e.g., Fe 0.01 nM in seawater; stated Table 1)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "3 sigma blank (stated section 2.4)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "%RSD of replicate measurements (stated section 2.4)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "Comparison with SAFe consensus values and NASS-5 certified values (stated section 2.4)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Off-line pre-concentration by chelating resin essential for open-ocean seawater; enriched isotope spikes added before chelation (pre-equilibration); standard addition for Mn and Co (no suitable spike isotope); stated section 2.2",
+   "status": "text",
+   "value": "Off-line pre-concentration by chelating resin essential for open-ocean seawater; enriched isotope spikes added before chelation (pre-equilibration); standard addition for Mn and Co (no suitable spike isotope); stated section 2.2"
+  }
+ }
+}

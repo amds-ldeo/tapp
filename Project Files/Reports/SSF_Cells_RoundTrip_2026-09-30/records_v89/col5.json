@@ -1,0 +1,967 @@
+{
+ "procedure_column": "Misra+etal2014 | Thermo Element XR | Univ Cambridge",
+ "tapp": "Solution_SF-ICP-MS_TAPP_v89",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution SF-ICP-MS",
+   "status": "text",
+   "value": "Solution SF-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Godwin Laboratory for Palaeoclimate Research, University of Cambridge (affiliation)",
+   "status": "text",
+   "value": "Godwin Laboratory for Palaeoclimate Research, University of Cambridge (affiliation)"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Foraminifera calcite (benthic and planktonic species; stated abstract)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Foraminifera calcite",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Dissolved foraminiferal test aliquot -- \"capable of analyzing small masses of calcite (5-10 mg), including single foraminifera specimens\"; \"Leached samples were dissolved in a minimum volume of 1 M HNO3 (40-60 uL) ... centrifuged for 2 min at 10,000 rpm and the supernatant was used for Me/Ca analysis. A 5 uL aliquot ...\"",
+   "status": "text",
+   "value": "Dissolved foraminiferal test aliquot -- \"capable of analyzing small masses of calcite (5-10 mg), including single foraminifera specimens\"; \"Leached samples were dissolved in a minimum volume of 1 M HNO3 (40-60 uL) ... centrifuged for 2 min at 10,000 rpm and the supernatant was used for Me/Ca analysis. A 5 uL aliquot ...\""
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Handpicked 1–2 mg of species- and size-specific shells, cracked, clay removed (MQ water, methanol), reductively and/or oxidatively cleaned, leached in 0.001 M HNO3, dissolved in 1 M HNO3 and centrifuged; 5 µL of supernatant diluted with 200 µL 0.1 M HNO3 as the Me/Ca stock, Ca measured by ICP-AES, then diluted to [Ca] 10 ppm with 0.1 M HNO3 + 0.3 M HF — §2.4; the HF-bearing matrix 'was used only in the final dilution step'",
+   "status": "text",
+   "value": "Handpicked 1–2 mg of species- and size-specific shells, cracked, clay removed (MQ water, methanol), reductively and/or oxidatively cleaned, leached in 0.001 M HNO3, dissolved in 1 M HNO3 and centrifuged; 5 µL of supernatant diluted with 200 µL 0.1 M HNO3 as the Me/Ca stock, Ca measured by ICP-AES, then diluted to [Ca] 10 ppm with 0.1 M HNO3 + 0.3 M HF"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "dissolution: 1 M HNO3 — §2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "dissolution"
+     ],
+     "value": "1 M HNO3"
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "N/A — simple dissolution; stated section 2.4",
+   "status": "not applicable"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "dissolution (minimum volume of 1 M HNO3, 40–60 µL, then centrifuged 2 min at 10,000 rpm) — §2.4",
+   "status": "structured",
+   "value": [
+    {
+     "member": "dissolution",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "all: 0.1 M HNO3 + 0.3 M HF — 'The acid matrix containing HF was used only in the final dilution step'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "0.1 M HNO3 + 0.3 M HF"
+    }
+   ]
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "1-2 mg foraminifera shells (stated section 2.4)",
+   "status": "text",
+   "value": "1-2 mg foraminifera shells (stated section 2.4)"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "None (direct dissolution analysis; stated section 2.4)",
+   "status": "text",
+   "value": "None (direct dissolution analysis; stated section 2.4)"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "None",
+   "status": "text",
+   "value": "None"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific -- \"a Thermo Element XR, a single collector sector field high resolution inductively coupled plasma mass spectrometer\"",
+   "status": "text",
+   "value": "Thermo Fisher Scientific -- \"a Thermo Element XR, a single collector sector field high resolution inductively coupled plasma mass spectrometer\""
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Thermo Element XR single-collector SF-ICP-MS (stated section 2.3)",
+   "status": "text",
+   "value": "Thermo Element XR single-collector SF-ICP-MS (stated section 2.3)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Single-collector sector-field (SF-ICP-MS)",
+   "status": "text",
+   "value": "Single-collector sector-field (SF-ICP-MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "Pt-normal sampler + Pt-H skimmer (Table 1)",
+   "status": "text",
+   "value": "Pt-normal sampler + Pt-H skimmer (Table 1)"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "Pt sampler and Pt skimmer (Table 1)",
+   "status": "text",
+   "value": "Pt sampler and Pt skimmer (Table 1)"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "LR and MR (stated Table 1 and section 2.3)",
+   "status": "text",
+   "value": "LR and MR (stated Table 1 and section 2.3)"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "Dual mode, fixed for each isotope: counting for 7Li, 11B, 111Cd, 137Ba, 238U, 55Mn, 56Fe, 66Zn and analog for 25Mg, 27Al, 43Ca, 87Sr, 23Na — Tables 1 and 3; 'measured at a fixed detection mode to avoid detection mode switch (pulse to analog) during analysis' (§2.3.1)",
+   "status": "text",
+   "value": "Dual mode, fixed for each isotope: counting for 7Li, 11B, 111Cd, 137Ba, 238U, 55Mn, 56Fe, 66Zn and analog for 25Mg, 27Al, 43Ca, 87Sr, 23Na"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "ESI 50 uL microconcentric nebulizer; self-aspirating (Table 1)",
+   "status": "text",
+   "value": "ESI 50 uL microconcentric nebulizer; self-aspirating (Table 1)"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "Teflon Scott-type single-pass (Savillex PFA; Table 1 footnote)",
+   "status": "text",
+   "value": "Teflon Scott-type single-pass (Savillex PFA; Table 1 footnote)"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "50 uL ESI nebulizer; uptake time 70 s (Table 1); volumetric flow rate N",
+   "status": "text",
+   "value": "50 uL ESI nebulizer; uptake time 70 s (Table 1); volumetric flow rate N"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous) -- \"a Teflon Scott type (single pass) spray chamber was constructed\"; \"we used a platinum injector (1.8 mm I.D.)\"; ESI nebulizer",
+   "status": "text",
+   "value": "Solution nebulisation (continuous) -- \"a Teflon Scott type (single pass) spray chamber was constructed\"; \"we used a platinum injector (1.8 mm I.D.)\"; ESI nebulizer"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1250 W (Table 1)",
+   "status": "text",
+   "value": "1250 W (Table 1)"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N — RF power 1250 W (Table 1)",
+   "status": "commentary only"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "\"Instrumental sensitivity was optimized on 11B, 115In, and 175Lu\", with sensitivities \"set as operational criteria\"; \"in medium resolution tuning, the instrument was optimized on 56Fe to achieve a mass resolution\"",
+   "status": "text",
+   "value": "\"Instrumental sensitivity was optimized on 11B, 115In, and 175Lu\", with sensitivities \"set as operational criteria\"; \"in medium resolution tuning, the instrument was optimized on 56Fe to achieve a mass resolution\""
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "Partially -- \"The instrument was conditioned with a 10 [ppb solution]\" before analysis, and detector mode was \"kept fixed through the entire run to avoid detection mode switch induced changes in sensitivity\". No warm-up time or session duration limit stated",
+   "status": "text",
+   "value": "Partially -- \"The instrument was conditioned with a 10 [ppb solution]\" before analysis, and detector mode was \"kept fixed through the entire run to avoid detection mode switch induced changes in sensitivity\". No warm-up time or session duration limit stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Li, B, Na, Mg, Al, Mn, Fe, Zn, Sr, Cd, Ba, U — 'The concentrations of foraminiferal trace elements of interest (Li, B, Na, Mg, Al, Mn, Fe, Zn, Sr, Cd, Ba, and U)' (§2.3.1); Ca is the ratio denominator",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Li",
+     "parent": null
+    },
+    {
+     "member": "B",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    },
+    {
+     "member": "Sr",
+     "parent": null
+    },
+    {
+     "member": "Cd",
+     "parent": null
+    },
+    {
+     "member": "Ba",
+     "parent": null
+    },
+    {
+     "member": "U",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "B/Ca (µmol/mol); Li/Ca, Mg/Ca, Al/Ca, Sr/Ca, Cd/Ca, Ba/Ca, U/Ca, Na/Ca, Mn/Ca, Fe/Ca, Zn/Ca (µmol/mol or mmol/mol) — Me/Ca ratios; Li, Mg, Al, Sr, Cd, Ba and U in low resolution, Na, Mn, Fe and Zn in medium (Table 3)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "B/Ca",
+     "parent": null
+    },
+    {
+     "member": "Li/Ca",
+     "parent": null
+    },
+    {
+     "member": "Mg/Ca",
+     "parent": null
+    },
+    {
+     "member": "Al/Ca",
+     "parent": null
+    },
+    {
+     "member": "Sr/Ca",
+     "parent": null
+    },
+    {
+     "member": "Cd/Ca",
+     "parent": null
+    },
+    {
+     "member": "Ba/Ca",
+     "parent": null
+    },
+    {
+     "member": "U/Ca",
+     "parent": null
+    },
+    {
+     "member": "Na/Ca",
+     "parent": null
+    },
+    {
+     "member": "Mn/Ca",
+     "parent": null
+    },
+    {
+     "member": "Fe/Ca",
+     "parent": null
+    },
+    {
+     "member": "Zn/Ca",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "7Li → Li; 11B → B; 25Mg → Mg; 27Al → Al; 43Ca → none; 87Sr → Sr; 111Cd → Cd; 137Ba → Ba; 238U → U; 23Na → Na; 55Mn → Mn; 56Fe → Fe; 66Zn → Zn — Table 3; ⁴³Ca is measured in both resolutions",
+   "status": "structured",
+   "value": [
+    {
+     "member": "7Li",
+     "parent": "Li"
+    },
+    {
+     "member": "11B",
+     "parent": "B"
+    },
+    {
+     "member": "25Mg",
+     "parent": "Mg"
+    },
+    {
+     "member": "27Al",
+     "parent": "Al"
+    },
+    {
+     "member": "43Ca",
+     "parent": "none"
+    },
+    {
+     "member": "87Sr",
+     "parent": "Sr"
+    },
+    {
+     "member": "111Cd",
+     "parent": "Cd"
+    },
+    {
+     "member": "137Ba",
+     "parent": "Ba"
+    },
+    {
+     "member": "238U",
+     "parent": "U"
+    },
+    {
+     "member": "23Na",
+     "parent": "Na"
+    },
+    {
+     "member": "55Mn",
+     "parent": "Mn"
+    },
+    {
+     "member": "56Fe",
+     "parent": "Fe"
+    },
+    {
+     "member": "66Zn",
+     "parent": "Zn"
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "LR: low resolution (Δm/m = 300), for 7Li, 11B, 25Mg, 27Al, 43Ca, 87Sr, 111Cd, 137Ba, 238U; MR: medium resolution (Δm/m = 4000), for 23Na, 43Ca, 55Mn, 56Fe, 66Zn — Table 3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "LR"
+     ],
+     "value": "low resolution (Δm/m = 300), for 7Li, 11B, 25Mg, 27Al, 43Ca, 87Sr, 111Cd, 137Ba, 238U"
+    },
+    {
+     "members": [
+      "MR"
+     ],
+     "value": "medium resolution (Δm/m = 4000), for 23Na, 43Ca, 55Mn, 56Fe, 66Zn"
+    }
+   ]
+  },
+  "E-scan Range": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Triple Scanning Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "7Li: 0.005 s; 11B: 0.005 s; 25Mg: 0.01 s; 27Al: 0.01 s; 43Ca: 0.02 s (LR), 0.01 s (MR); 87Sr: 0.04 s; 111Cd: 0.02 s; 137Ba: 0.02 s; 238U: 0.05 s; 23Na: 0.02 s; 55Mn: 0.01 s; 56Fe: 0.05 s; 66Zn: 0.01 s — 'Sample Time' (Table 3); samples per peak 50 or 100 in LR, 25 in MR",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "7Li"
+     ],
+     "value": "0.005 s"
+    },
+    {
+     "members": [
+      "11B"
+     ],
+     "value": "0.005 s"
+    },
+    {
+     "members": [
+      "25Mg"
+     ],
+     "value": "0.01 s"
+    },
+    {
+     "members": [
+      "27Al"
+     ],
+     "value": "0.01 s"
+    },
+    {
+     "members": [
+      "43Ca"
+     ],
+     "value": "0.02 s (LR), 0.01 s (MR)"
+    },
+    {
+     "members": [
+      "87Sr"
+     ],
+     "value": "0.04 s"
+    },
+    {
+     "members": [
+      "111Cd"
+     ],
+     "value": "0.02 s"
+    },
+    {
+     "members": [
+      "137Ba"
+     ],
+     "value": "0.02 s"
+    },
+    {
+     "members": [
+      "238U"
+     ],
+     "value": "0.05 s"
+    },
+    {
+     "members": [
+      "23Na"
+     ],
+     "value": "0.02 s"
+    },
+    {
+     "members": [
+      "55Mn"
+     ],
+     "value": "0.01 s"
+    },
+    {
+     "members": [
+      "56Fe"
+     ],
+     "value": "0.05 s"
+    },
+    {
+     "members": [
+      "66Zn"
+     ],
+     "value": "0.01 s"
+    }
+   ]
+  },
+  "Number of Scans per Replicate": {
+   "key": "acquisition pass",
+   "cell": "LR: 15 passes × 3 runs; MR: 5 passes × 3 runs — Table 3; Table 1 prints 3 passes for MR",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "LR"
+     ],
+     "value": "15 passes × 3 runs"
+    },
+    {
+     "members": [
+      "MR"
+     ],
+     "value": "5 passes × 3 runs"
+    }
+   ]
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "3 runs (LR and MR; Table 3)",
+   "status": "text",
+   "value": "3 runs (LR and MR; Table 3)"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "Blocks of seven samples, each bracketed by a pair of acid blanks and internal consistency standards (Standard 3 of the calibration) — §2.3.1",
+   "status": "text",
+   "value": "Blocks of seven samples, each bracketed by a pair of acid blanks and internal consistency standards (Standard 3 of the calibration)"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "120 s (Table 1)",
+   "status": "text",
+   "value": "120 s (Table 1)"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "all: none — Me/Ca ratios, with Ca measured in both resolutions",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "none"
+    }
+   ]
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "Sensitivity criteria used (not oxide threshold): >=250000 cps/ppb for 11B; >=2500000 for 115In; >=2000000 for 175Lu (stated section 2.3.1)",
+   "status": "text",
+   "value": "Sensitivity criteria used (not oxide threshold): >=250000 cps/ppb for 11B; >=2500000 for 115In; >=2000000 for 175Lu (stated section 2.3.1)"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "LR; MR — low resolution (Δm/m = 300) and medium resolution (Δm/m = 4000) methods, 'Calcium was measured in both low and medium resolution to maintain accuracy of Me/Ca ratios obtained from the two mass resolution modes' (Table 3)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "LR",
+     "parent": null
+    },
+    {
+     "member": "MR",
+     "parent": null
+    }
+   ]
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "2 — low and medium resolution (Tables 1 and 3)",
+   "status": "text",
+   "value": "2"
+  },
+  "Drift Correction Method": {
+   "key": "(none)",
+   "cell": "N — the blocks of seven are bracketed by acid blanks and a consistency standard; at low calcium concentrations there was 'minimal instrumental sensitivity drift' (§2.3.1)",
+   "status": "commentary only"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "all: external calibration with matrix-matched standards, samples and standards concentration-matched within ±5% — ±1% in the Fig. 2 dilution series; at [Ca] of 10 ppm with normal cones, 5 ppm with the Jet and X cones; samples first measured for Ca by ICP-AES (§2.3.1)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "external calibration with matrix-matched standards, samples and standards concentration-matched within ±5%"
+    }
+   ]
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "all: detector cross-calibration between pulse and analog modes performed daily — §2.3.1",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "detector cross-calibration between pulse and analog modes performed daily"
+    }
+   ]
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N — Na, Mn, Fe and Zn are measured in medium resolution (Table 3); no correction is described",
+   "status": "commentary only"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "N — MR resolution used to resolve polyatomic interferences; no additional mathematical correction reported; stated section 2.3",
+   "status": "commentary only"
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "None",
+   "status": "text",
+   "value": "None"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "120 s washout (Table 1)",
+   "status": "text",
+   "value": "120 s washout (Table 1)"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "2 sigma -- \"with 2r analytical uncertainty\" and \"the gray area represents the 2r spread in the B/Ca measured at 10 ppm [Ca]Matrix\" (r = sigma in the extracted text)",
+   "status": "text",
+   "value": "2 sigma -- \"with 2r analytical uncertainty\" and \"the gray area represents the 2r spread in the B/Ca measured at 10 ppm [Ca]Matrix\" (r = sigma in the extracted text)"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N — 'Before sample analysis, mass bias determination was carried out using a foraminiferal matrix matched solution' (§2.3.1); no factor is stated",
+   "status": "commentary only"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially -- \"Open symbols represent an average of 10 measurements acquired during a single instrument session. The solid symbols represent the average of the open symbols\"; and for a second figure \"which is a total of 15 measurements\"; acquisition structured as 3 runs x 15 passes (low resolution) or 3 x 5 (medium). No acceptance or rejection rule stated",
+   "status": "text",
+   "value": "Partially -- \"Open symbols represent an average of 10 measurements acquired during a single instrument session. The solid symbols represent the average of the open symbols\"; and for a second figure \"which is a total of 15 measurements\"; acquisition structured as 3 runs x 15 passes (low resolution) or 3 x 5 (medium). No acceptance or rejection rule stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average of 10 measurements within a session, and average of the session averages — 'Open symbols represent an average of 10 measurements acquired during a single instrument session. The solid symbols represent the average of the open symbols'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average of 10 measurements within a session, and average of the session averages"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [all: matrix-matched Me/Ca calibration standards (Standards 0–8)] — §2.2, §2.3.1",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "matrix-matched Me/Ca calibration standards (Standards 0–8)"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "Standard 3 brackets each block of seven samples — §2.3.1",
+   "status": "text",
+   "value": "Standard 3 brackets each block of seven samples"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "CAM-wuellerstorfi; CAM-Uvig-1; CAM-Uvig-2; CAM-Mix — the four Cambridge consistency standards (§2.2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "CAM-wuellerstorfi",
+     "parent": null
+    },
+    {
+     "member": "CAM-Uvig-1",
+     "parent": null
+    },
+    {
+     "member": "CAM-Uvig-2",
+     "parent": null
+    },
+    {
+     "member": "CAM-Mix",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "B/Ca: 2 µmol/mol; other: N — 'We report a B/Ca detection limit of 2 µmol/mol' (abstract)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "B/Ca"
+     ],
+     "value": "2 µmol/mol"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "B/Ca: 1.0%; other: N — abstract",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "B/Ca"
+     ],
+     "value": "1.0%"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "all [B/Ca: 4.0% (2σ), average within-run external precision] — abstract",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "B/Ca"
+       ],
+       "value": "4.0% (2σ), average within-run external precision"
+      }
+     ]
+    }
+   ]
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2, CAM-Mix [all: ±2σ of repeat analyses over 8 months] — Table 4; n = 180, 130, 100 and 150",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "CAM-wuellerstorfi",
+      "CAM-Uvig-1",
+      "CAM-Uvig-2",
+      "CAM-Mix"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "±2σ of repeat analyses over 8 months"
+      }
+     ]
+    }
+   ]
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "CAM-wuellerstorfi, CAM-Uvig-1, CAM-Uvig-2, CAM-Mix [B/Ca: across degrees of sample dilution] — Fig. 2",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "CAM-wuellerstorfi",
+      "CAM-Uvig-1",
+      "CAM-Uvig-2",
+      "CAM-Mix"
+     ],
+     "value": [
+      {
+       "members": [
+        "B/Ca"
+       ],
+       "value": "across degrees of sample dilution"
+      }
+     ]
+    }
+   ]
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Teflon Scott-type single-pass spray chamber and platinum injector (1.8 mm I.D.) to reduce instrumental boron blanks; HF in the final matrix for rapid boron washout (§2.3)",
+   "status": "text",
+   "value": "Teflon Scott-type single-pass spray chamber and platinum injector (1.8 mm I.D.) to reduce instrumental boron blanks; HF in the final matrix for rapid boron washout (§2.3)"
+  }
+ }
+}

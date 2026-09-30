@@ -60,7 +60,8 @@ KEYED_NOTATION_ENFORCED = {"EPMA",         # converted 2026-09-29 (epma_keyed_pi
                            "SEM", "SEM_Composition", "SEM_Imaging", "SEM_FIBSEM",  # 2026-09-29 (sem_keyed_notation_20260929.py)
                            "TEM", "Lab-XCT", "LA-MC-ICPMS",  # 2026-09-30 (keyed_notation_tem_xct_lamc_20260930.py)
                            "LA-Q-ICP-MS", "LA-Q-ICP-MS_UPb",  # 2026-09-30 (laq_keyed_reverify_20260930.py; round-trip 204/204)
-                           "LA-SF-ICP-MS", "LA-SF-ICP-MS_UPb"}  # 2026-09-30 (lasf_keyed_reverify_20260930.py; round-trip 315/315)
+                           "LA-SF-ICP-MS", "LA-SF-ICP-MS_UPb",  # 2026-09-30 (lasf_keyed_reverify_20260930.py; round-trip 315/315)
+                           "Solution_SF-ICP-MS"}  # 2026-09-30 (ssf_keyed_reverify_20260930.py; round-trip 245/245)
 # Cells whose stated value cannot be written against the field's key without inference (7.3.4: "the
 # notation tests the key"). Keyed (TAPP stem, field, column key) -> reason; reported at INFO as
 # `keyed-cell-registered`, never WARN. Each entry is an open question about the key, not a format fix.
@@ -1669,6 +1670,8 @@ HISTORICAL_DIRS = {
         "dated cells-to-procedure round-trip scored against LA-Q-ICP-MS TAPP v95 and v96; a record of those versions",
     "Project Files/Reports/LASF_Cells_RoundTrip_2026-09-30":
         "dated cells-to-procedure round-trip scored against LA-SF-ICP-MS TAPP v92 and v93; a record of those versions",
+    "Project Files/Reports/SSF_Cells_RoundTrip_2026-09-30":
+        "dated cells-to-procedure round-trip scored against Solution SF-ICP-MS TAPP v88 and v89; a record of those versions",
     "Project Files/Claude Memory":
         "sanitised snapshot of the out-of-repo working notes (2026-09-10). Each note records "
         "what was believed when it was written, and several exist precisely to explain a "
