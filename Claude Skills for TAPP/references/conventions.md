@@ -2188,7 +2188,7 @@ above me", which is not what it means. Group 6 is where it sits only because eve
 under a group header and Group 6 is last.
 
 **Why not one per group.** Considered and rejected on 2026-08-11. The library gives a direct answer: across
-16 TAPPs × 6 groups, exactly **one** group-local notes field has ever been created (`Sample Preparation Notes`, in one TAPP). Six boxes would also multiply the free-text escape hatch by six, against this
+16 TAPPs × 6 groups, exactly **one** group-local notes field has ever been created (`Sample Preparation Notes`, in one TAPP), and it was retired on 2026-09-30 once `Sample Preparation Method` and `Sample Mounting Method` were shown to hold everything it recorded (precedents.md, 2026-09-30). Six boxes would also multiply the free-text escape hatch by six, against this
 field's own instruction to prefer structured fields, and would leave a note spanning two groups with no
 home. A group-local note may still be added where a specific group demonstrably needs one — extracted,
 not provisioned, in the spirit of Rule 6.10.

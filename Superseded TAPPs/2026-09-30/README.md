@@ -19,8 +19,9 @@ discovery.
 | `LA-Q-ICP-MS_UPb_TAPP_v94` | `v95` | Sample Form retired |
 | `LA-SF-ICP-MS_TAPP_v91` | `v92` | Sample Form retired |
 | `LA-SF-ICP-MS_UPb_TAPP_v92` | `v93` | Sample Form retired |
+| `Lab-XCT_TAPP_v46` | `v47` | prep Method assessed, Notes retired |
 
-11 version(s), 22 file(s) (CSV + xlsx).
+12 version(s), 24 file(s) (CSV + xlsx).
 
 ## Why
 
@@ -120,3 +121,31 @@ Applied by `Project Files/Scripts/retire_sample_form_20260930.py`. The reasoning
 - `audit_keys_vs_literature.py`: 0 NEW.
 - The LA-MC Spot mockup differs from its v90 build only in the removed field, the two new values and the
   version string (123 procedure-level fields, 91 prefilled).
+
+## Lab-XCT v46 → v47: `Sample Preparation Method` assessed, `Sample Preparation Notes` retired
+
+This is the item the v46 section left open. Method (Module_Core, keyed `sample`) had joined Lab-XCT on
+2026-08-27 but had never been assessed. Its 14 cells are now filled from the papers, re-read on
+2026-09-30: 13 attested, and Eckley 2024 stays `N`. Each cell is one form plus quoted commentary
+(7.3.3). Richard C–I names its per-sample forms in the commentary.
+
+With Method filled, the TAPP-local free-text `Sample Preparation Notes` had nothing left to hold:
+- forms and preparation steps belong to Method;
+- holders and containment belong to `Sample Mounting Method`;
+- post-scan steps were outside its "before scanning" scope.
+
+So the user decided to retire it. Two containment facts moved into `Sample Mounting Method`: Neuman
+73001's retained steel sleeve, and Shearer's scan inside the unopened 73001 CSVC. Method's Column F
+dropped its two holder terms, which duplicated Mounting's list. It gained "Separated grain or crystal"
+and "Polished section or chip". Re-reading also corrected four Notes cells (Richard B, Richard C–I,
+Shearer CSVC, Tomkinson); see precedents.md, 2026-09-30. No module, tier, data type or key changed.
+Applied by `Project Files/Scripts/labxct_retire_prep_notes_20260930.py`.
+
+### Verification
+
+- The dry run changed only the intended cells: Method F, H and 13 literature cells, and Mounting H
+  and 2 literature cells. The one row, `Sample Preparation Notes`, was removed, taking v46's 102 rows
+  to 101.
+- `compose_tapp.py --check`: 16 of 16 match.
+- `validate_tapp.py`: 0 ERROR, 0 WARN. The INFO summary is identical to v46's.
+- `audit_keys_vs_literature.py`: 0 NEW.

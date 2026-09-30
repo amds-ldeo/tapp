@@ -1681,6 +1681,10 @@ RETIRED_FIELD_LIVE_PREFIXES = {
 }
 
 RETIRED_FIELDS = {
+    "Sample Preparation Notes":
+                                       "retired 2026-09-30 from Lab-XCT (v47): Module_Core's Sample "
+                                       "Preparation Method holds the form and the preparation, and Lab-XCT's "
+                                       "Sample Mounting Method holds holders and containment",
     "Sample Form / Analytical Substrate":
                                        "retired 2026-09-30 from Module_LaserAblation (v12) and the six LA "
                                        "TAPPs: it restated Module_Core's Sample Preparation Method for one "

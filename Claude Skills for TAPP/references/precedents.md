@@ -2179,6 +2179,9 @@ XCT scans an intact object, so there is no preparation *form* to choose from; th
 carries no `Sample Preparation Method`, and the two fields are complementary rather than duplicates.
 Renaming either would merge a controlled vocabulary into free prose.
 
+> **Superseded twice.** Method joined Lab-XCT later the same day (below), and Notes was retired on
+> 2026-09-30.
+
 ### The D-tier divergence is principled, and structurally determined
 
 `Sample Preparation Method` splits `D=Editable` (11) / `D=Read-Only` (4) — the fifth of the five
@@ -2228,6 +2231,12 @@ powder, and now bulk/core/powder/mounted for XCT. `Sample Preparation Notes` is 
 before scanning, free text at `C=Advanced` — trimmed, dried, wrapped in PTFE. Preparation performed
 by the analysing laboratory (making a section, lifting out a lamella) is not the same claim as
 handling applied to material in transit or storage.
+
+> **SUPERSEDED 2026-09-30 — `Sample Preparation Notes` is retired.** The split did not survive the
+> literature. Method's own description already covers "the preparation that brought it to that
+> form", and Lab-XCT's `Sample Mounting Method` holds the containment. So once Method was assessed,
+> Notes had nothing left to hold. See "Lab-XCT's `Sample Preparation Method` assessed;
+> `Sample Preparation Notes` retired" below.
 
 ### The D-tier adjudication made hours earlier was wrong, and the literature is what overturned it
 
@@ -3740,3 +3749,61 @@ cells were not re-read; the retired field's disagreements with them were the ret
 defining (6.9), so the script composes and then drops the row itself. `RETIRED_FIELDS` in
 `validate_tapp.py` gained the name. The LA-MC Spot mockup was rebuilt at v91: 123 procedure-level
 fields, 91 prefilled, one fewer of each.
+
+## Lab-XCT's `Sample Preparation Method` assessed; `Sample Preparation Notes` retired (2026-09-30)
+
+**What changed.** Lab-XCT v46 → v47:
+- `Sample Preparation Method`'s 14 literature cells were filled from the papers. 13 are attested; Eckley 2024 stays `N`.
+- `Sample Preparation Notes` (TAPP-owned, free text, `(none)`) was removed.
+- `Sample Mounting Method` gained two cells.
+- Method's Column F was narrowed to forms.
+
+No module, tier, data type or key changed. Applied by
+`Project Files/Scripts/labxct_retire_prep_notes_20260930.py`.
+
+**Why it looked like a Rule 1 duplicate.** Method was added to Lab-XCT on 2026-08-27 to hold the
+preparation forms that had been squeezed into Notes, but its cells were never assessed. So the
+record said no XCT paper states its preparation, while Notes held preparation content for 12 of 14
+columns. The field existed; the Phase 3 pass on it had not run.
+
+**Why Notes was retired rather than narrowed.** Once Method was filled from the papers, every Notes
+cell had a home elsewhere or was out of scope:
+- **Forms and preparation steps** (coring, crushing and splitting, a separated phenocryst, polished
+  sections) belong to Method. Core's description covers "the preparation that brought it to that
+  form", so the 2026-08-27 split between *form* and *handling steps* sits inside one field.
+- **Holders and containment** (pipette tip, Teflon triple-bag, drive-tube sleeve, the unopened CSVC)
+  belong to `Sample Mounting Method`, whose description already says to record both layers.
+- **Post-scan steps** (Genge's resin embedding, Richard's epoxy mount) were outside Notes' own
+  "before scanning" scope. They survive as commentary in the Method cell.
+
+The two Mounting cells record containment that Notes had held or missed: Neuman 73001's retained
+steel sleeve, and Shearer's scan inside the unopened 73001 CSVC.
+
+**Re-reading the papers corrected Notes as well as moving it.**
+- Richard B read "None stated", but the paper says "No sectioning was carried out prior to HRXCT scanning".
+- Richard C–I read "None stated", but Samples C, F, G, H and I are doubly polished sections or chips.
+- Shearer's CSVC column was `N`.
+- Tomkinson read "as received", which the paper does not say; Method now quotes what it does say.
+
+A free-text field next to a structured one kept these cells from being checked.
+
+**Column F.** "Mounted in tube, straw or pipette tip" and "Sealed or bagged for containment" were
+dropped: they repeated `Sample Mounting Method`'s "Tube or vial" and "Sealed bag or wrap", and invited
+the same fact into two fields. "Separated grain or crystal" and "Polished section or chip" were added,
+each for an attested case (Richard A; Richard C, F–I).
+
+**Notation.** `sample` is session-only, so under 7.3.3 each cell is one value with ` — ` commentary.
+Richard C–I covers seven samples prepared two ways. The cell names both forms and says in its
+commentary which sample had which, as the Seifert+2026 per-mount case did. It is the third attested
+mixed-route procedure in the library, after Seifert+2026 and Zhang+2022 (SF).
+
+**Other TAPPs.** No other TAPP has a local notes field alongside Method. TEM's `Sample Preparation
+Details` is a genuine complement: 20 of 21 columns pair a Method *form* with FIB and thinning
+*conditions*. The LaserAblation module's `Sample Form / Analytical Substrate` overlapped Method in
+the LA TAPPs, and was retired the same day in a separate pass (entry above). The two retirements have
+the same cause: Core's 2026-08-27 redefinition of Method absorbed a neighbouring field's job, and nothing
+re-checked the neighbour.
+
+**Generalise: a field added for a reason needs its assessment pass in the same change.** An
+unassessed column of `N` does not look like a gap. It looks like evidence that nobody reports the
+value, and it made a working field look redundant.

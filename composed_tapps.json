@@ -402,7 +402,7 @@
       ]
     },
     {
-      "tapp": "XCT/Lab-XCT_TAPP_v46.csv",
+      "tapp": "XCT/Lab-XCT_TAPP_v47.csv",
       "modules": [
         {
           "name": "Core",

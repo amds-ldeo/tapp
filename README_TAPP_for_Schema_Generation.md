@@ -226,8 +226,8 @@ nowhere; that is the class of error this block exists to prevent.
 
 ```
 TAPPs                        16
-content rows                 1841   (rows with a Keyed By value; group headers excluded)
-scalar, `(none)`             1167   63%
+content rows                 1840   (rows with a Keyed By value; group headers excluded)
+scalar, `(none)`             1166   63%
 keyed (arrays in a schema)   674   37%
 Column G provenance stamps   1437   78%
 distinct Keyed By strings    25
@@ -251,7 +251,7 @@ retired, and absent from every TAPP (3):
   model component
 
 the complete set of Keyed By strings present, with row counts:
-  (none)                                          1167
+  (none)                                          1166
   acquisition pass                                  83
   combined result                                   13
   combined result x reported property               26

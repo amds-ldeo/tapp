@@ -44,7 +44,7 @@ in that particular TAPP.
 - `LA-Q-ICP-MS_UPb_TAPP_v95.csv`
 - `LA-SF-ICP-MS_TAPP_v92.csv`
 - `LA-SF-ICP-MS_UPb_TAPP_v93.csv`
-- `Lab-XCT_TAPP_v46.csv`
+- `Lab-XCT_TAPP_v47.csv`
 - `SEM_Composition_TAPP_v82.csv`
 - `SEM_FIBSEM_TAPP_v45.csv`
 - `SEM_Imaging_TAPP_v44.csv`
