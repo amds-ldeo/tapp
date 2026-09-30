@@ -1634,6 +1634,9 @@ HISTORICAL_DOCS = {
     "Project Files/Reports/EPMA_Reference_Procedure_Example_v77.md":
         "worked example written against EPMA TAPP v77 (2026-09-24); its coverage appendix is pinned "
         "to the parked v77 CSV and its Appendix B records the gaps as found at that version",
+    "Project Files/Reports/EPMA_Reference_Procedure_Example_v86.md":
+        "worked example written against EPMA TAPP v86 (2026-09-29); its appendix is pinned to the "
+        "parked v86 CSV. v87 removed only an empty literature column, so its fields still hold",
 }
 # Whole trees of records. Same intent as HISTORICAL_DOCS, by directory prefix.
 HISTORICAL_DIRS = {

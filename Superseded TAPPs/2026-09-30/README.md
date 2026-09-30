@@ -11,8 +11,9 @@ discovery.
 | `Lab-XCT_TAPP_v44` | `v45` | keyed notation |
 | `TEM_TAPP_v66` | `v67` | keyed notation |
 | `LA-MC-ICPMS_TAPP_v89` | `v90` | keyed notation |
+| `EPMA_TAPP_v86` | `v87` | empty column removed |
 
-3 version(s), 6 file(s) (CSV + xlsx).
+4 version(s), 8 file(s) (CSV + xlsx).
 
 ## Why
 
@@ -43,3 +44,24 @@ three TAPPs join `KEYED_NOTATION_ENFORCED`. Applied by
   v90 and still prefills 92 fields.
 - `audit_keys_vs_literature.py`: 0 NEW.
 - Changed: 75 literature cells; no field, tier, data type or key.
+
+## EPMA v86 → v87: an empty literature column removed
+
+EPMA v86 had a literature column with no header and no content in any row, between Barnes+2025 (NHM
+London) and Neuman+2025. It described no procedure, showed as a blank column in the xlsx and the review
+workbook, and put Neuman+2025 at column index 30. v87 removes it, and puts the Neuman+2025 header on one
+line with ` | ` separators like the others; the round-trip records already used that form. Nothing else
+changed: no field, tier, data type, key or literature cell. Applied by
+`Project Files/Scripts/epma_remove_empty_column_20260930.py`.
+
+Re-issued at v87: the five review workbooks and the two EPMA form mockups (the Neuman mockup's `litcol`
+moves from 30 to 29). The narrative, worked example and methods section stay at v86, since their content
+still holds; the v86 example joins `HISTORICAL_DOCS`.
+
+### Verification
+
+- All 106 data rows are identical to v86 once the removed column is set aside.
+- `compose_tapp.py --check`: 16 of 16 match.
+- `validate_tapp.py`: 0 ERROR, 0 WARN.
+- `audit_keys_vs_literature.py`: 0 NEW.
+- Both EPMA mockups are byte-identical to their v86 builds apart from the version string.
