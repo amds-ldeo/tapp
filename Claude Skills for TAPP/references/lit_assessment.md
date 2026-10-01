@@ -51,8 +51,40 @@ must say which value belongs to which member. The full rule is conventions.md 7.
   `Peak Counting Time` is keyed per element. Record the text as commentary and flag the mismatch.
   Do not force it into the wrong key.
 
+- **Isotopes are not target species.** `Target Species` lists elements. The measured nuclides go in
+  `Monitored Masses`, each bound to its element (`54Fe, 56Fe → Fe`). Interference monitors and internal
+  standards are bound to `none` (`53Cr, 60Ni → none`). Where the paper names only some masses, list those,
+  and say in the commentary where the rest are.
+- **Set-ups measured separately are `Acquisition Pass` members.** Examples: two resolutions, two
+  introduction systems, two cup configurations, or one run per element. Name the passes (`MR; HR`,
+  `Fe; Cr; Mg`) and key the pass-dependent cells to them. A single-pass procedure writes `all:`.
+- **Quote a member whose name ends in a parenthesis.** Write `"μ54Fe(7/6)"`; otherwise the grammar strips
+  `(7/6)` as a gloss.
+- **In an unkeyed field, the detail of a yes is the value.** Write `Yes, AG50-X8 cation exchange, ...`. In
+  `Yes — AG50-X8 ...`, everything after the dash is commentary and is not part of the record.
+
 Check a cell with `python3 "Claude Skills for TAPP/scripts/keyed_cells.py"` (the self-test shows the
-forms), or run `validate_tapp.py` and read the `keyed-cell` findings.
+forms), or run `validate_tapp.py` and read the `keyed-cell` findings. They are WARN for every TAPP
+(enforced by default since 2026-09-30), so a new column must parse before it ships.
+
+### The bar is regeneration, not parsing (2026-09-30)
+
+A cell that parses can still be wrong. The keyed-notation passes of 2026-09-29/30 re-read every
+procedure-level cell of every TAPP, and found wrong values, fabricated detail and missing facts in cells
+that parsed cleanly. The test of a column is whether the paper's procedure can be regenerated from its
+cells. For a new column, or a re-read of an old one:
+
+1. Dump the column in full. Read the paper's methods section and its instrument and cup tables.
+2. Write the column's cells and its facts together. A fact is `(field, member, tokens)`, and it must come
+   from a sentence or table cell in *this* paper.
+3. Copy the latest `*_keyed_reverify_*.py` engine and its `Project Files/Reports/*_Cells_RoundTrip_*/`
+   folder. Simulate the edit with `--out-sim`. Parse-check the simulated CSV and score it with
+   `roundtrip.py <csv>`.
+4. Apply only at 100%, or with every miss explained. Check `git log` first, because another session may
+   have bumped the TAPP. Then run the gates, add the round-trip folder to the validator's
+   `HISTORICAL_DIRS`, and record the pass.
+
+Precedents.md (2026-09-30 entries) gives the evidence behind each rule here.
 
 ### The one exception: fields the literature cannot attest (2026-09-16)
 
@@ -106,6 +138,10 @@ with pdfplumber.open('path/to/paper.pdf') as pdf:
 3. **Read the full methods section page by page** — do not rely on grep matches alone. Read each methods page in full to capture context.
 4. **Check data tables explicitly** — detection limits, interference corrections, and target species lists are often in tables or supplementary material, not the main text. Scan table captions for EPMA-relevant content.
 5. **Re-read source sentences before writing** — do not rely on notes from step 2/3 without re-reading.
+6. **Extract tables with `pdftotext -layout`.** The default text extraction scrambles table rows. Before
+   taking a number from a multi-column table, read the header of the column it sits in. Misra's "samples
+   per peak" (50, 100) were read as dwell times in ms, and Makishima's sensitivity column was read as
+   detection limits.
 
 ---
 
@@ -285,6 +321,10 @@ pretty-printed blocks silently no-ops, which is how the original drift began.
 | Updating the registry from session summary instead of source PDF | The registry must be filled from values read in the current session. If the PDF was not read in this session, re-read before filling. |
 | Using a technique column name not in the planning table | Always look up the exact "Proposed TAPP Name" in `Project Files/Registers & Planning/TAPP_Planning_Table.csv` before adding a column. |
 | Writing "Detailed — note" or "N — reason" in the registry | Cell values must be bare labels only: `Detailed`, `Brief`, or `N`. No dashes, notes, or qualifiers. |
+| Taking a neighbour's value | The commonest wrong cell is right for another column: another paper in the same TAPP, or another technique in the same paper. Zhang's Ru line was Navarro's, and Mittlefehldt's LA column held its EPMA section. Find the sentence in *this* paper. |
+| One paper, several instruments | When one paper has a column per instrument, sort every stated fact by instrument before writing any column. Gil-Díaz's Se detection limit had been filed under the Te instrument. |
+| Trusting "N — not stated" | An `N` is a claim about the paper. Nie's digestion steps and Nowell's Nu Plasma cup table were stated in full but recorded as `N`. Check every `N` against the paper. |
+| Two tables disagree | Record both values and state the disagreement. Misra's Table 3 gives 5 MR passes and its Table 1 gives 3. Do not choose between them. |
 
 ---
 
@@ -296,7 +336,10 @@ Before delivering the draft CSV, verify:
 - [ ] Every keyed field's cell uses the keyed-value notation, and names only members that its column's definer lists (`validate_tapp.py`, check `keyed-cell`)
 - [ ] Every stated value traces to a specific source sentence (documented in script docstring or inline citation)
 - [ ] No values were inferred from instrument type, software name, or common practice
-- [ ] Table content was explicitly checked, not just prose
+- [ ] Table content was explicitly checked, not just prose, with `pdftotext -layout` and each number's column header read
+- [ ] Isotopes are under `Monitored Masses` with `→` bindings, not under `Target Species`
+- [ ] Separately measured set-ups are `Acquisition Pass` members
+- [ ] The column was scored with the round-trip before it was applied (see "The bar is regeneration, not parsing")
 - [ ] Group header rows contain `N` in all procedure columns
 - [ ] Blank separator rows are blank
 - [ ] Column headers follow the format: `Author+Year | Instrument | Lab`

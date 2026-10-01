@@ -1375,9 +1375,11 @@ raise it; do not force it into the wrong key.
 
 **Enforcement.** `scripts/keyed_cells.py` is the grammar; `validate_tapp.py` and
 `Project Files/Reports/build_form.py` both import it. The check `keyed-cell` parses every literature
-cell of a keyed field or definer, and matches its members against that column's definer. It reports
-at INFO while a TAPP's backlog is being worked down. A TAPP listed in `KEYED_NOTATION_ENFORCED` in the
-validator reports at WARN: EPMA from the 2026-09-29 pilot on, the four SEM TAPPs from their
+cell of a keyed field or definer, and matches its members against that column's definer. **Since
+2026-09-30 it reports at WARN for every TAPP by default**; a TAPP listed in `KEYED_NOTATION_EXEMPT`
+reports at INFO, and the list is for a conversion pass under way only (it is empty). A new TAPP is
+therefore enforced from its first literature column. Before that, the validator used an opt-in list,
+`KEYED_NOTATION_ENFORCED`, and TAPPs joined it as their passes finished: EPMA from the 2026-09-29 pilot on, the four SEM TAPPs from their
 conversion the same day, TEM, Lab-XCT and LA-MC-ICP-MS from 2026-09-30, and LA-Q-ICP-MS and its U-Pb twin the same day (the
 first conversion tested by a round-trip before it was applied: 204 of 204 stated facts), and LA-SF-ICP-MS and its
 twin after it (315 of 315), Solution SF-ICP-MS after that (245 of 245), Solution Q-ICP-MS (234 of 234) and Solution MC-ICP-MS (252 of 252) —

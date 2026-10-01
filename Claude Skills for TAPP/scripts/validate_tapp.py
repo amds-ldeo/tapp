@@ -53,17 +53,15 @@ SENTINEL_HEADER = "Literature Assessment"
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import keyed_cells  # noqa: E402
 
-# TAPPs whose literature cells have been converted to the keyed-value notation. Their `keyed-cell`
-# findings are WARN (a regression); every other TAPP reports its unconverted backlog at INFO.
-# Add a TAPP (by file-name stem) only once its conversion pass is finished.
-KEYED_NOTATION_ENFORCED = {"EPMA",         # converted 2026-09-29 (epma_keyed_pilot_20260929.py)
-                           "SEM", "SEM_Composition", "SEM_Imaging", "SEM_FIBSEM",  # 2026-09-29 (sem_keyed_notation_20260929.py)
-                           "TEM", "Lab-XCT", "LA-MC-ICPMS",  # 2026-09-30 (keyed_notation_tem_xct_lamc_20260930.py)
-                           "LA-Q-ICP-MS", "LA-Q-ICP-MS_UPb",  # 2026-09-30 (laq_keyed_reverify_20260930.py; round-trip 204/204)
-                           "LA-SF-ICP-MS", "LA-SF-ICP-MS_UPb",  # 2026-09-30 (lasf_keyed_reverify_20260930.py; round-trip 315/315)
-                           "Solution_SF-ICP-MS",  # 2026-09-30 (ssf_keyed_reverify_20260930.py; round-trip 245/245)
-                           "Solution_Q-ICP-MS",  # 2026-09-30 (sq_keyed_reverify_20260930.py; round-trip 234/234)
-                           "Solution_MC-ICP-MS"}  # 2026-09-30 (smc_keyed_reverify_20260930.py; round-trip 252/252)
+# Keyed-value notation (7.3.4) is ENFORCED BY DEFAULT since 2026-09-30: every TAPP's `keyed-cell` findings
+# are WARN. A TAPP may be listed here (by file-name stem) only while a conversion pass is under way, and
+# then reports at INFO; remove it when the pass is finished. Empty since the backlog closed.
+# History of the opt-in list it replaced: EPMA (2026-09-29, epma_keyed_pilot_20260929.py); the four SEM
+# TAPPs (2026-09-29, sem_keyed_notation_20260929.py); TEM, Lab-XCT, LA-MC-ICPMS (2026-09-30,
+# keyed_notation_tem_xct_lamc_20260930.py); LA-Q-ICP-MS and its U-Pb twin (round-trip 204/204); LA-SF-ICP-MS
+# and its twin (315/315); Solution SF (245/245); Solution Q (234/234); Solution MC (252/252) — all 2026-09-30,
+# each by its *_keyed_reverify_20260930.py.
+KEYED_NOTATION_EXEMPT = set()
 # Cells whose stated value cannot be written against the field's key without inference (7.3.4: "the
 # notation tests the key"). Keyed (TAPP stem, field, column key) -> reason; reported at INFO as
 # `keyed-cell-registered`, never WARN. Each entry is an open question about the key, not a format fix.
@@ -1325,7 +1323,7 @@ def check_keyed_cells(t: Tapp, out):
     if t.sentinel_idx is None:
         return
     stem = t.name.rsplit("_TAPP_v", 1)[0]
-    sev = "WARN" if stem in KEYED_NOTATION_ENFORCED else "INFO"
+    sev = "INFO" if stem in KEYED_NOTATION_EXEMPT else "WARN"
     lit = [j for j in range(t.sentinel_idx + 1, len(t.header)) if t.header[j].strip()]
     rows = [(n, row) for n, row, _ in t.content_rows()]
     definers = {}
