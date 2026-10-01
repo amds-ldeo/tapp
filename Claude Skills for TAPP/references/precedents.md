@@ -3940,3 +3940,36 @@ read as one blended configuration.
 
 **Quote a member whose name ends in a parenthesis.** `μ54Fe(7/6)` would otherwise lose `(7/6)` as a gloss. Write
 `"μ54Fe(7/6)"` in the definer and in every keyed cell.
+
+## Counting times keyed per target material: one test is enough when only one procedure can falsify (2026-10-01)
+
+`Project Files/Scripts/rekey_counting_time_20261001.py` re-keyed `Peak Counting Time` and `Background Counting Time`
+from `monitored property` to `target material x monitored property` in EPMA, SEM and SEM_Composition. Zega+2025 sets
+its times per phase, with no element named, and the cells had been `N` since the EPMA pilot. Gap 1 held the case
+"until a second procedure attests" it.
+
+**Why the hold was lifted on one paper.** A material axis can only be falsified by a procedure that analyses
+several materials *and* states counting times. Of the 15 EPMA columns, three state times: Ma+2017, Frank+2023 and
+Barnes+2025. Each gives one set for all materials, so each is consistent with either key. Zega is the only test,
+and it attests the axis. The single-pass rule makes the same argument for acquisition passes: weigh only the
+procedures that can test the key. "Wait for a second attestation" can be an unreachable bar when few procedures
+could test the key at all. Count those first.
+
+**Pattern.** This is the third per-material re-key, after the beam conditions (gap 1, 2026-09-28) and the
+standards (2026-09-29). In each case, a procedure with one setting writes `all [ ... ]` and loses nothing.
+
+## The held electron-beam items closed (2026-10-01)
+
+**Gap 2: no twin fields.** Gap 2 asked whether one element can use a different background method or
+spectrometer in maps than in points. Nothing attests it. Broussard+2026 is the only procedure that reports
+both points and maps and states a background method, and it uses "a similar calibration" for both. Every SEM
+column is EDS-only. Decided: no change. The falsifier in the gaps record stays the reopening condition.
+
+**EPMA geometry × detector: keep the four combined modes.** 9 of 15 EPMA papers state the geometry but not
+the detector. Their `Analytical Mode` stays `N`, with the geometry in commentary. The combined modes are kept
+because they carry field applicability at the intersection: `Peak Counting Time` is WDS Point only, and the
+mapping twins are mapping only. Two independent axes cannot express this. A residue in a round-trip is not on
+its own a reason to change a mode axis. First check what the axis encodes beyond the one field.
+
+Together with the counting-time re-key the same day, this leaves no held electron-beam design item. The Zega
+pyrrhotite Fe/S average (EMPA and SEM-EDS combined) remains open.

@@ -98,7 +98,7 @@ Under projection, that key gives one value per procedure. Published procedures s
 
 See `precedents.md`, "The SEM TAPPs follow EPMA" (2026-09-28).
 
-**Held.** Counting times per phase, `target material x monitored property`, are attested only by Zega+2025 (1 of 15). Revisit when a second procedure attests them.
+**Held, then applied 2026-10-01.** Counting times per phase, `target material x monitored property`, are attested only by Zega+2025 (1 of 15). Held "until a second procedure attests them". On 2026-10-01 the user re-keyed `Peak Counting Time` and `Background Counting Time` in EPMA, SEM and SEM_Composition (`rekey_counting_time_20261001.py`). The reasons: only a multi-material procedure that states times can test the axis; Ma+2017, Frank+2023 and Barnes+2025 give one set for all materials; Zega is the one test, and it attests the axis.
 
 **Replaced proposals.**
 
@@ -218,7 +218,15 @@ survive only as commentary. This is the largest single residue of the round-trip
 user on 2026-09-29.** The split stays the deferred alternative; revisit it with the other electron-beam
 TAPPs, or if another round-trip shows the same residue.
 
-### Gap 2 — per-element values can differ between modes — HELD
+**Closed 2026-10-01 (user): keep the four combined modes.** The mode columns record which fields apply at
+the intersection of geometry and detector. For example, `Peak Counting Time` applies only in WDS Point
+Analysis, and `Dwell Time per Pixel` only in mapping. Two independent axes cannot express that, and the
+whole field-applicability table would have to be re-derived. A procedure that states its geometry but not
+its detector keeps `Analytical Mode` = `N`, with the stated geometry in commentary. The geometry is also
+visible in which mapping or point fields the column fills. A separate `Analytical Geometry` field was
+considered and not added. The SEM TAPPs, all EDS, give no further case.
+
+### Gap 2 — per-element values can differ between modes — CLOSED 2026-10-01, no change
 
 **The problem.** In the example, the same element uses a two-point off-peak background for points and a MAN background for maps, and a different spectrometer for maps than for points.
 
@@ -233,6 +241,12 @@ found. Four procedures report both points and maps: Liu+2016, Zega+2025, Broussa
 Neuman+2025, where Neuman maps only. None states a background method or a spectrometer assignment for
 its maps that differs from its points. Only Neuman+2025 names a map background (MAN). Broussard+2026
 says only that "a similar calibration was used for quantitative EPMA stage mapping".
+
+**Closed 2026-10-01 (user): no twin fields.** Checked again across EPMA and the fully assessed SEM TAPPs.
+Every SEM column is EDS-only, and none states a background method or spectrometer. Only one procedure
+could test the case, Broussard+2026, which reports both points and maps and states a background method.
+It uses the same calibration for both, so the evidence runs against the case. Neither EPMA nor SEM states
+a spectrometer assignment in any column. The falsifier above stays the reopening condition.
 
 ### Gap 5 — preparation can differ by sample — FIXED 2026-09-28
 
@@ -253,7 +267,7 @@ says only that "a similar calibration was used for quantitative EPMA stage mappi
 | done | Gap 4 | EPMA, SEM and SEM_Composition; TAPP-owned. |
 | done | Gap 3 | Three modules, 13 TAPPs. |
 | done | Gap 1, SEM and TEM | SEM TAPPs changed on paper evidence; TEM unchanged. |
-| — | Gap 2 | Held until attested. |
+| closed 2026-10-01 | Gap 2 | No change: unattested, and the one testable procedure shows the opposite. |
 
 Every change follows the usual gates:
 

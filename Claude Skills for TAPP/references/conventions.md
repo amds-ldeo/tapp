@@ -1369,9 +1369,9 @@ written as one value. A literature column describes a procedure, and the procedu
 
 **The notation tests the key.** A value that cannot be written against the declared key is evidence
 about the key, not a formatting problem. Zega+2025's `Peak Counting Time` ("20 s (silicates, sulfides,
-oxides; phosphates); 10 s (carbonates)") is stated per material. It cannot be written under
-`monitored property`, which is the held counting-time case of gap 1. Record it in commentary and
-raise it; do not force it into the wrong key.
+oxides; phosphates); 10 s (carbonates)") is stated per material. It could not be written under
+`monitored property`. It was recorded in commentary and raised, and on 2026-10-01 the field was re-keyed
+`target material x monitored property` (see below). Do not force a value into the wrong key; raise it.
 
 **Enforcement.** `scripts/keyed_cells.py` is the grammar; `validate_tapp.py` and
 `Project Files/Reports/build_form.py` both import it. The check `keyed-cell` parses every literature
@@ -1398,9 +1398,16 @@ in the validator holds (TAPP, field, column) with the reason, and reports it at 
 question about the key, answered when the entry is made. The first two are Ma+2017's detection limit
 and accuracy, stated per element while the paper reports oxides; attaching Si to SiO2 would be
 inference. Decided 2026-09-29: the key stays `reported property`, and the cells stay registered. Where the stated
-value is not per member at all, the cell is `N` with the text as commentary; Zega+2025's per-material
-counting times are the case. McCoy+2025_UA's per-phase standards were the second, until the field was
-re-keyed `target material x target species` (2026-09-29): a finding like this can change the key.
+value is not per member at all, the cell is `N` with the text as commentary until the key is decided.
+Two such findings have changed keys:
+- McCoy+2025_UA's per-phase standards: `Primary Calibration Standard Name` re-keyed `target material x
+  target species` (2026-09-29).
+- Zega+2025's per-phase counting times: `Peak Counting Time` and `Background Counting Time` re-keyed
+  `target material x monitored property` in EPMA, SEM and SEM_Composition (2026-10-01).
+
+Zega names no element, so its cells read `silicates, sulfides, oxides [all: 20 s]; ...`. A procedure
+with one set of times writes `all [ ... ]`. Only a procedure that analyses several materials *and* states
+times can test the material axis, so one attesting paper with no counter-example is sufficient.
 
 #### 7.4 The declaration invariants
 

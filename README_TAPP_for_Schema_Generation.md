@@ -230,7 +230,7 @@ content rows                 1840   (rows with a Keyed By value; group headers e
 scalar, `(none)`             1166   63%
 keyed (arrays in a schema)   674   37%
 Column G provenance stamps   1437   78%
-distinct Keyed By strings    25
+distinct Keyed By strings    26
 definer fields               12
 
 keys in use library-wide (10):
@@ -265,7 +265,7 @@ the complete set of Keyed By strings present, with row counts:
   defines: standard                                 12
   defines: target material                          16
   defines: target species                           13
-  monitored property                               115
+  monitored property                               109
   pair: reported property                            7
   preparation step                                   9
   reported property                                 99
@@ -274,6 +274,7 @@ the complete set of Keyed By strings present, with row counts:
   sample > sampling unit x reported property        21
   standard x reported property                      33
   target material                                   16
+  target material x monitored property               6
   target material x target species                  12
   target species                                    40
 
