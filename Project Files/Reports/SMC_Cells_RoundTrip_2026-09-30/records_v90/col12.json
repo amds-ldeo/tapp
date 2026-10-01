@@ -1,0 +1,674 @@
+{
+ "procedure_column": "Broussard+etal2026 | Neptune Plus | WUSTL",
+ "tapp": "Solution_MC-ICP-MS_TAPP_v90",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution MC-ICP-MS",
+   "status": "text",
+   "value": "Solution MC-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Washington University in St. Louis",
+   "status": "text",
+   "value": "Washington University in St. Louis"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "Laser-fluorination oxygen isotopes on a Thermo Finnigan MAT 253 Plus; K loss monitored by Thermo Fisher iCAP Q ICP-MS",
+   "status": "text",
+   "value": "Laser-fluorination oxygen isotopes on a Thermo Finnigan MAT 253 Plus; K loss monitored by Thermo Fisher iCAP Q ICP-MS"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "Functional: pre-cut and post-cut fractions either side of the K collection were measured by Q-ICP-MS \"to monitor for K loss during column chemistry\". Sequence: Q-ICP-MS check before MC-ICP-MS measurement",
+   "status": "text",
+   "value": "Functional: pre-cut and post-cut fractions either side of the K collection were measured by Q-ICP-MS \"to monitor for K loss during column chemistry\". Sequence: Q-ICP-MS check before MC-ICP-MS measurement"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "CI chondrite Oued Chebeika 002 and geostandard",
+   "status": "structured",
+   "value": [
+    {
+     "member": "CI chondrite Oued Chebeika 002 and geostandard",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "1: 3:2 concentrated HF : double-distilled HNO3 in PFA vials, hotplate 150 deg C, about 1 week | 2: dried down, dissolved in 1 ml concentrated HNO3, with 1 ml H2O2 added slowly in 0.1 ml increments | 3: dried down, dissolved in double-distilled HCl. The final 5 ml 2% HNO3 is the uptake, not a step.",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "1: 3:2 concentrated HF : double-distilled HNO3 in PFA vials",
+     "parent": null
+    },
+    {
+     "member": "hotplate 150 deg C",
+     "parent": null
+    },
+    {
+     "member": "about 1 week | 2: dried down",
+     "parent": null
+    },
+    {
+     "member": "dissolved in 1 ml concentrated HNO3",
+     "parent": null
+    },
+    {
+     "member": "with 1 ml H2O2 added slowly in 0.1 ml increments | 3: dried down",
+     "parent": null
+    },
+    {
+     "member": "dissolved in double-distilled HCl. The final 5 ml 2% HNO3 is the uptake",
+     "parent": null
+    },
+    {
+     "member": "not a step.",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "150 deg C (hotplate). The 70 and 140 deg C previously recorded here belong to the carbonate-removal pre-treatment and to the cosmogenic-radionuclide dissolution, which are different preparations in the same paper.",
+   "status": "unparsed",
+   "value": []
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "About 1 week for the HF-HNO3 step. The 20 h previously recorded here is the cosmogenic-radionuclide dissolution, a different preparation.",
+   "status": "unparsed",
+   "value": []
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "300 ppb K solution",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "Yes — twice through 1.5 mL Bio-Rad AG50W-X8 100–200 mesh cation resin, loading, matrix elution and K elution all in 0.5 M HNO3",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+   "status": "not applicable"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Neptune Plus",
+   "status": "text",
+   "value": "Neptune Plus"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]",
+   "status": "text",
+   "value": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Array Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Amplifier Resistor Values": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Gain Calibration Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "Measured \"on the left 'shoulder' of the peak to resolve the difference between 40Ar1H+ and 41K+\"",
+   "status": "text",
+   "value": "Measured \"on the left 'shoulder' of the peak to resolve the difference between 40Ar1H+ and 41K+\""
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "Elemental Scientific APEX Omega desolvating nebulizer",
+   "status": "text",
+   "value": "Elemental Scientific APEX Omega desolvating nebulizer"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "Elemental Scientific APEX Omega",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "K",
+   "status": "structured",
+   "value": [
+    {
+     "member": "K",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "³⁹K, ⁴¹K (K) — δ⁴¹K is defined from the ⁴¹K/³⁹K ratio (p.4). ⁴⁰Ar¹H⁺ is named as the interference on ⁴¹K⁺ (p.4) but is not itself a monitored mass",
+   "status": "structured",
+   "value": [
+    {
+     "member": "³⁹K",
+     "parent": null
+    },
+    {
+     "member": "⁴¹K",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "δ41K in permil relative to NIST SRM 3141a",
+   "status": "structured",
+   "value": [
+    {
+     "member": "δ41K in permil relative to NIST SRM 3141a",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collector Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Blocks per Measurement": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Cycles per Block": {
+   "key": "acquisition pass",
+   "cell": "\"Each sample was measured approximately 20 times\"",
+   "status": "unparsed",
+   "value": []
+  },
+  "Integration Time per Cycle": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Baseline Measurement Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "Standard-sample bracketing against NIST SRM 3141a; BHVO-2 measured alongside the samples",
+   "status": "text",
+   "value": "Standard-sample bracketing against NIST SRM 3141a; BHVO-2 measured alongside the samples"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+   "status": "not applicable"
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A — no added internal standard element",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Flatness Method and Threshold": {
+   "key": "(none)",
+   "cell": "Measurements taken \"on the left 'shoulder' of the peak\"; no numeric threshold stated",
+   "status": "text",
+   "value": "Measurements taken \"on the left 'shoulder' of the peak\"; no numeric threshold stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "Standard-sample bracketing against NIST SRM 3141a",
+   "status": "text",
+   "value": "Standard-sample bracketing against NIST SRM 3141a"
+  },
+  "Mass Fractionation Law": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Double-Spike Isotope Pair": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Mixing Ratio": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Inversion Algorithm": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Internal Normalization Element and Isotope Ratio": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Ratio Reported": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes — 40Ar1H+ on 41K+, resolved by peak-shoulder measurement",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "40Ar1H+ on 41K+",
+   "status": "unparsed",
+   "value": []
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution applied",
+   "status": "not applicable"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "Stated as ± values on δ41K without an explicit convention in the section read",
+   "status": "text",
+   "value": "Stated as ± values on δ41K without an explicit convention in the section read"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — \"Each sample was measured approximately 20 times\". No rejection rule stated",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Error Correlation Between Reported Quantities": {
+   "key": "pair: reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "δ41K: average of repeat measurements — 'The average d41K value for BHVO-2 was 0.448 ± 0.027'; each sample 'was measured approximately 20 times'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "δ41K"
+     ],
+     "value": "average of repeat measurements"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "NIST SRM 3141a",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "Every sample (bracketing)",
+   "status": "text",
+   "value": "Every sample (bracketing)"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "BHVO-2",
+   "status": "structured",
+   "value": [
+    {
+     "member": "BHVO-2",
+     "parent": null
+    }
+   ]
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "\"The average d41K value for BHVO-2 was −0.448 ± 0.027‰ which is within error of its previously reported values, for example, −0.46 ± 0.09‰ (Wang et al., 2021)\"",
+   "status": "unparsed",
+   "value": []
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}

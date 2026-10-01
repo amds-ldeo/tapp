@@ -1,0 +1,700 @@
+{
+ "procedure_column": "Craddock+etal2008 | Thermo NEPTUNE | WHOI",
+ "tapp": "Solution_MC-ICP-MS_TAPP_v90",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution MC-ICP-MS",
+   "status": "text",
+   "value": "Solution MC-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Woods Hole Oceanographic Institution",
+   "status": "text",
+   "value": "Woods Hole Oceanographic Institution"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "Laser-ablation MC-ICP-MS — the same NEPTUNE, with a NewWave UP213 laser, \"such that laser ablation and solution aspiration can be operated simultaneously\"",
+   "status": "text",
+   "value": "Laser-ablation MC-ICP-MS"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "Functional: the laser is connected directly to the spray chamber so ablated particles mix with 2% HNO3 and are \"effectively analyzed as a wet plasma ensuring that ablated aerosols are closely matrix-matched to solution standards\". Sequence: interchangeable — \"Our setup allows for interchangeable bulk and in situ S isotope measurement\"",
+   "status": "text",
+   "value": "Functional: the laser is connected directly to the spray chamber so ablated particles mix with 2% HNO3 and are \"effectively analyzed as a wet plasma ensuring that ablated aerosols are closely matrix-matched to solution standards\". Sequence: interchangeable"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Sulfate minerals (anhydrite, barite, gypsum) and sulfide minerals (pyrite, chalcopyrite)",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "Sulfate minerals (anhydrite, barite, gypsum) and sulfide minerals",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Purified solution aliquot — \"Less than 50 mg of sample was accurately weighed\"; \"A precise solution volume, corresponding to 500 µg of S\" taken for column purification",
+   "status": "text",
+   "value": "Purified solution aliquot"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Mineral standard cut as a 2 mm thick section, polished and mounted on a 45x25 mm petrographic slide for the laser half; solution half dissolved from weighed mineral",
+   "status": "text",
+   "value": "Mineral standard cut as a 2 mm thick section, polished and mounted on a 45x25 mm petrographic slide for the laser half; solution half dissolved from weighed mineral"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "5 ml HNO3 (50%), then 3 ml concentrated HNO3 + 2 mL HCl (50%); residue dissolved in 4 mL 2% HNO3",
+   "status": "unparsed",
+   "value": []
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "15 ml PTFE digestion vessel",
+   "status": "text",
+   "value": "15 ml PTFE digestion vessel"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "1: 5 ml HNO3 (50%), hot plate below 70 deg C, taken to dryness | 2: 3 ml concentrated HNO3 + 2 ml HCl (50%), sealed PTFE vessel, 70 deg C, taken to dryness. The subsequent 4 ml 2% HNO3 is the final uptake, not a step.",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "1: 5 ml HNO3",
+     "parent": null
+    },
+    {
+     "member": "hot plate below 70 deg C",
+     "parent": null
+    },
+    {
+     "member": "taken to dryness | 2: 3 ml concentrated HNO3 + 2 ml HCl",
+     "parent": null
+    },
+    {
+     "member": "sealed PTFE vessel",
+     "parent": null
+    },
+    {
+     "member": "70 deg C",
+     "parent": null
+    },
+    {
+     "member": "taken to dryness. The subsequent 4 ml 2% HNO3 is the final uptake",
+     "parent": null
+    },
+    {
+     "member": "not a step.",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "\"less than 70 °C\" for the first evaporation; 70 °C for the total digestion",
+   "status": "unparsed",
+   "value": []
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "Not stated for the individual steps beyond \"taken to dryness\"",
+   "status": "unparsed",
+   "value": []
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "2% (w/w) HNO3, 50 ppm S stock",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "<50 mg weighed; 500 µg S taken for column purification",
+   "status": "text",
+   "value": "<50 mg weighed; 500 µg S taken for column purification"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "Yes — cation exchange AG50-X8 (H+ form), 2.5 ml resin, conditioned with 1.4 N HNO3; S passes through while matrix elements are retained. Yield 98±4%",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+   "status": "not applicable"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "NEPTUNE (\"Thermo Electron NEPTUNE\")",
+   "status": "text",
+   "value": "NEPTUNE (\"Thermo Electron NEPTUNE\")"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]",
+   "status": "text",
+   "value": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "X-cones",
+   "status": "text",
+   "value": "X-cones"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "Ni",
+   "status": "text",
+   "value": "Ni"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "\"Pt-guard electrode: On, grounded\"",
+   "status": "text",
+   "value": "\"Pt-guard electrode: On, grounded\""
+  },
+  "Faraday Cup Array Configuration": {
+   "key": "(none)",
+   "cell": "Nine Faraday cups — \"equipped with nine Faraday Cups\" (p.3); Table 1 gives detection system \"Faraday cups\" and acquisition mode \"Static, analogue detectors\" (p.3). No ion counter stated",
+   "status": "text",
+   "value": "Nine Faraday cups"
+  },
+  "Faraday Cup Amplifier Resistor Values": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Gain Calibration Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "\"High (entrance slit); Low (detector slit)\"",
+   "status": "text",
+   "value": "\"High (entrance slit); Low (detector slit)\""
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "PFA-50, Elemental Scientific, Inc.",
+   "status": "text",
+   "value": "PFA-50, Elemental Scientific, Inc."
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "SSI cyclonic spray dual chamber, Elemental Scientific, Inc.; cooling not stated",
+   "status": "text",
+   "value": "SSI cyclonic spray dual chamber, Elemental Scientific, Inc.; cooling not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "None — and deliberately: \"passing solutions through a desolvating nebulizer to obtain dry plasma conditions is not viable for bulk analysis\"",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "50 µL/min",
+   "status": "text",
+   "value": "50 µL/min"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "~1150 W",
+   "status": "text",
+   "value": "~1150 W"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "~15 L/min Ar",
+   "status": "text",
+   "value": "~15 L/min Ar"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "~0.8 L/min Ar",
+   "status": "text",
+   "value": "~0.8 L/min Ar"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "~0.8–0.9 L/min Ar (sample gas)",
+   "status": "text",
+   "value": "~0.8–0.9 L/min Ar (sample gas)"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "Wet plasma — solutions \"introduced as a 'wet' aerosol (in 2% HNO3) into the ICP torch via a cyclonic spray dual chamber\"; dry plasma deliberately rejected as \"not viable for bulk analysis\"",
+   "status": "unparsed",
+   "value": []
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "S",
+   "status": "structured",
+   "value": [
+    {
+     "member": "S",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "³²S (L3), ³³S (C), ³⁴S (H3) — Table 1 \"Cup configuration\", p.3. All three serve the single target species S",
+   "status": "structured",
+   "value": [
+    {
+     "member": "³²S",
+     "parent": null
+    },
+    {
+     "member": "³³S",
+     "parent": null
+    },
+    {
+     "member": "³⁴S",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "δ34S and δ33S in permil vs V-CDT",
+   "status": "structured",
+   "value": [
+    {
+     "member": "δ34S and δ33S in permil vs V-CDT",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collector Configuration": {
+   "key": "monitored property",
+   "cell": "32S(L3), 33S(C), 34S(H3)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Number of Blocks per Measurement": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Cycles per Block": {
+   "key": "acquisition pass",
+   "cell": "20 cycles",
+   "status": "unparsed",
+   "value": []
+  },
+  "Integration Time per Cycle": {
+   "key": "monitored property",
+   "cell": "8.5 s",
+   "status": "unparsed",
+   "value": []
+  },
+  "Baseline Measurement Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "2 min for solution work (4 min for laser)",
+   "status": "text",
+   "value": "2 min for solution work (4 min for laser)"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+   "status": "not applicable"
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A — no added internal standard element",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Flatness Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N (⁶⁴Zn²⁺, ⁶⁶Zn²⁺ and ⁶⁸Zn²⁺ are listed as interferences on the S masses, Table 2, p.4, and resolved by mass resolution, p.5; no M²⁺ tuning monitor or production ratio is stated)",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "Standard-sample bracketing against matrix-matched purified S solutions",
+   "status": "text",
+   "value": "Standard-sample bracketing against matrix-matched purified S solutions"
+  },
+  "Mass Fractionation Law": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Double-Spike Isotope Pair": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Mixing Ratio": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Inversion Algorithm": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Internal Normalization Element and Isotope Ratio": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Ratio Reported": {
+   "key": "reported property",
+   "cell": "34S/32S and 33S/32S",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes — the paper is built around correcting isobaric interferences and mass bias for S",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution applied",
+   "status": "not applicable"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "Wash-out 2 min for solution",
+   "status": "text",
+   "value": "Wash-out 2 min for solution"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "\"external reproducibility is reported at the 2σ error level\"; long-term reproducibility \"typically 0.20‰ and 0.45‰ (2σ) for solution and laser\"",
+   "status": "text",
+   "value": "\"external reproducibility is reported at the 2σ error level\"; long-term reproducibility \"typically 0.20‰ and 0.45‰ (2σ) for solution and laser\""
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Rule: data showing mass-bias drift greater than ~0.5‰ during an individual sample are discarded; no count stated — 'Data that show clear and large mass bias drift (greater than ∼0.5‰) during individual samples should be discarded'",
+   "status": "text",
+   "value": "Rule: data showing mass-bias drift greater than ~0.5‰ during an individual sample are discarded; no count stated"
+  },
+  "Error Correlation Between Reported Quantities": {
+   "key": "pair: reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "δ34S: over the replicate analyses of each reference material; the statistic is not named — Table 3 '# of replicates', with 'External precision (two standard deviations) calculated from replicate analyses'",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "δ34S"
+     ],
+     "value": "over the replicate analyses of each reference material"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "In-house S_Alfa and S_Spex 20 ppm S solutions, calibrated against IAEA-S-1, S-2, S-4 and NBS-123",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "Sch-M-2 anhydrite mineral standard; geological reference samples with known isotope compositions",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Sch-M-2 anhydrite mineral standard",
+     "parent": null
+    },
+    {
+     "member": "geological reference samples with known isotope compositions",
+     "parent": null
+    }
+   ]
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "\"Long-term reproducibility of S isotope compositions is typically 0.20‰ and 0.45‰ (2σ) for solution and laser\"; long-term reproducibility of in-house solution standards within ±0.2‰",
+   "status": "unparsed",
+   "value": []
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "Assessed against IAEA and NBS reference materials on the V-CDT scale and against geological reference samples with known compositions",
+   "status": "unparsed",
+   "value": []
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}

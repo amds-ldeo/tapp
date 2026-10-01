@@ -1,0 +1,684 @@
+{
+ "procedure_column": "Barnes+etal2025 | Neptune Plus | ETH Zurich",
+ "tapp": "Solution_MC-ICP-MS_TAPP_v90",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution MC-ICP-MS",
+   "status": "text",
+   "value": "Solution MC-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Institute of Geochemistry and Petrology, ETH Zurich",
+   "status": "text",
+   "value": "Institute of Geochemistry and Petrology, ETH Zurich"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "Coordinated dissolution shared with the WUSTL K/Cu/Zn procedure; SIMS oxygen isotopes",
+   "status": "text",
+   "value": "Coordinated dissolution shared with the WUSTL K/Cu/Zn procedure; SIMS oxygen isotopes"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Bennu returned sample aggregate",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Bennu returned sample aggregate",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "A 5.2 mg aliquot of Bennu aggregate",
+   "status": "text",
+   "value": "A 5.2 mg aliquot of Bennu aggregate"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "Coordinated dissolution shared with the WUSTL split — see the WUSTL column",
+   "status": "unparsed",
+   "value": []
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "Coordinated dissolution shared with the WUSTL split - see the WUSTL column.",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "Coordinated dissolution shared with the WUSTL split - see the WUSTL column.",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "5.2 mg",
+   "status": "text",
+   "value": "5.2 mg"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "Yes — three-step anion exchange chromatography; yields 75–100%",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+   "status": "not applicable"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Neptune Plus",
+   "status": "text",
+   "value": "Neptune Plus"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]",
+   "status": "text",
+   "value": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Array Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Amplifier Resistor Values": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Gain Calibration Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "Medium mass resolution, R ≈ 6,600–7,000 (R = m/m0.95 − m0.05)",
+   "status": "text",
+   "value": "Medium mass resolution, R ≈ 6,600–7,000 (R = m/m0.95 − m0.05)"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Ti",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Ti",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "⁴⁶Ti, ⁴⁷Ti, ⁴⁸Ti, ⁴⁹Ti, ⁵⁰Ti (Ti); ⁴⁴Ca, ⁵¹V, ⁵²Cr, ⁵³Cr (interference monitors, no target species) — \"Titanium isotopes were collected in two cup configurations. First, all five Ti isotopes and 44Ca were measured enabling correction of the Ca interference on 46Ti and 48Ti. The second configuration included 49Ti, 50Ti, 51V, 52Cr and 53Cr to correct for isobaric interferences from V and Cr on 50Ti\" (p.8). ⁴⁵Sc belongs to the LLNL procedure in the same paper, not this one",
+   "status": "structured",
+   "value": [
+    {
+     "member": "⁴⁶Ti",
+     "parent": null
+    },
+    {
+     "member": "⁴⁷Ti",
+     "parent": null
+    },
+    {
+     "member": "⁴⁸Ti",
+     "parent": null
+    },
+    {
+     "member": "⁴⁹Ti",
+     "parent": null
+    },
+    {
+     "member": "⁵⁰Ti",
+     "parent": null
+    },
+    {
+     "member": "⁴⁴Ca",
+     "parent": null
+    },
+    {
+     "member": "⁵¹V",
+     "parent": null
+    },
+    {
+     "member": "⁵²Cr",
+     "parent": null
+    },
+    {
+     "member": "⁵³Cr",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "ε46Ti, ε48Ti and ε50Ti (parts per 10^4) relative to an in-house Alfa Aesar Ti wire standard, εiTi = [(iTi/47Ti)sample/(iTi/47Ti)standard − 1] × 10^4, \"where i refers to the isotope masses 46Ti, 48Ti and 50Ti\" (p.8)",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "ε46Ti",
+     "parent": null
+    },
+    {
+     "member": "ε48Ti and ε50Ti (parts per 10^4) relative to an in-house Alfa Aesar Ti wire standard",
+     "parent": null
+    },
+    {
+     "member": "εiTi = [(iTi/47Ti)sample/(iTi/47Ti)standard − 1] × 10^4",
+     "parent": null
+    },
+    {
+     "member": "\"where i refers to the isotope masses 46Ti, 48Ti and 50Ti\" (p.8)",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collector Configuration": {
+   "key": "monitored property",
+   "cell": "Two cup configurations: (1) ⁴⁶Ti–⁵⁰Ti and ⁴⁴Ca; (2) ⁴⁹Ti, ⁵⁰Ti, ⁵¹V, ⁵²Cr, ⁵³Cr — \"Titanium isotopes were collected in two cup configurations\" (p.8). Cup positions are not stated",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Two cup configurations"
+     ],
+     "value": "(1) ⁴⁶Ti–⁵⁰Ti and ⁴⁴Ca"
+    }
+   ]
+  },
+  "Number of Blocks per Measurement": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Cycles per Block": {
+   "key": "acquisition pass",
+   "cell": "40 cycles",
+   "status": "unparsed",
+   "value": []
+  },
+  "Integration Time per Cycle": {
+   "key": "monitored property",
+   "cell": "8.39 s for the first cup configuration and 4.19 s for the second — \"A sample measurement consisted of 40 cycles with 8.39 s integration time for the first configuration and 4.19 s for the second\" (p.8). The 4 s in the same paper is the LLNL procedure's (p.8), not this one",
+   "status": "unparsed",
+   "value": []
+  },
+  "Baseline Measurement Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+   "status": "not applicable"
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A — no added internal standard element",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Flatness Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "Internal normalization to 49Ti/47Ti = 0.749766 using the exponential law, plus bracketing against an in-house Alfa Aesar Ti wire standard — \"the isotope data were normalized to a 49Ti/47Ti ratio of 0.749766 (ref. 72), using the exponential law\"; results reported \"applying the sample–standard bracketing method\" (p.8)",
+   "status": "text",
+   "value": "Internal normalization to 49Ti/47Ti = 0.749766 using the exponential law, plus bracketing against an in-house Alfa Aesar Ti wire standard"
+  },
+  "Mass Fractionation Law": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Double-Spike Isotope Pair": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Mixing Ratio": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Inversion Algorithm": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Internal Normalization Element and Isotope Ratio": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Ratio Reported": {
+   "key": "reported property",
+   "cell": "46Ti/47Ti, 48Ti/47Ti, 50Ti/47Ti — εiTi is defined on iTi/47Ti \"where i refers to the isotope masses 46Ti, 48Ti and 50Ti\" (p.8)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution applied",
+   "status": "not applicable"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "2 s.d.",
+   "status": "text",
+   "value": "2 s.d."
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Error Correlation Between Reported Quantities": {
+   "key": "pair: reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average of repeated measurements — 'The isotope data were collected on two different days and included four repetitions for Bennu'; 'the Bennu samples averages +0.27 ± 0.08 ε46Ti, −0.02 ± 0.05 ε48Ti and +1.98 ± 0.08 ε50Ti (2 s.e.)' (p.2), which may also include the LLNL aliquot",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average of repeated measurements"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "BHVO-2 and the Agua Zarcas (CM2) chondrite analysed alongside Bennu — \"To verify the accuracy and reproducibility of these measurements, the terrestrial rock standard BHVO-2 and the Agua Zarcas (CM2) chondrite were analysed alongside the Bennu sample. The analytical uncertainties of 9 analyses of BHVO-2 are ±0.17 ε46Ti, ±0.09 ε48Ti and ±0.16 ε50Ti (2 s.d.)\" (p.8). No accepted values or offsets are stated. The ±0.26 ε50Ti in the same paper is the LLNL procedure's (16 analyses of BCR-2 and BHVO-2, p.8), not this one",
+   "status": "unparsed",
+   "value": []
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}

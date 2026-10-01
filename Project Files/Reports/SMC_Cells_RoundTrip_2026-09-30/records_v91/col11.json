@@ -1,0 +1,987 @@
+{
+ "procedure_column": "vanKooten+etal2026 | Thermo Neoma | Univ Copenhagen",
+ "tapp": "Solution_MC-ICP-MS_TAPP_v91",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution MC-ICP-MS",
+   "status": "text",
+   "value": "Solution MC-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Centre for Star and Planet Formation, Globe Institute, University of Copenhagen",
+   "status": "text",
+   "value": "Centre for Star and Planet Formation, Globe Institute, University of Copenhagen"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "ICP-MS for Sr and Rb weathering assessment; Si isotopes on a separate NaOH-fusion aliquot",
+   "status": "text",
+   "value": "ICP-MS for Sr and Rb weathering assessment; Si isotopes on a separate NaOH-fusion aliquot"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "bulk chondrite; chondrule — anomalous and grouped carbonaceous chondrites; type I chondrules from Leoville (CV)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "bulk chondrite",
+     "parent": null
+    },
+    {
+     "member": "chondrule",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Fraction of a bulk digestion — \"Another 5% fraction was used to determine Al/Mg ratios by multi-collector (MC)-ICPMS\"",
+   "status": "text",
+   "value": "Fraction of a bulk digestion"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Handpieces cut into 2 mm slabs with a diamond wire saw; saw dust and crushed fusion-crust-free pieces digested; chondrules drilled out with tungsten carbide bits — Methods",
+   "status": "text",
+   "value": "Handpieces cut into 2 mm slabs with a diamond wire saw; saw dust and crushed fusion-crust-free pieces digested; chondrules drilled out with tungsten carbide bits"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "Parr bomb: 3:1 7 M HNO3 : 28 M HF; aqua regia: aqua regia; NaOH fusion: NaOH, then Milli-Q water and HNO3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Parr bomb"
+     ],
+     "value": "3:1 7 M HNO3 : 28 M HF"
+    },
+    {
+     "members": [
+      "aqua regia"
+     ],
+     "value": "aqua regia"
+    },
+    {
+     "members": [
+      "NaOH fusion"
+     ],
+     "value": "NaOH, then Milli-Q water and HNO3"
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "Parr bombs; silver crucibles for the NaOH fusion",
+   "status": "text",
+   "value": "Parr bombs; silver crucibles for the NaOH fusion"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "Parr bomb (3:1 7 M HNO3 : 28 M HF, 1 day at 150 °C and 2 days at 210 °C); aqua regia (dried, taken up for two more days on a hotplate); NaOH fusion (Si portion, silver crucibles, 720 °C, 13 min) — Methods",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Parr bomb",
+     "parent": null
+    },
+    {
+     "member": "aqua regia",
+     "parent": null
+    },
+    {
+     "member": "NaOH fusion",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "Parr bomb: 150 °C, then 210 °C; aqua regia: N; NaOH fusion: 720 °C",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Parr bomb"
+     ],
+     "value": "150 °C, then 210 °C"
+    },
+    {
+     "members": [
+      "aqua regia"
+     ],
+     "value": "N"
+    },
+    {
+     "members": [
+      "NaOH fusion"
+     ],
+     "value": "720 °C"
+    }
+   ]
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "Parr bomb: 3 days; aqua regia: 2 days; NaOH fusion: 13 min",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Parr bomb"
+     ],
+     "value": "3 days"
+    },
+    {
+     "members": [
+      "aqua regia"
+     ],
+     "value": "2 days"
+    },
+    {
+     "members": [
+      "NaOH fusion"
+     ],
+     "value": "13 min"
+    }
+   ]
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "N — the Cr cut is eluted in 6 M HCl; the measurement matrix is not stated",
+   "status": "commentary only"
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "~100–200 mg of saw dust and crushed pieces — 5% fractions for ICPMS and for Al/Mg",
+   "status": "text",
+   "value": "~100–200 mg of saw dust and crushed pieces"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "Yes, AG1-X8 anion (1 ml) for Fe, then AG50-X12 cation (1 ml) twice for Cr and Mg",
+   "status": "text",
+   "value": "Yes, AG1-X8 anion (1 ml) for Fe, then AG50-X12 cation (1 ml) twice for Cr and Mg"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+   "status": "not applicable"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Neoma",
+   "status": "text",
+   "value": "Neoma"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]",
+   "status": "text",
+   "value": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "Jet sampler and X skimmer cones — stated for the Cr measurements",
+   "status": "text",
+   "value": "Jet sampler and X skimmer cones"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Array Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Amplifier Resistor Values": {
+   "key": "monitored property",
+   "cell": "24Mg, 25Mg, 26Mg: 10^11 Ω; other: N",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "24Mg",
+      "25Mg",
+      "26Mg"
+     ],
+     "value": "10^11 Ω"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Faraday Cup Gain Calibration Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "Medium resolution, M/ΔM > 6,000 — defined by the 5% to 95% peak edge width",
+   "status": "text",
+   "value": "Medium resolution, M/ΔM > 6,000"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "Fe: ESI Apex2HF with an actively cooled membrane unit; Cr: ESI Apex HF with an actively cooled membrane unit; Mg: ESI Apex Omega",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Fe"
+     ],
+     "value": "ESI Apex2HF with an actively cooled membrane unit"
+    },
+    {
+     "members": [
+      "Cr"
+     ],
+     "value": "ESI Apex HF with an actively cooled membrane unit"
+    },
+    {
+     "members": [
+      "Mg"
+     ],
+     "value": "ESI Apex Omega"
+    }
+   ]
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "30 µl/min — for Fe, Cr and Mg",
+   "status": "text",
+   "value": "30 µl/min"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N — Cr measured 'at low radiofrequency power and sample gas inflow'",
+   "status": "commentary only"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "None, no auxiliary gas to the introduction system for Cr — Cr 'measured without the use of an auxiliary gas to the introduction system to reduce gas-based interferences'",
+   "status": "text",
+   "value": "None, no auxiliary gas to the introduction system for Cr"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "Measured \"at low radiofrequency power and sample gas inflow\" deliberately, to reduce gas-based interferences",
+   "status": "text",
+   "value": "Measured \"at low radiofrequency power and sample gas inflow\" deliberately, to reduce gas-based interferences"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Fe, Cr, Mg — Si isotopes come from a separate NaOH-fusion procedure",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "54Fe, 56Fe, 57Fe, 58Fe → Fe; 50Cr, 52Cr, 53Cr, 54Cr → Cr; 24Mg, 25Mg, 26Mg → Mg; 60Ni, 49Ti, 51V → none — ⁶⁰Ni and ⁵³Cr monitored in the Fe run, ⁴⁹Ti, ⁵¹V and ⁵⁶Fe in the Cr run",
+   "status": "structured",
+   "value": [
+    {
+     "member": "54Fe",
+     "parent": "Fe"
+    },
+    {
+     "member": "56Fe",
+     "parent": "Fe"
+    },
+    {
+     "member": "57Fe",
+     "parent": "Fe"
+    },
+    {
+     "member": "58Fe",
+     "parent": "Fe"
+    },
+    {
+     "member": "50Cr",
+     "parent": "Cr"
+    },
+    {
+     "member": "52Cr",
+     "parent": "Cr"
+    },
+    {
+     "member": "53Cr",
+     "parent": "Cr"
+    },
+    {
+     "member": "54Cr",
+     "parent": "Cr"
+    },
+    {
+     "member": "24Mg",
+     "parent": "Mg"
+    },
+    {
+     "member": "25Mg",
+     "parent": "Mg"
+    },
+    {
+     "member": "26Mg",
+     "parent": "Mg"
+    },
+    {
+     "member": "60Ni",
+     "parent": "none"
+    },
+    {
+     "member": "49Ti",
+     "parent": "none"
+    },
+    {
+     "member": "51V",
+     "parent": "none"
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "μ54Fe, μ53Cr, μ54Cr, μ26Mg* — μ relative to IRMM-014, SRM979 and DTS-2b; μ³⁰Si from the separate Si procedure",
+   "status": "structured",
+   "value": [
+    {
+     "member": "μ54Fe",
+     "parent": null
+    },
+    {
+     "member": "μ53Cr",
+     "parent": null
+    },
+    {
+     "member": "μ54Cr",
+     "parent": null
+    },
+    {
+     "member": "μ26Mg*",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "all: medium resolution — 'to resolve gas-based interferences on the high-mass side'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "medium resolution"
+    }
+   ]
+  },
+  "Collector Configuration": {
+   "key": "monitored property",
+   "cell": "N — cup positions not stated; Fe set-up follows Schiller et al.",
+   "status": "commentary only"
+  },
+  "Number of Blocks per Measurement": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Cycles per Block": {
+   "key": "acquisition pass",
+   "cell": "Fe: 200 cycles; Cr: 100 cycles; Mg: 100 cycles",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Fe"
+     ],
+     "value": "200 cycles"
+    },
+    {
+     "members": [
+      "Cr"
+     ],
+     "value": "100 cycles"
+    },
+    {
+     "members": [
+      "Mg"
+     ],
+     "value": "100 cycles"
+    }
+   ]
+  },
+  "Integration Time per Cycle": {
+   "key": "monitored property",
+   "cell": "54Fe, 56Fe, 57Fe, 58Fe, 50Cr, 52Cr, 53Cr, 54Cr: 8.3 s; 24Mg, 25Mg, 26Mg: 16.7 s; other: N",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "54Fe",
+      "56Fe",
+      "57Fe",
+      "58Fe",
+      "50Cr",
+      "52Cr",
+      "53Cr",
+      "54Cr"
+     ],
+     "value": "8.3 s"
+    },
+    {
+     "members": [
+      "24Mg",
+      "25Mg",
+      "26Mg"
+     ],
+     "value": "16.7 s"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Baseline Measurement Approach": {
+   "key": "(none)",
+   "cell": "On-peak baseline before each analysis: 25 × 16.7 s for Fe and Mg, 75 s for Cr",
+   "status": "text",
+   "value": "On-peak baseline before each analysis: 25 × 16.7 s for Fe and Mg, 75 s for Cr"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "Standard-sample bracketing, \"ten individual standard-bracketed sample analyses\" per reported value",
+   "status": "text",
+   "value": "Standard-sample bracketing, \"ten individual standard-bracketed sample analyses\" per reported value"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+   "status": "not applicable"
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A — no added internal standard element",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Flatness Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "Fe; Cr; Mg — separate introduction systems and acquisition settings (Methods)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    }
+   ]
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "3",
+   "status": "text",
+   "value": "3"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "Standard-sample bracketing — against IRMM-014, SRM979 and DTS-2b; the normalisation is not restated (Fe follows Schiller et al.)",
+   "status": "text",
+   "value": "Standard-sample bracketing"
+  },
+  "Mass Fractionation Law": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Double-Spike Isotope Pair": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Mixing Ratio": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Inversion Algorithm": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Internal Normalization Element and Isotope Ratio": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Ratio Reported": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "Fe: bracketing against IRMM-014; Cr: bracketing against SRM979; Mg: bracketing against DTS-2b",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Fe"
+     ],
+     "value": "bracketing against IRMM-014"
+    },
+    {
+     "members": [
+      "Cr"
+     ],
+     "value": "bracketing against SRM979"
+    },
+    {
+     "members": [
+      "Mg"
+     ],
+     "value": "bracketing against DTS-2b"
+    }
+   ]
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "On-peak baseline measured before each analysis",
+   "status": "text",
+   "value": "On-peak baseline measured before each analysis"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes, 49Ti, 51V and 56Fe monitored to correct interferences on Cr",
+   "status": "text",
+   "value": "Yes, 49Ti, 51V and 56Fe monitored to correct interferences on Cr"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "54Fe: 54Cr; 58Fe: 58Ni; other: N — isobars on the Cr masses from Ti, V and Fe, monitored on ⁴⁹Ti, ⁵¹V and ⁵⁶Fe",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "54Fe"
+     ],
+     "value": "54Cr"
+    },
+    {
+     "members": [
+      "58Fe"
+     ],
+     "value": "58Ni"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "54Fe: 54Cr corrected from 53Cr; 58Fe: 58Ni corrected from 60Ni; other: N — Ti, V and Fe on Cr corrected from ⁴⁹Ti, ⁵¹V and ⁵⁶Fe",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "54Fe"
+     ],
+     "value": "54Cr corrected from 53Cr"
+    },
+    {
+     "members": [
+      "58Fe"
+     ],
+     "value": "58Ni corrected from 60Ni"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution applied",
+   "status": "not applicable"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "\"the mean and 2 x standard error (SE) of ten individual standard-bracketed sample analyses\"",
+   "status": "text",
+   "value": "\"the mean and 2 x standard error (SE) of ten individual standard-bracketed sample analyses\""
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — \"the mean ... of ten individual standard-bracketed sample analyses\"; \"Samples were typically analysed two to four times\". No rejection rule stated",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Error Correlation Between Reported Quantities": {
+   "key": "pair: reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: mean of ten standard-bracketed analyses per measurement, samples typically analysed two to four times, and weighted means per grouplet",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "mean of ten standard-bracketed analyses per measurement, samples typically analysed two to four times, and weighted means per grouplet"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [Fe: IRMM-014; Cr: SRM979; Mg: DTS-2b]",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "Fe"
+       ],
+       "value": "IRMM-014"
+      },
+      {
+       "members": [
+        "Cr"
+       ],
+       "value": "SRM979"
+      },
+      {
+       "members": [
+        "Mg"
+       ],
+       "value": "DTS-2b"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "BHVO2, DTS-2b — 'processed alongside the samples'",
+   "status": "structured",
+   "value": [
+    {
+     "member": "BHVO2",
+     "parent": null
+    },
+    {
+     "member": "DTS-2b",
+     "parent": null
+    }
+   ]
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N — BHVO2 and DTS-2b results are in Supplementary Dataset 2",
+   "status": "commentary only"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}

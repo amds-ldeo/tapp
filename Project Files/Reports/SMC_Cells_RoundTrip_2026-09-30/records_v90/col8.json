@@ -1,0 +1,647 @@
+{
+ "procedure_column": "Nowell+etal2008 | Nu Plasma | NIGL",
+ "tapp": "Solution_MC-ICP-MS_TAPP_v90",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution MC-ICP-MS",
+   "status": "text",
+   "value": "Solution MC-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "NERC Isotope Geosciences Laboratory (NIGL)",
+   "status": "text",
+   "value": "NERC Isotope Geosciences Laboratory (NIGL)"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Osmium isotope reference material solutions",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Osmium isotope reference material solutions",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Reference material solution aliquot — ~6400 µl consumed per analysis",
+   "status": "text",
+   "value": "Reference material solution aliquot"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "N/A — reference material solutions, no solid preparation",
+   "status": "not applicable"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl",
+   "status": "not applicable"
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "N/A - reference material solutions, no digestion.",
+   "status": "structured",
+   "value": [
+    {
+     "member": "N/A - reference material solutions",
+     "parent": null
+    },
+    {
+     "member": "no digestion.",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "3 mol/l Teflon-distilled HCl",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "~6400 µl of solution per analysis",
+   "status": "text",
+   "value": "~6400 µl of solution per analysis"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "N/A — reference material solutions",
+   "status": "not applicable"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+   "status": "not applicable"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Nu Plasma",
+   "status": "text",
+   "value": "Nu Plasma"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]",
+   "status": "text",
+   "value": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Array Configuration": {
+   "key": "(none)",
+   "cell": "Seven Faraday cups — \"fitted with a 7 Faraday ‘U–Pb’ collector block and 10^11 Ω resistor amplifiers which permitted maximum beam sizes of 10 V per channel\" (p.4). No ion counter stated",
+   "status": "text",
+   "value": "Seven Faraday cups"
+  },
+  "Faraday Cup Amplifier Resistor Values": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Gain Calibration Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "ESI PFA-50 low uptake nebuliser",
+   "status": "text",
+   "value": "ESI PFA-50 low uptake nebuliser"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "GE Cinnabar micro-cyclonic spray chamber",
+   "status": "text",
+   "value": "GE Cinnabar micro-cyclonic spray chamber"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "None",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "Not stated; ~6400 µl consumed over a ~16 min analysis",
+   "status": "text",
+   "value": "Not stated; ~6400 µl consumed over a ~16 min analysis"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "Online processing on the instrument — \"Samples were processed on-line for W and Re interferences and instrumental mass bias\"",
+   "status": "text",
+   "value": "Online processing on the instrument"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Os",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Os",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "N — the paper describes the Nu Plasma acquisition only as two-sequence static multi-collection and gives no mass list or cup configuration for that instrument",
+   "status": "commentary only"
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "187Os/188Os, 186Os/188Os and 184Os/188Os ratios",
+   "status": "structured",
+   "value": [
+    {
+     "member": "187Os/188Os",
+     "parent": null
+    },
+    {
+     "member": "186Os/188Os and 184Os/188Os ratios",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collector Configuration": {
+   "key": "monitored property",
+   "cell": "Two-sequence static multi-collection",
+   "status": "unparsed",
+   "value": []
+  },
+  "Number of Blocks per Measurement": {
+   "key": "(none)",
+   "cell": "1 block",
+   "status": "text",
+   "value": "1 block"
+  },
+  "Number of Cycles per Block": {
+   "key": "acquisition pass",
+   "cell": "50 cycles",
+   "status": "unparsed",
+   "value": []
+  },
+  "Integration Time per Cycle": {
+   "key": "monitored property",
+   "cell": "8 s for sequence 1 and 4 s for sequence 2",
+   "status": "unparsed",
+   "value": []
+  },
+  "Baseline Measurement Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "TD 3 mol/l HCl aspirated between analyses until the Os beam decreased to acceptable background levels",
+   "status": "text",
+   "value": "TD 3 mol/l HCl aspirated between analyses until the Os beam decreased to acceptable background levels"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+   "status": "not applicable"
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A — no added internal standard element",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Flatness Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "\"Samples were processed on-line for W and Re interferences and instrumental mass bias\"",
+   "status": "text",
+   "value": "\"Samples were processed on-line for W and Re interferences and instrumental mass bias\""
+  },
+  "Mass Fractionation Law": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Double-Spike Isotope Pair": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Mixing Ratio": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Inversion Algorithm": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Internal Normalization Element and Isotope Ratio": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Ratio Reported": {
+   "key": "reported property",
+   "cell": "187Os/188Os, 186Os/188Os, 184Os/188Os",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes — W and Re on Os",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "W and Re",
+   "status": "unparsed",
+   "value": []
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "Online W and Re correction; abundance sensitivity greater than 1 ppm \"since the analyser pressure was higher at ~2 x 10^-8 mbar\"",
+   "status": "unparsed",
+   "value": []
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution applied",
+   "status": "not applicable"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "TD 3 mol/l HCl aspirated between analyses until the Os beam decreased to acceptable background levels",
+   "status": "text",
+   "value": "TD 3 mol/l HCl aspirated between analyses until the Os beam decreased to acceptable background levels"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "2SD and 2SE, with n = 50 for the Nu Plasma analyses",
+   "status": "text",
+   "value": "2SD and 2SE, with n = 50 for the Nu Plasma analyses"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — n = 50 per analysis. No rejection rule stated",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Error Correlation Between Reported Quantities": {
+   "key": "pair: reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average of the reference-material analyses — Tables 7b and 8b",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average of the reference-material analyses"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "DTM and LOsST",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "Within-run errors for individual analyses quoted as 2 standard errors of the mean, 2SE = 2SD/n^0.5, with n = 50 cycles",
+   "status": "unparsed",
+   "value": []
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "Short-term reproducibility of standards analysed in a single analytical session, quoted as 2 standard deviations (2SD). Distinct from the within-run internal error, which the paper quotes separately as 2SE of the mean, 2SE = 2SD/n^0.5 with n = 45 for the Neptune and n = 50 for the Nu Plasma analyses",
+   "status": "unparsed",
+   "value": []
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}

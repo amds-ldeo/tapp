@@ -1,0 +1,911 @@
+{
+ "procedure_column": "Barnes+etal2025 | Neptune Plus | WUSTL",
+ "tapp": "Solution_MC-ICP-MS_TAPP_v91",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution MC-ICP-MS",
+   "status": "text",
+   "value": "Solution MC-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Washington University in St. Louis",
+   "status": "text",
+   "value": "Washington University in St. Louis"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "High-resolution ICP-MS (Thermo Element XR) at LLNL for bulk elemental abundances, on splits of the same digest",
+   "status": "text",
+   "value": "High-resolution ICP-MS (Thermo Element XR) at LLNL for bulk elemental abundances, on splits of the same digest"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "returned asteroid sample — Bennu aggregate OREX-803015",
+   "status": "structured",
+   "value": [
+    {
+     "member": "returned asteroid sample",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Split of a single digest — \"The solution was then split two ways: about half stayed at WUSTL and half was sent to Lawrence Livermore National Laboratory ... the aliquot was further split into two aliquots\"",
+   "status": "text",
+   "value": "Split of a single digest"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "One digest split two ways: about half at WUSTL for K, Cu and Zn, half to LLNL and on to ETH Zurich — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL",
+   "status": "text",
+   "value": "One digest split two ways: about half at WUSTL for K, Cu and Zn, half to LLNL and on to ETH Zurich"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "HF–HNO3 attack: 3:1 concentrated HF : HNO3; HNO3–HCl flux: concentrated HNO3 and HCl, with H2O2; final uptake: 0.5 M HNO3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "HF–HNO3 attack"
+     ],
+     "value": "3:1 concentrated HF : HNO3"
+    },
+    {
+     "members": [
+      "HNO3–HCl flux"
+     ],
+     "value": "concentrated HNO3 and HCl, with H2O2"
+    },
+    {
+     "members": [
+      "final uptake"
+     ],
+     "value": "0.5 M HNO3"
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "Closed beaker",
+   "status": "text",
+   "value": "Closed beaker"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "HF–HNO3 attack (concentrated HF and HNO3 3:1, closed beaker, 170 °C, 48 h); HNO3–HCl flux (concentrated HNO3 and HCl, 1 ml H2O2 added slowly during the HNO3 flux to remove organics); final uptake (5 ml 0.5 M HNO3) — coordinated dissolution of an ~20.66 mg split (OREX-803015-0) at WUSTL",
+   "status": "structured",
+   "value": [
+    {
+     "member": "HF–HNO3 attack",
+     "parent": null
+    },
+    {
+     "member": "HNO3–HCl flux",
+     "parent": null
+    },
+    {
+     "member": "final uptake",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "HF–HNO3 attack: 170 °C; other: N",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "HF–HNO3 attack"
+     ],
+     "value": "170 °C"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "HF–HNO3 attack: 48 h; other: N",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "HF–HNO3 attack"
+     ],
+     "value": "48 h"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "K: 200 ppb; Cu: 100 ppb; Zn: 200 ppb — samples and standards; the acid is not stated",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "K"
+     ],
+     "value": "200 ppb"
+    },
+    {
+     "members": [
+      "Cu"
+     ],
+     "value": "100 ppb"
+    },
+    {
+     "members": [
+      "Zn"
+     ],
+     "value": "200 ppb"
+    }
+   ]
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "~20.66 mg split, about half used at WUSTL",
+   "status": "text",
+   "value": "~20.66 mg split, about half used at WUSTL"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "Yes, K: triple-pass AG50W-X8 cation exchange; Cu and Zn: AG1-X8 anion exchange (Cu in 22 ml 6 M HCl, Zn in 10 ml 3 M HNO3), with a second pass for Cu and an HBr–HNO3 AG1-X8 step for Zn",
+   "status": "text",
+   "value": "Yes, K: triple-pass AG50W-X8 cation exchange; Cu and Zn: AG1-X8 anion exchange (Cu in 22 ml 6 M HCl, Zn in 10 ml 3 M HNO3), with a second pass for Cu and an HBr–HNO3 AG1-X8 step for Zn"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+   "status": "not applicable"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Neptune Plus",
+   "status": "text",
+   "value": "Neptune Plus"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]",
+   "status": "text",
+   "value": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Array Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Amplifier Resistor Values": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Gain Calibration Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "High-mass-resolution slit for K, low-mass-resolution slit for Cu and Zn",
+   "status": "text",
+   "value": "High-mass-resolution slit for K, low-mass-resolution slit for Cu and Zn"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "Quartz glass dual cyclonic spray chamber, for Cu and Zn",
+   "status": "text",
+   "value": "Quartz glass dual cyclonic spray chamber, for Cu and Zn"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "K: Elemental Scientific APEX Ω; Cu: none; Zn: none",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "K"
+     ],
+     "value": "Elemental Scientific APEX Ω"
+    },
+    {
+     "members": [
+      "Cu"
+     ],
+     "value": "none"
+    },
+    {
+     "members": [
+      "Zn"
+     ],
+     "value": "none"
+    }
+   ]
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "K: dry plasma; Cu: wet plasma; Zn: wet plasma — 'To lower the ArH+ peak and significantly increase the K signal intensity'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "K"
+     ],
+     "value": "dry plasma"
+    },
+    {
+     "members": [
+      "Cu"
+     ],
+     "value": "wet plasma"
+    },
+    {
+     "members": [
+      "Zn"
+     ],
+     "value": "wet plasma"
+    }
+   ]
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "K, Cu, Zn",
+   "status": "structured",
+   "value": [
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "39K, 41K → K; 63Cu, 65Cu → Cu; 64Zn, 66Zn → Zn — the ratios of the δ definitions",
+   "status": "structured",
+   "value": [
+    {
+     "member": "39K",
+     "parent": "K"
+    },
+    {
+     "member": "41K",
+     "parent": "K"
+    },
+    {
+     "member": "63Cu",
+     "parent": "Cu"
+    },
+    {
+     "member": "65Cu",
+     "parent": "Cu"
+    },
+    {
+     "member": "64Zn",
+     "parent": "Zn"
+    },
+    {
+     "member": "66Zn",
+     "parent": "Zn"
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "δ41K, δ65Cu, δ66Zn — ‰ relative to the bracketing standards",
+   "status": "structured",
+   "value": [
+    {
+     "member": "δ41K",
+     "parent": null
+    },
+    {
+     "member": "δ65Cu",
+     "parent": null
+    },
+    {
+     "member": "δ66Zn",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "K: high resolution; Cu: low resolution; Zn: low resolution",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "K"
+     ],
+     "value": "high resolution"
+    },
+    {
+     "members": [
+      "Cu"
+     ],
+     "value": "low resolution"
+    },
+    {
+     "members": [
+      "Zn"
+     ],
+     "value": "low resolution"
+    }
+   ]
+  },
+  "Collector Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Blocks per Measurement": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Cycles per Block": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Integration Time per Cycle": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Baseline Measurement Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "Standard-sample bracketing for all analyses; BHVO-2 \"analysed alongside all sample analyses\"",
+   "status": "text",
+   "value": "Standard-sample bracketing for all analyses; BHVO-2 \"analysed alongside all sample analyses\""
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+   "status": "not applicable"
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A — no added internal standard element",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Flatness Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "K; Cu; Zn — K in dry plasma with high mass resolution, Cu and Zn in wet plasma with low resolution",
+   "status": "structured",
+   "value": [
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    }
+   ]
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "3",
+   "status": "text",
+   "value": "3"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "\"To correct for instrument mass bias, the sample–standard bracketing technique was used for all analyses\"",
+   "status": "text",
+   "value": "\"To correct for instrument mass bias, the sample–standard bracketing technique was used for all analyses\""
+  },
+  "Mass Fractionation Law": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Double-Spike Isotope Pair": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Mixing Ratio": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Inversion Algorithm": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Internal Normalization Element and Isotope Ratio": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Ratio Reported": {
+   "key": "reported property",
+   "cell": "δ41K: 41K/39K; δ65Cu: 65Cu/63Cu; δ66Zn: 66Zn/64Zn",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "δ41K"
+     ],
+     "value": "41K/39K"
+    },
+    {
+     "members": [
+      "δ65Cu"
+     ],
+     "value": "65Cu/63Cu"
+    },
+    {
+     "members": [
+      "δ66Zn"
+     ],
+     "value": "66Zn/64Zn"
+    }
+   ]
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "K: bracketing against NIST-SRM 3141a; Cu: bracketing against NIST-SRM 976; Zn: bracketing against JMC-Lyon",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "K"
+     ],
+     "value": "bracketing against NIST-SRM 3141a"
+    },
+    {
+     "members": [
+      "Cu"
+     ],
+     "value": "bracketing against NIST-SRM 976"
+    },
+    {
+     "members": [
+      "Zn"
+     ],
+     "value": "bracketing against JMC-Lyon"
+    }
+   ]
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N — ArH⁺ on K lowered by dry plasma and a high-resolution slit, not corrected",
+   "status": "commentary only"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "41K: ArH+; other: N — 'To lower the ArH+ peak'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "41K"
+     ],
+     "value": "ArH+"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "41K: lowered by dry plasma and the high-mass-resolution slit; other: N",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "41K"
+     ],
+     "value": "lowered by dry plasma and the high-mass-resolution slit"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution applied",
+   "status": "not applicable"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "2 s.d. — Bennu values carry 2 s.e. in the main text",
+   "status": "text",
+   "value": "2 s.d."
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Error Correlation Between Reported Quantities": {
+   "key": "pair: reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "N — the Bennu values carry '(2 s.e.)' (p.2), but how replicate analyses are combined is not stated",
+   "status": "commentary only"
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [K: NIST-SRM 3141a; Cu: NIST-SRM 976; Zn: JMC-Lyon]",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "K"
+       ],
+       "value": "NIST-SRM 3141a"
+      },
+      {
+       "members": [
+        "Cu"
+       ],
+       "value": "NIST-SRM 976"
+      },
+      {
+       "members": [
+        "Zn"
+       ],
+       "value": "JMC-Lyon"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "BHVO-2",
+   "status": "structured",
+   "value": [
+    {
+     "member": "BHVO-2",
+     "parent": null
+    }
+   ]
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N — 'the geostandard BHVO-2 was analysed alongside all sample analyses'; results in Supplementary Table 9",
+   "status": "commentary only"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}

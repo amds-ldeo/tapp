@@ -1,0 +1,720 @@
+{
+ "procedure_column": "Hopp+etal2021 | Neptune (Plus spec) | Univ Chicago",
+ "tapp": "Solution_MC-ICP-MS_TAPP_v90",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution MC-ICP-MS",
+   "status": "text",
+   "value": "Solution MC-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "University of Chicago",
+   "status": "text",
+   "value": "University of Chicago"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "Prior Pt, Mo, Ni and/or W isotope analyses on the same digestions",
+   "status": "text",
+   "value": "Prior Pt, Mo, Ni and/or W isotope analyses on the same digestions"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Iron meteorites and terrestrial basalt geostandards",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Iron meteorites and terrestrial basalt geostandards",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Solution aliquot of a digestion — \"the Fe isotopic compositions were analyzed on solution aliquots (~1-2 mg Fe) of digestions\"; five meteorites cut as \"~50 mg pieces\"",
+   "status": "text",
+   "value": "Solution aliquot of a digestion"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\"",
+   "status": "text",
+   "value": "Iron meteorite pieces \"cut using a diamond saw, polished with SiC abrasive paper, and cleaned in ethanol\""
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "Iron meteorites: aqua regia (3:1 HCl-HNO3). Basalts: HF-HNO3 (2:1) followed by several steps of aqua regia. All converted to chloride and redissolved in 0.25 ml 10 M HCl",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Iron meteorites"
+     ],
+     "value": "aqua regia (3:1 HCl-HNO3). Basalts: HF-HNO3 (2:1) followed by several steps of aqua regia. All converted to chloride and redissolved in 0.25 ml 10 M HCl"
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "Hot plate, closed vessel not specified beyond \"on a hot plate\"",
+   "status": "text",
+   "value": "Hot plate, closed vessel not specified beyond \"on a hot plate\""
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "Iron meteorites, 1: aqua regia (3:1 HCl-HNO3), 120 deg C, 24 h on a hot plate. Basalts, 1: HF-HNO3 (2:1), 150 deg C, 48 h on a hot plate | 2: 'several steps of aqua regia', number not stated. Both routes then converted to chloride and taken up in 0.25 ml 10 M HCl.",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "Iron meteorites",
+     "parent": null
+    },
+    {
+     "member": "1: aqua regia",
+     "parent": null
+    },
+    {
+     "member": "120 deg C",
+     "parent": null
+    },
+    {
+     "member": "24 h on a hot plate. Basalts",
+     "parent": null
+    },
+    {
+     "member": "1: HF-HNO3",
+     "parent": null
+    },
+    {
+     "member": "150 deg C",
+     "parent": null
+    },
+    {
+     "member": "48 h on a hot plate | 2: 'several steps of aqua regia'",
+     "parent": null
+    },
+    {
+     "member": "number not stated. Both routes then converted to chloride and taken up in 0.25 ml 10 M HCl.",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "Iron meteorites 120 °C; basalts 150 °C",
+   "status": "unparsed",
+   "value": []
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "Iron meteorites 24 hours; basalts 48 hours",
+   "status": "unparsed",
+   "value": []
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "0.3 M HNO3 (measured at 10 µg/g Fe in 0.45 M HNO3); all sample and standard solutions \"prepared with the same 0.3 M HNO3 solution\"",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "~1-2 mg Fe per analysis; ~50 mg meteorite pieces",
+   "status": "text",
+   "value": "~1-2 mg Fe per analysis; ~50 mg meteorite pieces"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "Yes — AG1-X8 (200-400 mesh) anion resin, 3 ml, 10.5 cm PFA columns; repeated with new resin. Overall Fe yield >99%",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+   "status": "not applicable"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Neptune \"upgraded to Neptune Plus specifications\"",
+   "status": "text",
+   "value": "Neptune \"upgraded to Neptune Plus specifications\""
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]",
+   "status": "text",
+   "value": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "H skimmer cones",
+   "status": "text",
+   "value": "H skimmer cones"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "\"We used Ni or Pt sampler and H skimmer cones ... The main motivation for using Pt cones was an increase in sensitivity and a decrease in the frequency of cone cleaning\"",
+   "status": "text",
+   "value": "\"We used Ni or Pt sampler and H skimmer cones ... The main motivation for using Pt cones was an increase in sensitivity and a decrease in the frequency of cone cleaning\""
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Array Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Amplifier Resistor Values": {
+   "key": "monitored property",
+   "cell": "10^10 Ω for 56Fe+; 10^11 Ω for 54Fe, 57Fe, 58Fe; 10^12 Ω for the 53Cr and 60Ni interference monitors",
+   "status": "unparsed",
+   "value": []
+  },
+  "Faraday Cup Gain Calibration Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "Medium or high resolution — \"the measurements were made on the flat-topped peak shoulder in either medium-resolution (MR) or high-resolution (HR) mode\"",
+   "status": "text",
+   "value": "Medium or high resolution"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "Cyclonic glass spray chamber (wet) or ESI Apex Ω desolvating nebulizer (dry)",
+   "status": "text",
+   "value": "Cyclonic glass spray chamber (wet) or ESI Apex Ω desolvating nebulizer (dry)"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "Cyclonic glass spray chamber for wet-plasma MR-mode work; cooling not stated",
+   "status": "text",
+   "value": "Cyclonic glass spray chamber for wet-plasma MR-mode work; cooling not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "ESI Apex Ω for HR-mode dry plasma work, \"with no auxiliary N2 flow\"; none for MR-mode wet plasma",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "~100 µl/min",
+   "status": "text",
+   "value": "~100 µl/min"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "None — the Apex Ω was run \"with no auxiliary N2 flow\"",
+   "status": "text",
+   "value": "None"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "Both, by mode — \"either a cyclonic glass spray chamber (wet plasma, MR-mode, Pt cones) or an ESI Apex Ω desolvating nebulizer system (dry plasma, HR-mode, Ni cones)\"",
+   "status": "unparsed",
+   "value": []
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Fe",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Fe",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "⁵⁴Fe, ⁵⁶Fe, ⁵⁷Fe, ⁵⁸Fe (Fe); ⁵³Cr, ⁶⁰Ni (interference monitors, no target species) — \"Ion beams of 54Fe+, 56Fe+, 57Fe+, and 58Fe+ were analyzed in static mode on Faraday collectors... Possible isobaric interferences from 54Cr+ and 58Ni+ were measured simultaneously by monitoring 53Cr+ and 60Ni+\" (p.6)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "⁵⁴Fe",
+     "parent": null
+    },
+    {
+     "member": "⁵⁶Fe",
+     "parent": null
+    },
+    {
+     "member": "⁵⁷Fe",
+     "parent": null
+    },
+    {
+     "member": "⁵⁸Fe",
+     "parent": null
+    },
+    {
+     "member": "⁵³Cr",
+     "parent": null
+    },
+    {
+     "member": "⁶⁰Ni",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "µ-notation Fe isotope ratios relative to IRMM-524a",
+   "status": "structured",
+   "value": [
+    {
+     "member": "µ-notation Fe isotope ratios relative to IRMM-524a",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collector Configuration": {
+   "key": "monitored property",
+   "cell": "54Fe, 56Fe, 57Fe, 58Fe in static mode, with 53Cr and 60Ni monitored simultaneously",
+   "status": "unparsed",
+   "value": []
+  },
+  "Number of Blocks per Measurement": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Cycles per Block": {
+   "key": "acquisition pass",
+   "cell": "25 (HR) or 50 (MR) cycles",
+   "status": "unparsed",
+   "value": []
+  },
+  "Integration Time per Cycle": {
+   "key": "monitored property",
+   "cell": "8.369 s",
+   "status": "unparsed",
+   "value": []
+  },
+  "Baseline Measurement Approach": {
+   "key": "(none)",
+   "cell": "\"On peak zero intensities from a blank solution measured at the beginning of each sequence were subtracted from all individual measurements\"",
+   "status": "text",
+   "value": "\"On peak zero intensities from a blank solution measured at the beginning of each sequence were subtracted from all individual measurements\""
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "210 s",
+   "status": "text",
+   "value": "210 s"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "\"Sample analyses were bracketed by measurements of the reference material IRMM-524a\"",
+   "status": "text",
+   "value": "\"Sample analyses were bracketed by measurements of the reference material IRMM-524a\""
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+   "status": "not applicable"
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A — no added internal standard element",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Flatness Method and Threshold": {
+   "key": "(none)",
+   "cell": "Measurements made \"on the flat-topped peak shoulder\" in MR or HR mode; no numeric threshold stated",
+   "status": "text",
+   "value": "Measurements made \"on the flat-topped peak shoulder\" in MR or HR mode; no numeric threshold stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "Internal normalization to 57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549 using the exponential law, with IRMM-524a bracketing",
+   "status": "text",
+   "value": "Internal normalization to 57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549 using the exponential law, with IRMM-524a bracketing"
+  },
+  "Mass Fractionation Law": {
+   "key": "(none)",
+   "cell": "Exponential law",
+   "status": "text",
+   "value": "Exponential law"
+  },
+  "Double-Spike Isotope Pair": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Mixing Ratio": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Inversion Algorithm": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Internal Normalization Element and Isotope Ratio": {
+   "key": "(none)",
+   "cell": "57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549, the certified ratios of IRMM-014",
+   "status": "text",
+   "value": "57Fe/56Fe = 0.023095 or 57Fe/54Fe = 0.362549, the certified ratios of IRMM-014"
+  },
+  "Isotope Ratio Reported": {
+   "key": "reported property",
+   "cell": "Fe isotope ratios relative to IRMM-524a",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "On-peak zero from a blank solution subtracted from all measurements",
+   "status": "text",
+   "value": "On-peak zero from a blank solution subtracted from all measurements"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes — 54Cr on 54Fe and 58Ni on 58Fe, plus argide molecular interferences",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "54Cr on 54Fe, 58Ni on 58Fe, and argide ions 40Ar13C+, 40Ar14N+, 40Ar16O+, 40Ar16O1H+ and 40Ar18O+",
+   "status": "unparsed",
+   "value": []
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "Simultaneous monitoring of 53Cr and 60Ni on 10^12 Ω amplifiers; argides resolved by measuring on the flat-topped peak shoulder in MR or HR mode",
+   "status": "unparsed",
+   "value": []
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution applied",
+   "status": "not applicable"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "210 s washout between all measurements",
+   "status": "text",
+   "value": "210 s washout between all measurements"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Rule: samples with ε196Pt(8/5) > 0.16 are left out of the low-exposure group averages; four samples excluded — 'we, therefore, excluded four samples that have ε196Pt(8/5) >0.16 to calculate low-exposure averages' (p.9); Table 1 note g",
+   "status": "text",
+   "value": "Rule: samples with ε196Pt(8/5) > 0.16 are left out of the low-exposure group averages; four samples excluded"
+  },
+  "Error Correlation Between Reported Quantities": {
+   "key": "pair: reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average of n = 10–35 sample-standard bracketed measurements per sample solution; weighted average per iron-meteorite group, over the low-exposure samples (ε196Pt(8/5) ≤ 0.16) where within-group variation is significant; for IC and IIAB also the York-regression intercept of μ54Fe(7/6) against ε196Pt(8/5) — p.6; Table 1 notes g and h",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average of n = 10–35 sample-standard bracketed measurements per sample solution"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "57Fe/56Fe = 0.023095 and 57Fe/54Fe = 0.362549, \"the certified ratios of IRMM-014\" (Craddock and Dauphas, 2010)",
+   "status": "text",
+   "value": "57Fe/56Fe = 0.023095 and 57Fe/54Fe = 0.362549, \"the certified ratios of IRMM-014\" (Craddock and Dauphas, 2010)"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "IRMM-524a",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "BHVO-2 and BCR-2",
+   "status": "structured",
+   "value": [
+    {
+     "member": "BHVO-2 and BCR-2",
+     "parent": null
+    }
+   ]
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}

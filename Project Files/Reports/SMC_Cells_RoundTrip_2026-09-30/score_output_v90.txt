@@ -1,0 +1,126 @@
+STAGE 1 — procedure-level cells of 14 columns (Solution_MC-ICP-MS_TAPP_v90.csv): 1596
+  not stated           832   52%
+  text                 326   20%
+  unparsed             193   12%
+  not applicable       103    6%
+  not assessed          70    4%
+  structured            68    4%
+  commentary only        4    0%
+
+STAGE 2 — 252 stated facts, recovered as:
+  text                              156   62%
+  absent                             47   19%
+  in another field                   20    8%
+  commentary only                    19    8%
+  not assessed                        6    2%
+  structured                          4    2%
+
+per procedure (structured + text / facts):
+  col1                  15 /  19   79%   in another field 2, commentary only 2
+  col2                  17 /  26   65%   in another field 3, absent 5, commentary only 1
+  col3                  17 /  24   71%   not assessed 1, commentary only 4, absent 2
+  col4                   5 /  17   29%   absent 8, not assessed 1, commentary only 3
+  col5                  12 /  18   67%   in another field 3, commentary only 1, absent 2
+  col6                  13 /  20   65%   in another field 1, absent 4, commentary only 2
+  col7                  14 /  20   70%   absent 4, in another field 2
+  col8                   6 /  14   43%   absent 7, not assessed 1
+  col9                  13 /  21   62%   absent 4, not assessed 1, in another field 2, commentary only 1
+  col10                 14 /  16   88%   absent 1, commentary only 1
+  col11                 13 /  19   68%   commentary only 1, absent 3, in another field 2
+  col12                  8 /  13   62%   in another field 2, commentary only 1, absent 2
+  col13                  7 /  12   58%   commentary only 1, not assessed 1, absent 2, in another field 1
+  col14                  6 /  13   46%   in another field 2, absent 3, commentary only 1, not assessed 1
+
+facts not recovered as structure or text:
+  [1] Spectral Interference Corrections Applied -> in another field: Interfering Species  («budde2016»)
+  [1] Monitored Masses [99Ru] -> commentary only  («budde2016»)
+  [1] Monitored Masses [92Mo] -> in another field: Between-Session (Long-Term) Analytical Precision and Assessment Method  («budde2016»)
+  [1] Chromatographic Separation Applied -> commentary only  («budde2016»)
+  [2] Baseline Measurement Approach -> in another field: Integration Time per Cycle  («craddock2008»)
+  [2] Interfering Species [32S] -> absent  («craddock2008»)
+  [2] Interfering Species [33S] -> absent  («craddock2008»)
+  [2] Spike / Outlier Filtering Approach -> absent  («craddock2008»)
+  [2] Mass Bias Correction Strategy -> absent  («craddock2008»)
+  [2] Between-Session (Long-Term) Analytical Precision and Assessment Method [Alfa/δ34S] -> absent  («craddock2008»)
+  [2] Chromatographic Separation Applied -> commentary only  («craddock2008»)
+  [2] Secondary Reference Materials [NBS-123] -> in another field: Primary Calibration Standard Name  («craddock2008»)
+  [2] Monitored Masses [34S] -> in another field: Reported Variables and Units  («craddock2008»)
+  [3] Acquisition Pass [HR] -> not assessed (found in Digestion Step)  («hopp2021»)
+  [3] Plasma Thermal Mode [MR] -> commentary only  («hopp2021»)
+  [3] Chromatographic Separation Applied -> commentary only  («hopp2021»)
+  [3] Analytical Accuracy and Assessment Method [BHVO-2/μ54Fe(7/6)] -> absent  («hopp2021»)
+  [3] Uncertainty Level -> absent  («hopp2021»)
+  [3] Monitored Masses [53Cr] -> commentary only  («hopp2021»)
+  [3] Monitored Masses [58Fe] -> commentary only  («hopp2021»)
+  [4] Desolvation System [all] -> absent  («hu2021»)
+  [4] Integration Time per Cycle [all] -> absent  («hu2021»)
+  [4] Baseline Measurement Approach -> absent  («hu2021»)
+  [4] Acquisition Pass [subconfiguration] -> not assessed (found in Collector Configuration)  («hu2021»)
+  [4] Isotope Ratio Reported [φSm] -> absent  («hu2021»)
+  [4] Isotope Ratio Reported [φYb] -> absent  («hu2021»)
+  [4] Interference Correction Method [164Dy] -> commentary only  («hu2021»)
+  [4] Analytical Accuracy and Assessment Method [BCR-2/all] -> absent  («hu2021»)
+  [4] Chromatographic Separation Applied -> commentary only  («hu2021»)
+  [4] Uncertainty Level -> absent  («hu2021»)
+  [4] Target Species [Gd] -> commentary only  («hu2021»)
+  [4] Monitored Masses [163Dy] -> absent  («hu2021»)
+  [5] Digestion Temperature [chemical abrasion] -> in another field: Digestion Step  («ibanezmejia2019»)
+  [5] Additional Notes -> in another field: Interference Correction Method  («ibanezmejia2019»)
+  [5] Within-Session Analytical Precision and Assessment Method [ZrNIST/all] -> in another field: Uncertainty Level  («ibanezmejia2019»)
+  [5] Chromatographic Separation Applied -> commentary only  («ibanezmejia2019»)
+  [5] Isotope Ratio Reported [δ94/90Zr] -> absent  («ibanezmejia2019»)
+  [5] Monitored Masses [98Mo] -> absent  («ibanezmejia2019»)
+  [6] Collector Configuration [85Rb] -> in another field: Digestion Acid(s)  («nie2019»)
+  [6] Digestion Temperature [Parr bomb] -> absent  («nie2019»)
+  [6] Digestion Acid(s) [HCl–HNO3 attack] -> absent  («nie2019»)
+  [6] Blank / Background Correction Method -> absent  («nie2019»)
+  [6] Uncertainty Level -> absent  («nie2019»)
+  [6] Chromatographic Separation Applied -> commentary only  («nie2019»)
+  [6] Monitored Masses [88Sr] -> commentary only  («nie2019»)
+  [7] Internal Normalization Element and Isotope Ratio -> absent  («nowell2008»)
+  [7] Mass Fractionation Law -> absent  («nowell2008»)
+  [7] Interference Correction Method [184Os] -> in another field: Collector Configuration  («nowell2008»)
+  [7] Between-Session (Long-Term) Analytical Precision and Assessment Method [UMd/187Os/188Os] -> absent  («nowell2008»)
+  [7] Analytical Accuracy and Assessment Method [DTM/187Os/188Os] -> absent  («nowell2008»)
+  [7] Monitored Masses [185Re] -> in another field: Collector Configuration  («nowell2008»)
+  [8] Nebulizer Type -> absent  («nowell2008»)
+  [8] Acquisition Pass [sequence 2] -> not assessed (found in Integration Time per Cycle)  («nowell2008»)
+  [8] Collector Configuration [183W] -> absent  («nowell2008»)
+  [8] Collector Configuration [192Os] -> absent  («nowell2008»)
+  [8] Mass Fractionation Law -> absent  («nowell2008»)
+  [8] Monitored Masses [183W] -> absent  («nowell2008»)
+  [8] Interference Correction Method [187Os] -> absent  («nowell2008»)
+  [8] Within-Session Analytical Precision and Assessment Method [DTM/187Os/188Os] -> absent  («nowell2008»)
+  [9] Nebulizer Type -> absent  («pringle2017»)
+  [9] Acquisition Pass [APEX] -> not assessed (found in Desolvation System)  («pringle2017»)
+  [9] Final Solution Matrix [APEX] -> absent  («pringle2017»)
+  [9] Final Solution Matrix [spray chamber] -> absent  («pringle2017»)
+  [9] Interference Correction Method [87Rb] -> in another field: Collector Configuration  («pringle2017»)
+  [9] Chromatographic Separation Applied -> commentary only  («pringle2017»)
+  [9] Monitored Masses [84Sr] -> in another field: Collector Configuration  («pringle2017»)
+  [9] Additional Notes -> absent  («pringle2017»)
+  [10] Within-Session Analytical Precision and Assessment Method [all/ε96Zr] -> absent  («schonbachler2025»)
+  [10] Monitored Masses [101Ru] -> commentary only  («schonbachler2025»)
+  [11] Baseline Measurement Approach -> commentary only  («vankooten2026»)
+  [11] Interfering Species [58Fe] -> absent  («vankooten2026»)
+  [11] Interference Correction Method [54Fe] -> in another field: Collector Configuration  («vankooten2026»)
+  [11] Monitored Masses [49Ti] -> in another field: Collector Configuration  («vankooten2026»)
+  [11] Monitored Masses [60Ni] -> absent  («vankooten2026»)
+  [11] Make-up Gas and Flow Rate -> absent  («vankooten2026»)
+  [12] Interference Correction Method [41K] -> in another field: Mass Resolution Setting  («broussard2026»)
+  [12] Chromatographic Separation Applied -> commentary only  («broussard2026»)
+  [12] Digestion Acid(s) [H2O2 step] -> in another field: Digestion Step  («broussard2026»)
+  [12] Monitored Masses [39K] -> absent  («broussard2026»)
+  [12] Sample Aliquot Mass or Volume -> absent  («broussard2026»)
+  [13] Plasma Thermal Mode [Cu] -> commentary only  («barnes2025»)
+  [13] Mass Resolution Assignment [K] -> not assessed (found in Coupled Technique(s))  («barnes2025»)
+  [13] Chromatographic Separation Applied -> absent  («barnes2025»)
+  [13] Monitored Masses [65Cu] -> in another field: Reported Variables and Units  («barnes2025»)
+  [13] Sample Aliquot Mass or Volume -> absent  («barnes2025»)
+  [14] Internal Normalization Element and Isotope Ratio -> in another field: Mass Bias Correction Strategy  («barnes2025»)
+  [14] Interference Correction Method [50Ti] -> absent  («barnes2025»)
+  [14] Between-Session (Long-Term) Analytical Precision and Assessment Method [BHVO-2/ε50Ti] -> absent  («barnes2025»)
+  [14] Secondary Reference Materials [Agua Zarcas] -> in another field: Analytical Accuracy and Assessment Method  («barnes2025»)
+  [14] Digestion Temperature [HF–HNO3 attack] -> absent  («barnes2025»)
+  [14] Monitored Masses [44Ca] -> commentary only  («barnes2025»)
+  [14] Acquisition Pass [configuration 2] -> not assessed  («barnes2025»)

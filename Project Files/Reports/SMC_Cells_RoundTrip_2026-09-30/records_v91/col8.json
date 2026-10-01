@@ -1,0 +1,912 @@
+{
+ "procedure_column": "Nowell+etal2008 | Nu Plasma | NIGL",
+ "tapp": "Solution_MC-ICP-MS_TAPP_v91",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution MC-ICP-MS",
+   "status": "text",
+   "value": "Solution MC-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "NERC Isotope Geosciences Laboratory (NIGL)",
+   "status": "text",
+   "value": "NERC Isotope Geosciences Laboratory (NIGL)"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Os reference material solution — DTM and LOsST",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Os reference material solution",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Reference material solution aliquot — ~6400 µl consumed per analysis",
+   "status": "text",
+   "value": "Reference material solution aliquot"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "N/A — reference material solutions, no solid preparation",
+   "status": "not applicable"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "N/A — reference material solutions in Teflon-distilled 3 mol/l HCl",
+   "status": "not applicable"
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "N/A - reference material solutions, no digestion.",
+   "status": "structured",
+   "value": [
+    {
+     "member": "N/A - reference material solutions",
+     "parent": null
+    },
+    {
+     "member": "no digestion.",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "all: Teflon-distilled 3 mol/l HCl",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Teflon-distilled 3 mol/l HCl"
+    }
+   ]
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "~6400 µl of solution per analysis",
+   "status": "text",
+   "value": "~6400 µl of solution per analysis"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "N/A — reference material solutions",
+   "status": "not applicable"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+   "status": "not applicable"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Nu Plasma",
+   "status": "text",
+   "value": "Nu Plasma"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]",
+   "status": "text",
+   "value": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Array Configuration": {
+   "key": "(none)",
+   "cell": "Seven Faraday cups — \"fitted with a 7 Faraday ‘U–Pb’ collector block and 10^11 Ω resistor amplifiers which permitted maximum beam sizes of 10 V per channel\" (p.4). No ion counter stated",
+   "status": "text",
+   "value": "Seven Faraday cups"
+  },
+  "Faraday Cup Amplifier Resistor Values": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Gain Calibration Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "GE Micromist — §3.2",
+   "status": "text",
+   "value": "GE Micromist"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "GE Cinnabar micro-cyclonic spray chamber",
+   "status": "text",
+   "value": "GE Cinnabar micro-cyclonic spray chamber"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "all: none — GE Micromist nebuliser and Cinnabar spray chamber (§3.2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "none"
+    }
+   ]
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "~400 µl/min, free aspiration — §3.2; ~6400 µl over a ~16 min analysis",
+   "status": "text",
+   "value": "~400 µl/min, free aspiration"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "Online processing on the instrument — \"Samples were processed on-line for W and Re interferences and instrumental mass bias\"",
+   "status": "text",
+   "value": "Online processing on the instrument"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Os",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Os",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "184Os, 186Os, 187Os, 188Os, 189Os, 190Os, 192Os → Os; 183W, 185Re → none — Table 2b; ¹⁸³W and ¹⁸⁵Re are the monitor isotopes",
+   "status": "structured",
+   "value": [
+    {
+     "member": "184Os",
+     "parent": "Os"
+    },
+    {
+     "member": "186Os",
+     "parent": "Os"
+    },
+    {
+     "member": "187Os",
+     "parent": "Os"
+    },
+    {
+     "member": "188Os",
+     "parent": "Os"
+    },
+    {
+     "member": "189Os",
+     "parent": "Os"
+    },
+    {
+     "member": "190Os",
+     "parent": "Os"
+    },
+    {
+     "member": "192Os",
+     "parent": "Os"
+    },
+    {
+     "member": "183W",
+     "parent": "none"
+    },
+    {
+     "member": "185Re",
+     "parent": "none"
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "187Os/188Os, 186Os/188Os, 184Os/188Os — Table 7a (NIGL row)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "187Os/188Os",
+     "parent": null
+    },
+    {
+     "member": "186Os/188Os",
+     "parent": null
+    },
+    {
+     "member": "184Os/188Os",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collector Configuration": {
+   "key": "monitored property",
+   "cell": "183W: L2; 184Os: L1; 185Re: Ax; 186Os: H1; 187Os: H2; 188Os: H3 (sequence 1), L2 (sequence 2); 189Os: H4 (sequence 1), L1 (sequence 2); 190Os: Ax; 192Os: H2 (sequence 2) — Table 2b",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "183W"
+     ],
+     "value": "L2"
+    },
+    {
+     "members": [
+      "184Os"
+     ],
+     "value": "L1"
+    },
+    {
+     "members": [
+      "185Re"
+     ],
+     "value": "Ax"
+    },
+    {
+     "members": [
+      "186Os"
+     ],
+     "value": "H1"
+    },
+    {
+     "members": [
+      "187Os"
+     ],
+     "value": "H2"
+    },
+    {
+     "members": [
+      "188Os"
+     ],
+     "value": "H3 (sequence 1), L2 (sequence 2)"
+    },
+    {
+     "members": [
+      "189Os"
+     ],
+     "value": "H4 (sequence 1), L1 (sequence 2)"
+    },
+    {
+     "members": [
+      "190Os"
+     ],
+     "value": "Ax"
+    },
+    {
+     "members": [
+      "192Os"
+     ],
+     "value": "H2 (sequence 2)"
+    }
+   ]
+  },
+  "Number of Blocks per Measurement": {
+   "key": "(none)",
+   "cell": "1 block",
+   "status": "text",
+   "value": "1 block"
+  },
+  "Number of Cycles per Block": {
+   "key": "acquisition pass",
+   "cell": "all: 50 cycles — 1 block",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "50 cycles"
+    }
+   ]
+  },
+  "Integration Time per Cycle": {
+   "key": "monitored property",
+   "cell": "183W, 184Os, 185Re, 186Os, 187Os: 8 s; 190Os, 192Os: 4 s; 188Os, 189Os: 8 s (sequence 1), 4 s (sequence 2) — Table 2b",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "183W",
+      "184Os",
+      "185Re",
+      "186Os",
+      "187Os"
+     ],
+     "value": "8 s"
+    },
+    {
+     "members": [
+      "190Os",
+      "192Os"
+     ],
+     "value": "4 s"
+    },
+    {
+     "members": [
+      "188Os",
+      "189Os"
+     ],
+     "value": "8 s (sequence 1), 4 s (sequence 2)"
+    }
+   ]
+  },
+  "Baseline Measurement Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "TD 3 mol/l HCl aspirated between analyses until the Os beam decreased to acceptable background levels",
+   "status": "text",
+   "value": "TD 3 mol/l HCl aspirated between analyses until the Os beam decreased to acceptable background levels"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+   "status": "not applicable"
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A — no added internal standard element",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Flatness Method and Threshold": {
+   "key": "(none)",
+   "cell": "N — ¹⁸⁸Os used for peak-centering in both sequences, zoom quad adjusted for optimal peak alignment",
+   "status": "commentary only"
+  },
+  "Ion Counter Dead Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "sequence 1; sequence 2 — 'masses 183W to 189Os collected in the first sequence and 188Os to 192Os collected in the second sequence with a 4 s magnet settle time between sequences' (§3.2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "sequence 1",
+     "parent": null
+    },
+    {
+     "member": "sequence 2",
+     "parent": null
+    }
+   ]
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "2",
+   "status": "text",
+   "value": "2"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "Internal normalisation, processed on-line with the W and Re corrections — §3.2",
+   "status": "text",
+   "value": "Internal normalisation, processed on-line with the W and Re corrections"
+  },
+  "Mass Fractionation Law": {
+   "key": "(none)",
+   "cell": "Exponential law — 'was also used for the Nu Plasma measurements' (§3.5)",
+   "status": "text",
+   "value": "Exponential law"
+  },
+  "Double-Spike Isotope Pair": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Mixing Ratio": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Inversion Algorithm": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Internal Normalization Element and Isotope Ratio": {
+   "key": "(none)",
+   "cell": "192Os/188Os = 3.083 — Table 7a",
+   "status": "text",
+   "value": "192Os/188Os = 3.083"
+  },
+  "Isotope Ratio Reported": {
+   "key": "reported property",
+   "cell": "187Os/188Os: 187Os/188Os; 186Os/188Os: 186Os/188Os; 184Os/188Os: 184Os/188Os",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "187Os/188Os"
+     ],
+     "value": "187Os/188Os"
+    },
+    {
+     "members": [
+      "186Os/188Os"
+     ],
+     "value": "186Os/188Os"
+    },
+    {
+     "members": [
+      "184Os/188Os"
+     ],
+     "value": "184Os/188Os"
+    }
+   ]
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes, W and Re on Os",
+   "status": "text",
+   "value": "Yes, W and Re on Os"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "184Os: 184W; 186Os: 186W; 187Os: 187Re; other: N — Table 2b",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "184Os"
+     ],
+     "value": "184W"
+    },
+    {
+     "members": [
+      "186Os"
+     ],
+     "value": "186W"
+    },
+    {
+     "members": [
+      "187Os"
+     ],
+     "value": "187Re"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "184Os, 186Os: W from the 183W monitor; 187Os: Re from the 185Re monitor; other: N — on-line; abundance sensitivity not measured, likely > 1 ppm at ~2 × 10⁻⁸ mbar",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "184Os",
+      "186Os"
+     ],
+     "value": "W from the 183W monitor"
+    },
+    {
+     "members": [
+      "187Os"
+     ],
+     "value": "Re from the 185Re monitor"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution applied",
+   "status": "not applicable"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "TD 3 mol/l HCl aspirated between analyses until the Os beam decreased to acceptable background levels",
+   "status": "text",
+   "value": "TD 3 mol/l HCl aspirated between analyses until the Os beam decreased to acceptable background levels"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "2SD and 2SE, with n = 50 for the Nu Plasma analyses",
+   "status": "text",
+   "value": "2SD and 2SE, with n = 50 for the Nu Plasma analyses"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — n = 50 per analysis. No rejection rule stated",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Error Correlation Between Reported Quantities": {
+   "key": "pair: reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average of the reference-material analyses — Tables 7b and 8b",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average of the reference-material analyses"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "N — internal normalisation; DTM and LOsST are the materials measured",
+   "status": "commentary only"
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "DTM, LOsST",
+   "status": "structured",
+   "value": [
+    {
+     "member": "DTM",
+     "parent": null
+    },
+    {
+     "member": "LOsST",
+     "parent": null
+    }
+   ]
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "all: 2SE = 2SD/n^0.5, n = 50 cycles — within-run errors (§3)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "2SE = 2SD/n^0.5, n = 50 cycles"
+    }
+   ]
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "DTM [187Os/188Os: 0.173910 ± 21 (2SD, n = 9)] — session 23-05-06 (Table 7a)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "DTM"
+     ],
+     "value": [
+      {
+       "members": [
+        "187Os/188Os"
+       ],
+       "value": "0.173910 ± 21 (2SD, n = 9)"
+      }
+     ]
+    }
+   ]
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "DTM [187Os/188Os: compared with Durham N-TIMS 0.173927 ± 5] — Table 7a",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "DTM"
+     ],
+     "value": [
+      {
+       "members": [
+        "187Os/188Os"
+       ],
+       "value": "compared with Durham N-TIMS 0.173927 ± 5"
+      }
+     ]
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}

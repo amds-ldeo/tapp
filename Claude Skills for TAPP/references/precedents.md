@@ -3833,7 +3833,7 @@ The re-read also removed claims the papers do not make, which a recall test cann
 - exclusions nobody described;
 - another paper's accuracy comparison.
 
-**How to run the rest (Solution MC; LA-SF, its twin, Solution SF and Solution Q are done).**
+**How the passes were run (all done by 2026-09-30; keep the recipe for new TAPPs and new columns).**
 1. Dump each column in full.
 2. Read the paper's methods and instrument table. A table needs `pdftotext -layout`, because the default
    mode scrambles table rows.
@@ -3916,3 +3916,27 @@ O2-versus-KED-versus-no-gas assignments were reduced to "KED" for all three grou
 **Where the masses are not stated, a keyed cell may name an element group or a mass range.** Examples: Long's
 `m/z 23–75: He; other: N`, and López García's element lists. These cells are honest and they parse, because
 the definer is `N`. They do not invent the masses.
+
+## Solution MC re-read: the backlog closes, and the detail of a yes is the value (2026-09-30)
+
+`Project Files/Scripts/smc_keyed_reverify_20260930.py` repeated the pass for Solution MC's fourteen columns. The
+round-trip went from 160 to 252 of 252 stated facts (`Project Files/Reports/SMC_Cells_RoundTrip_2026-09-30/`). Every
+TAPP is now in `KEYED_NOTATION_ENFORCED`.
+
+**"Not stated" claims need checking as much as stated values.** Nie & Dauphas's digestion steps (ii) and (iii)
+were recorded as not stated, and the paper gives both in full. Nowell's Nu Plasma column claimed "no mass list"
+next to Table 2b. A cell that says "N — not stated" is a claim about the paper, so read the paper before
+accepting it.
+
+**Set-ups measured separately are acquisition passes.** Some papers measure each element, or each
+configuration, with different introduction, plasma, resolution or cycle settings. Recording each set-up as an
+`Acquisition Pass` member makes the pass-keyed cells say which setting goes with which set-up. Examples: van
+Kooten's Fe, Cr and Mg; Barnes's K, Cu and Zn; Pringle's spray chamber and APEX. Without passes, these cells
+read as one blended configuration.
+
+**`Yes — detail` hides the detail.** In an unkeyed field, everything after ` — ` is commentary, so `Yes — AG50-X8,
+2.5 ml ...` records only "Yes". Write `Yes, AG50-X8, 2.5 ml ...`. The pass's `clean()` now rewrites a leading
+`Yes — ` and `Y — `.
+
+**Quote a member whose name ends in a parenthesis.** `μ54Fe(7/6)` would otherwise lose `(7/6)` as a gloss. Write
+`"μ54Fe(7/6)"` in the definer and in every keyed cell.

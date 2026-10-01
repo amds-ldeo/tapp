@@ -1,0 +1,1002 @@
+{
+ "procedure_column": "Hu+etal2022 | Neptune Plus | Univ Chicago",
+ "tapp": "Solution_MC-ICP-MS_TAPP_v91",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution MC-ICP-MS",
+   "status": "text",
+   "value": "Solution MC-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "University of Chicago",
+   "status": "text",
+   "value": "University of Chicago"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "calcium-aluminium-rich inclusion — fine-grained CAIs from Allende slabs and one coarse-grained CAI (TS32); BCR-2 is the geostandard",
+   "status": "structured",
+   "value": [
+    {
+     "member": "calcium-aluminium-rich inclusion",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Fraction of a CAI digestion — \"Approximately 30% of the matrix cut\", \"equivalent to 24% fraction of the whole CAI\"",
+   "status": "text",
+   "value": "Fraction of a CAI digestion"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "CAIs extracted from Allende slabs with a stainless steel dental tool and powdered, digested, REEs recovered from the U/TEVA matrix cut, extracted on TODGA and separated by two-step FPLC on Ln-Spec — Materials and Methods, after Tissot et al. (34)",
+   "status": "text",
+   "value": "CAIs extracted from Allende slabs with a stainless steel dental tool and powdered, digested, REEs recovered from the U/TEVA matrix cut, extracted on TODGA and separated by two-step FPLC on Ln-Spec"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "HF–HNO3–HClO4 attack: 3:1 HF/HNO3 + HClO4; HCl–HNO3 attack: 2:1 HCl:HNO3; final uptake: concentrated HNO3, then 3 M HNO3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "HF–HNO3–HClO4 attack"
+     ],
+     "value": "3:1 HF/HNO3 + HClO4"
+    },
+    {
+     "members": [
+      "HCl–HNO3 attack"
+     ],
+     "value": "2:1 HCl:HNO3"
+    },
+    {
+     "members": [
+      "final uptake"
+     ],
+     "value": "concentrated HNO3, then 3 M HNO3"
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "HF–HNO3–HClO4 attack (3:1 HF/HNO3 with a few drops of HClO4, hot plate, 160 °C, 2 weeks); HCl–HNO3 attack (evaporated, then 2:1 HCl:HNO3, 1 week on a hot plate); final uptake (dried, dissolved in concentrated HNO3, diluted in 3 M HNO3 and centrifuged) — the two attacks 'were performed twice to ensure complete digestion'",
+   "status": "structured",
+   "value": [
+    {
+     "member": "HF–HNO3–HClO4 attack",
+     "parent": null
+    },
+    {
+     "member": "HCl–HNO3 attack",
+     "parent": null
+    },
+    {
+     "member": "final uptake",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "HF–HNO3–HClO4 attack: 160 °C; other: N",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "HF–HNO3–HClO4 attack"
+     ],
+     "value": "160 °C"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "HF–HNO3–HClO4 attack: 2 weeks; HCl–HNO3 attack: 1 week; final uptake: N",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "HF–HNO3–HClO4 attack"
+     ],
+     "value": "2 weeks"
+    },
+    {
+     "members": [
+      "HCl–HNO3 attack"
+     ],
+     "value": "1 week"
+    },
+    {
+     "members": [
+      "final uptake"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "N — standards 'diluted to the same concentration as the sample, in the same acid'; 15–25 ppb for the LREEs, 1.5–10 ppb for Eu and the HREEs",
+   "status": "commentary only"
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "N — ~30% of the U/TEVA matrix cut, equivalent to 24% of the whole CAI; CAIs of 15–440 mg",
+   "status": "commentary only"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "Yes, U/TEVA, TODGA, then two-step FPLC on Ln-Spec resin (70 cm x 1.6 mm, 1.4 ml of 25–50 µm resin, 94 steps, 188 ml, 16 h at 70 °C, 0.17 ml/min). Overall yields >95%",
+   "status": "text",
+   "value": "Yes, U/TEVA, TODGA, then two-step FPLC on Ln-Spec resin (70 cm x 1.6 mm, 1.4 ml of 25–50 µm resin, 94 steps, 188 ml, 16 h at 70 °C, 0.17 ml/min). Overall yields >95%"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+   "status": "not applicable"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Neptune Plus \"with the addition of an OnTool booster\"",
+   "status": "text",
+   "value": "Neptune Plus \"with the addition of an OnTool booster\""
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]",
+   "status": "text",
+   "value": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Array Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Amplifier Resistor Values": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Gain Calibration Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "all: Apex Omega desolvating nebulizer — Materials and Methods",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Apex Omega desolvating nebulizer"
+    }
+   ]
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Ce, Nd, Sm, Eu, Gd, Dy, Er, Yb — isotopic compositions; concentrations of all REEs were also measured",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Ce",
+     "parent": null
+    },
+    {
+     "member": "Nd",
+     "parent": null
+    },
+    {
+     "member": "Sm",
+     "parent": null
+    },
+    {
+     "member": "Eu",
+     "parent": null
+    },
+    {
+     "member": "Gd",
+     "parent": null
+    },
+    {
+     "member": "Dy",
+     "parent": null
+    },
+    {
+     "member": "Er",
+     "parent": null
+    },
+    {
+     "member": "Yb",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "140Ce, 142Ce → Ce; 142Nd, 144Nd, 146Nd → Nd; 148Sm, 152Sm → Sm; 151Eu, 153Eu → Eu; 156Gd, 158Gd → Gd; 162Dy, 163Dy, 164Dy → Dy; 166Er, 168Er → Er; 172Yb, 174Yb → Yb — the ratios of Table 1, ¹⁴²Nd and ¹⁶³Dy named in the text; the full cup configurations are in table S2",
+   "status": "structured",
+   "value": [
+    {
+     "member": "140Ce",
+     "parent": "Ce"
+    },
+    {
+     "member": "142Ce",
+     "parent": "Ce"
+    },
+    {
+     "member": "142Nd",
+     "parent": "Nd"
+    },
+    {
+     "member": "144Nd",
+     "parent": "Nd"
+    },
+    {
+     "member": "146Nd",
+     "parent": "Nd"
+    },
+    {
+     "member": "148Sm",
+     "parent": "Sm"
+    },
+    {
+     "member": "152Sm",
+     "parent": "Sm"
+    },
+    {
+     "member": "151Eu",
+     "parent": "Eu"
+    },
+    {
+     "member": "153Eu",
+     "parent": "Eu"
+    },
+    {
+     "member": "156Gd",
+     "parent": "Gd"
+    },
+    {
+     "member": "158Gd",
+     "parent": "Gd"
+    },
+    {
+     "member": "162Dy",
+     "parent": "Dy"
+    },
+    {
+     "member": "163Dy",
+     "parent": "Dy"
+    },
+    {
+     "member": "164Dy",
+     "parent": "Dy"
+    },
+    {
+     "member": "166Er",
+     "parent": "Er"
+    },
+    {
+     "member": "168Er",
+     "parent": "Er"
+    },
+    {
+     "member": "172Yb",
+     "parent": "Yb"
+    },
+    {
+     "member": "174Yb",
+     "parent": "Yb"
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "φCe, φNd, φSm, φEu, φGd, φDy, φEr, φYb — ‰/amu relative to the OL-REE standards (Eq. 1)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "φCe",
+     "parent": null
+    },
+    {
+     "member": "φNd",
+     "parent": null
+    },
+    {
+     "member": "φSm",
+     "parent": null
+    },
+    {
+     "member": "φEu",
+     "parent": null
+    },
+    {
+     "member": "φGd",
+     "parent": null
+    },
+    {
+     "member": "φDy",
+     "parent": null
+    },
+    {
+     "member": "φEr",
+     "parent": null
+    },
+    {
+     "member": "φYb",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collector Configuration": {
+   "key": "monitored property",
+   "cell": "N — static mode for most REEs, a subconfiguration for Dy and Yb; the cup configurations are in table S2",
+   "status": "commentary only"
+  },
+  "Number of Blocks per Measurement": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Cycles per Block": {
+   "key": "acquisition pass",
+   "cell": "main configuration: 40 cycles; subconfiguration: 2, measured at the beginning — Materials and Methods",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "main configuration"
+     ],
+     "value": "40 cycles"
+    },
+    {
+     "members": [
+      "subconfiguration"
+     ],
+     "value": "2, measured at the beginning"
+    }
+   ]
+  },
+  "Integration Time per Cycle": {
+   "key": "monitored property",
+   "cell": "all: 8.184 s — 4.142 s in the subconfiguration",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "8.184 s"
+    }
+   ]
+  },
+  "Baseline Measurement Approach": {
+   "key": "(none)",
+   "cell": "60 s baseline after 60 s take-up, per measurement — idle time zero between cycles of one configuration, 10 s after a configuration change",
+   "status": "text",
+   "value": "60 s baseline after 60 s take-up, per measurement"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "300 s rinsing between bracketed measurements",
+   "status": "text",
+   "value": "300 s rinsing between bracketed measurements"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "Standard-sample bracketing — \"On average, LREEs were measured nine times bracketed by OL-REE isotope standard spaced apart by 300-s rinsing time\"",
+   "status": "text",
+   "value": "Standard-sample bracketing"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+   "status": "not applicable"
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A — no added internal standard element",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Flatness Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "main configuration; subconfiguration — for Dy and Yb 'a subconfiguration was used to monitor isobaric interferences'; the cup configurations are in table S2",
+   "status": "structured",
+   "value": [
+    {
+     "member": "main configuration",
+     "parent": null
+    },
+    {
+     "member": "subconfiguration",
+     "parent": null
+    }
+   ]
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "2 — the subconfiguration only for Dy and Yb",
+   "status": "text",
+   "value": "2"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "Standard-sample bracketing, each sample ratio normalised to the average of the two bracketing OL-REE standards, diluted to the same concentration in the same acid — 'SSB is advantageous over the double-spike approach because one can distinguish mass-dependent fractionation from isotopic anomalies'",
+   "status": "text",
+   "value": "Standard-sample bracketing, each sample ratio normalised to the average of the two bracketing OL-REE standards, diluted to the same concentration in the same acid"
+  },
+  "Mass Fractionation Law": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Double-Spike Isotope Pair": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Mixing Ratio": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Inversion Algorithm": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Internal Normalization Element and Isotope Ratio": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Ratio Reported": {
+   "key": "reported property",
+   "cell": "φCe: 142Ce/140Ce; φNd: 146Nd/144Nd; φSm: 152Sm/148Sm; φEu: 153Eu/151Eu; φGd: 158Gd/156Gd; φDy: 164Dy/162Dy; φEr: 168Er/166Er; φYb: 174Yb/172Yb — Table 1 caption; 'the two most abundant isotopes for each REE'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "φCe"
+     ],
+     "value": "142Ce/140Ce"
+    },
+    {
+     "members": [
+      "φNd"
+     ],
+     "value": "146Nd/144Nd"
+    },
+    {
+     "members": [
+      "φSm"
+     ],
+     "value": "152Sm/148Sm"
+    },
+    {
+     "members": [
+      "φEu"
+     ],
+     "value": "153Eu/151Eu"
+    },
+    {
+     "members": [
+      "φGd"
+     ],
+     "value": "158Gd/156Gd"
+    },
+    {
+     "members": [
+      "φDy"
+     ],
+     "value": "164Dy/162Dy"
+    },
+    {
+     "members": [
+      "φEr"
+     ],
+     "value": "168Er/166Er"
+    },
+    {
+     "members": [
+      "φYb"
+     ],
+     "value": "174Yb/172Yb"
+    }
+   ]
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "Ce, Nd, Sm, Eu, Gd, Dy, Er, Yb: standard-sample bracketing against the OL-REE standard of the same element",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Ce",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Dy",
+      "Er",
+      "Yb"
+     ],
+     "value": "standard-sample bracketing against the OL-REE standard of the same element"
+    }
+   ]
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "Background corrected off-line in a spreadsheet, from the 60 s baseline — 'correcting for background and isobaric interferences'",
+   "status": "text",
+   "value": "Background corrected off-line in a spreadsheet, from the 60 s baseline"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes, Er on Dy, and neighbouring-element isotopes generally",
+   "status": "text",
+   "value": "Yes, Er on Dy, and neighbouring-element isotopes generally"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "162Dy: 162Er; 164Dy: 164Er; other: N — isobars of neighbouring elements in general",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "162Dy"
+     ],
+     "value": "162Er"
+    },
+    {
+     "members": [
+      "164Dy"
+     ],
+     "value": "164Er"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "162Dy, 164Dy: 166Er from the subconfiguration, scaled through 166Er/163Dy to the main configuration and multiplied by 162Er/166Er and 164Er/166Er; other: monitoring another isotope of the interfering element and subtracting its intensity at natural abundance — Materials and Methods",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "162Dy",
+      "164Dy"
+     ],
+     "value": "166Er from the subconfiguration, scaled through 166Er/163Dy to the main configuration and multiplied by 162Er/166Er and 164Er/166Er"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "monitoring another isotope of the interfering element and subtracting its intensity at natural abundance"
+    }
+   ]
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution applied",
+   "status": "not applicable"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "95% confidence interval — Student's t, from the sample's own φE values with six or more brackets, otherwise from standards bracketed by standards",
+   "status": "text",
+   "value": "95% confidence interval"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — \"On average, LREEs were measured nine times\"; replicate matrix cuts were measured but \"are not used, however, for data interpretation to avoid unnecessary influence of stable isotopic fractionation potentially induced by Mo chemistry\" — an explicit exclusion, on chemical rather than statistical grounds",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Error Correlation Between Reported Quantities": {
+   "key": "pair: reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: per sample, over 1 to 12 (typically 5) STD-SMP-STD bracketings — 'The reported φE values were calculated based on 1 to 12 (typically 5) STD-SMP-STD bracketings'; Fig. 1 also shows the mean of seven CAIs",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "per sample, over 1 to 12 (typically 5) STD-SMP-STD bracketings"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [Ce, Nd, Sm, Eu, Gd, Dy, Er, Yb: OL-REE series]",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "Ce",
+        "Nd",
+        "Sm",
+        "Eu",
+        "Gd",
+        "Dy",
+        "Er",
+        "Yb"
+       ],
+       "value": "OL-REE series"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "Every sample, spaced by 300 s rinsing",
+   "status": "text",
+   "value": "Every sample, spaced by 300 s rinsing"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "BCR-2 — 'processed with the CAIs'",
+   "status": "structured",
+   "value": [
+    {
+     "member": "BCR-2",
+     "parent": null
+    }
+   ]
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "BCR-2 [all: zero within error bars, typically < 0.05‰/amu] — Assessment of data accuracy; replicates from the Mo-chemistry matrix cut agree, with LREEs shifted ~0.1‰/amu",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "BCR-2"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "zero within error bars, typically < 0.05‰/amu"
+      }
+     ]
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}

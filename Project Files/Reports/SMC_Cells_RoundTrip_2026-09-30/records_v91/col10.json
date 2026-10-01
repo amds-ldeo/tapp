@@ -1,0 +1,1051 @@
+{
+ "procedure_column": "Schönbächler+etal2025 | Neptune Plus | ETH Zurich",
+ "tapp": "Solution_MC-ICP-MS_TAPP_v91",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution MC-ICP-MS",
+   "status": "text",
+   "value": "Solution MC-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "ETH Zurich; sample digestion and separation at Tokyo Institute of Technology",
+   "status": "text",
+   "value": "ETH Zurich; sample digestion and separation at Tokyo Institute of Technology"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "Mg, K, Ca, Ti, Cr, Fe, Cu, Zn, Mo and Nd isotope data \"all obtained from the same sample digestions and are therefore directly comparable\"",
+   "status": "text",
+   "value": "Mg, K, Ca, Ti, Cr, Fe, Cu, Zn, Mo and Nd isotope data \"all obtained from the same sample digestions and are therefore directly comparable\""
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "returned asteroid sample; carbonaceous chondrite; eucrite; terrestrial rock — Ryugu (A0106, A0106-A0107, C0108), Tagish Lake, Tarda, Ivuna, Colony, Bouvante, Bereba and terrestrial RMs",
+   "status": "structured",
+   "value": [
+    {
+     "member": "returned asteroid sample",
+     "parent": null
+    },
+    {
+     "member": "carbonaceous chondrite",
+     "parent": null
+    },
+    {
+     "member": "eucrite",
+     "parent": null
+    },
+    {
+     "member": "terrestrial rock",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Digestion aliquot — Ryugu \"aliquots of <25 mg were analyzed with ~40 to 70 ng Zr\"; Tagish Lake 30 mg, Tarda 90 mg, Ivuna 40 and 44 mg \"from a larger homogenized powder (550 mg)\"",
+   "status": "text",
+   "value": "Digestion aliquot"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Homogenised powder — Ivuna aliquots taken \"from a larger homogenized powder (550 mg)\"",
+   "status": "text",
+   "value": "Homogenised powder"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "hotplate HF–HNO3: concentrated HF–HNO3; HNO3–HCl: HNO3–HCl; HNO3–H2O2 dissolution: HNO3–H2O2; high-PT HF–HNO3: concentrated HF–HNO3; Parr bomb: concentrated HF–HNO3; Ivuna high-PT: concentrated HF–HNO3, then concentrated HCl",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "hotplate HF–HNO3"
+     ],
+     "value": "concentrated HF–HNO3"
+    },
+    {
+     "members": [
+      "HNO3–HCl"
+     ],
+     "value": "HNO3–HCl"
+    },
+    {
+     "members": [
+      "HNO3–H2O2 dissolution"
+     ],
+     "value": "HNO3–H2O2"
+    },
+    {
+     "members": [
+      "high-PT HF–HNO3"
+     ],
+     "value": "concentrated HF–HNO3"
+    },
+    {
+     "members": [
+      "Parr bomb"
+     ],
+     "value": "concentrated HF–HNO3"
+    },
+    {
+     "members": [
+      "Ivuna high-PT"
+     ],
+     "value": "concentrated HF–HNO3, then concentrated HCl"
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "Octagonal-body Savillex vials; Parr bomb (Ivuna PB, BCR-2, AGV-1); hotplate (BHVO-2)",
+   "status": "text",
+   "value": "Octagonal-body Savillex vials; Parr bomb (Ivuna PB, BCR-2, AGV-1); hotplate (BHVO-2)"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "hotplate HF–HNO3 (Ryugu, 180 °C, 3–7 days); HNO3–HCl (120 °C, 12 h); HNO3–H2O2 dissolution; high-PT HF–HNO3 (Tagish Lake, Tarda, octagonal-body Savillex vials, 220 °C, about a week); Parr bomb (Ivuna PB, BCR-2, AGV-1, HF–HNO3, 170 °C); Ivuna high-PT (HF–HNO3 for 3 days, then HCl for 2 days, Savillex vial in an oven at 160 °C) — BHVO-2 in HF–HNO3 on a hotplate",
+   "status": "structured",
+   "value": [
+    {
+     "member": "hotplate HF–HNO3",
+     "parent": null
+    },
+    {
+     "member": "HNO3–HCl",
+     "parent": null
+    },
+    {
+     "member": "HNO3–H2O2 dissolution",
+     "parent": null
+    },
+    {
+     "member": "high-PT HF–HNO3",
+     "parent": null
+    },
+    {
+     "member": "Parr bomb",
+     "parent": null
+    },
+    {
+     "member": "Ivuna high-PT",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "hotplate HF–HNO3: 180 °C; HNO3–HCl: 120 °C; high-PT HF–HNO3: 220 °C; Parr bomb: 170 °C; Ivuna high-PT: 160 °C; other: N",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "hotplate HF–HNO3"
+     ],
+     "value": "180 °C"
+    },
+    {
+     "members": [
+      "HNO3–HCl"
+     ],
+     "value": "120 °C"
+    },
+    {
+     "members": [
+      "high-PT HF–HNO3"
+     ],
+     "value": "220 °C"
+    },
+    {
+     "members": [
+      "Parr bomb"
+     ],
+     "value": "170 °C"
+    },
+    {
+     "members": [
+      "Ivuna high-PT"
+     ],
+     "value": "160 °C"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "hotplate HF–HNO3: 3–7 days; HNO3–HCl: 12 h; high-PT HF–HNO3: about a week; Ivuna high-PT: 3 days, then 2 days; other: N",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "hotplate HF–HNO3"
+     ],
+     "value": "3–7 days"
+    },
+    {
+     "members": [
+      "HNO3–HCl"
+     ],
+     "value": "12 h"
+    },
+    {
+     "members": [
+      "high-PT HF–HNO3"
+     ],
+     "value": "about a week"
+    },
+    {
+     "members": [
+      "Ivuna high-PT"
+     ],
+     "value": "3 days, then 2 days"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "all: 0.5 M HNO3–0.005 M HF at 30 ppb Zr — samples and standards",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "0.5 M HNO3–0.005 M HF at 30 ppb Zr"
+    }
+   ]
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "Ryugu <25 mg with ~40–70 ng Zr; 15 ng Zr consumed per 30 ppb analysis",
+   "status": "text",
+   "value": "Ryugu <25 mg with ~40–70 ng Zr; 15 ng Zr consumed per 30 ppb analysis"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "Yes, four-step separation on anion exchange (AG 1-X8), DGA and LN resin; two-stage anion exchange for Ivuna; three-stage AG 1-X8 + LN for terrestrial samples",
+   "status": "text",
+   "value": "Yes, four-step separation on anion exchange (AG 1-X8), DGA and LN resin; two-stage anion exchange for Ivuna; three-stage AG 1-X8 + LN for terrestrial samples"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+   "status": "not applicable"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Neptune Plus",
+   "status": "text",
+   "value": "Neptune Plus"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]",
+   "status": "text",
+   "value": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "\"Normal skimmer and sampler cones were utilized\"",
+   "status": "text",
+   "value": "\"Normal skimmer and sampler cones were utilized\""
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Array Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Amplifier Resistor Values": {
+   "key": "monitored property",
+   "cell": "90Zr, 91Zr, 92Zr, 94Zr, 96Zr, 95Mo: 10^11 Ω; 99Ru, 101Ru: 10^12 Ω",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "90Zr",
+      "91Zr",
+      "92Zr",
+      "94Zr",
+      "96Zr",
+      "95Mo"
+     ],
+     "value": "10^11 Ω"
+    },
+    {
+     "members": [
+      "99Ru",
+      "101Ru"
+     ],
+     "value": "10^12 Ω"
+    }
+   ]
+  },
+  "Faraday Cup Gain Calibration Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "PFA nebulizer with an Aridus II desolvating nebulizer system",
+   "status": "text",
+   "value": "PFA nebulizer with an Aridus II desolvating nebulizer system"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "all: Aridus II",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Aridus II"
+    }
+   ]
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "~0.05 mL/min",
+   "status": "text",
+   "value": "~0.05 mL/min"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "\"Tuning was performed to minimize interferences of 40Ar2 16O+ and 40Ar2 14N+ on 96Zr+ and 94Zr+ and with it the on-peak background corrections\"",
+   "status": "text",
+   "value": "\"Tuning was performed to minimize interferences of 40Ar2 16O+ and 40Ar2 14N+ on 96Zr+ and 94Zr+ and with it the on-peak background corrections\""
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Zr",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Zr",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "90Zr, 91Zr, 92Zr, 94Zr, 96Zr → Zr; 95Mo, 99Ru, 101Ru → none",
+   "status": "structured",
+   "value": [
+    {
+     "member": "90Zr",
+     "parent": "Zr"
+    },
+    {
+     "member": "91Zr",
+     "parent": "Zr"
+    },
+    {
+     "member": "92Zr",
+     "parent": "Zr"
+    },
+    {
+     "member": "94Zr",
+     "parent": "Zr"
+    },
+    {
+     "member": "96Zr",
+     "parent": "Zr"
+    },
+    {
+     "member": "95Mo",
+     "parent": "none"
+    },
+    {
+     "member": "99Ru",
+     "parent": "none"
+    },
+    {
+     "member": "101Ru",
+     "parent": "none"
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "ε91Zr, ε92Zr, ε96Zr — relative to NIST SRM 3169 (Eq. 1)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "ε91Zr",
+     "parent": null
+    },
+    {
+     "member": "ε92Zr",
+     "parent": null
+    },
+    {
+     "member": "ε96Zr",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collector Configuration": {
+   "key": "monitored property",
+   "cell": "N — cup positions not stated; amplifiers under Faraday Cup Amplifier Resistor Values",
+   "status": "commentary only"
+  },
+  "Number of Blocks per Measurement": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Cycles per Block": {
+   "key": "acquisition pass",
+   "cell": "all: 60 ratios — static collection",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "60 ratios"
+    }
+   ]
+  },
+  "Integration Time per Cycle": {
+   "key": "monitored property",
+   "cell": "all: 4.2 s",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "4.2 s"
+    }
+   ]
+  },
+  "Baseline Measurement Approach": {
+   "key": "(none)",
+   "cell": "Both: \"Electronic baselines were measured for 30 s prior to each analysis. An on-peak background correction was performed.\"",
+   "status": "text",
+   "value": "Both: \"Electronic baselines were measured for 30 s prior to each analysis. An on-peak background correction was performed.\""
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "Standard sample bracketing against NIST SRM 3169; \"The Zr standard material NIST SRM 3169 was analyzed in each session\"",
+   "status": "text",
+   "value": "Standard sample bracketing against NIST SRM 3169; \"The Zr standard material NIST SRM 3169 was analyzed in each session\""
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+   "status": "not applicable"
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A — no added internal standard element",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "Argide and Ar-Ar-oxide interferences on 94Zr and 96Zr minimised by tuning; no numeric threshold stated",
+   "status": "text",
+   "value": "Argide and Ar-Ar-oxide interferences on 94Zr and 96Zr minimised by tuning; no numeric threshold stated"
+  },
+  "Peak Flatness Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "Internal normalization to 94Zr/90Zr = 0.3381 using the exponential law; an initial Mo correction uses a mass bias relative to 91Zr/90Zr = 0.21798; results reported by standard sample bracketing to NIST SRM 3169",
+   "status": "text",
+   "value": "Internal normalization to 94Zr/90Zr = 0.3381 using the exponential law; an initial Mo correction uses a mass bias relative to 91Zr/90Zr = 0.21798; results reported by standard sample bracketing to NIST SRM 3169"
+  },
+  "Mass Fractionation Law": {
+   "key": "(none)",
+   "cell": "Exponential law",
+   "status": "text",
+   "value": "Exponential law"
+  },
+  "Double-Spike Isotope Pair": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Mixing Ratio": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Inversion Algorithm": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Internal Normalization Element and Isotope Ratio": {
+   "key": "(none)",
+   "cell": "94Zr/90Zr = 0.3381 (Minster & Ricard 1981)",
+   "status": "text",
+   "value": "94Zr/90Zr = 0.3381 (Minster & Ricard 1981)"
+  },
+  "Isotope Ratio Reported": {
+   "key": "reported property",
+   "cell": "ε91Zr: 91Zr/90Zr; ε92Zr: 92Zr/90Zr; ε96Zr: 96Zr/90Zr — normalised to ⁹⁴Zr/⁹⁰Zr = 0.3381",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "ε91Zr"
+     ],
+     "value": "91Zr/90Zr"
+    },
+    {
+     "members": [
+      "ε92Zr"
+     ],
+     "value": "92Zr/90Zr"
+    },
+    {
+     "members": [
+      "ε96Zr"
+     ],
+     "value": "96Zr/90Zr"
+    }
+   ]
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "\"An on-peak background correction was performed\"; background corrections averaged 0.3, 2 and 98 ppm for 91Zr/90Zr, 92Zr/90Zr and 96Zr/90Zr",
+   "status": "text",
+   "value": "\"An on-peak background correction was performed\"; background corrections averaged 0.3, 2 and 98 ppm for 91Zr/90Zr, 92Zr/90Zr and 96Zr/90Zr"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes, Mo and Ru on Zr, plus Fe- and Cr-argides and Ar-Ar-oxides",
+   "status": "text",
+   "value": "Yes, Mo and Ru on Zr, plus Fe- and Cr-argides and Ar-Ar-oxides"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "94Zr: 40Ar2 14N+; 96Zr: 40Ar2 16O+; other: N — Mo and Ru isobars, corrected from masses 95, 99 and 101; the affected masses are not listed",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "94Zr"
+     ],
+     "value": "40Ar2 14N+"
+    },
+    {
+     "members": [
+      "96Zr"
+     ],
+     "value": "40Ar2 16O+"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "94Zr, 96Zr: argide interferences minimised by tuning, with an on-peak background correction; other: Mo and Ru corrected from the signals on masses 95, 99 and 101, with an initial Mo correction using a mass bias relative to 91Zr/90Zr = 0.21798 — after Schönbächler et al. (2004)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "94Zr",
+      "96Zr"
+     ],
+     "value": "argide interferences minimised by tuning, with an on-peak background correction"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "Mo and Ru corrected from the signals on masses 95, 99 and 101, with an initial Mo correction using a mass bias relative to 91Zr/90Zr = 0.21798"
+    }
+   ]
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution applied",
+   "status": "not applicable"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "Both quoted: \"external precision expressed as 2 standard deviations (2SD)\" and 2SE per analysis",
+   "status": "text",
+   "value": "Both quoted: \"external precision expressed as 2 standard deviations (2SD)\" and 2SE per analysis"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Rule: data outside the 2SD uncertainty are rejected as outliers; n stated per sample (n = 13–99 for terrestrial RMs; n = 17–38 for eucrites and Colony) — Table 1 note: 'An outlier rejection was carried out with rejection of data that falls outside the 2SD uncertainty'",
+   "status": "text",
+   "value": "Rule: data outside the 2SD uncertainty are rejected as outliers; n stated per sample (n = 13–99 for terrestrial RMs; n = 17–38 for eucrites and Colony)"
+  },
+  "Error Correlation Between Reported Quantities": {
+   "key": "pair: reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average of the individual measurements of each sample — Fig. 1: 'the average of each sample with the corresponding uncertainty given as the 2 sd calculated from the individual sample measurements'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average of the individual measurements of each sample"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "94Zr/90Zr = 0.3381 and 91Zr/90Zr = 0.21798, both Minster & Ricard (1981)",
+   "status": "text",
+   "value": "94Zr/90Zr = 0.3381 and 91Zr/90Zr = 0.21798, both Minster & Ricard (1981)"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [Zr: NIST SRM 3169]",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "Zr"
+       ],
+       "value": "NIST SRM 3169"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "Each session — \"The Zr standard material NIST SRM 3169 was analyzed in each session\"",
+   "status": "text",
+   "value": "Each session"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony",
+   "status": "structured",
+   "value": [
+    {
+     "member": "BHVO-2",
+     "parent": null
+    },
+    {
+     "member": "BCR-2",
+     "parent": null
+    },
+    {
+     "member": "AGV-1",
+     "parent": null
+    },
+    {
+     "member": "SCo-1",
+     "parent": null
+    },
+    {
+     "member": "Bouvante",
+     "parent": null
+    },
+    {
+     "member": "Bereba",
+     "parent": null
+    },
+    {
+     "member": "Colony",
+     "parent": null
+    }
+   ]
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "all [ε91Zr: 0.35; ε92Zr: 0.21; ε96Zr: 1.00] — 2SD of NIST SRM 3169 for an average session at 30 ppb (n = 32)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "ε91Zr"
+       ],
+       "value": "0.35"
+      },
+      {
+       "members": [
+        "ε92Zr"
+       ],
+       "value": "0.21"
+      },
+      {
+       "members": [
+        "ε96Zr"
+       ],
+       "value": "1.00"
+      }
+     ]
+    }
+   ]
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony [ε91Zr: 0.3; ε92Zr: 0.2; ε96Zr: 1.0] — average 2SD over 10 months, n = 13–99 (eucrites and Colony n = 17–38)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "BHVO-2",
+      "BCR-2",
+      "AGV-1",
+      "SCo-1",
+      "Bouvante",
+      "Bereba",
+      "Colony"
+     ],
+     "value": [
+      {
+       "members": [
+        "ε91Zr"
+       ],
+       "value": "0.3"
+      },
+      {
+       "members": [
+        "ε92Zr"
+       ],
+       "value": "0.2"
+      },
+      {
+       "members": [
+        "ε96Zr"
+       ],
+       "value": "1.0"
+      }
+     ]
+    }
+   ]
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "BHVO-2, BCR-2, AGV-1, SCo-1, Bouvante, Bereba, Colony [all: measured repeatedly to verify data quality] — doping tests with Ti, V, Cr, Mo, Hf and W 'have no effect on the accuracy of the Zr isotope data'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "BHVO-2",
+      "BCR-2",
+      "AGV-1",
+      "SCo-1",
+      "Bouvante",
+      "Bereba",
+      "Colony"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "measured repeatedly to verify data quality"
+      }
+     ]
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}

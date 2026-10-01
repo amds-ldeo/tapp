@@ -109,6 +109,14 @@ EXCLUDE_FIELDS = {
 # sees only genuinely new disagreements. Rationale for each is in precedents.md under
 # "Validating keys against the literature assessment".
 ADJUDICATED = {
+    # ---- adjudicated 2026-09-30, on the Solution MC re-read (smc_keyed_reverify_20260930.py).
+    ("delta or epsilon Value Reference Standard", "AXIS-MISMATCH"):
+        "KEEP target species — the detector reads the reference materials named as values (IRMM-524a, NIST SRM 3141a, "
+        "JMC-Lyon) as the standard axis. They are the values, keyed per element: van Kooten+2026 'Fe: IRMM-014; Cr: "
+        "SRM979; Mg: DTS-2b' and Barnes+2025 'K: NIST-SRM 3141a; Cu: NIST-SRM 976; Zn: JMC-Lyon'.",
+    ("Baseline Measurement Approach", "UNDER-DECLARED"):
+        "KEEP (none) — 'before each analysis', 'per measurement' and 'at the beginning of each analysis' are schedules, "
+        "not a value varying by sampling unit; same ruling as Background Count Time.",
     # ---- adjudicated 2026-09-30, on the Solution Q re-read (sq_keyed_reverify_20260930.py).
     ("Isotope Dilution Spike", "UNDER-DECLARED"):
         "KEEP (none) — the cells name the spike isotopes because they describe the spike solutions (Lu+2007's ¹⁰B, "

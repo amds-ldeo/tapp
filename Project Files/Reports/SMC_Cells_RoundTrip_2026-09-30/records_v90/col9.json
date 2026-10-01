@@ -1,0 +1,710 @@
+{
+ "procedure_column": "Pringle+Moynier2017 | Neptune Plus | IPGP",
+ "tapp": "Solution_MC-ICP-MS_TAPP_v90",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution MC-ICP-MS",
+   "status": "text",
+   "value": "Solution MC-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Institut de Physique du Globe de Paris",
+   "status": "text",
+   "value": "Institut de Physique du Globe de Paris"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Whole-rock terrestrial igneous rocks, chondrites, achondrites and Apollo lunar samples",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Whole-rock terrestrial igneous rocks",
+     "parent": null
+    },
+    {
+     "member": "chondrites",
+     "parent": null
+    },
+    {
+     "member": "achondrites and Apollo lunar samples",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Weighed powder aliquot — \"An aliquot of <=125 mg of powdered sample was weighed depending on the Rb concentration of the sample; masses were calculated to yield >20 ng Rb\"",
+   "status": "text",
+   "value": "Weighed powder aliquot"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\"",
+   "status": "text",
+   "value": "\"Whole rock samples were crushed by hand using an agate mortar until a fine powder was obtained. A minimum of 0.5 g of terrestrial rock or meteorite and 100 mg of lunar samples was crushed in order to avoid non-representational sample analysis\""
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "\"a mixture of concentrated HF/HNO3\"; after evaporation \"6N HCl was added\" to dissolve fluoride complexes",
+   "status": "unparsed",
+   "value": []
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "\"closed Teflon bombs\"",
+   "status": "text",
+   "value": "\"closed Teflon bombs\""
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "1: concentrated HF/HNO3, closed Teflon bombs, 130 deg C, >48 h | 2: after evaporation of the HF/HNO3, 6N HCl at 130 deg C to dissolve fluoride complexes. Samples were then evaporated to dryness and were ready for chemistry.",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "1: concentrated HF/HNO3",
+     "parent": null
+    },
+    {
+     "member": "closed Teflon bombs",
+     "parent": null
+    },
+    {
+     "member": "130 deg C",
+     "parent": null
+    },
+    {
+     "member": ">48 h | 2: after evaporation of the HF/HNO3",
+     "parent": null
+    },
+    {
+     "member": "6N HCl at 130 deg C to dissolve fluoride complexes. Samples were then evaporated to dryness and were ready for chemistry.",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "130 °C for both the HF/HNO3 and the 6N HCl steps",
+   "status": "unparsed",
+   "value": []
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "\">48 h\"",
+   "status": "unparsed",
+   "value": []
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "0.1N HNO3",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "<=125 mg powder, calculated to yield >20 ng Rb",
+   "status": "text",
+   "value": "<=125 mg powder, calculated to yield >20 ng Rb"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "Yes — DGA resin Ca removal (1.8 mL), then AG50 X12 (20 mL and 10 mL) in 3N HCl, then AG50 X8 (1 mL) in 0.5N HCl. Reduces K/Rb by a factor of 200 to K/Rb<2 and gives 88Sr/85Rb<0.005",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+   "status": "not applicable"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Neptune Plus",
+   "status": "text",
+   "value": "Neptune Plus"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]",
+   "status": "text",
+   "value": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "Sample cone Jet; skimmer cone H",
+   "status": "text",
+   "value": "Sample cone Jet; skimmer cone H"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Array Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Amplifier Resistor Values": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Gain Calibration Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "APEX, used alongside the spray chamber as an alternative introduction system in different sessions",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "Peristaltic pump at 5 rpm",
+   "status": "text",
+   "value": "Peristaltic pump at 5 rpm"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1200 W",
+   "status": "text",
+   "value": "1200 W"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "16 L/min",
+   "status": "text",
+   "value": "16 L/min"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "1.01 L/min",
+   "status": "text",
+   "value": "1.01 L/min"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "1.03 L/min (sample gas)",
+   "status": "text",
+   "value": "1.03 L/min (sample gas)"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Rb",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Rb",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "⁸⁴Sr (L2), ⁸⁵Rb (L1), ⁸⁶Sr (C), ⁸⁷Rb + ⁸⁷Sr (H1), ⁸⁸Sr (H2) — Table 2, p.3. ⁸⁵Rb and ⁸⁷Rb serve the target species Rb; the Sr masses are interference monitors with no target species, ⁸⁸Sr being the one used to correct ⁸⁷Sr on ⁸⁷Rb",
+   "status": "structured",
+   "value": [
+    {
+     "member": "⁸⁴Sr",
+     "parent": null
+    },
+    {
+     "member": "⁸⁵Rb",
+     "parent": null
+    },
+    {
+     "member": "⁸⁶Sr",
+     "parent": null
+    },
+    {
+     "member": "⁸⁷Rb + ⁸⁷Sr",
+     "parent": null
+    },
+    {
+     "member": "⁸⁸Sr",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "δ87Rb in permil = [(87Rb/85Rb)sample/(87Rb/85Rb)standard − 1] x 1000",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "δ87Rb in permil = [(87Rb/85Rb)sample/(87Rb/85Rb)standard − 1] x 1000",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collector Configuration": {
+   "key": "monitored property",
+   "cell": "L2=84Sr, L1=85Rb, C=86Sr, H1=87Rb+87Sr, H2=88Sr",
+   "status": "unparsed",
+   "value": []
+  },
+  "Number of Blocks per Measurement": {
+   "key": "(none)",
+   "cell": "Blocks of 20 cycles",
+   "status": "text",
+   "value": "Blocks of 20 cycles"
+  },
+  "Number of Cycles per Block": {
+   "key": "acquisition pass",
+   "cell": "20 cycles",
+   "status": "unparsed",
+   "value": []
+  },
+  "Integration Time per Cycle": {
+   "key": "monitored property",
+   "cell": "8.389 s",
+   "status": "unparsed",
+   "value": []
+  },
+  "Baseline Measurement Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "Standard-sample bracketing; an external pure Rb ICP-MS solution \"analyzed as an external standard during each analytical session to monitor the reproducibility\"",
+   "status": "text",
+   "value": "Standard-sample bracketing; an external pure Rb ICP-MS solution \"analyzed as an external standard during each analytical session to monitor the reproducibility\""
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+   "status": "not applicable"
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A — no added internal standard element",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Flatness Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N (\"double-charged Er or Yb isotopes\" are named as interferences that the chemistry separates from Rb, p.2; no M²⁺ tuning monitor or production ratio is stated)",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "\"Measurements were made using standard-sample bracketing to correct for instrumental mass bias\"",
+   "status": "text",
+   "value": "\"Measurements were made using standard-sample bracketing to correct for instrumental mass bias\""
+  },
+  "Mass Fractionation Law": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Double-Spike Isotope Pair": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Mixing Ratio": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Inversion Algorithm": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Internal Normalization Element and Isotope Ratio": {
+   "key": "(none)",
+   "cell": "N/A — Rb has two stable isotopes; bracketing used instead",
+   "status": "not applicable"
+  },
+  "Isotope Ratio Reported": {
+   "key": "reported property",
+   "cell": "87Rb/85Rb",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "\"any ratio outside 2σ was discarded\"",
+   "status": "text",
+   "value": "\"any ratio outside 2σ was discarded\""
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes — 87Sr on 87Rb, Sr isotopes monitored",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "87Sr on 87Rb; also double-charged Er and Yb isotopes",
+   "status": "unparsed",
+   "value": []
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution applied",
+   "status": "not applicable"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "\"the 2 standard error (2se) is reported unless stated otherwise\"; for samples analysed fewer than 3 times, \"the largest 2 se reported for a sample analyzed multiple times has been used\"",
+   "status": "text",
+   "value": "\"the 2 standard error (2se) is reported unless stated otherwise\"; for samples analysed fewer than 3 times, \"the largest 2 se reported for a sample analyzed multiple times has been used\""
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "\"Errors are determined from repeated measurements\"",
+   "status": "unparsed",
+   "value": []
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N — no result-level rule is stated. Reported values are \"averages of repeated measurements of each sample when multiple analyses were possible\", with no criterion for admitting or rejecting a measurement; the \"any ratio outside 2σ was discarded\" rule acts within a measurement and is recorded under Spike / Outlier Filtering Approach",
+   "status": "commentary only"
+  },
+  "Error Correlation Between Reported Quantities": {
+   "key": "pair: reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "δ87Rb: average of repeated measurements per sample; averages per group of samples — 'Reported isotope ratios are averages of repeated measurements of each sample when multiple analyses were possible'; group averages for terrestrial rocks, lunar samples and chondrite groups (Table 1)",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "δ87Rb"
+     ],
+     "value": "average of repeated measurements per sample"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "NIST SRM984 RbCl; BCR-2 as an alternative bracketing standard in some sessions",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "Every sample (bracketing), plus an external pure Rb solution \"during each analytical session\"",
+   "status": "text",
+   "value": "Every sample (bracketing), plus an external pure Rb solution \"during each analytical session\""
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "BCR-2, AGV-2, BHVO-2, GS-N and other terrestrial rocks",
+   "status": "structured",
+   "value": [
+    {
+     "member": "BCR-2",
+     "parent": null
+    },
+    {
+     "member": "AGV-2",
+     "parent": null
+    },
+    {
+     "member": "BHVO-2",
+     "parent": null
+    },
+    {
+     "member": "GS-N and other terrestrial rocks",
+     "parent": null
+    }
+   ]
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "\"the long-term reproducibility was ±0.01‰ (n = 40)\" from a pure Rb ICP-MS solution run as an external standard each session",
+   "status": "unparsed",
+   "value": []
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "An aliquot of SRM984 passed through the full chemistry gave δ87Rb = 0.00 ± 0.03‰, \"confirming that no isotope fractionation is caused by the Rb purification procedure\"; Allende duplicate splits agreed at 0.12 ± 0.02‰ and 0.14 ± 0.04‰",
+   "status": "unparsed",
+   "value": []
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}

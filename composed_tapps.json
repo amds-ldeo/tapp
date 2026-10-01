@@ -246,7 +246,7 @@
       ]
     },
     {
-      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v90.csv",
+      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v91.csv",
       "modules": [
         {
           "name": "Core",

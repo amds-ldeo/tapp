@@ -1,0 +1,909 @@
+{
+ "procedure_column": "IbanezMejia+Tissot2020 | Nu Plasma II | MIT",
+ "tapp": "Solution_MC-ICP-MS_TAPP_v91",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution MC-ICP-MS",
+   "status": "text",
+   "value": "Solution MC-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Massachusetts Institute of Technology",
+   "status": "text",
+   "value": "Massachusetts Institute of Technology"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "ID-TIMS U-Pb on an Isotopx X-62 at MIT, and solution Q-ICP-MS (Agilent 7700) for Zr and Hf concentrations, on aliquots of the same dissolutions",
+   "status": "text",
+   "value": "ID-TIMS U-Pb on an Isotopx X-62 at MIT, and solution Q-ICP-MS (Agilent 7700) for Zr and Hf concentrations, on aliquots of the same dissolutions"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "Functional: 3 M HCl washes from the U-Pb anion chemistry were collected and became the Zr aliquots, so the same crystal yields a U-Pb date and a Zr isotopic composition. Sequence: U-Pb purification first, Zr purification from its washes",
+   "status": "text",
+   "value": "Functional: 3 M HCl washes from the U-Pb anion chemistry were collected and became the Zr aliquots, so the same crystal yields a U-Pb date and a Zr isotopic composition. Sequence: U-Pb purification first, Zr purification from its washes"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "zircon; baddeleyite; bulk rock — single crystals and bulk rock of the FC-1 anorthositic gabbro (Duluth Complex)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "zircon",
+     "parent": null
+    },
+    {
+     "member": "baddeleyite",
+     "parent": null
+    },
+    {
+     "member": "bulk rock",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Single crystal — \"Single zircon and baddeleyite crystals selected for analysis were individually handpicked\"; each \"individually loaded into clean PFA microcapsules\"",
+   "status": "text",
+   "value": "Single crystal"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol",
+   "status": "text",
+   "value": "Crushing in a stainless steel mortar, sieving through 375 µm plastic mesh, washing in a plastic gold pan, hand magnet, Frantz LB-1 magnetic separation, methylene iodide heavy liquid, hand picking under high-purity ethanol"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "chemical abrasion: 29 M HF; U-Pb dissolution: 29 M HF; Zr-only dissolution: 20% HNO3, then 29 M HF; spike equilibration: N",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "chemical abrasion"
+     ],
+     "value": "29 M HF"
+    },
+    {
+     "members": [
+      "U-Pb dissolution"
+     ],
+     "value": "29 M HF"
+    },
+    {
+     "members": [
+      "Zr-only dissolution"
+     ],
+     "value": "20% HNO3, then 29 M HF"
+    },
+    {
+     "members": [
+      "spike equilibration"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "\"clean Teflon microcapsules\" inside \"a large-volume Parr digestion vessel\"",
+   "status": "text",
+   "value": "\"clean Teflon microcapsules\" inside \"a large-volume Parr digestion vessel\""
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "chemical abrasion (19 zircons for U-Pb, annealed at 900 °C for 60 h, then leached in 29 M HF in a Parr vessel at 215 °C for 12 h); U-Pb dissolution (dated crystals, 29 M HF in microcapsules in a Parr vessel, 215 °C, 48 h); Zr-only dissolution (crystals not dated, fluxed in 20% HNO3 at 60 °C for 2 h, then 29 M HF in microcapsules in a Parr vessel, 215 °C, 60 h); spike equilibration (with the ⁹¹Zr–⁹⁶Zr spike, fluxed at 140 °C overnight, dried down twice and redigested) — Materials and Methods",
+   "status": "structured",
+   "value": [
+    {
+     "member": "chemical abrasion",
+     "parent": null
+    },
+    {
+     "member": "U-Pb dissolution",
+     "parent": null
+    },
+    {
+     "member": "Zr-only dissolution",
+     "parent": null
+    },
+    {
+     "member": "spike equilibration",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "chemical abrasion: 900 °C (annealing), then 215 °C; U-Pb dissolution: 215 °C; Zr-only dissolution: 60 °C, then 215 °C; spike equilibration: 140 °C",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "chemical abrasion"
+     ],
+     "value": "900 °C (annealing), then 215 °C"
+    },
+    {
+     "members": [
+      "U-Pb dissolution"
+     ],
+     "value": "215 °C"
+    },
+    {
+     "members": [
+      "Zr-only dissolution"
+     ],
+     "value": "60 °C, then 215 °C"
+    },
+    {
+     "members": [
+      "spike equilibration"
+     ],
+     "value": "140 °C"
+    }
+   ]
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "chemical abrasion: 60 h, then 12 h; U-Pb dissolution: 48 h; Zr-only dissolution: 2 h, then 60 h; spike equilibration: overnight",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "chemical abrasion"
+     ],
+     "value": "60 h, then 12 h"
+    },
+    {
+     "members": [
+      "U-Pb dissolution"
+     ],
+     "value": "48 h"
+    },
+    {
+     "members": [
+      "Zr-only dissolution"
+     ],
+     "value": "2 h, then 60 h"
+    },
+    {
+     "members": [
+      "spike equilibration"
+     ],
+     "value": "overnight"
+    }
+   ]
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "all: 0.59 M HNO3 + 0.28 M HF at 60 ng/g total Zr — samples and bracketing standards matched in concentration and acid matrix",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "0.59 M HNO3 + 0.28 M HF at 60 ng/g total Zr"
+    }
+   ]
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "Single crystals; ~50 µl (5% of sample) taken for concentration measurement",
+   "status": "text",
+   "value": "Single crystals; ~50 µl (5% of sample) taken for concentration measurement"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "Yes, AG-1X for U-Pb; Ln-Spec (~300 µl, 25–50 µm) for Zr, giving >95% Zr, undetectable REEs and <3% of initial Hf; TODGA first stage for bulk rocks",
+   "status": "text",
+   "value": "Yes, AG-1X for U-Pb; Ln-Spec (~300 µl, 25–50 µm) for Zr, giving >95% Zr, undetectable REEs and <3% of initial Hf; TODGA first stage for bulk rocks"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "In-house 91Zr-96Zr double spike, added at a 0.43:0.57 spike-to-sample Zr mass ratio",
+   "status": "text",
+   "value": "In-house 91Zr-96Zr double spike, added at a 0.43:0.57 spike-to-sample Zr mass ratio"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Nu Instruments — \"a Nu Plasma II MC-ICP-MS fitted with an enhanced sensitivity interface\"",
+   "status": "text",
+   "value": "Nu Instruments"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Nu Plasma II",
+   "status": "text",
+   "value": "Nu Plasma II"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]",
+   "status": "text",
+   "value": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Array Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Amplifier Resistor Values": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Gain Calibration Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "N — introduction through a Cetac Aridus II desolvator nebulizer",
+   "status": "commentary only"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "all: Cetac Aridus II — 'Analyses were conducted in dry plasma mode'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Cetac Aridus II"
+    }
+   ]
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "Mathematica — \"Data were reduced using a minimization approach implemented in Mathematica\"",
+   "status": "text",
+   "value": "Mathematica"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "all: dry plasma",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "dry plasma"
+    }
+   ]
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Zr",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Zr",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "90Zr, 91Zr, 92Zr, 94Zr, 96Zr → Zr; mass 93, 95Mo, 98Mo → none — 'Masses 90, 91, 92, 93, 94, 95, 96, and 98 were measured ... allowing direct monitoring of all Zr isotopes and Mo interferences (masses 95 and 98)'; the use of mass 93 is not stated",
+   "status": "structured",
+   "value": [
+    {
+     "member": "90Zr",
+     "parent": "Zr"
+    },
+    {
+     "member": "91Zr",
+     "parent": "Zr"
+    },
+    {
+     "member": "92Zr",
+     "parent": "Zr"
+    },
+    {
+     "member": "94Zr",
+     "parent": "Zr"
+    },
+    {
+     "member": "96Zr",
+     "parent": "Zr"
+    },
+    {
+     "member": "mass 93",
+     "parent": "none"
+    },
+    {
+     "member": "95Mo",
+     "parent": "none"
+    },
+    {
+     "member": "98Mo",
+     "parent": "none"
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "δ91/90Zr, δ92/90Zr, δ94/90Zr, δ96/90Zr — ‰ relative to ZrNIST; δ⁹⁴/⁹⁰Zr is the one discussed",
+   "status": "structured",
+   "value": [
+    {
+     "member": "δ91/90Zr",
+     "parent": null
+    },
+    {
+     "member": "δ92/90Zr",
+     "parent": null
+    },
+    {
+     "member": "δ94/90Zr",
+     "parent": null
+    },
+    {
+     "member": "δ96/90Zr",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collector Configuration": {
+   "key": "monitored property",
+   "cell": "90Zr, 91Zr, 92Zr, mass 93, 94Zr, 95Mo, 96Zr, 98Mo: static mode at 0.5 amu spacing in the Nu Plasma II collector block",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "90Zr",
+      "91Zr",
+      "92Zr",
+      "mass 93",
+      "94Zr",
+      "95Mo",
+      "96Zr",
+      "98Mo"
+     ],
+     "value": "static mode at 0.5 amu spacing in the Nu Plasma II collector block"
+    }
+   ]
+  },
+  "Number of Blocks per Measurement": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Cycles per Block": {
+   "key": "acquisition pass",
+   "cell": "all: 50 cycles",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "50 cycles"
+    }
+   ]
+  },
+  "Integration Time per Cycle": {
+   "key": "monitored property",
+   "cell": "all: 5 s",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "5 s"
+    }
+   ]
+  },
+  "Baseline Measurement Approach": {
+   "key": "(none)",
+   "cell": "\"On-peak-zero correction was done using the mean acid blank intensities before data processing to account for blank contribution as well as any 'memory' effects from the Aridus II sample introduction system during the run\"",
+   "status": "text",
+   "value": "\"On-peak-zero correction was done using the mean acid blank intensities before data processing to account for blank contribution as well as any 'memory' effects from the Aridus II sample introduction system during the run\""
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "\"Each sample measurement was individually bracketed by measurements of the ZrNIST solution spiked at the same level as our samples and matched in concentration (60 ng/g) as well as acid matrix\"; each measurement preceded by an acid blank",
+   "status": "text",
+   "value": "\"Each sample measurement was individually bracketed by measurements of the ZrNIST solution spiked at the same level as our samples and matched in concentration (60 ng/g) as well as acid matrix\"; each measurement preceded by an acid blank"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+   "status": "not applicable"
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A — no added internal standard element",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Flatness Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "91Zr-96Zr double spike inversion, with ZrNIST bracketing after inversion",
+   "status": "text",
+   "value": "91Zr-96Zr double spike inversion, with ZrNIST bracketing after inversion"
+  },
+  "Mass Fractionation Law": {
+   "key": "(none)",
+   "cell": "Power-law form used in the double-spike inversion equation",
+   "status": "text",
+   "value": "Power-law form used in the double-spike inversion equation"
+  },
+  "Double-Spike Isotope Pair": {
+   "key": "(none)",
+   "cell": "91Zr-96Zr",
+   "status": "text",
+   "value": "91Zr-96Zr"
+  },
+  "Double-Spike Mixing Ratio": {
+   "key": "(none)",
+   "cell": "0.43:0.57 spike-to-sample Zr mass ratio, described as optimal",
+   "status": "text",
+   "value": "0.43:0.57 spike-to-sample Zr mass ratio, described as optimal"
+  },
+  "Double-Spike Inversion Algorithm": {
+   "key": "(none)",
+   "cell": "\"a minimization approach implemented in Mathematica, taking into account all ratios (i.e., 91/90Zr, 92/90Zr, 94/90Zr, and 96/90Zr) with different weighs being assigned to each based on their associated uncertainty\", cross-checked against two exact three-ratio solutions",
+   "status": "text",
+   "value": "\"a minimization approach implemented in Mathematica, taking into account all ratios (i.e., 91/90Zr, 92/90Zr, 94/90Zr, and 96/90Zr) with different weighs being assigned to each based on their associated uncertainty\", cross-checked against two exact three-ratio solutions"
+  },
+  "Internal Normalization Element and Isotope Ratio": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Ratio Reported": {
+   "key": "reported property",
+   "cell": "δ91/90Zr: 91Zr/90Zr; δ92/90Zr: 92Zr/90Zr; δ94/90Zr: 94Zr/90Zr; δ96/90Zr: 96Zr/90Zr",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "δ91/90Zr"
+     ],
+     "value": "91Zr/90Zr"
+    },
+    {
+     "members": [
+      "δ92/90Zr"
+     ],
+     "value": "92Zr/90Zr"
+    },
+    {
+     "members": [
+      "δ94/90Zr"
+     ],
+     "value": "94Zr/90Zr"
+    },
+    {
+     "members": [
+      "δ96/90Zr"
+     ],
+     "value": "96Zr/90Zr"
+    }
+   ]
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "On-peak-zero correction using mean acid blank intensities",
+   "status": "text",
+   "value": "On-peak-zero correction using mean acid blank intensities"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes, Mo on Zr",
+   "status": "text",
+   "value": "Yes, Mo on Zr"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "N — Mo isobars, monitored on masses 95 and 98",
+   "status": "commentary only"
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N — the reported data 'are uncorrected for residual Mo'",
+   "status": "commentary only"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "Double-spike inversion, Rmeas = [p·RSpike + (1−p)·RStd·(Mx/Mn)^α]·(Mx/Mi)^β, solved by weighted minimisation over four ratios",
+   "status": "text",
+   "value": "Double-spike inversion, Rmeas = [p·RSpike + (1−p)·RStd·(Mx/Mn)^α]·(Mx/Mi)^β, solved by weighted minimisation over four ratios"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "On-peak-zero acid blank before each sample \"to account for blank contribution as well as any 'memory' effects from the Aridus II sample introduction system during the run\"",
+   "status": "text",
+   "value": "On-peak-zero acid blank before each sample \"to account for blank contribution as well as any 'memory' effects from the Aridus II sample introduction system during the run\""
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "\"the external reproducibility (at 2σ) of the spiked ZrNIST measurements from each run, which in all cases was similar in magnitude or slightly larger than the internal uncertainty determined from counting statistics\"",
+   "status": "text",
+   "value": "\"the external reproducibility (at 2σ) of the spiked ZrNIST measurements from each run, which in all cases was similar in magnitude or slightly larger than the internal uncertainty determined from counting statistics\""
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "all: the 2σ external reproducibility of the spiked ZrNIST in each run, assigned to each determination — 'similar in magnitude or slightly larger than the internal uncertainty determined from counting statistics'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "the 2σ external reproducibility of the spiked ZrNIST in each run, assigned to each determination"
+    }
+   ]
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — Table 1 records \"Number of times the same purified Zr solution was measured independently in the MC-ICP-MS\" and \"Reported values are weighted means of all replicate\" analyses. No rejection rule stated",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Error Correlation Between Reported Quantities": {
+   "key": "pair: reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: weighted mean of all replicate measurements of each fraction — Table 1 note †: 'Reported values are weighted means of all replicate measurements for each fraction'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "weighted mean of all replicate measurements of each fraction"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N — the constants stated (²³⁸U/²³⁵U = 137.818, ¹⁸O/¹⁶O = 0.00205, α = 0.18%/amu) belong to the coupled ID-TIMS U-Pb work",
+   "status": "commentary only"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [Zr: ZrNIST, spiked at the same level as the samples]",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "Zr"
+       ],
+       "value": "ZrNIST, spiked at the same level as the samples"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "Every sample — \"Each sample measurement was individually bracketed\"",
+   "status": "text",
+   "value": "Every sample"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N — the internal counting-statistics uncertainty is used for comparison but not tabulated",
+   "status": "commentary only"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "all: internal uncertainty from counting statistics — similar in magnitude to or slightly smaller than the external reproducibility assigned to each determination",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "internal uncertainty from counting statistics"
+    }
+   ]
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "ZrNIST [all: 2σ external reproducibility of the spiked ZrNIST measurements in each run]",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "ZrNIST"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "2σ external reproducibility of the spiked ZrNIST measurements in each run"
+      }
+     ]
+    }
+   ]
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Mo doping test: Offset δ94/90ZrNIST = −63.4 · x, x the Mo/Zr atomic ratio — used to show the residual Mo is negligible",
+   "status": "text",
+   "value": "Mo doping test: Offset δ94/90ZrNIST = −63.4 · x, x the Mo/Zr atomic ratio"
+  }
+ }
+}

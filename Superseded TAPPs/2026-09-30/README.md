@@ -26,8 +26,9 @@ discovery.
 | `LA-SF-ICP-MS_UPb_TAPP_v93` | `v94` | keyed notation, re-read |
 | `Solution_SF-ICP-MS_TAPP_v88` | `v89` | keyed notation, re-read |
 | `Solution_Q-ICP-MS_TAPP_v93` | `v94` | keyed notation, re-read |
+| `Solution_MC-ICP-MS_TAPP_v90` | `v91` | keyed notation, re-read |
 
-18 version(s), 36 file(s) (CSV + xlsx).
+19 version(s), 38 file(s) (CSV + xlsx).
 
 ## Why
 
@@ -287,4 +288,46 @@ Applied by `Project Files/Scripts/sq_keyed_reverify_20260930.py`. Solution Q joi
 - `audit_keys_vs_literature.py` raised three findings caused by the new wording. All three were adjudicated
   KEEP: `Isotope Dilution Spike`, `Number of Scans per Replicate` and `Between-Session (Long-Term) Analytical
   Precision`. So 0 NEW.
+- No field, tier, data type or key changed.
+
+## Solution MC-ICP-MS v90 → v91: keyed notation, with every cell re-read — the backlog is closed
+
+The same pass for Solution MC's fourteen columns, from twelve papers: Budde+2016, Craddock+2008, Hopp+2021, Hu+2021,
+Ibañez-Mejia & Tissot 2019, Nie & Dauphas 2019, Nowell+2008 (Neptune and Nu Plasma), Pringle & Moynier 2017,
+Schönbächler+2025, van Kooten+2026, Broussard+2026, and Barnes+2025 (WUSTL and ETH). Changed: 422 cells.
+Substantive changes, per column, are in the script's dicts:
+- **Wrong values:**
+  - Ibañez-Mejia & Tissot's Zr-only crystals were dissolved for 60 h at 215 °C; the 48 h belongs to the dated
+    crystals.
+  - Nowell's Nu Plasma used a GE Micromist nebuliser at ~400 µl/min, not the Neptune's PFA-50.
+  - Nowell's Neptune W/Re monitors are ¹⁸²W and ¹⁸⁵Re.
+  - van Kooten's "digestion acids" were the column reagents, not the Parr-bomb HNO3:HF.
+- **Stated facts recorded as unstated:**
+  - Nie & Dauphas's digestion steps (ii) and (iii), and its Parr-bomb fallback.
+  - Nowell's Nu Plasma two-sequence cup table, which was recorded as having no mass list.
+  - Schönbächler's per-session SRM 3169 precision.
+  - Barnes's ETH digestion, which was recorded as "see the WUSTL column".
+- **Set-ups as acquisition passes.** These configurations were measured separately, so each is now an
+  `Acquisition Pass` member:
+  - Hopp's wet-MR and dry-HR;
+  - Hu's main and sub-configuration;
+  - Nowell's two Nu sequences;
+  - Pringle's spray chamber and APEX;
+  - van Kooten's Fe, Cr and Mg;
+  - Barnes's K, Cu, Zn and its two Ti configurations.
+- **Bindings and members.** Masses, monitors and isotope ratios now have bindings or members in all fourteen
+  columns. Parenthesised quantity names such as μ⁵⁴Fe(7/6) are quoted, so that the grammar does not strip
+  `(7/6)` as a gloss.
+
+Applied by `Project Files/Scripts/smc_keyed_reverify_20260930.py`. Solution MC joins `KEYED_NOTATION_ENFORCED`.
+**All 16 TAPPs are now enforced.** `validate_tapp.py` reports no `keyed-cell` or `keyed-cell-member`
+findings, only the two registered exceptions.
+
+**Verification.**
+- Simulated before applying. Every structured cell parses. The round-trip
+  (`Project Files/Reports/SMC_Cells_RoundTrip_2026-09-30/`) recovers **252 of 252 stated facts, 149 as
+  structure**. v90 recovered 160 (63%), 4 of them as structure.
+- After applying: `compose_tapp.py --check` 16 of 16 match; `validate_tapp.py` 0 ERROR, 0 WARN.
+- `audit_keys_vs_literature.py` raised two findings caused by the new wording, both adjudicated KEEP:
+  `delta or epsilon Value Reference Standard` and `Baseline Measurement Approach`. So 0 NEW.
 - No field, tier, data type or key changed.

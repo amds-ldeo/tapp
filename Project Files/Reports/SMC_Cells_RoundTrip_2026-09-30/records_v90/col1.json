@@ -1,0 +1,708 @@
+{
+ "procedure_column": "Budde+etal2016 | Neptune Plus | IfP Münster",
+ "tapp": "Solution_MC-ICP-MS_TAPP_v90",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution MC-ICP-MS",
+   "status": "text",
+   "value": "Solution MC-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Institut für Planetologie, University of Münster",
+   "status": "text",
+   "value": "Institut für Planetologie, University of Münster"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "TIMS — Ba isotopes on a Thermo Scientific Triton Plus at the same institute; Hf-W on the same sample digestions",
+   "status": "text",
+   "value": "TIMS"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Chondrules, matrix separates and bulk rock of the Allende CV3 chondrite",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Chondrules",
+     "parent": null
+    },
+    {
+     "member": "matrix separates and bulk rock of the Allende CV3 chondrite",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Digestion aliquot — \"All samples (0.3–0.5 g) were digested in closed Savillex beakers\"; chondrule fractions \"comprise between 155 and ~3000 chondrules each\"",
+   "status": "text",
+   "value": "Digestion aliquot"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material",
+   "status": "text",
+   "value": "Chondrule, matrix and bulk rock separates; preparation detailed in the supplementary material"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "\"HF–HNO3(–HClO4), followed by inverse aqua regia\"",
+   "status": "unparsed",
+   "value": []
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "\"closed Savillex beakers\"",
+   "status": "text",
+   "value": "\"closed Savillex beakers\""
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "1: HF-HNO3 (-HClO4), closed Savillex beakers on a hotplate | 2: inverse aqua regia. Both steps stated; conditions not given beyond 'on a hotplate'.",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "1: HF-HNO3",
+     "parent": null
+    },
+    {
+     "member": "closed Savillex beakers on a hotplate | 2: inverse aqua regia. Both steps stated",
+     "parent": null
+    },
+    {
+     "member": "conditions not given beyond 'on a hotplate'.",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "0.3–0.5 g digested; ~100 ng Mo consumed per measurement",
+   "status": "text",
+   "value": "0.3–0.5 g digested; ~100 ng Mo consumed per measurement"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "Yes — two-stage anion exchange for W, with Mo collected in 3 M HNO3 and further purified on Eichrom TRU Resin; Ba separated on AG50-X8",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution spike; mass bias handled by standard-sample bracketing or internal normalization",
+   "status": "not applicable"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Neptune Plus",
+   "status": "text",
+   "value": "Neptune Plus"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]",
+   "status": "text",
+   "value": "Multi-collector sector-field ICP-MS [all columns state \"multi-collector inductively coupled plasma mass spectrometer\"]"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "Standard sample and (H) skimmer cones",
+   "status": "text",
+   "value": "Standard sample and (H) skimmer cones"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "Ni",
+   "status": "text",
+   "value": "Ni"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Array Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Amplifier Resistor Values": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Faraday Cup Gain Calibration Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "Savillex C-Flow PFA nebulizer",
+   "status": "text",
+   "value": "Savillex C-Flow PFA nebulizer"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "Cetac Aridus II",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "~50 µl/min",
+   "status": "text",
+   "value": "~50 µl/min"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Mo (and Ba by TIMS)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Mo",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "⁹²Mo, ⁹⁴Mo, ⁹⁵Mo, ⁹⁶Mo, ⁹⁷Mo, ⁹⁸Mo, ¹⁰⁰Mo (Mo); ⁹¹Zr, ⁹⁹Ru (interference monitors, no target species) — \"Isobaric interferences of Zr and Ru on Mo masses were corrected by monitoring 91Zr and 99Ru\" (p.2); mass bias normalised to 98Mo/96Mo and ε⁹²/⁹⁴/⁹⁵/⁹⁷/¹⁰⁰Mo reported (pp.2–3)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "⁹²Mo",
+     "parent": null
+    },
+    {
+     "member": "⁹⁴Mo",
+     "parent": null
+    },
+    {
+     "member": "⁹⁵Mo",
+     "parent": null
+    },
+    {
+     "member": "⁹⁶Mo",
+     "parent": null
+    },
+    {
+     "member": "⁹⁷Mo",
+     "parent": null
+    },
+    {
+     "member": "⁹⁸Mo",
+     "parent": null
+    },
+    {
+     "member": "¹⁰⁰Mo",
+     "parent": null
+    },
+    {
+     "member": "⁹¹Zr",
+     "parent": null
+    },
+    {
+     "member": "⁹⁹Ru",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "εiMo relative to the Alfa Aesar solution standard, εiMo = [(iMo/96Mo)sample/(iMo/96Mo)standard − 1] x 10^4",
+   "status": "structured",
+   "value": [
+    {
+     "member": "εiMo relative to the Alfa Aesar solution standard",
+     "parent": null
+    },
+    {
+     "member": "εiMo = [(iMo/96Mo)sample/(iMo/96Mo)standard − 1] x 10^4",
+     "parent": null
+    }
+   ]
+  },
+  "Mass Resolution Assignment": {
+   "key": "acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Collector Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Blocks per Measurement": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Cycles per Block": {
+   "key": "acquisition pass",
+   "cell": "100 isotope ratio measurements, preceded by 40 baseline integrations",
+   "status": "unparsed",
+   "value": []
+  },
+  "Integration Time per Cycle": {
+   "key": "monitored property",
+   "cell": "8.4 s",
+   "status": "unparsed",
+   "value": []
+  },
+  "Baseline Measurement Approach": {
+   "key": "(none)",
+   "cell": "40 on-peak-zero baseline integrations of 8.4 s preceding each measurement",
+   "status": "text",
+   "value": "40 on-peak-zero baseline integrations of 8.4 s preceding each measurement"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\"",
+   "status": "text",
+   "value": "Bracketing runs of the Alfa Aesar solution standard; BHVO-2 digestions \"analyzed together with each set of samples\""
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N/A — mass bias corrected by standard-sample bracketing, internal normalization or a double spike rather than by an added internal standard element",
+   "status": "not applicable"
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A — no added internal standard element",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Peak Flatness Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Bias Correction Strategy": {
+   "key": "(none)",
+   "cell": "Internal normalization to 98Mo/96Mo = 1.453173 using the exponential law, plus bracketing against the Alfa Aesar standard",
+   "status": "text",
+   "value": "Internal normalization to 98Mo/96Mo = 1.453173 using the exponential law, plus bracketing against the Alfa Aesar standard"
+  },
+  "Mass Fractionation Law": {
+   "key": "(none)",
+   "cell": "Exponential law",
+   "status": "text",
+   "value": "Exponential law"
+  },
+  "Double-Spike Isotope Pair": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Mixing Ratio": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Double-Spike Inversion Algorithm": {
+   "key": "(none)",
+   "cell": "N/A — no double spike used",
+   "status": "not applicable"
+  },
+  "Internal Normalization Element and Isotope Ratio": {
+   "key": "(none)",
+   "cell": "98Mo/96Mo = 1.453173",
+   "status": "text",
+   "value": "98Mo/96Mo = 1.453173"
+  },
+  "Isotope Ratio Reported": {
+   "key": "reported property",
+   "cell": "iMo/96Mo",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "On-peak-zero baseline integrations subtracted",
+   "status": "text",
+   "value": "On-peak-zero baseline integrations subtracted"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes — Zr and Ru on Mo masses",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "Zr and Ru, monitored on 91Zr and 99Ru",
+   "status": "unparsed",
+   "value": []
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "Monitoring 91Zr and 99Ru",
+   "status": "unparsed",
+   "value": []
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N/A — no isotope dilution applied",
+   "status": "not applicable"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "2 s.d. for external reproducibility (n = 24 for Mo, n = 14 for Ba)",
+   "status": "text",
+   "value": "2 s.d. for external reproducibility (n = 24 for Mo, n = 14 for Ba)"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially — \"For samples analyzed several times, reported values represent the mean of pooled solution replicates\". No acceptance or rejection rule stated",
+   "status": "text",
+   "value": "Partially"
+  },
+  "Error Correlation Between Reported Quantities": {
+   "key": "pair: reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: mean of pooled solution replicates per sample; weighted average of recombined separates — 'For samples analyzed several times, reported values represent the mean of pooled solution replicates'; Table 1 notes b and c: 'Weighted average of C3m, C3n, C3i', 'Weighted average of C2, C3m, C3n, C3i, C4'",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "mean of pooled solution replicates per sample"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "98Mo/96Mo = 1.453173 for internal normalization; 134Ba/136Ba = 0.3078 (Carlson et al. 2007) for the TIMS half",
+   "status": "text",
+   "value": "98Mo/96Mo = 1.453173 for internal normalization; 134Ba/136Ba = 0.3078 (Carlson et al. 2007) for the TIMS half"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "Alfa Aesar Mo solution standard",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "BHVO-2, \"several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples\"",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "BHVO-2",
+     "parent": null
+    },
+    {
+     "member": "several digestions of which were processed through the full analytical protocol and analyzed together with each set of samples",
+     "parent": null
+    }
+   ]
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "External reproducibility from repeated BHVO-2 measurements: ±0.14 for ε97Mo to ±0.39 for ε92Mo (2 s.d., n = 24); Ba ±0.13 for ε135Ba to ±0.31 for ε138Ba (2 s.d., n = 14)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "\"The εiMo values obtained for BHVO-2 are indistinguishable from the Alfa Aesar standard, demonstrating that the Mo isotopic data are accurate\"",
+   "status": "unparsed",
+   "value": []
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}
