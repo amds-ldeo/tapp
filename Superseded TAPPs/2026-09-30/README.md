@@ -25,8 +25,9 @@ discovery.
 | `LA-SF-ICP-MS_TAPP_v92` | `v93` | keyed notation, re-read |
 | `LA-SF-ICP-MS_UPb_TAPP_v93` | `v94` | keyed notation, re-read |
 | `Solution_SF-ICP-MS_TAPP_v88` | `v89` | keyed notation, re-read |
+| `Solution_Q-ICP-MS_TAPP_v93` | `v94` | keyed notation, re-read |
 
-17 version(s), 34 file(s) (CSV + xlsx).
+18 version(s), 36 file(s) (CSV + xlsx).
 
 ## Why
 
@@ -245,4 +246,45 @@ Applied by `Project Files/Scripts/ssf_keyed_reverify_20260930.py`. Solution SF j
   structure**. v88 recovered 124 (51%), 22 of them as structure.
 - After applying: `compose_tapp.py --check` 16 of 16 match; `validate_tapp.py` 0 ERROR, 0 WARN;
   `audit_keys_vs_literature.py` 0 NEW.
+- No field, tier, data type or key changed.
+
+## Solution Q-ICP-MS v93 → v94: keyed notation, with every cell re-read
+
+The same pass for Solution Q's nine columns: Hu & Gao 2008, Yu+2005, Makishima+2011, Long+2025, Lu+2007 (its
+ICP-QMS half), Gil-Díaz+2020 (three instruments, three columns) and López García+2026. Changed: 296 cells.
+Substantive changes, per column, are in the script's dicts:
+- **A table's wrong column, again.** Makishima's detection limits held Table 1's sensitivity column
+  (Cd 0.04, In 0.5, Tl 0.5, Bi 0.6), not its 3s limits (0.8, 0.2, 0.9, 0.2 pg/ml). Its units were µg/g, not
+  ng/g.
+- **Values under the wrong instrument.** Gil-Díaz's XSeries 2 column held the Te limit (0.01 µg/L) as its Se
+  limit (0.06 µg/L). The iCAP-TQ column lacked its Se work: O2 mode, four isotopes, and NIST 1640a. Each
+  column now carries only its own instrument's content. The digestions are split by element: tri-acid for
+  Te, microwave for Se, and the selective extractions for the iCAP-TQ fractions.
+- **Unsupported detail removed:**
+  - "STD, no gas" cell modes for Hu, Yu and Makishima;
+  - "on-peak zero" blanks for Yu;
+  - "ID-IS inherently corrects for interferences" and a Ta spike for Lu;
+  - "octopole, no gas (PML practice)" for Makishima;
+  - "KED", "same dissolved aliquots" and "direct analysis" for Long;
+  - a "pure ¹¹⁸Sn solution" for Hu;
+  - an m/Δm of ~300 for every quadrupole.
+- **Wrong values.** López García's second and third digestion steps used H2O, not H2O2. Its cell modes were
+  all "KED", where in fact Group-1 ran mostly without gas, and O2 served Ga, As, Se, Cd, In, Na, P, K and Ca.
+- **Stated facts missing.**
+  - Yu: Table 2 limits, three-month precision and accuracy, and the ⁶⁶Zn argide correction.
+  - Lu: make-up gas, daily P/A factor, Table 2a limits and blanks.
+  - Makishima: procedure reference.
+  - Hu: peak hopping and blank table.
+  - López García: the In–Tl, Ti and Zr–Hf spikes and the 2σ convention.
+
+Applied by `Project Files/Scripts/sq_keyed_reverify_20260930.py`. Solution Q joins `KEYED_NOTATION_ENFORCED`.
+
+**Verification.**
+- Simulated before applying. Every structured cell parses. The round-trip
+  (`Project Files/Reports/SQ_Cells_RoundTrip_2026-09-30/`) recovers **234 of 234 stated facts, 152 as
+  structure**. v93 recovered 152 (65%), 31 of them as structure.
+- After applying: `compose_tapp.py --check` 16 of 16 match; `validate_tapp.py` 0 ERROR, 0 WARN.
+- `audit_keys_vs_literature.py` raised three findings caused by the new wording. All three were adjudicated
+  KEEP: `Isotope Dilution Spike`, `Number of Scans per Replicate` and `Between-Session (Long-Term) Analytical
+  Precision`. So 0 NEW.
 - No field, tier, data type or key changed.

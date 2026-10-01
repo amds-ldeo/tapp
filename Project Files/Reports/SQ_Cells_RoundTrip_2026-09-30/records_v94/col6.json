@@ -1,0 +1,796 @@
+{
+ "procedure_column": "GilDiaz+etal2020 | Agilent 8800 QQQ | FHNW Basel",
+ "tapp": "Solution_Q-ICP-MS_TAPP_v94",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution Q-ICP-MS (triple-quadrupole platform)",
+   "status": "text",
+   "value": "Solution Q-ICP-MS (triple-quadrupole platform)"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "N — 'Agilent 8800, Basel, Switzerland'; the Basel-area author affiliation is FHNW",
+   "status": "commentary only"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "suspended particulate matter — digestates of the particles from the 1000 mg/L SPM isotherm experiments in freshwater (§2.3, §2.4)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "suspended particulate matter",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "SPM recovered by centrifugation, oven dried, ground in agate mortars and totally digested: tri-acid for Te, microwave for Se (Se is volatile above 70 °C) — §2.2",
+   "status": "text",
+   "value": "SPM recovered by centrifugation, oven dried, ground in agate mortars and totally digested: tri-acid for Te, microwave for Se (Se is volatile above 70 °C)"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "tri-acid digestion: 14 M HNO3 + 10 M HCl + 29 M HF; re-dissolution: 14 M HNO3; microwave digestion: HNO3 + H2O2 + HF; Se recovery: 65% HNO3 — §2.2",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "tri-acid digestion"
+     ],
+     "value": "14 M HNO3 + 10 M HCl + 29 M HF"
+    },
+    {
+     "members": [
+      "re-dissolution"
+     ],
+     "value": "14 M HNO3"
+    },
+    {
+     "members": [
+      "microwave digestion"
+     ],
+     "value": "HNO3 + H2O2 + HF"
+    },
+    {
+     "members": [
+      "Se recovery"
+     ],
+     "value": "65% HNO3"
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "Closed PP tubes (DigiTUBEs, SCP Science) for Te; microwave vessels (START 1500, MLS) then PTFE vessels for Se — §2.2",
+   "status": "text",
+   "value": "Closed PP tubes (DigiTUBEs, SCP Science) for Te; microwave vessels (START 1500, MLS) then PTFE vessels for Se"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "tri-acid digestion (30 mg in closed PP DigiTUBEs on a heating block, 2 h at 110 °C, with 750 µL 14 M HNO3, 1.5 mL 10 M HCl and 2.5 mL 29 M HF); re-dissolution (evaporated at 120 °C, re-dissolved with 250 µL 14 M HNO3 and heating, brought to 10 mL with Milli-Q water); microwave digestion (40–50 mg, START 1500, 3 mL 65% HNO3, 0.5 mL 30% H2O2, 0.25 mL 40% HF and 0.5 mL Milli-Q water, ramped to 210 °C and held 10 min, cooled overnight); Se recovery (evaporated to dryness at 70 °C in PTFE vessels, recovered with 270 µL 65% HNO3 at 70 °C for 1 h, made up to 6 mL) — §2.2; the first two steps for Te, the last two for Se",
+   "status": "structured",
+   "value": [
+    {
+     "member": "tri-acid digestion",
+     "parent": null
+    },
+    {
+     "member": "re-dissolution",
+     "parent": null
+    },
+    {
+     "member": "microwave digestion",
+     "parent": null
+    },
+    {
+     "member": "Se recovery",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "tri-acid digestion: 110 °C; re-dissolution: 120 °C (evaporation); microwave digestion: up to 210 °C; Se recovery: 70 °C — §2.2",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "tri-acid digestion"
+     ],
+     "value": "110 °C"
+    },
+    {
+     "members": [
+      "re-dissolution"
+     ],
+     "value": "120 °C (evaporation)"
+    },
+    {
+     "members": [
+      "microwave digestion"
+     ],
+     "value": "up to 210 °C"
+    },
+    {
+     "members": [
+      "Se recovery"
+     ],
+     "value": "70 °C"
+    }
+   ]
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "tri-acid digestion: 2 h; microwave digestion: 10 min at 210 °C, then cooled overnight; Se recovery: 1 h; other: N — §2.2",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "tri-acid digestion"
+     ],
+     "value": "2 h"
+    },
+    {
+     "members": [
+      "microwave digestion"
+     ],
+     "value": "10 min at 210 °C, then cooled overnight"
+    },
+    {
+     "members": [
+      "Se recovery"
+     ],
+     "value": "1 h"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "N — Te digests brought to 10 mL with Milli-Q water, Se digests to 6 mL (§2.2)",
+   "status": "commentary only"
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "30 mg (Te, tri-acid); 40–50 mg (Se, microwave) — §2.2",
+   "status": "text",
+   "value": "30 mg (Te, tri-acid); 40–50 mg (Se, microwave)"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Agilent",
+   "status": "text",
+   "value": "Agilent"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Agilent 8800 (QQQ-ICP-MS)",
+   "status": "text",
+   "value": "Agilent 8800 (QQQ-ICP-MS)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Triple quadrupole (ICP-MS/MS)",
+   "status": "text",
+   "value": "Triple quadrupole (ICP-MS/MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "125Te, 77Se: oxygen-shift mode with O2 as cell gas; other: N — §2.3, §2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "125Te",
+      "77Se"
+     ],
+     "value": "oxygen-shift mode with O2 as cell gas"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Te, Se",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Te",
+     "parent": null
+    },
+    {
+     "member": "Se",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Te, Se — particulate concentrations from the digestates; units not stated for this instrument",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Te",
+     "parent": null
+    },
+    {
+     "member": "Se",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "125Te → Te; 77Se → Se; 103Rh → none — the spiked isotopes; ¹⁰³Rh is the internal standard",
+   "status": "structured",
+   "value": [
+    {
+     "member": "125Te",
+     "parent": "Te"
+    },
+    {
+     "member": "77Se",
+     "parent": "Se"
+    },
+    {
+     "member": "103Rh",
+     "parent": "none"
+    }
+   ]
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Scans per Replicate": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Collection Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "125Te, 77Se: O2; other: N — 'oxygen-shift mode using O2 as collision gas' (§2.3)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "125Te",
+      "77Se"
+     ],
+     "value": "O2"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N — the paper calls the O2 a collision gas",
+   "status": "commentary only"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "125Te: 125Te + 16O → 141TeO; 77Se: 77Se + 16O → 93SeO; other: N — §2.3, §2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "125Te"
+     ],
+     "value": "125Te + 16O → 141TeO"
+    },
+    {
+     "members": [
+      "77Se"
+     ],
+     "value": "77Se + 16O → 93SeO"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "all: 103Rh — 'to correct for matrix effects' (§2.3)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "103Rh"
+    }
+   ]
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Drift Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "Te, Se: external calibration with 103Rh as internal standard — §2.3, §2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Te",
+      "Se"
+     ],
+     "value": "external calibration with 103Rh as internal standard"
+    }
+   ]
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N — the O2 mass shift avoids 'doubly charged Rare Earth Element (REE) interferences' on ⁷⁷Se rather than correcting them",
+   "status": "commentary only"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "77Se: doubly charged REE, mainly 154Sm++ and 154Gd++; other: N — §2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "77Se"
+     ],
+     "value": "doubly charged REE, mainly 154Sm++ and 154Gd++"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "77Se: avoided by the oxygen-shift mode; other: N — §2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "77Se"
+     ],
+     "value": "avoided by the oxygen-shift mode"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "Mean +/- SD",
+   "status": "text",
+   "value": "Mean +/- SD"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: mean ± SD of N = 3 — 'mean ± SD recovery values of 94 ± 17% (N = 3)'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "mean ± SD of N = 3"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "NCS 73307 — stream sediment, for the total digestions",
+   "status": "structured",
+   "value": [
+    {
+     "member": "NCS 73307",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "NCS 73307 [Te: 94 ± 17% recovery (N = 3); Se: 70–134% recovery (N = 3)] — §2.3, §2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "NCS 73307"
+     ],
+     "value": [
+      {
+       "members": [
+        "Te"
+       ],
+       "value": "94 ± 17% recovery (N = 3)"
+      },
+      {
+       "members": [
+        "Se"
+       ],
+       "value": "70–134% recovery (N = 3)"
+      }
+     ]
+    }
+   ]
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}

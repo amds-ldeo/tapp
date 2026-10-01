@@ -1380,13 +1380,14 @@ at INFO while a TAPP's backlog is being worked down. A TAPP listed in `KEYED_NOT
 validator reports at WARN: EPMA from the 2026-09-29 pilot on, the four SEM TAPPs from their
 conversion the same day, TEM, Lab-XCT and LA-MC-ICP-MS from 2026-09-30, and LA-Q-ICP-MS and its U-Pb twin the same day (the
 first conversion tested by a round-trip before it was applied: 204 of 204 stated facts), and LA-SF-ICP-MS and its
-twin after it (315 of 315), and Solution SF-ICP-MS after that (245 of 245). Baseline on 2026-09-29: 1,505
+twin after it (315 of 315), Solution SF-ICP-MS after that (245 of 245), and Solution Q-ICP-MS (234 of 234). Baseline on 2026-09-29: 1,505
 structured cells; 403 parsed, 1,070 did not, 32 named a member missing from the definer. After the
 EPMA pilot the backlog is 952 unparsed and 27 unknown-member cells, in the other 15 TAPPs. After the SEM
 conversion it is 922 unparsed and 32 unknown-member cells, in the other 11 TAPPs; the SEM TAPPs' old cells
 were mostly markers, and the task 2–3 passes had written their new cells in the notation already. After
 TEM, Lab-XCT and LA-MC (2026-09-30) it is 878 cells in the eight ICP-MS TAPPs. After the LA-Q, LA-SF and Solution SF
-re-reads (2026-09-30) it is 365 cells (343 unparsed, 22 unknown-member), in Solution Q and Solution MC.
+re-reads (2026-09-30) it is 365 cells (343 unparsed, 22 unknown-member), in Solution Q and Solution MC. After Solution Q, it is
+235 cells (220 unparsed, 15 unknown-member), all in Solution MC.
 
 **A value that cannot be keyed without inference is registered, not forced.** `KEYED_CELL_EXCEPTIONS`
 in the validator holds (TAPP, field, column) with the reason, and reports it at INFO. Each entry is an

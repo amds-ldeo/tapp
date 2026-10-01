@@ -109,6 +109,19 @@ EXCLUDE_FIELDS = {
 # sees only genuinely new disagreements. Rationale for each is in precedents.md under
 # "Validating keys against the literature assessment".
 ADJUDICATED = {
+    # ---- adjudicated 2026-09-30, on the Solution Q re-read (sq_keyed_reverify_20260930.py).
+    ("Isotope Dilution Spike", "UNDER-DECLARED"):
+        "KEEP (none) — the cells name the spike isotopes because they describe the spike solutions (Lu+2007's ¹⁰B, "
+        "⁹¹Zr–¹⁷⁹Hf and ⁹⁷Mo–¹¹⁹Sn–¹²¹Sb spikes; Makishima+2011's ¹⁴⁹Sm). A mixed spike is one solution serving several "
+        "species, so the isotopes are content, not keys; which mass each species is measured on is Monitored Masses.",
+    ("Number of Scans per Replicate", "AXIS-MISMATCH"):
+        "KEEP acquisition pass — the detector reads 'per reading' and 'per replicate' (Hu & Gao 2008, Yu+2005) as the "
+        "sampling-unit axis. They are units of the acquisition setting, not a value varying by sampling unit; the passes "
+        "that differ (Misra+2014 LR 15 vs MR 5 passes) attest the declared key.",
+    ("Between-Session (Long-Term) Analytical Precision and Assessment Method", "OVER-DECLARED"):
+        "KEEP standard x reported property — the same detector failure as Analytical Accuracy: the re-read cells key the "
+        "values per reported property (Yu+2005 Li/Ca 2.42%, B/Ca 4.17%, ...; Makishima+2011 Cd, In, Tl, Bi per glass), "
+        "which the detector does not score as the reported-property axis.",
     # ---- adjudicated 2026-09-29, on EPMA's remaining-fields pass (epma_remaining_fields_20260929.py).
     # ---- adjudicated 2026-09-30, on the LA-SF re-read (lasf_keyed_reverify_20260930.py).
     ("Mass Resolution Assignment", "OVER-DECLARED"):

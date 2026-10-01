@@ -3833,7 +3833,7 @@ The re-read also removed claims the papers do not make, which a recall test cann
 - exclusions nobody described;
 - another paper's accuracy comparison.
 
-**How to run the rest (Solution Q and MC; LA-SF, its twin and Solution SF are done).**
+**How to run the rest (Solution MC; LA-SF, its twin, Solution SF and Solution Q are done).**
 1. Dump each column in full.
 2. Read the paper's methods and instrument table. A table needs `pdftotext -layout`, because the default
    mode scrambles table rows.
@@ -3889,3 +3889,30 @@ record both rather than choosing one.
 solutions, each carry their own passes, dwell times and dilution. Recording them as `Acquisition Pass`
 members lets those cells key to them. Earlier the resolution labels had been read as members of other
 fields, so "LR", "MR" and "Applied" appeared as members.
+
+## Solution Q re-read: one paper across several instruments needs its content split per column (2026-09-30)
+
+`Project Files/Scripts/sq_keyed_reverify_20260930.py` repeated the pass for Solution Q's nine columns. The round-trip
+went from 152 to 234 of 234 stated facts (`Project Files/Reports/SQ_Cells_RoundTrip_2026-09-30/`).
+
+**One paper split across columns, one per instrument.** Gil-Díaz+2020 used an Agilent 8800, an iCAP-TQ and an
+XSeries 2, and its Te and Se work is distributed across all three. The columns had drifted:
+- the XSeries 2 column held the Te detection limit as its Se limit;
+- the iCAP-TQ column had no Se at all;
+- a digestion route appeared in a column whose samples never used it.
+
+When a paper is split across columns, sort every stated fact by instrument first, then write each column from
+its own list.
+
+**The wrong-column trap recurs.** Makishima+2011's detection limits were Table 1's sensitivity column. That is
+the second occurrence, after Misra's samples per peak (Solution SF). When reading a
+number from a multi-column table, name the column header in the cell's commentary.
+
+**Within one paper, measurement groups act as passes.** López García+2026 measures three element groups, each
+with its own solution, dilution, cell modes, internal standard and calibrator. With the groups as `Acquisition
+Pass` members, the pass-keyed cells say which elements got which setting. Under a single `all:`, the paper's
+O2-versus-KED-versus-no-gas assignments were reduced to "KED" for all three groups.
+
+**Where the masses are not stated, a keyed cell may name an element group or a mass range.** Examples: Long's
+`m/z 23–75: He; other: N`, and López García's element lists. These cells are honest and they parse, because
+the definer is `N`. They do not invent the masses.

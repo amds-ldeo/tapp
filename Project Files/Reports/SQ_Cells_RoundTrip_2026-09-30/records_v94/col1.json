@@ -1,0 +1,1319 @@
+{
+ "procedure_column": "Hu+Gao2008 | PerkinElmer ELAN 6100 DRC | NWU Xi'an",
+ "tapp": "Solution_Q-ICP-MS_TAPP_v94",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution Q-ICP-MS",
+   "status": "text",
+   "value": "Solution Q-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "State Key Laboratory of Continental Dynamics, Northwest University, Xi'an (affiliation)",
+   "status": "text",
+   "value": "State Key Laboratory of Continental Dynamics, Northwest University, Xi'an (affiliation)"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "andesite; basalt; granite; granodiorite; rhyolite; peridotite; dunite; dolerite; diabase; shale; sandstone; limestone; loess; graywacke — the reference materials of Tables 2 and 3, and the upper-crustal samples: PAAS, SCO-1, worldwide loess and Chinese composites of graywackes, shales and granites (§2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "andesite",
+     "parent": null
+    },
+    {
+     "member": "basalt",
+     "parent": null
+    },
+    {
+     "member": "granite",
+     "parent": null
+    },
+    {
+     "member": "granodiorite",
+     "parent": null
+    },
+    {
+     "member": "rhyolite",
+     "parent": null
+    },
+    {
+     "member": "peridotite",
+     "parent": null
+    },
+    {
+     "member": "dunite",
+     "parent": null
+    },
+    {
+     "member": "dolerite",
+     "parent": null
+    },
+    {
+     "member": "diabase",
+     "parent": null
+    },
+    {
+     "member": "shale",
+     "parent": null
+    },
+    {
+     "member": "sandstone",
+     "parent": null
+    },
+    {
+     "member": "limestone",
+     "parent": null
+    },
+    {
+     "member": "loess",
+     "parent": null
+    },
+    {
+     "member": "graywacke",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml",
+   "status": "text",
+   "value": "Aliquot of rock powder -- \"Fifty milligrams of sample powder were placed in a home-made PTFE-lined stainless steel bomb\"; final solution made up to 50 ml"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Fifty milligrams of rock powder digested in a sealed PTFE-lined stainless steel bomb, taken up and made up to 50 ml with ultra-pure water and Rh internal standard — clean-room conditions (§3.3); for As and Te, 4.80 ml of sample solution plus 0.20 ml ethanol",
+   "status": "text",
+   "value": "Fifty milligrams of rock powder digested in a sealed PTFE-lined stainless steel bomb, taken up and made up to 50 ml with ultra-pure water and Rh internal standard"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "bomb attack: HNO3 + HF; re-dissolution: HNO3 — §3.3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "bomb attack"
+     ],
+     "value": "HNO3 + HF"
+    },
+    {
+     "members": [
+      "re-dissolution"
+     ],
+     "value": "HNO3"
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "PTFE-lined stainless steel bomb (home-made; stated section 3.3)",
+   "status": "text",
+   "value": "PTFE-lined stainless steel bomb (home-made; stated section 3.3)"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "bomb attack (1 ml HNO3 + 1 ml HF, 190 °C for 48 h, then evaporated to incipient dryness and twice taken to dryness with 1 ml HNO3); re-dissolution (1.5 ml HNO3 + 2.5 ml ultra-pure water, capped, 150 °C overnight) — §3.3 numbers five operations; the evaporations carry no attack of their own",
+   "status": "structured",
+   "value": [
+    {
+     "member": "bomb attack",
+     "parent": null
+    },
+    {
+     "member": "re-dissolution",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "bomb attack: 190 °C; re-dissolution: 150 °C — §3.3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "bomb attack"
+     ],
+     "value": "190 °C"
+    },
+    {
+     "members": [
+      "re-dissolution"
+     ],
+     "value": "150 °C"
+    }
+   ]
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "bomb attack: 48 h; re-dissolution: overnight — §3.3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "bomb attack"
+     ],
+     "value": "48 h"
+    },
+    {
+     "members": [
+      "re-dissolution"
+     ],
+     "value": "overnight"
+    }
+   ]
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "all: 1.5 ml HNO3 and 2.5 ml water made up to 50 ml with ultra-pure water and 0.50 ml of 1.0 µg/ml Rh — §3.3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "1.5 ml HNO3 and 2.5 ml water made up to 50 ml with ultra-pure water and 0.50 ml of 1.0 µg/ml Rh"
+    }
+   ]
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "50 mg (stated section 3.3)",
+   "status": "text",
+   "value": "50 mg (stated section 3.3)"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "None — the digest is analysed directly (§3.3)",
+   "status": "text",
+   "value": "None"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "None",
+   "status": "text",
+   "value": "None"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "PerkinElmer -- \"a PerkinElmer SCIEX ELAN 6100 DRC ICP-MS\"",
+   "status": "text",
+   "value": "PerkinElmer -- \"a PerkinElmer SCIEX ELAN 6100 DRC ICP-MS\""
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "PerkinElmer SCIEX ELAN 6100 DRC (stated section 3.1)",
+   "status": "text",
+   "value": "PerkinElmer SCIEX ELAN 6100 DRC (stated section 3.1)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Single-collector quadrupole (Q-ICP-MS)",
+   "status": "text",
+   "value": "Single-collector quadrupole (Q-ICP-MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N — an ELAN 6100 DRC; no cell gas or cell mode is described (§3.1)",
+   "status": "commentary only"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "Glass microconcentric nebulizer (MCN; stated section 3.1)",
+   "status": "text",
+   "value": "Glass microconcentric nebulizer (MCN; stated section 3.1)"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "Cyclonic spray chamber (stated section 3.1)",
+   "status": "text",
+   "value": "Cyclonic spray chamber (stated section 3.1)"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "0.20 ml/min (stated section 3.1)",
+   "status": "text",
+   "value": "0.20 ml/min (stated section 3.1)"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous) -- \"A glass microconcentric nebulizer (MCN) and a cyclonic spray chamber comprised the sample introduction system, with a typical sample uptake rate of 0.20 ml/min\"",
+   "status": "text",
+   "value": "Solution nebulisation (continuous) -- \"A glass microconcentric nebulizer (MCN) and a cyclonic spray chamber comprised the sample introduction system, with a typical sample uptake rate of 0.20 ml/min\""
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1350 W (stated section 3.1)",
+   "status": "text",
+   "value": "1350 W (stated section 3.1)"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "14 L/min (outer ICP gas; stated section 3.1)",
+   "status": "text",
+   "value": "14 L/min (outer ICP gas; stated section 3.1)"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "1.2 L/min (intermediate gas; stated section 3.1)",
+   "status": "text",
+   "value": "1.2 L/min (intermediate gas; stated section 3.1)"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N — 'optimized to obtain maximum signal intensities for Mg, Co, Rh, Ce, Pb and U' (§3.1)",
+   "status": "commentary only"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N — RF power 1350 W (§3.1)",
+   "status": "commentary only"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "Autolens voltages \"set by optimizing a solution of 10 ng/ml Mg, Co, Rh, Ce, Pb and U\"; \"The nebulizer gas flow rate was optimized to obtain maximum signal intensities for Mg, Co, Rh, Ce, Pb and U, while keeping the CeO+/Ce+ and Ce2+/Ce+ ratios below 2.5%\"",
+   "status": "text",
+   "value": "Autolens voltages \"set by optimizing a solution of 10 ng/ml Mg, Co, Rh, Ce, Pb and U\"; \"The nebulizer gas flow rate was optimized to obtain maximum signal intensities for Mg, Co, Rh, Ce, Pb and U, while keeping the CeO+/Ce+ and Ce2+/Ce+ ratios below 2.5%\""
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "Partially -- instrument conditioning before tuning is stated: \"Drift was minimized by flushing through a rock solution for 30 min before tuning the instrument for a run\". No warm-up time after plasma ignition and no session duration limit stated",
+   "status": "text",
+   "value": "Partially -- instrument conditioning before tuning is stated: \"Drift was minimized by flushing through a rock solution for 30 min before tuning the instrument for a run\". No warm-up time after plasma ignition and no session duration limit stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Li, Be, B, Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Ge, As, Rb, Sr, Y, Zr, Nb, Mo, Cd, In, Sn, Sb, Te, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Tl, Pb, Bi, Th, U — the forty-eight trace elements of Table 2",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Li",
+     "parent": null
+    },
+    {
+     "member": "Be",
+     "parent": null
+    },
+    {
+     "member": "B",
+     "parent": null
+    },
+    {
+     "member": "Sc",
+     "parent": null
+    },
+    {
+     "member": "V",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    },
+    {
+     "member": "Ga",
+     "parent": null
+    },
+    {
+     "member": "Ge",
+     "parent": null
+    },
+    {
+     "member": "As",
+     "parent": null
+    },
+    {
+     "member": "Rb",
+     "parent": null
+    },
+    {
+     "member": "Sr",
+     "parent": null
+    },
+    {
+     "member": "Y",
+     "parent": null
+    },
+    {
+     "member": "Zr",
+     "parent": null
+    },
+    {
+     "member": "Nb",
+     "parent": null
+    },
+    {
+     "member": "Mo",
+     "parent": null
+    },
+    {
+     "member": "Cd",
+     "parent": null
+    },
+    {
+     "member": "In",
+     "parent": null
+    },
+    {
+     "member": "Sn",
+     "parent": null
+    },
+    {
+     "member": "Sb",
+     "parent": null
+    },
+    {
+     "member": "Te",
+     "parent": null
+    },
+    {
+     "member": "Cs",
+     "parent": null
+    },
+    {
+     "member": "Ba",
+     "parent": null
+    },
+    {
+     "member": "La",
+     "parent": null
+    },
+    {
+     "member": "Ce",
+     "parent": null
+    },
+    {
+     "member": "Pr",
+     "parent": null
+    },
+    {
+     "member": "Nd",
+     "parent": null
+    },
+    {
+     "member": "Sm",
+     "parent": null
+    },
+    {
+     "member": "Eu",
+     "parent": null
+    },
+    {
+     "member": "Gd",
+     "parent": null
+    },
+    {
+     "member": "Tb",
+     "parent": null
+    },
+    {
+     "member": "Dy",
+     "parent": null
+    },
+    {
+     "member": "Ho",
+     "parent": null
+    },
+    {
+     "member": "Er",
+     "parent": null
+    },
+    {
+     "member": "Tm",
+     "parent": null
+    },
+    {
+     "member": "Yb",
+     "parent": null
+    },
+    {
+     "member": "Lu",
+     "parent": null
+    },
+    {
+     "member": "Hf",
+     "parent": null
+    },
+    {
+     "member": "Ta",
+     "parent": null
+    },
+    {
+     "member": "W",
+     "parent": null
+    },
+    {
+     "member": "Tl",
+     "parent": null
+    },
+    {
+     "member": "Pb",
+     "parent": null
+    },
+    {
+     "member": "Bi",
+     "parent": null
+    },
+    {
+     "member": "Th",
+     "parent": null
+    },
+    {
+     "member": "U",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Li, Be, B, Sc, V, Cr, Co, Ni, Cu, Zn, Ga, Ge, As, Rb, Sr, Y, Zr, Nb, Mo, Cd, In, Sn, Sb, Te, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Hf, Ta, W, Tl, Pb, Bi, Th, U (ppm) — Table 2; blanks in ppb",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Li",
+     "parent": null
+    },
+    {
+     "member": "Be",
+     "parent": null
+    },
+    {
+     "member": "B",
+     "parent": null
+    },
+    {
+     "member": "Sc",
+     "parent": null
+    },
+    {
+     "member": "V",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    },
+    {
+     "member": "Ga",
+     "parent": null
+    },
+    {
+     "member": "Ge",
+     "parent": null
+    },
+    {
+     "member": "As",
+     "parent": null
+    },
+    {
+     "member": "Rb",
+     "parent": null
+    },
+    {
+     "member": "Sr",
+     "parent": null
+    },
+    {
+     "member": "Y",
+     "parent": null
+    },
+    {
+     "member": "Zr",
+     "parent": null
+    },
+    {
+     "member": "Nb",
+     "parent": null
+    },
+    {
+     "member": "Mo",
+     "parent": null
+    },
+    {
+     "member": "Cd",
+     "parent": null
+    },
+    {
+     "member": "In",
+     "parent": null
+    },
+    {
+     "member": "Sn",
+     "parent": null
+    },
+    {
+     "member": "Sb",
+     "parent": null
+    },
+    {
+     "member": "Te",
+     "parent": null
+    },
+    {
+     "member": "Cs",
+     "parent": null
+    },
+    {
+     "member": "Ba",
+     "parent": null
+    },
+    {
+     "member": "La",
+     "parent": null
+    },
+    {
+     "member": "Ce",
+     "parent": null
+    },
+    {
+     "member": "Pr",
+     "parent": null
+    },
+    {
+     "member": "Nd",
+     "parent": null
+    },
+    {
+     "member": "Sm",
+     "parent": null
+    },
+    {
+     "member": "Eu",
+     "parent": null
+    },
+    {
+     "member": "Gd",
+     "parent": null
+    },
+    {
+     "member": "Tb",
+     "parent": null
+    },
+    {
+     "member": "Dy",
+     "parent": null
+    },
+    {
+     "member": "Ho",
+     "parent": null
+    },
+    {
+     "member": "Er",
+     "parent": null
+    },
+    {
+     "member": "Tm",
+     "parent": null
+    },
+    {
+     "member": "Yb",
+     "parent": null
+    },
+    {
+     "member": "Lu",
+     "parent": null
+    },
+    {
+     "member": "Hf",
+     "parent": null
+    },
+    {
+     "member": "Ta",
+     "parent": null
+    },
+    {
+     "member": "W",
+     "parent": null
+    },
+    {
+     "member": "Tl",
+     "parent": null
+    },
+    {
+     "member": "Pb",
+     "parent": null
+    },
+    {
+     "member": "Bi",
+     "parent": null
+    },
+    {
+     "member": "Th",
+     "parent": null
+    },
+    {
+     "member": "U",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "114Cd → Cd; 115In → In; 118Sn → Sn — the masses of the other elements are not stated; ¹¹⁸Sn⁺ is measured to correct the Sn interferences (§3.1), and whether it is also the Sn analytical mass is not stated",
+   "status": "structured",
+   "value": [
+    {
+     "member": "114Cd",
+     "parent": "Cd"
+    },
+    {
+     "member": "115In",
+     "parent": "In"
+    },
+    {
+     "member": "118Sn",
+     "parent": "Sn"
+    }
+   ]
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "all: 0.15 s — 'peak hopping (one point per peak) was used with a dwell time of 0.15 s' (§3.1)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "0.15 s"
+    }
+   ]
+  },
+  "Number of Scans per Replicate": {
+   "key": "acquisition pass",
+   "cell": "all: three sweeps per reading and three readings per replicate — §3.1",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "three sweeps per reading and three readings per replicate"
+    }
+   ]
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N — 'manual analyses in which care was taken to completely wash-out B and Ta signals between samples' (§3.1)",
+   "status": "commentary only"
+  },
+  "Signal Collection Mode": {
+   "key": "(none)",
+   "cell": "Peak hopping, one point per peak — §3.1",
+   "status": "text",
+   "value": "Peak hopping, one point per peak"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "all: Rh — §3.1, §3.3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "Rh"
+    }
+   ]
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "0.50 ml of 1.0 µg/ml Rh in the 50 ml final solution — §3.3",
+   "status": "text",
+   "value": "0.50 ml of 1.0 µg/ml Rh in the 50 ml final solution"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "CeO+/Ce+ and Ce2+/Ce+ below 2.5%, with the nebulizer gas flow optimised for maximum Mg, Co, Rh, Ce, Pb and U signals — §3.1",
+   "status": "text",
+   "value": "CeO+/Ce+ and Ce2+/Ce+ below 2.5%, with the nebulizer gas flow optimised for maximum Mg, Co, Rh, Ce, Pb and U signals"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "Ce2+/Ce+ — §3.1",
+   "status": "text",
+   "value": "Ce2+/Ce+"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "Ce2+/Ce+ below 2.5% — §3.1",
+   "status": "text",
+   "value": "Ce2+/Ce+ below 2.5%"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Drift Correction Method": {
+   "key": "(none)",
+   "cell": "Rh internal standard, and a calibration solution analysed repeatedly as a drift monitor over the run — drift minimised by flushing a rock solution for 30 min before tuning (§3.1)",
+   "status": "text",
+   "value": "Rh internal standard, and a calibration solution analysed repeatedly as a drift monitor over the run"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "all: calibration solution, with Rh as internal standard — 'repeatedly analyzing a calibration solution as a drift monitor' (§3.1); its composition is not stated",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "calibration solution, with Rh as internal standard"
+    }
+   ]
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Y — 114,115Sn+ on 114Cd+ and 115In+ (§3.1)",
+   "status": "text",
+   "value": "Y"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "114Cd: 114Sn+; 115In: 115Sn+; other: N — §3.1",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "114Cd"
+     ],
+     "value": "114Sn+"
+    },
+    {
+     "members": [
+      "115In"
+     ],
+     "value": "115Sn+"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "114Cd, 115In: calibrated through the measurement of 118Sn+; other: N — §3.1",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "114Cd",
+      "115In"
+     ],
+     "value": "calibrated through the measurement of 118Sn+"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "None",
+   "status": "text",
+   "value": "None"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "Alternating 5% HNO3 + 0.1% HF and 3% HNO3 washout for B and Ta (stated section 3.1)",
+   "status": "text",
+   "value": "Alternating 5% HNO3 + 0.1% HF and 3% HNO3 washout for B and Ta (stated section 3.1)"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "RSD% -- \"The RSD is the relative standard deviation in percent\"; n = 4-7 per reference material",
+   "status": "text",
+   "value": "RSD% -- \"The RSD is the relative standard deviation in percent\"; n = 4-7 per reference material"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N — 'The isotope interferences of 114,115Sn+ on 114Cd+ and 115In+ were calibrated through the measurement of 118Sn+' (§3.1); no factor is stated",
+   "status": "commentary only"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially -- replicate counts stated per reference material (n = 6, 5, 7, 4, 4; blanks n = 5). No acceptance or rejection rule, and no acquired-versus-included count, stated",
+   "status": "text",
+   "value": "Partially -- replicate counts stated per reference material (n = 6, 5, 7, 4, 4; blanks n = 5). No acceptance or rejection rule, and no acquired-versus-included count, stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: over the replicate analyses of each reference material — the statistic is not named; Table 2 gives n and 'RSD%'. The upper-crust samples are physical composites, not averages of analyses",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "over the replicate analyses of each reference material"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "N — 'a calibration solution' (§3.1), not named",
+   "status": "commentary only"
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1, JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 — five in Table 2 for accuracy and precision; eighteen more in Table 3 for Mo, Cd, In, Sn, Sb, W, Tl, Bi, As and Te (§3.4)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "AGV-1",
+     "parent": null
+    },
+    {
+     "member": "BHVO-1",
+     "parent": null
+    },
+    {
+     "member": "G-2",
+     "parent": null
+    },
+    {
+     "member": "GSR-5",
+     "parent": null
+    },
+    {
+     "member": "SCO-1",
+     "parent": null
+    },
+    {
+     "member": "JP-1",
+     "parent": null
+    },
+    {
+     "member": "DTS-1",
+     "parent": null
+    },
+    {
+     "member": "BHVO-2",
+     "parent": null
+    },
+    {
+     "member": "BIR-1",
+     "parent": null
+    },
+    {
+     "member": "JB-3",
+     "parent": null
+    },
+    {
+     "member": "GSR-3",
+     "parent": null
+    },
+    {
+     "member": "DNC-1",
+     "parent": null
+    },
+    {
+     "member": "W-2",
+     "parent": null
+    },
+    {
+     "member": "AGV-2",
+     "parent": null
+    },
+    {
+     "member": "BCR-2",
+     "parent": null
+    },
+    {
+     "member": "JA-3",
+     "parent": null
+    },
+    {
+     "member": "GSR-2",
+     "parent": null
+    },
+    {
+     "member": "JG-3",
+     "parent": null
+    },
+    {
+     "member": "GSR-1",
+     "parent": null
+    },
+    {
+     "member": "RGM-1",
+     "parent": null
+    },
+    {
+     "member": "GSR-4",
+     "parent": null
+    },
+    {
+     "member": "SGR-1",
+     "parent": null
+    },
+    {
+     "member": "GSR-6",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: RSD of n = 4–7 analyses, usually <8%] — Table 2 and §3.4; whether the replicates share a session is not stated",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "AGV-1",
+      "BHVO-1",
+      "G-2",
+      "GSR-5",
+      "SCO-1"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "RSD of n = 4–7 analyses, usually <8%"
+      }
+     ]
+    }
+   ]
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "AGV-1, BHVO-1, G-2, GSR-5, SCO-1 [all: agreement with GeoReM preferred values (AGV-1, BHVO-1) and Govindaraju 1994 (G-2, GSR-5, SCO-1), better than 8% for most elements]; JP-1, DTS-1, BHVO-2, BIR-1, JB-3, GSR-3, DNC-1, W-2, AGV-2, BCR-2, JA-3, GSR-2, JG-3, GSR-1, RGM-1, GSR-4, SGR-1, GSR-6 [Mo, Cd, In, Sn, Sb, W, Tl, Bi, As, Te: reasonable agreement with Govindaraju 1994 and GeoReM] — Tables 2 and 3, §3.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "AGV-1",
+      "BHVO-1",
+      "G-2",
+      "GSR-5",
+      "SCO-1"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "agreement with GeoReM preferred values (AGV-1, BHVO-1) and Govindaraju 1994 (G-2, GSR-5, SCO-1), better than 8% for most elements"
+      }
+     ]
+    },
+    {
+     "members": [
+      "JP-1",
+      "DTS-1",
+      "BHVO-2",
+      "BIR-1",
+      "JB-3",
+      "GSR-3",
+      "DNC-1",
+      "W-2",
+      "AGV-2",
+      "BCR-2",
+      "JA-3",
+      "GSR-2",
+      "JG-3",
+      "GSR-1",
+      "RGM-1",
+      "GSR-4",
+      "SGR-1",
+      "GSR-6"
+     ],
+     "value": [
+      {
+       "members": [
+        "Mo",
+        "Cd",
+        "In",
+        "Sn",
+        "Sb",
+        "W",
+        "Tl",
+        "Bi",
+        "As",
+        "Te"
+       ],
+       "value": "reasonable agreement with Govindaraju 1994 and GeoReM"
+      }
+     ]
+    }
+   ]
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Auto lens voltages optimised on a 10 ng/ml Mg, Co, Rh, Ce, Pb and U solution; As and Te measured in 4.80 ml sample solution plus 0.20 ml ethanol; HF boiled before sub-boiling distillation to remove volatile As — §3.1, §3.2, §3.3",
+   "status": "text",
+   "value": "Auto lens voltages optimised on a 10 ng/ml Mg, Co, Rh, Ce, Pb and U solution; As and Te measured in 4.80 ml sample solution plus 0.20 ml ethanol; HF boiled before sub-boiling distillation to remove volatile As"
+  }
+ }
+}

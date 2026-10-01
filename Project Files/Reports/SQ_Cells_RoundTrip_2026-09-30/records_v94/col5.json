@@ -1,0 +1,1123 @@
+{
+ "procedure_column": "Lu+etal2007 | Agilent 7500cs | PML Okayama",
+ "tapp": "Solution_Q-ICP-MS_TAPP_v94",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution Q-ICP-MS",
+   "status": "text",
+   "value": "Solution Q-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Pheasant Memorial Laboratory (PML), Okayama University (section 2.1)",
+   "status": "text",
+   "value": "Pheasant Memorial Laboratory (PML), Okayama University (section 2.1)"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "SF-ICP-MS — Ti on a Finnigan ELEMENT at PML (§2.1.2)",
+   "status": "text",
+   "value": "SF-ICP-MS"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "The Q-ICP-MS measures B, Zr, Nb, Mo, Sn, Sb, Hf and Ta, and its Nb (from Nb/Mo and Nb/Zr) is used for the SF-ICP-MS Ti calculation on the same solutions — §2.5, §2.8",
+   "status": "text",
+   "value": "The Q-ICP-MS measures B, Zr, Nb, Mo, Sn, Sb, Hf and Ta, and its Nb (from Nb/Mo and Nb/Zr) is used for the SF-ICP-MS Ti calculation on the same solutions"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "basalt; andesite; peridotite; carbonaceous chondrite — GSJ and USGS RMs, and Ivuna, Orgueil, Cold Bokkeveld and Allende",
+   "status": "structured",
+   "value": [
+    {
+     "member": "basalt",
+     "parent": null
+    },
+    {
+     "member": "andesite",
+     "parent": null
+    },
+    {
+     "member": "peridotite",
+     "parent": null
+    },
+    {
+     "member": "carbonaceous chondrite",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites",
+   "status": "text",
+   "value": "Weighed test portion -- \"Approximately 20 mg of basalt and andesite samples were weighed\"; \"Approximately 50 mg for peridotites and approximately 10 mg for meteorites were weighed\"; 9-18 mg for carbonaceous chondrites"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted — §2.5; GSJ samples and PCC-1 further pulverised (§2.3)",
+   "status": "text",
+   "value": "Powders weighed with the B, Zr–Hf and Mo–Sn–Sb spikes and decomposed with 30 mol/l HF and mannitol, dried, dissolved in 0.5 mol/l HF, fluorides removed by centrifuging, and the supernatant diluted"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "ultrasonic HF decomposition: 30 mol/l HF; bomb HF decomposition: 30 mol/l HF; re-dissolution: 0.5 mol/l HF — §2.5",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "ultrasonic HF decomposition"
+     ],
+     "value": "30 mol/l HF"
+    },
+    {
+     "members": [
+      "bomb HF decomposition"
+     ],
+     "value": "30 mol/l HF"
+    },
+    {
+     "members": [
+      "re-dissolution"
+     ],
+     "value": "0.5 mol/l HF"
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "Teflon (TFM-PTFE) bomb for peridotites and meteorites — §2.2.3, §2.5",
+   "status": "text",
+   "value": "Teflon (TFM-PTFE) bomb for peridotites and meteorites"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "ultrasonic HF decomposition (basalts and andesites, <70 °C); bomb HF decomposition (peridotites and meteorites, 245 °C, mannitol added after heating); re-dissolution (dried, then 5 ml 0.5 mol/l HF in an ultrasonic bath, fluorides removed by centrifuging) — abstract; §2.5",
+   "status": "structured",
+   "value": [
+    {
+     "member": "ultrasonic HF decomposition",
+     "parent": null
+    },
+    {
+     "member": "bomb HF decomposition",
+     "parent": null
+    },
+    {
+     "member": "re-dissolution",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "ultrasonic HF decomposition: <70 °C; bomb HF decomposition: 245 °C; re-dissolution: N — abstract",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "ultrasonic HF decomposition"
+     ],
+     "value": "<70 °C"
+    },
+    {
+     "members": [
+      "bomb HF decomposition"
+     ],
+     "value": "245 °C"
+    },
+    {
+     "members": [
+      "re-dissolution"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "all: 0.5 mol/l HF with mannitol, diluted — 'The mannitol and HF concentrations in all samples and standard solutions were diluted to be similar to each other' (§2.5)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "0.5 mol/l HF with mannitol, diluted"
+    }
+   ]
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "~20 mg (basalts and andesites); ~50 mg (peridotites); ~10 mg (meteorites) — §2.5",
+   "status": "text",
+   "value": "~20 mg (basalts and andesites); ~50 mg (peridotites); ~10 mg (meteorites)"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "None — the method 'does not require ion-exchange separation' (§1); only the Zr–Hf spike was purified",
+   "status": "text",
+   "value": "None"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "10B spike; 91Zr–179Hf mixed spike; 97Mo–119Sn–121Sb mixed spike — §2.2.2–2.2.4; Nb and Ta are not spiked",
+   "status": "text",
+   "value": "10B spike; 91Zr–179Hf mixed spike; 97Mo–119Sn–121Sb mixed spike"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Agilent -- \"A Q-pole type ICP mass spectrometer, Agilent 7500 cs (Yokogawa Analytical Systems, Japan)\"",
+   "status": "text",
+   "value": "Agilent -- \"A Q-pole type ICP mass spectrometer, Agilent 7500 cs (Yokogawa Analytical Systems, Japan)\""
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Agilent 7500cs (stated section 2.1.1)",
+   "status": "text",
+   "value": "Agilent 7500cs (stated section 2.1.1)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Single-collector quadrupole (Q-ICP-MS)",
+   "status": "text",
+   "value": "Single-collector quadrupole (Q-ICP-MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "Quartz glass torch with Pt injector — Table 1a",
+   "status": "text",
+   "value": "Quartz glass torch with Pt injector"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "1 mm Pt sampler + 0.4 mm Pt skimmer (stated Table in section 2.1.1)",
+   "status": "text",
+   "value": "1 mm Pt sampler + 0.4 mm Pt skimmer (stated Table in section 2.1.1)"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "Pt sampler and Pt skimmer (stated Table in section 2.1.1)",
+   "status": "text",
+   "value": "Pt sampler and Pt skimmer (stated Table in section 2.1.1)"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "Shield torch used — §2.1.1",
+   "status": "text",
+   "value": "Shield torch used"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "all: no gas introduced into the octopole collision cell — 'collision gases were not introduced into the cell' (§2.1.1)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "no gas introduced into the octopole collision cell"
+    }
+   ]
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "Pulse counting and analog (>10^6 cps), switched automatically — Zr, Nb, Mo and Sb sometimes in analog at DF < ~250 (§2.1.1)",
+   "status": "text",
+   "value": "Pulse counting and analog (>10^6 cps), switched automatically"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "Micro-flow PFA nebulizer PFA-20 (ESI, USA); self-aspiration (stated Table in section 2.1.1)",
+   "status": "text",
+   "value": "Micro-flow PFA nebulizer PFA-20 (ESI, USA); self-aspiration (stated Table in section 2.1.1)"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "Scott double-pass, cooled at 2 °C, made of Teflon — Table 1a",
+   "status": "text",
+   "value": "Scott double-pass, cooled at 2 °C, made of Teflon"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "N — self-aspiration (Table 1a); pseudo-FI uses 0.013 ml per sample (§2.6)",
+   "status": "commentary only"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Flow injection -- \"pseudo-FI\" declared as the data acquisition mode; sec 2.6 \"Pseudo-flow injection (FI) method for ICP-QMS\", explicitly contrasted with \"the continuous sample introduction method\"",
+   "status": "text",
+   "value": "Flow injection -- \"pseudo-FI\" declared as the data acquisition mode; sec 2.6 \"Pseudo-flow injection (FI) method for ICP-QMS\", explicitly contrasted with \"the continuous sample introduction method\""
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1.6 kW (stated Table in section 2.1.1)",
+   "status": "text",
+   "value": "1.6 kW (stated Table in section 2.1.1)"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "15 L/min (stated Table in section 2.1.1)",
+   "status": "text",
+   "value": "15 L/min (stated Table in section 2.1.1)"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "0.90 L/min (stated Table in section 2.1.1)",
+   "status": "text",
+   "value": "0.90 L/min (stated Table in section 2.1.1)"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "0.92 L/min (stated Table in section 2.1.1)",
+   "status": "text",
+   "value": "0.92 L/min (stated Table in section 2.1.1)"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "Ar, 0.25 l/min — Table 1a",
+   "status": "text",
+   "value": "Ar, 0.25 l/min"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N — plasma power 1.6 kW (Table 1a)",
+   "status": "commentary only"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "B, Zr, Nb, Mo, Sn, Sb, Hf, Ta — Ti is measured by the SF-ICP-MS",
+   "status": "structured",
+   "value": [
+    {
+     "member": "B",
+     "parent": null
+    },
+    {
+     "member": "Zr",
+     "parent": null
+    },
+    {
+     "member": "Nb",
+     "parent": null
+    },
+    {
+     "member": "Mo",
+     "parent": null
+    },
+    {
+     "member": "Sn",
+     "parent": null
+    },
+    {
+     "member": "Sb",
+     "parent": null
+    },
+    {
+     "member": "Hf",
+     "parent": null
+    },
+    {
+     "member": "Ta",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "B, Zr, Nb, Mo, Sn, Sb, Hf, Ta (µg/g) — Tables 5–8; Nb from Nb/Zr and Nb/Mo, Ta from Ta/Mo and Ta/Hf, and their averages",
+   "status": "structured",
+   "value": [
+    {
+     "member": "B",
+     "parent": null
+    },
+    {
+     "member": "Zr",
+     "parent": null
+    },
+    {
+     "member": "Nb",
+     "parent": null
+    },
+    {
+     "member": "Mo",
+     "parent": null
+    },
+    {
+     "member": "Sn",
+     "parent": null
+    },
+    {
+     "member": "Sb",
+     "parent": null
+    },
+    {
+     "member": "Hf",
+     "parent": null
+    },
+    {
+     "member": "Ta",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "10B, 11B → B; 90Zr, 91Zr → Zr; 93Nb → Nb; 95Mo, 97Mo → Mo; 118Sn, 119Sn → Sn; 121Sb, 123Sb → Sb; 178Hf, 179Hf → Hf; 181Ta → Ta — 'In one scan, 10B, 11B, 90Zr, ... and 181Ta were measured' (§2.1.1)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "10B",
+     "parent": "B"
+    },
+    {
+     "member": "11B",
+     "parent": "B"
+    },
+    {
+     "member": "90Zr",
+     "parent": "Zr"
+    },
+    {
+     "member": "91Zr",
+     "parent": "Zr"
+    },
+    {
+     "member": "93Nb",
+     "parent": "Nb"
+    },
+    {
+     "member": "95Mo",
+     "parent": "Mo"
+    },
+    {
+     "member": "97Mo",
+     "parent": "Mo"
+    },
+    {
+     "member": "118Sn",
+     "parent": "Sn"
+    },
+    {
+     "member": "119Sn",
+     "parent": "Sn"
+    },
+    {
+     "member": "121Sb",
+     "parent": "Sb"
+    },
+    {
+     "member": "123Sb",
+     "parent": "Sb"
+    },
+    {
+     "member": "178Hf",
+     "parent": "Hf"
+    },
+    {
+     "member": "179Hf",
+     "parent": "Hf"
+    },
+    {
+     "member": "181Ta",
+     "parent": "Ta"
+    }
+   ]
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "10B, 11B: 0.0801 s; 90Zr, 91Zr: 0.0032 s; 93Nb: 0.0320 s; 95Mo, 97Mo, 118Sn, 119Sn, 121Sb, 123Sb: 0.0481 s; 178Hf, 179Hf: 0.0641 s; 181Ta: 0.2083 s — integration time per 1 s (Table 2a)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "10B",
+      "11B"
+     ],
+     "value": "0.0801 s"
+    },
+    {
+     "members": [
+      "90Zr",
+      "91Zr"
+     ],
+     "value": "0.0032 s"
+    },
+    {
+     "members": [
+      "93Nb"
+     ],
+     "value": "0.0320 s"
+    },
+    {
+     "members": [
+      "95Mo",
+      "97Mo",
+      "118Sn",
+      "119Sn",
+      "121Sb",
+      "123Sb"
+     ],
+     "value": "0.0481 s"
+    },
+    {
+     "members": [
+      "178Hf",
+      "179Hf"
+     ],
+     "value": "0.0641 s"
+    },
+    {
+     "members": [
+      "181Ta"
+     ],
+     "value": "0.2083 s"
+    }
+   ]
+  },
+  "Number of Scans per Replicate": {
+   "key": "acquisition pass",
+   "cell": "all: 48 scans in 30 s, 1 point per mass — Table 1a",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "48 scans in 30 s, 1 point per mass"
+    }
+   ]
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "Standard solution every two samples; each sample ~6 min including ~3 min wash. Pseudo-FI: a 40 s background step with the probe in the sample, then 30 s of sample signal — §2.1.1, §2.6",
+   "status": "text",
+   "value": "Standard solution every two samples; each sample ~6 min including ~3 min wash. Pseudo-FI: a 40 s background step with the probe in the sample, then 30 s of sample signal"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "~3 min with 0.5 mol/l HF — §2.1.1; background measured after a 200 s wash (Table 1a)",
+   "status": "text",
+   "value": "~3 min with 0.5 mol/l HF"
+  },
+  "Signal Collection Mode": {
+   "key": "(none)",
+   "cell": "1 point per mass — Table 1a",
+   "status": "text",
+   "value": "1 point per mass"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "all: the ID-determined Zr, Mo and Hf, as references for Nb and Ta (ID-IS) — §2.8, §3.5; Mo is preferred",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "the ID-determined Zr, Mo and Hf, as references for Nb and Ta (ID-IS)"
+    }
+   ]
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "CeO+/Ce+ < 1% — Table 1a",
+   "status": "text",
+   "value": "CeO+/Ce+ < 1%"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Drift Correction Method": {
+   "key": "(none)",
+   "cell": "Mass discrimination from the standard solution average, usually without drift over 2 h; when drift was observed, the standard measured before and after the sample was averaged — §2.7, §2.8",
+   "status": "text",
+   "value": "Mass discrimination from the standard solution average, usually without drift over 2 h; when drift was observed, the standard measured before and after the sample was averaged"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "B, Zr, Mo, Sn, Sb, Hf: isotope dilution (Eq. 1); Nb, Ta: isotope dilution–internal standardisation (ID-IS) against Zr, Mo or Hf — §2.7, §2.8",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "B",
+      "Zr",
+      "Mo",
+      "Sn",
+      "Sb",
+      "Hf"
+     ],
+     "value": "isotope dilution (Eq. 1)"
+    },
+    {
+     "members": [
+      "Nb",
+      "Ta"
+     ],
+     "value": "isotope dilution–internal standardisation (ID-IS) against Zr, Mo or Hf"
+    }
+   ]
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "Background measured before each sample after a 200 s wash, and procedural blank corrections from Table 4 applied to all analyses — Table 1a; §3.6, corrections usually <1% in basalts and andesites and <4% in peridotites and meteorites",
+   "status": "text",
+   "value": "Background measured before each sample after a 200 s wash, and procedural blank corrections from Table 4 applied to all analyses"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "all: P/A factor determined each day before measurement — §2.1.1",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "P/A factor determined each day before measurement"
+    }
+   ]
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "Eq. 1 with the pseudo-concentration Q calibrated on spike–standard mixtures, and the mass discrimination correction factor applied to the measured ratios — §2.7",
+   "status": "text",
+   "value": "Eq. 1 with the pseudo-concentration Q calibrated on spike–standard mixtures, and the mass discrimination correction factor applied to the measured ratios"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "0.5 mol/l HF as carrier and wash, which washes out Zr, Nb, Hf and Ta; ~20 min of 0.5 mol/l HF after REE work in HNO3 — §2.1.1",
+   "status": "text",
+   "value": "0.5 mol/l HF as carrier and wash, which washes out Zr, Nb, Hf and Ta; ~20 min of 0.5 mol/l HF after REE work in HNO3"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "RSD% with observed ranges in parentheses",
+   "status": "text",
+   "value": "RSD% with observed ranges in parentheses"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "B, Zr, Mo, Sn, Sb, Hf: mass discrimination correction factor, natural ratio over the measured standard average (0.87–0.96 for 11B/10B, 0.94–1.04 for the others); Nb, Ta: relative concentration factor f_J against the reference element, from the standard solution — §2.7, §2.8",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "B",
+      "Zr",
+      "Mo",
+      "Sn",
+      "Sb",
+      "Hf"
+     ],
+     "value": "mass discrimination correction factor, natural ratio over the measured standard average (0.87–0.96 for 11B/10B, 0.94–1.04 for the others)"
+    },
+    {
+     "members": [
+      "Nb",
+      "Ta"
+     ],
+     "value": "relative concentration factor f_J against the reference element, from the standard solution"
+    }
+   ]
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively. ... As the sample amounts used were small, and the carbonaceous chondrites are heterogeneous, analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated",
+   "status": "text",
+   "value": "Partially -- \"Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively. ... As the sample amounts used were small, and the carbonaceous chondrites are heterogeneous, analytical results for each run are shown in the table\" alongside the averages. No acceptance or rejection rule stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average of repeat runs per sample — 'Orgueil and Allende were analyzed 4 times and twice from the sample digestion, respectively ... analytical results for each run are shown in the table' alongside the averages; bomb-method yields are the 'Average of two tests'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average of repeat runs per sample"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "Spike ratios 91Zr/90Zr 29.0, 97Mo/95Mo 201, 119Sn/118Sn 30.1, 121Sb/123Sb 199, 179Hf/178Hf 25.1, against natural 0.218, 0.600, 0.355, 1.34, 0.499 (Rosman and Taylor 1998); 11B/10B spike 0.05348 and natural 4.053 by TIMS (Makishima et al. 1997) — §2.7",
+   "status": "text",
+   "value": "Spike ratios 91Zr/90Zr 29.0, 97Mo/95Mo 201, 119Sn/118Sn 30.1, 121Sb/123Sb 199, 179Hf/178Hf 25.1, against natural 0.218, 0.600, 0.355, 1.34, 0.499 (Rosman and Taylor 1998); 11B/10B spike 0.05348 and natural 4.053 by TIMS (Makishima et al. 1997)"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [B, Zr, Nb, Mo, Hf, Ta: mixed standard solution from the Alfa Aesar Specpure refractory metals plasma standard (Stock No. 44270); Sn, Sb: the same mixed solution, from Kanto Kagaku AAS solutions] — §2.2.6; isotope and element ratios checked against CLMS-4 (Spex)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "B",
+        "Zr",
+        "Nb",
+        "Mo",
+        "Hf",
+        "Ta"
+       ],
+       "value": "mixed standard solution from the Alfa Aesar Specpure refractory metals plasma standard (Stock No. 44270)"
+      },
+      {
+       "members": [
+        "Sn",
+        "Sb"
+       ],
+       "value": "the same mixed solution, from Kanto Kagaku AAS solutions"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "Every two samples — §2.1.1",
+   "status": "text",
+   "value": "Every two samples"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 — §2.3; the chondrites are samples",
+   "status": "structured",
+   "value": [
+    {
+     "member": "JB-1",
+     "parent": null
+    },
+    {
+     "member": "JB-2",
+     "parent": null
+    },
+    {
+     "member": "JB-3",
+     "parent": null
+    },
+    {
+     "member": "JA-1",
+     "parent": null
+    },
+    {
+     "member": "JA-2",
+     "parent": null
+    },
+    {
+     "member": "JA-3",
+     "parent": null
+    },
+    {
+     "member": "JP-1",
+     "parent": null
+    },
+    {
+     "member": "BHVO-1",
+     "parent": null
+    },
+    {
+     "member": "AGV-1",
+     "parent": null
+    },
+    {
+     "member": "PCC-1",
+     "parent": null
+    },
+    {
+     "member": "DTS-1",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "B: 45 (10B), 11 (11B); Zr: 13 (90Zr), 43 (91Zr); Nb: 1; Mo: 2 (95Mo), 14 (97Mo); Sn: 3 (118Sn), 5 (119Sn); Sb: 2 (121Sb), 0.7 (123Sb); Hf: 0.7 (178Hf), 1 (179Hf); Ta: 0.3 — ng/g in rock, 3σ (Table 2a); in solution, in pg/g",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "B"
+     ],
+     "value": "45 (10B), 11 (11B)"
+    },
+    {
+     "members": [
+      "Zr"
+     ],
+     "value": "13 (90Zr), 43 (91Zr)"
+    },
+    {
+     "members": [
+      "Nb"
+     ],
+     "value": "1"
+    },
+    {
+     "members": [
+      "Mo"
+     ],
+     "value": "2 (95Mo), 14 (97Mo)"
+    },
+    {
+     "members": [
+      "Sn"
+     ],
+     "value": "3 (118Sn), 5 (119Sn)"
+    },
+    {
+     "members": [
+      "Sb"
+     ],
+     "value": "2 (121Sb), 0.7 (123Sb)"
+    },
+    {
+     "members": [
+      "Hf"
+     ],
+     "value": "0.7 (178Hf), 1 (179Hf)"
+    },
+    {
+     "members": [
+      "Ta"
+     ],
+     "value": "0.3"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "all: 3σ, calculated for silicate samples at the dilution factor of ~340 where matrix effects are absent — §3.6",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "3σ, calculated for silicate samples at the dilution factor of ~340 where matrix effects are absent"
+    }
+   ]
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "B: 2.4% (11B/10B); Zr: 3.2% (91Zr/90Zr); Nb: 3.1% (93Nb/91Zr), 0.8% (93Nb/97Mo); Mo: 1.0% (97Mo/95Mo); Sn: 0.7% (119Sn/118Sn); Sb: 0.6% (121Sb/123Sb); Hf: 0.5% (179Hf/178Hf); Ta: 2.4% (181Ta/97Mo), 0.5% (181Ta/179Hf) — RSD% of each ratio measurement, ranges in Table 2a",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "B"
+     ],
+     "value": "2.4% (11B/10B)"
+    },
+    {
+     "members": [
+      "Zr"
+     ],
+     "value": "3.2% (91Zr/90Zr)"
+    },
+    {
+     "members": [
+      "Nb"
+     ],
+     "value": "3.1% (93Nb/91Zr), 0.8% (93Nb/97Mo)"
+    },
+    {
+     "members": [
+      "Mo"
+     ],
+     "value": "1.0% (97Mo/95Mo)"
+    },
+    {
+     "members": [
+      "Sn"
+     ],
+     "value": "0.7% (119Sn/118Sn)"
+    },
+    {
+     "members": [
+      "Sb"
+     ],
+     "value": "0.6% (121Sb/123Sb)"
+    },
+    {
+     "members": [
+      "Hf"
+     ],
+     "value": "0.5% (179Hf/178Hf)"
+    },
+    {
+     "members": [
+      "Ta"
+     ],
+     "value": "2.4% (181Ta/97Mo), 0.5% (181Ta/179Hf)"
+    }
+   ]
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: average reproducibility 1.0–4.6% RSD] — §3.7, Tables 5–6; Mo in JB-1 (15%) excluded as heterogeneous",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "JB-1",
+      "JB-2",
+      "JB-3",
+      "JA-1",
+      "JA-2",
+      "JA-3",
+      "JP-1",
+      "BHVO-1",
+      "AGV-1",
+      "PCC-1",
+      "DTS-1"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "average reproducibility 1.0–4.6% RSD"
+      }
+     ]
+    }
+   ]
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "JB-1, JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1 [all: compared with reference values (Govindaraju 1994, Imai et al. 1995 and others)] — Tables 5–6; 'a significant difference exists for B in JA-2'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "JB-1",
+      "JB-2",
+      "JB-3",
+      "JA-1",
+      "JA-2",
+      "JA-3",
+      "JP-1",
+      "BHVO-1",
+      "AGV-1",
+      "PCC-1",
+      "DTS-1"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "compared with reference values (Govindaraju 1994, Imai et al. 1995 and others)"
+      }
+     ]
+    }
+   ]
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Pseudo-flow injection with the ASX-100 autosampler; recovery yields from Ca–Al–Mg fluorides tested in 19 synthetic solutions (§2.4, §2.6)",
+   "status": "text",
+   "value": "Pseudo-flow injection with the ASX-100 autosampler; recovery yields from Ca–Al–Mg fluorides tested in 19 synthetic solutions (§2.4, §2.6)"
+  }
+ }
+}

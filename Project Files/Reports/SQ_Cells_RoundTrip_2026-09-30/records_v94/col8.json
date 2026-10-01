@@ -1,0 +1,743 @@
+{
+ "procedure_column": "GilDiaz+etal2020 | Thermo XSeries 2 | KIT Karlsruhe",
+ "tapp": "Solution_Q-ICP-MS_TAPP_v94",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution Q-ICP-MS",
+   "status": "text",
+   "value": "Solution Q-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Karlsruhe Institute of Technology (KIT), Germany",
+   "status": "text",
+   "value": "Karlsruhe Institute of Technology (KIT), Germany"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "estuarine water — filtered freshwater and seawater from the sorption kinetics and isotherm experiments",
+   "status": "structured",
+   "value": [
+    {
+     "member": "estuarine water",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "N — sub-sampled water aliquots",
+   "status": "commentary only"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "Te run: seawater matrices diluted in 2% HNO3, freshwater analysed directly; Se run: N — §2.3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Te run"
+     ],
+     "value": "seawater matrices diluted in 2% HNO3, freshwater analysed directly"
+    },
+    {
+     "members": [
+      "Se run"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "XSeries 2",
+   "status": "text",
+   "value": "XSeries 2"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Single-collector quadrupole (Q-ICP-MS)",
+   "status": "text",
+   "value": "Single-collector quadrupole (Q-ICP-MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "Se masses: CCT mode, collision cell with He:H2; other: N — the Se masses are not listed; no cell mode is stated for Te (§2.4)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Se masses"
+     ],
+     "value": "CCT mode, collision cell with He:H2"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Te, Se",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Te",
+     "parent": null
+    },
+    {
+     "member": "Se",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Te, Se (µg/L) — dissolved concentrations",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Te",
+     "parent": null
+    },
+    {
+     "member": "Se",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "N — the masses are not stated",
+   "status": "commentary only"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Scans per Replicate": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Collection Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "Se masses: He + H2; other: N — §2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Se masses"
+     ],
+     "value": "He + H2"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N/A — collision mode only",
+   "status": "not applicable"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "Se masses: He:H2 = 92% : 8%; other: N — 'to minimise 40Ar37Cl interferences' (§2.4)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Se masses"
+     ],
+     "value": "He:H2 = 92% : 8%"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "N/A — on-mass measurement in CCT mode",
+   "status": "not applicable"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "Se run: 103Rh and 115In; Te run: N — §2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Se run"
+     ],
+     "value": "103Rh and 115In"
+    },
+    {
+     "members": [
+      "Te run"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "Te run; Se run — dissolved Te 'directly analysed by ICP-MS (X-Series II, Thermo Fisher Scientific)' (§2.3), no laboratory named; dissolved Se on the 'XSeries 2, Thermo Fisher Scientific, KIT' (§2.4)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Te run",
+     "parent": null
+    },
+    {
+     "member": "Se run",
+     "parent": null
+    }
+   ]
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "2",
+   "status": "text",
+   "value": "2"
+  },
+  "Drift Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "Te: external calibration, in an adapted salty matrix for seawater; Se: external calibration with 103Rh and 115In internal standards — §2.3, §2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Te"
+     ],
+     "value": "external calibration, in an adapted salty matrix for seawater"
+    },
+    {
+     "members": [
+      "Se"
+     ],
+     "value": "external calibration with 103Rh and 115In internal standards"
+    }
+   ]
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N — ⁴⁰Ar³⁷Cl on Se 'minimised' by the collision cell, not corrected",
+   "status": "commentary only"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "Se masses: 40Ar37Cl; other: N — §2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Se masses"
+     ],
+     "value": "40Ar37Cl"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "Se masses: minimised by the He:H2 collision mixture; other: N — §2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Se masses"
+     ],
+     "value": "minimised by the He:H2 collision mixture"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "Te, Se: mean of the replicate experiments at each condition — Figs 1–2: kinetics N = 3, isotherms N = 2; 'Error bars correspond to standard deviations (SD)'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Te",
+      "Se"
+     ],
+     "value": "mean of the replicate experiments at each condition"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "CRM-TMDW, NIST 1643f — drinking water and freshwater",
+   "status": "structured",
+   "value": [
+    {
+     "member": "CRM-TMDW",
+     "parent": null
+    },
+    {
+     "member": "NIST 1643f",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "Te: 0.01 µg/L; Se: 0.06 µg/L — N = 10 (§2.3, §2.4)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Te"
+     ],
+     "value": "0.01 µg/L"
+    },
+    {
+     "members": [
+      "Se"
+     ],
+     "value": "0.06 µg/L"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "CRM-TMDW [Se: 98–106% recovery (N = 16)]; NIST 1643f [Se: 100–102% (N = 16); Te: 85–91% (N = 4)] — §2.3, §2.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "CRM-TMDW"
+     ],
+     "value": [
+      {
+       "members": [
+        "Se"
+       ],
+       "value": "98–106% recovery (N = 16)"
+      }
+     ]
+    },
+    {
+     "members": [
+      "NIST 1643f"
+     ],
+     "value": [
+      {
+       "members": [
+        "Se"
+       ],
+       "value": "100–102% (N = 16)"
+      },
+      {
+       "members": [
+        "Te"
+       ],
+       "value": "85–91% (N = 4)"
+      }
+     ]
+    }
+   ]
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}

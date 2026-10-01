@@ -1,0 +1,111 @@
+STAGE 1 — procedure-level cells of 9 columns (Solution_Q-ICP-MS_TAPP_v93.csv): 927
+  not stated           526   57%
+  text                 186   20%
+  unparsed             117   13%
+  structured            38    4%
+  not applicable        36    4%
+  not assessed          18    2%
+  commentary only        6    1%
+
+STAGE 2 — 234 stated facts, recovered as:
+  text                              121   52%
+  absent                             58   25%
+  structured                         31   13%
+  in another field                   16    7%
+  wrong member or missing member      6    3%
+  not assessed                        2    1%
+
+per procedure (structured + text / facts):
+  col1                  22 /  30   73%   absent 5, in another field 3
+  col2                  29 /  40   72%   in another field 3, wrong member or missing member 2, absent 6
+  col3                  22 /  34   65%   absent 9, in another field 3
+  col4                  11 /  13   85%   absent 1, in another field 1
+  col5                  32 /  49   65%   absent 13, wrong member or missing member 2, in another field 2
+  col6                   9 /  14   64%   absent 5
+  col7                   7 /  18   39%   not assessed 1, absent 9, in another field 1
+  col8                   5 /  12   42%   wrong member or missing member 2, absent 5
+  col9                  15 /  24   62%   in another field 3, absent 5, not assessed 1
+
+facts not recovered as structure or text:
+  [1] Number of Scans per Replicate [all] -> absent  («hu2008»)
+  [1] Signal Collection Mode -> absent  («hu2008»)
+  [1] Drift Correction Method -> in another field: Calibration Factor and Determination Method  («hu2008»)
+  [1] Digestion Temperature [re-dissolution] -> in another field: Digestion Step  («hu2008»)
+  [1] Monitored Masses [118Sn] -> in another field: Interference Correction Method  («hu2008»)
+  [1] Secondary Reference Materials [RGM-1] -> absent  («hu2008»)
+  [1] Within-Session Analytical Precision and Assessment Method [G-2/all] -> absent  («hu2008»)
+  [1] Analytical Accuracy and Assessment Method [AGV-1/all] -> absent  («hu2008»)
+  [2] Detector Configuration -> in another field: Additional Notes  («yu2005»)
+  [2] Dwell Time per Mass [111Cd] -> wrong member or missing member  («yu2005»)
+  [2] Dwell Time per Mass [25Mg] -> wrong member or missing member  («yu2005»)
+  [2] Drift Correction Method -> absent  («yu2005»)
+  [2] Interference Correction Method [66Zn] -> in another field: Calibration Factor and Determination Method  («yu2005»)
+  [2] Detection Limit [B/Ca] -> in another field: Coolant (Plasma) Gas Flow Rate  («yu2005»)
+  [2] Detection Limit Method [all] -> absent  («yu2005»)
+  [2] Between-Session (Long-Term) Analytical Precision and Assessment Method [all/Li/Ca] -> absent  («yu2005»)
+  [2] Analytical Accuracy and Assessment Method [all/U/Ca] -> absent  («yu2005»)
+  [2] Instrument Warm-up / Session Duration Limit -> absent  («yu2005»)
+  [2] Analysis Sequence -> absent  («yu2005»)
+  [3] Procedure Reference(s) -> absent  («makishima2011»)
+  [3] Analysis Sequence -> absent  («makishima2011»)
+  [3] Analysis Sequence -> in another field: Calibration Factor and Determination Method  («makishima2011»)
+  [3] Interference Correction Method [115In] -> absent  («makishima2011»)
+  [3] Detection Limit [Cd] -> absent  («makishima2011»)
+  [3] Detection Limit [Bi] -> absent  («makishima2011»)
+  [3] Detection Limit Method [all] -> in another field: Analysis Inclusion and Rejection Criteria  («makishima2011»)
+  [3] Sample Aliquot Mass or Volume -> in another field: Sampling Unit Type  («makishima2011»)
+  [3] Primary Calibration Standard Name [all/Cd] -> absent  («makishima2011»)
+  [3] Within-Session Analytical Precision and Assessment Method [all/Cd] -> absent  («makishima2011»)
+  [3] Between-Session (Long-Term) Analytical Precision and Assessment Method [JP-1/Cd] -> absent  («makishima2011»)
+  [3] Uncertainty Propagation Method [Cd] -> absent  («makishima2011»)
+  [4] Collision/Reaction Cell (CRC) Configuration [m/z 23–75] -> absent  («long2025»)
+  [4] Calibration Strategy per Target Species [all] -> in another field: Calibration Factor and Determination Method  («long2025»)
+  [5] Spray Chamber Type and Cooling Temperature -> absent  («lu2007»)
+  [5] Dwell Time per Mass [181Ta] -> wrong member or missing member  («lu2007»)
+  [5] Dwell Time per Mass [90Zr] -> wrong member or missing member  («lu2007»)
+  [5] Pulse/Analog Detector Nonlinearity Correction [all] -> absent  («lu2007»)
+  [5] Isotope Dilution Spike -> in another field: Monitored Masses  («lu2007»)
+  [5] Isotope Dilution Spike -> in another field: Monitored Masses  («lu2007»)
+  [5] Detection Limit [Ta] -> absent  («lu2007»)
+  [5] Detection Limit [B] -> absent  («lu2007»)
+  [5] Internal (Within-Measurement) Analytical Precision and Assessment Method [Hf] -> absent  («lu2007»)
+  [5] Between-Session (Long-Term) Analytical Precision and Assessment Method [JB-1/all] -> absent  («lu2007»)
+  [5] Constants and Reference Values Used -> absent  («lu2007»)
+  [5] Calibration Factor and Determination Method [B] -> absent  («lu2007»)
+  [5] Blank / Background Correction Method -> absent  («lu2007»)
+  [5] Sample Aliquot Mass or Volume -> absent  («lu2007»)
+  [5] Digestion Temperature [bomb HF decomposition] -> absent  («lu2007»)
+  [5] Primary Calibration Standard Name [all/Zr] -> absent  («lu2007»)
+  [5] Secondary Reference Materials [DTS-1] -> absent  («lu2007»)
+  [6] Interfering Species [77Se] -> absent  («gildiaz2020»)
+  [6] Analytical Accuracy and Assessment Method [NCS 73307/Se] -> absent  («gildiaz2020»)
+  [6] Digestion Temperature [microwave digestion] -> absent  («gildiaz2020»)
+  [6] Digestion Temperature [tri-acid digestion] -> absent  («gildiaz2020»)
+  [6] Sample Aliquot Mass or Volume -> absent  («gildiaz2020»)
+  [7] Acquisition Pass [KED] -> not assessed (found in Collision/Reaction Cell (CRC) Configuration)  («gildiaz2020»)
+  [7] Interfering Species [78Se] -> absent  («gildiaz2020»)
+  [7] Analytical Accuracy and Assessment Method [NIST 1643f/Te] -> absent  («gildiaz2020»)
+  [7] Analytical Accuracy and Assessment Method [NCS 73307/Te] -> absent  («gildiaz2020»)
+  [7] Analytical Accuracy and Assessment Method [NIST 1640a/Se] -> absent  («gildiaz2020»)
+  [7] Digestion Duration [F1 acetate] -> absent  («gildiaz2020»)
+  [7] Digestion Temperature [F3 H2O2] -> absent  («gildiaz2020»)
+  [7] Digestion Acid(s) [F4N HNO3] -> absent  («gildiaz2020»)
+  [7] Secondary Reference Materials [NIST 1640a] -> absent  («gildiaz2020»)
+  [7] Monitored Masses [80Se] -> absent  («gildiaz2020»)
+  [7] Target Species [Se] -> in another field: Target Material  («gildiaz2020»)
+  [8] Collision/Reaction Gas Mixture Ratio [Se masses] -> wrong member or missing member  («gildiaz2020»)
+  [8] Collision Gas Type [Se masses] -> wrong member or missing member  («gildiaz2020»)
+  [8] Detection Limit [Se] -> absent  («gildiaz2020»)
+  [8] Analytical Accuracy and Assessment Method [CRM-TMDW/Se] -> absent  («gildiaz2020»)
+  [8] Analytical Accuracy and Assessment Method [NIST 1643f/Te] -> absent  («gildiaz2020»)
+  [8] Final Solution Matrix [Te run] -> absent  («gildiaz2020»)
+  [8] Calibration Strategy per Target Species [Te] -> absent  («gildiaz2020»)
+  [9] Collision/Reaction Cell (CRC) Configuration [Se] -> in another field: Digestion Acid(s)  («lopezgarcia2026»)
+  [9] Collision/Reaction Cell (CRC) Configuration [Ba] -> absent  («lopezgarcia2026»)
+  [9] Collision/Reaction Cell (CRC) Configuration [Ca] -> in another field: Digestion Acid(s)  («lopezgarcia2026»)
+  [9] Final Solution Matrix [Group-2] -> absent  («lopezgarcia2026»)
+  [9] Primary Calibration Standard Name [all/P] -> absent  («lopezgarcia2026»)
+  [9] Isotope Dilution Spike -> absent  («lopezgarcia2026»)
+  [9] Isotope Dilution Spike -> in another field: Internal Standard Element  («lopezgarcia2026»)
+  [9] Uncertainty Level -> absent  («lopezgarcia2026»)
+  [9] Acquisition Pass [Group-3] -> not assessed (found in Final Solution Matrix)  («lopezgarcia2026»)

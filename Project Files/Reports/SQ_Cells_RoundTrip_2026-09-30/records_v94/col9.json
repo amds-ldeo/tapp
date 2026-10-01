@@ -1,0 +1,1407 @@
+{
+ "procedure_column": "LopezGarcia+etal2026 | Thermo iCAP TQ | Institute of Science Tokyo",
+ "tapp": "Solution_Q-ICP-MS_TAPP_v94",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution Q-ICP-MS (triple-quadrupole platform)",
+   "status": "text",
+   "value": "Solution Q-ICP-MS (triple-quadrupole platform)"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Institute of Science Tokyo",
+   "status": "text",
+   "value": "Institute of Science Tokyo"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "carbonaceous asteroid particle; carbonaceous chondrite — eight Ryugu TD1 particles, and the Smithsonian Allende powder for reproducibility",
+   "status": "structured",
+   "value": [
+    {
+     "member": "carbonaceous asteroid particle",
+     "parent": null
+    },
+    {
+     "member": "carbonaceous chondrite",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende",
+   "status": "text",
+   "value": "Individual particle, weighed: A0066 4.325 mg, A0238 1.868 mg, A0247 2.311 mg, A0256 2.378 mg, A0259 1.478 mg, A0268 1.902 mg, A0301 1.923 mg, A0313 2.012 mg; 20 mg Allende"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering — ISO class 5 cleanroom; acids distilled once",
+   "status": "text",
+   "value": "Particles individually weighed on a Mettler Toledo XPR2U microbalance (0.1 µg readability) and transferred to PFA vials without powdering"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "HF-HNO3 attack: HF + HNO3; HNO3-HCl step: HNO3 + HCl; HNO3 step: HNO3; final uptake: 0.5 M HNO3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "HF-HNO3 attack"
+     ],
+     "value": "HF + HNO3"
+    },
+    {
+     "members": [
+      "HNO3-HCl step"
+     ],
+     "value": "HNO3 + HCl"
+    },
+    {
+     "members": [
+      "HNO3 step"
+     ],
+     "value": "HNO3"
+    },
+    {
+     "members": [
+      "final uptake"
+     ],
+     "value": "0.5 M HNO3"
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "PFA hexagonal cap vials (6 mL, Savillex), tightly capped with polypropylene wrenches — 'to maintain high-pressure–temperature conditions'",
+   "status": "text",
+   "value": "PFA hexagonal cap vials (6 mL, Savillex), tightly capped with polypropylene wrenches"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "HF-HNO3 attack (0.2 mL HF + 0.1 mL HNO3 + 0.4 mL water, 3 h in an ultrasonic bath, then capped 12 h at 120 °C and 5 days at 220 °C, dried at 100 °C); HNO3-HCl step (0.2 mL HNO3 + 0.2 mL HCl + 0.2 mL H2O, sealed, 150 °C for 1 day, dried at 100 °C); HNO3 step (0.2 mL HNO3 + 0.2 mL H2O, 80 °C for 1 day, dried at 90 °C); final uptake (5 mL 0.5 M HNO3) — Acid digestion",
+   "status": "structured",
+   "value": [
+    {
+     "member": "HF-HNO3 attack",
+     "parent": null
+    },
+    {
+     "member": "HNO3-HCl step",
+     "parent": null
+    },
+    {
+     "member": "HNO3 step",
+     "parent": null
+    },
+    {
+     "member": "final uptake",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "HF-HNO3 attack: 120 °C, then 220 °C; HNO3-HCl step: 150 °C; HNO3 step: 80 °C; final uptake: N",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "HF-HNO3 attack"
+     ],
+     "value": "120 °C, then 220 °C"
+    },
+    {
+     "members": [
+      "HNO3-HCl step"
+     ],
+     "value": "150 °C"
+    },
+    {
+     "members": [
+      "HNO3 step"
+     ],
+     "value": "80 °C"
+    },
+    {
+     "members": [
+      "final uptake"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "HF-HNO3 attack: 3 h ultrasonic, 12 h, then 5 days; HNO3-HCl step: 1 day; HNO3 step: 1 day; final uptake: N",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "HF-HNO3 attack"
+     ],
+     "value": "3 h ultrasonic, 12 h, then 5 days"
+    },
+    {
+     "members": [
+      "HNO3-HCl step"
+     ],
+     "value": "1 day"
+    },
+    {
+     "members": [
+      "HNO3 step"
+     ],
+     "value": "1 day"
+    },
+    {
+     "members": [
+      "final uptake"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "Group-1: 0.5 M HNO3, DF 20,000; Group-2: 0.5 M HNO3, DF 200,000; Group-3: 0.5 M HNO3 with ~0.05 M HF, DF 20,000 — digests in 5 mL 0.5 M HNO3 at DF 1200–3400",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Group-1"
+     ],
+     "value": "0.5 M HNO3, DF 20,000"
+    },
+    {
+     "members": [
+      "Group-2"
+     ],
+     "value": "0.5 M HNO3, DF 200,000"
+    },
+    {
+     "members": [
+      "Group-3"
+     ],
+     "value": "0.5 M HNO3 with ~0.05 M HF, DF 20,000"
+    }
+   ]
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "1.478–4.325 mg per particle; 20 mg of Allende — 4%–10% aliquots for Group-1 and Group-3, 0.4 mL of the Group-1 solution for Group-2",
+   "status": "text",
+   "value": "1.478–4.325 mg per particle; 20 mg of Allende"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "113In–203Tl (Group-1, ID-IS); 49Ti; 91Zr–179Hf; 97Mo–182W (Group-3) — with enrichments and concentrations stated (Methods)",
+   "status": "text",
+   "value": "113In–203Tl (Group-1, ID-IS); 49Ti; 91Zr–179Hf; 97Mo–182W (Group-3)"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "iCAP TQ",
+   "status": "text",
+   "value": "iCAP TQ"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Triple quadrupole (ICP-MS/MS)",
+   "status": "text",
+   "value": "Triple quadrupole (ICP-MS/MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "Li, Be, Sc, Rb, Sr, Y, Ag, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Tl, Pb, Bi, Th, U: non-gas SQ mode; Ga, As, Se, Cd, In, Na, P, K, Ca: O2 mode; Mg, Al, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ti, Zr, Nb, Hf, Ta, Mo, W: He KED mode — Methods",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Li",
+      "Be",
+      "Sc",
+      "Rb",
+      "Sr",
+      "Y",
+      "Ag",
+      "Cs",
+      "Ba",
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu",
+      "Tl",
+      "Pb",
+      "Bi",
+      "Th",
+      "U"
+     ],
+     "value": "non-gas SQ mode"
+    },
+    {
+     "members": [
+      "Ga",
+      "As",
+      "Se",
+      "Cd",
+      "In",
+      "Na",
+      "P",
+      "K",
+      "Ca"
+     ],
+     "value": "O2 mode"
+    },
+    {
+     "members": [
+      "Mg",
+      "Al",
+      "V",
+      "Cr",
+      "Mn",
+      "Fe",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn",
+      "Ti",
+      "Zr",
+      "Nb",
+      "Hf",
+      "Ta",
+      "Mo",
+      "W"
+     ],
+     "value": "He KED mode"
+    }
+   ]
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Li, Be, Sc, Ga, As, Se, Rb, Sr, Y, Ag, Cd, In, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Tl, Pb, Bi, Th, U, Na, Mg, Al, P, K, Ca, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ti, Zr, Nb, Hf, Ta, Mo, W — 54 elements in three groups",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Li",
+     "parent": null
+    },
+    {
+     "member": "Be",
+     "parent": null
+    },
+    {
+     "member": "Sc",
+     "parent": null
+    },
+    {
+     "member": "Ga",
+     "parent": null
+    },
+    {
+     "member": "As",
+     "parent": null
+    },
+    {
+     "member": "Se",
+     "parent": null
+    },
+    {
+     "member": "Rb",
+     "parent": null
+    },
+    {
+     "member": "Sr",
+     "parent": null
+    },
+    {
+     "member": "Y",
+     "parent": null
+    },
+    {
+     "member": "Ag",
+     "parent": null
+    },
+    {
+     "member": "Cd",
+     "parent": null
+    },
+    {
+     "member": "In",
+     "parent": null
+    },
+    {
+     "member": "Cs",
+     "parent": null
+    },
+    {
+     "member": "Ba",
+     "parent": null
+    },
+    {
+     "member": "La",
+     "parent": null
+    },
+    {
+     "member": "Ce",
+     "parent": null
+    },
+    {
+     "member": "Pr",
+     "parent": null
+    },
+    {
+     "member": "Nd",
+     "parent": null
+    },
+    {
+     "member": "Sm",
+     "parent": null
+    },
+    {
+     "member": "Eu",
+     "parent": null
+    },
+    {
+     "member": "Gd",
+     "parent": null
+    },
+    {
+     "member": "Tb",
+     "parent": null
+    },
+    {
+     "member": "Dy",
+     "parent": null
+    },
+    {
+     "member": "Ho",
+     "parent": null
+    },
+    {
+     "member": "Er",
+     "parent": null
+    },
+    {
+     "member": "Tm",
+     "parent": null
+    },
+    {
+     "member": "Yb",
+     "parent": null
+    },
+    {
+     "member": "Lu",
+     "parent": null
+    },
+    {
+     "member": "Tl",
+     "parent": null
+    },
+    {
+     "member": "Pb",
+     "parent": null
+    },
+    {
+     "member": "Bi",
+     "parent": null
+    },
+    {
+     "member": "Th",
+     "parent": null
+    },
+    {
+     "member": "U",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "P",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "V",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "Zr",
+     "parent": null
+    },
+    {
+     "member": "Nb",
+     "parent": null
+    },
+    {
+     "member": "Hf",
+     "parent": null
+    },
+    {
+     "member": "Ta",
+     "parent": null
+    },
+    {
+     "member": "Mo",
+     "parent": null
+    },
+    {
+     "member": "W",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Li, Be, Sc, Ga, As, Se, Rb, Sr, Y, Ag, Cd, In, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Tl, Pb, Bi, Th, U, Na, Mg, Al, P, K, Ca, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ti, Zr, Nb, Hf, Mo (µg/g) — Table 1; 'Although the abundances of Ta and W were measured, the data for these elements were excluded from the results due to high blank contributions (>30%)'",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Li",
+     "parent": null
+    },
+    {
+     "member": "Be",
+     "parent": null
+    },
+    {
+     "member": "Sc",
+     "parent": null
+    },
+    {
+     "member": "Ga",
+     "parent": null
+    },
+    {
+     "member": "As",
+     "parent": null
+    },
+    {
+     "member": "Se",
+     "parent": null
+    },
+    {
+     "member": "Rb",
+     "parent": null
+    },
+    {
+     "member": "Sr",
+     "parent": null
+    },
+    {
+     "member": "Y",
+     "parent": null
+    },
+    {
+     "member": "Ag",
+     "parent": null
+    },
+    {
+     "member": "Cd",
+     "parent": null
+    },
+    {
+     "member": "In",
+     "parent": null
+    },
+    {
+     "member": "Cs",
+     "parent": null
+    },
+    {
+     "member": "Ba",
+     "parent": null
+    },
+    {
+     "member": "La",
+     "parent": null
+    },
+    {
+     "member": "Ce",
+     "parent": null
+    },
+    {
+     "member": "Pr",
+     "parent": null
+    },
+    {
+     "member": "Nd",
+     "parent": null
+    },
+    {
+     "member": "Sm",
+     "parent": null
+    },
+    {
+     "member": "Eu",
+     "parent": null
+    },
+    {
+     "member": "Gd",
+     "parent": null
+    },
+    {
+     "member": "Tb",
+     "parent": null
+    },
+    {
+     "member": "Dy",
+     "parent": null
+    },
+    {
+     "member": "Ho",
+     "parent": null
+    },
+    {
+     "member": "Er",
+     "parent": null
+    },
+    {
+     "member": "Tm",
+     "parent": null
+    },
+    {
+     "member": "Yb",
+     "parent": null
+    },
+    {
+     "member": "Lu",
+     "parent": null
+    },
+    {
+     "member": "Tl",
+     "parent": null
+    },
+    {
+     "member": "Pb",
+     "parent": null
+    },
+    {
+     "member": "Bi",
+     "parent": null
+    },
+    {
+     "member": "Th",
+     "parent": null
+    },
+    {
+     "member": "U",
+     "parent": null
+    },
+    {
+     "member": "Na",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "P",
+     "parent": null
+    },
+    {
+     "member": "K",
+     "parent": null
+    },
+    {
+     "member": "Ca",
+     "parent": null
+    },
+    {
+     "member": "V",
+     "parent": null
+    },
+    {
+     "member": "Cr",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Fe",
+     "parent": null
+    },
+    {
+     "member": "Co",
+     "parent": null
+    },
+    {
+     "member": "Ni",
+     "parent": null
+    },
+    {
+     "member": "Cu",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    },
+    {
+     "member": "Ti",
+     "parent": null
+    },
+    {
+     "member": "Zr",
+     "parent": null
+    },
+    {
+     "member": "Nb",
+     "parent": null
+    },
+    {
+     "member": "Hf",
+     "parent": null
+    },
+    {
+     "member": "Mo",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "N — the analytical masses are in the supplementary data; the spike isotopes are ¹¹³In, ²⁰³Tl, ⁴⁹Ti, ⁹¹Zr, ¹⁷⁹Hf, ⁹⁷Mo and ¹⁸²W, with ¹⁰³Rh as internal standard",
+   "status": "commentary only"
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Scans per Replicate": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Collection Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "Mg, Al, V, Cr, Mn, Fe, Co, Ni, Cu, Zn, Ti, Zr, Nb, Hf, Ta, Mo, W: He; Ga, As, Se, Cd, In, Na, P, K, Ca: O2; other: N — Group-1 otherwise in non-gas SQ mode",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Mg",
+      "Al",
+      "V",
+      "Cr",
+      "Mn",
+      "Fe",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn",
+      "Ti",
+      "Zr",
+      "Nb",
+      "Hf",
+      "Ta",
+      "Mo",
+      "W"
+     ],
+     "value": "He"
+    },
+    {
+     "members": [
+      "Ga",
+      "As",
+      "Se",
+      "Cd",
+      "In",
+      "Na",
+      "P",
+      "K",
+      "Ca"
+     ],
+     "value": "O2"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N — the O2 mode is named, not its gas role",
+   "status": "commentary only"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "Group-1: 103Rh, with the 113In–203Tl ID-IS; Group-2: 103Rh; Group-3: 91Zr and 179Hf, for Nb and Ta — Methods",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Group-1"
+     ],
+     "value": "103Rh, with the 113In–203Tl ID-IS"
+    },
+    {
+     "members": [
+      "Group-2"
+     ],
+     "value": "103Rh"
+    },
+    {
+     "members": [
+      "Group-3"
+     ],
+     "value": "91Zr and 179Hf, for Nb and Ta"
+    }
+   ]
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "Group-1; Group-2; Group-3 — the grouping of Yokoyama, Nagashima, et al. (2023), each on its own solution",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Group-1",
+     "parent": null
+    },
+    {
+     "member": "Group-2",
+     "parent": null
+    },
+    {
+     "member": "Group-3",
+     "parent": null
+    }
+   ]
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "3",
+   "status": "text",
+   "value": "3"
+  },
+  "Drift Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "Li, Be, Sc, Ga, As, Se, Rb, Sr, Y, Ag, Cd, In, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Tl, Pb, Bi, Th, U: 113In–203Tl ID-IS (Yokoyama et al. 2017); Na, Mg, Al, P, K, Ca, V, Cr, Mn, Fe, Co, Ni, Cu, Zn: calibration curve with 103Rh internal standardisation; Ti, Zr, Mo, Hf, W: isotope dilution; Nb, Ta: ID-IS with 91Zr and 179Hf — Methods; Kagami and Yokoyama (2021) for Group-3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Li",
+      "Be",
+      "Sc",
+      "Ga",
+      "As",
+      "Se",
+      "Rb",
+      "Sr",
+      "Y",
+      "Ag",
+      "Cd",
+      "In",
+      "Cs",
+      "Ba",
+      "La",
+      "Ce",
+      "Pr",
+      "Nd",
+      "Sm",
+      "Eu",
+      "Gd",
+      "Tb",
+      "Dy",
+      "Ho",
+      "Er",
+      "Tm",
+      "Yb",
+      "Lu",
+      "Tl",
+      "Pb",
+      "Bi",
+      "Th",
+      "U"
+     ],
+     "value": "113In–203Tl ID-IS (Yokoyama et al. 2017)"
+    },
+    {
+     "members": [
+      "Na",
+      "Mg",
+      "Al",
+      "P",
+      "K",
+      "Ca",
+      "V",
+      "Cr",
+      "Mn",
+      "Fe",
+      "Co",
+      "Ni",
+      "Cu",
+      "Zn"
+     ],
+     "value": "calibration curve with 103Rh internal standardisation"
+    },
+    {
+     "members": [
+      "Ti",
+      "Zr",
+      "Mo",
+      "Hf",
+      "W"
+     ],
+     "value": "isotope dilution"
+    },
+    {
+     "members": [
+      "Nb",
+      "Ta"
+     ],
+     "value": "ID-IS with 91Zr and 179Hf"
+    }
+   ]
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "ID-IS of Yokoyama et al. (2017) for Group-1 and of Kagami and Yokoyama (2021) for Group-3, isotope dilution for Ti, Zr, Mo, Hf and W",
+   "status": "text",
+   "value": "ID-IS of Yokoyama et al. (2017) for Group-1 and of Kagami and Yokoyama (2021) for Group-3, isotope dilution for Ti, Zr, Mo, Hf and W"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "2σ — Table 1",
+   "status": "text",
+   "value": "2σ"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N — no rule for admitting or rejecting individual results is stated. The exclusion of Ta and W is a decision about which elements are reported, not about which results enter an aggregate, and is recorded under Reported Variables and Units",
+   "status": "commentary only"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average of the replicates (n = 5) for the Allende powder, and the average of the eight Ryugu particles — 'The average abundance of the eight samples aligns within 20% of the average CI composition'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average of the replicates (n = 5) for the Allende powder, and the average of the eight Ryugu particles"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [Li, Be, Sc, Ga, As, Se, Rb, Sr, Y, Ag, Cd, In, Cs, Ba, La, Ce, Pr, Nd, Sm, Eu, Gd, Tb, Dy, Ho, Er, Tm, Yb, Lu, Tl, Pb, Bi, Th, U: XSTC-13 and XSTC-1 (SPEX CertiPrep); Na, Mg, Al, P, K, Ca, V, Cr, Mn, Fe, Co, Ni, Cu, Zn: XSTC-13 and a custom P-Ca solution from single-element standards (Fujifilm-Wako); Ti, Zr, Nb, Hf, Ta, Mo, W: MISA05-1 (AccuStandard)] — Methods",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "Li",
+        "Be",
+        "Sc",
+        "Ga",
+        "As",
+        "Se",
+        "Rb",
+        "Sr",
+        "Y",
+        "Ag",
+        "Cd",
+        "In",
+        "Cs",
+        "Ba",
+        "La",
+        "Ce",
+        "Pr",
+        "Nd",
+        "Sm",
+        "Eu",
+        "Gd",
+        "Tb",
+        "Dy",
+        "Ho",
+        "Er",
+        "Tm",
+        "Yb",
+        "Lu",
+        "Tl",
+        "Pb",
+        "Bi",
+        "Th",
+        "U"
+       ],
+       "value": "XSTC-13 and XSTC-1 (SPEX CertiPrep)"
+      },
+      {
+       "members": [
+        "Na",
+        "Mg",
+        "Al",
+        "P",
+        "K",
+        "Ca",
+        "V",
+        "Cr",
+        "Mn",
+        "Fe",
+        "Co",
+        "Ni",
+        "Cu",
+        "Zn"
+       ],
+       "value": "XSTC-13 and a custom P-Ca solution from single-element standards (Fujifilm-Wako)"
+      },
+      {
+       "members": [
+        "Ti",
+        "Zr",
+        "Nb",
+        "Hf",
+        "Ta",
+        "Mo",
+        "W"
+       ],
+       "value": "MISA05-1 (AccuStandard)"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "Smithsonian Allende powder — 20 mg, dissolved and measured under the same procedure, n = 5",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Smithsonian Allende powder",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N — the Allende replicate averages and uncertainties are in the supplementary materials",
+   "status": "commentary only"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Group-1 dilution made after at least 30 min ultrasonic homogenisation 'to avoid elemental fractionation in the solution'; 175 µL of 100 ng/g Rh added as internal standard — Methods",
+   "status": "text",
+   "value": "Group-1 dilution made after at least 30 min ultrasonic homogenisation 'to avoid elemental fractionation in the solution'; 175 µL of 100 ng/g Rh added as internal standard"
+  }
+ }
+}

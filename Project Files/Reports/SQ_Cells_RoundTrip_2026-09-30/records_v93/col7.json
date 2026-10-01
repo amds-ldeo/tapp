@@ -1,0 +1,622 @@
+{
+ "procedure_column": "GilDiaz+etal2020 | Thermo iCAP-TQ | lab not stated",
+ "tapp": "Solution_Q-ICP-MS_TAPP_v93",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution Q-ICP-MS (triple-quadrupole platform)",
+   "status": "text",
+   "value": "Solution Q-ICP-MS (triple-quadrupole platform)"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "N — instrument given as 'iCAP-TQ, Thermo' with no laboratory stated",
+   "status": "commentary only"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Estuarine sediment — total digestions and selective extraction fractions",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Estuarine sediment",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Weighed sediment aliquot — 30 mg for tri-acid digestion; 200-500 mg per selective extraction fraction",
+   "status": "text",
+   "value": "Weighed sediment aliquot"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Dried at 50 C and homogenised in an agate mortar before microwave digestion",
+   "status": "text",
+   "value": "Dried at 50 C and homogenised in an agate mortar before microwave digestion"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "Tri-acid HNO3+HCl+HF: 750 uL HNO3 (14M), 1.5 mL HCl (10M), 2.5 mL HF (29M); re-dissolved in 250 uL HNO3. Microwave route for Se: 3 mL HNO3, 0.5 mL H2O2, 0.25 mL HF, 0.5 mL Milli-Q",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Tri-acid HNO3+HCl+HF"
+     ],
+     "value": "750 uL HNO3 (14M), 1.5 mL HCl (10M), 2.5 mL HF (29M)"
+    },
+    {
+     "members": [
+      "re-dissolved in 250 uL HNO3. Microwave route for Se"
+     ],
+     "value": "3 mL HNO3, 0.5 mL H2O2, 0.25 mL HF, 0.5 mL Milli-Q"
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "Closed PP tubes (DigiTUBEs, SCP Science) on a heating block; PTFE vessels for evaporation; microwave START1500 (MLS GmbH)",
+   "status": "text",
+   "value": "Closed PP tubes (DigiTUBEs, SCP Science) on a heating block; PTFE vessels for evaporation; microwave START1500 (MLS GmbH)"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "Te route (tri-acid), 1: 750 uL HNO3 (14 M) + 1.5 ml HCl (10 M) + 2.5 ml HF (29 M) in closed PP tubes on a heating block, 2 h at 110 deg C | 2: evaporation at 120 deg C then re-dissolution in 250 uL HNO3 (14 M) with heating; brought to 10 ml with Milli-Q. Se route (microwave-assisted), 1: 3 ml HNO3 + 0.5 ml H2O2 + 0.25 ml HF, ramp to 210 deg C held 10 min -- Se is volatile above 70 deg C and is not compatible with the tri-acid route.",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "Te route",
+     "parent": null
+    },
+    {
+     "member": "1: 750 uL HNO3 (14 M) + 1.5 ml HCl (10 M) + 2.5 ml HF (29 M) in closed PP tubes on a heating block",
+     "parent": null
+    },
+    {
+     "member": "2 h at 110 deg C | 2: evaporation at 120 deg C then re-dissolution in 250 uL HNO3 (14 M) with heating",
+     "parent": null
+    },
+    {
+     "member": "brought to 10 ml with Milli-Q. Se route",
+     "parent": null
+    },
+    {
+     "member": "1: 3 ml HNO3 + 0.5 ml H2O2 + 0.25 ml HF",
+     "parent": null
+    },
+    {
+     "member": "ramp to 210 deg C held 10 min -- Se is volatile above 70 deg C and is not compatible with the tri-acid route.",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "110 C on the heating block; evaporation at 120 C; microwave ramp to 210 C held 10 min; evaporation at 70 C",
+   "status": "unparsed",
+   "value": []
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "2 h at 110 C; microwave 10 min at 210 C then cooling overnight",
+   "status": "unparsed",
+   "value": []
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "Made up to 10 mL with Milli-Q water (18.2 MOhm); Se route made up to 6 mL",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "30 mg (tri-acid) and 40-50 mg (microwave)",
+   "status": "text",
+   "value": "30 mg (tri-acid) and 40-50 mg (microwave)"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "No — sequential selective extractions (acetate, ascorbate, H2O2, HCl/HNO3) rather than chromatography",
+   "status": "text",
+   "value": "No"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Thermo Fisher Scientific",
+   "status": "text",
+   "value": "Thermo Fisher Scientific"
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "iCAP-TQ",
+   "status": "text",
+   "value": "iCAP-TQ"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Triple quadrupole (ICP-MS/MS)",
+   "status": "text",
+   "value": "Triple quadrupole (ICP-MS/MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "Per analyte: KED (He) for 126Te; ICP-MS/MS O2 mass-shift mode for spiked/experimental 125Te",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Per analyte"
+     ],
+     "value": "KED (He) for 126Te"
+    }
+   ]
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous)",
+   "status": "text",
+   "value": "Solution nebulisation (continuous)"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Te",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Te",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Particulate Te concentration (mg kg-1)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Particulate Te concentration",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "125Te and 126Te (and their O-shifted products)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "125Te and 126Te",
+     "parent": null
+    }
+   ]
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Scans per Replicate": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Signal Collection Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "He for KED; O2 for the mass-shift mode",
+   "status": "unparsed",
+   "value": []
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "O2 (for the 125Te mass-shift mode)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "125Te + 16O -> 141TeO (mass-shift O2 mode); 126Te measured on-mass in KED",
+   "status": "unparsed",
+   "value": []
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Drift Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "External calibration",
+   "status": "unparsed",
+   "value": []
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Yes — 86Sr40Ar, 110Cd16O and 110Pd16O on 126Te, and 126Xe from the acid blank",
+   "status": "text",
+   "value": "Yes"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "86Sr40Ar, 110Cd16O, 110Pd16O on 126Te; 126Xe from 2% HNO3 analytical blanks",
+   "status": "unparsed",
+   "value": []
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "Corrections established with respective monoelemental solutions, each influencing <0.1% (Filella and Rodushkin, 2018)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "Mean +/- SD",
+   "status": "text",
+   "value": "Mean +/- SD"
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "NCS 73307 stream sediment",
+   "status": "structured",
+   "value": [
+    {
+     "member": "NCS 73307 stream sediment",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "LOD 0.1 ng L-1 (N = 10); selective-extraction Te concentrations 5-fold (F2) to 200-fold (F4) above LOD",
+   "status": "unparsed",
+   "value": []
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "Recoveries: NIST 1643f 95 +/- 5% (N = 5) in KED mode and 89 +/- 10% (N = 5) in O2 mode; NCS 73307 99 +/- 14% (N = 4) in KED and 70 +/- 19% (N = 4) in O2 mode",
+   "status": "unparsed",
+   "value": []
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  }
+ }
+}

@@ -1,0 +1,1072 @@
+{
+ "procedure_column": "Yu+etal2005 | PerkinElmer ELAN DRC II | Univ Cambridge",
+ "tapp": "Solution_Q-ICP-MS_TAPP_v94",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution Q-ICP-MS",
+   "status": "text",
+   "value": "Solution Q-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "University of Cambridge (affiliation)",
+   "status": "text",
+   "value": "University of Cambridge (affiliation)"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "ICP-AES (for initial [Ca] determination; stated section 2)",
+   "status": "text",
+   "value": "ICP-AES (for initial [Ca] determination; stated section 2)"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "ICP-AES measured initial Ca concentration; sample then diluted to 100 ppm Ca for Q-ICP-MS analysis; ICP-AES performed first (stated section 2)",
+   "status": "text",
+   "value": "ICP-AES measured initial Ca concentration; sample then diluted to 100 ppm Ca for Q-ICP-MS analysis; ICP-AES performed first (stated section 2)"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "foraminiferal calcite — core-top Cibicidoides wuellerstorfi from the north Atlantic Ocean (§4)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "foraminiferal calcite",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)",
+   "status": "text",
+   "value": "Aliquot of dissolved foraminiferal calcite -- \"Ten to twenty individual foraminifera tests were handpicked\"; cleaned samples \"dissolved in 200 ul 0.075M HNO3\", then split (20 ul for [Ca] by ICP-AES, remainder for ICP-MS)"
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Ten to twenty tests handpicked, crushed gently, cleaned of clays (water, methanol) and silicates, reductively and oxidatively cleaned, rinsed twice in 0.001 M HNO3 and dissolved in 200 µl 0.075 M HNO3. 20 µl diluted for Ca by ICP-AES, the remainder diluted to 100 ppm Ca — §2",
+   "status": "text",
+   "value": "Ten to twenty tests handpicked, crushed gently, cleaned of clays (water, methanol) and silicates, reductively and oxidatively cleaned, rinsed twice in 0.001 M HNO3 and dissolved in 200 µl 0.075 M HNO3. 20 µl diluted for Ca by ICP-AES, the remainder diluted to 100 ppm Ca"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "dissolution: 0.075 M HNO3 — §2",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "dissolution"
+     ],
+     "value": "0.075 M HNO3"
+    }
+   ]
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "dissolution (200 µl 0.075 M HNO3) — §2; the paper does not call it a digestion",
+   "status": "structured",
+   "value": [
+    {
+     "member": "dissolution",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "all: 0.075 M HNO3 at 100 ppm Ca — §2; working standards diluted with the same acid",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "0.075 M HNO3 at 100 ppm Ca"
+    }
+   ]
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "Ten to twenty tests, about 300 µg of shells — §2; one measurement uses 250 µl at 100 ppm Ca, equivalent to 60 µg calcite",
+   "status": "text",
+   "value": "Ten to twenty tests, about 300 µg of shells"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "None",
+   "status": "text",
+   "value": "None"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "None",
+   "status": "text",
+   "value": "None"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "PerkinElmer -- \"a Perkin-Elmer Elan DRC II instrument\"",
+   "status": "text",
+   "value": "PerkinElmer -- \"a Perkin-Elmer Elan DRC II instrument\""
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "PerkinElmer Elan DRC II (stated section 2 and Table 1)",
+   "status": "text",
+   "value": "PerkinElmer Elan DRC II (stated section 2 and Table 1)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Single-collector quadrupole (Q-ICP-MS)",
+   "status": "text",
+   "value": "Single-collector quadrupole (Q-ICP-MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N — an Elan DRC II; no cell gas or cell mode is described",
+   "status": "commentary only"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "Pulse counting for all isotopes — Table 1; 'We determined all isotopes using pulse mode to avoid the need for cross calibration' (§3.1)",
+   "status": "text",
+   "value": "Pulse counting for all isotopes"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "Glass Expansion Micromist FM005 (stated section 2 and Table 1)",
+   "status": "text",
+   "value": "Glass Expansion Micromist FM005 (stated section 2 and Table 1)"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "Cyclonic quartz spray chamber (stated Table 1)",
+   "status": "text",
+   "value": "Cyclonic quartz spray chamber (stated Table 1)"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "~60 uL/min (stated Table 1; 0.03 mm ID pump tubing)",
+   "status": "text",
+   "value": "~60 uL/min (stated Table 1; 0.03 mm ID pump tubing)"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler",
+   "status": "text",
+   "value": "Solution nebulisation (continuous) -- quartz cyclonic spray chamber and \"glass micro-concentric nebulizer Micromist FM005 ... producing an uptake rate of ~60 ul/min at a pump rate of 12 rpm\"; Cetac ASX100 autosampler"
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "1300 W (Table 1)",
+   "status": "text",
+   "value": "1300 W (Table 1)"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "15 L/min (Table 1)",
+   "status": "text",
+   "value": "15 L/min (Table 1)"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "1.2 L/min (Table 1)",
+   "status": "text",
+   "value": "1.2 L/min (Table 1)"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "0.99-1.02 L/min (Table 1)",
+   "status": "text",
+   "value": "0.99-1.02 L/min (Table 1)"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N — RF power 1300 W (Table 1)",
+   "status": "commentary only"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "\"The instrument sensitivity was optimized daily using a 10 ppb Mg-In-U standard\"; \"Plasma robustness was monitored by constraining CeO/Ce ratio within 3% to refrain formation of polyatomic oxides\"",
+   "status": "text",
+   "value": "\"The instrument sensitivity was optimized daily using a 10 ppb Mg-In-U standard\"; \"Plasma robustness was monitored by constraining CeO/Ce ratio within 3% to refrain formation of polyatomic oxides\""
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "Cone conditioning with pure Ca solution (100 ppm) for 0.5–1 hours before optimisation — §3.4; blanks stable over a typical run of ~5 hr (§3.2)",
+   "status": "text",
+   "value": "Cone conditioning with pure Ca solution (100 ppm) for 0.5–1 hours before optimisation"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Li, B, Mg, Al, Mn, Zn, Sr, Cd, U — as element/Ca ratios; Ca is the denominator",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Li",
+     "parent": null
+    },
+    {
+     "member": "B",
+     "parent": null
+    },
+    {
+     "member": "Mg",
+     "parent": null
+    },
+    {
+     "member": "Al",
+     "parent": null
+    },
+    {
+     "member": "Mn",
+     "parent": null
+    },
+    {
+     "member": "Zn",
+     "parent": null
+    },
+    {
+     "member": "Sr",
+     "parent": null
+    },
+    {
+     "member": "Cd",
+     "parent": null
+    },
+    {
+     "member": "U",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Li/Ca, B/Ca, Mn/Ca, Zn/Ca, Cd/Ca (µmol/mol); Mg/Ca, Sr/Ca, Al/Ca (mmol/mol); U/Ca (nmol/mol) — Table 2 note a",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Li/Ca",
+     "parent": null
+    },
+    {
+     "member": "B/Ca",
+     "parent": null
+    },
+    {
+     "member": "Mn/Ca",
+     "parent": null
+    },
+    {
+     "member": "Zn/Ca",
+     "parent": null
+    },
+    {
+     "member": "Cd/Ca",
+     "parent": null
+    },
+    {
+     "member": "Mg/Ca",
+     "parent": null
+    },
+    {
+     "member": "Sr/Ca",
+     "parent": null
+    },
+    {
+     "member": "Al/Ca",
+     "parent": null
+    },
+    {
+     "member": "U/Ca",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "7Li → Li; 11B → B; 25Mg → Mg; 46Ca → none; 27Al → Al; 55Mn → Mn; 66Zn → Zn; 87Sr → Sr; 111Cd → Cd; 238U → U — Table 1; ⁴⁶Ca for its low abundance, ¹¹¹Cd to avoid Sn on ¹¹²Cd and ¹¹⁴Cd (§3.1, §3.3)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "7Li",
+     "parent": "Li"
+    },
+    {
+     "member": "11B",
+     "parent": "B"
+    },
+    {
+     "member": "25Mg",
+     "parent": "Mg"
+    },
+    {
+     "member": "46Ca",
+     "parent": "none"
+    },
+    {
+     "member": "27Al",
+     "parent": "Al"
+    },
+    {
+     "member": "55Mn",
+     "parent": "Mn"
+    },
+    {
+     "member": "66Zn",
+     "parent": "Zn"
+    },
+    {
+     "member": "87Sr",
+     "parent": "Sr"
+    },
+    {
+     "member": "111Cd",
+     "parent": "Cd"
+    },
+    {
+     "member": "238U",
+     "parent": "U"
+    }
+   ]
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "7Li: 10 ms; 11B: 10 ms; 25Mg: 0.5 ms; 46Ca: 2 ms; 27Al: 0.5 ms; 55Mn: 0.5 ms; 66Zn: 5 ms; 87Sr: 0.5 ms; 111Cd: 60 ms; 238U: 20 ms — ms/amu (Table 1)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "7Li"
+     ],
+     "value": "10 ms"
+    },
+    {
+     "members": [
+      "11B"
+     ],
+     "value": "10 ms"
+    },
+    {
+     "members": [
+      "25Mg"
+     ],
+     "value": "0.5 ms"
+    },
+    {
+     "members": [
+      "46Ca"
+     ],
+     "value": "2 ms"
+    },
+    {
+     "members": [
+      "27Al"
+     ],
+     "value": "0.5 ms"
+    },
+    {
+     "members": [
+      "55Mn"
+     ],
+     "value": "0.5 ms"
+    },
+    {
+     "members": [
+      "66Zn"
+     ],
+     "value": "5 ms"
+    },
+    {
+     "members": [
+      "87Sr"
+     ],
+     "value": "0.5 ms"
+    },
+    {
+     "members": [
+      "111Cd"
+     ],
+     "value": "60 ms"
+    },
+    {
+     "members": [
+      "238U"
+     ],
+     "value": "20 ms"
+    }
+   ]
+  },
+  "Number of Scans per Replicate": {
+   "key": "acquisition pass",
+   "cell": "all: 250 sweeps per reading, 1 reading per replicate — Table 1",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "250 sweeps per reading, 1 reading per replicate"
+    }
+   ]
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "6 — Table 1",
+   "status": "text",
+   "value": "6"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "8 external calibration standards, then 50–80 samples interspersed with drift correction standards every 3 samples — 6–10 hours (§3.4)",
+   "status": "text",
+   "value": "8 external calibration standards, then 50–80 samples interspersed with drift correction standards every 3 samples"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": "60 s — Table 1; uptake time 65 s",
+   "status": "text",
+   "value": "60 s"
+  },
+  "Signal Collection Mode": {
+   "key": "(none)",
+   "cell": "Peak hopping — Table 1",
+   "status": "text",
+   "value": "Peak hopping"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "all: none — element/Ca intensity ratios against matrix-matched external standards (§3)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "none"
+    }
+   ]
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "CeO/Ce within 3% — 'Plasma robustness was monitored by constraining CeO/Ce ratio within 3%' (§2)",
+   "status": "text",
+   "value": "CeO/Ce within 3%"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Drift Correction Method": {
+   "key": "(none)",
+   "cell": "Drift monitors of intermediate concentration every 3 samples, corrected off-line by linear interpolation between two consecutive monitors — §3.4",
+   "status": "text",
+   "value": "Drift monitors of intermediate concentration every 3 samples, corrected off-line by linear interpolation between two consecutive monitors"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "all: external matrix-matched standards at 100 ppm Ca, element/Ca intensity ratios on 8-point linear calibration lines — R² usually > 0.999 (§3.4)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "external matrix-matched standards at 100 ppm Ca, element/Ca intensity ratios on 8-point linear calibration lines"
+    }
+   ]
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "Average blank subtracted from the average raw intensities of 6 replicate scans — blanks in the same acid as used for dissolution and dilution (§3.2)",
+   "status": "text",
+   "value": "Average blank subtracted from the average raw intensities of 6 replicate scans"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N/A — all isotopes in pulse mode 'to avoid the need for cross calibration' (§3.1)",
+   "status": "not applicable"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Y — ⁴⁰Ar²⁶Mg on ⁶⁶Zn corrected off-line; ⁷Li¹⁸O, ⁴⁶Ti and ⁸⁷Rb found insignificant; HNO3 polyatomics on ⁶⁶Zn negligible (§3.3)",
+   "status": "text",
+   "value": "Y"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "25Mg: 7Li18O; 46Ca: 46Ti; 66Zn: 40Ar26Mg and 1H2 14N 18O 16O2+; 87Sr: 87Rb; other: N — Table 1 note c",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "25Mg"
+     ],
+     "value": "7Li18O"
+    },
+    {
+     "members": [
+      "46Ca"
+     ],
+     "value": "46Ti"
+    },
+    {
+     "members": [
+      "66Zn"
+     ],
+     "value": "40Ar26Mg and 1H2 14N 18O 16O2+"
+    },
+    {
+     "members": [
+      "87Sr"
+     ],
+     "value": "87Rb"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "66Zn: off-line correction, 66Zn/46Ca corrected = measured − CF × 25Mg/46Ca measured, with CF = (K1 − K2)/(K3 − K4) from the slopes of Mg and Zn serial standards; 25Mg, 46Ca, 87Sr: none, found insignificant; other: N — Eqs 1–2, §3.3",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "66Zn"
+     ],
+     "value": "off-line correction, 66Zn/46Ca corrected = measured − CF × 25Mg/46Ca measured, with CF = (K1 − K2)/(K3 − K4) from the slopes of Mg and Zn serial standards"
+    },
+    {
+     "members": [
+      "25Mg",
+      "46Ca",
+      "87Sr"
+     ],
+     "value": "none, found insignificant"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "N"
+    }
+   ]
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "None",
+   "status": "text",
+   "value": "None"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": "Longer washout and uptake times for B, and a quartz spray chamber to reduce B blanks — §2, §3.2",
+   "status": "text",
+   "value": "Longer washout and uptake times for B, and a quartz spray chamber to reduce B blanks"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "RSD% -- \"RSD% (relative standard deviation) = [SD of measurements/average ratio]*100%\"",
+   "status": "text",
+   "value": "RSD% -- \"RSD% (relative standard deviation) = [SD of measurements/average ratio]*100%\""
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "Zn/Ca: argide correction factor CF calculated daily from one Mg and one Zn standard, typically ~0.002; other: slopes and intercepts of the calibration lines — §3.3, §3.4",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Zn/Ca"
+     ],
+     "value": "argide correction factor CF calculated daily from one Mg and one Zn standard, typically ~0.002"
+    },
+    {
+     "members": [
+      "other"
+     ],
+     "value": "slopes and intercepts of the calibration lines"
+    }
+   ]
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially -- number of replicate analyses stated per ratio (n = 120, 88, 32, 70, 50). No acceptance or rejection rule stated",
+   "status": "text",
+   "value": "Partially -- number of replicate analyses stated per ratio (n = 120, 88, 32, 70, 50). No acceptance or rejection rule stated"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average of n replicate analyses of each standard — Table 2 notes",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average of n replicate analyses of each standard"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "Natural isotopic abundances used to select isotopes and derive correction factors: the Li standard \"was artificially depleted of 7Li (92.32% vs 92.48% for natural)\"; \"The natural abundance of 11B (80.17%) is also different from values of foraminiferal samples which are expected to be 80.40-80.43% if assumed to have d11B ratios of 25-27 permil\", giving \"correction factors (0.9983 for Li and 0.9968-0.9971 for B)\"; 111Cd 12.8%, 112Cd 24.1%, 114Cd 28.7%, 238U 99.3%",
+   "status": "text",
+   "value": "Natural isotopic abundances used to select isotopes and derive correction factors: the Li standard \"was artificially depleted of 7Li (92.32% vs 92.48% for natural)\"; \"The natural abundance of 11B (80.17%) is also different from values of foraminiferal samples which are expected to be 80.40-80.43% if assumed to have d11B ratios of 25-27 permil\", giving \"correction factors (0.9983 for Li and 0.9968-0.9971 for B)\"; 111Cd 12.8%, 112Cd 24.1%, 114Cd 28.7%, 238U 99.3%"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "all [all: gravimetric multielement stock standards, a 10,000 µg/ml Ca standard spiked with certified 1,000 µg/ml Li, B, Al, Mn, Zn, Sr, Cd and U solutions, diluted with 0.075 M HNO3 to 100 ppm Ca] — §2; minor elements in the Ca standard measured by ICP-AES",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "all"
+       ],
+       "value": "gravimetric multielement stock standards, a 10,000 µg/ml Ca standard spiked with certified 1,000 µg/ml Li, B, Al, Mn, Zn, Sr, Cd and U solutions, diluted with 0.075 M HNO3 to 100 ppm Ca"
+      }
+     ]
+    }
+   ]
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "8 calibration standards per run, drift monitors every 3 samples — §3.4",
+   "status": "text",
+   "value": "8 calibration standards per run, drift monitors every 3 samples"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "N — precision and accuracy are assessed on external standards of known ratio (Table 2); core-top results are compared with published data (Table 4)",
+   "status": "commentary only"
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "Li/Ca: 0.5; B/Ca: 15; Mg/Ca: 0.03; Al/Ca: 0.05; Mn/Ca: 0.3; Zn/Ca: 0.05; Sr/Ca: 0.02; Cd/Ca: 0.005; U/Ca: 0.5 — in the units of the ratio (Table 2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "Li/Ca"
+     ],
+     "value": "0.5"
+    },
+    {
+     "members": [
+      "B/Ca"
+     ],
+     "value": "15"
+    },
+    {
+     "members": [
+      "Mg/Ca"
+     ],
+     "value": "0.03"
+    },
+    {
+     "members": [
+      "Al/Ca"
+     ],
+     "value": "0.05"
+    },
+    {
+     "members": [
+      "Mn/Ca"
+     ],
+     "value": "0.3"
+    },
+    {
+     "members": [
+      "Zn/Ca"
+     ],
+     "value": "0.05"
+    },
+    {
+     "members": [
+      "Sr/Ca"
+     ],
+     "value": "0.02"
+    },
+    {
+     "members": [
+      "Cd/Ca"
+     ],
+     "value": "0.005"
+    },
+    {
+     "members": [
+      "U/Ca"
+     ],
+     "value": "0.5"
+    }
+   ]
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "all: 3 × SD/m, with SD of several measurements of a sample whose ratio is close to the blank and m the calibration slope — Table 2 note b",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "3 × SD/m, with SD of several measurements of a sample whose ratio is close to the blank and m the calibration slope"
+    }
+   ]
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "all [Li/Ca: 2.42%; B/Ca: 4.17%; Mg/Ca: 1.39%; Al/Ca: 14.06%; Mn/Ca: 0.93%; Zn/Ca: 2.83% (1.2–7.8), 5.05% (0.5–1.2); Sr/Ca: 0.92%; Cd/Ca: 2.37% (0.07–0.24), 4.80% (0.01–0.07); U/Ca: 2.54%] — RSD of external standards over three months, n = 120 except Zn/Ca 88 and 32, Cd/Ca 50 and 70 (Table 2, §3.6)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "Li/Ca"
+       ],
+       "value": "2.42%"
+      },
+      {
+       "members": [
+        "B/Ca"
+       ],
+       "value": "4.17%"
+      },
+      {
+       "members": [
+        "Mg/Ca"
+       ],
+       "value": "1.39%"
+      },
+      {
+       "members": [
+        "Al/Ca"
+       ],
+       "value": "14.06%"
+      },
+      {
+       "members": [
+        "Mn/Ca"
+       ],
+       "value": "0.93%"
+      },
+      {
+       "members": [
+        "Zn/Ca"
+       ],
+       "value": "2.83% (1.2–7.8), 5.05% (0.5–1.2)"
+      },
+      {
+       "members": [
+        "Sr/Ca"
+       ],
+       "value": "0.92%"
+      },
+      {
+       "members": [
+        "Cd/Ca"
+       ],
+       "value": "2.37% (0.07–0.24), 4.80% (0.01–0.07)"
+      },
+      {
+       "members": [
+        "U/Ca"
+       ],
+       "value": "2.54%"
+      }
+     ]
+    }
+   ]
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "all [Li/Ca: 0.39%; B/Ca: 2.57%; Mg/Ca: 0.61%; Al/Ca: 9.30%; Mn/Ca: 0.23%; Zn/Ca: 0.82% (1.2–7.8), 1.69% (0.5–1.2); Sr/Ca: 0.34%; Cd/Ca: 0.93% (0.07–0.24), 0.80% (0.01–0.07); U/Ca: 1.09%] — Acc.% = (average measured − true)/true × 100 on external standards (Table 2)",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": [
+      {
+       "members": [
+        "Li/Ca"
+       ],
+       "value": "0.39%"
+      },
+      {
+       "members": [
+        "B/Ca"
+       ],
+       "value": "2.57%"
+      },
+      {
+       "members": [
+        "Mg/Ca"
+       ],
+       "value": "0.61%"
+      },
+      {
+       "members": [
+        "Al/Ca"
+       ],
+       "value": "9.30%"
+      },
+      {
+       "members": [
+        "Mn/Ca"
+       ],
+       "value": "0.23%"
+      },
+      {
+       "members": [
+        "Zn/Ca"
+       ],
+       "value": "0.82% (1.2–7.8), 1.69% (0.5–1.2)"
+      },
+      {
+       "members": [
+        "Sr/Ca"
+       ],
+       "value": "0.34%"
+      },
+      {
+       "members": [
+        "Cd/Ca"
+       ],
+       "value": "0.93% (0.07–0.24), 0.80% (0.01–0.07)"
+      },
+      {
+       "members": [
+        "U/Ca"
+       ],
+       "value": "1.09%"
+      }
+     ]
+    }
+   ]
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Cetac ASX-100 autosampler; auto lens on; 0.03 mm ID pump tubing at 12 rpm; Ca matrix effects tested over 60–240 ppm Ca (Table 1, §2, §3.5)",
+   "status": "text",
+   "value": "Cetac ASX-100 autosampler; auto lens on; 0.03 mm ID pump tubing at 12 rpm; Ca matrix effects tested over 60–240 ppm Ca (Table 1, §2, §3.5)"
+  }
+ }
+}

@@ -1,0 +1,733 @@
+{
+ "procedure_column": "Makishima+etal2011 | Agilent 7500cs | PML Okayama",
+ "tapp": "Solution_Q-ICP-MS_TAPP_v93",
+ "fields": {
+  "Procedure Name": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Technique": {
+   "key": "(none)",
+   "cell": "Solution Q-ICP-MS",
+   "status": "text",
+   "value": "Solution Q-ICP-MS"
+  },
+  "Procedure Author": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Laboratory": {
+   "key": "(none)",
+   "cell": "Pheasant Memorial Laboratory (PML) for Geochemistry and Cosmochemistry, Okayama University (affiliation)",
+   "status": "text",
+   "value": "Pheasant Memorial Laboratory (PML) for Geochemistry and Cosmochemistry, Okayama University (affiliation)"
+  },
+  "Laboratory ID": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Start Date": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Funding Source for Procedure Development": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Procedure Reference(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupled Technique(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coupling Description": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Material": {
+   "key": "defines: target material",
+   "cell": "Silicate reference materials (basalt, andesite, peridotite), NIST SRM glasses, carbonaceous chondrites (stated section 2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Silicate reference materials",
+     "parent": null
+    },
+    {
+     "member": "NIST SRM glasses",
+     "parent": null
+    },
+    {
+     "member": "carbonaceous chondrites",
+     "parent": null
+    }
+   ]
+  },
+  "Sampling Unit Type": {
+   "key": "(none)",
+   "cell": "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\"",
+   "status": "text",
+   "value": "Test portion / solution aliquot -- \"The amount of test portion used was 15-42 mg for basalt and andesite samples, and 30-63 mg for peridotite samples\"; NIST glasses \"a few grains totalling 8-22 mg were used in one analysis\"; \"the same sample solution aliquot\""
+  },
+  "Sample Preparation Method": {
+   "key": "sample",
+   "cell": "Whole-rock powder or glass chips (stated section 2)",
+   "status": "text",
+   "value": "Whole-rock powder or glass chips (stated section 2)"
+  },
+  "Digestion Acid(s)": {
+   "key": "preparation step",
+   "cell": "HF + HClO4 (basalt/glass, ultrasonic); HF alone in TFE bomb (peridotite/chondrite; stated section 2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Digestion Vessel Type": {
+   "key": "(none)",
+   "cell": "Ultrasonic bath (basalt/glass); TFE bomb at 245 deg C (peridotite/chondrite; stated section 2)",
+   "status": "text",
+   "value": "Ultrasonic bath (basalt/glass); TFE bomb at 245 deg C (peridotite/chondrite; stated section 2)"
+  },
+  "Digestion Step": {
+   "key": "defines: preparation step",
+   "cell": "Basalts, andesites and NIST SRM 612/614/616, 1: HF-HClO4 with the Sm spike in an ultrasonic bath, then dried to decompose fluorides; final uptake in 0.5 mol/l HNO3. Peridotites and carbonaceous chondrites, 1: HF with the Sm spike in a TFE bomb at 245 deg C | 2: dried with HClO4; final uptake in 0.5 mol/l HNO3.",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "Basalts",
+     "parent": null
+    },
+    {
+     "member": "andesites and NIST SRM 612/614/616",
+     "parent": null
+    },
+    {
+     "member": "1: HF-HClO4 with the Sm spike in an ultrasonic bath",
+     "parent": null
+    },
+    {
+     "member": "then dried to decompose fluorides",
+     "parent": null
+    },
+    {
+     "member": "final uptake in 0.5 mol/l HNO3. Peridotites and carbonaceous chondrites",
+     "parent": null
+    },
+    {
+     "member": "1: HF with the Sm spike in a TFE bomb at 245 deg C | 2: dried with HClO4",
+     "parent": null
+    },
+    {
+     "member": "final uptake in 0.5 mol/l HNO3.",
+     "parent": null
+    }
+   ]
+  },
+  "Digestion Temperature": {
+   "key": "preparation step",
+   "cell": "Ambient for ultrasonic; 245 deg C for TFE bomb (stated section 2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Digestion Duration": {
+   "key": "preparation step",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Final Solution Matrix": {
+   "key": "acquisition pass",
+   "cell": "0.5 mol/l HNO3 (stated section 2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Sample Aliquot Mass or Volume": {
+   "key": "sample",
+   "cell": "15-63 mg (silicates); 8-22 mg (NIST glass); 9-28 mg (chondrites; stated section 2)",
+   "status": "text",
+   "value": "15-63 mg (silicates); 8-22 mg (NIST glass); 9-28 mg (chondrites; stated section 2)"
+  },
+  "Chromatographic Separation Applied": {
+   "key": "(none)",
+   "cell": "None (direct analysis)",
+   "status": "text",
+   "value": "None (direct analysis)"
+  },
+  "Isotope Dilution Spike": {
+   "key": "(none)",
+   "cell": "149Sm-enriched spike (used as ID internal standard for Cd, In, Tl, Bi; stated section 2)",
+   "status": "text",
+   "value": "149Sm-enriched spike (used as ID internal standard for Cd, In, Tl, Bi; stated section 2)"
+  },
+  "Instrument Manufacturer": {
+   "key": "(none)",
+   "cell": "Agilent -- \"Agilent 7500cs; Yokogawa Analytical Systems, Mitaka, Japan\"",
+   "status": "text",
+   "value": "Agilent -- \"Agilent 7500cs; Yokogawa Analytical Systems, Mitaka, Japan\""
+  },
+  "Instrument Model": {
+   "key": "(none)",
+   "cell": "Agilent 7500cs (stated section 2)",
+   "status": "text",
+   "value": "Agilent 7500cs (stated section 2)"
+  },
+  "ICP-MS Type": {
+   "key": "(none)",
+   "cell": "Single-collector quadrupole (Q-ICP-MS)",
+   "status": "text",
+   "value": "Single-collector quadrupole (Q-ICP-MS)"
+  },
+  "Instrument Serial Number or Lab Identifier": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Interface Cone Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sampler and Skimmer Cone Material": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Torch Depth": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Guard Electrode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Mass Resolution Setting": {
+   "key": "(none)",
+   "cell": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)",
+   "status": "text",
+   "value": "Unit resolution (quadrupole, fixed; m/Delta-m ~300)"
+  },
+  "Collision/Reaction Cell (CRC) Configuration": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Detector Configuration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Type": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spray Chamber Type and Cooling Temperature": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Desolvation System": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Sample Uptake Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Software": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Data Processing Software(s)": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Mode": {
+   "key": "(none)",
+   "cell": "Flow injection -- \"The pseudo-flow injection (FI) sample introduction technique, in which transient signals were integrated as total counts, was employed with the ID-IS method to minimise total sample consumption volume (~0.013 ml)\"",
+   "status": "text",
+   "value": "Flow injection -- \"The pseudo-flow injection (FI) sample introduction technique, in which transient signals were integrated as total counts, was employed with the ID-IS method to minimise total sample consumption volume (~0.013 ml)\""
+  },
+  "RF Power": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Coolant (Plasma) Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Auxiliary Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Nebulizer Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Make-up Gas and Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Plasma Thermal Mode": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "ICP Tuning": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Instrument Warm-up / Session Duration Limit": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Target Species": {
+   "key": "defines: target species",
+   "cell": "Cd, In, Tl, Bi (with 149Sm as ID-IS reference; stated section 2)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Cd",
+     "parent": null
+    },
+    {
+     "member": "In",
+     "parent": null
+    },
+    {
+     "member": "Tl",
+     "parent": null
+    },
+    {
+     "member": "Bi",
+     "parent": null
+    }
+   ]
+  },
+  "Reported Variables and Units": {
+   "key": "defines: reported property",
+   "cell": "Cd, In, Tl and Bi mass fractions (ng g-1)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "Cd",
+     "parent": null
+    },
+    {
+     "member": "In",
+     "parent": null
+    },
+    {
+     "member": "Tl and Bi mass fractions",
+     "parent": null
+    }
+   ]
+  },
+  "Monitored Masses": {
+   "key": "defines: monitored property per target species",
+   "cell": "95Mo, 111Cd, 113Cd, 115In, 118Sn, 149Sm, 205Tl, 209Bi (Table 1). Cd is determined on 111Cd only: \"113Cd was not used for Cd determination, because the correction of 113In was far larger than the MoO correction\"",
+   "status": "unparsed",
+   "value": [
+    {
+     "member": "95Mo",
+     "parent": null
+    },
+    {
+     "member": "111Cd",
+     "parent": null
+    },
+    {
+     "member": "113Cd",
+     "parent": null
+    },
+    {
+     "member": "115In",
+     "parent": null
+    },
+    {
+     "member": "118Sn",
+     "parent": null
+    },
+    {
+     "member": "149Sm",
+     "parent": null
+    },
+    {
+     "member": "205Tl",
+     "parent": null
+    },
+    {
+     "member": "209Bi (Table 1). Cd is determined on 111Cd only: \"113Cd was not used for Cd determination, because the correction of 113In was far larger than the MoO correction\"",
+     "parent": null
+    }
+   ]
+  },
+  "Dwell Time per Mass": {
+   "key": "monitored property",
+   "cell": "Analyte-specific: 0.11 ms per mass per scan for 95Mo/111Cd/113Cd/115In/118Sn/149Sm; 0.18 ms per mass per scan for 205Tl/209Bi (Table 1, expressed as ms per 1 s cycle)",
+   "status": "unparsed",
+   "value": [
+    {
+     "members": [
+      "Analyte-specific"
+     ],
+     "value": "0.11 ms per mass per scan for 95Mo/111Cd/113Cd/115In/118Sn/149Sm"
+    }
+   ]
+  },
+  "Number of Scans per Replicate": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Number of Replicates": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analysis Sequence": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Wash Time Between Samples": {
+   "key": "(none)",
+   "cell": ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)",
+   "status": "text",
+   "value": ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)"
+  },
+  "Signal Collection Mode": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Collision Gas Type": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Collision Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Cell Exit Discrimination Voltage": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Reaction Gas Type": {
+   "key": "monitored property",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Reaction Gas Flow Rate": {
+   "key": "(none)",
+   "cell": "N/A",
+   "status": "not applicable"
+  },
+  "Collision/Reaction Gas Mixture Ratio": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Reaction Product Ion / Mass-Shift Transition": {
+   "key": "monitored property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal Standard Element": {
+   "key": "acquisition pass",
+   "cell": "149Sm (as ID-IS reference; stated section 2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Internal Standard Concentration": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Oxide Production Method and Threshold": {
+   "key": "(none)",
+   "cell": "CeO+/Ce+ < 0.01 (= <1%; stated section 2)",
+   "status": "text",
+   "value": "CeO+/Ce+ < 0.01 (= <1%; stated section 2)"
+  },
+  "Doubly-Charged Species Monitor": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Doubly-Charged Species Production": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Ion Counter Dead Time": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Acquisition Pass": {
+   "key": "defines: acquisition pass",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Number of Acquisition Passes": {
+   "key": "(none)",
+   "cell": "",
+   "status": "not assessed"
+  },
+  "Drift Correction Method": {
+   "key": "(none)",
+   "cell": "IS normalization (149Sm spike ratio; stated section 2)",
+   "status": "text",
+   "value": "IS normalization (149Sm spike ratio; stated section 2)"
+  },
+  "Calibration Strategy per Target Species": {
+   "key": "target species",
+   "cell": "Isotope dilution with ID-IS normalization (ID-IS; all analytes; stated section 2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Signal Integration Interval Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Blank / Background Correction Method": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spike / Outlier Filtering Approach": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Pulse/Analog Detector Nonlinearity Correction": {
+   "key": "acquisition pass",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Spectral Interference Corrections Applied": {
+   "key": "(none)",
+   "cell": "Y (95Mo16O+ and 71Ga40Ar+ on 111Cd; 97Mo16O+/113In+ on 113Cd; 115Sn+ on 115In+; stated section 2)",
+   "status": "text",
+   "value": "Y (95Mo16O+ and 71Ga40Ar+ on 111Cd; 97Mo16O+/113In+ on 113Cd; 115Sn+ on 115In+; stated section 2)"
+  },
+  "Interfering Species": {
+   "key": "monitored property",
+   "cell": "95Mo16O+ and 71Ga40Ar+ on 111Cd; 97Mo16O+ and 113In+ on 113Cd; 115Sn+ on 115In+ (stated section 2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Interference Correction Method": {
+   "key": "monitored property",
+   "cell": "Ratio-based correction using 95Mo and 118Sn monitors (stated section 2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Isotope Dilution Data Reduction Method": {
+   "key": "(none)",
+   "cell": "IUPAC isotope dilution equations with ID-IS internal standard normalization (stated section 2)",
+   "status": "text",
+   "value": "IUPAC isotope dilution equations with ID-IS internal standard normalization (stated section 2)"
+  },
+  "Memory Effect Mitigation": {
+   "key": "(none)",
+   "cell": ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)",
+   "status": "text",
+   "value": ">=200 s in 0.5 mol/l HNO3; 200 s HF wash after Mo standard (stated section 2)"
+  },
+  "Uncertainty Level": {
+   "key": "(none)",
+   "cell": "RSD% (n = 5) and RPD (relative percentage difference) -- both used; \"RPD, relative percentage difference\"",
+   "status": "text",
+   "value": "RSD% (n = 5) and RPD (relative percentage difference) -- both used; \"RPD, relative percentage difference\""
+  },
+  "Uncertainty Propagation Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Normalization / Standards-Based Correction": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Calibration Factor and Determination Method": {
+   "key": "reported property",
+   "cell": "Relative concentration factors f_G and S_Gi (\"the ratio of the concentration in the solution to the signal intensity of the measured isotope\") in the ID-IS equation, obtained from calibrator solutions measured before and after the sample; mass discrimination correction \"based on the mean elemental ratios obtained from the calibrator solution measurements\"; MoO+/Mo+ from a Mo standard run \"after every sixth sample\". No numeric factor values reported",
+   "status": "unparsed",
+   "value": []
+  },
+  "Analysis Inclusion and Rejection Criteria": {
+   "key": "combined result",
+   "cell": "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule for individual results is stated. The 113Cd decision is a mass-selection decision, not an aggregation one, and is recorded under Monitored Masses",
+   "status": "text",
+   "value": "Partially -- n = 5 (evaporation test), n = 4 (dissolution blanks), \"an average of eight sessions\" for detection limits. No acceptance or rejection rule for individual results is stated. The 113Cd decision is a mass-selection decision, not an aggregation one, and is recorded under Monitored Masses"
+  },
+  "Combination Method": {
+   "key": "reported property",
+   "cell": "all: average over repeat measurements — evaporation-test ratios 'together with the RSD (n = 5)'; detection limits 'an average of eight sessions'",
+   "status": "structured",
+   "value": [
+    {
+     "members": [
+      "all"
+     ],
+     "value": "average over repeat measurements"
+    }
+   ]
+  },
+  "Constants and Reference Values Used": {
+   "key": "(none)",
+   "cell": "\"113In/115In = 0.0448 (Rosman and Taylor 1998)\" used in the In correction; \"For a 94Mo/95Mo value of 0.58\" and MoOH+/MoO+ \"a value of ~0.15 was obtained\", both used in the Mo-oxide correction",
+   "status": "text",
+   "value": "\"113In/115In = 0.0448 (Rosman and Taylor 1998)\" used in the In correction; \"For a 94Mo/95Mo value of 0.58\" and MoOH+/MoO+ \"a value of ~0.15 was obtained\", both used in the Mo-oxide correction"
+  },
+  "Primary Calibration Standard Name": {
+   "key": "target material x target species",
+   "cell": "Multi-element calibrator solution (Cd, In, Tl, Bi, Sm; not formally named; stated section 2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Calibration Standard Measurement Frequency": {
+   "key": "(none)",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Secondary Reference Materials": {
+   "key": "defines: standard",
+   "cell": "JB-2, JB-3, JA-1, JA-2, JA-3, JP-1, BHVO-1, AGV-1, PCC-1, DTS-1, NIST SRM 610/612/614/616, carbonaceous chondrites (stated in text)",
+   "status": "structured",
+   "value": [
+    {
+     "member": "JB-2",
+     "parent": null
+    },
+    {
+     "member": "JB-3",
+     "parent": null
+    },
+    {
+     "member": "JA-1",
+     "parent": null
+    },
+    {
+     "member": "JA-2",
+     "parent": null
+    },
+    {
+     "member": "JA-3",
+     "parent": null
+    },
+    {
+     "member": "JP-1",
+     "parent": null
+    },
+    {
+     "member": "BHVO-1",
+     "parent": null
+    },
+    {
+     "member": "AGV-1",
+     "parent": null
+    },
+    {
+     "member": "PCC-1",
+     "parent": null
+    },
+    {
+     "member": "DTS-1",
+     "parent": null
+    },
+    {
+     "member": "NIST SRM 610/612/614/616",
+     "parent": null
+    },
+    {
+     "member": "carbonaceous chondrites",
+     "parent": null
+    }
+   ]
+  },
+  "Detection Limit": {
+   "key": "reported property",
+   "cell": "Analyte-specific (pg/ml level; e.g., Cd 0.04 pg/ml, In 0.5 pg/ml, Tl 0.5 pg/ml, Bi 0.6 pg/ml; stated Table 1)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Detection Limit Method": {
+   "key": "reported property",
+   "cell": "3 sigma blank (stated section 2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Limit of Quantification (LOQ) Method": {
+   "key": "reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Counting Statistics Error": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Internal (Within-Measurement) Analytical Precision and Assessment Method": {
+   "key": "sample > sampling unit x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Within-Session Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "%RSD of repeated standard and RM analyses (stated section 2)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Between-Session (Long-Term) Analytical Precision and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "N",
+   "status": "not stated"
+  },
+  "Analytical Accuracy and Assessment Method": {
+   "key": "standard x reported property",
+   "cell": "% recovery relative to certified/consensus values for USGS/GSJ/NIST RMs (stated section 3)",
+   "status": "unparsed",
+   "value": []
+  },
+  "Additional Notes": {
+   "key": "(none)",
+   "cell": "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard",
+   "status": "text",
+   "value": "Dwell times in Table 1 expressed as ms per 1 s cycle time; octopole CRC present but no gas used (PML practice); 149Sm used as both ID spike and internal standard"
+  }
+ }
+}
