@@ -1212,7 +1212,7 @@ definers, so the column stops being scannable at a glance.
 
 Neither cost is worth paying for a form with **zero instances**: all four affected fields take a
 single key. This follows the same principle as 7.4a–c retiring `conversion` and `acquisition pass` for
-want of a user, and 7.5 declining to populate `keyed\\\_by\\\_overridable` speculatively. When a field
+want of a user (**`acquisition pass` reinstated 2026-09-08**, once consumers were found: the same principle run in reverse), and 7.5 declining to populate `keyed\\\_by\\\_overridable` speculatively. When a field
 genuinely needs a compound definer key, settle the direction then — against a real reporting table,
 which is how the `x` convention earned its own justification. If that day comes, prefer the key-first
 form over inverting `x`.
@@ -1462,7 +1462,10 @@ states the procedure's scope for discovery, so it is informative in its own righ
 **Together, 7.4a–c force unused abstractions out of the vocabulary.** Applying them on 2026-08-11 retired
 `conversion`, `acquisition pass`, `background position` and `model component` from active use, taking the
 in-use vocabulary from ten keys to six. (Six as of that date; **seven since 2026-08-12**, when
-Rule 13 added `sample`.)
+Rule 13 added `sample`.) **Superseded 2026-09-08 for `acquisition pass`:** it was reinstated when a
+survey found pass-structured cells in 10 procedures, and is now in use with definer `Acquisition Pass`
+and 15 consumer fields across the 9 ICP-MS TAPPs. See the key table above and precedents.md,
+2026-09-08. The other three stay retired.
 
 Applying 7.4a also makes two fields mandatory in every TAPP. Because both are mandatory-field decrees in
 the style of Rules 3 and 5, they are stated as **Rule 8** and **Rule 9** rather than buried here.
@@ -1885,7 +1888,10 @@ keeps "state both levels" as free text in `Sampling Unit Type` and does not sett
 over a pass/magnet-step axis, which would be the retired `acquisition pass` key. Not reinstated: 7.4b/c
 retired it for want of a user, and one user does not justify reviving an abstraction the rule removed.
 Splitting the field into a configuration list plus a cycling sequence remains the better option if this
-is ever revisited.
+is ever revisited. **Superseded 2026-09-08:** the key is no longer retired (precedents.md, 2026-09-08),
+so the reason given here no longer holds. `Collector Configuration` was not among the 15 fields re-keyed
+then and is keyed `monitored property`; its cycling stays free text, but that has not been re-decided
+on the current rules.
 
 **`Desolvation System` — the second candidate, also declined (2026-08-31).** Raised because its cells
 assign the introduction path per analyte, per resolution mode and per session — `ESI Apex Ω for HR-mode dry plasma work; none for MR-mode wet plasma`, `Apex HF (Cr); Apex Omega (Mg)`. Reviving
@@ -1898,7 +1904,7 @@ attested in *reported data*, and reported data is indexed by analyte and reporte
 which pass produced it — Run 1 and Run 2 merge into one result table. `Desolvation System` therefore
 stays `(none)`, with the per-analyte and per-mode assignment written inline, which is the same
 convention `Mass Resolution Setting` uses ("where individual analytes are assigned to different modes,
-state each"). **Amended 2026-09-01 (7.12.1):** this sentence read "Revisit only if reported data itself ever becomes pass-indexed", which turned a Phase 3 validation test into a Phase 0 design gate. The two declines above stand on their 7.4b/c grounds — no consumer, and a retired key is a stronger state than an undefined one. Revisit when a technique supplies real consumers at Phase 0, whether or not its reported data is pass-indexed.
+state each"). **Amended 2026-09-01 (7.12.1):** this sentence read "Revisit only if reported data itself ever becomes pass-indexed", which turned a Phase 3 validation test into a Phase 0 design gate. The two declines above stand on their 7.4b/c grounds — no consumer, and a retired key is a stronger state than an undefined one. Revisit when a technique supplies real consumers at Phase 0, whether or not its reported data is pass-indexed. **Superseded 2026-09-08:** that revisit happened. `acquisition pass` was reinstated, and `Desolvation System` is now keyed `acquisition pass` in all three Solution TAPPs; Hopp et al. 2021 assigns a different desolvation system per pass. This decline is kept as the record of what was decided on 2026-08-31.
 
 **Both key questions the sweep left open were then settled against the literature (7.12).** The LA
 `Detection Limit` was resolved *against* its key, not its prose, and the `Primary Calibration Standard Name` register rationale was corrected.
@@ -2004,6 +2010,8 @@ third should carry no weight at Phase 0. A technique whose procedure genuinely d
 sequence — static noble-gas MS, where Meshik et al. 2011 registers six magnet steps and Péron \&
 Mukhopadhyay 2025 two Xe steps per gas — must therefore be argued on 7.4c, in its own Phase 0, and not
 dismissed on the pass-indexing test. See precedents.md, "7.12 is validation, not a design gate".
+**Outcome, 2026-09-08:** argued on 7.4c, the ICP-MS family passed. `acquisition pass` is in use in the
+9 ICP-MS TAPPs, and EPMA and SEM are deferred on the same rule (see the key table above).
 
 \---
 
