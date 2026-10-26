@@ -5,7 +5,8 @@ Source: the highlighted spans of EPMA_Reference_Methods_Section_v77_highlighted.
 worked example. Labels simplified 2026-10-26 so a reviewer can follow them row by row: samples
 CC-1 and CC-2 (were EX-CC-01/02); points named by mineral and number, ol3 = the third olivine
 point (were particle-point labels, P1-03); maps Map 1 and Map 2; catalogue numbers dropped from
-standard names; Target Material lists only the minerals analysed. Values are unchanged. Everything here is fictional (lab, samples, identifiers, results), as the
+standard names; Target Material lists only the minerals analysed. Values are unchanged.
+The v86 methods section carries the same labels (RELABEL in make_highlighted_methods.py). Everything here is fictional (lab, samples, identifiers, results), as the
 worked example states. Table 1 content is rewritten as phrases ("X for Y; ..."). Nothing
 is added that the worked example does not say.
 

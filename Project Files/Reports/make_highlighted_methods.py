@@ -193,8 +193,47 @@ _V86_ADD = [
  ('the standard error of each mean (1 s.d./√n)', None, 0),
  ('0.08 wt% for SiO₂, 0.12 wt% for MgO and 0.04 wt% for FeO', None, 0),
 ]
+# Label simplification of 2026-10-26, shared with review_examples.py: samples CC-1 and CC-2
+# (were EX-CC-01/02); points named by mineral and number, ol3 = the third olivine point (were
+# particle-point labels, P1-03); maps Map 1 and Map 2; short procedure, session and grant labels;
+# no catalogue numbers on standards; the procedure's material list cut to the minerals analysed.
+# Applied once to the clean v86 file and, below, to the spans v86 shares with v77, which stays a
+# snapshot with the old labels. Ordered: the specific sentences before the generic labels.
+RELABEL = [
+ ('oxides (magnetite, chromite, ilmenite), sulfides (pyrrhotite, pentlandite), phosphates (apatite, merrillite) and carbonates (calcite, dolomite, breunnerite)',
+  'oxides (magnetite), sulfides (pyrrhotite), phosphates (apatite) and carbonates (dolomite, calcite)'),
+ ('Particle P2 of that mount was partly plucked', 'Its particle carrying the olivine points (ol1–ol8) was partly plucked'),
+ ('labelled by particle and point number (for example, EX-CC-01 P1-03)',
+  'labelled by mineral and number (for example, ol3 in CC-1, the third olivine point)'),
+ ('labelled by particle and point number', 'labelled by mineral and number'),
+ ('P1 of EX-CC-01 as map M1, and P1 of EX-CC-02 as map M2', 'Map 1 in CC-1 and Map 2 in CC-2'),
+ ('EX-CC-01 P3-02 and P3-05 (apatite), and EX-CC-02 P1-03 and P1-07 (dolomite)',
+  'ap2 and ap5 in CC-1 (apatite), and dol3 and dol7 in CC-2 (dolomite)'),
+ ('EX-CC-01 P2-07 and P2-09 (pyrrhotite beside pentlandite), and EX-CC-02 P1-16 (calcite at a grain boundary)',
+  'po1 and po3 in CC-1 (pyrrhotite beside pentlandite), and cal6 in CC-2 (calcite at a grain boundary)'),
+ ('One, EX-CC-02 P2-05, was excluded', 'One, ol5 in CC-2, was excluded'),
+ ('EML-EPMA-CC v2, *EPMA-WDS+EDS major and minor elements in carbonaceous-chondrite silicates, oxides, sulfides, phosphates and carbonates*',
+  'EPMA-CC v2, *major and minor elements in carbonaceous-chondrite minerals by WDS and EDS*'),
+ ('doi:10.0000/example.epma-cc.v2', 'doi:10.0000/epma-cc.v2'),
+ ('EML-2026-0412-A', '2026-04-12'),
+ ('award EX-INST-0001', 'grant A'), ('award EX-DEV-0002', 'grant B'), ('award EX-SCI-0003', 'grant C'),
+ (', doi:10.0000/example.2025.001', ''),
+ ('IGSN:EXAMPLE0001', 'IGSN:EX0001'), ('IGSN:EXAMPLE0002', 'IGSN:EX0002'),
+ ('EX-CC-01', 'CC-1'), ('EX-CC-02', 'CC-2'),
+ ('map M1', 'Map 1'), ('map M2', 'Map 2'), ('Map M1', 'Map 1'), ('Map M2', 'Map 2'),
+]
+_CATALOGUE = re.compile(r' USNM [0-9R][0-9A-Za-z/-]*')
+
+
+def relabel(text):
+    for old, new in RELABEL:
+        text = text.replace(old, new)
+    return _CATALOGUE.sub('', text)
+
+
 if VERSION != 'v77':
     M = [_V86_REPLACE.get(m[0], m) for m in M] + _V86_ADD
+    M = [(relabel(c), relabel(sp) if sp else sp, o) for c, sp, o in M]
 
 LEGEND = ('> **Highlighting.** <mark>Highlighted</mark> text is information that fills a field of '
           'EPMA TAPP %s: a value, a choice, an identifier, a rule or an outcome. Text that is not '
