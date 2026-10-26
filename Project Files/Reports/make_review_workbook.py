@@ -23,6 +23,24 @@ Design decisions, 2026-09-17:
     so display order differs from the CSV. Item numbers are assigned in CSV order and are
     the stable reference.
 
+Layout decisions, 2026-10-26 (supersede the phrasing and row-grouping points above):
+  * Structure cells are plain-language instructions — "Give one value for each "Monitored
+    Element"", "For each "Secondary Reference Material", give one value for each "Reported
+    Variable"" — with list names quoted as references to the fields that define them.
+  * Rows follow the TAPP's own order (GROUP_ROWS = False): grouping had begun to put
+    consumers above their definers.
+  * Description before Example; "Example (NOT recommendations)"; "Other comments"; session
+    columns in yellow; ticks in the mode columns on light green; section headings
+    "Group N: name".
+  * Group 1 registration and identity fields have their review cells pre-filled "Set by
+    registration requirements; no review needed", greyed and kept out of the drop-downs.
+  * Tabs: Instructions, Reviewer information (six free-text questions), EPMA TAPP, and the
+    traceability key, which is hidden because it is for the TAPP team, not reviewers. Instructions
+    walks through what to do, what each column means, how to read the structure cells, and one
+    review criterion per comment column. Needed? gained "Rename (say how in Other comments)".
+  * Sheets are protected (no password): on EPMA TAPP only the comment cells are editable,
+    except the pre-filled registration cells; on Reviewer information only the answers.
+
 Regenerate after any version bump; this is a snapshot of one version, like the mockups.
 Output goes to `TAPPs for review/` at the library root (2026-09-30), which holds only the
 latest version: writing a new version deletes the EPMA workbooks of any other version there.
@@ -31,7 +49,7 @@ latest version: writing a new version deletes the EPMA workbooks of any other ve
 import csv, os, re, collections
 from review_examples import example, EXAMPLES, MODES
 from openpyxl import Workbook
-from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+from openpyxl.styles import Font, PatternFill, Alignment, Border, Side, Protection
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.worksheet.properties import PageSetupProperties
 from openpyxl.comments import Comment
@@ -65,6 +83,33 @@ def prune_other_versions():
         if m and m.group(1) != VERSION:
             os.remove(os.path.join(OUT_DIR, fn)); gone.append(fn)
     return gone
+
+# Row order within each section. True groups rows that repeat over the same thing in the same
+# modes (the 2026-09-17 layout); False keeps the TAPP's own order (chosen for the plain-keys draft
+# on 2026-10-26, because grouping had started to put consumers above their definers).
+GROUP_ROWS = False
+
+# Group 1 registration and identity fields: their review cells are pre-filled, greyed and kept
+# out of the drop-downs (2026-10-26). Identified by name. The four coupling fields stay open.
+PREFILL = '— Set by registration requirements; no review needed'
+REGISTRATION = {
+    'Procedure Name', 'Technique', 'Procedure Author', 'Laboratory', 'Laboratory ID',
+    'Procedure Start Date', 'Funding Source for Procedure Development', 'Procedure Reference(s)',
+    'Procedure DOI', 'Session Identifier', 'Analyst', 'Analysis Start Date', 'Analysis End Date',
+    'Funding Source for Analysis',
+}
+# Section headings read "Group N: name" (RD's own edit of 2026-10-22, made standard).
+SECTION_SHORT = {'Quality Control & Uncertainty': 'QC & Uncertainty'}
+
+# Reviewer information tab (2026-10-26). All answers are free text.
+REVIEWER_QUESTIONS = [
+    "Reviewer's name",
+    "Reviewer's email",
+    "Reviewer's institute",
+    'Frequently used instrument model',
+    'Frequently used data acquisition software',
+    'Frequently used data processing software',
+]
 
 # Domains that do not exist until a session runs.
 SESSION_ONLY = {'sample', 'sampling unit', 'combined result'}   # definers are C=N/A (7.3.3)
@@ -254,35 +299,77 @@ def chain(domain):
     return ' per '.join(out)
 
 
+# Plain-language structure phrasing (standard since 2026-10-26; was "One value per X").
+NOUN = {                       # singular noun for each domain, as a reviewer would say it
+    'sample':             'sample',
+    'sampling unit':      'analysis point',
+    'target material':    'target material',
+    'target species':     'target species',
+    'monitored property': 'monitored element',
+    'reported property':  'reported variable',
+    'standard':           'secondary reference material',
+    'combined result':    'combined result',
+    'acquisition pass':   'acquisition pass',
+    'preparation step':   'preparation step',
+}
+DEFINES = {                    # the list a definer row establishes
+    'sample':            'List every sample analysed in the session.',
+    'target material':   'List the material types the procedure is designed to analyse.',
+    'target species':    'List the elements the procedure determines.',
+    'reported property': 'List every quantity reported, with its unit.',
+    'standard':          'List the secondary reference materials run as unknowns.',
+    'combined result':   'List every reported value that combines several individual results, saying what each combines.',
+    'acquisition pass':  'List the passes the measurement is run in, each with its own configuration.',
+    'preparation step':  'List the stages of sample preparation, in order.',
+}
+
+
+def Q(domain):
+    """The list's name as the preamble legend gives it, in quotes, so it reads as a reference."""
+    return '"%s"' % DISPLAY.get(domain, domain)
+
+
 def phrase(name, key, level):
-    """level is 'procedure' or 'session'. Returns (phrase, flagged)."""
-    is_def, parent, operands = parse_key(key)
-    per_record = 'procedure' if level == 'procedure' else 'session'
-    if is_def:
-        if parent is None:
-            return 'List of entries', False
-        if level == 'procedure' and parent in SESSION_ONLY:
-            return 'List of entries', True
-        return 'List of entries per %s' % chain(parent), False
-    kept, dropped, tail = [], False, ''
-    for d in operands:
-        if level == 'procedure' and d in SESSION_ONLY:
-            dropped = True
-        else:
-            kept.append(d)
-    if not kept:
+    """Plain-language structure for one record. level is 'procedure' or 'session'. Returns (text, flagged)."""
+    k = key.strip()
+    record = 'procedure' if level == 'procedure' else 'session'
+    if k.startswith('defines:'):
+        body = k[len('defines:'):].strip()
+        if ' per ' in body:                                   # defines: A per B
+            a, b = [x.strip() for x in body.split(' per ', 1)]
+            return ('List each %s, grouped under the %s it serves (some serve none).'
+                    % (NOUN.get(a, a), Q(b)), False)
+        if '>' in body:                                       # defines: A > B
+            a, b = [x.strip() for x in body.split('>')][-2:]
+            if level == 'procedure' and a in SESSION_ONLY:
+                return ('List the %ss.' % NOUN.get(b, b), True)
+            return ('For each %s, list the %ss analysed in it.' % (Q(a), NOUN.get(b, b)), False)
+        return (DEFINES.get(body, 'List the %ss.' % NOUN.get(body, body)), False)
+    if k == '(none)':
         multi = name in MULTI or (level == 'procedure' and name in PROC_MULTI)
-        stem = 'One or more values per %s' if multi else 'One value per %s'
-        return stem % per_record, dropped
-    # cross-product members joined with ×; containment appended once, outermost last
-    parents = []
-    for d in kept:
-        c = chain(d).split(' per ')
-        parents = c[1:] if len(c) > 1 else parents
-    body = ' × '.join(DISPLAY[d] for d in kept)
-    if parents:
-        body += ' per ' + ' per '.join(parents)
-    return 'One value per %s' % body, dropped
+        return ('Give %s for the %s.' % ('one or more values' if multi else 'one value', record), False)
+    if k.startswith('pair:'):
+        d = k[len('pair:'):].strip()
+        return ('Give one value for each pair of %s entries.' % Q(d), False)
+
+    parts = [[s.strip() for s in p.split('>')] for p in k.split(' x ')]   # each part: [outer, ..., inner]
+    inner = [p[-1] for p in parts]
+    contained = [p[:-1] for p in parts]
+    dropped = [d for d in inner if level == 'procedure' and d in SESSION_ONLY]
+    kept = [(d, c) for d, c in zip(inner, contained) if d not in dropped]
+    if not kept:                                              # projection to one value (7.3.3)
+        return ('Give one value; each %s entry in a session inherits it.' % Q(dropped[-1]), True)
+    outer = next((c[-1] for _, c in kept if c and level == 'session'), None)
+    if len(kept) == 1:
+        d = kept[0][0]
+        if outer:
+            return ('For each %s, give one value for each of its %s entries.' % (Q(outer), Q(d)), bool(dropped))
+        return ('Give one value for each %s.' % Q(d), bool(dropped))
+    (d1, _), (d2, _) = kept[0], kept[1]
+    if outer:                                                 # e.g. sample > sampling unit x reported property
+        return ('For each %s, give one value for every %s at every %s entry.'
+                % (Q(outer), Q(d2), Q(d1)), bool(dropped))
+    return ('For each %s, give one value for each %s.' % (Q(d1), Q(d2)), bool(dropped))
 
 
 MODE_PHRASE = {
@@ -299,6 +386,8 @@ HEAD_FILL    = PatternFill('solid', fgColor='44546A')
 SECTION_FILL = PatternFill('solid', fgColor='C9D5EA')
 BLOCK_FILL   = PatternFill('solid', fgColor='EDF1F8')
 FLAG_FILL    = PatternFill('solid', fgColor='FFF2CC')
+TICK_FILL    = PatternFill('solid', fgColor='C6EFCE')
+GREY_FILL    = PatternFill('solid', fgColor='D9D9D9')
 ASK_FILL     = PatternFill('solid', fgColor='FBE5D6')
 LEGEND_FILL  = PatternFill('solid', fgColor='F2F2F2')
 THIN  = Side(style='thin', color='BFBFBF')
@@ -315,14 +404,15 @@ BORDER = Border(left=THIN, right=THIN, top=THIN, bottom=THIN)
 FAMILY = {
     'item':      dict(dark='7030A0', mid='B4A7D6', pale='EDE7F5'),
     'procedure': dict(dark='2F5597', mid='8FAADC', pale='DCE4F4'),
-    'session':   dict(dark='548235', mid='A9D08E', pale='E4F0DC'),
+    'session':   dict(dark='BF8F00', mid='FFD966', pale='FFF2CC'),   # yellow since 2026-10-26
     'mode':      dict(dark='44546A', mid='44546A', pale='FFFFFF'),
     'comment':   dict(dark='833C0B', mid='F4B183', pale='FBE5D6'),
 }
 
 # No double quotes in any option: the list becomes an XLSX formula string that is itself
 # double-quoted, and an embedded " makes Excel offer to repair the file.
-OPT_NEEDED = ['Keep', 'Drop', 'Merge with another row', 'Split into several rows']
+OPT_NEEDED = ['Keep', 'Drop', 'Merge with another row', 'Split into several rows',
+              'Rename (say how in Other comments)']
 OPT_STRUCT = ['Yes', 'Repeats over the wrong thing', 'Should be a list',
               'Should be a single value']
 OPT_PTIER  = ['Yes', 'Should be required', 'Should be optional',
@@ -335,8 +425,8 @@ COLSPEC = [
     ('num',      '#',                            7,  None,        'content', None),
     ('name',     'Metadata item',                31, 'item',      'content', None),
     ('needed',   'Needed?',                      17, 'item',      'review',  OPT_NEEDED),
-    ('example',  'Example',                      44, None,        'content', None),
-    ('prose',    'What to report',               56, None,        'content', None),
+    ('prose',    'Description',                  56, None,        'content', None),
+    ('example',  'Example (NOT recommendations)', 44, None,       'content', None),
     ('pstruct',  'Structure — procedure record', 28, 'procedure', 'content', None),
     ('pstructr', 'Structure right?',             16, 'procedure', 'review',  OPT_STRUCT),
     ('ptier',    'Procedure-Level Tier',         14, 'procedure', 'content', None),
@@ -347,7 +437,19 @@ COLSPEC = [
     ('stierr',   'Tier right?',                  16, 'session',   'review',  OPT_STIER),
 ]
 MODE_W, COMMENT_W = 10, 38
-COMMENT_COL = ('comment', 'Comment', COMMENT_W, 'comment', 'review', None)
+COMMENT_COL = ('comment', 'Other comments', COMMENT_W, 'comment', 'review', None)
+
+
+UNLOCKED = Protection(locked=False)
+
+
+def protect(sheet):
+    """Lock every cell not explicitly unlocked; no password — this prevents accidental edits,
+    it is not security. Filtering, resizing and selection still work."""
+    p = sheet.protection
+    p.sheet = True
+    p.autoFilter = False; p.formatColumns = False; p.formatRows = False
+    p.selectLockedCells = False; p.selectUnlockedCells = False
 
 
 def colspec(modes):
@@ -386,6 +488,7 @@ def build(mode=None):
     if missing:
         raise SystemExit('no sentence or example written for: %s' % missing)
     all_modes = list(modes)
+    total_fields = len(fields)
     if mode is not None:
         k = all_modes.index(mode)
         fields = [f for f in fields if f['modes'][k] == 'Y']
@@ -394,7 +497,7 @@ def build(mode=None):
     wb = Workbook()
 
     # ============================== sheet 1: preamble ==============================
-    lg = wb.active; lg.title = 'How to read and review'
+    lg = wb.active; lg.title = 'Instructions'
     lg.sheet_view.showGridLines = False
     r = 1
     def head(txt, size=14):
@@ -413,101 +516,188 @@ def build(mode=None):
             a.font = Font(bold=True, size=11, color=colour or '000000')
             a.alignment = Alignment(vertical='top', wrap_text=True); a.fill = LEGEND_FILL
             b = lg.cell(row=r, column=2, value=meaning)
-            b.alignment = Alignment(wrap_text=True, vertical='top'); r += 1
+            b.alignment = Alignment(wrap_text=True, vertical='top')
+            lg.row_dimensions[r].height = 15 * (1 + len(meaning) // 110); r += 1
         r += 1
 
-    head('EPMA metadata — reviewer workbook (EPMA TAPP %s)' % VERSION + (' — %s' % mode if mode else ''))
+    n_info = 8 + len(modes)
+    mode_tag = ('_' + mode.replace(' ', '_')) if mode else ''
+    return_name = 'EPMA_TAPP_%s_Review%s_<your initials>.xlsx' % (VERSION, mode_tag)
+
+    # ---- 1. What this is ---------------------------------------------------------------------
+    head('EPMA TAPP review workbook (EPMA TAPP %s)' % VERSION + (' — %s' % mode if mode else ''))
+    para('This workbook asks you to review the EPMA TAPP: the list of metadata items that should be '
+         'reported when an EPMA procedure is registered, and when a measurement session run under that '
+         'procedure is documented. It has three tabs: Instructions (this tab), Reviewer information, '
+         'and EPMA TAPP.')
     if mode:
-        para('This workbook shows only the %d of %d items that apply to %s. Item numbers are the TAPP\'s own, so gaps in the numbering are items that belong to other modes.' % (len(fields), 88, mode))
-    para('The Example column shows what each item looks like when filled in, taken from a worked example: a fictional EPMA session written up as a methods section (EPMA_Reference_Methods_Section_v77.md). The laboratory, samples, identifiers and results are invented. Where an item repeats, the example says what for: "20 nA for olivine; 8 nA for phosphates".')
-    para('Every item is documented twice: once in the procedure record, the standing recipe that is '
-         'registered and cited by DOI, and once in the session record, which describes one analytical '
-         'session run under it. One session may cover several samples. Read this sheet first, then '
-         'review the table on the next sheet.')
+        para('This copy covers %s only. It shows the %d of %d items that apply to that mode. "#" keeps '
+             'the TAPP\'s own numbering, so gaps in the numbers are items that belong to other modes.'
+             % (mode, len(fields), total_fields))
+    para('Every item is described for two records. The procedure record is the standing recipe, '
+         'registered once and cited by DOI. The session record describes one measurement session run '
+         'under that procedure; a session may cover several samples.')
     r += 1
 
-    head('Which record an item belongs to', 12)
-    para('An item belongs to the procedure when it can be decided before any analysis is run. It '
-         'belongs to the session alone when its value can only be known once the session has taken '
-         'place — who ran it and when, what was analysed, and every measured outcome.')
-    rows_([('Procedure-Level Tier', 'Basic = the procedure cannot be registered without it. Advanced = strongly recommended but may be left out. N/A = not part of the procedure record.', None),
-           ('Session-Level Tier',  'Read-Only = fixed by the procedure; a session that changes it is running a different procedure. Editable = set by the procedure but may be adjusted within the bounds it allows, and the session records the value used. Basic = the session must report it. Advanced = the session should report it.', None)])
+    # ---- 2. What to do -----------------------------------------------------------------------
+    head('What to do', 12)
+    rows_([('Step 1', 'Fill in the "Reviewer information" tab. Answers go in the "Your answer" column; '
+                      'the questions are locked.', None),
+           ('Step 2', 'On the "EPMA TAPP" tab, put all your feedback in the six shaded comment columns: '
+                      'Needed?, Structure right? (twice), Tier right? (twice) and Other comments. Each one '
+                      'judges the information column on its left; "Other comments" takes everything else. '
+                      'All other cells are locked and cannot be edited, so if you disagree with a name, '
+                      'description, example or tick, say so in the comment column beside it. Leave a cell '
+                      'blank if you have no view.', None),
+           ('Step 3', 'Use the review criteria at the bottom of this tab.', None),
+           ('Step 4', 'When you have finished, save the workbook as %s and email it to info@astromat.org.'
+                      % return_name, None)])
+    para('In Group 1, the comment cells of the 14 registration fields are grey and read "Set by registration '
+         'requirements; no review needed", and are locked. Those fields are common to every TAPP and are set by '
+         'registration policy, so you can skip them. "Other comments" stays open on those rows, and the four '
+         'coupling fields (Coupled Technique(s) to Coupled Dataset or Publication Reference) are open for '
+         'review as usual.')
+    para('This Instructions tab is locked too. On every tab you can still filter, resize columns and '
+         'copy text.')
+    r += 1
+
+    # ---- 3. The columns ----------------------------------------------------------------------
+    head('The EPMA TAPP tab: what each column means', 12)
+    info_names = ['#', 'Metadata item', 'Description', 'Example (NOT recommendations)',
+                  'Structure — procedure record', 'Procedure-Level Tier', 'Structure — session record',
+                  'Session-Level Tier'] + list(modes)
+    para('The tab has %d information columns and 6 comment columns. The information columns are: %s. The '
+         'comment columns are: Needed?, Structure right? (twice), Tier right? (twice) and Other comments. '
+         'Each comment column sits immediately to the right of the information column it judges and has '
+         'the same colour: purple for the metadata item, blue for the procedure record, yellow for the '
+         'session record.' % (n_info, ', '.join('"%s"' % x for x in info_names)))
+    guide = [
+        ('#', 'The item\'s number in the TAPP: group number, then position in the group.'),
+        ('Metadata item', 'The name of the metadata item.'),
+        ('Description', 'What the item records.'),
+        ('Example (NOT recommendations)', 'An illustration of the item filled in, from a fictional worked '
+         'example (an invented EPMA session written up as a methods section). It shows the shape of an '
+         'answer. It is not recommended content, and the laboratory, samples and results are invented.'),
+        ('Structure — procedure record', 'How the procedure states the item: one value, one value for each '
+         'entry of a list, or a list of its own. The session record follows it, as shown in the session '
+         'structure column.'),
+        ('Procedure-Level Tier', 'Basic = mandatory for procedure registration. Advanced = recommended but '
+         'optional. N/A = not part of the procedure: its value can only be known once a session has run.'),
+        ('Structure — session record', 'How one measurement session reports the item.'),
+        ('Session-Level Tier', 'Read-Only = must follow the value given in the procedure. Editable = may vary '
+         'within the range the procedure allows; the session records the value used. Basic = the value '
+         'comes from the session itself and must be reported. Advanced = the value comes from the session '
+         'itself, and reporting it is recommended.'),
+    ]
+    if modes:
+        guide.append((', '.join(modes), 'The analytical modes of EPMA. A tick means the item applies to that mode.'))
+    rows_([(a, b, None) for a, b in guide])
     rows_([('Basic', 'Required', 'C00000'), ('Advanced', 'Recommended', '375623'),
            ('Read-Only', 'Fixed by the procedure', '0070C0'),
-           ('Editable', 'Adjustable within procedure-defined bounds', '7030A0'),
+           ('Editable', 'Adjustable within the bounds the procedure sets', '7030A0'),
            ('N/A', 'Not applicable at that level', '808080')])
 
-    head('How many values — the two structure columns', 12)
-    para('Each record has two columns of its own — what it holds, and its tier — colour-coded '
-         'blue for the procedure record and green for the session record. Structure is stated '
-         'separately for the two records because some lists do not exist until a session runs. '
-         'Three phrasings are used:')
-    rows_([('One value per …', 'A single value.', None),
-           ('One or more values per …', 'Several values may be given, but nothing else is reported per them.', None),
-           ('List of entries per …', 'An itemised list. Other rows are reported per entry of this list, so the list has to be established first.', None)])
-    para('What follows "per" is the name of the row that establishes the list, not a general term, '
-         'and the whole chain is spelled out from the inside outwards. Beam Current reads "One value '
-         'per Sampling Unit Name per Sample Name": one value for each analysis point, within each '
-         'sample. "Per procedure" or "per session" appears only where nothing repeats at all. Where '
-         'two lists cross rather than nest, they are joined with ×, outer first: "One value per '
-         'Secondary Reference Material × Reported Variable" means one value for each reported '
-         'variable, within each reference material.')
+    # ---- 4. Reading the structure cells -----------------------------------------------------
+    head('How to read the structure cells', 12)
+    para('Each structure cell is an instruction, written in one of these patterns:')
+    rows_([('Give one value for each X.', 'One value for every entry in a list. "For the procedure" or "for '
+            'the session" means nothing repeats: give a single value. "One or more values" means several may '
+            'be given, but nothing else repeats over them.', None),
+           ('For each A, give one value for each B.', 'Two independent lists crossed: one value for every '
+            'pairing, with A as the outer list. Analytical Precision reads: for each "Secondary Reference '
+            'Material", give one value for each "Reported Variable".', None),
+           ('For each A, give one value for each of its B entries.', 'Nesting: B exists only inside A. For each '
+            '"Sample Name", give one value for each of its "Sampling Unit Name" entries — analysis points exist '
+            'only inside a sample.', None),
+           ('List the …', 'The row is the list itself. Other rows are given for each of its entries, so it has '
+            'to be filled in first.', None)])
+    para('Names in quotes refer to the lists below, each defined by one field in the TAPP. In the procedure '
+         'column, a list that exists only in a session — samples, analysis points, combined results — drops '
+         'out: the procedure gives one value, and each sample or point in a session inherits it.')
     rows_([('Sample Name', 'the list of samples analysed in the session', None),
            ('Sampling Unit Name', 'the list of analysis points or areas, per sample', None),
+           ('Target Material', 'the list in "Target Material" — the material types the procedure analyses', None),
            ('Target Species', 'the list of elements the procedure determines', None),
            ('Monitored Element', 'the list in "Monitored Elements" — what is measured to determine those elements', None),
            ('Reported Variable', 'the list in "Reported Variables and Units"', None),
-           ('Secondary Reference Material', 'the list in "Secondary Reference Materials"', None)])
-    para('Beam conditions for point analysis are given per Target Material: the procedure lists '
-         'the materials it analyses, and states the beam mode, current, diameter and any raster for '
-         'each. That matches how published procedures state them — 20 nA for silicates, 8 nA for '
-         'phosphates, and so on — and each analysis point in a session is linked to its material '
-         'by Target Material of Sampling Unit. X-ray maps scan every material at once, so they have '
-         'their own Mapping Beam fields, one set per map.')
-    para('Where an item repeats over samples or analysis points, the procedure column leaves them '
-         'out: the procedure record cannot name samples, so the per-unit detail appears only in the '
-         'session column. Pre-Analysis Imaging and Screening, for example, is one description in '
-         'the procedure and one per Sample Name in the session.')
+           ('Secondary Reference Material', 'the list in "Secondary Reference Materials"', None),
+           ('Combined Result', 'the list in "Combined Results" — each reported value that combines several individual results', None)])
     if REVIEW_NOTE:
-        para('Cells shaded pale yellow in the procedure column are the ones we are least sure of. '
-             'Hover over a shaded cell for what the literature shows, and tell us whether that is '
-             'what a registering laboratory would expect to enter.')
+        para('Cells shaded pale yellow in the procedure structure column are the ones we are least sure of. '
+             'Hover over a shaded cell for what the literature shows.')
     r += 1
 
-    if not mode:
-        head('Modes', 12)
-        para('The four columns on the right are the analytical modes this technique covers. ✓ means the '
-             'item applies to that mode; – means it does not. Within each group, rows that repeat over the '
-             'same thing in the same modes are kept together and separated by a rule. Every row carries '
-             'its own values, so sorting or filtering the sheet loses nothing.')
-        r += 1
+    # ---- 5. Review criteria -----------------------------------------------------------------
+    head('Review criteria — one per comment column', 12)
+    rows_([('Needed?', 'Is this item relevant to EPMA as you practise it? Is it one thing (otherwise Split), '
+            'and distinct from other items (otherwise Merge)? Is it correctly named (otherwise Rename, and say '
+            'how in Other comments)? Options: Keep · Drop · Merge with another row · Split into several rows · '
+            'Rename.', '7030A0'),
+           ('Structure right? (procedure)', 'Does the procedure need one value, one value for each entry of a '
+            'list (for example, per "Target Material"), or a list of its own? Options: Yes · Repeats over the '
+            'wrong thing · Should be a list · Should be a single value.', '2F5597'),
+           ('Tier right? (procedure)', 'Can the value be known before any session? If not: Should not be in the '
+            'procedure record. If so, is it essential for judging data quality or reproducing the work? Then: '
+            'Should be required; otherwise: Should be optional. Options: Yes · Should be required · Should be '
+            'optional · Should not be in the procedure record.', '2F5597'),
+           ('Structure right? (session)', 'Does a session report it once, or once per sample, per analysis '
+            'point, per element…? Options: Yes · Repeats over the wrong thing · Should be a list · Should be a '
+            'single value.', 'BF8F00'),
+           ('Tier right? (session)', 'Must the session copy the procedure\'s value unchanged (Should be fixed by '
+            'the procedure)? May it vary within the procedure\'s bounds (Should be adjustable)? Or is it known '
+            'only from the session (Should be required / Should be optional)? Options: Yes · Should be required · '
+            'Should be optional · Should be fixed by the procedure · Should be adjustable.', 'BF8F00'),
+           ('Other comments', 'Anything else: the wording of Description or Example, missing items, wrong or '
+            'missing modes, suggestions on the TAPP\'s structure.', '833C0B')])
 
-    head('What we are asking you', 12)
-    para('Six columns are for your review, and each one sits immediately to the right of the column '
-         'it judges and carries the same colour: "Needed?" beside the metadata item, "Structure '
-         'right?" beside each structure column, "Tier right?" beside each tier column, and one free-'
-         'text "Comment" at the end of the row. All but the last are drop-downs, so answers can be '
-         'tallied. Review columns are shaded; content columns are not.')
-    rows_([('Needed?', 'Keep · Drop · Merge with another row · Split into several rows. "Split" is the one to use when a single row is really several things a laboratory would report separately.', '7030A0'),
-           ('Structure right?', 'One beside each structure column: Yes · Repeats over the wrong thing (the "per" names the wrong list) · Should be a list · Should be a single value. Judge the procedure and session columns separately — they often differ.', None),
-           ('Tier right? (procedure)', 'Yes · Should be required · Should be optional · Should not be in the procedure record.', '2F5597'),
-           ('Tier right? (session)', 'Yes · Should be required · Should be optional · Should be fixed by the procedure · Should be adjustable.', '548235'),
-           ('Comment', 'Anything else, including the wording of "What to report".', '833C0B')])
-    para('A note on wording: this workbook says "session" throughout for what the underlying TAPP '
-         'calls the analysis level, because "analysis" is easily read as one analysis point, which is '
-         'the one thing the record is not. "Session level" here is the TAPP\'s Analysis-Level Tier.')
-    para('This workbook is generated from EPMA_TAPP_%s.csv and is a snapshot of that version.' % VERSION + ' '
-         'Data types, allowed values and examples are deliberately not shown; they are reviewed '
-         'separately against the TAPP itself.')
-    lg.column_dimensions['A'].width = 31
+    # ---- 6. Notes ----------------------------------------------------------------------------
+    head('Notes', 12)
+    para('"Session" is used throughout for what the TAPP itself calls the analysis level, because "analysis" '
+         'is easily read as one analysis point, which is the one thing the record is not. "Session-Level '
+         'Tier" here is the TAPP\'s Analysis-Level Tier.')
+    para('This workbook is generated from EPMA_TAPP_%s.csv and is a snapshot of that version. Data types and '
+         'allowed values are not shown; they are reviewed separately against the TAPP itself.' % VERSION)
+    lg.column_dimensions['A'].width = 34
     lg.column_dimensions['B'].width = 104
     lg.sheet_properties.pageSetUpPr = PageSetupProperties(fitToPage=True)
     lg.page_setup.orientation = 'landscape'
     lg.page_setup.fitToWidth = 1
     lg.page_setup.fitToHeight = 0
+    protect(lg)
 
     # ============================== sheet 2: the table ==============================
-    ws = wb.create_sheet('EPMA metadata table')
+    # ============================== sheet 2: reviewer information ======================
+    # Added 2026-10-26. Free-text answers; the cells to fill are shaded like the review columns.
+    # Completed workbooks carry personal data: collect them by email, never commit them to the
+    # public repository.
+    rv = wb.create_sheet('Reviewer information')
+    rv.sheet_view.showGridLines = False
+    t = rv.cell(row=1, column=1, value='About you')
+    t.font = Font(bold=True, size=14)
+    n = rv.cell(row=2, column=1, value='Please fill in the shaded cells. All answers are free text. '
+                'Your details are used only to follow up on your review and to weigh answers by '
+                'experience; they are not published.')
+    n.font = Font(italic=True, size=10, color='595959')
+    n.alignment = Alignment(wrap_text=True, vertical='top')
+    rv.merge_cells(start_row=2, start_column=1, end_row=2, end_column=2)
+    rv.row_dimensions[2].height = 30
+    for j, h in enumerate(('Question', 'Your answer'), start=1):
+        c = rv.cell(row=4, column=j, value=h)
+        c.font = Font(bold=True, size=11, color='FFFFFF'); c.fill = HEAD_FILL; c.border = BORDER
+    for i, q in enumerate(REVIEWER_QUESTIONS, start=5):
+        a = rv.cell(row=i, column=1, value=q)
+        a.font = Font(bold=True, size=11); a.alignment = Alignment(wrap_text=True, vertical='top')
+        a.fill = LEGEND_FILL; a.border = BORDER
+        b = rv.cell(row=i, column=2)
+        b.fill = PatternFill('solid', fgColor=FAMILY['comment']['pale'])
+        b.alignment = Alignment(wrap_text=True, vertical='top'); b.border = BORDER
+        b.protection = UNLOCKED
+        rv.row_dimensions[i].height = 30
+    rv.column_dimensions['A'].width = 44
+    rv.column_dimensions['B'].width = 70
+    protect(rv)
+
+    ws = wb.create_sheet('EPMA TAPP')
     ws.sheet_view.showGridLines = False
     spec = colspec(modes)
     ncols = len(spec)
@@ -530,6 +720,7 @@ def build(mode=None):
     row = hdr + 1
     flagged = []
     sections = sorted({f['sec'] for f in fields})
+    prefill_rows = set()
     for si, sec in enumerate(sections):
         members_all = [f for f in fields if f['sec'] == sec]
         if si:                                   # one blank row between groups
@@ -537,14 +728,19 @@ def build(mode=None):
         for j in range(1, ncols + 1):
             cell = ws.cell(row=row, column=j); cell.fill = SECTION_FILL; cell.border = BORDER
         ws.cell(row=row, column=1, value=str(sec)).font = Font(bold=True, size=12)
-        ws.cell(row=row, column=2, value=members_all[0]['secname']).font = Font(bold=True, size=12)
+        sname = members_all[0]['secname']
+        ws.cell(row=row, column=2, value='Group %d: %s' % (sec, SECTION_SHORT.get(sname, sname))).font = Font(bold=True, size=12)
         ws.row_dimensions[row].height = 22
         row += 1
 
         # Rows are grouped by what they repeat over and by mode; the groups carry no
         # header of their own, only a rule above the first row of each.
+        # GROUP_ROWS = False keeps the TAPP's own order (one "group" per field, no rules).
         groups = collections.OrderedDict()
         for f in members_all:
+            if not GROUP_ROWS:
+                groups[(f['num'], f['modes'])] = [f]
+                continue
             sess, _ = phrase(f['name'], f['key'], 'session')
             groups.setdefault((sess.split(' per ', 1)[-1] if ' per ' in sess else sess,
                                f['modes']), []).append(f)
@@ -566,11 +762,12 @@ def build(mode=None):
                           'sstruct': sess_f, 'stier': f['D']}
                 for k, ch in zip(modes, f['modes']):
                     values['mode:' + k] = '✓' if ch == 'Y' else '–'
-                top = Side(style='thin', color='7F7F7F') if (f is members[0] and gi) else THIN
+                top = Side(style='thin', color='7F7F7F') if (GROUP_ROWS and f is members[0] and gi) else THIN
                 for j, (key, header, width, fam, kind, opts) in enumerate(spec, start=1):
                     cell = ws.cell(row=row, column=j, value=values.get(key))
                     cell.border = Border(left=THIN, right=THIN, top=top, bottom=THIN)
                     if kind == 'review':
+                        cell.protection = UNLOCKED       # the only editable cells
                         cell.fill = PatternFill('solid', fgColor=FAMILY[fam]['pale'])
                         cell.alignment = Alignment(wrap_text=True, vertical='top')
                     elif key in ('ptier', 'stier'):
@@ -581,12 +778,23 @@ def build(mode=None):
                         tick = cell.value == '✓'
                         cell.font = Font(bold=tick, size=11,
                                          color='375623' if tick else 'BFBFBF')
+                        if tick:
+                            cell.fill = TICK_FILL
                         cell.alignment = Alignment(horizontal='center', vertical='top')
                     elif key == 'name':
                         cell.font = Font(bold=True, size=11)
                         cell.alignment = Alignment(vertical='top', wrap_text=True)
                     else:
                         cell.alignment = Alignment(wrap_text=(key in ('prose', 'example')), vertical='top')
+                if f['name'] in REGISTRATION:
+                    prefill_rows.add(row)
+                    for j, (key, header, width, fam, kind, opts) in enumerate(spec, start=1):
+                        if kind == 'review' and opts:
+                            c = ws.cell(row=row, column=j)
+                            c.value = PREFILL
+                            c.protection = Protection(locked=True)
+                            c.fill = GREY_FILL
+                            c.font = Font(italic=True, size=9, color='595959')
                 if flag:
                     c = ws.cell(row=row, column=idx['pstruct'])
                     c.fill = FLAG_FILL
@@ -602,9 +810,17 @@ def build(mode=None):
                                 allow_blank=True)
             dv.prompt = header; dv.promptTitle = header
             ws.add_data_validation(dv)
-            dv.add('%s%d:%s%d' % (col, hdr + 1, col, row - 1))
+            run = None                       # contiguous runs, skipping the pre-filled rows
+            for rr in list(range(hdr + 1, row)) + [None]:
+                if rr is not None and rr not in prefill_rows:
+                    run = (run[0], rr) if run else (rr, rr)
+                    continue
+                if run:
+                    dv.add('%s%d:%s%d' % (col, run[0], col, run[1]))
+                run = None
     ws.freeze_panes = ws.cell(row=hdr + 1, column=4)
     ws.auto_filter.ref = 'A%d:%s%d' % (hdr, get_column_letter(ncols), row - 1)
+    protect(ws)
     ws.sheet_properties.pageSetUpPr = PageSetupProperties(fitToPage=True)
     ws.page_setup.orientation = 'landscape'
     ws.page_setup.paperSize = 8
@@ -614,6 +830,7 @@ def build(mode=None):
 
     # ============================== sheet 3: traceability ==========================
     tr = wb.create_sheet('Structure key (traceability)')
+    tr.sheet_state = 'hidden'          # for the TAPP team, not reviewers (2026-10-26)
     tr.sheet_view.showGridLines = False
     for j, h in enumerate(['#', 'Metadata item', 'TAPP "Keyed By" (Column I)',
                            'Structure — procedure record', 'Structure — session record'], start=1):
