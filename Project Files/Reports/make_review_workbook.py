@@ -785,7 +785,7 @@ def build(mode=None):
                         cell.font = Font(bold=True, size=11)
                         cell.alignment = Alignment(vertical='top', wrap_text=True)
                     else:
-                        cell.alignment = Alignment(wrap_text=(key in ('prose', 'example')), vertical='top')
+                        cell.alignment = Alignment(wrap_text=(key in ('prose', 'example', 'pstruct', 'sstruct')), vertical='top')
                 if f['name'] in REGISTRATION:
                     prefill_rows.add(row)
                     for j, (key, header, width, fam, kind, opts) in enumerate(spec, start=1):
