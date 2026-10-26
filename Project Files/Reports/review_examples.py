@@ -2,7 +2,10 @@
 Example values for the reviewer workbook, one per EPMA TAPP field.
 
 Source: the highlighted spans of EPMA_Reference_Methods_Section_v77_highlighted.md — the
-worked example. Everything here is fictional (lab, samples, identifiers, results), as the
+worked example. Labels simplified 2026-10-26 so a reviewer can follow them row by row: samples
+CC-1 and CC-2 (were EX-CC-01/02); points named by mineral and number, ol3 = the third olivine
+point (were particle-point labels, P1-03); maps Map 1 and Map 2; catalogue numbers dropped from
+standard names; Target Material lists only the minerals analysed. Values are unchanged. Everything here is fictional (lab, samples, identifiers, results), as the
 worked example states. Table 1 content is rewritten as phrases ("X for Y; ..."). Nothing
 is added that the worked example does not say.
 
@@ -22,43 +25,43 @@ _WDS_MAP = 'Na, Al, P, Cr, Ni'
 
 EXAMPLES = {
  # ---- 1. Procedure identification
- 'Procedure Name': 'EML-EPMA-CC v2, EPMA-WDS+EDS major and minor elements in carbonaceous-chondrite silicates, oxides, sulfides, phosphates and carbonates',
+ 'Procedure Name': 'EPMA-CC v2: major and minor elements in carbonaceous-chondrite minerals by WDS and EDS',
  'Technique': 'EPMA-WDS+EDS (combines wavelength-dispersive and energy-dispersive spectrometry)',
  'Procedure Author': 'Example Microanalysis Laboratory',
  'Laboratory': 'Example Microanalysis Laboratory',
  'Laboratory ID': 'https://ror.org/0example00',
  'Procedure Start Date': 'January 2025',
- 'Funding Source for Procedure Development': 'Example Agency award EX-INST-0001 (instrument); award EX-DEV-0002 (procedure development)',
- 'Procedure Reference(s)': 'Example et al. (2025), doi:10.0000/example.2025.001',
- 'Procedure DOI': 'doi:10.0000/example.epma-cc.v2',
- 'Session Identifier': 'EML-2026-0412-A',
+ 'Funding Source for Procedure Development': 'Example Agency grant A (instrument); grant B (procedure development)',
+ 'Procedure Reference(s)': 'Example et al. (2025)',
+ 'Procedure DOI': 'doi:10.0000/epma-cc.v2',
+ 'Session Identifier': 'Run 2026-04-12',
  'Analyst': 'Analyst A (ORCID 0000-0000-0000-0000)',
  'Analysis Start Date': '2026-04-12',
  'Analysis End Date': '2026-04-14',
- 'Funding Source for Analysis': 'Example Agency award EX-SCI-0003',
+ 'Funding Source for Analysis': 'Example Agency grant C',
  'Coupled Technique(s)': 'SEM; NanoSIMS (oxygen isotopes of carbonates, Example Isotope Laboratory)',
  'Coupling Description': 'EPMA carbonate compositions select the matrix-matched reference material for the NanoSIMS mass-fractionation correction; SEM first, EPMA next (non-destructive), NanoSIMS last (sputtering destroys the analysed volume)',
  'Coupled Procedure DOI': 'pending',
  'Coupled Dataset or Publication Reference': 'same submission',
  # ---- 2. Samples
- 'Target Material': 'Silicate mineral (olivine, pyroxene); oxide (magnetite, chromite, ilmenite); sulfide (pyrrhotite, pentlandite); phosphate (apatite, merrillite); carbonate (calcite, dolomite, breunnerite), in carbonaceous-chondrite material',
- 'Sample Preparation Method': 'Epoxy mount, dry-polished with diamond to 0.25 µm, carbon coated to 20 nm, for EX-CC-01; the same, plus Ar-ion polishing after the final diamond step, for EX-CC-02',
- 'Sample Name': 'EX-CC-01; EX-CC-02',
+ 'Target Material': 'Silicate mineral (olivine, pyroxene); oxide (magnetite); sulfide (pyrrhotite); phosphate (apatite); carbonate (dolomite, calcite)',
+ 'Sample Preparation Method': 'Epoxy mount, dry-polished with diamond to 0.25 µm, carbon coated to 20 nm, for CC-1; the same, plus Ar-ion polishing after the final diamond step, for CC-2',
+ 'Sample Name': 'CC-1; CC-2',
  'Sampling Unit Type': {
-     'all': 'Analysis point, labelled by particle and point number; each X-ray map is one result for its mapped area',
-     'point': 'Analysis point (one point analysis = one result), labelled by particle and point number',
+     'all': 'Analysis point, labelled by mineral and number (ol3 = the third olivine point); each X-ray map is one result for its mapped area',
+     'point': 'Analysis point (one point analysis = one result), labelled by mineral and number (ol3 = the third olivine point)',
      'map': 'Map area (one map = one result; pixels are not reported individually)'},
  'Sampling Unit Name': {
-     'all': 'P1-01–P1-12, P2-01–P2-11, P3-01–P3-06 and map M1 for EX-CC-01; P1-01–P1-16, P2-01–P2-08 and map M2 for EX-CC-02',
-     'point': 'P1-01–P1-12, P2-01–P2-11, P3-01–P3-06 for EX-CC-01 (29 points); P1-01–P1-16, P2-01–P2-08 for EX-CC-02 (24 points)',
-     'map': 'M1 (particle P1) for EX-CC-01; M2 (particle P1) for EX-CC-02'},
- 'Target Material of Sampling Unit': 'Silicate mineral for P1-01–P1-12, oxide for P2-01–P2-06, sulfide for P2-07–P2-11, phosphate for P3-01–P3-06 (EX-CC-01); carbonate for P1-01–P1-16, silicate mineral for P2-01–P2-08 (EX-CC-02)',
- 'Sample Persistent Identifier': 'IGSN:EXAMPLE0001 for EX-CC-01; IGSN:EXAMPLE0002 for EX-CC-02',
+     'all': 'CC-1: ol1–ol8, px1–px4, mag1–mag6, po1–po5, ap1–ap6 (29 points); CC-2: dol1–dol10, cal1–cal6, ol1–ol8 (24 points); Map 1 in CC-1, Map 2 in CC-2',
+     'point': 'CC-1: ol1–ol8, px1–px4, mag1–mag6, po1–po5, ap1–ap6 (29 points); CC-2: dol1–dol10, cal1–cal6, ol1–ol8 (24 points)',
+     'map': 'Map 1 in CC-1; Map 2 in CC-2'},
+ 'Target Material of Sampling Unit': 'CC-1: silicate mineral for ol1–ol8 and px1–px4; oxide for mag1–mag6; sulfide for po1–po5; phosphate for ap1–ap6. CC-2: carbonate for dol1–dol10 and cal1–cal6; silicate mineral for ol1–ol8',
+ 'Sample Persistent Identifier': 'IGSN:EX0001 for CC-1; IGSN:EX0002 for CC-2',
  'Sampling Unit Selection Criteria': {
      'all': 'Grains at least 5 µm across (10 µm for phosphates and carbonates); at least 3 µm from boundaries, cracks and inclusions in BSE (5 µm for defocused or rastered beams); phase confirmed from its EDS spectrum first; map areas include every target phase in a particle',
      'point': 'Grains at least 5 µm across (10 µm for phosphates and carbonates); at least 3 µm from boundaries, cracks and inclusions in BSE (5 µm for defocused or rastered beams); phase confirmed from its EDS spectrum first',
      'map': 'Map areas chosen to include every target phase present in a particle'},
- 'Pre-Analysis Imaging and Screening': 'BSE imaging and EDS maps (Mg, Si, Fe, Ca, S, P) on a field-emission SEM at 15 kV and 1 nA, registered to stage coordinates, each point labelled on its particle\'s BSE image — for both EX-CC-01 and EX-CC-02',
+ 'Pre-Analysis Imaging and Screening': 'BSE imaging and EDS maps (Mg, Si, Fe, Ca, S, P) on a field-emission SEM at 15 kV and 1 nA, registered to stage coordinates, each point labelled on its BSE image — for both CC-1 and CC-2',
  # ---- 3. Instrument & software
  'Instrument Manufacturer': 'JEOL',
  'Instrument Model': 'JXA-8530F Plus',
@@ -79,9 +82,9 @@ EXAMPLES = {
  'Beam Damage Minimization': {
      'all': 'Defocused beam for phosphates; rastered beam for carbonates; Na, K, F and Cl measured in the first acquisition pass on every point',
      'EDS Point Analysis': 'Defocused beam for phosphates; rastered beam for carbonates'},
- 'Mapping Beam Mode': 'Focused, for maps M1 and M2',
- 'Mapping Beam Current': '50 nA, for maps M1 and M2',
- 'Mapping Beam Diameter': '1 µm (focused), for maps M1 and M2',
+ 'Mapping Beam Mode': 'Focused, for Map 1 and Map 2',
+ 'Mapping Beam Current': '50 nA, for Map 1 and Map 2',
+ 'Mapping Beam Diameter': '1 µm (focused), for Map 1 and Map 2',
  'Accelerating Voltage': '15 kV (the laboratory\'s standard operating voltage)',
  'Drift Correction': 'Beam current measured with the Faraday cup before each point and at the start of each map line, intensities normalised to it; primary standards re-measured at the start and end of the session, drift interpolated linearly with time',
  'Target Species': 'Si, Ti, Al, Cr, Fe, Mn, Mg, Ca, Na, K, P, S, F, Cl, Ni, Co, O, C (18 elements)',
@@ -127,8 +130,8 @@ EXAMPLES = {
      'EDS Mapping': '30 ms per pixel (EDS spectrum image, one live time for Si, Mg, Fe, Ca, S)',
      'WDS Mapping': '30 ms per pixel for Na, Al, P, Cr, Ni'},
  'Step Size / Pixel Size': '2 µm in both X and Y',
- 'Map Dimensions': '512 × 512 pixels for M1; 384 × 256 pixels for M2',
- 'Map Area': '1.024 × 1.024 mm for M1; 0.768 × 0.512 mm for M2',
+ 'Map Dimensions': '512 × 512 pixels for Map 1; 384 × 256 pixels for Map 2',
+ 'Map Area': '1.024 × 1.024 mm for Map 1; 0.768 × 0.512 mm for Map 2',
  'Stage Scan vs. Beam Scan': 'Stage scan with the beam held fixed',
  # ---- 5. Data processing
  'Matrix Correction Method': {
@@ -153,22 +156,22 @@ EXAMPLES = {
  'Calibration Factor and Determination Method': 'None, for every reported variable (concentrations from k-ratios against the primary standards)',
  'Procedural Blank Level': '35 ± 9 µg/g for Ni; 22 ± 8 µg/g for Co (n = 5)',
  'Analysis Inclusion and Rejection Criteria': {
-     'all': 'Rules: totals 98.5–101.5 wt% (silicates, oxides, sulfides), 96.0–101.5 (apatite), 98.0–102.0 (carbonates); cation sum within ±0.03 apfu; no overlap with a second phase; beam drift under 1%. Outcome: 53 points acquired, 45 included; excluded P3-02 and P3-05 from apatite in EX-CC-01 and P1-03, P1-07 from dolomite in EX-CC-02 (totals), P2-07 and P2-09 from pyrrhotite in EX-CC-01 and P1-16 from calcite in EX-CC-02 (overlap), P2-05 from olivine in EX-CC-02 (drift)',
+     'all': 'Rules: totals 98.5–101.5 wt% (silicates, oxides, sulfides), 96.0–101.5 (apatite), 98.0–102.0 (carbonates); cation sum within ±0.03 apfu; no overlap with a second phase; beam drift under 1%. Outcome: 53 points acquired, 45 included; excluded for totals: ap2, ap5 (CC-1), dol3, dol7 (CC-2); for overlap: po1, po3 (CC-1), cal6 (CC-2); for drift: ol5 (CC-2)',
      'map': 'None: maps are not combined'},
  'Combination Method': {
      'all': 'Arithmetic mean of the included points, per phase within each sample, for every oxide and element concentration; maps and structural formulas not combined',
      'map': 'Not combined: maps are reported pixel by pixel'},
  'Combined Results': {
-     'all': 'Olivine in EX-CC-01 (P1-01–P1-08); pyroxene in EX-CC-01 (P1-09–P1-12); magnetite in EX-CC-01 (P2-01–P2-06); pyrrhotite in EX-CC-01 (P2-07–P2-11); apatite in EX-CC-01 (P3-01–P3-06); dolomite in EX-CC-02 (P1-01–P1-10); calcite in EX-CC-02 (P1-11–P1-16); olivine in EX-CC-02 (P2-01–P2-08)',
-     'map': 'None: maps M1 and M2 are not combined'},
+     'all': '8 results, one per mineral per sample: olivine, pyroxene, magnetite, pyrrhotite and apatite in CC-1; dolomite, calcite and olivine in CC-2',
+     'map': 'None: Map 1 and Map 2 are not combined'},
  'Constants and Reference Values Used': 'IUPAC 2021 standard atomic weights (Prohaska et al. 2022)',
  # ---- 6. Quality control & uncertainty
  'Primary Calibration Standard Name': {
-     'all': 'Springwater olivine USNM 2566 for Si, Mg; Rockport fayalite USNM 85276 for Fe; diopside USNM 117733 for Ca; dolomite USNM 10057 for Ca, Mg in carbonates; synthetic FeS for S; synthetic SrF₂ for F; Amelia albite for Na; microcline USNM 143966 for K; scapolite USNM R6600-1 for Cl; anorthite USNM 137041 for Al; Wilberforce fluorapatite for P; ilmenite USNM 96189 for Ti; synthetic Cr₂O₃ for Cr; rhodonite for Mn; Co metal for Co; Ni metal for Ni; synthetic ZnS for Zn (Smithsonian values: Jarosewich et al. 1980)',
-     'eds': 'Springwater olivine USNM 2566 for Si, Mg; Rockport fayalite USNM 85276 for Fe; diopside USNM 117733 for Ca; dolomite USNM 10057 for Ca, Mg in carbonates; synthetic FeS for S (Smithsonian values: Jarosewich et al. 1980)',
-     'WDS Point Analysis': 'Synthetic SrF₂ for F; Amelia albite for Na; microcline USNM 143966 for K; scapolite USNM R6600-1 for Cl; anorthite USNM 137041 for Al; Wilberforce fluorapatite for P; ilmenite USNM 96189 for Ti; synthetic Cr₂O₃ for Cr; rhodonite for Mn; Co metal for Co; Ni metal for Ni; synthetic ZnS for Zn (Smithsonian values: Jarosewich et al. 1980)',
-     'WDS Mapping': 'Amelia albite for Na; anorthite USNM 137041 for Al; Wilberforce fluorapatite for P; synthetic Cr₂O₃ for Cr; Ni metal for Ni'},
- 'Secondary Reference Materials': 'San Carlos olivine USNM 111312/444; Kakanui augite USNM 122142; Durango apatite USNM 104021; chromite USNM 117075; calcite USNM 136321 (accepted values: Jarosewich et al. 1980)',
+     'all': 'Springwater olivine for Si, Mg; Rockport fayalite for Fe; diopside for Ca; dolomite for Ca, Mg in carbonates; synthetic FeS for S; synthetic SrF₂ for F; Amelia albite for Na; microcline for K; scapolite for Cl; anorthite for Al; Wilberforce fluorapatite for P; ilmenite for Ti; synthetic Cr₂O₃ for Cr; rhodonite for Mn; Co metal for Co; Ni metal for Ni; synthetic ZnS for Zn (Smithsonian values: Jarosewich et al. 1980)',
+     'eds': 'Springwater olivine for Si, Mg; Rockport fayalite for Fe; diopside for Ca; dolomite for Ca, Mg in carbonates; synthetic FeS for S (Smithsonian values: Jarosewich et al. 1980)',
+     'WDS Point Analysis': 'Synthetic SrF₂ for F; Amelia albite for Na; microcline for K; scapolite for Cl; anorthite for Al; Wilberforce fluorapatite for P; ilmenite for Ti; synthetic Cr₂O₃ for Cr; rhodonite for Mn; Co metal for Co; Ni metal for Ni; synthetic ZnS for Zn (Smithsonian values: Jarosewich et al. 1980)',
+     'WDS Mapping': 'Amelia albite for Na; anorthite for Al; Wilberforce fluorapatite for P; synthetic Cr₂O₃ for Cr; Ni metal for Ni'},
+ 'Secondary Reference Materials': 'San Carlos olivine; Kakanui augite; Durango apatite; chromite; calcite (accepted values: Jarosewich et al. 1980)',
  'X-ray Line Overlap Corrections Applied': {
      'all': 'Yes for Co (Fe Kβ on Co Kα), Mn (Cr Kβ on Mn Kα) and Na (Zn Lα on Na Kα), quantitative and iterated with the matrix correction; no for all other elements',
      'eds': 'No for %s' % _EDS,
@@ -198,9 +201,9 @@ EXAMPLES = {
      'all': '18–26% during point analysis; 24–31% during spectrum imaging',
      'EDS Point Analysis': '18–26%',
      'EDS Mapping': '24–31% during spectrum imaging'},
- 'Goodness-of-Fit or Dispersion Statistic': 'MSWD of the included points about the mean: for olivine in EX-CC-01, 0.9 for NiO to 2.3 for CaO, and 4.6 for FeO (Fe–Mg zoning); likewise for every other combined result',
- 'Other Statistics': 'Standard error of the mean (1 s.d./√n): for olivine in EX-CC-01, 0.08 wt% for SiO₂, 0.12 for MgO, 0.04 for FeO; likewise for every other combined result',
- 'Additional Notes': 'Particle P2 of EX-CC-02 partly plucked during ion polishing; its analyses lie on the remaining fragment. No other anomalies, instrument modifications or departures',
+ 'Goodness-of-Fit or Dispersion Statistic': 'MSWD of the included points about the mean: for olivine in CC-1, 0.9 for NiO to 2.3 for CaO, and 4.6 for FeO (Fe–Mg zoning); likewise for every other combined result',
+ 'Other Statistics': 'Standard error of the mean (1 s.d./√n): for olivine in CC-1, 0.08 wt% for SiO₂, 0.12 for MgO, 0.04 for FeO; likewise for every other combined result',
+ 'Additional Notes': 'Part of CC-2 was plucked during ion polishing; its olivine points (ol1–ol8) lie on the remaining fragment. No other anomalies, instrument modifications or departures',
 }
 
 
