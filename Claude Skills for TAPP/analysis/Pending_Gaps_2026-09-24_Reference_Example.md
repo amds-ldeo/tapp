@@ -110,6 +110,8 @@ See `precedents.md`, "The SEM TAPPs follow EPMA" (2026-09-28).
 
 ### Gap 3 — statistics on averaged values — IMPLEMENTED 2026-09-28
 
+> **Partly reversed 2026-10-26** (Module_Aggregation v6, conventions.md Rule 14). `Combined Results` and `Other Statistics` were retired, and the inclusion criteria and dispersion statistic returned to their pre-v5 keys: outcomes and statistic values are dataset content. `Combination Method` stands. See `Aggregation_Results_To_Dataset_DRAFT_2026-10-26.md` and precedents.md, 2026-10-26.
+
 **Amended before implementation: a session list instead of a key for each TAPP.** Reading the inclusion cells showed combined values at different levels within one TAPP:
 
 - **EPMA:** per phase (Liu 2016, Pang 2016, Broussard 2026) and per grain (Ma 2017).

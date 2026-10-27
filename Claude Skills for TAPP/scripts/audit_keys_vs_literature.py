@@ -162,9 +162,15 @@ ADJUDICATED = {
         "is defined to say, per reported variable, how it is combined and over what group. The combined values "
         "themselves are the members of `Combined Results`.",
     ("Goodness-of-Fit or Dispersion Statistic", "OVER-DECLARED"):
-        "CONSISTENT — keep combined result x reported property. In a literature column `combined result` drops out "
-        "(7.3.3), so the cells are written per reported property ('SiO2, TiO2, ...: one standard deviation of the "
-        "mean'). The detector reads oxide members as target species.",
+        "RE-KEYED 2026-10-26 -> reported property (Module_Aggregation v6, Rule 14): the field names the statistic, "
+        "and its values go to the dataset. The cells were already written per reported property ('SiO2, TiO2, ...: "
+        "one standard deviation of the mean'), so none changed. Earlier ruling: keep combined result x reported "
+        "property; in a literature column `combined result` drops out (7.3.3).",
+    # ---- adjudicated 2026-10-26, on the Aggregation results-to-dataset change.
+    ("Goodness-of-Fit or Dispersion Statistic", "AXIS-MISMATCH"):
+        "CONSISTENT — keep reported property. The EPMA cells name oxides ('SiO2, TiO2, ...: one standard deviation "
+        "of the mean'), which the detector reads as target species; they are reported variables. Same shape as the "
+        "Combination Method ruling above.",
     # ---- adjudicated 2026-09-29, on the EPMA keyed-value notation pilot (epma_keyed_pilot_20260929.py).
     ("X-ray Line", "AXIS-MISMATCH"):
         "CONSISTENT — keep monitored property. The pilot wrote the cells as 'Si, Al, Ca, ...: Ka', and the "
@@ -201,6 +207,9 @@ ADJUDICATED = {
         "KEEP acquisition pass — minted 2026-09-08. THE SINGLE-PASS UNFALSIFIABILITY RULE, the single-target-species rule one axis over: a SINGLE-PASS procedure cannot falsify a per-pass key. The field has one value because there is one pass, and the detector scores that as scalar. Only MULTI-pass procedures test the axis, and every one of them attests it — Chernonozhkin et al. 2021 (spot 30 vs 130 um, 20 vs 40 Hz, transect vs spot, MR vs LR, oxide-sum vs Cr-IS), Hopp et al. 2021 (wet-plasma MR vs dry-plasma HR with different introduction hardware), Hu et al. 2022 (main configuration vs subconfiguration), Willbold 2005 (dilution ~21000 for LR vs ~1000 for HR), Misra et al. 2014 (LR vs MR). Weight only the multi-pass procedures. Every field carrying this key was verified against its raw cell before the re-key; the eight stated per pass with IDENTICAL values (Laser Fluence, RF Power, Make-up Gas, Coolant Gas, Background Count Time, Analysis Sequence, Signal Integration Time, Number of Replicates) were deliberately left `(none)` under 7.3.2.",
     # ---- adjudicated 2026-09-16, on the `Sampling Unit Type` literature pass (batches 1-2).
     ("Analysis Inclusion and Rejection Criteria", "UNDER-DECLARED"):
+        "REVERTED 2026-10-26 -> (none) (Module_Aggregation v6, Rule 14): the field now holds the rules only, and "
+        "the outcome counts that made the axis vary are dataset content. 36 of its 45 non-N cells rested on those "
+        "counts and were re-read to N. Earlier: "
         "APPLIED 2026-09-28 -> combined result (gap 3; Module_Aggregation v5). The ruling below predicted this: "
         "the axis was the aggregate, and the vocabulary now has it as `combined result`, defined per session by "
         "`Combined Results`. Earlier ruling: "

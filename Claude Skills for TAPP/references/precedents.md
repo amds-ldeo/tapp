@@ -3973,3 +3973,43 @@ its own a reason to change a mode axis. First check what the axis encodes beyond
 
 Together with the counting-time re-key the same day, this leaves no held electron-beam design item. The Zega
 pyrrhotite Fe/S average (EMPA and SEM-EDS combined) remains open.
+
+## Rules in the TAPP, results in the dataset: the Aggregation results move out (2026-10-26)
+
+From an EPMA team member's review of the v88 review workbook: 5.13–5.15 look unnecessary, users
+have their own acceptance criteria, and complete one TAPP per analytical setup. RD ruled that fields
+capturing actual results belong in the dataset, not the metadata record (conventions.md Rule 14).
+
+**This partly reverses 2026-09-28 (gap 3).** That design kept inclusion criteria and outcome in one
+field "because neither is interpretable without the other, following the precision/accuracy
+precedent". It minted `combined result` so that outcome counts and statistic values could attach to
+each combined value. The precedent does not carry over: precision and accuracy characterise the
+measurement, while the outcome is a result on a sample. With outcomes and values gone, the key has
+nothing left to key, and both fields return to their pre-v5 keys. The finding that motivated v5 still
+stands: combined values sit at different levels within one TAPP. It now constrains the dataset
+template, which must let each individual result name the combined value it belongs to.
+
+**The literature agrees.** Across 13 TAPPs, 45 inclusion cells were non-N, and all 45 were re-read:
+- 36 became N. They rested on contributing counts alone, or on a combination rule (which belongs to
+  Combination Method). In EPMA this was all 5 non-N cells: none of the 14 EPMA papers states a rule.
+- 6 state a rule and stand: Craddock, Hopp, Nie, Schönbächler, Hu 2022, and Zhang 2022 (LA-MC).
+- 3 stay Partially, with the reason restated: Ibanez-Mejia (all replicates used) and Cymes ×2
+  (ground named, no criterion).
+
+Each N cell keeps its earlier reading, for provenance. All 32 non-N dispersion cells already named the
+statistic; the values sit in tables.
+
+**Retired:** `Combined Results` and `Other Statistics`. Their 268 literature cells (about 77 non-N)
+leave with them; the superseded versions keep them. The key `combined result` is retired too.
+
+**Tiers:**
+- Inclusion criteria, session tier Basic → Editable.
+- Dispersion statistic, procedure tier N/A → Basic (a '±' cannot be read without the statistic
+  named); session tier → Editable.
+- Inclusion criteria keep procedure tier Basic although no EPMA paper states a rule. The tier records
+  what reproducing a combined value needs, not current practice.
+
+**Lesson.** A field whose content would only ever be printed in a results table is a dataset column
+with a metadata name. Ask whether a value belongs in the methods section or in the data table before
+minting a field for it.
+

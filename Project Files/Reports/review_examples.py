@@ -157,14 +157,11 @@ EXAMPLES = {
  'Calibration Factor and Determination Method': 'None, for every reported variable (concentrations from k-ratios against the primary standards)',
  'Procedural Blank Level': '35 ± 9 µg/g for Ni; 22 ± 8 µg/g for Co (n = 5)',
  'Analysis Inclusion and Rejection Criteria': {
-     'all': 'Rules: totals 98.5–101.5 wt% (silicates, oxides, sulfides), 96.0–101.5 (apatite), 98.0–102.0 (carbonates); cation sum within ±0.03 apfu; no overlap with a second phase; beam drift under 1%. Outcome: 53 points acquired, 45 included; excluded for totals: ap2, ap5 (CC-1), dol3, dol7 (CC-2); for overlap: po1, po3 (CC-1), cal6 (CC-2); for drift: ol5 (CC-2)',
+     'all': 'Totals 98.5–101.5 wt% (silicates, oxides, sulfides), 96.0–101.5 (apatite), 98.0–102.0 (carbonates); cation sum within ±0.03 apfu; points overlapping a second phase rejected; points with beam drift above 1% rejected',
      'map': 'None: maps are not combined'},
  'Combination Method': {
      'all': 'Arithmetic mean of the included points, per phase within each sample, for every oxide and element concentration; maps and structural formulas not combined',
      'map': 'Not combined: maps are reported pixel by pixel'},
- 'Combined Results': {
-     'all': '8 results, one per mineral per sample: olivine, pyroxene, magnetite, pyrrhotite and apatite in CC-1; dolomite, calcite and olivine in CC-2',
-     'map': 'None: Map 1 and Map 2 are not combined'},
  'Constants and Reference Values Used': 'IUPAC 2021 standard atomic weights (Prohaska et al. 2022)',
  # ---- 6. Quality control & uncertainty
  'Primary Calibration Standard Name': {
@@ -202,8 +199,7 @@ EXAMPLES = {
      'all': '18–26% during point analysis; 24–31% during spectrum imaging',
      'EDS Point Analysis': '18–26%',
      'EDS Mapping': '24–31% during spectrum imaging'},
- 'Goodness-of-Fit or Dispersion Statistic': 'MSWD of the included points about the mean: for olivine in CC-1, 0.9 for NiO to 2.3 for CaO, and 4.6 for FeO (Fe–Mg zoning); likewise for every other combined result',
- 'Other Statistics': 'Standard error of the mean (1 s.d./√n): for olivine in CC-1, 0.08 wt% for SiO₂, 0.12 for MgO, 0.04 for FeO; likewise for every other combined result',
+ 'Goodness-of-Fit or Dispersion Statistic': 'MSWD of the included points about the mean, for every oxide and element concentration; none for structural formulas, which are not combined',
  'Additional Notes': 'Part of CC-2 was plucked during ion polishing; its olivine points (ol1–ol8) lie on the remaining fragment. No other anomalies, instrument modifications or departures',
 }
 

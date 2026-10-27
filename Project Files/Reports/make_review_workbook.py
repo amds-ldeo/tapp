@@ -24,9 +24,11 @@ Design decisions, 2026-09-17:
     the stable reference.
 
 Layout decisions, 2026-10-26 (supersede the phrasing and row-grouping points above):
-  * Structure cells are plain-language instructions — "Give one value for each "Monitored
-    Element"", "For each "Secondary Reference Material", give one value for each "Reported
-    Variable"" — with list names quoted as references to the fields that define them.
+  * Structure cells are plain-language instructions — "Give one entry for each "Monitored
+    Element" (4.13)" — with list names quoted, and numbered, as references to the fields
+    that define them. "Entry", not "value" (2026-10-26, EPMA team review): most items are
+    not quantities, and the Instructions define an entry as one complete answer in whatever
+    form the Description asks for.
   * Rows follow the TAPP's own order (GROUP_ROWS = False): grouping had begun to put
     consumers above their definers.
   * Description before Example; "Example (NOT recommendations)"; "Other comments"; session
@@ -63,7 +65,7 @@ from openpyxl.utils import get_column_letter
 # Paths resolve from this file's own location, as build_form.py does, so the script runs
 # from any working directory. The TAPP is read from the `Current TAPPs/` mirror (Rule 12);
 # VERSION pins the snapshot — bump it and the output name follows.
-VERSION = 'v88'
+VERSION = 'v89'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 SRC  = os.path.join(ROOT, 'Current TAPPs', 'EPMA_TAPP_%s.csv' % VERSION)
@@ -122,7 +124,7 @@ NOT_REVIEWED = {'Additional Notes'}
 DEADLINE = 'December 1, 2026'
 
 # Domains that do not exist until a session runs.
-SESSION_ONLY = {'sample', 'sampling unit', 'combined result'}   # definers are C=N/A (7.3.3)
+SESSION_ONLY = {'sample', 'sampling unit'}   # definers are C=N/A (7.3.3); `combined result` retired 2026-10-26
 
 # Singular display names for the domains, pointing at the definer field.
 DISPLAY = {
@@ -131,7 +133,6 @@ DISPLAY = {
     'target species':     'Target Species',
     'monitored property': 'Monitored Element',
     'target material':    'Target Material',
-    'combined result':    'Combined Result',
     'reported property':  'Reported Variable',
     'standard':           'Secondary Reference Material',
 }
@@ -162,7 +163,7 @@ MULTI = {
 # per-phase values have a list of their own and no longer project to "one or more".
 PROC_MULTI = set()
 # Emptied 2026-09-30: both open cells settled on their projected structure, since reviewers
-# judge every structure cell through "Structure right?" anyway.
+# judge every structure cell through "Structure OK?" anyway.
 #   Pre-Analysis Imaging and Screening -> "One value per procedure". 14 of 15 v86 procedures
 #     state one screening approach, never varied by phase or material (McCoy+2025_UA is N).
 #   Counting Statistics Error -> "One value per Reported Variable". 0 of 15 state it, so the
@@ -220,7 +221,7 @@ PROSE = {
  'Beam Damage Minimization': 'The measures taken to minimise beam damage, with the beam conditions used and the phases to which they are applied.',
  'Drift Correction': 'How drift in beam current and spectrometer position is monitored and corrected during a session.',
  'Target Species': 'The elements the procedure determines. Isotopes are never separate entries.',
- 'Monitored Elements': 'The elements monitored in order to make the determinations, grouped under the determined element each serves; elements monitored only to correct an interference serve none.',
+ 'Monitored Elements': 'The elements whose X-rays are measured, each listed under the target species it is used for. Usually the same elements as Target Species, but not always: an element determined without being measured (O by stoichiometry, C as CO₂) has no entry here, and an element measured only to correct or check another (Zn, to correct its overlap on Na Kα) is listed here but not under any target species.',
  'Reported Variables and Units': 'The quantities the procedure finally reports, with their units, including intermediate quantities reported alongside final ones.',
  'X-ray Detection Method per Monitored Element': 'Whether the monitored element is measured by WDS or by EDS.',
  'X-ray Line': 'The X-ray emission line measured.',
@@ -251,9 +252,8 @@ PROSE = {
  'Normalization / Standards-Based Correction': "Any normalisation applied beyond the primary calibration, or 'None'.",
  'Calibration Factor and Determination Method': 'Any externally calibrated factor that converts the measured quantity into the reported quantity, how that factor was determined, and its uncertainty.',
  'Procedural Blank Level': "The blank level measured in the session, together with the blank's composition where the reported quantity is a ratio.",
- 'Analysis Inclusion and Rejection Criteria': 'The rules deciding which individual results contribute to a combined result, and the outcome of applying them: how many results were obtained, how many were included, and on what grounds any were excluded.',
- 'Combination Method': 'Whether the reported variable is an individual result or combines several; if combined, the statistical model used and what the results are combined over.',
- 'Combined Results': 'Each reported value obtained by averaging or otherwise combining several individual results, named with what it combines and the results that contribute to it.',
+ 'Analysis Inclusion and Rejection Criteria': 'The rules deciding which individual results contribute to a combined value: the limits a result must meet and the grounds on which one is rejected. In the dataset: flag each excluded result, with the rule that excluded it.',
+ 'Combination Method': 'Whether the reported variable is an individual result or combines several; if combined, the statistical model used and what the results are combined over. In the dataset: report each combined value with its uncertainty and number of results, and, for each result, the combined value it contributes to.',
  'Constants and Reference Values Used': "The physical constants and citable reference values used in data reduction, with their sources, or 'None'.",
  'Primary Calibration Standard Name': "The primary reference material against which the instrument is calibrated, its source, and a citation for the accepted values used; where quantification uses a stored library or response model, that instead. 'None' means no calibration was performed.",
  'Secondary Reference Materials': 'The reference materials measured as unknowns alongside the samples, with the source of each and a citation for its accepted values.',
@@ -266,8 +266,7 @@ PROSE = {
  'Analytical Accuracy': 'The offset between measured and accepted values, as a percent relative bias, with the source of the accepted value.',
  'Counting Statistics Error': 'The uncertainty predicted from counting statistics, including the counts on any background or blank subtracted, with the sigma level stated.',
  'EDS Dead Time': 'The percent dead time recorded by the detector.',
- 'Goodness-of-Fit or Dispersion Statistic': 'The statistic used to assess whether scatter among the individual results contributing to a combined result exceeds what analytical uncertainty alone predicts, together with its value.',
- 'Other Statistics': 'Any further statistic reported for a combined result, with the statistic named and its value.',
+ 'Goodness-of-Fit or Dispersion Statistic': 'The statistic used to describe the scatter among the results contributing to a combined value, or to test whether it exceeds what analytical uncertainty predicts (for example one standard deviation of the mean, or the MSWD). In the dataset: report its value for each combined value, and any further statistic beside it, named.',
  'Additional Notes': 'Any information not captured elsewhere, including anomalies, deviations from the registered procedure and instrument modifications.',
 }
 
@@ -318,7 +317,6 @@ NOUN = {                       # singular noun for each domain, as a reviewer wo
     'monitored property': 'monitored element',
     'reported property':  'reported variable',
     'standard':           'secondary reference material',
-    'combined result':    'combined result',
     'acquisition pass':   'acquisition pass',
     'preparation step':   'preparation step',
 }
@@ -328,15 +326,18 @@ DEFINES = {                    # the list a definer row establishes
     'target species':    'List the elements the procedure determines.',
     'reported property': 'List every quantity reported, with its unit.',
     'standard':          'List the secondary reference materials run as unknowns.',
-    'combined result':   'List every reported value that combines several individual results, saying what each combines.',
     'acquisition pass':  'List the passes the measurement is run in, each with its own configuration.',
     'preparation step':  'List the stages of sample preparation, in order.',
 }
 
 
+DEF_NUM = {}                   # domain -> item number of its definer row, filled by build()
+
+
 def Q(domain):
-    """The list's name as the preamble legend gives it, in quotes, so it reads as a reference."""
-    return '"%s"' % DISPLAY.get(domain, domain)
+    """The list's name as the preamble legend gives it, quoted and numbered, so it reads as a reference."""
+    name = '"%s"' % DISPLAY.get(domain, domain)
+    return '%s (%s)' % (name, DEF_NUM[domain]) if domain in DEF_NUM else name
 
 
 def phrase(name, key, level):
@@ -347,8 +348,8 @@ def phrase(name, key, level):
         body = k[len('defines:'):].strip()
         if ' per ' in body:                                   # defines: A per B
             a, b = [x.strip() for x in body.split(' per ', 1)]
-            return ('List each %s, grouped under the %s it serves (some serve none).'
-                    % (NOUN.get(a, a), Q(b)), False)
+            return ('List each %s under the %s it is used for; list one measured only to correct '
+                    'or check another on its own.' % (NOUN.get(a, a), Q(b)), False)
         if '>' in body:                                       # defines: A > B
             a, b = [x.strip() for x in body.split('>')][-2:]
             if level == 'procedure' and a in SESSION_ONLY:
@@ -357,10 +358,10 @@ def phrase(name, key, level):
         return (DEFINES.get(body, 'List the %ss.' % NOUN.get(body, body)), False)
     if k == '(none)':
         multi = name in MULTI or (level == 'procedure' and name in PROC_MULTI)
-        return ('Give %s for the %s.' % ('one or more values' if multi else 'one value', record), False)
+        return ('Give %s for the %s.' % ('one or more entries' if multi else 'one entry', record), False)
     if k.startswith('pair:'):
         d = k[len('pair:'):].strip()
-        return ('Give one value for each pair of %s entries.' % Q(d), False)
+        return ('Give one entry for each pair of %s entries.' % Q(d), False)
 
     parts = [[s.strip() for s in p.split('>')] for p in k.split(' x ')]   # each part: [outer, ..., inner]
     inner = [p[-1] for p in parts]
@@ -368,18 +369,18 @@ def phrase(name, key, level):
     dropped = [d for d in inner if level == 'procedure' and d in SESSION_ONLY]
     kept = [(d, c) for d, c in zip(inner, contained) if d not in dropped]
     if not kept:                                              # projection to one value (7.3.3)
-        return ('Give one value; each %s entry in a session inherits it.' % Q(dropped[-1]), True)
+        return ('Give one entry; each %s entry in a session inherits it.' % Q(dropped[-1]), True)
     outer = next((c[-1] for _, c in kept if c and level == 'session'), None)
     if len(kept) == 1:
         d = kept[0][0]
         if outer:
-            return ('For each %s, give one value for each of its %s entries.' % (Q(outer), Q(d)), bool(dropped))
-        return ('Give one value for each %s.' % Q(d), bool(dropped))
+            return ('For each %s, give one entry for each of its %s entries.' % (Q(outer), Q(d)), bool(dropped))
+        return ('Give one entry for each %s.' % Q(d), bool(dropped))
     (d1, _), (d2, _) = kept[0], kept[1]
     if outer:                                                 # e.g. sample > sampling unit x reported property
-        return ('For each %s, give one value for every %s at every %s entry.'
+        return ('For each %s, give one entry for every %s at every %s entry.'
                 % (Q(outer), Q(d2), Q(d1)), bool(dropped))
-    return ('For each %s, give one value for each %s.' % (Q(d1), Q(d2)), bool(dropped))
+    return ('For each %s, give one entry for each %s.' % (Q(d1), Q(d2)), bool(dropped))
 
 
 MODE_PHRASE = {
@@ -438,13 +439,13 @@ COLSPEC = [
     ('prose',    'Description',                  56, None,        'content', None),
     ('example',  'Example (NOT recommendations)', 44, None,       'content', None),
     ('pstruct',  'Structure — procedure record', 28, 'procedure', 'content', None),
-    ('pstructr', 'Structure right?',             16, 'procedure', 'review',  OPT_STRUCT),
+    ('pstructr', 'Structure OK?',                16, 'procedure', 'review',  OPT_STRUCT),
     ('ptier',    'Procedure-Level Tier',         14, 'procedure', 'content', None),
-    ('ptierr',   'Tier right?',                  16, 'procedure', 'review',  OPT_PTIER),
+    ('ptierr',   'Tier OK?',                     16, 'procedure', 'review',  OPT_PTIER),
     ('sstruct',  'Structure — session record',   31, 'session',   'content', None),
-    ('sstructr', 'Structure right?',             16, 'session',   'review',  OPT_STRUCT),
+    ('sstructr', 'Structure OK?',                16, 'session',   'review',  OPT_STRUCT),
     ('stier',    'Session-Level Tier',           14, 'session',   'content', None),
-    ('stierr',   'Tier right?',                  16, 'session',   'review',  OPT_STIER),
+    ('stierr',   'Tier OK?',                     16, 'session',   'review',  OPT_STIER),
 ]
 MODE_W, COMMENT_W = 10, 38
 COMMENT_COL = ('comment', 'Other comments', COMMENT_W, 'comment', 'review', None)
@@ -506,6 +507,10 @@ def load():
 
 def build(mode=None):
     fields, modes = load()
+    for f in fields:               # numbered from the full TAPP, so mode copies cite the same rows
+        if f['key'].startswith('defines:'):
+            body = f['key'][len('defines:'):].split(' per ')[0]
+            DEF_NUM[body.split('>')[-1].strip()] = f['num']
     fields = [f for f in fields if f['name'] not in NOT_REVIEWED]
     missing = [f['name'] for f in fields if f['name'] not in PROSE]
     missing += [f['name'] for f in fields if f['name'] not in EXAMPLES]
@@ -589,14 +594,16 @@ def build(mode=None):
              'to other modes.' % (mode, len(fields), total_fields))
     para('Every item is described for two records. The procedure record is the standing recipe, '
          'registered once and cited by DOI. The session record describes one measurement session run '
-         'under that procedure; a session may cover several samples.')
+         'under that procedure; a session may cover several samples. The procedure record is filled in '
+         'once per analytical setup, typically from a representative session. A session record is filled '
+         'in when data from that session are submitted, not for every session run on the instrument.')
 
     # ---- what to do
     head('What to do')
     pairs([('Step 1', 'Fill in the "Reviewer information" tab. Answers go in the "Your answer" column; '
                       'the questions are locked.', None, None),
            ('Step 2', 'On the "EPMA TAPP" tab, put all your feedback in the six shaded comment columns: '
-                      '"Needed?", "Structure right?" (twice), "Tier right?" (twice) and "Other comments". '
+                      '"Needed?", "Structure OK?" (twice), "Tier OK?" (twice) and "Other comments". '
                       'Each one judges the information column on its left; "Other comments" takes '
                       'everything else. Leave a cell blank if you agree or have no view. All other '
                       'columns are locked.', None, None),
@@ -612,7 +619,7 @@ def build(mode=None):
                   'Structure — procedure record', 'Procedure-Level Tier', 'Structure — session record',
                   'Session-Level Tier'] + list(modes)
     para('The tab has %d information columns and 6 comment columns. The information columns are: %s. The '
-         'comment columns are: "Needed?", "Structure right?" (twice), "Tier right?" (twice) and "Other '
+         'comment columns are: "Needed?", "Structure OK?" (twice), "Tier OK?" (twice) and "Other '
          'comments". Each comment column sits immediately to the right of the information column it '
          'judges and has the same colour: purple for the metadata item, blue for the procedure record, '
          'yellow for the session record.' % (n_info, ', '.join('"%s"' % x for x in info_names)))
@@ -630,17 +637,17 @@ def build(mode=None):
          'answer. It is not recommended content, and the laboratory, samples and results are invented. '
          'Samples are CC-1 and CC-2; analysis points are named by mineral and number (ol3 = the third '
          'olivine point, ap2 = the second apatite point); maps are Map 1 and Map 2.', '44546A'),
-        ('Structure — procedure record', 'How the procedure states the item: one value, one value for each '
+        ('Structure — procedure record', 'How the procedure states the item: one entry, one entry for each '
          'entry of a list, or a list of its own. The session record follows it, as shown in the session '
          'structure column.', FAMILY['procedure']['dark']),
         ('Procedure-Level Tier', 'Basic = mandatory for procedure registration. Advanced = recommended but '
-         'optional. N/A = not part of the procedure: its value can only be known once a session has run.',
+         'optional. N/A = not part of the procedure: it can only be known once a session has run.',
          FAMILY['procedure']['dark']),
         ('Structure — session record', 'How one measurement session reports the item.',
          FAMILY['session']['dark']),
-        ('Session-Level Tier', 'Read-Only = must follow the value given in the procedure. Editable = may vary '
-         'within the range the procedure allows; the session records the value used. Basic = the value '
-         'comes from the session itself and must be reported. Advanced = the value comes from the session '
+        ('Session-Level Tier', 'Read-Only = must follow the entry given in the procedure. Editable = may vary '
+         'within the range the procedure allows; the session records what was used. Basic = the entry '
+         'comes from the session itself and must be reported. Advanced = the entry comes from the session '
          'itself, and reporting it is recommended.', FAMILY['session']['dark']),
     ]
     if modes:
@@ -655,30 +662,34 @@ def build(mode=None):
            ('N/A', 'Not applicable at that level. Procedure-level only.', '808080', None)])
 
     head('The EPMA TAPP tab: "Structure"')
-    para('Each structure cell is an instruction, written in one of these patterns:')
-    pairs([('Give one value for each X.', 'One value for every entry in a list. "For the procedure" or "for '
-            'the session" means nothing repeats: give a single value. "One or more values" means several may '
+    para('Each structure cell is an instruction, written in one of these patterns. An entry is one complete '
+         'answer to the item, in whatever form its Description asks for: a number with its unit, a name, a '
+         'choice, or a short statement with several parts (for example a reference material with its source '
+         'and a citation). The parts of one entry are given together, not as separate entries. A list is '
+         'made of entries too, one per member, and other items refer to its members as entries.')
+    pairs([('Give one entry for each X.', 'One entry for every entry in the list X. "For the procedure" or "for '
+            'the session" means nothing repeats: give a single entry. "One or more entries" means several may '
             'be given, but nothing else repeats over them.', None, None),
-           ('For each A, give one value for each B.', 'Two independent lists crossed: one value for every '
+           ('For each A, give one entry for each B.', 'Two independent lists crossed: one entry for every '
             'pairing, with A as the outer list. Analytical Precision reads: for each "Secondary Reference '
-            'Material", give one value for each "Reported Variable".', None, None),
-           ('For each A, give one value for each of its B entries.', 'Nesting: B exists only inside A. For each '
-            '"Sample Name", give one value for each of its "Sampling Unit Name" entries — analysis points exist '
+            'Material", give one entry for each "Reported Variable".', None, None),
+           ('For each A, give one entry for each of its B entries.', 'Nesting: B exists only inside A. For each '
+            '"Sample Name", give one entry for each of its "Sampling Unit Name" entries — analysis points exist '
             'only inside a sample.', None, None),
-           ('Give one value; each "Sample Name" entry in a session inherits it.', 'Procedure column only. Samples, '
-            'analysis points and combined results exist only in a session, so the procedure cannot list them: '
-            'it gives one value, and every sample (or point) in a session takes it.', None, None),
+           ('Give one entry; each "Sample Name" entry in a session inherits it.', 'Procedure column only. Samples, '
+            'analysis points exist only in a session, so the procedure cannot list them: '
+            'it gives one entry, and every sample (or point) in a session takes it.', None, None),
            ('List the …', 'The row is the list itself. Other rows are given for each of its entries, so it has '
             'to be filled in first.', None, None)])
-    para('Names in quotes are lists, each defined by one row of the TAPP:')
+    para('Names in quotes are lists, each defined by one row of the TAPP; the number after a name is that '
+         'row\'s "#":')
     pairs([('Sample Name', 'the samples analysed in the session', None, None),
            ('Sampling Unit Name', 'the analysis points or map areas, per sample', None, None),
            ('Target Material', 'the material types the procedure analyses (row "Target Material")', None, None),
            ('Target Species', 'the elements the procedure determines (row "Target Species")', None, None),
            ('Monitored Element', 'what is measured to determine those elements (row "Monitored Elements")', None, None),
            ('Reported Variable', 'the reported quantities (row "Reported Variables and Units")', None, None),
-           ('Secondary Reference Material', 'the secondary standards (row "Secondary Reference Materials")', None, None),
-           ('Combined Result', 'each reported value that combines several individual results (row "Combined Results")', None, None)])
+           ('Secondary Reference Material', 'the secondary standards (row "Secondary Reference Materials")', None, None)])
     if REVIEW_NOTE:
         para('Cells shaded pale yellow in the procedure structure column are the ones we are least sure of. '
              'Hover over a shaded cell for what the literature shows.')
@@ -686,14 +697,14 @@ def build(mode=None):
     head('Review criteria per column')
     pairs([('Needed?', 'Is this item relevant to EPMA as you practise it? Is it one thing, and distinct from '
             'other items? Is it correctly named?', FAMILY['item']['dark'], None),
-           ('Structure right? (procedure)', 'Does the procedure need one value, one value for each entry of a '
+           ('Structure OK? (procedure)', 'Does the procedure need one entry, one entry for each entry of a '
             'list (for example, per "Target Material"), or a list of its own?', FAMILY['procedure']['dark'], None),
-           ('Tier right? (procedure)', 'Can the value be known before any session? If not: "N/A". If so, is it '
+           ('Tier OK? (procedure)', 'Can it be known before any session? If not: "N/A". If so, is it '
             'essential for judging data quality or reproducing the work? Then: "Basic"; otherwise: "Advanced".',
             FAMILY['procedure']['dark'], None),
-           ('Structure right? (session)', 'Does a session report it once, or once per sample, per analysis '
+           ('Structure OK? (session)', 'Does a session report it once, or once per sample, per analysis '
             'point, per element…?', FAMILY['session']['dark'], None),
-           ('Tier right? (session)', 'Must the session copy the procedure\'s value unchanged (Should be fixed by '
+           ('Tier OK? (session)', 'Must the session copy the procedure\'s entry unchanged (Should be fixed by '
             'the procedure, i.e. "Read-Only")? May it vary within the procedure\'s bounds (Should be adjustable, '
             'i.e. "Editable")? Or is it known only from the session ("Basic"/"Advanced")?',
             FAMILY['session']['dark'], None),

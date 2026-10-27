@@ -221,7 +221,9 @@ KEY_SECONDARY = {"standard", "conversion", "model component", "acquisition pass"
                  # (Module_Core v10); consumed by the EPMA point-analysis beam fields.
                  "target material",
                  # added 2026-09-28 (gap 3): defined by Combined Results (Module_Aggregation v5,
-                 # session only, so it drops out at procedure level under 7.3.3).
+                 # session only, so it drops out at procedure level under 7.3.3). RETIRED
+                 # 2026-10-26 (Module_Aggregation v6): its definer and both consumers held
+                 # results, which go to the dataset; no field uses it. Kept like `conversion`.
                  "combined result"}
 KEY_VOCAB = KEY_ANCHORS | KEY_SECONDARY
 KEY_FORBIDDEN = {"mode"}          # carried by the mode flag columns (Rule 3)
@@ -1694,6 +1696,13 @@ RETIRED_FIELD_LIVE_PREFIXES = {
 }
 
 RETIRED_FIELDS = {
+    "Combined Results":                "retired 2026-10-26 from Module_Aggregation (v6) and its 13 consumers: "
+                                       "which results went into each combined value, and how many, is a "
+                                       "result on the sample and is reported in the dataset (Combination "
+                                       "Method's 'In the dataset:' sentence)",
+    "Other Statistics":                "retired 2026-10-26 from Module_Aggregation (v6): with its values "
+                                       "moved to the dataset only the statistic's name was left, which "
+                                       "Goodness-of-Fit or Dispersion Statistic's dataset sentence covers",
     "Sample Preparation Notes":
                                        "retired 2026-09-30 from Lab-XCT (v47): Module_Core's Sample "
                                        "Preparation Method holds the form and the preparation, and Lab-XCT's "
@@ -1816,6 +1825,8 @@ RETIRED_FIELD_MENTION_OK = {
         "Technique per Analyte": "named in the same migration note",
         "Technique per Target Species": "named as the 2026-09-01 rename target, and again in the 2026-09-28 migration note",
         "Age Model": "the 2026-09-28 migration note has to name the field it moved, so a schema developer can map an existing $def onto Combination Method",
+        "Combined Results": "the 2026-09-28 note introduced it and the 2026-10-26 note retires it; a schema developer holding an earlier copy has to be told to remove its $def",
+        "Other Statistics": "named in the same two migration notes",
         "EPMA Technique per Target Species": "named as the 2026-09-01 rename target, and again in the 2026-09-28 migration note",
         "Target Selection Criteria":
             "the 2026-09-01 migration note has to name the old identifier so a schema developer "

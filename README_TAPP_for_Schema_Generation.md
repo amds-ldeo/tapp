@@ -179,7 +179,7 @@ Column I is never blank on a content row.
 | `sampling unit` | One value per subdivision of the sample carrying its own row — grain, spot, aliquot, phase | Property of an object in the `samplingUnits` array |
 | `standard` | One value per reference material or reference database entry | Property of an object in the `standards` array |
 | `target material` *(added 2026-09-28)* | One value per material type the procedure is designed to analyse, as listed in `Target Material`. Used by the point-analysis beam conditions in EPMA and the SEM TAPPs, and with `target species` by the primary calibration standards; each analysis point names its material in `Target Material of Sampling Unit` | Property of an object in the `targetMaterials` array; each point analysis carries a reference to one member |
-| `combined result` *(added 2026-09-28)* | One value per reported value obtained by averaging or otherwise combining several individual results — a phase mean, a weighted-mean date, an isochron — as listed in `Combined Results`. Session only: its definer is C=N/A, so it does not exist on the procedure object | Property of an object in the `combinedResults` array, on the session object only |
+| `combined result` *(added 2026-09-28, retired 2026-10-26)* | **No field uses it.** It keyed the inclusion outcome and the statistic values for each combined value; both are dataset content since Module_Aggregation v6 | — build no `combinedResults` array |
 | `preparation step` | One value per sample-preparation stage | Property of an object in the `preparationSteps` array |
 | `acquisition pass` | One value per traversal of the measurement with its own configuration, run in sequence on the same material — a sub-procedure. Identical repeats are replicates, not passes | Property of an object in the `acquisitionPasses` array |
 | `defines: X` | **This field enumerates the domain X.** It is the header of the child table, not a column in it | Its value populates the key set for the `X` array |
@@ -226,16 +226,15 @@ nowhere; that is the class of error this block exists to prevent.
 
 ```
 TAPPs                        16
-content rows                 1840   (rows with a Keyed By value; group headers excluded)
-scalar, `(none)`             1166   63%
-keyed (arrays in a schema)   674   37%
-Column G provenance stamps   1437   78%
-distinct Keyed By strings    26
-definer fields               12
+content rows                 1814   (rows with a Keyed By value; group headers excluded)
+scalar, `(none)`             1179   65%
+keyed (arrays in a schema)   635   35%
+Column G provenance stamps   1411   78%
+distinct Keyed By strings    23
+definer fields               11
 
-keys in use library-wide (10):
+keys in use library-wide (9):
   acquisition pass
-  combined result
   monitored property
   preparation step
   reported property
@@ -251,12 +250,9 @@ retired, and absent from every TAPP (3):
   model component
 
 the complete set of Keyed By strings present, with row counts:
-  (none)                                          1166
+  (none)                                          1179
   acquisition pass                                  83
-  combined result                                   13
-  combined result x reported property               26
   defines: acquisition pass                          9
-  defines: combined result                          13
   defines: monitored property per target species    13
   defines: preparation step                          3
   defines: reported property                        16
@@ -268,7 +264,7 @@ the complete set of Keyed By strings present, with row counts:
   monitored property                               109
   pair: reported property                            7
   preparation step                                   9
-  reported property                                 99
+  reported property                                112
   sample                                            48
   sample > sampling unit                            25
   sample > sampling unit x reported property        21
@@ -285,7 +281,6 @@ global mapping of field name to key:
 
 definer fields, and what each enumerates:
   Acquisition Pass                   defines: acquisition pass
-  Combined Results                   defines: combined result
   Digestion Step                     defines: preparation step
   EELS Edges                         defines: monitored property per target species
   Monitored Elements                 defines: monitored property per target species
@@ -663,7 +658,21 @@ techniques). What changed is that this is now expressed by which modules they co
 > - **New link field:** `Target Material of Sampling Unit` (C=N/A, `sample > sampling unit`) names the
 >   `targetMaterials` member each analysis point belongs to (EPMA, SEM, SEM_Composition, SEM_Imaging).
 
-> **Moved and re-keyed 2026-09-28 — combined values (Module_Aggregation v5).**
+> **Retired and re-keyed 2026-10-26 — results go to the dataset (Module_Aggregation v6).**
+> - **Retired.** `Combined Results` and `Other Statistics`. Remove their `$def`s and the session
+>   `combinedResults` array. Which results went into each combined value, how many, and the values of
+>   statistics are dataset content, not metadata.
+> - **Re-keyed back.** `Analysis Inclusion and Rejection Criteria`: `combined result` → `(none)`; it holds
+>   the rules only. `Goodness-of-Fit or Dispersion Statistic`: `combined result x reported property` →
+>   `reported property`; it names the statistic only.
+> - **Tiers.** Inclusion criteria, session tier Basic → Editable. Dispersion statistic, procedure tier
+>   N/A → Basic and session tier Basic → Editable, so it now exists on the procedure object.
+> - **New in descriptions.** A field that hands values to the dataset ends its description with
+>   "In the dataset: …". That sentence is a reporting expectation for the data template, not a schema
+>   property.
+
+> **Moved and re-keyed 2026-09-28 — combined values (Module_Aggregation v5).** *(Partly reversed
+> 2026-10-26, above.)*
 > - **Moved and generalised.** `Age Model` has left Module_Geochronology. It is now
 >   **`Combination Method`** in Module_Aggregation, keyed `reported property` as before. It now covers
 >   every reported variable, not only ages: whether the value is combined, how, and over what. If you

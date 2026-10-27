@@ -2,7 +2,7 @@
   "module": "Aggregation",
   "title": "Aggregation of Multiple Analyses",
   "layer": 2,
-  "version": "5",
+  "version": "6",
   "source_of_truth": "modules/Module_Aggregation.csv",
   "owned_columns": [
     "A",
@@ -33,7 +33,6 @@
       "anchor_field": "Constants and Reference Values Used",
       "fields": [
         "Combination Method",
-        "Combined Results",
         "Analysis Inclusion and Rejection Criteria"
       ]
     },
@@ -43,8 +42,7 @@
       "placement": "insert_before",
       "anchor_field": "Additional Notes",
       "fields": [
-        "Goodness-of-Fit or Dispersion Statistic",
-        "Other Statistics"
+        "Goodness-of-Fit or Dispersion Statistic"
       ]
     }
   ],
@@ -57,7 +55,8 @@
     "2026-08-25: Step 1 of the Description/Purpose split. Column B keeps the Description sentences; the Purpose sentences moved to consumer-owned Column J. Move only — no text reworded or deleted. Routing and rules in analysis/Step1_Routing_ALL_MODULES_2026-08-25.csv.",
     "2026-08-25: Column J `Purpose` declared as an OVERLAY column, not an owned one. The module supplies a default Purpose that a consumer inherits on composition and owns thereafter — the same relationship Column F already has. Added after Step 1 stripped Purpose sentences from Module_ArAr's descriptions with nowhere to put them, because ArAr is composed into no TAPP: a module with no consumer had no destination for its own Purpose text, so the text was lost. Modules now hold it themselves.",
     "2026-09-15 v4. Both descriptions name the level they aggregate (amds-ldeo/tapp#4). 'Individual analyses' became 'individual results': one acquisition's own value of the reported quantity, which the corpus attests at three levels - solution or location replicates, spots or grains within a sample (Wu 2023; Module_UPb's grain example), independent aliquots or digestions (Willbold 2005). 'Replicate' alone would have excluded the last two. The boundary with within-reduction filtering was redrawn by BASIS, not unit: Spike / Outlier Filtering Approach attests whole acquisitions discarded on signal grounds (Nakanishi 2022, Chernonozhkin 2021), so signal-based discards stay there and result-based selection is here. The 'point' of the old text is a cycle or a scan/sweep, one level under two names. Field name, tiers, type unchanged. Key stays (none) but is flagged: outcome counts vary per aggregate, a Rule 7 question.",
-    "2026-09-28 v5. Gap 3 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md. New `Combined Results` (defines: combined result, session only), `Combination Method` (per reported property; generalises Module_Geochronology's `Age Model`), `Other Statistics`. Inclusion Criteria re-keyed (none) -> combined result; Goodness-of-Fit re-keyed reported property -> combined result x reported property. A per-TAPP grouping key was agreed first and withdrawn before implementation: combined values sit at different levels within one TAPP (EPMA per phase and per grain; LA-Q per grain, aliquot, phase and sample)."
+    "2026-09-28 v5. Gap 3 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md. New `Combined Results` (defines: combined result, session only), `Combination Method` (per reported property; generalises Module_Geochronology's `Age Model`), `Other Statistics`. Inclusion Criteria re-keyed (none) -> combined result; Goodness-of-Fit re-keyed reported property -> combined result x reported property. A per-TAPP grouping key was agreed first and withdrawn before implementation: combined values sit at different levels within one TAPP (EPMA per phase and per grain; LA-Q per grain, aliquot, phase and sample).",
+    "2026-10-26 v6. Rules in the TAPP, results in the dataset (RD, from an EPMA team member's review of the v88 workbook). `Combined Results` and `Other Statistics` retired: both held results on samples. Inclusion Criteria keeps the rules only (D Basic -> Editable; key combined result -> (none)); Goodness-of-Fit names the statistic, not its value (C N/A -> Basic, D -> Editable; key -> reported property). Both keys are the pre-v5 ones: v5 re-keyed them only because outcome counts and statistic values differ per combined value, and those now go to the dataset. Each field that hands values to the dataset ends with an 'In the dataset:' sentence. Reverses v5's 'criteria and outcome in one field': the precision/accuracy precedent it cited is measurement performance, which stays in the TAPP; the outcome is a sample result. See analysis/Aggregation_Results_To_Dataset_DRAFT_2026-10-26.md."
   ],
   "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }
