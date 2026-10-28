@@ -35,6 +35,14 @@ def main(fields):
         fl = set()
         for b in d.get("blocks", []):
             fl.update(b.get("fields", []))
+        if "blocks" not in d:
+            # A single-block module (Module_Geochronology) declares no `blocks`: compose_tapp
+            # then inserts, and so owns, every row of its CSV. Missed until 2026-10-27, when
+            # this script called Radiogenic Fraction of Measured Signal "TAPP-owned".
+            import csv
+            src = MD / Path(d["source_of_truth"]).name
+            with open(src, encoding="utf-8-sig", newline="") as fh:
+                fl.update(r[0].strip() for r in list(csv.reader(fh))[1:] if r and r[0].strip())
         for f in fl:
             owners[f] = (j.stem.replace("Module_", ""), sorted(d.get("owned_columns", [])),
                          sorted(d.get("overlay_columns", []) or []))

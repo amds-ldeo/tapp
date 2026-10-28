@@ -122,7 +122,7 @@ Every field supplied by a module names that module, written automatically by com
 1. **The label names the module that OWNS the field, not one that overlays it.** In a U-Pb variant,
    `Age Calculation Method` reads `Source: Geochronology module` even though `Module_UPb` supplied its
    U-Pb-specific Column F examples. A Layer 3 module's label appears only on fields it *inserts* —
-   `Discordance Definition and Values` reads `Source: U-Pb module`.
+   `Discordance Definition` reads `Source: U-Pb module`.
 2. **A blank Column G now means the field belongs to no module** — it is native to that TAPP.
    `Monitored Masses` is an example. Blank is information, not absence of information.
 3. **A consumer's own comment always wins.** Composition only ever fills an *empty* Column G cell, so
@@ -226,11 +226,11 @@ nowhere; that is the class of error this block exists to prevent.
 
 ```
 TAPPs                        16
-content rows                 1814   (rows with a Keyed By value; group headers excluded)
+content rows                 1811   (rows with a Keyed By value; group headers excluded)
 scalar, `(none)`             1179   65%
-keyed (arrays in a schema)   635   35%
-Column G provenance stamps   1411   78%
-distinct Keyed By strings    23
+keyed (arrays in a schema)   632   35%
+Column G provenance stamps   1408   78%
+distinct Keyed By strings    22
 definer fields               11
 
 keys in use library-wide (9):
@@ -264,10 +264,9 @@ the complete set of Keyed By strings present, with row counts:
   monitored property                               109
   pair: reported property                            7
   preparation step                                   9
-  reported property                                112
+  reported property                                130
   sample                                            48
   sample > sampling unit                            25
-  sample > sampling unit x reported property        21
   standard x reported property                      33
   target material                                   16
   target material x monitored property               6
@@ -336,8 +335,8 @@ From the LA-SF-ICP-MS U-Pb TAPP (resolve the current version via `composed_tapps
 | `Dwell Time per Mass` | `monitored property` |
 | `Reported Variables and Units` | `defines: reported property` |
 | `Analytical Accuracy and Assessment Method` | `standard x reported property` |
-| `Discordance Definition and Values` | `pair: reported property` |
-| `Counting Statistics Error` | `sample > sampling unit x reported property` |
+| `Discordance Definition` | `pair: reported property` |
+| `Error Correlation Between Reported Quantities` | `pair: reported property` |
 
 ```jsonc
 {
@@ -657,6 +656,17 @@ techniques). What changed is that this is now expressed by which modules they co
 >   unit`. Both of its modes scan an area, so it has no point-analysis current.
 > - **New link field:** `Target Material of Sampling Unit` (C=N/A, `sample > sampling unit`) names the
 >   `targetMaterials` member each analysis point belongs to (EPMA, SEM, SEM_Composition, SEM_Imaging).
+
+> **Re-keyed, renamed and retired 2026-10-27 — the Rule 14 sweep.** Per-analysis values go to the dataset.
+> - **Re-keyed** `sample > sampling unit x reported property` → `reported property`, now the method only:
+>   `Counting Statistics Error` (Module_CompositionQC v7) and `Internal (Within-Measurement) Analytical
+>   Precision and Assessment Method` (Module_ICPMS v18). Move both off the `samplingUnits` array onto
+>   `reportedProperties`, on the procedure object as well.
+> - **Renamed.** `Discordance Definition and Values` → **`Discordance Definition`** (Module_UPb v12),
+>   the formula only. Rename the `$def`.
+> - **Retired.** `Radiogenic Fraction of Measured Signal` (Module_Geochronology v9). Remove its `$def`.
+> - **Now the method only.** `Error Correlation Between Reported Quantities`: data type is Text (free),
+>   was numeric; the coefficient of each analysis is dataset content.
 
 > **Retired and re-keyed 2026-10-26 — results go to the dataset (Module_Aggregation v6).**
 > - **Retired.** `Combined Results` and `Other Statistics`. Remove their `$def`s and the session

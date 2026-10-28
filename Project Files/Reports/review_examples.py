@@ -192,9 +192,9 @@ EXAMPLES = {
  'Analytical Precision': '0.4–0.7% for oxides above 10 wt%; 0.9–1.6% for FeO and Al₂O₃; 2–4% for TiO₂, Na₂O, F and Cl; 4% for NiO in San Carlos olivine (1σ RSD; San Carlos olivine n = 9, Kakanui augite n = 6, Durango apatite n = 6, chromite n = 5, calcite n = 6)',
  'Analytical Accuracy': 'Within ±1.2% relative for all major oxides; within ±2.6% for minor oxides and halogens',
  'Counting Statistics Error': {
-     'all': '1σ from counting statistics on the peak and on any subtracted background or blank, for every analysis and every reported variable; in olivine about 0.5% relative for SiO₂ and MgO, about 10% for NiO at 0.03 wt%',
-     'EDS Point Analysis': '1σ from counting statistics on the peak and background, for every analysis and every reported variable; about 0.5% relative for SiO₂ and MgO in olivine',
-     'WDS Point Analysis': '1σ from counting statistics on the peak and on any subtracted background or blank, for every analysis and every reported variable; about 10% relative for NiO at 0.03 wt% in olivine'},
+     'all': '1σ, from the counts on the peak and on any subtracted background or blank, for every reported variable',
+     'EDS Point Analysis': '1σ, from the counts on the peak and background, for every reported variable',
+     'WDS Point Analysis': '1σ, from the counts on the peak and on any subtracted background or blank, for every reported variable'},
  'EDS Dead Time': {
      'all': '18–26% during point analysis; 24–31% during spectrum imaging',
      'EDS Point Analysis': '18–26%',

@@ -2134,13 +2134,18 @@ interpreted, and 10 of 14 TAPPs would carry a permanently empty field.
 **Canonical definition:**
 
 * Field name: `Error Correlation Between Reported Quantities`
-* Procedure-Level Tier: Advanced · Analysis-Level Tier: Basic · Data Type: Numeric + Text
+* Procedure-Level Tier: Advanced · Analysis-Level Tier: Editable · Data Type: Text (free) *(amended
+  2026-10-27 under Rule 14: Basic and Numeric + Text while the field held the coefficient)*
 * `Keyed By`: `pair: reported property`
 * Placement: Group 5, immediately before `Constants and Reference Values Used`
 * Mode flags: Y for all modes of the TAPPs in which it appears
-* Description: "The correlation coefficient between pairs of reported quantities whose uncertainties are
-not independent, together with the pair it applies to and how it was obtained. Concordia and isochron
-regressions cannot be reconstructed without it."
+* Description: "Which pairs of reported quantities have uncertainties that are not independent, and how
+the correlation coefficient between each pair is obtained. In the dataset: report, for each analysis, the
+correlation coefficient of each such pair." *(Amended 2026-10-27, Rule 14. The coefficient is a value per
+analysis and is printed in data tables: 0 of 27 literature cells find it in methods text. The rule's
+purpose is unchanged, because concordia and isochron regressions still cannot be reconstructed without
+the coefficients. What changed is where they live: the TAPP says how they were obtained, and the dataset
+carries them.)*
 
 **Purpose:** verified gap. An exact-phrase search for "error correlation", "rho" and "correlation
 coefficient" returns nothing in LA-Q/SF-ICPMS\_UPb v6, LA-MC-ICPMS\_UPb v2 or Module\_UPb.
@@ -2627,7 +2632,14 @@ dataset value part of the TAPP, and it carries no tier.
 `Analysis Inclusion and Rejection Criteria` and `Goodness-of-Fit or Dispersion Statistic`. The same
 change retired `Combined Results` and `Other Statistics` under 14.1. See precedents.md, 2026-10-26.
 
-**14.4 Open.** No library sweep for other fields that hold dataset values has been done yet;
-`Counting Statistics Error` (a per-point uncertainty) is the first candidate. There is no validator
-check either. A candidate check would flag a Column B asking for "its value" in a field that has no
+The library sweep followed on 2026-10-27 (`analysis/Rule14_Dataset_Value_Sweep_2026-10-26.md`). It
+re-keyed `Counting Statistics Error` and `Internal (Within-Measurement) Analytical Precision` to the method
+only, keyed `reported property`, and renamed `Discordance Definition and Values` → `Discordance
+Definition`. It retired `Radiogenic Fraction of Measured Signal`, whose sentence moved to `Inherited or
+Initial Signal Correction`. It amended Rule 10's `Error Correlation Between Reported Quantities`, and gave
+`Detection Limit` a sentence for per-analysis limits. **Kept by decision:** `Analysis Location/Spot
+Coordinates`, because coordinates are a property of the sampling unit, not a measurement or a statistic
+of one. See precedents.md, 2026-10-27.
+
+**14.4 Open.** The sweep is done (14.3). There is no validator check yet. A candidate check would flag a Column B asking for "its value" in a field that has no
 `In the dataset:` sentence.

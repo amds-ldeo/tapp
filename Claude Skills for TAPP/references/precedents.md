@@ -4013,3 +4013,37 @@ leave with them; the superseded versions keep them. The key `combined result` is
 with a metadata name. Ask whether a value belongs in the methods section or in the data table before
 minting a field for it.
 
+## The Rule 14 sweep: six result fields, five moved, one kept (2026-10-27)
+
+All 358 fields in the 16 TAPPs were read against 14.1
+(`analysis/Rule14_Dataset_Value_Sweep_2026-10-26.md`). Six held results on samples:
+- Counting Statistics Error
+- Internal Precision
+- Radiogenic Fraction of Measured Signal
+- Discordance Definition and Values
+- Error Correlation Between Reported Quantities
+- Analysis Location/Spot Coordinates
+
+The literature agreed. Not one of 194 cells for five of the fields finds their value in methods text,
+and Internal Precision's 9 positive cells name the statistic, not a value.
+
+**Applied:**
+- Method only, values to the dataset: Counting Statistics Error, Internal Precision, Error Correlation
+  (Rule 10 amended), and Discordance, renamed `Discordance Definition`.
+- Retired: Radiogenic Fraction, its sentence moving to Inherited or Initial Signal Correction.
+- Detection Limit keeps its values, as measurement performance, but gains a sentence for per-analysis
+  limits.
+
+**Kept by RD's decision: Analysis Location/Spot Coordinates.** Coordinates are a property of the
+sampling unit, not a measurement or a statistic of one. The 14.1 test is "does the value describe
+a sample or the measurement?", and this case shows it needs a third answer: **some values describe
+the sampling unit itself**. These stay with the unit's identity in the session record (Rule 13),
+alongside Sampling Unit Name and Target Material of Sampling Unit, even though data tables also
+print them.
+
+**Found on the way: `check_field_ownership.py` read only `blocks[].fields`.** Module_Geochronology
+declares no `blocks`, and compose then owns every CSV row, so the script called its five fields
+"TAPP-owned". That is the same silent negative as the 2026-08-30 glob failure, from a different
+cause. It was fixed the same day, and the fix was confirmed against the composed rows before any
+edit. Any earlier "TAPP-owned" answer for a Geochronology field should be treated as unverified.
+

@@ -65,7 +65,7 @@ from openpyxl.utils import get_column_letter
 # Paths resolve from this file's own location, as build_form.py does, so the script runs
 # from any working directory. The TAPP is read from the `Current TAPPs/` mirror (Rule 12);
 # VERSION pins the snapshot — bump it and the output name follows.
-VERSION = 'v89'
+VERSION = 'v90'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 SRC  = os.path.join(ROOT, 'Current TAPPs', 'EPMA_TAPP_%s.csv' % VERSION)
@@ -260,11 +260,11 @@ PROSE = {
  'X-ray Line Overlap Corrections Applied': 'Whether an X-ray line overlap correction is applied and, if so, the overlapping lines and the correction method.',
  'Interfering Elements': 'The elements whose lines overlap the measured peak.',
  'Interference Correction Standard': 'The reference material used to calibrate the interference correction.',
- 'Detection Limit': 'The detection limit, with units, stating whether the value is a typical estimate or a session-specific measurement. Must be consistent with the stated method.',
+ 'Detection Limit': 'The detection limit, with units, stating whether the value is a typical estimate or a session-specific measurement. Must be consistent with the stated method. In the dataset: the detection limit of each analysis, where the procedure computes one.',
  'Detection Limit Method': 'The formula or approach used to calculate the detection limit, with a citation where one exists.',
  'Analytical Precision': 'The reproducibility of repeated measurements, as a one-sigma relative standard deviation in percent, with the number of analyses and the measured value.',
  'Analytical Accuracy': 'The offset between measured and accepted values, as a percent relative bias, with the source of the accepted value.',
- 'Counting Statistics Error': 'The uncertainty predicted from counting statistics, including the counts on any background or blank subtracted, with the sigma level stated.',
+ 'Counting Statistics Error': 'How the uncertainty predicted from counting statistics is computed, including the counts on any background or blank subtracted, and its sigma level. In the dataset: that uncertainty for each analysis and reported variable.',
  'EDS Dead Time': 'The percent dead time recorded by the detector.',
  'Goodness-of-Fit or Dispersion Statistic': 'The statistic used to describe the scatter among the results contributing to a combined value, or to test whether it exceeds what analytical uncertainty predicts (for example one standard deviation of the mean, or the MSWD). In the dataset: report its value for each combined value, and any further statistic beside it, named.',
  'Additional Notes': 'Any information not captured elsewhere, including anomalies, deviations from the registered procedure and instrument modifications.',

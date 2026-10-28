@@ -1664,6 +1664,9 @@ HISTORICAL_DOCS = {
 }
 # Whole trees of records. Same intent as HISTORICAL_DOCS, by directory prefix.
 HISTORICAL_DIRS = {
+    "TAPPs for review/Sent":
+        "frozen copies of each review round as sent (added 2026-10-28); each round's README names the TAPP "
+        "version its reviews refer to, which by design is not the current one",
     "Project Files/Reports/EPMA_Narrative_RoundTrip_2026-09-17":
         "dated blind round-trip test scored against EPMA TAPP v77; a record of that version, not a guide",
     "Project Files/Reports/EPMA_Cells_RoundTrip_2026-09-29":
@@ -1696,6 +1699,12 @@ RETIRED_FIELD_LIVE_PREFIXES = {
 }
 
 RETIRED_FIELDS = {
+    "Radiogenic Fraction of Measured Signal":
+                                       "retired 2026-10-27 from Module_Geochronology (v9) and Module_UPb (v12): "
+                                       "a value per analysis with nothing procedural left (Rule 14); "
+                                       "Inherited or Initial Signal Correction now asks for it in the dataset",
+    "Discordance Definition and Values": "renamed 2026-10-27 -> Discordance Definition (Module_UPb v12): the "
+                                       "formula only; the discordance of each analysis goes to the dataset (Rule 14)",
     "Combined Results":                "retired 2026-10-26 from Module_Aggregation (v6) and its 13 consumers: "
                                        "which results went into each combined value, and how many, is a "
                                        "result on the sample and is reported in the dataset (Combination "
@@ -1827,6 +1836,8 @@ RETIRED_FIELD_MENTION_OK = {
         "Age Model": "the 2026-09-28 migration note has to name the field it moved, so a schema developer can map an existing $def onto Combination Method",
         "Combined Results": "the 2026-09-28 note introduced it and the 2026-10-26 note retires it; a schema developer holding an earlier copy has to be told to remove its $def",
         "Other Statistics": "named in the same two migration notes",
+        "Discordance Definition and Values": "the 2026-10-27 migration note has to name the old identifier so a schema developer can rename the $def",
+        "Radiogenic Fraction of Measured Signal": "named in the 2026-10-27 migration note so a schema developer removes its $def",
         "EPMA Technique per Target Species": "named as the 2026-09-01 rename target, and again in the 2026-09-28 migration note",
         "Target Selection Criteria":
             "the 2026-09-01 migration note has to name the old identifier so a schema developer "
