@@ -657,6 +657,17 @@ techniques). What changed is that this is now expressed by which modules they co
 > - **New link field:** `Target Material of Sampling Unit` (C=N/A, `sample > sampling unit`) names the
 >   `targetMaterials` member each analysis point belongs to (EPMA, SEM, SEM_Composition, SEM_Imaging).
 
+> **Tier and text 2026-10-29 — session statistics hold the achieved value (Rule 14.5, 14.6).**
+> - **Tier.** `Procedural Blank Level` (Module_Blank v5): procedure tier `N/A` → `Advanced`, so it now
+>   exists on the procedure object (optional). The session tier is unchanged (Basic).
+> - **Nothing else structural.** No rename, no key change, no type change.
+> - **New in descriptions.** Fields whose value means one thing at each level (precision, accuracy,
+>   detection limits, blank level) state each meaning in sentences beginning `For the procedure:` and
+>   `For the session:`. Use them as the procedure-schema and analysis-schema `description` respectively, if
+>   you split descriptions; they are text, not schema properties. Where the dataset includes the
+>   reference-material analyses, the session value must agree with them (a data-template check, not a
+>   schema one).
+
 > **Re-keyed, renamed and retired 2026-10-27 — the Rule 14 sweep.** Per-analysis values go to the dataset.
 > - **Re-keyed** `sample > sampling unit x reported property` → `reported property`, now the method only:
 >   `Counting Statistics Error` (Module_CompositionQC v7) and `Internal (Within-Measurement) Analytical

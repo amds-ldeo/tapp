@@ -2616,10 +2616,23 @@ forgotten; and a rule with no check behind it is the failure mode 7.8 documents 
 applied to results, and the performance of the measurement. It does not record results on samples:
 the values themselves, which individual results went into a combined value, which were excluded, or
 a statistic's value for one combined value. Those belong in the dataset. The test is whether the
-value describes a sample or the measurement. Precision and accuracy on secondary reference
-materials, detection limits and blanks describe the measurement and stay in the TAPP, as methods
-sections treat them. A phase mean, its MSWD and its n describe the sample. Asked another way: would
-the value be printed in the methods section, or in the data table?
+value describes a sample or the measurement. A phase mean, its MSWD and its n describe the sample.
+Asked another way: would the value be printed in the methods section, or in the data table?
+
+*Amended 2026-10-29* (`analysis/Rule14_Amendment_Session_QC_2026-10-29.md`; replaces the sentence
+"Precision and accuracy on secondary reference materials, detection limits and blanks describe the
+measurement and stay in the TAPP, as methods sections treat them"). **The dataset records
+measurements** (on samples and, where included, on reference materials), each with its own values and
+per-measurement statistics. **The TAPP records the procedure and the session.** For a statistic that
+describes a session as a whole (precision and accuracy on reference materials, detection limits,
+blank levels, long-term precision), the procedure records the method and the expected value, and the
+session record the value achieved. The session value is recorded even where the dataset also carries
+the analyses it is computed from. Then the analyses are the primary record and the session value must
+agree with them (14.5). A statistic with one value per measurement or per combined value belongs to
+the dataset alone, and the TAPP records only how it is computed. Two reasons the session value is
+kept although it may duplicate the dataset: datasets often omit the reference-material analyses, and
+some session statistics (blank levels, a run's detection limit, long-term precision) attach to no
+measurement at all. Duplicated information was preferred to lost information (RD, 2026-10-29).
 
 **14.2 The hand-off sentence.** Where a field governs values that are reported in the dataset, its
 Column B ends with one sentence beginning exactly `In the dataset:`. It states what the dataset
@@ -2641,5 +2654,34 @@ Initial Signal Correction`. It amended Rule 10's `Error Correlation Between Repo
 Coordinates`, because coordinates are a property of the sampling unit, not a measurement or a statistic
 of one. See precedents.md, 2026-10-27.
 
+The 14.1 amendment was applied 2026-10-29 (Module_ICPMS v19, Module_CompositionQC v8,
+Module_Blank v5, Module_UPb v13; EPMA v92 and 12 other TAPPs). The two-level sentences (14.6) went into
+`Within-Session Analytical Precision and Assessment Method`, `Analytical Accuracy and Assessment Method`,
+`Between-Session (Long-Term) Analytical Precision and Assessment Method`, `Analytical Precision`,
+`Analytical Accuracy`, `Detection Limit`, `EDS Detection Limit`, `EELS Detection Limit` and `Procedural
+Blank Level`. The overlap sentence (14.5) went into the four precision and accuracy fields, but not into
+Between-Session precision or the blank. `Procedural Blank Level` moved from procedure tier N/A to
+Advanced. See precedents.md, 2026-10-29.
+
 **14.4 Open.** The sweep is done (14.3). There is no validator check yet. A candidate check would flag a Column B asking for "its value" in a field that has no
-`In the dataset:` sentence.
+`In the dataset:` sentence. A field carrying the 14.6 lead-ins is exempt: it asks for a session value
+by design.
+
+**14.5 The overlap rule (2026-10-29).** Where the dataset includes the reference-material analyses
+that a session statistic is computed from, **the analyses are the primary record. The session value
+summarises them and must agree with them.** A disagreement is an error in one of the two, not two
+readings. For these fields the `In the dataset:` sentence names the measurements, not the statistic:
+*"In the dataset: report the analyses of each secondary reference material, where they are included;
+the session value summarises them and must agree with them."* It is written as one sentence so that
+14.2 holds. It does not extend to blanks: a blank is a measurement on neither a sample nor a reference
+material. Between-session precision has no dataset sentence, because no single dataset holds the
+analyses it is computed from.
+
+**14.6 The two-level lead-ins (2026-10-29).** A field whose value means something different at the
+two levels states each one in Column B, in sentences beginning exactly `For the procedure:` and `For
+the session:`. Each appears once. The lead-ins are fixed for the reason 14.2 gives: a script, the
+review-workbook generator and a schema generator can all find them. They make "one field, two values"
+legible without splitting Column D. Whether to split Column D is a separate question (issue #9); this
+family is a worked example for it. The session record does **not** also summarise per-measurement
+statistics ("typical internal precision this session"): that would reopen the per-measurement line in
+14.1.

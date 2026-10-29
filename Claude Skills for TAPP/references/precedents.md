@@ -4069,3 +4069,44 @@ names carry the repeatability/intermediate axis there.
 **Not changed:** `Analytical Accuracy` reports a percent relative bias. In ISO 5725 terms that is
 trueness, while VIM allows "accuracy" in the looser sense. The text says what it measures, so it was
 left alone.
+
+## Session statistics: the procedure expects, the session achieves, the dataset measures (2026-10-29)
+
+**Context:** the #21 fix raised the question of whether a TAPP that "records rules, not values" (Rule
+14) should hold an achieved precision at all. Four drafts in `analysis/Rule14_Amendment_Session_QC_2026-10-29.md`.
+The first three pushed too far or left the session record inconsistent: all session statistics to the
+dataset; every statistic Read-Only in the session record; four fields Read-Only, which left some
+statistics recording expectations and others results, with nothing saying which.
+
+**Decision (RD, 2026-10-29, all six recommendations accepted):**
+- **The dataset records measurements**, on samples and, where included, on reference materials.
+- **A statistic that describes the session as a whole** is recorded at both TAPP levels: the method
+  and the expected value at the procedure, the value achieved in the session record. This holds even
+  where the dataset also carries the reference-material analyses. Datasets often omit them, and
+  some session statistics (blanks, a run's detection limit, long-term precision) attach to no
+  measurement at all. Duplicated information beats lost information.
+- **Per-measurement statistics stay dataset-only.** The 2026-10-27 sweep stands.
+- **Overlap (14.5):** where the RM analyses are in the dataset, they are primary and the session
+  value must agree with them.
+- **Lead-ins (14.6):** `For the procedure:` / `For the session:`, each stated once.
+- **Between-Session precision** at the session level means the long-term figure as it stands at this
+  session.
+- **No session summaries** of per-measurement statistics.
+
+**Applied:** Module_ICPMS v19, Module_CompositionQC v8, Module_Blank v5 and Module_UPb v13 (overlay
+Purpose only), plus the TAPP-owned `Analytical Precision`/`Analytical Accuracy` (EPMA, SEM,
+SEM_Composition) and `EDS`/`EELS Detection Limit` (TEM). 13 TAPPs were bumped.
+- **The one tier change:** `Procedural Blank Level` goes from C N/A to Advanced, so a procedure can
+  register its expected blank.
+- **Its Purpose no longer cites "the criterion-versus-measurement split".** No blank criterion field
+  ever existed; the companion field is a method. Consumers' Purpose was rewritten in each source,
+  because the module default fills only empty cells.
+- **No overlap sentence for blanks or for Between-Session precision.**
+
+**Why not split Column D (#9) at the same time:** under the single column, D = Basic already means "a
+fresh value at the session". The lead-ins do in text what a split would do in structure. Bundling would
+have held about 8 field families behind a change to all 16 tables.
+
+**Lesson:** the useful question was not "is this a statistic?" but "what is it computed over, and
+what does it attach to?" One value per measurement goes to the dataset. One value per session stays in
+the session record, whatever the dataset also holds.

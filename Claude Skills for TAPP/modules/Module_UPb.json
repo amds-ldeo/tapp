@@ -2,7 +2,7 @@
   "module": "UPb",
   "title": "U-Pb Geochronology",
   "layer": 3,
-  "version": "12",
+  "version": "13",
   "source_of_truth": "modules/Module_UPb.csv",
   "requires": [
     "Geochronology",
@@ -64,7 +64,8 @@
     "2026-09-28 v9. Overlay row `Age Model` renamed `Combination Method`, following Module_Aggregation v5 / Module_Geochronology v8. Its Goodness-of-Fit overlay Purpose now says 'combined result', not 'reported aggregate'.",
     "2026-09-29. Column F of keyed fields describes one member's value (conventions 7.3.4): member labels removed from the examples of Age Calculation Method, Procedural Blank Level. Consumers' Column F is edited to match (colf_value_only_20260929.py).",
     "2026-10-26 v11. Overlay rows for Inclusion Criteria and Goodness-of-Fit follow Module_Aggregation v6: examples state rules and statistics, not outcomes and values; Purpose text takes the v6 defaults.",
-    "2026-10-27 v12. Rule 14 sweep. Discordance Definition and Values renamed Discordance Definition: the formula only, the values going to the dataset; example without values. Overlay row for Radiogenic Fraction of Measured Signal removed with the field (Module_Geochronology v9)."
+    "2026-10-27 v12. Rule 14 sweep. Discordance Definition and Values renamed Discordance Definition: the formula only, the values going to the dataset; example without values. Overlay row for Radiogenic Fraction of Measured Signal removed with the field (Module_Geochronology v9).",
+    "2026-10-29 v13. Overlay Purpose for Procedural Blank Level follows Module_Blank v5."
   ],
   "source_comment": "Source: U-Pb module",
   "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
