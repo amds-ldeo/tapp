@@ -65,7 +65,7 @@ from openpyxl.utils import get_column_letter
 # Paths resolve from this file's own location, as build_form.py does, so the script runs
 # from any working directory. The TAPP is read from the `Current TAPPs/` mirror (Rule 12);
 # VERSION pins the snapshot — bump it and the output name follows.
-VERSION = 'v90'
+VERSION = 'v91'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 SRC  = os.path.join(ROOT, 'Current TAPPs', 'EPMA_TAPP_%s.csv' % VERSION)
@@ -233,9 +233,9 @@ PROSE = {
  'Peak Counting Time': 'The on-peak counting time in seconds.',
  'Background Counting Time': 'The total off-peak background counting time in seconds, summed across all background positions.',
  'Background Position(s)': 'The location of each background position relative to the peak, in millimetres or sin θ and on the high- or low-energy side, or that no off-peak positions are used.',
- 'EDS Live Time per Point or Pixel': 'The live time per analysis point in seconds.',
+ 'EDS Live Time per Point or Pixel': 'The live time per analysis point or per pixel in seconds.',
  'EDS Acquisition Mode': 'How the beam is positioned during EDS acquisition, listing all approaches used.',
- 'Dwell Time per Pixel': 'The dwell time per pixel: one value per spectrometer assignment for WDS, and a single live time per pixel for EDS.',
+ 'Dwell Time per Pixel': 'The time the beam dwells on each pixel: one value per spectrometer assignment for WDS, and a single real (clock) time per pixel for EDS. The EDS live time is recorded separately.',
  'Step Size / Pixel Size': 'The step size in micrometres, with X and Y given separately where they differ.',
  'Map Dimensions': 'The map dimensions in pixels.',
  'Map Area': 'The physical extent of the mapped area.',
@@ -262,7 +262,7 @@ PROSE = {
  'Interference Correction Standard': 'The reference material used to calibrate the interference correction.',
  'Detection Limit': 'The detection limit, with units, stating whether the value is a typical estimate or a session-specific measurement. Must be consistent with the stated method. In the dataset: the detection limit of each analysis, where the procedure computes one.',
  'Detection Limit Method': 'The formula or approach used to calculate the detection limit, with a citation where one exists.',
- 'Analytical Precision': 'The reproducibility of repeated measurements, as a one-sigma relative standard deviation in percent, with the number of analyses and the measured value.',
+ 'Analytical Precision': 'The precision of repeated measurements, as a one-sigma relative standard deviation in percent, with the number of analyses and the measured value, and whether the repeats were made within one session or across sessions.',
  'Analytical Accuracy': 'The offset between measured and accepted values, as a percent relative bias, with the source of the accepted value.',
  'Counting Statistics Error': 'How the uncertainty predicted from counting statistics is computed, including the counts on any background or blank subtracted, and its sigma level. In the dataset: that uncertainty for each analysis and reported variable.',
  'EDS Dead Time': 'The percent dead time recorded by the detector.',

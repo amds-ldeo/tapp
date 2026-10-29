@@ -273,6 +273,11 @@ The C=N/A / D=Basic combination is unusual (most analysis-level Basic fields als
 **Harmonized fields (acquisition and detection layer):**
 - EDS Detector Configuration — same field name and structure in EPMA and TEM
 - EDS Live Time per Point or Pixel — harmonized name (renamed from "EDS Acquisition Time" in EPMA v5); description notes the EPMA per-point convention vs. TEM per-point/per-pixel distinction
+  - *Superseded 2026-10-29 (EPMA v91, issue #18):* the EPMA per-point convention is gone. EPMA's
+    description is now identical to SEM's, "per analysis point or per pixel", and the field is flagged
+    for EDS Mapping. Until then EPMA had put the per-pixel EDS live time in `Dwell Time per Pixel`,
+    a beam-dwell field. That field now holds the beam's real time for EDS, and live time excludes
+    dead time, so the two are different quantities.
 - EDS Energy Range — instrument-agnostic
 - EDS Spectral Processing Type — same field in both TAPPs (background fitting, peak deconvolution, etc.)
 - EDS Dead Time — same field; C=N/A, D=Basic in both (hardware-automatic correction, QC metric only)
@@ -4047,3 +4052,20 @@ declares no `blocks`, and compose then owns every CSV row, so the script called 
 cause. It was fixed the same day, and the fix was confirmed against the composed rows before any
 edit. Any earlier "TAPP-owned" answer for a Geochronology field should be treated as unverified.
 
+
+## Analytical Precision says precision, and which conditions (2026-10-29)
+
+**Context:** issue #21. `Analytical Precision` (EPMA, SEM, SEM_Composition) opened "Reproducibility of
+repeated measurements…". In ISO 5725, reproducibility means precision across laboratories. A
+lab's repeats are either repeatability (within one session) or intermediate precision (across
+sessions). The ICP-MS TAPPs' session-scoped fields already use those terms ("long-term or
+intermediate precision").
+
+**Decision:** keep the name and fix the text. It now reads "Precision of repeated measurements…" and
+asks the analyst to state whether the repeats fell within one session or across sessions. No rename:
+the field's name already matches its standard name (Rule 1), and the scope words in the ICP-MS field
+names carry the repeatability/intermediate axis there.
+
+**Not changed:** `Analytical Accuracy` reports a percent relative bias. In ISO 5725 terms that is
+trueness, while VIM allows "accuracy" in the looser sense. The text says what it measures, so it was
+left alone.
