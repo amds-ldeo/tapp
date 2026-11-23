@@ -684,6 +684,10 @@ techniques). What changed is that this is now expressed by which modules they co
 > - **Same day, one value added (EPMA v94 and the other 11 tables).** `Monitored Property Role` lists a
 >   fifth value, `Mass-bias monitor` (a mass measured to correct instrumental mass bias, e.g. Tl added to
 >   a Pb solution), and its description defines it. Two literature cells already used it. No other change.
+> - **Same day, literature cells only (Solution Q v100, Solution SF v95, LA-SF v99, LA-SF_UPb v100).**
+>   The new validator check `internal-standard-role` found 9 internal-standard masses without the role;
+>   their role and detail cells are corrected from each column's own `Internal Standard Element` cell. A
+>   mass can hold `Target, Internal standard`. No field changed.
 
 > **Tier and text 2026-10-29 — session statistics hold the achieved value (Rule 14.5, 14.6).**
 > - **Tier.** `Procedural Blank Level` (Module_Blank v5): procedure tier `N/A` → `Advanced`, so it now

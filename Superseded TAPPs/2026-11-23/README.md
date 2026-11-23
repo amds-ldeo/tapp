@@ -96,3 +96,27 @@ for the other four roles. The two literature cells that used it are unchanged.
 **Verification.** Rehearsed on a copy first. Validator 0 ERROR / 0 WARN; every TAPP recomposed to an
 identical file (16 MATCH); key audit 0 NEW; register, mirror and spec counts up to date. Review
 workbooks regenerated as EPMA v94.
+
+## Third bump, same day: internal-standard masses get their role
+
+| Superseded | Successor |
+|---|---|
+| `Solution_Q-ICP-MS_TAPP_v99` | `v100` |
+| `Solution_SF-ICP-MS_TAPP_v94` | `v95` |
+| `LA-SF-ICP-MS_TAPP_v98` | `v99` |
+| `LA-SF-ICP-MS_UPb_TAPP_v99` | `v100` |
+
+4 versions, 8 files. Script: `Project Files/Scripts/internal_standard_roles_20261123.py`.
+
+**Why.** The #23 reply (2026-11-19) promised a check that every `Internal Standard Element` has a
+monitored mass with role `Internal standard`. `check_internal_standard_role` in `validate_tapp.py` is it
+(`Mass-bias monitor` also satisfies it). Its first run found 9 masses in 7 columns: the bundle had written
+`all: Target`, or `N` for a parentless mass, without reading the column's own internal-standard cell.
+Corrected from that cell, no new reading: Lu et al. 2007 (Solution SF ⁹³Nb; Solution Q Zr, Mo, Hf as
+`Target, Internal standard`), Makishima et al. 2011 (¹⁴⁹Sm), Mittlefehldt 2024 (²⁵Mg) and Chernonozhkin
+et al. 2021's two-run column (⁵³Cr), the last two in both LA-SF tables. 14 cells (role + detail).
+
+**Verification.** The check fires on three deliberately broken copies (a role changed to Target, a
+`Mass-bias monitor` changed to N, an `Internal standard` folded into `all: Target`). Rehearsed on a copy
+first. Validator 0 ERROR / 0 WARN; 16 MATCH; key audit 0 NEW; register, mirror and spec counts up to date.
+

@@ -2060,7 +2060,13 @@ monitor | Internal standard | Phase monitor | Mass-bias monitor. `Monitored Prop
 member serves. **Role `Target` requires a target species; any other role permits one without requiring
 it** — this is what makes a parentless member (`→ none`) checkable rather than ambiguous.
 `Mass-bias monitor` was found while filling the literature cells (Desem et al. 2022 Tl; Willbold 2005 Ti,
-Ru, Re) and listed the same day; the list stays open for the next role that turns up. Internal standards stay out of the `standard` domain: in ICP-MS an internal
+Ru, Re) and listed the same day; the list stays open for the next role that turns up.
+**An internal-standard element carries the role** (validator `internal-standard-role`, WARN): where a
+column's `Internal Standard Element` names an element and the definer lists a mass of it, one such mass
+holds `Internal standard` or `Mass-bias monitor` (the MC-ICP-MS internal standard is an element added
+for mass bias). A target mass that is also the internal standard holds both: `²⁵Mg: Target, Internal
+standard`. Its first run found 9 masses in 7 columns filled `all: Target` or `N` without reading the
+column's own internal-standard cell. Internal standards stay out of the `standard` domain: in ICP-MS an internal
 standard is an element already in the sample, not a reference material.
 
 ### Rule 8 — "Reported Variables and Units" is mandatory in Group 4 of every TAPP

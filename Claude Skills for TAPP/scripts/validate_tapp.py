@@ -1388,6 +1388,95 @@ def check_group_refs(t: Tapp, out):
                                        f"the field."))
 
 
+
+ELEMENTS = set("""H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge
+As Se Br Kr Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho
+Er Tm Yb Lu Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu""".split())
+IS_ROLES = {"internal standard", "mass-bias monitor"}
+IS_SYMBOL_RE = re.compile(r"(?<![A-Za-z])([A-Z][a-z]?)(?![A-Za-z])")
+IS_CUT_RE = re.compile(r"\s+for\s|,\s+as\s|,\s+with\s")
+MEMBER_MASS_RE = re.compile(r"[0-9⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻+\-]")
+
+
+def internal_standard_elements(cell):
+    """The elements an `Internal Standard Element` literature cell names, over all its passes.
+
+    The values are free text ("Ni (⁶¹Ni) — from EPMA", "Si (for Co, Ni, Cu, Zn), Al (for the others)",
+    "the ID-determined Zr, Mo and Hf, as references for Nb and Ta"). Parentheses are dropped and each
+    value is cut at the first " for ", ", as " or ", with ", so the elements it serves are not read
+    as internal standards; what remains is scanned for element symbols. "none" yields nothing.
+    """
+    if keyed_cells.is_marker(cell):
+        return set()
+    ents, errs = keyed_cells.parse_keyed(cell)
+    if errs:
+        return set()
+    out = set()
+    for _, val in ents:
+        v = re.sub(r"\([^()]*\)", " ", val or "")
+        m = IS_CUT_RE.search(v)
+        if m:
+            v = v[:m.start()]
+        out |= {s for s in IS_SYMBOL_RE.findall(v) if s in ELEMENTS}
+    return out
+
+
+def check_internal_standard_role(t: Tapp, out):
+    """7.13 (issue #23, promised 2026-11-19): an internal-standard element carries the role.
+
+    Where a literature column's `Internal Standard Element` names an element, and the monitored-property
+    definer lists a mass of that element (by its `→ parent`, or by the member's own symbol for a
+    parentless member), at least one such mass must hold the role `Internal standard` or
+    `Mass-bias monitor` in `Monitored Property Role`. Mass-bias monitor counts because in MC-ICP-MS the
+    internal-standard element is an element added for mass-bias correction (Tl for Pb, Cu for Zn).
+    Skipped where any of the three cells is blank, N or N/A, or the element has no listed mass.
+    """
+    if t.sentinel_idx is None:
+        return
+    by = {}
+    for n, row, _ in t.content_rows():
+        by[t.cell(row, COL_ITEM).strip()] = (n, row)
+    if "Internal Standard Element" not in by or "Monitored Property Role" not in by:
+        return
+    drow = None
+    for name in ("Monitored Masses", "Monitored Elements"):
+        if name in by:
+            drow = by[name][1]
+            break
+    if drow is None:
+        return
+    rn, rrow = by["Monitored Property Role"]
+    irow = by["Internal Standard Element"][1]
+    for j in range(t.sentinel_idx + 1, len(t.header)):
+        if not t.header[j].strip():
+            continue
+        icell, rcell, dcell = t.cell(irow, j), t.cell(rrow, j), t.cell(drow, j)
+        if any(keyed_cells.is_marker(c) for c in (icell, rcell, dcell)):
+            continue
+        elements = internal_standard_elements(icell)
+        if not elements:
+            continue
+        members, errs = keyed_cells.parse_definer(dcell)
+        if errs:
+            continue
+        ids = [m for m, _ in members]
+        allv, per = keyed_cells.values_by_member(rcell, ids)
+
+        def roles(mid):
+            v = allv if allv else per.get(mid, "")
+            return {r.strip().casefold() for r in (v or "").split(",")}
+
+        col = t.header[j].replace("\n", " ").split("|")[0].strip()[:28]
+        for el in sorted(elements):
+            masses = [m for m, parent in members
+                      if (parent if parent and parent.casefold() != "none"
+                          else MEMBER_MASS_RE.sub("", m).strip()) == el]
+            if masses and not any(roles(m) & IS_ROLES for m in masses):
+                out.append(Finding("WARN", t.name, rn, "Monitored Property Role", "internal-standard-role",
+                                   f"[{col}] Internal Standard Element names {el}, but none of its "
+                                   f"monitored masses ({', '.join(masses)}) has the role Internal "
+                                   f"standard or Mass-bias monitor (7.13)."))
+
 def check_dates(t: Tapp, out):
     add = lambda s, r, f, c, m: out.append(Finding(s, t.name, r, f, c, m))
     for n, row, _ in t.content_rows():
@@ -2398,7 +2487,7 @@ def main():
         for check in (check_structure, check_tiers, check_modes, check_data_types,
                       check_analytical_mode_vocabulary,
                       check_naming, check_rules, check_keyed_by, check_keyed_cells, check_dates,
-                      check_group_refs):
+                      check_group_refs, check_internal_standard_role):
             check(t, findings)
 
     if not args.no_cross and len(tapps) > 1:
