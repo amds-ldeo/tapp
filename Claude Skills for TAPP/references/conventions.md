@@ -2589,7 +2589,7 @@ visible to the tooling at all.
 |Automatic|`bump\\\_and\\\_stamp\\\_20260812.py` calls it at the end of every version bump|
 |Check|`validate\\\_tapp.py` → `check\\\_current\\\_tapps`, **WARN**|
 
-The check reports four distinct failures, each fixed by one sync:
+The check reports eight distinct failures, each fixed by one sync:
 
 |Finding|Meaning|
 |-|-|
@@ -2598,9 +2598,12 @@ The check reports four distinct failures, each fixed by one sync:
 |`rule12-absent`|a current CSV or xlsx never reached the mirror|
 |`rule12-extra`|a file in the mirror corresponds to no current TAPP — a superseded version that should have been replaced, or a retired TAPP|
 |`rule12-differs`|a mirror file differs in **content** from the library copy — it was edited in place|
+|`rule12-current-missing`|a `composed_tapps.json` entry has no `current` path (12.3)|
+|`rule12-current-stale`|an entry's `current` disagrees with its `tapp` — a bump moved `tapp` and the sync never ran|
+|`rule12-current-absent`|an entry's `current` names a file the mirror does not hold|
 
 **Both the check and the sync compare content hashes, not file sizes** — corrected 2026-08-12.
-Size was the original test in `check\\\_current\\\_tapps` and in `sync\\\_current\\\_tapps.py`, and it silently
+Size was the original test in `check_current_tapps` and in `sync_current_tapps.py`, and it silently
 missed a real change: a regenerated xlsx and its mirror copy were both exactly 42785 bytes with
 different content, so the sync reported 15 files to copy instead of 16 and the stale one had to be
 found by hand. openpyxl output is especially prone to this — rewriting the same workbook after a
@@ -2609,6 +2612,27 @@ is precisely the failure 12.1 argues is worse than having no mirror at all.
 
 WARN rather than INFO deliberately. The library is kept at 0 WARN, so a stale mirror cannot be
 forgotten; and a rule with no check behind it is the failure mode 7.8 documents at length.
+
+#### 12.3 `current`: the mirror path in the composition register (2026-11-23, issue #16)
+
+Each `composed[]` entry in `composed_tapps.json` carries two paths to the same table:
+
+|Key|Path|Resolved by|
+|-|-|-|
+|`tapp`|the working tree, e.g. `EPMA/EPMA_TAPP_v92.csv`|the composer, the validator, the recompose check, the mirror sync and every bump script|
+|`current`|the mirror, e.g. `Current TAPPs/EPMA_TAPP_v92.csv`|a recipient of the delivery|
+
+**Why two.** The technique folders are not tracked, so `tapp` resolves only in a working copy. The
+schema developer's tooling had been finding tables by filename across the whole delivery tree; it
+found all 16, but three archived or superseded filenames collide, and a current table colliding with
+one would have bound silently to whichever copy the directory walk reached first. Rewriting `tapp`
+to the mirror path was rejected: every script above resolves it, and a recomposition would then
+write into the mirror, which 12.1 forbids.
+
+**`current` is derived, never edited.** `sync_current_tapps.py --apply` sets it from `tapp` on every
+run, placed directly after `tapp`. A second path to one table is a second source of truth, and the
+three `rule12-current-*` checks above are what keep it from drifting.
+
 
 ### Rule 14 — Rules in the TAPP, results in the dataset; the "In the dataset:" sentence (2026-10-26)
 

@@ -16,10 +16,18 @@ The mirror is a COPY, never an editing target. It is excluded from `discover()` 
 (`CURRENT_DIR` in validate_tapp.py) — without that exclusion a copy accidentally bumped inside the
 mirror would out-rank the real file and become what the linter validates, while `compose_tapp.py`
 went on using the technique-folder path from composed_tapps.json.
+
+It also writes `current` into each `composed[]` entry of composed_tapps.json: the mirror path of that
+TAPP, `Current TAPPs/<file>`. `tapp` stays the working-tree path that the composer, the validator and
+every bump script resolve; `current` is the path a recipient of the delivery resolves (issue #16).
+Two paths to one table are two sources of truth, so `current` is derived here, from `tapp`, never
+written by hand, and `validate_tapp.py` reports any entry whose `current` is missing, disagrees with
+`tapp`, or names a file the mirror does not hold (`rule12-current-*`).
 """
 import argparse
 import datetime
 import hashlib
+import json
 import os
 import re
 import shutil
@@ -89,6 +97,36 @@ def wanted():
     return out
 
 
+REGISTER = os.path.join(ROOT, "composed_tapps.json")
+
+
+def current_path(tapp_rel):
+    """The mirror path of a TAPP, as recorded in `composed[].current`. Always '/'-separated."""
+    return V.CURRENT_DIR + "/" + os.path.basename(tapp_rel)
+
+
+def register_updates(reg):
+    """[(tapp, old current or None, new current)] for every entry whose `current` is wrong."""
+    return [(e["tapp"], e.get("current"), current_path(e["tapp"]))
+            for e in reg["composed"] if e.get("current") != current_path(e["tapp"])]
+
+
+def write_current(reg):
+    """Set `current` on every composed entry, placed directly after `tapp`."""
+    for i, e in enumerate(reg["composed"]):
+        new = {}
+        for k, v in e.items():
+            if k == "current":
+                continue
+            new[k] = v
+            if k == "tapp":
+                new["current"] = current_path(v)
+        reg["composed"][i] = new
+    with open(REGISTER, "w", encoding="utf-8") as fh:
+        json.dump(reg, fh, indent=2, ensure_ascii=False)
+        fh.write("\n")
+
+
 def digest(path):
     """Content hash, not file size.
 
@@ -136,6 +174,14 @@ def main():
           f"({n_csv} CSV + {n_xlsx} xlsx for {n_csv} TAPPs)")
     print(f"  {len(to_copy)} to copy, {len(to_remove)} to remove")
 
+    reg = json.load(open(REGISTER, encoding="utf-8"))
+    upd = register_updates(reg)
+    for tapp, old, new in upd:
+        print(f"  {'SET   ' if args.apply else 'would set   ':14s} current {new}"
+              f"  (was {old!r})" if old else
+              f"  {'SET   ' if args.apply else 'would set   ':14s} current {new}")
+    print(f"  {len(upd)} composed_tapps.json `current` path(s) to set")
+
     if not args.apply:
         print("(dry run — pass --apply to write)")
         return
@@ -151,6 +197,8 @@ def main():
     open(os.path.join(MIRROR, "README.md"), "w", encoding="utf-8").write(
         README.format(n=n_csv, nx=n_xlsx, files=len(exp),
                       date=datetime.date.today().isoformat(), listing=listing))
+    if upd:
+        write_current(reg)
     print(f"synced -> {MIRROR}")
 
 

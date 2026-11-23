@@ -70,7 +70,11 @@ composes it or does not, and if it does, it holds every one of that module's fie
 
 **Version numbers move.** Always resolve the current file with `ls`/`find` or by reading
 `composed_tapps.json`, which is the machine-readable registry of which TAPPs exist and which modules each
-was built from. Do not hard-code filenames.
+was built from. Do not hard-code filenames. Each `composed[]` entry gives two paths to the same table: **`current`**
+(`Current TAPPs/<file>`) resolves in the delivery and is the one to use; `tapp` is the working-tree path
+our own tooling resolves, and the technique folders it names are not part of the delivery. `current` is
+derived from `tapp` on every mirror sync, and the validator reports any that is missing, stale or names a
+file the mirror does not hold (added 2026-11-23, issue #16).
 
 Encoding is UTF-8 with BOM (`utf-8-sig`). Field content contains superscripts and Greek
 (`²⁰⁶Pb/²³⁸U`, `δ⁵⁶Fe`, `J cm⁻²`) — preserve it.
@@ -776,7 +780,8 @@ express that this procedure was run alongside another. That is the mechanism for
    and a few field names recur with technique-appropriate descriptions.
 9. **Superscripts and Greek matter.** `²⁰⁶Pb/²³⁸U` and `206Pb/238U` should not be silently normalised —
    the notation is part of the reported-variable identity.
-10. **Filenames carry versions that move.** Resolve via `composed_tapps.json`.
+10. **Filenames carry versions that move.** Resolve via `composed_tapps.json`, using each entry's
+    `current` path.
 
 ---
 

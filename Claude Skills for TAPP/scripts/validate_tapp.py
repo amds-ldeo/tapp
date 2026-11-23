@@ -2129,6 +2129,30 @@ def check_current_tapps(tapps, root, out):
             f"'{CURRENT_DIR}/{name}' does not correspond to any current TAPP. Either it is a "
             f"superseded version that should have been replaced, or a TAPP that has been retired.")
 
+    # --- `composed[].current` (added 2026-11-23, issue #16): the mirror path of each TAPP, so a
+    # recipient of the delivery can resolve a table as written instead of searching by filename.
+    # `tapp` stays the working-tree path every script resolves. A second path to one table is a
+    # second source of truth: it is derived from `tapp` by sync_current_tapps.py, and these checks
+    # are what stop it drifting. The schema developer asked for this check explicitly.
+    regp = os.path.join(root, "composed_tapps.json")
+    if not os.path.exists(regp):
+        return
+    for e in json.load(open(regp, encoding="utf-8"))["composed"]:
+        want = CURRENT_DIR + "/" + os.path.basename(e["tapp"])
+        have = e.get("current")
+        if have is None:
+            add("WARN", "composed_tapps.json", "rule12-current-missing",
+                f"the entry for '{e['tapp']}' has no `current` path. Run "
+                f"sync_current_tapps.py --apply.")
+        elif have != want:
+            add("WARN", "composed_tapps.json", "rule12-current-stale",
+                f"the entry for '{e['tapp']}' has `current` '{have}', but its mirror path is "
+                f"'{want}'. `current` is derived from `tapp`; run sync_current_tapps.py --apply.")
+        elif not os.path.isfile(os.path.join(root, *have.split("/"))):
+            add("WARN", "composed_tapps.json", "rule12-current-absent",
+                f"`current` names '{have}', which the mirror does not hold. Run "
+                f"sync_current_tapps.py --apply.")
+
 
 def check_group1_template(tapps, template_path, out, restrict=None):
     """Compare each TAPP's Group 1 against the canonical template (Rule 1).
