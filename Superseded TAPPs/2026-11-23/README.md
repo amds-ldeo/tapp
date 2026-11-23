@@ -54,8 +54,8 @@ calibration, interference and delta cells (51 distinct cell sets, written by han
 stated role for parentless members (23 columns, `LIT23`), `N` where the paper does not say. **Not
 assessed (blank): the six new standard-attribute fields** — a follow-up literature pass.
 
-**Open:** the role list is open; the literature already uses `Mass-bias monitor` twice (Desem et al.
-2022, Willbold 2005). Whether to add it to Column F is RD's call, and SMR should hear of it.
+**Resolved the same day:** the literature used `Mass-bias monitor` twice (Desem et al. 2022, Willbold
+2005). RD decided to list it, and the #23 reply to SMR promised it; see the second bump below.
 
 ## Verification
 
@@ -69,3 +69,30 @@ assessed (blank): the six new standard-attribute fields** — a follow-up litera
 - `group-ref-bare` fires 7 times on the superseded Lab-XCT v47 (its 7 references) and 0 times on the
   current library.
 - Review workbooks regenerated as EPMA v93.
+
+## Second bump, same day: `Mass-bias monitor` listed
+
+| Superseded | Successor |
+|---|---|
+| `EPMA_TAPP_v93` | `v94` |
+| `LA-MC-ICPMS_TAPP_v95` | `v96` |
+| `LA-MC-ICPMS_UPb_TAPP_v90` | `v91` |
+| `LA-Q-ICP-MS_TAPP_v100` | `v101` |
+| `LA-Q-ICP-MS_UPb_TAPP_v100` | `v101` |
+| `LA-SF-ICP-MS_TAPP_v97` | `v98` |
+| `LA-SF-ICP-MS_UPb_TAPP_v98` | `v99` |
+| `SEM_Composition_TAPP_v88` | `v89` |
+| `SEM_TAPP_v90` | `v91` |
+| `Solution_MC-ICP-MS_TAPP_v95` | `v96` |
+| `Solution_Q-ICP-MS_TAPP_v98` | `v99` |
+| `Solution_SF-ICP-MS_TAPP_v93` | `v94` |
+
+12 versions, 24 files. Script: `Project Files/Scripts/mass_bias_role_20261123.py`.
+
+**Why.** `Monitored Property Role` (TAPP-owned) gains a fifth listed value, `Mass-bias monitor`, in
+Column F, and its description gains one sentence defining it. One vocabulary across all 12 tables, as
+for the other four roles. The two literature cells that used it are unchanged.
+
+**Verification.** Rehearsed on a copy first. Validator 0 ERROR / 0 WARN; every TAPP recomposed to an
+identical file (16 MATCH); key audit 0 NEW; register, mirror and spec counts up to date. Review
+workbooks regenerated as EPMA v94.

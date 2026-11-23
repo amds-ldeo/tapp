@@ -2056,11 +2056,11 @@ property`) are reported only for standards named in `Quality-Control Standards`.
 
 **Monitored properties: the role is per member.** `Monitored Property Role` (keyed `monitored
 property`, `Controlled list / Text`, open) says why each member is measured: Target | Interference
-monitor | Internal standard | Phase monitor. `Monitored Property Role Detail` says what a non-target
+monitor | Internal standard | Phase monitor | Mass-bias monitor. `Monitored Property Role Detail` says what a non-target
 member serves. **Role `Target` requires a target species; any other role permits one without requiring
-it** — this is what makes a parentless member (`→ none`) checkable rather than ambiguous. The
-literature also attests `Mass-bias monitor` (Desem et al. 2022 Tl; Willbold 2005 Ti, Ru, Re), which the
-open list accepts as text. Internal standards stay out of the `standard` domain: in ICP-MS an internal
+it** — this is what makes a parentless member (`→ none`) checkable rather than ambiguous.
+`Mass-bias monitor` was found while filling the literature cells (Desem et al. 2022 Tl; Willbold 2005 Ti,
+Ru, Re) and listed the same day; the list stays open for the next role that turns up. Internal standards stay out of the `standard` domain: in ICP-MS an internal
 standard is an element already in the sample, not a reference material.
 
 ### Rule 8 — "Reported Variables and Units" is mandatory in Group 4 of every TAPP

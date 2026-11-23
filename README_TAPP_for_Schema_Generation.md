@@ -681,6 +681,9 @@ techniques). What changed is that this is now expressed by which modules they co
 >   role permits one without requiring it. The role takes one or more values.
 > - **Group references (#19).** Descriptions no longer cite a bare "Group N": they name the section and
 >   keep the number, or name the field (83 references in 11 fields). Text only.
+> - **Same day, one value added (EPMA v94 and the other 11 tables).** `Monitored Property Role` lists a
+>   fifth value, `Mass-bias monitor` (a mass measured to correct instrumental mass bias, e.g. Tl added to
+>   a Pb solution), and its description defines it. Two literature cells already used it. No other change.
 
 > **Tier and text 2026-10-29 — session statistics hold the achieved value (Rule 14.5, 14.6).**
 > - **Tier.** `Procedural Blank Level` (Module_Blank v5): procedure tier `N/A` → `Advanced`, so it now
