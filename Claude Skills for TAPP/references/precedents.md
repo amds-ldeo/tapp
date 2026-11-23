@@ -4110,3 +4110,53 @@ have held about 8 field families behind a change to all 16 tables.
 **Lesson:** the useful question was not "is this a statistic?" but "what is it computed over, and
 what does it attach to?" One value per measurement goes to the dataset. One value per session stays in
 the session record, whatever the dataset also holds.
+
+## A role belongs to the assignment, not to the standard (2026-11-23)
+
+**Issue:** #22 (SMR). Only `Secondary Reference Materials` defined `standard`, so primary, interference and
+delta standards existed only as names inside other fields, with no role, material or identifier, and a
+dataset row measuring a primary had no member to point to.
+
+**First draft (revision 1, posted):** widen the definer to every standard and give each member a
+multi-valued `Reference Material Role`. **SMR's counter:** two tables, identity once and the role on the
+*assignment*. He was right: San Carlos olivine is primary for one phase and secondary for another
+(McCoy+2025_SI), so the role describes the pairing, not the material.
+
+**Where his table 2 needed adapting:** one (target material, target species) cell can hold two roles. In
+Solution MC, 10 of 12 procedures name the **same** material as bracketing standard and zero-delta
+reference for one species (NIST SRM984 for Rb). One value per member (7.3.4) therefore means one field
+per role, which also keeps the tiers (delta reference C=N/A) and keys (bare `target species` for
+interference and delta) that differ by role. His generator emits the four as role columns, which he
+preferred to a free-text role column anyway.
+
+**What we dropped from the role vocabulary, and why:** *bracketing* is the calibration standard in
+sample–standard bracketing; *drift monitor* is a use of a primary or secondary, not an assignment;
+*matrix correction* has one attestation in 171 columns (Wu et al. 2023) and stays in that procedure's
+calibration cell until a second appears.
+
+**The certified value** was SMR's addition and a real gap: the constants field defers reference-material
+values to the standards fields, none of which asked for them. It is keyed `standard x reported property`
+(one value per element), not `standard`, and split into value, uncertainty and uncertainty basis (RD
+2026-11-23), because the basis is what an accuracy calculation depends on and what papers leave out.
+
+**Literature:** the renamed definer's cells became the union of the old secondary list and the names in
+the calibration, interference and delta cells, keeping every old member id so the statistics cells still
+resolve; `Quality-Control Standards` carries the old secondary lists. The six attribute fields are blank:
+not assessed. **Lesson:** draft the domain, then ask what varies when the *same* member appears twice.
+If the answer is "its job", the job is a key or a field, not a property of the member.
+
+## The monitored-property role: an open list that found its fifth value at once (2026-11-23)
+
+**Issue:** #23 (SMR). Parentless monitored properties (`→ none`) were legal but uncheckable: a schema
+could not tell "no target species by design" from "target species forgotten". `Monitored Property Role`
+makes the rule expressible (Target requires a target species), and SMR enforces it in his schema.
+
+**Vocabulary:** checked against every parentless member in the literature before posting: interference
+monitor (11 columns), internal standard (4 papers), phase monitor (1, Nakanishi et al. 2022:
+micro-inclusions). `Carrier`, in the first sketch, had no attestation and was dropped. Filling the cells
+then found **mass-bias monitor** twice (Desem et al. 2022 Tl; Willbold 2005 Ti, Ru, Re), which the open
+list (`/ Text`, no `Other` value; RD 2026-11-23) accepts as text. Where a cell does not say why a mass was
+measured, the role is `N`, not a guess: 7 columns.
+
+**Lesson:** a vocabulary checked against the definer cells is not checked against the *commentary*; read
+both before calling a list complete.

@@ -138,10 +138,13 @@ FORBIDDEN_NAMES = {
     "limit of detection": "Detection Limit",
     "precision": "Analytical Precision",
     "accuracy": "Analytical Accuracy",
-    "primary standard": "Primary Calibration Standard Name",
-    "calibration material": "Primary Calibration Standard Name",
-    "secondary standard": "Secondary Reference Materials",
-    "monitor material": "Secondary Reference Materials",
+    # 2026-11-23 (issue #22): Primary Calibration Standard Name -> Calibration Standard; the secondary
+    # role moved from Secondary Reference Materials (now Reference Materials, every standard) to
+    # Quality-Control Standards.
+    "primary standard": "Calibration Standard",
+    "calibration material": "Calibration Standard",
+    "secondary standard": "Quality-Control Standards",
+    "monitor material": "Quality-Control Standards",
     "spectral interference correction": "X-ray Line Overlap Corrections Applied",
     "counting error": "Counting Statistics Error",
     "statistical error": "Counting Statistics Error",
@@ -240,7 +243,7 @@ KEYED_BY_TECHNIQUE_DEPENDENT = {
     # `Primary Calibration Standard Name` LEFT this register: it has been module-owned (CompositionQC) and
     # uniform since 2026-08-27, and is `target material x target species` in all 12 consumers since
     # 2026-09-29. The entry had described a pre-module split for a month.
-    "Secondary Reference Materials":     "registered 2026-08-12 for defines: standard per target species in EPMA/SEM vs defines: standard in the isotope TAPPs. NOTE 2026-09-08: the per-target-species form no longer occurs anywhere in the library — the field is a plain defines: standard in all 12 TAPPs that carry it, so this entry is currently dormant. Kept, not deleted, because the EPMA/SEM reading is defensible and may return.",
+    "Reference Materials":               "RENAMED 2026-11-23 from Secondary Reference Materials (issue #22); still dormant. Registered 2026-08-12 for defines: standard per target species in EPMA/SEM vs defines: standard in the isotope TAPPs. NOTE 2026-09-08: the per-target-species form no longer occurs anywhere in the library — the field is a plain defines: standard in all 12 TAPPs that carry it, so this entry is currently dormant. Kept, not deleted, because the EPMA/SEM reading is defensible and may return.",
     # Rewritten 2026-08-12 (Decision Record C1): was "analyte only where compositional mapping
     # exists". The WDS dwell time is per spectrometer per pixel — both descriptions said so — so it
     # follows the other WDS setup fields onto `channel`.
@@ -403,7 +406,8 @@ KEY_NAME_VARIANT_EXEMPT = {
 }
 
 COLB_DEFINER_STEM_EXEMPT = {
-    'Secondary Reference Materials':
+    # renamed 2026-11-23 from Secondary Reference Materials (issue #22)
+    'Reference Materials':
         "key is itself technique-dependent — `defines: standard per target species` in EPMA/SEM, which "
         "report assessed elements per RM, vs `defines: standard` in the 9 isotope TAPPs, which "
         "report plain RM lists (see KEYED_BY_TECHNIQUE_DEPENDENT and precedents.md). The "
@@ -1355,6 +1359,33 @@ def check_keyed_cells(t: Tapp, out):
             elif status == "unknown-member":
                 out.append(Finding(sev, t.name, n, t.cell(row, COL_ITEM), "keyed-cell-member",
                                    f"[{col}] {msgs[0]} — fill the definer in this column first (7.3.4)"))
+
+
+GROUP_SECTION = {"1": "Procedure Identification", "2": "Samples", "3": "Instrument & Software",
+                 "4": "Measurement Information", "5": "Data Processing",
+                 "6": "Quality Control & Uncertainty"}
+GROUP_REF_RE = re.compile(r"\bGroups? (\d)\b")
+
+
+def check_group_refs(t: Tapp, out):
+    """Issue #19 (2026-11-23): a reference to another group names its section and keeps the number.
+
+    Descriptions and Purpose texts ship verbatim into generated schema descriptions and cross-technique
+    registers, where the reader has no workbook and a bare "Group 1" means nothing. Allowed: the section
+    name within the 80 characters before the number ("Procedure Identification (Group 1)",
+    "Mass Resolution Setting, in Instrument & Software (Group 3)"). See conventions, "Referring to
+    another group".
+    """
+    for n, row, _ in t.content_rows():
+        for col in (COL_DESC, COL_PURPOSE):
+            txt = t.cell(row, col)
+            for m in GROUP_REF_RE.finditer(txt):
+                name = GROUP_SECTION.get(m.group(1))
+                if name and name not in txt[max(0, m.start() - 80):m.start()]:
+                    out.append(Finding("WARN", t.name, n, t.cell(row, COL_ITEM), "group-ref-bare",
+                                       f"'{txt[max(0, m.start() - 30):m.end() + 10]}' cites a group by "
+                                       f"number only; name the section ('{name} (Group {m.group(1)})') or "
+                                       f"the field."))
 
 
 def check_dates(t: Tapp, out):
@@ -2366,7 +2397,8 @@ def main():
         tapps.append(t)
         for check in (check_structure, check_tiers, check_modes, check_data_types,
                       check_analytical_mode_vocabulary,
-                      check_naming, check_rules, check_keyed_by, check_keyed_cells, check_dates):
+                      check_naming, check_rules, check_keyed_by, check_keyed_cells, check_dates,
+                      check_group_refs):
             check(t, findings)
 
     if not args.no_cross and len(tapps) > 1:

@@ -94,6 +94,13 @@ EXAMPLES = {
      'eds': _EDS,
      'WDS Point Analysis': '%s; Zn (only to correct Zn Lα on Na Kα)' % _WDS_PT,
      'WDS Mapping': _WDS_MAP},
+ 'Monitored Property Role': {
+     'all': 'Target for every monitored element except Zn, which is an interference monitor (WDS)',
+     'eds': 'Target for every monitored element',
+     'WDS Point Analysis': 'Target for every monitored element except Zn, which is an interference monitor'},
+ 'Monitored Property Role Detail': {
+     'all': 'Zn: Zn Lα on Na Kα',
+     'eds': 'None (every monitored element is a target)'},
  'Reported Variables and Units': {
      'all': 'SiO₂, TiO₂, Al₂O₃, Cr₂O₃, FeO (total Fe), MnO, MgO, CaO, Na₂O, K₂O, P₂O₅, NiO, CoO in wt%; S, F, Cl in wt%; O equivalent of F and Cl; CO₂ by stoichiometry; totals; structural formulas in apfu; element maps in wt% per pixel; phase map; modal abundance in area %',
      'point': 'SiO₂, TiO₂, Al₂O₃, Cr₂O₃, FeO (total Fe), MnO, MgO, CaO, Na₂O, K₂O, P₂O₅, NiO, CoO in wt%; S, F, Cl in wt%; O equivalent of F and Cl; CO₂ by stoichiometry (carbonates); totals; structural formulas in apfu',
@@ -164,12 +171,19 @@ EXAMPLES = {
      'map': 'Not combined: maps are reported pixel by pixel'},
  'Constants and Reference Values Used': 'IUPAC 2021 standard atomic weights (Prohaska et al. 2022)',
  # ---- 6. Quality control & uncertainty
- 'Primary Calibration Standard Name': {
+ 'Calibration Standard': {
      'all': 'Springwater olivine for Si, Mg; Rockport fayalite for Fe; diopside for Ca; dolomite for Ca, Mg in carbonates; synthetic FeS for S; synthetic SrF₂ for F; Amelia albite for Na; microcline for K; scapolite for Cl; anorthite for Al; Wilberforce fluorapatite for P; ilmenite for Ti; synthetic Cr₂O₃ for Cr; rhodonite for Mn; Co metal for Co; Ni metal for Ni; synthetic ZnS for Zn (Smithsonian values: Jarosewich et al. 1980)',
      'eds': 'Springwater olivine for Si, Mg; Rockport fayalite for Fe; diopside for Ca; dolomite for Ca, Mg in carbonates; synthetic FeS for S (Smithsonian values: Jarosewich et al. 1980)',
      'WDS Point Analysis': 'Synthetic SrF₂ for F; Amelia albite for Na; microcline for K; scapolite for Cl; anorthite for Al; Wilberforce fluorapatite for P; ilmenite for Ti; synthetic Cr₂O₃ for Cr; rhodonite for Mn; Co metal for Co; Ni metal for Ni; synthetic ZnS for Zn (Smithsonian values: Jarosewich et al. 1980)',
      'WDS Mapping': 'Amelia albite for Na; anorthite for Al; Wilberforce fluorapatite for P; synthetic Cr₂O₃ for Cr; Ni metal for Ni'},
- 'Secondary Reference Materials': 'San Carlos olivine; Kakanui augite; Durango apatite; chromite; calcite (accepted values: Jarosewich et al. 1980)',
+ 'Quality-Control Standards': 'San Carlos olivine; Kakanui augite; Durango apatite; chromite; calcite, for every target species in every target material',
+ 'Reference Materials': 'Springwater olivine, Rockport fayalite, diopside, dolomite, synthetic FeS, synthetic SrF₂, Amelia albite, microcline, scapolite, anorthite, Wilberforce fluorapatite, ilmenite, synthetic Cr₂O₃, rhodonite, Co metal, Ni metal, synthetic ZnS; San Carlos olivine, Kakanui augite, Durango apatite, chromite, calcite',
+ 'Reference Material Type': 'olivine for Springwater and San Carlos olivine; metal for Co and Ni metal; synthetic compound for FeS, SrF₂, Cr₂O₃ and ZnS; the mineral named for the rest',
+ 'Reference Material Identifier': 'None stated (catalogue numbers are not given in the worked example)',
+ 'Reference Value Source': 'Jarosewich et al. (1980), Smithsonian values, for every reference material',
+ 'Reference Value': 'Not restated (the worked example cites Jarosewich et al. 1980)',
+ 'Reference Value Uncertainty': 'Not restated',
+ 'Reference Value Uncertainty Basis': 'Not stated',
  'X-ray Line Overlap Corrections Applied': {
      'all': 'Yes for Co (Fe Kβ on Co Kα), Mn (Cr Kβ on Mn Kα) and Na (Zn Lα on Na Kα), quantitative and iterated with the matrix correction; no for all other elements',
      'eds': 'No for %s' % _EDS,

@@ -55,7 +55,18 @@ Every TAPP uses these six groups in this order. Group names are section header r
 |3. Instrument \& Software|Hardware configuration — the instruments, detectors, and ancillary components used — and the software for acquisition and data reduction. Applies to all measurement techniques: spectrometers, diffractometers, imaging systems, sensors, etc. Hardware fields (instrument manufacturer, model, detector configurations) are D=Read-Only since changing hardware constitutes a different procedure. **Software fields (acquisition software, data reduction software) are D=Editable** — a minor version update does not constitute a new procedure, so analysts may record the version actually used.|
 |4. Measurement Information|Instrument operating conditions and tuning parameters, acquisition settings (timing, spatial, spectral, or other measurement parameters), and the identity of what is being measured (chemical variable, spectral range, physical property, imaging parameter, etc.). The most technique-specific group and typically the largest.|
 |5. Data Processing|Data reduction strategy including calibration and standardization approach, signal or data selection and integration, correction procedures (interferences, matrix effects, drift), normalization, and uncertainty propagation. Mix of procedure-level design choices and analysis-level outcomes.|
-|6. Quality Control \& Uncertainty|Reference materials used, detection and quantification limits, precision, and accuracy. Procedure-level fields describe the QC design; analysis-level fields record QC outcomes from the actual session. **Primary calibration standards and secondary reference materials are C=Basic, D=Editable**: the procedure commits to a set of reference materials (mandatory to specify), but material exhaustion or availability may require the analyst to use a substitute at analysis time.|
+|6. Quality Control \& Uncertainty|Reference materials used, detection and quantification limits, precision, and accuracy. Procedure-level fields describe the QC design; analysis-level fields record QC outcomes from the actual session. **Reference Materials, Calibration Standard and Quality-Control Standards are C=Basic, D=Editable**: the procedure commits to a set of reference materials (mandatory to specify), but material exhaustion or availability may require the analyst to use a substitute at analysis time.|
+
+### Referring to another group (2026-11-23, issue #19)
+
+A Description or Purpose that points the reader elsewhere in the TAPP names what it points at. Where one
+field is meant, name the field and its section: *"recorded in Mass Resolution Setting, in Instrument &
+Software (Group 3)"*. Where a set of fields is meant, name the section and keep its number: *"recorded in
+the Procedure Identification (Group 1) coupling fields"*. **A bare "Group N" is not allowed.** These
+sentences ship verbatim into generated schema descriptions and cross-technique parameter registers, where
+the reader has no workbook and the number alone means nothing; the number stays because reviewers navigate
+by it (review items are numbered 5.12, 6.8, …). `validate_tapp.py` reports a group number not preceded by
+its section name (`group-ref-bare`, WARN).
 
 ### Blank rows between groups
 
@@ -150,8 +161,9 @@ Technique-specific software fields are permitted (e.g., "Reconstruction Software
 
 |Standard field name|Do not use|
 |-|-|
-|Primary Calibration Standard Name|Primary Standard, Calibration Material|
-|Secondary Reference Materials|Secondary Standard, Monitor Material|
+|Calibration Standard|Primary Calibration Standard Name (renamed 2026-11-23), Primary Standard, Calibration Material|
+|Quality-Control Standards|Secondary Standard, Monitor Material|
+|Reference Materials|Secondary Reference Materials (renamed 2026-11-23: the list now holds every standard, not only secondaries)|
 |Interference Corrections Applied|Spectral Interference Correction|
 |Detection Limit|LOD, Limit of Detection|
 |Analytical Precision|Precision|
@@ -265,7 +277,7 @@ constants.
 * Description: "Physical constants and reference values used in data reduction to calculate the final
 reported quantity (e.g., decay constants for age calculation, standard isotope ratios, or other citable
 reference values used in a correction or calculation), together with their source. Distinct from
-Reference Material Information / Secondary Reference Materials (Group 6), which document accepted values
+the reference-material fields in Quality Control & Uncertainty (Group 6), which document accepted values
 for specific calibration/validation materials rather than universal physical constants. Record 'None' if
 no citable, revisable physical constants feed into this procedure's data reduction."
 
@@ -1048,7 +1060,7 @@ See §10 of the proposal.
 
 | Value | Keys on | Examples |
 |---|---|---|
-| `standard` | a reference against which something is anchored — physical **or virtual**. Record which axis it anchors; this varies by technique. | albite (anchors target species); IRMM-014 (anchors reported property); α-Fe foil NBS SRM 1541 (anchors *channel*); RRUFF reference spectrum (virtual); dosimeter glass |
+| `standard` | a reference against which something is anchored — physical **or virtual**. Record which axis it anchors; this varies by technique. **Definer `Reference Materials`** (Module_CompositionQC v9, the 12 composition TAPPs; renamed 2026-11-23 from `Secondary Reference Materials` and widened to every standard, each listed once). Roles live on the assignment fields, not on the member (7.13). | albite (anchors target species); IRMM-014 (anchors reported property); α-Fe foil NBS SRM 1541 (anchors *channel*); RRUFF reference spectrum (virtual); dosimeter glass |
 | `conversion` *(defined, not in use)* | a correction or calculation step, **only where it cannot be attributed to a single reported property** | retired 2026-08-11 — `Constants and Reference Values Used` was its only user *and* its only plausible definer, so it failed 7.4b/7.4c |
 | `model component` | a component of a fitted decomposition of the signal | Mössbauer doublets/sextets (IS, QS, B_hf, Area%); Raman fitted peaks; XRD Rietveld phases; EELS edge components |
 | `acquisition pass` **(IN USE since 2026-09-08)** | a distinct traversal of the measurement with its own configuration, run in sequence on the same material — a **sub-procedure**. Identical repeats are replicates, not passes | **Definer `Acquisition Pass`; 15 consumers across the 9 ICP-MS TAPPs.** Retired 2026-08-11 for want of a consumer, reinstated when a survey found 69 pass-structured cells in 10 procedures across 4 TAPPs. Fields keyed by it: laser spot geometry, repetition rate, ablation mode, transect rate, internal-standard approach and element, elemental fractionation correction, plasma thermal mode, desolvation system, final solution matrix, cycles per block, scans per replicate, pulse/analog nonlinearity correction, mass resolution assignment, inter-pass data dependency. ⚠ **Not yet in EPMA/SEM**: `Sequence` holds the enumeration there but nothing in those TAPPs is keyed by the pass, so declaring it a definer would breach 7.4c. **The falsifier that would reverse this is named and narrow**: a *beam* condition (current or diameter) differing between passes on the same phase, which no existing key can carry. A per-element *counting time* does NOT qualify — `monitored property` already expresses it (`channel` when this was written; renamed 2026-09-10), and Barnes et al. 2025 already attests it. See precedents.md, 2026-09-08. **RE-TESTED 2026-09-10 and upheld.** `Monitored Elements` was added to the three electron-beam TAPPs and assessed against all 59 procedure columns, which put the pass-shaped evidence in one place for the first time. It grew from one cell to three, across two procedures — Neuman et al. 2025 (`pass 1 = Mg, Al, Fe, Ca, Ti; pass 2 = Na, Si, Mn, K, Cr`) and Barnes et al. 2025 at CRPG (`session 1` / `session 2` element sets) — and **all of it is element-set partition, which `Sequence` and `monitored property` already carry**. Every beam-condition cell in all 59 columns was checked: **not one varies by pass.** The two that vary at all are already keyed correctly — Neuman's 100 nA stage map vs 2 nA BSE mosaic varies by *technique*, and Barnes's 1 µm focused vs 5×5 µm raster varies by *mineral*, which `sample > sampling unit` carries. SEM and SEM_Composition have **zero** pass-shaped cells in 44 columns. The deferral is therefore stronger than when it was written, not weaker: more evidence, still none of the named kind |
@@ -2015,6 +2027,42 @@ dismissed on the pass-indexing test. See precedents.md, "7.12 is validation, not
 
 \---
 
+#### 7.13 Roles: standards and monitored properties (2026-11-23, issues #22 and #23)
+
+**Standards: one list, a field per role.** `Reference Materials` (`defines: standard`) lists every
+reference material or reference scale the procedure or session uses, **each once**, whatever roles it
+holds. Its attributes are keyed `standard` (`Reference Material Type`, `Reference Material Identifier`,
+`Reference Value Source`) or `standard x reported property` (`Reference Value`, `Reference Value
+Uncertainty`, `Reference Value Uncertainty Basis`). What a standard is used FOR is not an attribute of the
+standard but of an assignment, because one material holds different roles for different target species
+and phases: in Solution MC, 10 of 12 procedures name the same material as bracketing standard and
+zero-delta reference for one species (NIST SRM984 for Rb, Nie & Dauphas 2019), and McCoy+2025_SI uses
+the same olivines as calibration standards for one phase and secondaries for another. So each role is its
+own field, and its value names an entry in `Reference Materials`:
+
+|Role|Field|Key|
+|-|-|-|
+|primary calibration (incl. bracketing)|`Calibration Standard`|`target material x target species`|
+|secondary (quality control, incl. drift)|`Quality-Control Standards` (value may name several)|`target material x target species`|
+|interference correction|`Interference Correction Standard`|`target species`|
+|delta or epsilon reference|`delta or epsilon Value Reference Standard`|`target species`|
+
+One field per role, not one field with a role column, for three reasons: our keys allow one value per
+member (7.3.4) and one cell can hold two roles; the tiers differ by role (the delta reference is chosen
+per study, C=N/A); and the keys differ by role (overlaps and delta scales do not depend on the phase). A
+consumer may pivot the four into one table with role as a column; the schema developer's generator
+instead emits them as four role columns, which it prefers. The QC statistics (`standard x reported
+property`) are reported only for standards named in `Quality-Control Standards`.
+
+**Monitored properties: the role is per member.** `Monitored Property Role` (keyed `monitored
+property`, `Controlled list / Text`, open) says why each member is measured: Target | Interference
+monitor | Internal standard | Phase monitor. `Monitored Property Role Detail` says what a non-target
+member serves. **Role `Target` requires a target species; any other role permits one without requiring
+it** — this is what makes a parentless member (`→ none`) checkable rather than ambiguous. The
+literature also attests `Mass-bias monitor` (Desem et al. 2022 Tl; Willbold 2005 Ti, Ru, Re), which the
+open list accepts as text. Internal standards stay out of the `standard` domain: in ICP-MS an internal
+standard is an element already in the sample, not a reference material.
+
 ### Rule 8 — "Reported Variables and Units" is mandatory in Group 4 of every TAPP
 
 Every TAPP must include a **`Reported Variables and Units`** field in Group 4, regardless of whether the
@@ -2619,8 +2667,8 @@ Each `composed[]` entry in `composed_tapps.json` carries two paths to the same t
 
 |Key|Path|Resolved by|
 |-|-|-|
-|`tapp`|the working tree, e.g. `EPMA/EPMA_TAPP_v92.csv`|the composer, the validator, the recompose check, the mirror sync and every bump script|
-|`current`|the mirror, e.g. `Current TAPPs/EPMA_TAPP_v92.csv`|a recipient of the delivery|
+|`tapp`|the working tree, e.g. `EPMA/EPMA_TAPP_vN.csv`|the composer, the validator, the recompose check, the mirror sync and every bump script|
+|`current`|the mirror, e.g. `Current TAPPs/EPMA_TAPP_vN.csv`|a recipient of the delivery|
 
 **Why two.** The technique folders are not tracked, so `tapp` resolves only in a working copy. The
 schema developer's tooling had been finding tables by filename across the whole delivery tree; it

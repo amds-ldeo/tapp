@@ -1,18 +1,18 @@
 {
-  "generated": "2026-10-29",
+  "generated": "2026-11-23",
   "note": "TAPPs whose listed groups are composed build outputs. Per Rule 6.6 the composed rows must not be hand-edited — edit the module and recompose with scripts/compose_tapp.py. Verify with --check. In the `retired` list, `tapp` is the TAPP's HISTORICAL path — its identity while it was live — and `moved_to` gives the current location; `tapp` is deliberately not resolvable and must not be rewritten. Everywhere else (`composed[].tapp`, `derived_from`) paths are current and resolvable. Each `composed[]` entry also carries `current`, the TAPP's path in the `Current TAPPs/` delivery mirror (Rule 12): `tapp` is the working-tree path the composer, validator and bump scripts resolve; `current` is the path a recipient of the delivery resolves. `current` is derived from `tapp` by `Project Files/Scripts/sync_current_tapps.py` — never edit it by hand — and validate_tapp.py reports any that is missing, stale or absent (`rule12-current-*`).",
   "composed": [
     {
-      "tapp": "EPMA/EPMA_TAPP_v92.csv",
-      "current": "Current TAPPs/EPMA_TAPP_v92.csv",
+      "tapp": "EPMA/EPMA_TAPP_v93.csv",
+      "current": "Current TAPPs/EPMA_TAPP_v93.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "SamplingUnitSelection",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "CalibrationFactor",
@@ -32,18 +32,18 @@
         },
         {
           "name": "CompositionQC",
-          "version": "8"
+          "version": "9"
         }
       ]
     },
     {
-      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v94.csv",
-      "current": "Current TAPPs/LA-MC-ICPMS_TAPP_v94.csv",
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v95.csv",
+      "current": "Current TAPPs/LA-MC-ICPMS_TAPP_v95.csv",
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "LaserAblation",
@@ -55,7 +55,7 @@
         },
         {
           "name": "SamplingUnitSelection",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "CalibrationFactor",
@@ -75,15 +75,15 @@
         },
         {
           "name": "ICPMS",
-          "version": "19"
+          "version": "20"
         },
         {
           "name": "CompositionQC",
-          "version": "8"
+          "version": "9"
         },
         {
           "name": "CollisionCell",
-          "version": "5"
+          "version": "6"
         }
       ],
       "note": "Phase 0 completed 2026-08-08 against seed paper Zhang et al. 2022 (At. Spectrosc. 43, in situ Rb-Sr dating of lunar meteorites by LA-MC-ICP-MS). See LA-MC-ICP-MS/PHASE0_LA-MC-ICP-MS_2026-08-08.md. Fourteen of fifteen methodological requirements in that paper are already covered by composition; the residue is one new field (peak flatness criterion) and one inherited description that is wrong for laser ablation (Baseline Measurement Approach, which offers acid-blank aspiration). v2 (2026-08-10) adds the first literature assessment column: Zhang et al. 2022 (At. Spectrosc. 43), field-name-matched from the retired LA-ICPMS_TAPP_v13. Column addition only; columns A-L byte-identical to v1 and all four modules still report --check MATCH, confirming literature assessment columns are consumer-owned under Rule 6.4.",
@@ -97,13 +97,13 @@
       ]
     },
     {
-      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v89.csv",
-      "current": "Current TAPPs/LA-MC-ICPMS_UPb_TAPP_v89.csv",
+      "tapp": "LA-MC-ICP-MS/LA-MC-ICPMS_UPb_TAPP_v90.csv",
+      "current": "Current TAPPs/LA-MC-ICPMS_UPb_TAPP_v90.csv",
       "derived_from": "LA-MC-ICP-MS/LA-MC-ICPMS_TAPP_v1.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "LaserAblation",
@@ -115,7 +115,7 @@
         },
         {
           "name": "SamplingUnitSelection",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "CalibrationFactor",
@@ -143,30 +143,30 @@
         },
         {
           "name": "ICPMS",
-          "version": "19"
+          "version": "20"
         },
         {
           "name": "CompositionQC",
-          "version": "8"
+          "version": "9"
         },
         {
           "name": "CollisionCell",
-          "version": "5"
+          "version": "6"
         }
       ],
       "note": "Derived from LA-MC-ICPMS_TAPP_v1.csv, i.e. before the Zhang et al. 2022 literature assessment column was added at v2. Recompose from v2 to inherit it."
     },
     {
-      "tapp": "SEM/SEM_Composition_TAPP_v87.csv",
-      "current": "Current TAPPs/SEM_Composition_TAPP_v87.csv",
+      "tapp": "SEM/SEM_Composition_TAPP_v88.csv",
+      "current": "Current TAPPs/SEM_Composition_TAPP_v88.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "SamplingUnitSelection",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "CalibrationFactor",
@@ -186,49 +186,49 @@
         },
         {
           "name": "CompositionQC",
-          "version": "8"
+          "version": "9"
         }
       ]
     },
     {
-      "tapp": "SEM/SEM_FIBSEM_TAPP_v45.csv",
-      "current": "Current TAPPs/SEM_FIBSEM_TAPP_v45.csv",
+      "tapp": "SEM/SEM_FIBSEM_TAPP_v46.csv",
+      "current": "Current TAPPs/SEM_FIBSEM_TAPP_v46.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "SamplingUnitSelection",
-          "version": "3"
+          "version": "4"
         }
       ]
     },
     {
-      "tapp": "SEM/SEM_Imaging_TAPP_v44.csv",
-      "current": "Current TAPPs/SEM_Imaging_TAPP_v44.csv",
+      "tapp": "SEM/SEM_Imaging_TAPP_v45.csv",
+      "current": "Current TAPPs/SEM_Imaging_TAPP_v45.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "SamplingUnitSelection",
-          "version": "3"
+          "version": "4"
         }
       ]
     },
     {
-      "tapp": "SEM/SEM_TAPP_v89.csv",
-      "current": "Current TAPPs/SEM_TAPP_v89.csv",
+      "tapp": "SEM/SEM_TAPP_v90.csv",
+      "current": "Current TAPPs/SEM_TAPP_v90.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "SamplingUnitSelection",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "CalibrationFactor",
@@ -248,17 +248,17 @@
         },
         {
           "name": "CompositionQC",
-          "version": "8"
+          "version": "9"
         }
       ]
     },
     {
-      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v94.csv",
-      "current": "Current TAPPs/Solution_MC-ICP-MS_TAPP_v94.csv",
+      "tapp": "Solution MC-ICP-MS/Solution_MC-ICP-MS_TAPP_v95.csv",
+      "current": "Current TAPPs/Solution_MC-ICP-MS_TAPP_v95.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "MCICPMS",
@@ -286,25 +286,25 @@
         },
         {
           "name": "ICPMS",
-          "version": "19"
+          "version": "20"
         },
         {
           "name": "CompositionQC",
-          "version": "8"
+          "version": "9"
         },
         {
           "name": "CollisionCell",
-          "version": "5"
+          "version": "6"
         }
       ]
     },
     {
-      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v97.csv",
-      "current": "Current TAPPs/Solution_Q-ICP-MS_TAPP_v97.csv",
+      "tapp": "Solution Q-ICP-MS/Solution_Q-ICP-MS_TAPP_v98.csv",
+      "current": "Current TAPPs/Solution_Q-ICP-MS_TAPP_v98.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "CalibrationFactor",
@@ -328,29 +328,29 @@
         },
         {
           "name": "ICPMS",
-          "version": "19"
+          "version": "20"
         },
         {
           "name": "CompositionQC",
-          "version": "8"
+          "version": "9"
         },
         {
           "name": "CollisionCell",
-          "version": "5"
+          "version": "6"
         },
         {
           "name": "SingleCollector",
-          "version": "1"
+          "version": "2"
         }
       ]
     },
     {
-      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v92.csv",
-      "current": "Current TAPPs/Solution_SF-ICP-MS_TAPP_v92.csv",
+      "tapp": "Solution SF-ICP-MS/Solution_SF-ICP-MS_TAPP_v93.csv",
+      "current": "Current TAPPs/Solution_SF-ICP-MS_TAPP_v93.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "CalibrationFactor",
@@ -374,29 +374,29 @@
         },
         {
           "name": "ICPMS",
-          "version": "19"
+          "version": "20"
         },
         {
           "name": "CompositionQC",
-          "version": "8"
+          "version": "9"
         },
         {
           "name": "SingleCollector",
-          "version": "1"
+          "version": "2"
         }
       ]
     },
     {
-      "tapp": "TEM/TEM_TAPP_v69.csv",
-      "current": "Current TAPPs/TEM_TAPP_v69.csv",
+      "tapp": "TEM/TEM_TAPP_v70.csv",
+      "current": "Current TAPPs/TEM_TAPP_v70.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "SamplingUnitSelection",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "CalibrationFactor",
@@ -413,16 +413,16 @@
       ]
     },
     {
-      "tapp": "XCT/Lab-XCT_TAPP_v47.csv",
-      "current": "Current TAPPs/Lab-XCT_TAPP_v47.csv",
+      "tapp": "XCT/Lab-XCT_TAPP_v48.csv",
+      "current": "Current TAPPs/Lab-XCT_TAPP_v48.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "SamplingUnitSelection",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "CalibrationFactor",
@@ -431,12 +431,12 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v99.csv",
-      "current": "Current TAPPs/LA-Q-ICP-MS_TAPP_v99.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v100.csv",
+      "current": "Current TAPPs/LA-Q-ICP-MS_TAPP_v100.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "LaserAblation",
@@ -444,7 +444,7 @@
         },
         {
           "name": "SamplingUnitSelection",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "CalibrationFactor",
@@ -464,19 +464,19 @@
         },
         {
           "name": "ICPMS",
-          "version": "19"
+          "version": "20"
         },
         {
           "name": "CompositionQC",
-          "version": "8"
+          "version": "9"
         },
         {
           "name": "CollisionCell",
-          "version": "5"
+          "version": "6"
         },
         {
           "name": "SingleCollector",
-          "version": "1"
+          "version": "2"
         }
       ],
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
@@ -487,13 +487,13 @@
       ]
     },
     {
-      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v99.csv",
-      "current": "Current TAPPs/LA-Q-ICP-MS_UPb_TAPP_v99.csv",
+      "tapp": "LA-Q-ICP-MS/LA-Q-ICP-MS_UPb_TAPP_v100.csv",
+      "current": "Current TAPPs/LA-Q-ICP-MS_UPb_TAPP_v100.csv",
       "derived_from": "LA-Q-ICP-MS/LA-Q-ICP-MS_TAPP_v8.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "LaserAblation",
@@ -501,7 +501,7 @@
         },
         {
           "name": "SamplingUnitSelection",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "CalibrationFactor",
@@ -529,30 +529,30 @@
         },
         {
           "name": "ICPMS",
-          "version": "19"
+          "version": "20"
         },
         {
           "name": "CompositionQC",
-          "version": "8"
+          "version": "9"
         },
         {
           "name": "CollisionCell",
-          "version": "5"
+          "version": "6"
         },
         {
           "name": "SingleCollector",
-          "version": "1"
+          "version": "2"
         }
       ],
       "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record."
     },
     {
-      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v96.csv",
-      "current": "Current TAPPs/LA-SF-ICP-MS_TAPP_v96.csv",
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v97.csv",
+      "current": "Current TAPPs/LA-SF-ICP-MS_TAPP_v97.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "LaserAblation",
@@ -560,7 +560,7 @@
         },
         {
           "name": "SamplingUnitSelection",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "CalibrationFactor",
@@ -580,15 +580,15 @@
         },
         {
           "name": "ICPMS",
-          "version": "19"
+          "version": "20"
         },
         {
           "name": "CompositionQC",
-          "version": "8"
+          "version": "9"
         },
         {
           "name": "SingleCollector",
-          "version": "1"
+          "version": "2"
         }
       ],
       "derived_from": "Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/LA-Q_SF-ICPMS_TAPP_v6.csv",
@@ -599,13 +599,13 @@
       ]
     },
     {
-      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v97.csv",
-      "current": "Current TAPPs/LA-SF-ICP-MS_UPb_TAPP_v97.csv",
+      "tapp": "LA-SF-ICP-MS/LA-SF-ICP-MS_UPb_TAPP_v98.csv",
+      "current": "Current TAPPs/LA-SF-ICP-MS_UPb_TAPP_v98.csv",
       "derived_from": "LA-SF-ICP-MS/LA-SF-ICP-MS_TAPP_v8.csv",
       "modules": [
         {
           "name": "Core",
-          "version": "10"
+          "version": "11"
         },
         {
           "name": "LaserAblation",
@@ -613,7 +613,7 @@
         },
         {
           "name": "SamplingUnitSelection",
-          "version": "3"
+          "version": "4"
         },
         {
           "name": "CalibrationFactor",
@@ -641,15 +641,15 @@
         },
         {
           "name": "ICPMS",
-          "version": "19"
+          "version": "20"
         },
         {
           "name": "CompositionQC",
-          "version": "8"
+          "version": "9"
         },
         {
           "name": "SingleCollector",
-          "version": "1"
+          "version": "2"
         }
       ],
       "note": "Created 2026-08-11 by splitting LA-Q_SF-ICPMS_TAPP_v6 into single-instrument TAPPs, aligning the laser-ablation family with the solution family (Solution Q-ICP-MS and Solution SF-ICP-MS have always been separate). Version numbering continues the v6 lineage. Superseded parent archived at 'Superseded TAPPs/2026-08-11/LA-Q_SF-ICP-MS (split into Q and SF)/' — see its README for the field-level split record."

@@ -65,7 +65,7 @@ from openpyxl.utils import get_column_letter
 # Paths resolve from this file's own location, as build_form.py does, so the script runs
 # from any working directory. The TAPP is read from the `Current TAPPs/` mirror (Rule 12);
 # VERSION pins the snapshot — bump it and the output name follows.
-VERSION = 'v92'
+VERSION = 'v93'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 SRC  = os.path.join(ROOT, 'Current TAPPs', 'EPMA_TAPP_%s.csv' % VERSION)
@@ -134,7 +134,7 @@ DISPLAY = {
     'monitored property': 'Monitored Element',
     'target material':    'Target Material',
     'reported property':  'Reported Variable',
-    'standard':           'Secondary Reference Material',
+    'standard':           'Reference Material',
 }
 
 # Containment: a domain and the domain it nests inside, read off `defines: A > B` rows.
@@ -222,6 +222,8 @@ PROSE = {
  'Drift Correction': 'How drift in beam current and spectrometer position is monitored and corrected during a session.',
  'Target Species': 'The elements the procedure determines. Isotopes are never separate entries.',
  'Monitored Elements': 'The elements whose X-rays are measured, each listed under the target species it is used for. Usually the same elements as Target Species, but not always: an element determined without being measured (O by stoichiometry, C as CO₂) has no entry here, and an element measured only to correct or check another (Zn, to correct its overlap on Na Kα) is listed here but not under any target species.',
+ 'Monitored Property Role': 'Why each monitored element is measured: to determine its target species, to correct an interference, as the internal standard, or to detect another phase.',
+ 'Monitored Property Role Detail': 'For an element measured for any reason other than its own determination, what it serves, for example the overlap it corrects.',
  'Reported Variables and Units': 'The quantities the procedure finally reports, with their units, including intermediate quantities reported alongside final ones.',
  'X-ray Detection Method per Monitored Element': 'Whether the monitored element is measured by WDS or by EDS.',
  'X-ray Line': 'The X-ray emission line measured.',
@@ -255,15 +257,22 @@ PROSE = {
  'Analysis Inclusion and Rejection Criteria': 'The rules deciding which individual results contribute to a combined value: the limits a result must meet and the grounds on which one is rejected. In the dataset: flag each excluded result, with the rule that excluded it.',
  'Combination Method': 'Whether the reported variable is an individual result or combines several; if combined, the statistical model used and what the results are combined over. In the dataset: report each combined value with its uncertainty and number of results, and, for each result, the combined value it contributes to.',
  'Constants and Reference Values Used': "The physical constants and citable reference values used in data reduction, with their sources, or 'None'.",
- 'Primary Calibration Standard Name': "The primary reference material against which the instrument is calibrated, its source, and a citation for the accepted values used; where quantification uses a stored library or response model, that instead. 'None' means no calibration was performed.",
- 'Secondary Reference Materials': 'The reference materials measured as unknowns alongside the samples, with the source of each and a citation for its accepted values.',
+ 'Calibration Standard': "The reference material each element is calibrated against, in each material type, named from Reference Materials; where quantification uses a stored library or response model, that instead. 'None' means no calibration was performed.",
+ 'Quality-Control Standards': 'The reference materials run as unknowns to check each element in each material type, independently of the calibration, named from Reference Materials.',
+ 'Reference Materials': 'Every reference material the procedure uses, whether for calibration, quality control or an interference correction, each listed once whatever its roles.',
+ 'Reference Material Type': 'What kind of material each reference material is: the mineral or phase, a glass, a metal or a synthetic compound.',
+ 'Reference Material Identifier': "The registry or catalogue number of each reference material, where it has one; 'None' for an in-house material.",
+ 'Reference Value Source': 'The publication or compilation the accepted values come from, for each reference material.',
+ 'Reference Value': 'The accepted value of each reported variable for each reference material.',
+ 'Reference Value Uncertainty': 'The uncertainty of each accepted value, in the same unit.',
+ 'Reference Value Uncertainty Basis': 'What that uncertainty represents, for example 1s, 2s or a 95% confidence interval.',
  'X-ray Line Overlap Corrections Applied': 'Whether an X-ray line overlap correction is applied and, if so, the overlapping lines and the correction method.',
  'Interfering Elements': 'The elements whose lines overlap the measured peak.',
- 'Interference Correction Standard': 'The reference material used to calibrate the interference correction.',
+ 'Interference Correction Standard': 'The reference material used to calibrate the interference correction, named from Reference Materials.',
  'Detection Limit': 'The detection limit, with units, consistent with the stated method. For the procedure: the typical limits. For the session: the limits achieved in this session, where they are determined for the session as a whole. In the dataset: the detection limit of each analysis, where the procedure computes one.',
  'Detection Limit Method': 'The formula or approach used to calculate the detection limit, with a citation where one exists.',
- 'Analytical Precision': 'The precision of repeated measurements on a reference material, as a one-sigma relative standard deviation in percent, with the number of analyses and whether the repeats were made within one session or across sessions. For the procedure: the expected precision. For the session: the precision achieved in this session. In the dataset: the analyses of each secondary reference material, where included; the session value must agree with them.',
- 'Analytical Accuracy': 'The offset between measured and accepted values, as a percent relative bias, with the source of the accepted value. For the procedure: the expected offset. For the session: the offset found in this session. In the dataset: the analyses of each secondary reference material, where included; the session value must agree with them.',
+ 'Analytical Precision': 'The precision of repeated measurements on a reference material, as a one-sigma relative standard deviation in percent, with the number of analyses and whether the repeats were made within one session or across sessions. Reported for the quality-control standards only. For the procedure: the expected precision. For the session: the precision achieved in this session. In the dataset: the analyses of each secondary reference material, where included; the session value must agree with them.',
+ 'Analytical Accuracy': 'The offset between measured and accepted values, as a percent relative bias, with the source of the accepted value. Reported for the quality-control standards only. For the procedure: the expected offset. For the session: the offset found in this session. In the dataset: the analyses of each secondary reference material, where included; the session value must agree with them.',
  'Counting Statistics Error': 'How the uncertainty predicted from counting statistics is computed, including the counts on any background or blank subtracted, and its sigma level. In the dataset: that uncertainty for each analysis and reported variable.',
  'EDS Dead Time': 'The percent dead time recorded by the detector.',
  'Goodness-of-Fit or Dispersion Statistic': 'The statistic used to describe the scatter among the results contributing to a combined value, or to test whether it exceeds what analytical uncertainty predicts (for example one standard deviation of the mean, or the MSWD). In the dataset: report its value for each combined value, and any further statistic beside it, named.',
@@ -316,7 +325,7 @@ NOUN = {                       # singular noun for each domain, as a reviewer wo
     'target species':     'target species',
     'monitored property': 'monitored element',
     'reported property':  'reported variable',
-    'standard':           'secondary reference material',
+    'standard':           'reference material',
     'acquisition pass':   'acquisition pass',
     'preparation step':   'preparation step',
 }
@@ -325,7 +334,7 @@ DEFINES = {                    # the list a definer row establishes
     'target material':   'List the material types the procedure is designed to analyse.',
     'target species':    'List the elements the procedure determines.',
     'reported property': 'List every quantity reported, with its unit.',
-    'standard':          'List the secondary reference materials run as unknowns.',
+    'standard':          'List every reference material the procedure uses, each once.',
     'acquisition pass':  'List the passes the measurement is run in, each with its own configuration.',
     'preparation step':  'List the stages of sample preparation, in order.',
 }
@@ -689,7 +698,7 @@ def build(mode=None):
            ('Target Species', 'the elements the procedure determines (row "Target Species")', None, None),
            ('Monitored Element', 'what is measured to determine those elements (row "Monitored Elements")', None, None),
            ('Reported Variable', 'the reported quantities (row "Reported Variables and Units")', None, None),
-           ('Secondary Reference Material', 'the secondary standards (row "Secondary Reference Materials")', None, None)])
+           ('Reference Material', 'the reference materials, whatever their role (row "Reference Materials")', None, None)])
     if REVIEW_NOTE:
         para('Cells shaded pale yellow in the procedure structure column are the ones we are least sure of. '
              'Hover over a shaded cell for what the literature shows.')

@@ -256,7 +256,7 @@ ADJUDICATED = {
         "declaration about the procedure, not a per-unit value.",
     # ---- adjudicated 2026-09-01. Seven of eight NEW findings were detector artefacts; the
     # ---- eighth was real. The generalisable result is the single-target-species unfalsifiability rule
-    # ---- recorded under Primary Calibration Standard Name below.
+    # ---- recorded under Calibration Standard (formerly Primary Calibration Standard Name) below.
     ("Beam Diameter", "OVER-DECLARED"):
         "RE-KEYED IN EPMA 2026-09-28 -> target material (point analysis only; gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). The per-phase evidence recorded here is exactly what that key carries: every attested value is per phase or material, none per analysis point. SEM and SEM_Composition followed later the same day (gap1_sem_target_material_20260928.py): no SEM procedure states a beam condition per point, Ferus+2020 states one per material. Earlier ruling: KEEP sample > sampling unit — the detector tallied sampling unit=2 of 13; READING THE RAW "
         "CELLS GIVES 6 of 14. Liu+2016 (both), Pang+2016, McCoy+2025_SI, Zega+2025 and Barnes+2025 "
@@ -274,8 +274,8 @@ ADJUDICATED = {
         "2014 a per-phase outcome ('plagioclase targeted; olivine + pyroxene not separately resolved; "
         "troilite/oxyhydroxide indistinguishable'). Same 2-of-N shape that kept Beam Current. The "
         "Lab-XCT Sampling Unit domain, extracted 2026-09-01, carries '> Phase' in 4 of 14 procedures.",
-    ("Primary Calibration Standard Name", "OVER-DECLARED"):
-        "RE-KEYED 2026-09-29 -> target material x target species (Module_CompositionQC v6; McCoy+2025_UA states standards per phase and element). The target-species axis ruled on below is kept as the inner key. Earlier ruling: KEEP target species. THE RULE THIS ESTABLISHES: a SINGLE-ANALYTE procedure cannot falsify a "
+    ("Calibration Standard", "OVER-DECLARED"):
+        "RENAMED 2026-11-23 from Primary Calibration Standard Name (issue #22, Module_CompositionQC v9); key unchanged, so this ruling carries over. RE-KEYED 2026-09-29 -> target material x target species (Module_CompositionQC v6; McCoy+2025_UA states standards per phase and element). The target-species axis ruled on below is kept as the inner key. Earlier ruling: KEEP target species. THE RULE THIS ESTABLISHES: a SINGLE-ANALYTE procedure cannot falsify a "
         "per-target-species key — the field has exactly one value because there is exactly one target species, and "
         "the detector scores that as scalar. Only MULTI-target species procedures test the axis. In Solution "
         "MC, 6 of the 8 'scalar' cells are single-target-species (Mo, S, Fe, Zr, Rb, Os); both multi-target-species "
@@ -347,8 +347,22 @@ ADJUDICATED = {
         "RE-KEYED IN EPMA 2026-09-28 -> target material (point analysis only; gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). The per-phase evidence recorded here is exactly what that key carries: every attested value is per phase or material, none per analysis point. SEM and SEM_Composition followed later the same day (gap1_sem_target_material_20260928.py): no SEM procedure states a beam condition per point, Ferus+2020 states one per material. Earlier ruling: PRE-EXISTING, not introduced 2026-08-17 — EPMA only, and this session did not touch EPMA's "
         "literature columns. Key became sample > sampling unit in the Rule 13 retrofit. Left as is; "
         "revisit with the electron-beam TAPPs, not with ICP-MS work.",
-    ("Primary Calibration Standard Name", "AXIS-MISMATCH"):
-        "RE-KEYED 2026-09-29 -> target material x target species (Module_CompositionQC v6; McCoy+2025_UA states standards per phase and element). The target-species axis ruled on below is kept as the inner key. Earlier ruling: CONSISTENT — a field that NAMES standards always looks standard-shaped to the detector. "
+    ("Quality-Control Standards", "AXIS-MISMATCH"):
+        "CONSISTENT, added 2026-11-23 (issue #22) — same detector failure as Calibration Standard: a field "
+        "whose values NAME standards always looks standard-shaped. The key is the assignment's key, "
+        "target material x target species; the standards are the VALUES, each naming an entry in Reference "
+        "Materials. Its cells carry the old Secondary Reference Materials lists as 'all [all: ...]'.",
+    ("Monitored Property Role", "OVER-DECLARED"):
+        "KEEP monitored property, added 2026-11-23 (issue #23). 'all: Target' is the keyed notation for every "
+        "member holding the same role, which the detector reads as scalar; 23 of the 60 filled procedure columns "
+        "give different roles to different members (interference monitors, internal standards, phase "
+        "monitors, mass-bias monitors), which a scalar cannot carry.",
+    ("Monitored Property Role Detail", "OVER-DECLARED"):
+        "KEEP monitored property, added 2026-11-23 (issue #23). The detail exists only for members whose role "
+        "is not Target, so cells are short and often a single entry; each still names the member it belongs "
+        "to (e.g. '88Sr: 87Sr on 87Rb').",
+    ("Calibration Standard", "AXIS-MISMATCH"):
+        "RENAMED 2026-11-23 from Primary Calibration Standard Name (issue #22, Module_CompositionQC v9); key unchanged, so this ruling carries over. RE-KEYED 2026-09-29 -> target material x target species (Module_CompositionQC v6; McCoy+2025_UA states standards per phase and element). The target-species axis ruled on below is kept as the inner key. Earlier ruling: CONSISTENT — a field that NAMES standards always looks standard-shaped to the detector. "
         "Key set to target species in LA-SF 2026-08-12 because Navarro et al. 2024 assigns standards to "
         "target species groups; 6 of 7 use one joint set, which is that axis with one member.",
     ("Isobaric Interference Corrections Applied", "UNDER-DECLARED"):

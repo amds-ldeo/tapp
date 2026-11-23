@@ -230,11 +230,11 @@ nowhere; that is the class of error this block exists to prevent.
 
 ```
 TAPPs                        16
-content rows                 1811   (rows with a Keyed By value; group headers excluded)
-scalar, `(none)`             1179   65%
-keyed (arrays in a schema)   632   35%
-Column G provenance stamps   1408   78%
-distinct Keyed By strings    22
+content rows                 1919   (rows with a Keyed By value; group headers excluded)
+scalar, `(none)`             1179   61%
+keyed (arrays in a schema)   740   39%
+Column G provenance stamps   1492   78%
+distinct Keyed By strings    23
 definer fields               11
 
 keys in use library-wide (9):
@@ -265,16 +265,17 @@ the complete set of Keyed By strings present, with row counts:
   defines: standard                                 12
   defines: target material                          16
   defines: target species                           13
-  monitored property                               109
+  monitored property                               133
   pair: reported property                            7
   preparation step                                   9
   reported property                                130
   sample                                            48
   sample > sampling unit                            25
-  standard x reported property                      33
+  standard                                          36
+  standard x reported property                      69
   target material                                   16
   target material x monitored property               6
-  target material x target species                  12
+  target material x target species                  24
   target species                                    40
 
 field names whose key is technique-dependent (2) -- do NOT assume one
@@ -288,10 +289,10 @@ definer fields, and what each enumerates:
   EELS Edges                         defines: monitored property per target species
   Monitored Elements                 defines: monitored property per target species
   Monitored Masses                   defines: monitored property per target species
+  Reference Materials                defines: standard
   Reported Variables and Units       defines: reported property
   Sample Name                        defines: sample
   Sampling Unit Name                 defines: sample > sampling unit
-  Secondary Reference Materials      defines: standard
   Target Material                    defines: target material
   Target Species                     defines: target species
 ```
@@ -660,6 +661,26 @@ techniques). What changed is that this is now expressed by which modules they co
 >   unit`. Both of its modes scan an area, so it has no point-analysis current.
 > - **New link field:** `Target Material of Sampling Unit` (C=N/A, `sample > sampling unit`) names the
 >   `targetMaterials` member each analysis point belongs to (EPMA, SEM, SEM_Composition, SEM_Imaging).
+
+> **Renamed, added and reworded 2026-11-23 — issues #19, #22, #23 (all 16 tables bumped).**
+> - **Standards (#22; conventions 7.13).** `Secondary Reference Materials` → **`Reference Materials`**, still
+>   `defines: standard`, now every standard used, each once. `Primary Calibration Standard Name` →
+>   **`Calibration Standard`** (key unchanged). New, keyed `standard`: `Reference Material Type`, `Reference
+>   Material Identifier`, `Reference Value Source`. New, keyed `standard x reported property`: `Reference
+>   Value`, `Reference Value Uncertainty` (both `Numeric + unit / Text`), `Reference Value Uncertainty Basis`
+>   (`Controlled list / Text`). New **`Quality-Control Standards`**, keyed `target material x target
+>   species`, value names one or more `Reference Materials` entries. The four role fields (`Calibration
+>   Standard`, `Quality-Control Standards`, `Interference Correction Standard`, `delta or epsilon Value
+>   Reference Standard`) each name entries in `Reference Materials`; the QC statistics are reported only for
+>   standards named in `Quality-Control Standards`. All in the 12 composition tables (Module_CompositionQC
+>   v9); the interference and delta fields stay TAPP-owned where they were.
+> - **Monitored-property role (#23).** New `Monitored Property Role` (`Controlled list / Text`, open:
+>   Target | Interference monitor | Internal standard | Phase monitor) and `Monitored Property Role Detail`
+>   (`Text (free)`), both keyed `monitored property`, C Basic/Advanced, D Read-Only, directly after the
+>   defining field in the 12 tables that have one. Rule: role `Target` requires a target species; any other
+>   role permits one without requiring it. The role takes one or more values.
+> - **Group references (#19).** Descriptions no longer cite a bare "Group N": they name the section and
+>   keep the number, or name the field (83 references in 11 fields). Text only.
 
 > **Tier and text 2026-10-29 — session statistics hold the achieved value (Rule 14.5, 14.6).**
 > - **Tier.** `Procedural Blank Level` (Module_Blank v5): procedure tier `N/A` → `Advanced`, so it now
