@@ -2,7 +2,7 @@
   "module": "UPb",
   "title": "U-Pb Geochronology",
   "layer": 3,
-  "version": "13",
+  "version": "14",
   "source_of_truth": "modules/Module_UPb.csv",
   "requires": [
     "Geochronology",
@@ -18,7 +18,8 @@
     "D",
     "E",
     "F",
-    "I"
+    "I",
+    "K"
   ],
   "overlay_columns": [
     "F",
@@ -65,8 +66,9 @@
     "2026-09-29. Column F of keyed fields describes one member's value (conventions 7.3.4): member labels removed from the examples of Age Calculation Method, Procedural Blank Level. Consumers' Column F is edited to match (colf_value_only_20260929.py).",
     "2026-10-26 v11. Overlay rows for Inclusion Criteria and Goodness-of-Fit follow Module_Aggregation v6: examples state rules and statistics, not outcomes and values; Purpose text takes the v6 defaults.",
     "2026-10-27 v12. Rule 14 sweep. Discordance Definition and Values renamed Discordance Definition: the formula only, the values going to the dataset; example without values. Overlay row for Radiogenic Fraction of Measured Signal removed with the field (Module_Geochronology v9).",
-    "2026-10-29 v13. Overlay Purpose for Procedural Blank Level follows Module_Blank v5."
+    "2026-10-29 v13. Overlay Purpose for Procedural Blank Level follows Module_Blank v5.",
+    "2026-11-24 v14. Issues #9/#13: Column D split. D now holds Basic / Advanced only (the session record's obligation, worded as Column C); where the session value comes from moved to the new module-owned Column K `Procedure Value` (Fixed / Adjustable / Not carried over). Read-Only -> D = C, K = Fixed; Editable -> D = C, K = Adjustable; Basic / Advanced -> unchanged, K = Not carried over. `owned_columns` gains K. No field changed meaning."
   ],
   "source_comment": "Source: U-Pb module",
-  "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
+  "tier_provenance": "Tier values (Columns C and D, and Procedure Value in K) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }

@@ -18,7 +18,7 @@ What this script does:
   - Adds a Legends sheet with tier and mode column definitions
   - Never modifies the CSV
 
-Column structure (columns A–I are fixed; I+1 onward is dynamic):
+Column structure (columns A–K are fixed; L onward is dynamic):
   A  Metadata Item
   B  Description / Purpose
   C  Procedure-Level Tier
@@ -30,11 +30,13 @@ Column structure (columns A–I are fixed; I+1 onward is dynamic):
        column I under Rule 7; the old "Analyte-Specific" labels were retired with it.)
   H  Last Update
   I  Keyed By (Rule 7) — never blank on a content row; `(none)` for a scalar
-  I+1 … I+n   Mode flag columns (one per mode defined in Phase 0)
-  I+n+1     Sentinel column — header must be exactly "Literature Assessment";
+  J  Purpose
+  K  Procedure Value (2026-11-24) — Fixed / Adjustable / Not carried over
+  L … L+n-1  Mode flag columns (one per mode defined in Phase 0)
+  L+n       Sentinel column — header must be exactly "Literature Assessment";
              all data rows are empty. Marks the boundary between mode flag
              columns and literature assessment columns.
-  I+n+2 …  Literature assessment columns (one per extracted procedure)
+  L+n+1 …  Literature assessment columns (one per extracted procedure)
 
   Fallback: if no sentinel column is found, the script uses a length-based
   heuristic (header ≤ 25 chars → mode flag; longer → literature assessment).
@@ -46,12 +48,15 @@ Conventions applied (from references/conventions.md):
     Advanced → bold, green text (375623)
     N/A      → bold, default text
 
-  Analysis-Level Tier colors:
-    Read-Only → bold, blue text   (0070C0)
-    Editable  → bold, purple text (7030A0)
+  Analysis-Level Tier colors (Basic / Advanced only since 2026-11-24):
     Basic     → bold, red text    (C00000)
     Advanced  → bold, green text  (375623)
     (N/A is not a valid analysis-level tier)
+
+  Procedure Value colors (column K; the colours Read-Only and Editable had):
+    Fixed            → bold, blue text   (0070C0)
+    Adjustable       → bold, purple text (7030A0)
+    Not carried over → bold, default text
 
   Group header rows: bold, light blue fill (D9E1F2), all columns styled
   Mode flag columns: Y → light green fill; N → light red fill
@@ -76,12 +81,13 @@ except ImportError:
 # Colour palette
 # ---------------------------------------------------------------------------
 TIER_STYLES = {
-    # Procedure-Level Tier (col C) and Analysis-Level Tier (col D)
+    # Procedure-Level Tier (col C), Analysis-Level Tier (col D), Procedure Value (col K)
     'Basic':      {'font_color': 'C00000', 'bold': True},
     'Advanced':   {'font_color': '375623', 'bold': True},
-    'Read-Only':  {'font_color': '0070C0', 'bold': True},
-    'Editable':   {'font_color': '7030A0', 'bold': True},
     'N/A':        {'font_color': '000000', 'bold': True},
+    'Fixed':            {'font_color': '0070C0', 'bold': True},
+    'Adjustable':       {'font_color': '7030A0', 'bold': True},
+    'Not carried over': {'font_color': '000000', 'bold': True},
 }
 
 HEADER_FILL   = PatternFill('solid', fgColor='D9E1F2')  # light blue for group headers
@@ -91,6 +97,8 @@ LIT_FILL      = PatternFill('solid', fgColor='FFF2CC')  # light yellow for lit a
 SENTINEL_FILL = PatternFill('solid', fgColor='D9D9D9')  # light grey for sentinel column
 
 SENTINEL_HEADER = 'Literature Assessment'  # exact string used to mark the mode/lit boundary
+COL_PROCVALUE = 10   # K — Procedure Value
+FIRST_MODE_COL = 11  # L — first mode flag column (was 9 in this script, which styled J as a mode flag)
 
 WRAP_TOP = Alignment(wrap_text=True, vertical='top')
 WRAP_CTR = Alignment(wrap_text=True, vertical='top', horizontal='center')
@@ -108,7 +116,9 @@ COL_WIDTHS = {
     7: 22,   # G — Comments
     8: 14,   # H — Last update
     9: 24,   # I — Keyed By (Rule 7)
-    # J onward: set dynamically below
+    10: 48,  # J — Purpose
+    11: 16,  # K — Procedure Value
+    # L onward: set dynamically below
 }
 MODE_COL_WIDTH = 13
 LIT_COL_WIDTH  = 30
@@ -122,7 +132,7 @@ def detect_structure(rows):
     of 0-based column indices.
 
     Primary method: look for a column whose header is exactly SENTINEL_HEADER
-    ('Literature Assessment'). Columns between H and the sentinel are mode flag
+    ('Literature Assessment'). Columns between K and the sentinel are mode flag
     columns; columns after the sentinel are literature assessment columns.
 
     Fallback (no sentinel found): use the old length-based heuristic — headers
@@ -135,9 +145,8 @@ def detect_structure(rows):
     lit_cols     = []
     sentinel_col = None
 
-    # Fixed columns: A=0 B=1 C=2 D=3 E=4 F=5 G=6 H=7
-    # Mode flags start at index 8 (I)
-    for i in range(9, len(header)):
+    # Fixed columns: A=0 … K=10. Mode flags start at FIRST_MODE_COL (L).
+    for i in range(FIRST_MODE_COL, len(header)):
         h = header[i].strip()
         if h == SENTINEL_HEADER:
             sentinel_col = i
@@ -153,7 +162,7 @@ def detect_structure(rows):
     if sentinel_col is None:
         mode_cols, lit_cols = [], []
         in_mode = True
-        for i in range(9, len(header)):
+        for i in range(FIRST_MODE_COL, len(header)):
             h = header[i].strip()
             if not h:
                 continue
@@ -226,10 +235,8 @@ def build_legends(wb, mode_headers, keys_used=()):
         ('N/A',      '000000', 'Not applicable at procedure level. This field captures analysis-level information only.'),
     ]
     analysis_tiers = [
-        ('Read-Only', '0070C0', 'Directly imported from the registered procedure; cannot be changed by the analyst. Changing this value means running a different procedure. Also used for fields relevant only at procedure level — the value is inherited from the procedure record and shown read-only in the analysis form.'),
-        ('Editable',  '7030A0', 'Imported from the registered procedure but may be adjusted within procedure-defined bounds (e.g., daily tuning, minor software updates). The procedure registers the target or typical value; the analyst confirms or adjusts it. Cannot be left void if the procedure-level tier is Basic.'),
-        ('Basic',     'C00000', 'Mandatory user input at analysis time. Value comes from the analysis itself and cannot be pre-specified in the procedure.'),
-        ('Advanced',  '375623', 'Optional user input at analysis time. Recommended for complete and reproducible documentation.'),
+        ('Basic',     'C00000', 'Required in the analysis (session) record. Where the value is carried over from the procedure (Procedure Value Fixed or Adjustable), this always equals the Procedure-Level Tier.'),
+        ('Advanced',  '375623', 'Optional in the analysis (session) record; recommended for complete and reproducible documentation.'),
     ]
 
     for i, (label, color, defn) in enumerate(proto_tiers):
@@ -238,6 +245,19 @@ def build_legends(wb, mode_headers, keys_used=()):
         row_pair(r+i, 3, label, defn, color)
 
     r += max(len(proto_tiers), len(analysis_tiers)) + 2
+
+    # Column K, added 2026-11-24 (issues #9/#13): where the session value comes from. Split out of
+    # Column D, which used to carry it as Read-Only / Editable alongside Basic / Advanced.
+    hdr(r, 1, 'Procedure Value'); hdr(r, 2, 'Where the analysis (session) value comes from')
+    r += 1
+    for label, color, defn in (
+        ('Fixed', '0070C0', "The procedure's value is used and cannot be changed in a session. Changing it means running a different procedure."),
+        ('Adjustable', '7030A0', "The procedure's value is the default; a session may change it within the procedure's bounds (daily tuning, minor deviations), or supply one where the procedure left it blank. The session records what was used."),
+        ('Not carried over', '000000', "The session records its own value. Either the procedure has none (Procedure-Level Tier N/A) or the procedure's value is an expected one and the session records what it achieved (e.g. detection limits, precision)."),
+    ):
+        row_pair(r, 1, label, defn, color)
+        r += 1
+    r += 2
 
     hdr(r, 1, 'Mode Column'); hdr(r, 2, 'Definition')
     r += 1
@@ -405,6 +425,10 @@ def convert(csv_path, xlsx_path):
 
             # Analysis-Level Tier (col D = index 3)
             elif col_idx == 3 and val.strip():
+                apply_tier(cell, val.strip())
+
+            # Procedure Value (col K = index 10)
+            elif col_idx == COL_PROCVALUE and val.strip():
                 apply_tier(cell, val.strip())
 
             # Mode flag columns

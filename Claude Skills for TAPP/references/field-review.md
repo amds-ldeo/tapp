@@ -25,12 +25,12 @@ Is the value determined BEFORE the session begins?
 Examples of both-level fields that should be split:
 - Oxide production threshold (procedure: acceptance criterion) vs. oxide production measured (analysis: actual ratio) — split because these are different *types* of information (criterion vs. measurement)
 
-Examples of both-level fields that should NOT be split (use D=Editable instead):
-- Target Species (procedure: range of isotopes the procedure is designed to measure; analysis: specific isotopes measured in this session, which may be a subset) — same type of information at different stages; D=Editable captures that the analyst may narrow the set
-- Laser fluence (procedure: target value; analysis: as-run value) — same quantity; D=Editable is correct
+Examples of both-level fields that should NOT be split (use Procedure Value `Adjustable` instead):
+- Target Species (procedure: range of isotopes the procedure is designed to measure; analysis: specific isotopes measured in this session, which may be a subset) — same type of information at different stages; `Adjustable` captures that the analyst may narrow the set
+- Laser fluence (procedure: target value; analysis: as-run value) — same quantity; `Adjustable` is correct
 
-- RF power: the procedure specifies it; the analysis uses the same value. Read-Only at analysis level is the correct representation, not a split.
-- Spot geometry: the procedure registers the typical geometry; the analyst may use a different size for different phases. D=Editable captures this without splitting.
+- RF power: the procedure specifies it; the analysis uses the same value. Procedure Value `Fixed` is the correct representation, not a split.
+- Spot geometry: the procedure registers the typical geometry; the analyst may use a different size for different phases. `Adjustable` captures this without splitting.
 
 ---
 
@@ -85,17 +85,17 @@ The split-or-merge decision follows a consistent pattern. Ask:
    - Yes → do not split (creates a mostly-empty field)
 
 **Canonical split pattern — threshold vs. value:**
-The most common split in analytical chemistry TAPPs. A procedure specifies a threshold or acceptance criterion (e.g., "ThO⁺/Th⁺ must be <0.5%"). The analysis records the actual measured value (e.g., "ThO⁺/Th⁺ = 0.3%"). These have different tiers (procedure: Basic, Read-Only at analysis; measured: N/A procedure, Basic analysis) and serve different purposes (quality gating vs. reporting).
+The most common split in analytical chemistry TAPPs. A procedure specifies a threshold or acceptance criterion (e.g., "ThO⁺/Th⁺ must be <0.5%"). The analysis records the actual measured value (e.g., "ThO⁺/Th⁺ = 0.3%"). These have different tiers (procedure: Basic, Procedure Value Fixed; measured: N/A procedure, Basic analysis, Not carried over) and serve different purposes (quality gating vs. reporting).
 
 Fields that commonly follow this pattern:
 - Oxide production threshold (procedure) / Oxide production measured (analysis)
 - Mass bias correction factor target (procedure) / Mass bias factor as-run (analysis) [where applicable]
 - Instrumental blank threshold (procedure) / Procedural blank measured (analysis) [solution ICP-MS]
 
-**Scope fields with D=Editable:**
-A procedure defines the *scope* of what it is designed to measure (e.g., the target species suite). An analysis may measure a subset of that scope. Use a single field with D=Editable: the procedure registers the intended scope; the analyst confirms or narrows it at analysis time. Do not split into separate procedure-scope and analysis-execution fields.
+**Scope fields with Procedure Value `Adjustable`:**
+A procedure defines the *scope* of what it is designed to measure (e.g., the target species suite). An analysis may measure a subset of that scope. Use a single field with Procedure Value `Adjustable`: the procedure registers the intended scope; the analyst confirms or narrows it at analysis time. Do not split into separate procedure-scope and analysis-execution fields.
 
-- Target Species (C=Basic, D=Editable): procedure registers the full isotope suite; analyst may record a subset actually measured
+- Target Species (C=Basic, `Adjustable`): procedure registers the full isotope suite; analyst may record a subset actually measured
 - Target material (procedure) / Sample name (analysis) [different concepts entirely — already separate fields in Group 2]
 
 ---
@@ -112,17 +112,22 @@ A procedure defines the *scope* of what it is designed to measure (e.g., the tar
 
 **Borderline Basic vs. Advanced — ask:** "If a researcher tried to reproduce this method without this field, would they be unable to get comparable results?" If yes → Basic. If they would probably get comparable results but with some uncertainty → Advanced.
 
-#### Analysis-Level Tier (Column D)
+#### Analysis-Level Tier (Column D) and Procedure Value (Column K)
 
-D=N/A is not a valid analysis-level tier. Every field must carry one of: Read-Only, Editable, Basic, Advanced.
+Since 2026-11-24 these are two columns (issues #9/#13). **Column D** says whether the session record must
+carry the field: Basic or Advanced, the same words as Column C; D=N/A is not valid. **Column K, Procedure
+Value**, says where the session value comes from. Text written before that date uses the retired D values
+`Read-Only` (= D equal to C, `Fixed`) and `Editable` (= D equal to C, `Adjustable`).
 
-| Use Read-Only when... | Use Editable when... | Use Basic when... | Use Advanced when... |
-|---|---|---|---|
-| Changing the value would mean running a different procedure | The value is a procedure target but is legitimately adjusted during daily tuning | The analyst must provide this value (it comes from the analysis, not the procedure) | The value is useful but not required for a credible analysis record |
-| The value is a fundamental invariant of the method design | Minor updates (e.g., software version) do not constitute a different procedure | The value cannot be predicted from the procedure alone | Literature shows it is rarely reported, suggesting it is not a community norm |
-| The field is relevant only at procedure level and does not vary per analysis | | | |
+| Use `Fixed` when... | Use `Adjustable` when... | Use `Not carried over` when... |
+|---|---|---|
+| Changing the value would mean running a different procedure | The value is a procedure target but is legitimately adjusted during daily tuning | The analyst must provide this value (it comes from the analysis, not the procedure) |
+| The value is a fundamental invariant of the method design | Minor updates (e.g., software version) do not constitute a different procedure | The value cannot be predicted from the procedure alone |
+| The field is relevant only at procedure level and does not vary per analysis | The procedure may leave it blank and a session supply it | The procedure states only an expected value and the session records what it achieved (detection limits, precision) |
 
-**Read-Only vs. Editable: the daily tuning test.** If a value is routinely verified or adjusted during instrument startup and tuning before each session, it is Editable, not Read-Only. Examples of Editable: flow rates tuned to maintain stable plasma or background conditions; background measurement duration adjusted based on signal stability; software version updated without changing the procedure. Examples of Read-Only: instrument manufacturer and model (cannot change without a new procedure); excitation source wavelength or beam energy (hardware property); internal standard or calibration approach (changing this changes the data reduction fundamentally).
+With `Fixed` or `Adjustable`, D equals C. With `Not carried over`, choose D by the community norm test below.
+
+**`Fixed` vs. `Adjustable`: the daily tuning test.** If a value is routinely verified or adjusted during instrument startup and tuning before each session, it is `Adjustable`, not `Fixed`. Examples of `Adjustable`: flow rates tuned to maintain stable plasma or background conditions; background measurement duration adjusted based on signal stability; software version updated without changing the procedure. Examples of `Fixed`: instrument manufacturer and model (cannot change without a new procedure); excitation source wavelength or beam energy (hardware property); internal standard or calibration approach (changing this changes the data reduction fundamentally).
 
 **Basic vs. Advanced at analysis level: the community norm test.** If the majority of published papers in the relevant literature report this value, it should be Basic. If it is best practice but uncommonly reported, Advanced. This judgment should be revisited after Phase 3 with actual data. During Phase 2, assign a provisional tier and flag it for Phase 3 validation.
 
@@ -130,22 +135,23 @@ D=N/A is not a valid analysis-level tier. Every field must carry one of: Read-On
 
 ## Tier Combination Reference
 
-Valid tier combinations and their meanings:
+Valid combinations and their meanings (C, D and Procedure Value since 2026-11-24; the "was" column gives
+the retired D value, for reading older text):
 
-| C (Procedure) | D (Analysis) | Meaning |
-|---|---|---|
-| Basic | Read-Only | Core procedure parameter; always the same in every analysis following this procedure. Also used for administrative procedure-only fields (e.g., funding for procedure development) that are displayed read-only in the analysis record. |
-| Basic | Editable | Core procedure parameter with a defined target; analyst may tune within allowed range. The procedure registers the typical or target value; the analyst confirms or adjusts it. |
-| Advanced | Read-Only | Optional procedure parameter; if specified, always the same in every analysis |
-| Advanced | Editable | Optional procedure parameter with a target; analyst may tune if specified |
-| N/A | Basic | Analysis-only field; mandatory per-analysis input (analyst provides from the analysis itself) |
-| N/A | Advanced | Analysis-only field; optional per-analysis input |
-| Advanced | Basic | Field is optional at procedure level (may be void when procedure is registered) but mandatory when reporting any analysis. Use when a value cannot be characterized until the procedure has been applied to real samples, yet must be documented for every data submission. Examples: detection limits, precision, accuracy — these require accumulated session data to characterize properly, so they are not required for procedure registration, but are non-negotiable for credible analytical data. See Detection Limit entry in `references/precedents.md`. |
-| Basic | Basic | Field exists at procedure level AND requires fresh analyst input at analysis level. Rare — only when the analysis value is genuinely independent of the procedure specification. |
-| N/A | Read-Only | **Invalid.** Read-Only means imported from procedure. If C=N/A, there is nothing to import. |
-| N/A | Editable | **Invalid.** Same reason — nothing to import from procedure. |
-| Basic | N/A | **Invalid.** D=N/A is not a permitted analysis-level tier. Use D=Read-Only for fields that are procedure-only. |
-| Advanced | N/A | **Invalid.** Same reason. Use D=Read-Only. |
+| C (Procedure) | D (Analysis) | Procedure Value | Was | Meaning |
+|---|---|---|---|---|
+| Basic | Basic | Fixed | Basic / Read-Only | Core procedure parameter; always the same in every analysis following this procedure. Also used for administrative procedure-only fields (e.g., funding for procedure development) displayed in the analysis record. |
+| Basic | Basic | Adjustable | Basic / Editable | Core procedure parameter with a defined target; analyst may tune within allowed range. The procedure registers the typical or target value; the analyst confirms or adjusts it. |
+| Advanced | Advanced | Fixed | Advanced / Read-Only | Optional procedure parameter; if specified, always the same in every analysis |
+| Advanced | Advanced | Adjustable | Advanced / Editable | Optional procedure parameter with a target; analyst may tune it, or supply it where the procedure left it blank |
+| N/A | Basic | Not carried over | N/A / Basic | Analysis-only field; mandatory per-analysis input (analyst provides from the analysis itself) |
+| N/A | Advanced | Not carried over | N/A / Advanced | Analysis-only field; optional per-analysis input |
+| Advanced | Basic | Not carried over | Advanced / Basic | Field is optional at procedure level (may be void when procedure is registered) but mandatory when reporting any analysis. Use when a value cannot be characterized until the procedure has been applied to real samples, yet must be documented for every data submission. Examples: detection limits, precision, accuracy — the procedure states an expected value, the session records the achieved one (conventions 14.1). See Detection Limit entry in `references/precedents.md`. |
+| Basic | Basic | Not carried over | Basic / Basic | Field exists at procedure level AND requires fresh analyst input at analysis level. Rare — only when the analysis value is genuinely independent of the procedure specification. |
+| Advanced | Advanced | Not carried over | Advanced / Advanced | Optional at both levels, and the session value is its own (e.g., Additional Notes). |
+| N/A | any | Fixed or Adjustable | N/A / Read-Only or Editable | **Invalid.** Nothing can be carried over from a procedure that does not specify the field. |
+| Basic or Advanced | ≠ C | Fixed or Adjustable | — | **Invalid.** An inherited value is as required in the session as in the procedure: D must equal C. |
+| any | N/A | any | — | **Invalid.** D=N/A is not a permitted analysis-level tier. A procedure-only field is D = C with `Fixed`. |
 
 ---
 
@@ -155,7 +161,7 @@ See `references/conventions.md` for the full vocabulary. Key naming rules for fi
 
 - **Do not use** "Default", "Target", "Achieved", "Typical", or "Actual" as prefixes/suffixes that encode which level a value belongs to. Field names are level-neutral; use Column B to clarify that the procedure registers a target or typical value: "Laser Fluence (Energy Density)", "Carrier Gas and Flow Rate", "Voxel Size"
 - **Exception**: "Target Material" and "Target Feature(s)" retain "Target" because it means *the type of material or feature the procedure is designed to analyze*, not a value with an achieved counterpart
-- Use **"(Measured)"** or a separate field name for analysis-level values corresponding to procedure-level *acceptance criteria* (thresholds, pass/fail gates) only: "Oxide Production" (measured) vs. "Oxide Production Method and Threshold" (criterion). This is distinct from session-tunable parameters, which use D=Editable.
+- Use **"(Measured)"** or a separate field name for analysis-level values corresponding to procedure-level *acceptance criteria* (thresholds, pass/fail gates) only: "Oxide Production" (measured) vs. "Oxide Production Method and Threshold" (criterion). This is distinct from session-tunable parameters, which use Procedure Value `Adjustable`.
 - Use **"Procedure"** rather than **"Method"** when referring to the overall registered procedure object: "Procedure DOI", "Procedure Name", "Funding Source for Procedure Development"
 - Declare cardinality in **Column I (`Keyed By`)**, never in Comments — see Rule 7 in `conventions.md`. Ask what the field's value repeats over: `(none)`, `target species`, `monitored property`, `reported property`, `sampling unit`, `channel`, or a secondary key. The superseded label "Target-Species-Specific" named only one of these, and not the most common one
 - **If the field declares `defines: X`, ask a second question: does it also repeat over something?** A definer can carry a parent key — `Monitored Masses` enumerates the masses (`monitored property`) but does so *per target species element*, so it is `defines: monitored property per target species` (Rule 7.3.1). Four of the library's definers turned out to be of this shape (there were eight then; there are eleven since `Acquisition Pass` and `Digestion Step` were added 2026-09-08), and two of them said so only through their example values ("Fe L2,3; O K" — an edge named per element), never in cardinality language. **Read Column B and Column F against Column I, not Column I alone**

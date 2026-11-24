@@ -42,7 +42,9 @@ def build(cfg):
     rows = list(csv.reader(io.open(ROOT + cfg['csv'], newline='', encoding='utf-8-sig')))
     hdr, ci = rows[0], cfg['litcol']
     sentinel = hdr.index('Literature Assessment')
-    modes = [h.strip() for h in hdr[10:sentinel]]
+    # Mode flags follow the last fixed column: `Purpose` (J) until 2026-11-24, `Procedure Value` (K) since.
+    m0 = (hdr.index('Procedure Value') if 'Procedure Value' in hdr else hdr.index('Purpose')) + 1
+    modes = [h.strip() for h in hdr[m0:sentinel]]
     groups, cur, excluded = [], None, []
     for x in rows[1:]:
         if not x or not x[0].strip(): continue
@@ -59,7 +61,7 @@ def build(cfg):
         cur['fields'].append({
             'name': name, 'desc': x[1].strip(), 'tier': x[2].strip(), 'dtype': x[4].strip(),
             'unit': unit(x[4]), 'opts': opts(x[4], x[5]), 'ex': x[5].strip(), 'key': x[8].strip(),
-            'modes': {m: (g.strip().upper() == 'Y') for m, g in zip(modes, x[10:sentinel])},
+            'modes': {m: (g.strip().upper() == 'Y') for m, g in zip(modes, x[m0:sentinel])},
             'val': val, 'note': note,
             'warn': cfg.get('warn', {}).get(name, '')})
     # Definer members and per-member values, read from the cells (7.3.4) instead of a hand-typed map.

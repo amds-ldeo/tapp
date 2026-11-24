@@ -2,7 +2,7 @@
   "module": "ICPMS",
   "title": "Inductively Coupled Plasma Mass Spectrometry — plasma, tuning and session quality",
   "layer": 2,
-  "version": "20",
+  "version": "21",
   "source_of_truth": "modules/Module_ICPMS.csv",
   "owned_columns": [
     "A",
@@ -10,7 +10,8 @@
     "C",
     "D",
     "E",
-    "I"
+    "I",
+    "K"
   ],
   "overlay_columns": [
     "F",
@@ -122,7 +123,8 @@
     "2026-09-29. Column F of keyed fields describes one member's value (conventions 7.3.4): member labels removed from the examples of Instrument Sensitivity, Internal (Within-Measurement) Analytical Precision and Assessment Method, Plasma Thermal Mode, Calibration Strategy per Target Species, Interfering Species, Acquisition Pass. Consumers' Column F is edited to match (colf_value_only_20260929.py).",
     "2026-10-27 v18. Rule 14 sweep. Internal (Within-Measurement) Analytical Precision records the statistic and the cycles it is computed over; the per-measurement value goes to the dataset. Re-keyed sample > sampling unit x reported property -> reported property; D Basic -> Editable; example without values.",
     "2026-10-29 v19. Rule 14.1 amendment (analysis/Rule14_Amendment_Session_QC_2026-10-29.md). Within-Session Precision, Analytical Accuracy and Between-Session Precision state both levels under the 14.6 lead-ins: the procedure holds the method and the expected value, the session the value achieved. Within-Session and Accuracy end with the 14.5 overlap sentence; Between-Session has none, since no single dataset holds the analyses it is computed from. Tiers unchanged.",
-    "2026-11-23 v20. Issue #22: the three QC statistics are limited to Quality-Control Standards."
+    "2026-11-23 v20. Issue #22: the three QC statistics are limited to Quality-Control Standards.",
+    "2026-11-24 v21. Issues #9/#13: Column D split. D now holds Basic / Advanced only (the session record's obligation, worded as Column C); where the session value comes from moved to the new module-owned Column K `Procedure Value` (Fixed / Adjustable / Not carried over). Read-Only -> D = C, K = Fixed; Editable -> D = C, K = Adjustable; Basic / Advanced -> unchanged, K = Not carried over. `owned_columns` gains K. No field changed meaning."
   ],
-  "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
+  "tier_provenance": "Tier values (Columns C and D, and Procedure Value in K) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }

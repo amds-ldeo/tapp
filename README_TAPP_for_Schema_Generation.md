@@ -83,7 +83,7 @@ Encoding is UTF-8 with BOM (`utf-8-sig`). Field content contains superscripts an
 
 ## 3. Column structure
 
-Columns A–I are fixed. Everything after them is variable-width and must be located by header, not
+Columns A–K are fixed. Everything after them is variable-width and must be located by header, not
 position.
 
 | Col | Header | Use in schema generation |
@@ -91,13 +91,15 @@ position.
 | A | `Metadata Item` | The field name. Use as the property key (slugified) and keep the original as `title`. |
 | B | `Description` *or* `Description / Purpose` | → `description`. Often carries conditional rules — see §7. |
 | C | `Procedure-Level Tier` | Requiredness at procedure level. See §5. |
-| D | `Analysis-Level Tier` | Requiredness/mutability at analysis level. See §5. |
+| D | `Analysis-Level Tier` | Requiredness at analysis (session) level: `Basic` / `Advanced`. See §5. |
 | E | `Data Type` | → JSON type + format. See §6. |
 | F | `Example / Allowed Content` *or* `Example/Allowed Content` | Either an enumeration or examples — **which one depends on Column E**. See §6. |
 | G | `Comments` | Provenance labels only — see §3.1. Carries no structural meaning; exclude from the schema. |
 | H | `Last Update` | `YYYY-MM-DD`. Provenance only. |
 | I | `Keyed By` | **Cardinality.** This is what makes the schema nested rather than flat. See §4. |
-| J … | Mode flag columns | Conditional applicability. Count varies 0–11. See §8. |
+| J | `Purpose` | Why the field is collected. Annotation; may join `description`. |
+| K | `Procedure Value` | **Where the session value comes from** (added 2026-11-24): `Fixed` / `Adjustable` / `Not carried over`. See §5. |
+| L … | Mode flag columns | Conditional applicability. Count varies 0–11. See §8. |
 | (after modes) | `Literature Assessment` | **Sentinel.** Header is exactly this string; all data rows empty. Marks the end of the mode block. |
 | (after sentinel) | Literature assessment columns | Evidence extracted from papers. **Not schema content — exclude.** |
 
@@ -105,9 +107,9 @@ position.
 circulation (`Description` / `Description / Purpose`, and with/without spaces around the slash). A–I are
 positionally stable; matching on header text will fail on some files.
 
-**Locate the boundaries by header, not index.** Mode flags are the columns between `Keyed By` and the
-column headed exactly `Literature Assessment`. Three TAPPs (Solution Q, SF and MC-ICP-MS) have **zero**
-mode-flag columns — the sentinel sits immediately after Column I. Code that assumes at least one mode
+**Locate the boundaries by header, not index.** Mode flags are the columns between `Procedure Value`
+(Column K) and the column headed exactly `Literature Assessment`. Three TAPPs (Solution Q, SF and
+MC-ICP-MS) have **zero** mode-flag columns — the sentinel sits immediately after Column K. Code that assumes at least one mode
 column will break on those three.
 
 ### 3.1 Column G — what the Comments column now holds
@@ -438,32 +440,47 @@ These drive requiredness. They are independent; read both.
 | `Advanced` | Optional; strongly recommended |
 | `N/A` | Not applicable at procedure level — this field captures analysis-level information only |
 
-**Column D — Analysis-Level Tier**
+**Column D — Analysis-Level Tier** (since 2026-11-24: `Basic` / `Advanced` only)
 
 | Value | Meaning |
 |---|---|
-| `Read-Only` | Imported from the registered procedure; the analyst cannot change it. Changing it means running a different procedure |
-| `Editable` | Imported from the procedure but adjustable within procedure-defined bounds (daily tuning, minor deviations) |
-| `Basic` | **Mandatory input at analysis time.** The value cannot be known until the analysis runs |
-| `Advanced` | Optional input at analysis time |
+| `Basic` | **Required in the analysis (session) record** |
+| `Advanced` | Optional in the session record; recommended |
 
 **`N/A` is not a valid Column D value.** Every field carries a meaningful analysis-level assignment.
 If you encounter `N/A` in Column D, the file is malformed.
 
+**Column K — Procedure Value** (added 2026-11-24, issues #9/#13): where the session value comes from.
+
+| Value | Meaning |
+|---|---|
+| `Fixed` | The procedure's value is used and cannot be changed in a session. Changing it means running a different procedure |
+| `Adjustable` | The procedure's value is the default; a session may change it within procedure-defined bounds, or supply one where the procedure left it blank |
+| `Not carried over` | The session records its own value: the procedure has none (C = `N/A`), or only an expected one (detection limits, precision) |
+
 ### Mapping to requiredness
 
-| C | D | Procedure schema | Analysis schema |
-|---|---|---|---|
-| `Basic` | `Read-Only` | required | required, immutable, inherited |
-| `Basic` | `Editable` | required | required, inherited, may be overridden |
-| `Basic` | `Basic` | required | required, supplied fresh |
-| `Advanced` | any | optional | per D |
-| `N/A` | `Basic` | **absent** | required, supplied fresh |
-| `N/A` | `Advanced` | **absent** | optional, supplied fresh |
+| C | D | K | Procedure schema | Analysis schema |
+|---|---|---|---|---|
+| `Basic` | `Basic` | `Fixed` | required | required, immutable, inherited |
+| `Basic` | `Basic` | `Adjustable` | required | required, inherited, may be overridden |
+| `Advanced` | `Advanced` | `Fixed` | optional | optional, immutable, inherited if present |
+| `Advanced` | `Advanced` | `Adjustable` | optional | optional, inherited if present, may be overridden or supplied |
+| `Basic` or `Advanced` | `Basic` | `Not carried over` | per C | required, supplied fresh |
+| `Basic` or `Advanced` | `Advanced` | `Not carried over` | per C | optional, supplied fresh |
+| `N/A` | `Basic` | `Not carried over` | **absent** | required, supplied fresh |
+| `N/A` | `Advanced` | `Not carried over` | **absent** | optional, supplied fresh |
 
-Two structural guarantees: `Read-Only` and `Editable` at analysis level always correspond to `Basic` or
-`Advanced` at procedure level (you cannot inherit what was never specified), and `C=N/A` always pairs
-with `D=Basic` or `D=Advanced`.
+Structural guarantees (enforced by the validator): `Fixed` and `Adjustable` always have C = `Basic` or
+`Advanced` (you cannot inherit what was never specified) **and D = C** (an inherited value is as required
+as it was in the procedure). `C=N/A` always pairs with `Not carried over`.
+
+**Migration from the old Column D (2026-11-24).** In tables from 2026-11-23 and earlier, Column D
+also held `Read-Only` and `Editable`, and there was no Column K. The mapping is one to one:
+`Read-Only` → D = C, K = `Fixed`; `Editable` → D = C, K = `Adjustable`; `Basic` / `Advanced` → unchanged,
+K = `Not carried over`. The full mapping with row counts, and a per-row ledger, are in
+`Claude Skills for TAPP/analysis/Tier_Split_Mapping_2026-11-24.csv` (the nine combinations with row counts) and `Tier_Split_Ledger_2026-11-24.csv` (every TAPP and module row: before, after; 2,090 rows). Inserting Column K moved the mode flags, the sentinel and the literature columns
+one place right; Columns A–J did not move.
 
 ---
 
@@ -599,8 +616,8 @@ see the note on `ReportingCore` below.
 
 **Generate one `$def` per module and `$ref` it**, rather than emitting 16 copies of the Core fields.
 `composed_tapps.json` tells you which modules each TAPP consumes and at which version. The module CSVs
-have the same column layout as a TAPP but only columns A–F and I are meaningful — the module owns field
-name, description, tiers, data type and `Keyed By`; the consuming TAPP owns examples, comments, dates and
+have the same column layout as a TAPP but only columns A–F, I and K are meaningful — the module owns field
+name, description, tiers, data type, `Keyed By` and `Procedure Value`; the consuming TAPP owns examples, comments, dates and
 mode flags.
 
 Consequence for round-tripping: **a schema change to a shared field should be made once, at the module
@@ -661,6 +678,19 @@ techniques). What changed is that this is now expressed by which modules they co
 >   unit`. Both of its modes scan an area, so it has no point-analysis current.
 > - **New link field:** `Target Material of Sampling Unit` (C=N/A, `sample > sampling unit`) names the
 >   `targetMaterials` member each analysis point belongs to (EPMA, SEM, SEM_Composition, SEM_Imaging).
+
+> **Column added 2026-11-24 — issues #9/#13: the session tier is split (all 16 tables and all 15 modules
+> bumped).**
+> - **Column D** now holds only `Basic` / `Advanced`: whether the session record must carry the field, in
+>   the same words as Column C. `Read-Only` and `Editable` are retired.
+> - **New Column K, `Procedure Value`:** `Fixed` / `Adjustable` / `Not carried over` — where the session
+>   value comes from. Module-owned (every manifest's `owned_columns` gains `K`).
+> - **Mapping, lossless over all 1,919 rows:** `Read-Only` → D = C, K = `Fixed` (740 rows); `Editable` →
+>   D = C, K = `Adjustable` (815); `Basic` / `Advanced` → unchanged, K = `Not carried over` (364).
+> - **Placement:** appended after `Purpose` (J), not after D as proposed, so Columns A–J keep their letters.
+>   The mode flags, sentinel and literature columns each move one place right; locate them by header.
+> - **New behaviour, made explicit:** an `Adjustable` field the procedure left blank may be filled in a
+>   session.
 
 > **Renamed, added and reworded 2026-11-23 — issues #19, #22, #23 (all 16 tables bumped).**
 > - **Standards (#22; conventions 7.13).** `Secondary Reference Materials` → **`Reference Materials`**, still
@@ -780,7 +810,7 @@ techniques). What changed is that this is now expressed by which modules they co
 | `Sample Name` | 2 | `defines: sample` — enumerates the samples covered by the session, and is the definer for the `sample` key. C=N/A, D=Basic in every TAPP. Present in all 16. |
 | `Sample Persistent Identifier` | 2 | One IGSN (or equivalent) **per sample**, keyed `sample`. C=N/A, D=Advanced in every TAPP: analysis-only, like `Sample Name` (C was Advanced until 2026-09-15). Note that `sample` and `standard` overlap: a secondary reference material is run through the same calibration as an unknown, so it legitimately appears in both domains. **Do not model them as disjoint.** Present in all 16. |
 | `Reported Variables and Units` | 4 | Enumerates the reported-property domain **and declares the procedure's scope boundary** — what this procedure reports, and therefore where it stops. A derived quantity inside that list is in scope; anything beyond it belongs to a separate, coupled procedure. Present in all 16. |
-| `Sampling Unit Type` | 2 | Declares the **kind** of physical subdivision one row of reported values corresponds to (grain, spot, aliquot, phase). Without it a consumer cannot tell whether a reported value is per grain or per sample. C=Basic, D=Read-Only, keyed `(none)`: the procedure declares it. Renamed and re-keyed 2026-09-15 (amds-ldeo/tapp#8). Present in all 16. |
+| `Sampling Unit Type` | 2 | Declares the **kind** of physical subdivision one row of reported values corresponds to (grain, spot, aliquot, phase). Without it a consumer cannot tell whether a reported value is per grain or per sample. C=Basic, D=Basic, Procedure Value `Fixed`, keyed `(none)`: the procedure declares it. Renamed and re-keyed 2026-09-15 (amds-ldeo/tapp#8). Present in all 16. |
 | `Sampling Unit Name` | 2 | `defines: sample > sampling unit` — **lists the units analysed in the session, each within its sample**, and is the definer for the `sampling unit` key: every field keyed `sample > sampling unit` takes its rows from here. **The parent sample is required** — unlike the nullable parent of `defines: A per B`. C=N/A, D=Basic. Where units are too numerous to name individually (map pixels, voxels), the acquisition area is named. Added 2026-09-15. Present in all 16. |
 | `Constants and Reference Values Used` | 5, always last in the group | Physical constants and reference values used in data reduction, with sources — decay constants, reference isotope ratios. Needed to reinterpret a reported value against a later revision of a constant. Present in all 16. |
 | `Additional Notes` | 6, **always the last field of the whole TAPP** | Free-text catch-all whose scope is the entire document, not Group 6 — its position is what says so (Rule 11). Present in all 16. In a schema it is one optional string on the root object, not a Group 6 property. |

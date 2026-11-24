@@ -2,7 +2,7 @@
   "module": "SingleCollector",
   "title": "Single-Collector ICP-MS Detector",
   "layer": 2,
-  "version": "2",
+  "version": "3",
   "source_of_truth": "modules/Module_SingleCollector.csv",
   "owned_columns": [
     "A",
@@ -10,7 +10,8 @@
     "C",
     "D",
     "E",
-    "I"
+    "I",
+    "K"
   ],
   "overlay_columns": [
     "F",
@@ -51,7 +52,8 @@
   "sub_module_test": "Run 2026-09-11 under Rule 6.15. Footprint: the 6 single-collector ICP-MS TAPPs. ICPMS (9): proposed is a subset, so prong 1 nominates absorption; prong 2 refuses it - ICPMS is defined as what every ICP-MS shares 'independent of ... the analyser', and these fields are the analyser's detector. MCICPMS (the 3 multi-collector TAPPs): disjoint - the complement within ICPMS - and it passed the same subject test on the same ground. CollisionCell (6: LA-Q, LA-Q U-Pb, LA-MC, LA-MC U-Pb, Solution Q, Solution MC): overlapping, neither contained. LaserAblation (6 LA) and SolutionIntroduction (3 Solution): overlapping, neither contained, and a different subject (the front end, not the analyser). No IDENTICAL footprint; proceed.",
   "decisions": [
     "2026-09-11 v1. Created. Detector Configuration removed from LA-MC and LA-MC U-Pb in the same pass: there it duplicated Module_MCICPMS's Faraday Cup Array Configuration (for Zhang 2022, the one assessed procedure, both cells held the same content), and all 14 Solution MC papers describe their detectors in that field's terms. The 'Multi-collector array' option left Detector Configuration's Column F for the same reason. Ion Counter Dead Time deliberately NOT included although its six (none)-keyed copies are exactly this footprint: its three MC copies are keyed monitored property, and no field in the library is yet defined by two modules; the tooling has no check for that case. It stays TAPP-owned, as decided 2026-09-10 (c5632e0).",
-    "2026-11-23 v2. Issue #19: Detector Configuration names the section of the nonlinearity field."
+    "2026-11-23 v2. Issue #19: Detector Configuration names the section of the nonlinearity field.",
+    "2026-11-24 v3. Issues #9/#13: Column D split. D now holds Basic / Advanced only (the session record's obligation, worded as Column C); where the session value comes from moved to the new module-owned Column K `Procedure Value` (Fixed / Adjustable / Not carried over). Read-Only -> D = C, K = Fixed; Editable -> D = C, K = Adjustable; Basic / Advanced -> unchanged, K = Not carried over. `owned_columns` gains K. No field changed meaning."
   ],
-  "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
+  "tier_provenance": "Tier values (Columns C and D, and Procedure Value in K) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }

@@ -5,6 +5,13 @@
 > `Superseded TAPPs/`, and working files moved to `Archive/`. **Paths written in dated entries below
 > were correct when written and have not been rewritten.** For current locations see
 > `Project Files/Design Notes/PLAN_Folder_Reorganisation_2026-08-12.md`.
+> **Tier note (2026-11-24):** Column D was split. It now holds only `Basic` / `Advanced` (whether the
+> session record must carry the field, worded as Column C), and where the session value comes from is the
+> new Column K, `Procedure Value` (`Fixed` / `Adjustable` / `Not carried over`). **Part I's column and
+> tier tables below have been updated.** Every dated entry, and Part I's decision-pattern table, keeps the
+> retired values: read `D=Read-Only` as D = C + `Fixed`, `D=Editable` as D = C + `Adjustable`, and
+> `D=Basic` / `D=Advanced` as the same D + `Not carried over`. Full mapping with row counts:
+> `Claude Skills for TAPP/analysis/Tier_Split_Mapping_2026-11-24.csv`.
 > **Terminology note (2026-09-01):** the field `Analyte` is now **`Target Species`** and the Rule 7
 > key `analyte` is **`target species`**; `Per-Analyte Calibration Strategy`, `Analyte Estimation
 > Method`, `Technique per Analyte` and `EPMA Technique per Analyte` moved with them. **Part I below
@@ -72,16 +79,19 @@ These apply to every TAPP in the library. Changes here require review across all
 | A | Metadata Item | Field name; must follow level-neutral naming rule |
 | B | Description | Full field definition and scope |
 | C | Procedure-Level Tier | Basic / Advanced / N/A |
-| D | Analysis-Level Tier | Read-Only / Editable / Basic / Advanced |
+| D | Analysis-Level Tier | Basic / Advanced (since 2026-11-24) |
 | E | Data Type | Controlled vocabulary |
-| F | Example / Allowed Content | Examples or controlled list values |
-| G | Comments | Short field-level labels (e.g., "Target-Species-Specific") |
+| F | Example / Allowed Content | Examples or controlled list values for one member's value |
+| G | Comments | Short field-level qualifiers that are neither mode nor cardinality |
 | H | Last Update | YYYY-MM-DD |
-| I … | Mode flag columns | One per mode; start at col I (index 8); order by decreasing frequency |
+| I | Keyed By | What the value repeats over (Rule 7, 2026-08-11) |
+| J | Purpose | Why the field is collected (2026-08-25) |
+| K | Procedure Value | Fixed / Adjustable / Not carried over (2026-11-24) |
+| L … | Mode flag columns | One per mode; start at col L (index 11); order by decreasing frequency |
 | — | Sentinel column | Header exactly "Literature Assessment"; cells empty; marks mode/lit boundary |
 | — | Literature assessment columns | One per distinct procedure extracted from paper |
 
-**Script dependency:** `scripts/tapp_to_xlsx.py` expects Comments at G (index 6), Last Update at H (index 7), and mode flags starting at I (index 8). TAPPs missing the Comments column cause the script to misidentify mode columns. All TAPPs must have this column.
+**Script dependency:** `compose_tapp.py`, `validate_tapp.py` and `tapp_to_xlsx.py` expect the fixed columns A–K by position and the mode flags from L (`FIRST_MODE_COL` = 11). The validator refuses a file whose J and K headers are not `Purpose` and `Procedure Value` (`column-layout`). *(Updated 2026-11-24; this note said mode flags start at I until then, which had been wrong since Column I was added on 2026-08-11.)*
 
 ---
 
@@ -94,19 +104,26 @@ These apply to every TAPP in the library. Changes here require review across all
 | Advanced | Optional but strongly recommended |
 | N/A | Not applicable at procedure level (analysis-level field only) |
 
-### Analysis-Level Tier (Column D)
+### Analysis-Level Tier (Column D) — since 2026-11-24
 | Value | Meaning |
 |---|---|
-| Read-Only | Imported from procedure; cannot be changed by analyst. Also used for fields relevant only at procedure level (value inherited, shown read-only). |
-| Editable | Imported from procedure; may be adjusted within procedure-defined bounds at analysis time |
-| Basic | Mandatory user input at analysis time; cannot be pre-specified in procedure |
-| Advanced | Optional user input at analysis time; recommended for complete documentation |
+| Basic | Required in the session record |
+| Advanced | Optional in the session record; recommended for complete documentation |
+
+### Procedure Value (Column K) — since 2026-11-24
+| Value | Meaning | Was (D) |
+|---|---|---|
+| Fixed | The procedure's value, unchanged in a session; also used for procedure-only fields | Read-Only |
+| Adjustable | The procedure's value by default; a session may change it within bounds, or supply it where the procedure left it blank | Editable |
+| Not carried over | The session records its own value | Basic / Advanced |
+
+`Fixed` and `Adjustable` require C ≠ N/A and D = C.
 
 **Critical invariant:** D=N/A is **not a valid tier**. Every field must have a meaningful analysis-level assignment. (D=N/A was removed because it behaved identically to D=Read-Only in the pipeline — decision recorded in `references/precedents.md` §11.)
 
 **C/D asymmetry pattern:** C=Advanced + D=Basic is valid and important — procedure optionally specifies the field; analysis mandatorily documents it. Example: Detection Limit (C=Advanced, D=Basic).
 
-**Read-Only rule:** If C=Advanced (field may be void in the procedure), the analysis-level tier should almost never be Read-Only (importing a blank would be meaningless). Use Editable or Basic instead.
+**Read-Only rule** *(historical; in today's terms `Fixed`)*: If C=Advanced (field may be void in the procedure), the analysis-level tier should almost never be Read-Only (importing a blank would be meaningless). Use Editable or Basic instead. *(Note 2026-11-24: the library nonetheless held 168 Advanced/Read-Only rows at the split; they became Advanced / `Fixed` unchanged. Whether this rule should be enforced is not decided.)*
 
 ---
 
@@ -3956,3 +3973,43 @@ least-wrong declaration.
 
 **Process note.** Twice today I ran the key audit and the commit in one command, so a commit briefly
 carried unadjudicated findings. The audit is now its own step before any save.
+
+---
+
+## 2026-11-24 | CROSS-TAPP | The session tier is split: Column D keeps obligation, Column K says where the value comes from
+
+> **Gap note.** No entry was written in this log between 2026-09-16 and 2026-11-24. Decisions in that
+> period are recorded in `references/precedents.md`, the module `decisions` arrays, the dated
+> `Superseded TAPPs/<date>/README.md` files and the git history.
+
+Issues #9 and #13 (SMR). Column D answered two questions: whether the session record must carry a field
+(`Basic` / `Advanced`) and where its value comes from (`Read-Only` / `Editable`). Proposal posted on #13 on
+2026-11-23, approved 2026-11-24.
+
+**Decision.** D holds `Basic` / `Advanced` only, worded as Column C. New module-owned **Column K
+`Procedure Value`**: `Fixed` / `Adjustable` / `Not carried over`. Fixed/Adjustable require C ≠ N/A and D = C.
+An Adjustable field the procedure left blank may be filled in a session.
+
+**Mapping applied** (all 16 TAPPs, 1,919 rows; also in
+`Claude Skills for TAPP/analysis/Tier_Split_Mapping_2026-11-24.csv`):
+
+| C | D before | D after | Procedure Value | Rows |
+|---|---|---|---|---|
+| Basic | Read-Only | Basic | Fixed | 572 |
+| Basic | Editable | Basic | Adjustable | 450 |
+| Advanced | Editable | Advanced | Adjustable | 365 |
+| N/A | Basic | Basic | Not carried over | 200 |
+| Advanced | Read-Only | Advanced | Fixed | 168 |
+| N/A | Advanced | Advanced | Not carried over | 66 |
+| Advanced | Basic | Basic | Not carried over | 64 |
+| Basic | Basic | Basic | Not carried over | 18 |
+| Advanced | Advanced | Advanced | Not carried over | 16 |
+
+**Placement.** Appended after `Purpose` (J) as Column K, not after D as proposed, so no column letter
+changed; RD will decide separately whether to move it next to D (step two).
+
+**Applied by** `Project Files/Scripts/tier_split_procedure_value_20261124.py`; EPMA v94 → v95 and every
+other TAPP and module one version up. Verified lossless (50,512 cells mapped back, 0 differences apart
+from Last Update), 16 MATCH, validator 0/0, key audit 0 NEW. Full record: `Superseded TAPPs/2026-11-24/
+README.md`; rationale: `references/precedents.md`, "Two questions, two columns".
+

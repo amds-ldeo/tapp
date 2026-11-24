@@ -46,7 +46,8 @@ from collections import defaultdict, Counter
 COL_ITEM, COL_DESC, COL_C, COL_D, COL_TYPE, COL_EXAMPLE, COL_COMMENT, COL_UPDATE = range(8)
 COL_KEYEDBY = 8  # Rule 7
 COL_PURPOSE = 9    # Column J — consumer-owned (Phase 1, 2026-08-25)
-FIRST_MODE_COL = 10
+COL_PROCVALUE = 10  # Column K — module-owned; where the session value comes from (2026-11-24, #9/#13)
+FIRST_MODE_COL = 11
 SENTINEL_HEADER = "Literature Assessment"
 
 # The keyed-value notation (conventions 7.3.4) lives in keyed_cells.py, shared with the form generator.
@@ -76,7 +77,14 @@ KEYED_CELL_EXCEPTIONS = {
 }
 
 VALID_C = {"Basic", "Advanced", "N/A"}
-VALID_D = {"Read-Only", "Editable", "Basic", "Advanced"}
+# 2026-11-24 (issues #9/#13): Column D was split. It now says only whether the session record must
+# carry the field (Basic = required, Advanced = optional, recommended), the same words with the same
+# meaning as Column C. Where the session value comes from moved to Column K, `Procedure Value`:
+#   Read-Only -> D = C, K = Fixed;  Editable -> D = C, K = Adjustable;
+#   Basic / Advanced -> D unchanged, K = Not carried over.
+VALID_D = {"Basic", "Advanced"}
+VALID_PV = {"Fixed", "Adjustable", "Not carried over"}
+RETIRED_D = {"Read-Only": "Fixed", "Editable": "Adjustable"}
 VALID_MODE_FLAG = {"Y", "N"}
 
 # `Boolean` RETIRED 2026-08-30. Of 4 attested cells across its 3 fields only 1 was a bare
@@ -153,10 +161,10 @@ FORBIDDEN_NAMES = {
 }
 
 # Rule 1 — required tiers for named cross-TAPP fields
-REQUIRED_TIERS = {
-    "Acquisition Software": ("Basic", "Editable"),
-    "Analytical Mode": ("Basic", "Read-Only"),
-    "Constants and Reference Values Used": ("Basic", "Editable"),
+REQUIRED_TIERS = {   # (C, D, Procedure Value)
+    "Acquisition Software": ("Basic", "Basic", "Adjustable"),
+    "Analytical Mode": ("Basic", "Basic", "Fixed"),
+    "Constants and Reference Values Used": ("Basic", "Basic", "Adjustable"),
 }
 
 # Level-encoding words banned from field names (conventions.md "Level-neutral naming")
@@ -936,10 +944,23 @@ def check_structure(t: Tapp, out):
 
 
 def check_tiers(t: Tapp, out):
+    """Columns C, D and K (2026-11-24, issues #9/#13; conventions "Procedure Value (Column K)").
+
+    C and D say whether each record must carry the field; K says where the session value comes from.
+    `Fixed` and `Adjustable` inherit the procedure's value, so they need a procedure value to inherit
+    (C is not N/A) and the session's obligation is the procedure's (D equals C).
+    """
     add = lambda s, r, f, c, m: out.append(Finding(s, t.name, r, f, c, m))
+    for idx, want, letter in ((COL_PURPOSE, "Purpose", "J"), (COL_PROCVALUE, "Procedure Value", "K")):
+        got = t.header[idx].strip() if idx < len(t.header) else ""
+        if got != want:
+            add("ERROR", 1, "", "column-layout",
+                f"Column {letter} must be headed '{want}'; found '{got}'. Every column after it, "
+                f"including the mode flags, would be read one place off.")
+            return
     for n, row, _ in t.content_rows():
         item = t.cell(row, COL_ITEM)
-        c, d = t.cell(row, COL_C), t.cell(row, COL_D)
+        c, d, k = t.cell(row, COL_C), t.cell(row, COL_D), t.cell(row, COL_PROCVALUE)
 
         if not c:
             add("ERROR", n, item, "tier-missing", "Procedure-Level Tier (column C) is empty.")
@@ -951,15 +972,30 @@ def check_tiers(t: Tapp, out):
             add("ERROR", n, item, "tier-missing", "Analysis-Level Tier (column D) is empty.")
         elif d == "N/A":
             add("ERROR", n, item, "tier-d-na",
-                "D=N/A is not a valid analysis-level tier. Use Read-Only for procedure-only fields.")
+                "D=N/A is not a valid analysis-level tier. A procedure-only field is D = C with "
+                "Procedure Value = Fixed.")
+        elif d in RETIRED_D:
+            add("ERROR", n, item, "tier-d-retired",
+                f"D={d} was retired 2026-11-24: D is now Basic or Advanced (as C), and '{d}' became "
+                f"Procedure Value = {RETIRED_D[d]} in column K.")
         elif d not in VALID_D:
             add("ERROR", n, item, "tier-invalid",
                 f"Analysis-Level Tier '{d}' is not one of {sorted(VALID_D)}.")
 
-        if d in ("Read-Only", "Editable") and c == "N/A":
-            add("ERROR", n, item, "tier-inconsistent",
-                f"D={d} requires a procedure-level value, but C=N/A. "
-                f"{d} means 'imported from the procedure' — there is nothing to import.")
+        if not k:
+            add("ERROR", n, item, "procvalue-missing", "Procedure Value (column K) is empty.")
+        elif k not in VALID_PV:
+            add("ERROR", n, item, "procvalue-invalid",
+                f"Procedure Value '{k}' is not one of {sorted(VALID_PV)}.")
+        elif k in ("Fixed", "Adjustable"):
+            if c == "N/A":
+                add("ERROR", n, item, "procvalue-inconsistent",
+                    f"Procedure Value = {k} inherits the procedure's value, but C=N/A: there is "
+                    f"nothing to inherit. Use 'Not carried over'.")
+            elif c in VALID_C and d in VALID_D and d != c:
+                add("ERROR", n, item, "procvalue-inconsistent",
+                    f"Procedure Value = {k} carries the procedure's value, so the session's tier is "
+                    f"the procedure's: D must equal C ({c}), found D={d}.")
 
 
 def check_modes(t: Tapp, out):
@@ -1157,11 +1193,12 @@ def check_rules(t: Tapp, out):
     for n, row, _ in t.content_rows():
         item = t.cell(row, COL_ITEM)
         if item in REQUIRED_TIERS:
-            want_c, want_d = REQUIRED_TIERS[item]
-            got_c, got_d = t.cell(row, COL_C), t.cell(row, COL_D)
-            if (got_c, got_d) != (want_c, want_d):
+            want = REQUIRED_TIERS[item]
+            got = (t.cell(row, COL_C), t.cell(row, COL_D), t.cell(row, COL_PROCVALUE))
+            if got != want:
                 add("WARN", n, item, "rule-tier",
-                    f"Expected C={want_c}, D={want_d}; found C={got_c}, D={got_d}.")
+                    "Expected C=%s, D=%s, Procedure Value=%s; found C=%s, D=%s, Procedure Value=%s."
+                    % (want + got))
 
     # Rule 3 — Analytical Mode is the first field in Group 4
     g4 = by_group.get("4. Measurement Information", [])
@@ -1515,7 +1552,7 @@ def check_cross_tapp(tapps, out):
     add = lambda s, tp, f, c, m: out.append(Finding(s, tp, "", f, c, m))
 
     variants = defaultdict(set)          # normalized -> {(tapp, raw_name)}
-    tiers = defaultdict(set)             # raw name -> {(tapp, C, D)}
+    tiers = defaultdict(set)             # raw name -> {(tapp, C, D, K)}
     keyed = defaultdict(set)             # raw name -> {(tapp, Keyed By)}
     dtypes = defaultdict(set)            # raw name -> {(tapp, Data Type)}
     descs = defaultdict(set)             # raw name -> {(tapp, normalised description)}
@@ -1525,7 +1562,7 @@ def check_cross_tapp(tapps, out):
         for _, row, _ in t.content_rows():
             raw = t.cell(row, COL_ITEM)
             variants[normalize_name(raw)].add((t.name, raw))
-            tiers[raw].add((t.name, t.cell(row, COL_C), t.cell(row, COL_D)))
+            tiers[raw].add((t.name, t.cell(row, COL_C), t.cell(row, COL_D), t.cell(row, COL_PROCVALUE)))
             keyed[raw].add((t.name, t.cell(row, COL_KEYEDBY).strip()))
             dtypes[raw].add((t.name, t.cell(row, COL_TYPE).strip()))
             descs[raw].add((t.name, re.sub(r"\s+", " ", t.cell(row, COL_DESC).strip())))
@@ -1543,9 +1580,9 @@ def check_cross_tapp(tapps, out):
 
     # Same field name, different tiers
     for raw, entries in sorted(tiers.items()):
-        combos = {(c, d) for _, c, d in entries}
+        combos = {(c, d, k) for _, c, d, k in entries}
         if len(combos) > 1 and len(entries) > 1:
-            detail = "; ".join(f"{tp}: C={c},D={d}" for tp, c, d in sorted(entries))
+            detail = "; ".join(f"{tp}: C={c},D={d},K={k}" for tp, c, d, k in sorted(entries))
             add("INFO", "(cross-TAPP)", raw, "tier-divergence",
                 f"Tier assignment differs across {len(entries)} TAPPs — {detail}. "
                 f"Intentional divergence must be recorded in precedents.md (Rule 2/4).")
@@ -2297,12 +2334,13 @@ def check_group1_template(tapps, template_path, out, restrict=None):
             continue
         if restrict is not None and a not in restrict:
             continue
-        tmpl[a] = (r[COL_DESC].strip(), r[COL_C].strip(), r[COL_D].strip(), r[COL_TYPE].strip())
+        tmpl[a] = (r[COL_DESC].strip(), r[COL_C].strip(), r[COL_D].strip(), r[COL_TYPE].strip(),
+                   r[COL_PROCVALUE].strip() if len(r) > COL_PROCVALUE else "")
         order.append(a)
 
     for t in tapps:
         g1 = [(n, t.cell(row, COL_ITEM), t.cell(row, COL_DESC), t.cell(row, COL_C),
-               t.cell(row, COL_D), t.cell(row, COL_TYPE))
+               t.cell(row, COL_D), t.cell(row, COL_TYPE), t.cell(row, COL_PROCVALUE))
               for n, row, g in t.content_rows() if g == "1. Procedure Identification"]
         names = [f[1] for f in g1]
 
@@ -2317,14 +2355,14 @@ def check_group1_template(tapps, template_path, out, restrict=None):
             out.append(Finding("WARN", t.name, "", "", "group1-order",
                                "Group 1 field order differs from the template."))
 
-        for n, name, desc, c, d, dtype in g1:
+        for n, name, desc, c, d, dtype, k in g1:
             if name not in tmpl:
                 continue
-            t_desc, t_c, t_d, t_type = tmpl[name]
-            if (c, d) != (t_c, t_d):
+            t_desc, t_c, t_d, t_type, t_k = tmpl[name]
+            if (c, d, k) != (t_c, t_d, t_k):
                 out.append(Finding("WARN", t.name, n, name, "group1-tier",
-                                   f"Tier differs from template: TAPP C={c},D={d} vs "
-                                   f"template C={t_c},D={t_d}."))
+                                   f"Tier differs from template: TAPP C={c},D={d},K={k} vs "
+                                   f"template C={t_c},D={t_d},K={t_k}."))
             if t_type and dtype != t_type:
                 out.append(Finding("WARN", t.name, n, name, "group1-datatype",
                                    f"Data Type differs from template: '{dtype}' vs '{t_type}'."))

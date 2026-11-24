@@ -53,8 +53,12 @@ SENTINEL_HEADER = "Literature Assessment"
 COL_ITEM, COL_DESC, COL_C, COL_D, COL_TYPE, COL_EXAMPLE, COL_COMMENT, COL_UPDATE = range(8)
 COL_KEYEDBY = 8  # Rule 7 — module-owned; see conventions.md Rule 7.5
 COL_PURPOSE = 9    # Column J — consumer-owned, never module-owned
-FIRST_MODE_COL = 10
-LETTER = {c: i for i, c in enumerate("ABCDEFGHIJ")}
+# Column K, added 2026-11-24 (issues #9/#13): where the session value comes from — Fixed /
+# Adjustable / Not carried over. Module-owned, like the tiers in C and D. Appended after J rather
+# than inserted after D so that no existing column letter changes (the same trade as for J and I).
+COL_PROCVALUE = 10
+FIRST_MODE_COL = 11
+LETTER = {c: i for i, c in enumerate("ABCDEFGHIJK")}
 
 def owned_for(name, owned, manifest):
     """Rule 7.5 — a module may let a consuming TAPP override Keyed By for named

@@ -13,7 +13,7 @@ superseded versions, so there is nothing to sift.
 |---|---|
 | TAPPs | 16 |
 | Files | 32 (16 CSV + 16 xlsx) |
-| As of | 2026-11-23 |
+| As of | 2026-11-24 |
 
 ## Where to look for more
 
@@ -26,10 +26,15 @@ superseded versions, so there is nothing to sift.
 
 ## Reading a TAPP
 
-Columns A–I are: Metadata Item · Description · Procedure-Level Tier · Analysis-Level Tier · Data Type
-· Example / Allowed Content · Comments · Last Update · **Keyed By**. After those come one column per
-analytical mode, a sentinel column headed `Literature Assessment`, and then one column per procedure
-extracted from the literature.
+Columns A–K are: Metadata Item · Description · Procedure-Level Tier · Analysis-Level Tier · Data Type
+· Example / Allowed Content · Comments · Last Update · **Keyed By** · Purpose · **Procedure Value**. After
+those come one column per analytical mode, a sentinel column headed `Literature Assessment`, and then one
+column per procedure extracted from the literature.
+
+The two tiers say whether each record must carry the field: `Basic` = required, `Advanced` = optional
+(recommended), `N/A` = not in the procedure record (Column C only). `Procedure Value` says where the
+session value comes from: `Fixed` (the procedure's value, unchanged), `Adjustable` (the procedure's value by
+default, changeable in a session) or `Not carried over` (the session records its own).
 
 `Keyed By` states what a field's value repeats over — `(none)` for a scalar, or a key such as
 `target species`, `channel`, `reported property`, `sampling unit`. The xlsx Legends sheet lists the keys used
@@ -37,19 +42,19 @@ in that particular TAPP.
 
 ## Contents
 
-- `EPMA_TAPP_v94.csv`
-- `LA-MC-ICPMS_TAPP_v96.csv`
-- `LA-MC-ICPMS_UPb_TAPP_v91.csv`
-- `LA-Q-ICP-MS_TAPP_v101.csv`
-- `LA-Q-ICP-MS_UPb_TAPP_v101.csv`
-- `LA-SF-ICP-MS_TAPP_v99.csv`
-- `LA-SF-ICP-MS_UPb_TAPP_v100.csv`
-- `Lab-XCT_TAPP_v48.csv`
-- `SEM_Composition_TAPP_v89.csv`
-- `SEM_FIBSEM_TAPP_v46.csv`
-- `SEM_Imaging_TAPP_v45.csv`
-- `SEM_TAPP_v91.csv`
-- `Solution_MC-ICP-MS_TAPP_v96.csv`
-- `Solution_Q-ICP-MS_TAPP_v100.csv`
-- `Solution_SF-ICP-MS_TAPP_v95.csv`
-- `TEM_TAPP_v70.csv`
+- `EPMA_TAPP_v95.csv`
+- `LA-MC-ICPMS_TAPP_v97.csv`
+- `LA-MC-ICPMS_UPb_TAPP_v92.csv`
+- `LA-Q-ICP-MS_TAPP_v102.csv`
+- `LA-Q-ICP-MS_UPb_TAPP_v102.csv`
+- `LA-SF-ICP-MS_TAPP_v100.csv`
+- `LA-SF-ICP-MS_UPb_TAPP_v101.csv`
+- `Lab-XCT_TAPP_v49.csv`
+- `SEM_Composition_TAPP_v90.csv`
+- `SEM_FIBSEM_TAPP_v47.csv`
+- `SEM_Imaging_TAPP_v46.csv`
+- `SEM_TAPP_v92.csv`
+- `Solution_MC-ICP-MS_TAPP_v97.csv`
+- `Solution_Q-ICP-MS_TAPP_v101.csv`
+- `Solution_SF-ICP-MS_TAPP_v96.csv`
+- `TEM_TAPP_v71.csv`

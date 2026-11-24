@@ -33,14 +33,48 @@ These terms are aligned with the BIPM/JCGM 200:2012 *International Vocabulary of
 
 ### Analysis-Level Tier (Column D)
 
+Since 2026-11-24 Column D says only whether the analysis (session) record must carry the field, in the
+same words as Column C. Where the session value comes from is Column K, `Procedure Value` (below).
+
 |Value|Meaning|xlsx color|
 |-|-|-|
-|Read-Only|Directly imported from the registered procedure; cannot be changed by the analyst. Changing this value means running a different procedure. Fields that are relevant only at procedure level (no session-specific variation) are also assigned Read-Only — the value is inherited from the procedure record and displayed in the analysis form.|Bold blue (0070C0)|
-|Editable|Imported from the registered procedure but may be adjusted within procedure-defined bounds (e.g., daily tuning, minor software updates). The procedure registers the target or typical value; the analyst confirms or adjusts it. Editable fields with a Basic procedure-level tier cannot be left void.|Bold purple (7030A0)|
-|Basic|Mandatory user input at analysis time. Value comes from the analysis itself and cannot be pre-specified in the procedure.|Bold red (C00000)|
-|Advanced|Optional user input at analysis time. Recommended for complete documentation.|Bold green (375623)|
+|Basic|Required in the session record.|Bold red (C00000)|
+|Advanced|Optional in the session record; recommended for complete documentation.|Bold green (375623)|
 
-**D=N/A is not a valid analysis-level tier.** Every field must carry a meaningful analysis-level assignment. Fields relevant only at procedure level receive D=Read-Only.
+**D=N/A is not a valid analysis-level tier.** Every field must carry a meaningful analysis-level
+assignment. A field relevant only at procedure level has D = C and Procedure Value `Fixed`: the session
+record shows the procedure's value.
+
+### Procedure Value (Column K) — added 2026-11-24
+
+Where the session value comes from. Split out of Column D on 2026-11-24 (issues #9 and #13 on
+`amds-ldeo/tapp`), which until then carried it as `Read-Only` / `Editable` alongside `Basic` / `Advanced`
+— two questions in one vocabulary. Module-owned, like C and D.
+
+|Value|Meaning|xlsx color|
+|-|-|-|
+|Fixed|The procedure's value is used and cannot be changed in a session. Changing it means running a different procedure. Also the value for fields relevant only at procedure level.|Bold blue (0070C0)|
+|Adjustable|The procedure's value is the default; a session may change it within procedure-defined bounds (daily tuning, minor software updates, a different preparation for one sample), **or supply one where the procedure left it blank**. The session records what was used.|Bold purple (7030A0)|
+|Not carried over|The session records its own value. Either the procedure has none (C = N/A), or the procedure's value is an expected one and the session records what it achieved (detection limits, precision, blank level: 14.1).|Bold (default)|
+
+**Invariants** (validator: `procvalue-*`, `tier-d-retired`, `column-layout`):
+* `Fixed` and `Adjustable` require C = Basic or Advanced — nothing can be inherited from a procedure that
+  does not specify the field — and D = C: an inherited value is as required in the session as it was in
+  the procedure.
+* `Not carried over` allows any C and either D.
+* Column J is headed `Purpose` and Column K `Procedure Value`; the mode flags start at L.
+
+**Why Column K and not E.** The approved proposal placed it directly after D. It was appended after J
+instead so that no existing column letter changed: about 265 references in this file, precedents.md, the
+schema README, the scripts and the module histories cite Columns E–J by letter, many of them dated. This
+is the same trade made for `Keyed By` (I) and `Purpose` (J). Moving it next to D is an open question.
+
+**Reading text written before 2026-11-24.** Older text, here and in precedents.md and the module
+`decisions`, uses the retired D values. The translation is exact: `D=Read-Only` = D equal to C with
+Procedure Value `Fixed`; `D=Editable` = D equal to C with `Adjustable`; `D=Basic` / `D=Advanced` (with any
+C) = the same D with `Not carried over`. The nine C/D combinations in use on 2026-11-24 (1,919 rows) map
+one to one, and the migration was checked by mapping every table back cell by cell. The mapping is recorded in
+`Claude Skills for TAPP/analysis/Tier_Split_Mapping_2026-11-24.csv` (the nine combinations with row counts) and `Tier_Split_Ledger_2026-11-24.csv` (every TAPP and module row: before, after; 2,090 rows).
 
 \---
 
@@ -52,10 +86,10 @@ Every TAPP uses these six groups in this order. Group names are section header r
 |-|-|
 |1. Procedure Identification|Administrative and identity fields for the procedure record. Includes fields for both the procedure object (author, DOI, funding for procedure development) and the analysis record (analyst, session dates, funding for the analysis campaign). Also includes coupling fields documenting any co-registered techniques applied to the same sample. Largely transferable across TAPPs; minor technique-specific additions. Group 1 is **composed** from `modules/Module\\\_Group1.csv` in every TAPP (Rule 6); that module is the canonical field list, tier assignments and descriptions. Do not hand-edit Group 1 in a TAPP — edit the module and recompose.|
 |2. Samples|Target material type (procedure scope), sample form and preparation method (procedure), and per-analysis sample identity (sample name, persistent identifier such as IGSN). Procedure fields describe what the technique is designed to measure; analysis fields identify what was actually analyzed.|
-|3. Instrument \& Software|Hardware configuration — the instruments, detectors, and ancillary components used — and the software for acquisition and data reduction. Applies to all measurement techniques: spectrometers, diffractometers, imaging systems, sensors, etc. Hardware fields (instrument manufacturer, model, detector configurations) are D=Read-Only since changing hardware constitutes a different procedure. **Software fields (acquisition software, data reduction software) are D=Editable** — a minor version update does not constitute a new procedure, so analysts may record the version actually used.|
+|3. Instrument \& Software|Hardware configuration — the instruments, detectors, and ancillary components used — and the software for acquisition and data reduction. Applies to all measurement techniques: spectrometers, diffractometers, imaging systems, sensors, etc. Hardware fields (instrument manufacturer, model, detector configurations) have Procedure Value Fixed since changing hardware constitutes a different procedure. **Software fields (acquisition software, data reduction software) have Procedure Value Adjustable** — a minor version update does not constitute a new procedure, so analysts may record the version actually used.|
 |4. Measurement Information|Instrument operating conditions and tuning parameters, acquisition settings (timing, spatial, spectral, or other measurement parameters), and the identity of what is being measured (chemical variable, spectral range, physical property, imaging parameter, etc.). The most technique-specific group and typically the largest.|
 |5. Data Processing|Data reduction strategy including calibration and standardization approach, signal or data selection and integration, correction procedures (interferences, matrix effects, drift), normalization, and uncertainty propagation. Mix of procedure-level design choices and analysis-level outcomes.|
-|6. Quality Control \& Uncertainty|Reference materials used, detection and quantification limits, precision, and accuracy. Procedure-level fields describe the QC design; analysis-level fields record QC outcomes from the actual session. **Reference Materials, Calibration Standard and Quality-Control Standards are C=Basic, D=Editable**: the procedure commits to a set of reference materials (mandatory to specify), but material exhaustion or availability may require the analyst to use a substitute at analysis time.|
+|6. Quality Control \& Uncertainty|Reference materials used, detection and quantification limits, precision, and accuracy. Procedure-level fields describe the QC design; analysis-level fields record QC outcomes from the actual session. **Reference Materials, Calibration Standard and Quality-Control Standards are C=Basic, Procedure Value Adjustable**: the procedure commits to a set of reference materials (mandatory to specify), but material exhaustion or availability may require the analyst to use a substitute at analysis time.|
 
 ### Referring to another group (2026-11-23, issue #19)
 
@@ -107,12 +141,12 @@ Group header rows must have N in all mode flag columns to prevent them from appe
 
 Every TAPP includes four standard coupling fields at the end of Group 1, after Procedure Reference(s). These document multi-technique workflows where the same sample or aliquot is analyzed by more than one technique and the results are designed to be interpreted together or where one technique provides input to another.
 
-|Field|C tier|D tier (default)|Notes|
-|-|-|-|-|
-|Coupled Technique(s)|Advanced|Editable|Technique-specific TAPPs may adjust D tier; most procedures are not always coupled|
-|Coupling Description|Advanced|Editable|Free text; must address both the functional relationship and the analytical sequence|
-|Coupled Procedure DOI|N/A|Advanced|Analysis-level only; may be "pending" or point to a publication DOI if no procedure registered|
-|Coupled Dataset or Publication Reference|N/A|Advanced|Accepts dataset DOI, shared DOI, publication DOI, "same submission", or "pending"; computationally mandatory couplings may warrant D=Basic in specific TAPPs|
+|Field|C tier|D tier (default)|Procedure Value|Notes|
+|-|-|-|-|-|
+|Coupled Technique(s)|Advanced|Advanced|Adjustable|Technique-specific TAPPs may adjust the tiers; most procedures are not always coupled|
+|Coupling Description|Advanced|Advanced|Adjustable|Free text; must address both the functional relationship and the analytical sequence|
+|Coupled Procedure DOI|N/A|Advanced|Not carried over|Analysis-level only; may be "pending" or point to a publication DOI if no procedure registered|
+|Coupled Dataset or Publication Reference|N/A|Advanced|Not carried over|Accepts dataset DOI, shared DOI, publication DOI, "same submission", or "pending"; computationally mandatory couplings may warrant D=Basic in specific TAPPs|
 
 **D tier is case-by-case per TAPP.** The defaults above apply to most techniques; individual TAPPs may promote fields to Basic when the coupling is computationally mandatory (e.g., for (U-Th)/He geochronology, where U/Th from ICP-MS and He from noble gas MS must be combined to calculate an age).
 
@@ -152,8 +186,8 @@ The two generic software fields must use these exact names across all TAPPs:
 
 |Field|Standard name|Tier|
 |-|-|-|
-|Software that runs/controls acquisition|**Acquisition Software**|C=Basic, D=Editable|
-|Software that reduces/processes data after acquisition|**Data Reduction Software**|C=Basic, D=Editable|
+|Software that runs/controls acquisition|**Acquisition Software**|C=Basic, D=Basic, Procedure Value Adjustable|
+|Software that reduces/processes data after acquisition|**Data Reduction Software**|C=Basic, D=Basic, Procedure Value Adjustable|
 
 Technique-specific software fields are permitted (e.g., "Reconstruction Software", "SAED Pattern Simulation Software") and should use descriptive names that make their function clear. They do not replace Acquisition Software and Data Reduction Software unless the technique genuinely has no separate acquisition step.
 
@@ -178,7 +212,7 @@ When the same detection modality (e.g., EDS, WDS, CL, EBSD) is implemented on mu
 
 **Examples of correctly shared fields (EDS across EPMA and SEM):**
 
-* EDS Detector Configuration — same name, same tier (C=Advanced, D=Read-Only), same mode flags
+* EDS Detector Configuration — same name, same tier (C=Advanced, D=Advanced, Procedure Value Fixed), same mode flags
 * EDS Live Time per Point or Pixel — same name, same tier, same mode flags
 * EDS Acquisition Mode — same name, same tier, same mode flags
 * EDS Spectral Processing Type — same name, same tier, same mode flags
@@ -203,7 +237,8 @@ Every TAPP must include an **"Analytical Mode"** field as the first field in Gro
 
 * Field name: `Analytical Mode`
 * Procedure-Level Tier: Basic
-* Analysis-Level Tier: Read-Only
+* Analysis-Level Tier: Basic
+* Procedure Value: Fixed
 * Data Type: `Controlled list` (the value used in Column E; "Controlled vocabulary" is not a valid Data Type label — see Data Type Vocabulary below)
 * Mode flags: Y for all modes defined for that TAPP
 * Allowed values: exactly the mode flag column labels defined in Phase 0 for that TAPP (e.g., "Spot", "Transect", "Mapping" for LA-ICP-MS; "Single-volume", "Multi-volume stitching" for Lab-XCT)
@@ -270,7 +305,8 @@ constants.
 
 * Field name: `Constants and Reference Values Used`
 * Procedure-Level Tier: Basic
-* Analysis-Level Tier: Editable
+* Analysis-Level Tier: Basic
+* Procedure Value: Adjustable
 * Data Type: Text (free)
 * Placement: last field in Group 5, immediately before the blank separator row preceding Group 6
 * Mode flags: Y for all modes defined for that TAPP (field is universal, not mode-restricted)
@@ -290,9 +326,9 @@ written generally, since any technique's data reduction could in principle depen
 **Why C=Basic:** mandatory declaration, mirroring Rule 3's Analytical Mode — the field's universal presence
 is itself informative, distinguishing "deliberately none" from "not asked."
 
-**Why D=Editable:** the constants in use are embedded in the data-reduction method; documenting a revision
-between procedure registration and a later session shouldn't require a new procedure (same logic as the
-Group 3 software fields, D=Editable).
+**Why Procedure Value Adjustable:** the constants in use are embedded in the data-reduction method;
+documenting a revision between procedure registration and a later session shouldn't require a new procedure
+(same logic as the Group 3 software fields, also Adjustable).
 
 **Scope decision (2026-07-28):** applied universally to every TAPP, including pure-imaging/morphology
 techniques (which record "None") — not scoped only to techniques with plausible constant-dependent data
@@ -1286,7 +1322,7 @@ the same question, so the answer is stated here rather than left to each consume
 
 **It licenses keying a procedure-level field by a session-only domain.** Such a field is still
 registered once by the procedure. Each sample, or each unit, then inherits the value and may deviate
-from it within the procedure's bounds (D=Editable). `Sample Preparation Method` was re-keyed
+from it within the procedure's bounds (Procedure Value Adjustable). `Sample Preparation Method` was re-keyed
 `(none)` → `sample` on this basis on 2026-09-28 (Module_Core v9).
 
 **No second key column is needed.** It once looked as though a field might need a different key at
@@ -2011,7 +2047,7 @@ declaration and the evidence corrected it. That is adjudication of a disagreemen
 move as refusing an axis the procedure itself designs.
 
 **Nothing in 7.4c requires a consumer to be analysis-level.** A procedure-level field
-(`C=Basic, D=Read-Only`) is a legitimate consumer. An axis can therefore be wholly procedure-side and
+(`C=Basic`, Procedure Value `Fixed`) is a legitimate consumer. An axis can therefore be wholly procedure-side and
 still satisfy the declaration invariants.
 
 **Consequence for the retired keys.** `acquisition pass` was declined three times (7.11, and twice on
@@ -2079,7 +2115,7 @@ quantities are the entire output.
 **Canonical definition:**
 
 * Field name: `Reported Variables and Units`
-* Procedure-Level Tier: Basic · Analysis-Level Tier: Read-Only · Data Type: Text (free)
+* Procedure-Level Tier: Basic · Analysis-Level Tier: Basic · Procedure Value: Fixed · Data Type: Text (free)
 * `Keyed By`: `defines: reported property`
 * Placement: Group 4, immediately after `Analyte` (or after `Analytical Mode` where no `Analyte` field
 exists)
@@ -2107,7 +2143,7 @@ the other. No technique-level rule can express that; a per-procedure declaration
 **Why C=Basic:** mandatory declaration, following Rules 3 and 5 — universal presence is itself
 informative.
 
-**Why D=Read-Only:** the reported variable set is a defining property of the registered procedure. An
+**Why Procedure Value Fixed:** the reported variable set is a defining property of the registered procedure. An
 analysis that reports a different variable set is running a different procedure.
 
 \---
@@ -2121,7 +2157,7 @@ time. `Sample Name` names the sample, not the unit.
 **Canonical definitions:**
 
 * Field name: `Sampling Unit Type`
-  * Procedure-Level Tier: Basic · Analysis-Level Tier: Read-Only · Data Type: Controlled list / Text
+  * Procedure-Level Tier: Basic · Analysis-Level Tier: Basic · Procedure Value: Fixed · Data Type: Controlled list / Text
   * `Keyed By`: `(none)`
   * Placement: Group 2, where the unit field has always stood
   * Description: "The kind of physical subdivision of the sample to which one row of reported values
@@ -2144,7 +2180,7 @@ per aliquot or per phase. McCammon et al. (2004) report four Fe³⁺/ΣFe values
 because four phases coexist in it. Without the names, every field keyed `sample > sampling unit`
 (46 field-instances across 12 fields in 2026-09) has a child table with no rows and no link to its sample.
 
-**Why the type is C=Basic, D=Read-Only:** the procedure declares the kind of unit it is designed to
+**Why the type is C=Basic with Procedure Value Fixed:** the procedure declares the kind of unit it is designed to
 analyse. Analysing grains instead of spots is a different procedure, the same shape as `Analytical Mode`.
 
 **Why the names are C=N/A, D=Basic:** which grains, spots or phases were analysed cannot be known until
@@ -2188,7 +2224,7 @@ interpreted, and 10 of 14 TAPPs would carry a permanently empty field.
 **Canonical definition:**
 
 * Field name: `Error Correlation Between Reported Quantities`
-* Procedure-Level Tier: Advanced · Analysis-Level Tier: Editable · Data Type: Text (free) *(amended
+* Procedure-Level Tier: Advanced · Analysis-Level Tier: Advanced · Procedure Value: Adjustable · Data Type: Text (free) *(amended
   2026-10-27 under Rule 14: Basic and Numeric + Text while the field held the coefficient)*
 * `Keyed By`: `pair: reported property`
 * Placement: Group 5, immediately before `Constants and Reference Values Used`
@@ -2492,15 +2528,17 @@ Every TAPP CSV uses this fixed column order before the mode flag columns:
 |Col|Header|Content|Notes|
 |-|-|-|-|
 |A|Metadata Item|Field name|Level-neutral per naming conventions|
-|B|Description / Purpose|Full field description|No mode labels here — those are carried by the mode flag columns|
+|B|Description|Full field description|No mode labels here — those are carried by the mode flag columns|
 |C|Procedure-Level Tier|Basic / Advanced / N/A||
-|D|Analysis-Level Tier|Read-Only / Editable / Basic / Advanced|D=N/A is not valid|
+|D|Analysis-Level Tier|Basic / Advanced|D=N/A is not valid. Read-Only / Editable retired 2026-11-24: see Column K|
 |E|Data Type|Controlled vocabulary — see Data Type Vocabulary||
 |F|Example / Allowed Content|Examples or controlled list values for **one member's** value — never member labels (7.3.4)|Controlled lists must offer N/A and None; see Rule 7 A.4|
 |G|Comments|Short field-level qualifiers that are neither mode nor cardinality — instrument variant, signal/detector, conditional notes|Cardinality goes in Column I (Rule 7); mode applicability goes in the mode flag columns (Rule 3)|
 |H|Last Update|YYYY-MM-DD date of most recent substantive edit||
 |I|Keyed By|What the field's value repeats over — see Rule 7|Never blank on a content row; `(none)` for a scalar|
-|I+1 … I+n|Mode flag columns|One column per mode; Y or N|Labels set in Phase 0|
+|J|Purpose|Why the field is collected (the Description/Purpose split, 2026-08-25)|Consumer-owned|
+|K|Procedure Value|Fixed / Adjustable / Not carried over — where the session value comes from|Added 2026-11-24; module-owned|
+|L … L+n−1|Mode flag columns|One column per mode; Y or N|Labels set in Phase 0|
 |(after modes)|Literature Assessment|Sentinel column — header exactly `Literature Assessment`; all data rows empty|Marks boundary before lit assessment columns|
 |(after sentinel)|Literature assessment columns|One column per paper extracted in Phase 3|Starting letter depends on number of modes|
 
@@ -2517,6 +2555,8 @@ Every TAPP CSV uses this fixed column order before the mode flag columns:
 |G (Comments)|22|
 |H (Last Update)|14|
 |I (Keyed By)|24|
+|J (Purpose)|48|
+|K (Procedure Value)|16|
 |Mode flag columns|12 each|
 |Sentinel column (`Literature Assessment`)|4 (narrow; data rows are empty)|
 |Literature assessment columns|28 each|
@@ -2529,7 +2569,9 @@ Every TAPP xlsx must include a Legends sheet. The CSV has no Legends sheet — i
 
 **Table 1: Procedure-Level Tier definitions** — Basic, Advanced, N/A with full definitions
 
-**Table 2: Analysis-Level Tier definitions** — Read-Only, Editable, Basic, Advanced, N/A with full definitions
+**Table 2: Analysis-Level Tier definitions** — Basic, Advanced with full definitions
+
+**Table 2a: Procedure Value definitions** (Column K, since 2026-11-24) — Fixed, Adjustable, Not carried over
 
 **Table 3: Mode column definitions** — one row per mode defined in Phase 0, with the mode label and its full definition; plus Y and N definitions
 
@@ -2596,7 +2638,7 @@ standards are the exception: their values are inputs, not results, so they never
 
 **Preparation is keyed by `sample` (since 2026-09-28).** This rule assigned preparation to the
 `sample` key from the start, but `Sample Preparation Method` stayed `(none)` in Module_Core until v9.
-It is now keyed `sample` with C=Basic, D=Editable: the procedure registers the preparation, and each
+It is now keyed `sample` with C=Basic and Procedure Value Adjustable: the procedure registers the preparation, and each
 sample inherits it and may deviate. Its procedure-level shape is unchanged under 7.3.3.
 
 Recorded in full, with the reasoning and the alternatives considered, in

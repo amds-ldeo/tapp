@@ -2,7 +2,7 @@
   "module": "CompositionQC",
   "title": "Composition quality control — detection limits, counting statistics, reference materials and their assignment and standards-based normalization",
   "layer": 2,
-  "version": "9",
+  "version": "10",
   "source_of_truth": "modules/Module_CompositionQC.csv",
   "owned_columns": [
     "A",
@@ -10,7 +10,8 @@
     "C",
     "D",
     "E",
-    "I"
+    "I",
+    "K"
   ],
   "overlay_columns": [
     "F",
@@ -76,7 +77,8 @@
     "2026-09-29 v6. `Primary Calibration Standard Name` Keyed By `target species` -> `target material x target species` in all 12 consumers. McCoy+2025_UA (EPMA) states standards per phase and element, which a target-species key cannot hold; the module owns Column I, so the re-key is module-wide, on the 2026-08-27 reasoning under 7.3.2. A procedure with one standard set writes `all [ ... ]` (conventions 7.3.4).",
     "2026-10-27 v7. Rule 14 sweep (analysis/Rule14_Dataset_Value_Sweep_2026-10-26.md). Counting Statistics Error records how the predicted uncertainty is computed and its sigma level; the per-analysis value goes to the dataset. Re-keyed sample > sampling unit x reported property -> reported property; D Basic -> Editable. Detection Limit gains a dataset sentence for per-analysis limits; the field itself is measurement performance and stays.",
     "2026-10-29 v8. Rule 14.1 amendment. Detection Limit: 'state whether procedure-typical or session-specific' becomes the 14.6 two-level sentences; the per-analysis dataset sentence is kept. Tiers unchanged.",
-    "2026-11-23 v9. Issue #22 (revision 2): Secondary Reference Materials -> Reference Materials (every standard, each once); Primary Calibration Standard Name -> Calibration Standard; new Reference Material Type, Reference Material Identifier, Reference Value Source, Reference Value, Reference Value Uncertainty, Reference Value Uncertainty Basis, Quality-Control Standards."
+    "2026-11-23 v9. Issue #22 (revision 2): Secondary Reference Materials -> Reference Materials (every standard, each once); Primary Calibration Standard Name -> Calibration Standard; new Reference Material Type, Reference Material Identifier, Reference Value Source, Reference Value, Reference Value Uncertainty, Reference Value Uncertainty Basis, Quality-Control Standards.",
+    "2026-11-24 v10. Issues #9/#13: Column D split. D now holds Basic / Advanced only (the session record's obligation, worded as Column C); where the session value comes from moved to the new module-owned Column K `Procedure Value` (Fixed / Adjustable / Not carried over). Read-Only -> D = C, K = Fixed; Editable -> D = C, K = Adjustable; Basic / Advanced -> unchanged, K = Not carried over. `owned_columns` gains K. No field changed meaning."
   ],
-  "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
+  "tier_provenance": "Tier values (Columns C and D, and Procedure Value in K) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }

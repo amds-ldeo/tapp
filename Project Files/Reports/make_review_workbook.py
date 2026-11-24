@@ -65,7 +65,7 @@ from openpyxl.utils import get_column_letter
 # Paths resolve from this file's own location, as build_form.py does, so the script runs
 # from any working directory. The TAPP is read from the `Current TAPPs/` mirror (Rule 12);
 # VERSION pins the snapshot — bump it and the output name follows.
-VERSION = 'v94'
+VERSION = 'v95'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 SRC  = os.path.join(ROOT, 'Current TAPPs', 'EPMA_TAPP_%s.csv' % VERSION)
@@ -400,8 +400,8 @@ MODE_PHRASE = {
 
 # ---------------------------------------------------------------- styling
 TIER_STYLE = {'Basic': ('C00000', True), 'Advanced': ('375623', True),
-              'Read-Only': ('0070C0', True), 'Editable': ('7030A0', True),
-              'N/A': ('808080', False)}
+              'Fixed': ('0070C0', True), 'Adjustable': ('7030A0', True),
+              'Not carried over': ('404040', True), 'N/A': ('808080', False)}
 HEAD_FILL    = PatternFill('solid', fgColor='44546A')
 SECTION_FILL = PatternFill('solid', fgColor='C9D5EA')
 BLOCK_FILL   = PatternFill('solid', fgColor='EDF1F8')
@@ -437,8 +437,10 @@ OPT_STRUCT = ['Yes', 'Repeats over the wrong thing', 'Should be a list',
               'Should be a single value']
 OPT_PTIER  = ['Yes', 'Should be required', 'Should be optional',
               'Should not be in the procedure record']
-OPT_STIER  = ['Yes', 'Should be required', 'Should be optional',
-              'Should be fixed by the procedure', 'Should be adjustable']
+OPT_STIER  = ['Yes', 'Should be required', 'Should be optional']
+# 2026-11-24 (issues #9/#13): where the session value comes from is its own column, split out of the
+# session tier, which used to offer "fixed" and "adjustable" among its own options.
+OPT_PVALUE = ['Yes', 'Should be fixed', 'Should be adjustable', 'Should not be carried over']
 
 # key, header, width, colour family, kind, dropdown options
 COLSPEC = [
@@ -455,6 +457,8 @@ COLSPEC = [
     ('sstructr', 'Structure OK?',                16, 'session',   'review',  OPT_STRUCT),
     ('stier',    'Session-Level Tier',           14, 'session',   'content', None),
     ('stierr',   'Tier OK?',                     16, 'session',   'review',  OPT_STIER),
+    ('pvalue',   'Procedure Value',              14, 'session',   'content', None),
+    ('pvaluer',  'Procedure Value OK?',          16, 'session',   'review',  OPT_PVALUE),
 ]
 MODE_W, COMMENT_W = 10, 38
 COMMENT_COL = ('comment', 'Other comments', COMMENT_W, 'comment', 'review', None)
@@ -499,7 +503,7 @@ def load():
     rows = list(csv.reader(open(SRC, encoding='utf-8-sig')))
     h = rows[0]
     sent = h.index('Literature Assessment')
-    m0 = h.index('Purpose') + 1
+    m0 = h.index('Procedure Value') + 1      # mode flags follow K since 2026-11-24 (were after J)
     modes = h[m0:sent]
     out, sec, secname, idx = [], 0, '', 0
     for r in rows[1:]:
@@ -509,7 +513,7 @@ def load():
             continue
         idx += 1
         out.append(dict(sec=sec, secname=secname, num='%d.%d' % (sec, idx), name=r[0].strip(),
-                        C=r[2].strip(), D=r[3].strip(), key=r[8].strip(),
+                        C=r[2].strip(), D=r[3].strip(), K=r[10].strip(), key=r[8].strip(),
                         modes=''.join(x.strip() for x in r[m0:sent])))
     return out, modes
 
@@ -583,7 +587,7 @@ def build(mode=None):
 
     review_fields = [f for f in fields if f['name'] not in REGISTRATION]
     reg_fields = [f for f in fields if f['name'] in REGISTRATION]
-    n_info = 8 + len(modes)
+    n_info = 9 + len(modes)
     mode_tag = ('_' + mode.replace(' ', '_')) if mode else ''
     return_name = 'EPMA_TAPP_%s_Review%s_<your initials>.xlsx (e.g., EPMA_TAPP_%s_Review%s_RD.xlsx)' % (
         VERSION, mode_tag, VERSION, mode_tag)
@@ -626,10 +630,10 @@ def build(mode=None):
     head('The EPMA TAPP tab: column explanations')
     info_names = ['#', 'Metadata item', 'Description', 'Example (NOT recommendations)',
                   'Structure — procedure record', 'Procedure-Level Tier', 'Structure — session record',
-                  'Session-Level Tier'] + list(modes)
-    para('The tab has %d information columns and 6 comment columns. The information columns are: %s. The '
-         'comment columns are: "Needed?", "Structure OK?" (twice), "Tier OK?" (twice) and "Other '
-         'comments". Each comment column sits immediately to the right of the information column it '
+                  'Session-Level Tier', 'Procedure Value'] + list(modes)
+    para('The tab has %d information columns and 7 comment columns. The information columns are: %s. The '
+         'comment columns are: "Needed?", "Structure OK?" (twice), "Tier OK?" (twice), "Procedure Value '
+         'OK?" and "Other comments". Each comment column sits immediately to the right of the information column it '
          'judges and has the same colour: purple for the metadata item, blue for the procedure record, '
          'yellow for the session record.' % (n_info, ', '.join('"%s"' % x for x in info_names)))
     for jj, h in enumerate(('Column', 'Meaning'), start=1):
@@ -654,10 +658,14 @@ def build(mode=None):
          FAMILY['procedure']['dark']),
         ('Structure — session record', 'How one measurement session reports the item.',
          FAMILY['session']['dark']),
-        ('Session-Level Tier', 'Read-Only = must follow the entry given in the procedure. Editable = may vary '
-         'within the range the procedure allows; the session records what was used. Basic = the entry '
-         'comes from the session itself and must be reported. Advanced = the entry comes from the session '
-         'itself, and reporting it is recommended.', FAMILY['session']['dark']),
+        ('Session-Level Tier', 'Basic = the session record must report the item. Advanced = reporting it is '
+         'recommended but optional. Where the entry comes from the procedure (Procedure Value Fixed or '
+         'Adjustable), the session tier is the same as the procedure tier.', FAMILY['session']['dark']),
+        ('Procedure Value', 'Where the session\'s entry comes from. Fixed = the procedure\'s entry is used and '
+         'cannot change. Adjustable = the procedure\'s entry is the default; the session may change it within '
+         'the procedure\'s bounds, or give one where the procedure left it blank, and records what was used. '
+         'Not carried over = the session gives its own entry, because the procedure has none or only an '
+         'expected one (for example, a typical detection limit).', FAMILY['session']['dark']),
     ]
     if modes:
         guide.append((', '.join(modes), 'The analytical modes of EPMA. A tick means the item applies to '
@@ -666,9 +674,11 @@ def build(mode=None):
 
     head('The EPMA TAPP tab: "Tiers"')
     pairs([('Basic', 'Required', 'C00000', None), ('Advanced', 'Recommended', '375623', None),
-           ('Read-Only', 'Fixed by the procedure. Session-level only.', '0070C0', None),
-           ('Editable', 'Adjustable within the bounds the procedure sets. Session-level only.', '7030A0', None),
-           ('N/A', 'Not applicable at that level. Procedure-level only.', '808080', None)])
+           ('N/A', 'Not applicable at that level. Procedure-level only.', '808080', None),
+           ('Fixed', 'Procedure Value: the procedure\'s entry, unchanged.', '0070C0', None),
+           ('Adjustable', 'Procedure Value: the procedure\'s entry by default, adjustable within its bounds.',
+            '7030A0', None),
+           ('Not carried over', 'Procedure Value: the session gives its own entry.', '404040', None)])
 
     head('The EPMA TAPP tab: "Structure"')
     para('Each structure cell is an instruction, written in one of these patterns. An entry is one complete '
@@ -713,10 +723,11 @@ def build(mode=None):
             FAMILY['procedure']['dark'], None),
            ('Structure OK? (session)', 'Does a session report it once, or once per sample, per analysis '
             'point, per element…?', FAMILY['session']['dark'], None),
-           ('Tier OK? (session)', 'Must the session copy the procedure\'s entry unchanged (Should be fixed by '
-            'the procedure, i.e. "Read-Only")? May it vary within the procedure\'s bounds (Should be adjustable, '
-            'i.e. "Editable")? Or is it known only from the session ("Basic"/"Advanced")?',
-            FAMILY['session']['dark'], None),
+           ('Tier OK? (session)', 'Must a session report it ("Basic"), or is reporting it recommended but '
+            'optional ("Advanced")?', FAMILY['session']['dark'], None),
+           ('Procedure Value OK?', 'Must the session copy the procedure\'s entry unchanged ("Fixed")? May it '
+            'vary within the procedure\'s bounds ("Adjustable")? Or does the session give its own entry ("Not '
+            'carried over")?', FAMILY['session']['dark'], None),
            ('Other comments', 'Anything else: the wording of Description or Example, missing items, wrong or '
             'missing modes, suggestions on the TAPP\'s structure.', FAMILY['comment']['dark'], None)])
     lg.column_dimensions['A'].width = WA
@@ -836,7 +847,7 @@ def build(mode=None):
                     values = {'num': f['num'], 'name': f['name'], 'prose': PROSE[f['name']],
                               'example': example(f['name'], mode),
                               'pstruct': proc, 'ptier': f['C'],
-                              'sstruct': sess_f, 'stier': f['D']}
+                              'sstruct': sess_f, 'stier': f['D'], 'pvalue': f['K']}
                     for k, ch in zip(modes, f['modes']):
                         values['mode:' + k] = '✓' if ch == 'Y' else '–'
                     top = Side(style='thin', color='7F7F7F') if (GROUP_ROWS and f is members[0] and gi) else THIN
@@ -847,7 +858,7 @@ def build(mode=None):
                             cell.protection = UNLOCKED       # the only editable cells
                             cell.fill = PatternFill('solid', fgColor=FAMILY[fam]['pale'])
                             cell.alignment = Alignment(wrap_text=True, vertical='top')
-                        elif key in ('ptier', 'stier'):
+                        elif key in ('ptier', 'stier', 'pvalue'):
                             colour, bold = TIER_STYLE.get(cell.value, ('000000', False))
                             cell.font = Font(bold=bold, color=colour, size=11)
                             cell.alignment = Alignment(horizontal='center', vertical='top')

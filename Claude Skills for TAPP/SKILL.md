@@ -78,7 +78,7 @@ TAPPs are maintained as **CSV files** during development and revision, and expor
 - One CSV per TAPP, named `[Technique]_TAPP_v[N].csv`
 - All editing, patching, and version control is done on the CSV
 - Human-readable in any text editor; diffable between versions; no library overhead
-- No color formatting — tier values are represented by their text labels (Basic, Advanced, Read-Only, Editable, N/A for procedure level; Read-Only, Editable, Basic, Advanced for analysis level)
+- No color formatting — tier values are represented by their text labels (Basic, Advanced, N/A for procedure level; Basic, Advanced for analysis level; Fixed, Adjustable, Not carried over for Procedure Value)
 
 ### xlsx (shareable format)
 - Generated from the CSV using a Python export script (`scripts/tapp_to_xlsx.py`)
@@ -121,15 +121,17 @@ A composed TAPP is a generated artifact. Never edit one directly; edit the modul
 | A | Metadata Item | Field name |
 | B | Description | Full description |
 | C | Procedure-Level Tier | Basic / Advanced / N/A |
-| D | Analysis-Level Tier | Read-Only / Editable / Basic / Advanced |
+| D | Analysis-Level Tier | Basic / Advanced (whether the session record must carry the field) |
 | E | Data Type | Controlled vocabulary — see conventions |
 | F | Example / Allowed Content | Examples or controlled list values |
 | G | Comments | Short field-level qualifiers that are neither mode nor cardinality — instrument variant, signal/detector, conditional notes |
 | H | Last Update | YYYY-MM-DD |
 | I | Keyed By | What the field's value repeats over — see Rule 7. Never blank; `(none)` for a scalar |
-| J … J+n | Mode flag columns | One column per mode defined in Phase 0; labels set in Phase 0 |
-| J+n+1 | Sentinel column | Header must be exactly `Literature Assessment`; all data rows empty; marks the mode/lit boundary |
-| J+n+2 … | Literature assessment columns | One column per procedure extracted from papers; added in Phase 3 |
+| J | Purpose | Why the field is collected |
+| K | Procedure Value | Fixed / Adjustable / Not carried over — where the session value comes from (since 2026-11-24) |
+| L … L+n−1 | Mode flag columns | One column per mode defined in Phase 0; labels set in Phase 0 |
+| L+n | Sentinel column | Header must be exactly `Literature Assessment`; all data rows empty; marks the mode/lit boundary |
+| L+n+1 … | Literature assessment columns | One column per procedure extracted from papers; added in Phase 3 |
 
 The number of mode flag columns is determined in Phase 0 and varies by technique. A sentinel column with the header `Literature Assessment` (all data rows empty) follows the last mode flag column and marks the boundary. Literature assessment columns begin immediately after the sentinel. There is no fixed column letter for either boundary — both depend on the number of modes defined.
 
@@ -139,12 +141,12 @@ The number of mode flag columns is determined in Phase 0 and varies by technique
 
 These must hold in every TAPP. Violations indicate a design error.
 
-- **Every field has exactly one Procedure-Level Tier value and one Analysis-Level Tier value.** Never leave these blank for content rows.
+- **Every field has exactly one Procedure-Level Tier, one Analysis-Level Tier and one Procedure Value.** Never leave these blank for content rows.
 - **Group 1 must end with the four standard coupling fields** (Coupled Technique(s), Coupling Description, Coupled Procedure DOI, Coupled Dataset or Publication Reference), in that order, immediately after Procedure Reference(s). See `references/conventions.md` for default tier assignments and rationale.
-- **D=N/A is not a valid analysis-level tier.** Every field must carry a meaningful analysis-level assignment: Read-Only, Editable, Basic, or Advanced. Fields that are only relevant at procedure level are assigned D=Read-Only (the value is imported from the procedure and cannot be changed at analysis time).
-- **Read-Only fields at analysis level must correspond to Basic or Advanced fields at procedure level.** A field cannot be Read-Only if the procedure never specifies it (C=N/A).
-- **Editable fields at analysis level must also be Basic or Advanced at procedure level.** Editable means "imported from procedure, adjustable within procedure-defined bounds."
-- **Basic at analysis level (D=Basic) means mandatory user input at analysis time.** It is appropriate when the value cannot be known until the analysis is performed.
+- **Column D is Basic or Advanced only** (since 2026-11-24): Basic = required in the session record, Advanced = optional, recommended — the same words as Column C. D=N/A is not valid. The retired `Read-Only` / `Editable` moved to Column K.
+- **Procedure Value (Column K) says where the session value comes from.** `Fixed` = the procedure's value, unchanged (changing it means a different procedure; also used for procedure-only fields). `Adjustable` = the procedure's value by default, changeable within its bounds, or supplied where the procedure left it blank. `Not carried over` = the session records its own value.
+- **`Fixed` and `Adjustable` require C = Basic or Advanced, and D = C.** Nothing can be inherited from a procedure that does not specify the field, and an inherited value is as required in the session as in the procedure. `Not carried over` allows any C and either D.
+- **Text written before 2026-11-24 uses the retired D values.** Read `D=Read-Only` as D = C + `Fixed`, `D=Editable` as D = C + `Adjustable`, `D=Basic`/`Advanced` as the same D + `Not carried over` (conventions, "Procedure Value (Column K)").
 - **Mode flags are Y or N only.** N/A is not valid in mode flag columns — use N for "not applicable to this mode."
 - **The analysis record is the session, not one sample** (Rule 13, added 2026-08-12). A session may cover many samples, each with its own identity and possibly its own preparation. `Sample Name` (`defines: sample`), `Sample Persistent Identifier` (`sample`) and `Session Identifier` (`(none)`) are mandatory in every TAPP. Ask of every field whether it is per **session**, per **sample**, or per **sampling unit within a sample** — "analysis-level" is two levels, and Column I is what separates them.
 
@@ -154,11 +156,11 @@ These must hold in every TAPP. Violations indicate a design error.
 
 These errors are most likely to appear in a preliminary TAPP:
 
-1. **Confusing procedure target with measured value when a split is warranted.** When a procedure specifies an acceptance *criterion* (threshold, pass/fail gate) and the analysis records an *actual measured result* against that criterion, split into two fields — one procedure-level (the criterion), one analysis-level (the measured value). See `references/precedents.md` for the Oxide Production example. Do not confuse this with session-tunable parameters (flow rates, fluence, spot size), where a single field with D=Editable is correct: the procedure registers the target value and the analyst may adjust within allowed bounds.
+1. **Confusing procedure target with measured value when a split is warranted.** When a procedure specifies an acceptance *criterion* (threshold, pass/fail gate) and the analysis records an *actual measured result* against that criterion, split into two fields — one procedure-level (the criterion), one analysis-level (the measured value). See `references/precedents.md` for the Oxide Production example. Do not confuse this with session-tunable parameters (flow rates, fluence, spot size), where a single field with Procedure Value `Adjustable` is correct: the procedure registers the target value and the analyst may adjust within allowed bounds.
 
 2. **Setting the signal integration window as procedure-level.** The integration window is selected during data reduction by applying the Signal Integration Interval Method to the actual signal — it is analysis-level. The *method* for selecting the window is procedure-level; the resulting *window or time* is analysis-level.
 
-3. **Assigning Read-Only to a field that is routinely session-tuned.** Parameters adjusted during daily tuning (background settings, flow rates) should be Editable, not Read-Only.
+3. **Marking a field `Fixed` when it is routinely session-tuned.** Parameters adjusted during daily tuning (background settings, flow rates) have Procedure Value `Adjustable`, not `Fixed`.
 
 4. **Using "Default", "Target", "Achieved", or "Typical" in field names.** Field names should be level-neutral; the tier columns (C and D) encode whether a value is a procedure target or an analysis-level measurement. Use the description (Column B) to clarify that the procedure registers a target or typical value. Exceptions: "Target Material" and "Target Feature(s)" are retained because "Target" here means the material/feature *type* the procedure is designed to analyze, not a value that is later achieved — these have no analysis-level counterpart and no ambiguity.
 

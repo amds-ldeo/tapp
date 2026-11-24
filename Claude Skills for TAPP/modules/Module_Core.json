@@ -2,7 +2,7 @@
   "module": "Core",
   "title": "Universal TAPP Core",
   "layer": 2,
-  "version": "11",
+  "version": "12",
   "source_of_truth": "modules/Module_Core.csv",
   "owned_columns": [
     "A",
@@ -10,7 +10,8 @@
     "C",
     "D",
     "E",
-    "I"
+    "I",
+    "K"
   ],
   "consumer_columns": [
     "F",
@@ -118,10 +119,11 @@
     "2026-09-15 v8. `Sampling Unit` split into `Sampling Unit Type` ((none), C=Basic, D=Read-Only) and `Sampling Unit Name` (defines: sample > sampling unit, C=N/A, D=Basic, Text (free)); amds-ldeo/tapp#8. The old field was keyed as the definer of `sampling unit` but held types, which cannot list a domain's members (7.4a), leaving 46 consumer field-instances with no rows and no link to their sample. Rule 9 had meant one field to carry type and units together; one D=Basic cell cannot. The containment definer form is new and makes the parent REQUIRED, unlike `per`. Decisions D1-D5 and evidence: Project Files/Design Notes/Proposal_Sampling_Unit_Identity_2026-09-15.md.",
     "2026-09-28 v9. `Sample Preparation Method` Keyed By `(none)` -> `sample` (gap 5 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). Rule 13 already assigns preparation to the `sample` key; the module had not followed. Tiers unchanged (C=Basic, D=Editable): the procedure registers the preparation, each sample inherits it and may deviate. Attested by Seifert+2026 (EPMA, one mount ion-polished); declared unconditionally under 7.3.2. Procedure-level shape is unchanged by the projection rule, conventions 7.3.3 (new this date).",
     "2026-09-28 v10. `Target Material` Keyed By `(none)` -> `defines: target material` (gap 1 of analysis/Pending_Gaps_2026-09-24_Reference_Example.md). EPMA keys its point-analysis beam conditions per target material: the literature states them per phase, never per analysis point. Exempt from 7.4c in TAPPs with no consumer: the field states the procedure's scope for discovery in its own right. Data type unchanged (Controlled list / Text, open), so a procedure may name a finer entry where its conditions need one (Pang+2016 treats plagioclase apart from olivine and pyroxene).",
-    "2026-11-23 v11. Issue #19: Group-number references name their section (Coupled Dataset or Publication Reference, Constants and Reference Values Used, Additional Notes)."
+    "2026-11-23 v11. Issue #19: Group-number references name their section (Coupled Dataset or Publication Reference, Constants and Reference Values Used, Additional Notes).",
+    "2026-11-24 v12. Issues #9/#13: Column D split. D now holds Basic / Advanced only (the session record's obligation, worded as Column C); where the session value comes from moved to the new module-owned Column K `Procedure Value` (Fixed / Adjustable / Not carried over). Read-Only -> D = C, K = Fixed; Editable -> D = C, K = Adjustable; Basic / Advanced -> unchanged, K = Not carried over. `owned_columns` gains K. No field changed meaning."
   ],
   "overlay_columns": [
     "J"
   ],
-  "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
+  "tier_provenance": "Tier values (Columns C and D, and Procedure Value in K) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }

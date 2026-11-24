@@ -2,7 +2,7 @@
   "module": "LaserAblation",
   "title": "Laser Ablation Front End",
   "layer": 2,
-  "version": "12",
+  "version": "13",
   "source_of_truth": "modules/Module_LaserAblation.csv",
   "owned_columns": [
     "A",
@@ -10,7 +10,8 @@
     "C",
     "D",
     "E",
-    "I"
+    "I",
+    "K"
   ],
   "overlay_columns": [
     "F",
@@ -97,7 +98,8 @@
     "2026-08-27: Step 2 (W1-W5) applied to the 5 flag(s) this module carried from the Step 1 backlog routing. Before/after pairs in analysis/Step2_Applied_MODULES_2026-08-27.csv.",
     "2026-09-08 v11. 6 field(s) re-keyed to `acquisition pass`, executing Proposal_Acquisition_Pass_2026-09-08. Each was verified against its raw literature cell to give DIFFERENT values between passes; fields stated per pass with identical values (Laser Fluence, RF Power, Make-up Gas, Coolant Gas, Background Count Time, Analysis Sequence, Signal Integration Time, Number of Replicates) stay `(none)` under 7.3.2 until a difference is attested.",
     "2026-09-08 (same v11). `Multi-Run Sequential Analysis Design` -> `Inter-Pass Data Dependency`, narrowed and re-keyed `(none)` -> `acquisition pass`. Four of its five asks are absorbed by the new machinery (whether multi-pass and how many -> Number of Acquisition Passes; their purpose -> Acquisition Pass; per-run settings -> the 13 pass-keyed fields). The fifth — 'how outputs of one run feed into data reduction of another' — is unique in the library: a search of all 353 field descriptions found no other field asking for a dependency BETWEEN passes, and a per-pass field cannot supply it (keying Internal Standard Element by acquisition pass gives 'Run 1: none; Run 2: 53Cr' and loses 'from Run 1'). Its 'not applicable to raster mapping' clause is CORRECT and was kept — in LA raster mapping each location is visited once — unlike the superficially similar clause in `Sequence`, which was wrong and was fixed 2026-09-08.",
-    "2026-09-30 v12. `Sample Form / Analytical Substrate` RETIRED (29 -> 28 fields). It duplicated Module_Core's `Sample Preparation Method` and failed Rule 6.1's specificity test: 'the form as it enters the ablation cell' is Core's 'the form in which the sample is presented to the instrument', restated for one technique. The two were complementary in LA-ICP-MS v13 (form vs free-text steps); Core's 2026-08-27 redefinition absorbed this field's job the same day this module took it over. In 15 distinct literature columns it held no attested content absent from Sample Preparation Method or a neighbouring owner field; 4 cells contradicted it and 2 lost content. Its key, (none), also disagreed with Core's `sample`. Narrowing to fusion vs in situ was rejected: that distinction is carried by Sample Preparation Method's values and by Fusion Flux and Dilution Ratio. The two pellet values moved to Sample Preparation Method's Column F in the six LA TAPPs; 'Liquid' was dropped. See precedents.md, 2026-09-30."
+    "2026-09-30 v12. `Sample Form / Analytical Substrate` RETIRED (29 -> 28 fields). It duplicated Module_Core's `Sample Preparation Method` and failed Rule 6.1's specificity test: 'the form as it enters the ablation cell' is Core's 'the form in which the sample is presented to the instrument', restated for one technique. The two were complementary in LA-ICP-MS v13 (form vs free-text steps); Core's 2026-08-27 redefinition absorbed this field's job the same day this module took it over. In 15 distinct literature columns it held no attested content absent from Sample Preparation Method or a neighbouring owner field; 4 cells contradicted it and 2 lost content. Its key, (none), also disagreed with Core's `sample`. Narrowing to fusion vs in situ was rejected: that distinction is carried by Sample Preparation Method's values and by Fusion Flux and Dilution Ratio. The two pellet values moved to Sample Preparation Method's Column F in the six LA TAPPs; 'Liquid' was dropped. See precedents.md, 2026-09-30.",
+    "2026-11-24 v13. Issues #9/#13: Column D split. D now holds Basic / Advanced only (the session record's obligation, worded as Column C); where the session value comes from moved to the new module-owned Column K `Procedure Value` (Fixed / Adjustable / Not carried over). Read-Only -> D = C, K = Fixed; Editable -> D = C, K = Adjustable; Basic / Advanced -> unchanged, K = Not carried over. `owned_columns` gains K. No field changed meaning."
   ],
-  "tier_provenance": "Tier values (Columns C and D) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
+  "tier_provenance": "Tier values (Columns C and D, and Procedure Value in K) in this module are the library's current best answer and are PROVISIONAL: how hard a field should be pushed at procedure registration and at analysis time is a governance question for community review, not a technical one settled here. They are module-owned so that a review decision lands in one place and reaches every consumer on recomposition — not because the values are considered final."
 }

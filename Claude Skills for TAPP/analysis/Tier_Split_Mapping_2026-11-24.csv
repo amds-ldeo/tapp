@@ -1,0 +1,11 @@
+Procedure-Level Tier (C),Analysis-Level Tier before (D),Analysis-Level Tier after (D),Procedure Value (K),TAPP rows,Distinct fields,Example fields,Rule
+Basic,Read-Only,Basic,Fixed,572,102,Procedure Name; Technique; Procedure Author,D = C; K = Fixed
+Basic,Editable,Basic,Adjustable,450,86,Laboratory; Sample Preparation Method; Sampling Unit Selection Criteria,D = C; K = Adjustable
+Advanced,Editable,Advanced,Adjustable,365,85,Laboratory ID; Coupled Technique(s); Coupling Description,D = C; K = Adjustable
+N/A,Basic,Basic,Not carried over,200,28,Procedure DOI; Session Identifier; Analyst,D unchanged; K = Not carried over
+Advanced,Read-Only,Advanced,Fixed,168,41,Funding Source for Procedure Development; Procedure Reference(s); WDS Spectrometer Configuration,D = C; K = Fixed
+N/A,Advanced,Advanced,Not carried over,66,13,Coupled Procedure DOI; Coupled Dataset or Publication Reference; Sample Persistent Identifier,D unchanged; K = Not carried over
+Advanced,Basic,Basic,Not carried over,64,12,Procedural Blank Level; Detection Limit; Analytical Precision,D unchanged; K = Not carried over
+Basic,Basic,Basic,Not carried over,18,2,Within-Session Analytical Precision and Assessment Method; Analytical Accuracy and Assessment Method,D unchanged; K = Not carried over
+Advanced,Advanced,Advanced,Not carried over,16,1,Additional Notes,D unchanged; K = Not carried over
+TOTAL,,,,1919,366,,

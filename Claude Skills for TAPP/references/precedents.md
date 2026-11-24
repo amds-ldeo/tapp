@@ -4,6 +4,12 @@ This file documents the key non-obvious decisions made during LA-ICP-MS TAPP dev
 
 Each entry follows the format: **Decision → Reasoning → Generalization**.
 
+**Reading entries written before 2026-11-24.** They use the retired Column D values. On 2026-11-24 Column D
+was split (issues #9/#13): D now holds only `Basic` / `Advanced`, and where the session value comes from is
+the new Column K, `Procedure Value`. Translate exactly: `D=Read-Only` = D equal to C with `Fixed`;
+`D=Editable` = D equal to C with `Adjustable`; `D=Basic` / `D=Advanced` = the same D with `Not carried over`.
+The entries are left as written, because they record what was decided at the time.
+
 ---
 
 ## Group 4: Measurement Information
@@ -4155,8 +4161,52 @@ makes the rule expressible (Target requires a target species), and SMR enforces 
 monitor (11 columns), internal standard (4 papers), phase monitor (1, Nakanishi et al. 2022:
 micro-inclusions). `Carrier`, in the first sketch, had no attestation and was dropped. Filling the cells
 then found **mass-bias monitor** twice (Desem et al. 2022 Tl; Willbold 2005 Ti, Ru, Re), which the open
-list (`/ Text`, no `Other` value; RD 2026-11-23) accepts as text. Where a cell does not say why a mass was
+list (`/ Text`, no `Other` value; RD 2026-11-23) accepted as text; RD listed it the same day
+(`mass_bias_role_20261123.py`). The validator check promised in #23, `internal-standard-role`, then found
+9 internal-standard masses whose role cells had been filled from the definer alone, without reading the
+same column's `Internal Standard Element` (`internal_standard_roles_20261123.py`). Where a cell does not say why a mass was
 measured, the role is `N`, not a guess: 7 columns.
 
 **Lesson:** a vocabulary checked against the definer cells is not checked against the *commentary*; read
 both before calling a list complete.
+
+## Two questions, two columns: the session tier is split (2026-11-24)
+
+**Issue:** #9 and #13 (SMR). Column D answered two questions in one vocabulary: `Basic` / `Advanced` said
+whether the session record must carry a field, `Read-Only` / `Editable` where its value came from. A field
+can be any combination of the two, and one column can name only one. We had answered #9 in September by
+documenting the mix; SMR asked for the fix, and the proposal posted on #13 on 2026-11-23 was approved on
+2026-11-24.
+
+**Decision:** Column D holds `Basic` / `Advanced` only, worded as Column C. New module-owned Column K,
+`Procedure Value`: `Fixed` / `Adjustable` / `Not carried over`. `Fixed` and `Adjustable` require C ≠ N/A
+and D = C. An `Adjustable` field the procedure left blank may be filled in a session (RD, tentatively;
+stated in the proposal). Script: `tier_split_procedure_value_20261124.py`; all 16 TAPPs and 15 modules.
+
+**Why three values and not SMR's yes/no editable flag.** For detection limits, precision and blank level
+the procedure holds an *expected* value and the session the *achieved* one (14.1). The procedure has a
+value, but the session does not inherit it. A flag would need `N/A` to say that; `Not carried over` says it.
+
+**Why `Basic` / `Advanced` and not `Required` / `Optional`** (SMR's suggestion): one vocabulary for both
+tier columns, so C and D are read the same way; their definitions were made identical ("optional,
+recommended").
+
+**Why Column K, not next to D.** Inserting after D would have relabelled Columns E–J, which about 265
+references cite by letter — conventions, this file, the schema README, validator messages, module
+`owned_columns` and dated decision histories. Rewriting dated history to new letters would falsify it;
+leaving it would make it ambiguous. Appending after J changes no letter, the same trade as for `Keyed By`
+(I) and `Purpose` (J). RD chose to do this first and decide separately whether to move the column next to D.
+
+**Verification:** the nine C/D combinations in use (1,919 rows) map one to one; recorded in
+`Claude Skills for TAPP/analysis/Tier_Split_Mapping_2026-11-24.csv` (the nine combinations with row counts) and `Tier_Split_Ledger_2026-11-24.csv` (every TAPP and module row: before, after; 2,090 rows). Every new table was mapped
+back and compared with its predecessor: 50,512 cells, 0 differences apart from the Last Update stamps. Every
+table recomposed identically from the new modules. Six deliberate breaks were each caught (`tier-d-retired`,
+`procvalue-missing`, `-invalid`, `-inconsistent` twice, `column-layout`).
+
+**Found on the way:** `tapp_to_xlsx.py` began its mode-flag scan at index 9, so since 2026-08-25 it had
+styled and listed `Purpose` as a mode flag (a narrow column, and a mode in the Legends sheet). No check
+reads the exported xlsx, so nothing caught it. It now starts at `FIRST_MODE_COL`.
+
+**Generalization:** when one column's vocabulary mixes two questions, look for combinations it cannot
+express before calling the mix deliberate; here, an expected-versus-achieved field had no honest value.
+

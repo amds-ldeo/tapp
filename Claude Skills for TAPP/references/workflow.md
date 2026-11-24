@@ -236,11 +236,11 @@ Do not split when:
 Common split candidates across technique families:
 - Acceptance criterion / threshold (procedure) vs. measured value (analysis) — split when these are genuinely different types of information (e.g., Oxide Production Method and Threshold vs. Oxide Production)
 
-Fields that should NOT be split — use D=Editable instead:
-- Procedure scope vs. analysis execution for the same quantity (e.g., Target Species: procedure registers the intended suite; analyst records the actual subset) — use C=Basic, D=Editable
-- Procedure target vs. session-actual value for tunable parameters (e.g., flow rates, fluence, spot size) — use D=Editable, not a separate analysis-level field
+Fields that should NOT be split — use Procedure Value `Adjustable` instead:
+- Procedure scope vs. analysis execution for the same quantity (e.g., Target Species: procedure registers the intended suite; analyst records the actual subset) — use C=Basic, Procedure Value `Adjustable`
+- Procedure target vs. session-actual value for tunable parameters (e.g., flow rates, fluence, spot size) — use `Adjustable`, not a separate analysis-level field
 
-#### Question 4 — Tier Assignment: Assign C and D values
+#### Question 4 — Tier Assignment: Assign C, D and Procedure Value
 
 *Given the procedure-to-analysis linkage, what are the appropriate tier values?*
 
@@ -249,11 +249,13 @@ See `references/field-review.md` for decision tables and heuristics. Key rules:
 - **C=Basic**: The procedure is under-specified without this field.
 - **C=Advanced**: Best practice but not mandatory for registration.
 - **C=N/A**: This field can only be known at analysis time.
-- **D=Read-Only**: Changing this value would mean running a different procedure. Also used for fields that are relevant only at procedure level — the value is inherited from the procedure record and shown read-only in the analysis form.
-- **D=Editable**: Procedure target or typical value; legitimately confirmed or adjusted during the session within procedure-defined bounds.
-- **D=Basic**: Analyst must provide this value from the analysis; it cannot be pre-specified in the procedure.
+- **D=Basic**: The session record must carry this field.
 - **D=Advanced**: Useful but not required for a credible analysis record.
-- **D=N/A is not valid.** Every field must have a meaningful analysis-level assignment. See `references/conventions.md` and `references/precedents.md`.
+- **D=N/A is not valid.** Every field must have a meaningful analysis-level assignment.
+- **Procedure Value `Fixed`**: Changing this value would mean running a different procedure. Also used for fields that are relevant only at procedure level — the session record shows the procedure's value.
+- **Procedure Value `Adjustable`**: Procedure target or typical value; legitimately confirmed or adjusted during the session within procedure-defined bounds, or supplied where the procedure left it blank.
+- **Procedure Value `Not carried over`**: The analyst provides this value from the analysis — the procedure has none (C=N/A), or only an expected value the session does not inherit (detection limits, precision).
+- `Fixed` and `Adjustable` require C = Basic or Advanced and D = C. See `references/conventions.md` ("Procedure Value (Column K)") and `references/precedents.md`.
 
 ### Recording Rationale
 

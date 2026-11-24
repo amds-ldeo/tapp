@@ -69,10 +69,15 @@ superseded versions, so there is nothing to sift.
 
 ## Reading a TAPP
 
-Columns A–I are: Metadata Item · Description · Procedure-Level Tier · Analysis-Level Tier · Data Type
-· Example / Allowed Content · Comments · Last Update · **Keyed By**. After those come one column per
-analytical mode, a sentinel column headed `Literature Assessment`, and then one column per procedure
-extracted from the literature.
+Columns A–K are: Metadata Item · Description · Procedure-Level Tier · Analysis-Level Tier · Data Type
+· Example / Allowed Content · Comments · Last Update · **Keyed By** · Purpose · **Procedure Value**. After
+those come one column per analytical mode, a sentinel column headed `Literature Assessment`, and then one
+column per procedure extracted from the literature.
+
+The two tiers say whether each record must carry the field: `Basic` = required, `Advanced` = optional
+(recommended), `N/A` = not in the procedure record (Column C only). `Procedure Value` says where the
+session value comes from: `Fixed` (the procedure's value, unchanged), `Adjustable` (the procedure's value by
+default, changeable in a session) or `Not carried over` (the session records its own).
 
 `Keyed By` states what a field's value repeats over — `(none)` for a scalar, or a key such as
 `target species`, `channel`, `reported property`, `sampling unit`. The xlsx Legends sheet lists the keys used
