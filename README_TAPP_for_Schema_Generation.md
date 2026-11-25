@@ -232,8 +232,8 @@ nowhere; that is the class of error this block exists to prevent.
 
 ```
 TAPPs                        16
-content rows                 1919   (rows with a Keyed By value; group headers excluded)
-scalar, `(none)`             1179   61%
+content rows                 1921   (rows with a Keyed By value; group headers excluded)
+scalar, `(none)`             1181   61%
 keyed (arrays in a schema)   740   39%
 Column G provenance stamps   1492   78%
 distinct Keyed By strings    23
@@ -256,7 +256,7 @@ retired, and absent from every TAPP (3):
   model component
 
 the complete set of Keyed By strings present, with row counts:
-  (none)                                          1179
+  (none)                                          1181
   acquisition pass                                  83
   defines: acquisition pass                          9
   defines: monitored property per target species    13
@@ -501,6 +501,7 @@ how many there are.
 | `Controlled list / Text` | The enumeration, but an unlisted value is permitted | `anyOf: [enum, string]` |
 | `Numeric (<unit>)` | Examples | `"type": "number"`, unit from inside the parentheses |
 | `Numeric + unit` | Examples | Number **and** unit both supplied by the user; unit is variable |
+| `Numeric pair (<unit> x <unit>)` | Examples written `a x b` | two numbers, e.g. `{x, y}` or `[x, y]`. **For a grid or raster, X (along a scan line) is first and Y (lines) second** (since 2026-11-25, amds-ldeo/tapp#15); a range such as `CL Wavelength Range` is minimum first |
 | `Integer` | Examples | `"type": "integer"` |
 | `Boolean` | — | `"type": "boolean"` |
 | `Date` | — | `"type": "string", "format": "date"` (`YYYY-MM-DD`) |

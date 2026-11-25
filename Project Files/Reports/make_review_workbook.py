@@ -65,7 +65,7 @@ from openpyxl.utils import get_column_letter
 # Paths resolve from this file's own location, as build_form.py does, so the script runs
 # from any working directory. The TAPP is read from the `Current TAPPs/` mirror (Rule 12);
 # VERSION pins the snapshot — bump it and the output name follows.
-VERSION = 'v95'
+VERSION = 'v96'
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 SRC  = os.path.join(ROOT, 'Current TAPPs', 'EPMA_TAPP_%s.csv' % VERSION)
@@ -238,9 +238,9 @@ PROSE = {
  'EDS Live Time per Point or Pixel': 'The live time per analysis point or per pixel in seconds.',
  'EDS Acquisition Mode': 'How the beam is positioned during EDS acquisition, listing all approaches used.',
  'Dwell Time per Pixel': 'The time the beam dwells on each pixel: one value per spectrometer assignment for WDS, and a single real (clock) time per pixel for EDS. The EDS live time is recorded separately.',
- 'Step Size / Pixel Size': 'The step size in micrometres, with X and Y given separately where they differ.',
- 'Map Dimensions': 'The map dimensions in pixels.',
- 'Map Area': 'The physical extent of the mapped area.',
+ 'Step Size / Pixel Size': 'The step size in micrometres, as X × Y (the step along a line first).',
+ 'Map Dimensions': 'The map dimensions in pixels, as X × Y (pixels per line first).',
+ 'Map Area': 'The physical extent of the mapped area, as width × height in µm.',
  'Stage Scan vs. Beam Scan': 'Whether maps are acquired by stage scan or by beam scan.',
  'Matrix Correction Method': 'The matrix correction algorithm, which also applies when count maps are converted to concentration maps.',
  'Mass Absorption Coefficients (MACs)': 'The database of mass absorption coefficients the correction uses.',

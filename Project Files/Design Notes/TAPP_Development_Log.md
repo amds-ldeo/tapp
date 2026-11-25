@@ -393,7 +393,7 @@ Next step on return: incorporate expert feedback → v8 (if revisions needed) �
 |---|---|---|
 | ⚠️ Pending | Ketcham et al. 2022 as additional lit assessment source | Contains voxel size values for Neuman 2025 protocols (12.9 µm likely from here); consider adding as col 17 in a future version |
 | ⚠️ Pending | Shearer 2024 DOI | Not extracted from paper; needs manual lookup |
-| ⚠️ Pending | Detector Gain field (Eckley JSC scan record only) | Only 1/16 protocols reports gain in dB; insufficient to add as field; revisit if more protocols are assessed |
+| ✅ Resolved 2026-11-25 | Detector Gain field (Eckley JSC scan record only) | Only 1/16 protocols reports gain in dB; insufficient to add as field; revisit if more protocols are assessed. **Added in Lab-XCT v50** (amds-ldeo/tapp#13): SMR's ADA records carry gain as `imageGain` (4 values) and `detectorGain` (`0.25 pF`), the outside evidence this row waited for. Literature still attests it once (12.0 dB, the JSC record). |
 | ⚠️ Pending | Charles 2018 GE eXplore speCZT classification | Preclinical/small-animal CT vs. Lab-XCT boundary; medical CT TAPP decision deferred |
 | 🔲 Future | Hanna & Ketcham 2018 as seed paper for Phase 5 field review | Comprehensive XCT methods reference; not used in Phase 3 lit assessment (review paper, no specific protocol data) |
 
@@ -4013,3 +4013,21 @@ other TAPP and module one version up. Verified lossless (50,512 cells mapped bac
 from Last Update), 16 MATCH, validator 0/0, key audit 0 NEW. Full record: `Superseded TAPPs/2026-11-24/
 README.md`; rationale: `references/precedents.md`, "Two questions, two columns".
 
+
+## 2026-11-25 | CROSS-TAPP | Map grids get one shape (#15); Lab-XCT gains Detector Gain and Reconstructed Volume Dimensions (#13)
+
+Both approved by SMR on 2026-11-25, applied together by `Project Files/Scripts/xct_fields_map_grid_20261125.py`.
+
+**#15.** Every grid pair states its order, X (along a scan line) first, Y second: `Map Dimensions`, `STEM
+Scan Dimensions`, `Beam Raster Dimensions`, `Step Size / Pixel Size`, `Map Area`. `Step Size / Pixel Size`
+(`Numeric (µm) / Text`) and `Map Area` (`Numeric + unit`) → `Numeric pair (µm x µm)`; total-area examples
+dropped. SEM / SEM_Composition `EDS Map Dimensions` → `Map Dimensions`. Literature cells untouched.
+
+**#13.** Two Lab-XCT rows: `Detector Gain` (Group 3, after `Detector Pixel Size`; Advanced / Advanced /
+Adjustable; `Numeric + unit / Text`) and `Reconstructed Volume Dimensions` (Group 5, after `Output Bit
+Depth`; N/A / Advanced / Not carried over; `Text (free)`). Literature cells read from `XCT/Literature
+Assessment/` papers: gain in 1 of 14 columns, volume size in 4 (and slices only in the JSC record).
+
+**Versions:** EPMA v96, SEM v93, SEM_Composition v91, TEM v72, Lab-XCT v50. Content rows 1,919 → 1,921.
+Validator 0 ERROR / 0 WARN; key audit 0 NEW; 5/5 recompose identical. Rationale:
+`references/precedents.md`, "One shape for map grids". Record: `Superseded TAPPs/2026-11-25/README.md`.

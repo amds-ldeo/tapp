@@ -2382,6 +2382,7 @@ Use these standardized data type labels in Column E:
 |Controlled list|Value must be one of a defined set — the list is **CLOSED**. List the allowed values in Column F.|
 |Numeric (unit)|A number with a specific unit; state the unit in parentheses, e.g., Numeric (W), Numeric (Hz), Numeric (µm)|
 |Numeric + unit|A number where the unit is variable and must be stated by the user|
+|Numeric pair (unit x unit)|Two numbers in one field, written `a x b`, e.g., Numeric pair (pixels x pixels), Numeric pair (µm x µm). **For a grid or raster, X comes first and Y second**: X along a scan line (pixels per line, or the step along a line), Y across lines. The description must say so. A square grid is two equal values (`2.5 x 2.5`), and a total area is not a pair (it is the product). A range is also a pair, minimum first (`CL Wavelength Range`). Added to this table 2026-11-25 (amds-ldeo/tapp#15); the type itself was in use since 2026-08.|
 |Integer|Whole number with no unit|
 |Date|YYYY-MM-DD format|
 |URI / DOI|A persistent identifier, URL, or DOI|

@@ -4210,3 +4210,44 @@ reads the exported xlsx, so nothing caught it. It now starts at `FIRST_MODE_COL`
 **Generalization:** when one column's vocabulary mixes two questions, look for combinations it cannot
 express before calling the mix deliberate; here, an expected-versus-achieved field had no honest value.
 
+
+## One shape for map grids, and two XCT fields from another schema's keys (2026-11-25)
+
+**Issues:** #15 and #13 (SMR), both approved 2026-11-25 and applied in one bump by
+`xct_fields_map_grid_20261125.py` (EPMA v96, SEM v93, SEM_Composition v91, TEM v72, Lab-XCT v50).
+
+**#15 — map grids.** SMR found ADA keys that split one grid field into two or four numbers (`mapNLines` /
+`mapNSamples`, two step sizes, four map-location keys) and asked whether each field should be split.
+**Decision:** keep one `Numeric pair` field each and state the order in the description: **X (along a scan
+line) first, Y (lines) second.** The consumer splits every pair by one rule; splitting in the TAPP would
+have doubled five fields in four tables for no gain in meaning. `Step Size / Pixel Size` and `Map Area`
+were retyped to `Numeric pair (µm x µm)` (a square grid is two equal values; a total area is the product,
+not a value). SEM's `EDS Map Dimensions` became `Map Dimensions`, EPMA's name, since the SEM tables map by
+WDS as well. The data type table in conventions now lists `Numeric pair` with the order rule.
+
+**Why Map Area could be pinned now.** On 2026-08-26 it was left at `Numeric + unit` because no paper in
+our literature columns reported one, and a pair rested only on symmetry with `Beam Raster Dimensions`.
+SMR's VNMIR records supplied the evidence: their `mapLocationLast X/Y` values (691.2, 1209.6) are the grid
+size times the step (256 × 2.7, 448 × 2.7), that is a width and a height, not a corner. What looked like a
+bounding box was an extent, and no structured type was needed.
+
+**#13 — XCT keys.** Of 15 ADA keys SMR listed as missing, 11 already had a Lab-XCT field under another name;
+his list had been extracted from procedure-default rows, and most acquisition settings are one field with a
+procedure default and a session value. Two were added: `Detector Gain` (Advanced, Adjustable,
+`Numeric + unit / Text`, because the unit depends on the detector: dB, a factor, or a capacitance in pF)
+and `Reconstructed Volume Dimensions` (session only, `Text (free)`, X × Y × slices). Their 14 literature
+cells were read from the papers, not filled with `N` by default: gain is stated once (the JSC scan record),
+volume size in three setups.
+
+`Detector Gain` reverses an earlier hold. The Lab-XCT open questions in the development log had left it
+pending ("1/16 protocols reports gain … insufficient to add as field"). The literature still attests it
+once; what changed is outside evidence, ADA's own records carrying a gain in two units. A field held back
+for thin literature can be added when a data consumer's records show it is recorded in practice, and the
+hold should be closed where it was opened (the log row is now marked resolved).
+
+**Found on the way:** the JSC scan record states FPS 0.25 s⁻¹ with a 4.00 s exposure, so ADA's `imageFps`
+is the reciprocal of the exposure, which answers the question we put to SMR, and needs no field.
+
+**Generalization:** before splitting a field because another schema stores its parts separately, check
+whether the parts are one quantity in a stated order (a pair) or truly independent. And before reading four
+coordinates as a bounding box, check whether two of them are empty and the other two are products.

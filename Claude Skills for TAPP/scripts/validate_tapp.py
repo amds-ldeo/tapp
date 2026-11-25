@@ -485,6 +485,11 @@ COLB_DEFINER_STEM_EXEMPT = {
 #               Column F is now `Yes | No | N/A | None`: `Analyte-specific` was dropped as a
 #               cardinality statement that belongs in Column I, and `Other: specify` because a
 #               compound's `/ Text` half already grants it. Register 8 -> 7.
+#   2026-11-25  `Map Area` and `Step Size / Pixel Size` -> `Numeric pair (µm x µm)` (amds-ldeo/tapp#15,
+#               xct_fields_map_grid_20261125.py). The evidence the 2026-08-26 note below waited for came
+#               from SMR's ADA VNMIR records: 691.2 x 1209.6 µm = (256 x 2.7) x (448 x 2.7), a width and
+#               height, with Pascucci et al. 2026 (10.5 x 4.0 mm) agreeing. Every grid pair now states X
+#               first. Not a register change: neither field diverges across TAPPs.
 #   2026-08-26  Nine more harmonised and REMOVED on literature evidence — the five EPMA/SEM
 #               fields did NOT share one answer: `Beam Diameter` and `Step Size / Pixel Size`
 #               took `Numeric (µm) / Text` (unit unanimous, but "Focused (exact diameter N)" is

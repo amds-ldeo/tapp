@@ -139,7 +139,7 @@ EXAMPLES = {
      'WDS Mapping': '30 ms per pixel for Na, Al, P, Cr, Ni'},
  'Step Size / Pixel Size': '2 µm in both X and Y',
  'Map Dimensions': '512 × 512 pixels for Map 1; 384 × 256 pixels for Map 2',
- 'Map Area': '1.024 × 1.024 mm for Map 1; 0.768 × 0.512 mm for Map 2',
+ 'Map Area': '1024 × 1024 µm for Map 1; 768 × 512 µm for Map 2',
  'Stage Scan vs. Beam Scan': 'Stage scan with the beam held fixed',
  # ---- 5. Data processing
  'Matrix Correction Method': {
